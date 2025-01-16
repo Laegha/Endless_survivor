@@ -17,10 +17,4 @@ public class MainMenu : MonoBehaviour
         charSelectMenu.SetActive(true);
         gameObject.SetActive(false);
     }
-
-    public void CloseCharSelect() 
-    {
-        charSelectMenu.SetActive(false);
-        gameObject.SetActive(true);
-    }
 }
