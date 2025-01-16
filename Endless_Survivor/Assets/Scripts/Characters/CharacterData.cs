@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Character", menuName = "ScriptableObjects/CharacterData", order = 1)]
 public class CharacterData : ScriptableObject
 {
     [SerializeField] Sprite _menuImage;
@@ -12,5 +13,5 @@ public class CharacterData : ScriptableObject
     public Sprite MenuImage {  get { return _menuImage; } }
     public GameObject CharacterPrefab {  get { return _characterPrefab; } }
     public GameObject[] InitialGuns { get { return _initialGuns; } }
-    public GameObject[] InitialPassives { get { return _initialPassives; }
+    public GameObject[] InitialPassives { get { return _initialPassives; } }
 }
