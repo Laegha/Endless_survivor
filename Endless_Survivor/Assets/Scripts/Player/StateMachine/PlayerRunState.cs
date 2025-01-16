@@ -13,7 +13,7 @@ public class PlayerRunState : PlayerBaseState
     {
         CheckSwitchStates();
 
-        Vector2 movement = (context.Movement * context.RunSpeed * Time.deltaTime).normalized;
+        Vector2 movement = (context.Movement * context.PlayerStats.Speed * Time.deltaTime).normalized;
         context.PlayerAnimator.SetFloat("Horizontal", movement.x);
         context.PlayerAnimator.SetFloat("Vertical", movement.y);
         context.PlayerRb.velocity = new Vector3(movement.x, movement.y);
