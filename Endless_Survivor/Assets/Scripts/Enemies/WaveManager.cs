@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -35,7 +36,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void StartRound()
+    void StartWave()
     {
         _lapsedWaves++;
         float enemyCount = 3 + Mathf.Clamp(Random.Range(_lapsedWaves, _lapsedWaves), 0, Mathf.Infinity);
@@ -67,8 +68,11 @@ public class WaveManager : MonoBehaviour
         return new Vector2(xPos, yPos);
     }
 
-    public void EnemyKilled()
+    public void EnemyKilled(GameObject enemy)
     {
-
+        _enemies.Remove(enemy);
+        Destroy(enemy);
+        if (_enemies.Count == 0)
+            StartWave();
     }
 }
