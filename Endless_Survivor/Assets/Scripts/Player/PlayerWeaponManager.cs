@@ -16,8 +16,10 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void GenerateGun(GameObject gunPrefab)
     {
-        Vector2 gunPosition = _gunPositions[_heldGuns.Count].position;
-        Transform newGun = Instantiate(gunPrefab, gunPosition, Quaternion.identity).transform;
-        newGun.SetParent(transform);
+        GameObject hand = Instantiate(GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)]);
+
+        Vector2 handPosition = _gunPositions[_heldGuns.Count].position;
+        Transform newGun = Instantiate(hand, handPosition, Quaternion.identity).transform;
+        newGun.SetParent(hand.transform);
     }
 }
