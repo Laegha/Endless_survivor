@@ -10,7 +10,7 @@ public class CharSelectMenu : MonoBehaviour
     [SerializeField] Transform _buttonGrid;
     [SerializeField] GameObject _mainMenu;
 
-    public void GenerateButtons()
+    public void OnEnable()
     {
         foreach (CharacterData character in _elegibleCharacters)
         {
@@ -24,13 +24,14 @@ public class CharSelectMenu : MonoBehaviour
 
     public void CloseMenu()
     {
+        Transform[] buttons = _buttonGrid.GetComponentsInChildren<Transform>();
+        foreach (Transform button in buttons)
+        {
+            if (button != _buttonGrid)
+                Destroy(button.gameObject);
+        }
+
         _mainMenu.SetActive(true);
         gameObject.SetActive(false);
-
-        GameObject[] buttons = _buttonGrid.GetComponentsInChildren<GameObject>();
-        foreach (GameObject button in buttons)
-        {
-            Destroy(button);
-        }
     }
 }
