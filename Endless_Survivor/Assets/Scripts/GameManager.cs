@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public Transform player;
+
     public static GameManager gm
     {
         get { return instance; }
