@@ -11,20 +11,21 @@ public class PlayerStateMachine : MonoBehaviour
     Animator _playerAnimator;
 
     Vector2 _movement;
-    [SerializeField] float _runSpeed;
+    PlayerStats _playerStats;
 
 
     public PlayerBaseState CurrState { get { return _currState; } set { _currState = value; } }
     public Rigidbody PlayerRb { get { return _playerRb; } }
     public Animator PlayerAnimator { get { return _playerAnimator; } }
     public Vector2 Movement { get { return _movement; } set { _movement = value; } }
-    public float RunSpeed { get { return _runSpeed; } }
+    public PlayerStats PlayerStats { get { return _playerStats; } }
 
     void Awake()
     {
         //variables definition
         _playerRb = GetComponent<Rigidbody>();
         _playerAnimator = GetComponent<Animator>();
+        _playerStats = GetComponent<PlayerStats>();
 
         //states initialization
         _states = new PlayerStateFactory(this);
