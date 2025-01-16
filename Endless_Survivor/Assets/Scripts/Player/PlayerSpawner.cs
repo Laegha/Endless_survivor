@@ -6,6 +6,8 @@ public class PlayerSpawner : MonoBehaviour
 {
     void Start()
     {
-        Instantiate(GameManager.gm.selectedCharacter.CharacterPrefab, transform.position, Quaternion.identity);
+        GameObject player = Instantiate(GameManager.gm.selectedCharacter.CharacterPrefab, transform.position, Quaternion.identity);
+        GameManager.gm.player = player.transform;
+        //generate initial weapons and passives
     }
 }
