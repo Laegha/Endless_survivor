@@ -17,4 +17,10 @@ public class MainMenu : MonoBehaviour
         charSelectMenu.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    public void ChangeMenu(GameObject menu)
+    {
+        menu.SetActive(true);
+        gameObject.SetActive(false);
+    }
 }
