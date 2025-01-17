@@ -8,7 +8,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] Transform[] _spawnBounds;
     [SerializeField] Vector2 _minSpawnDistFromPlayer;
     Transform _player;
-    List<GameObject> _enemies;
+    List<GameObject> _enemies = new List<GameObject>();
     int _lapsedWaves;
 
     static WaveManager instance;
@@ -34,6 +34,8 @@ public class WaveManager : MonoBehaviour
             _player = GameObject.FindWithTag("Player").transform;
             yield return null;
         }
+
+        StartWave();
     }
 
     void StartWave()
