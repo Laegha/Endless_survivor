@@ -33,7 +33,7 @@ public class WeaponAim : MonoBehaviour
             _spriteRenderer.flipY = false;
 
         Vector2 distance = closestEnemy.position - GameManager.gm.player.position;
-        if (distance.magnitude <= _playerStats.Range + _weapon.Range)
+        if (distance.magnitude <= _playerStats.Range + _weapon.Data.WeaponStats.Range)
             _weapon.Attack();
     }
 }
