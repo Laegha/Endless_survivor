@@ -7,12 +7,12 @@ public class MoveToTarget : MonoBehaviour
     [SerializeField] float _moveSpeed;
     [SerializeField] string _targetTag;
     Transform _target;
-    Rigidbody _rb;
+    Rigidbody2D _rb;
 
     void Start()
     {
         _target = GameObject.FindWithTag(_targetTag).transform;
-        _rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
