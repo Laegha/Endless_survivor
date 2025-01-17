@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     WeaponStats _weaponStats;
 
     public WeaponData Data {  get { return _data; } }
+    public WeaponStats WeaponStats {  get { return _weaponStats; } }
 
     private void Start()
     {
