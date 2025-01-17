@@ -1,0 +1,565 @@
+fileFormatVersion: 2
+guid: 9efb5cc70dda8614dbc060e3ca19356f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6403199883171861259
+    second: Tiro Sniper corregido-Sheet_0
+  - first:
+      213: 1420876526115922843
+    second: Tiro Sniper corregido-Sheet_1
+  - first:
+      213: 1589503771170415612
+    second: Tiro Sniper corregido-Sheet_2
+  - first:
+      213: -644601035479026097
+    second: Tiro Sniper corregido-Sheet_3
+  - first:
+      213: -7017949410962889167
+    second: Tiro Sniper corregido-Sheet_4
+  - first:
+      213: -4135429703046589006
+    second: Tiro Sniper corregido-Sheet_5
+  - first:
+      213: 1056524382584325971
+    second: Tiro Sniper corregido-Sheet_6
+  - first:
+      213: 2337856377985558479
+    second: Tiro Sniper corregido-Sheet_7
+  - first:
+      213: 2548228922311563437
+    second: Tiro Sniper corregido-Sheet_8
+  - first:
+      213: 9184202901246736108
+    second: Tiro Sniper corregido-Sheet_9
+  - first:
+      213: -8106041808898239127
+    second: Tiro Sniper corregido-Sheet_10
+  - first:
+      213: 2729647822444282441
+    second: Tiro Sniper corregido-Sheet_11
+  - first:
+      213: 6792860183713848136
+    second: Tiro Sniper corregido-Sheet_12
+  - first:
+      213: 2294871160740235839
+    second: Tiro Sniper corregido-Sheet_13
+  - first:
+      213: -1603357573616359871
+    second: Tiro Sniper corregido-Sheet_14
+  - first:
+      213: 3139599612938252277
+    second: Tiro Sniper corregido-Sheet_15
+  - first:
+      213: -5236222935496482354
+    second: Tiro Sniper corregido-Sheet_16
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 32
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03184e3e5cbcd850800000000000000
+      internalID: 6403199883171861259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 32
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93a4d02ca7f7b310800000000000000
+      internalID: 1420876526115922843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 32
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3a1c1224d0f0610800000000000000
+      internalID: 1589503771170415612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 0
+        width: 32
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f467c6206caed07f0800000000000000
+      internalID: -644601035479026097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 32
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13625e3813c3b9e90800000000000000
+      internalID: -7017949410962889167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 31
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b51f4478900c96c0800000000000000
+      internalID: -4135429703046589006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 0
+        width: 31
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3574a78045789ae00800000000000000
+      internalID: 1056524382584325971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 0
+        width: 31
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7e5b14dfbb17020800000000000000
+      internalID: 2337856377985558479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 29
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8d1c824b02d5320800000000000000
+      internalID: 2548228922311563437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 0
+        width: 28
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce67ce1f0e7d47f70800000000000000
+      internalID: 9184202901246736108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 26
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965d7262ced818f80800000000000000
+      internalID: -8106041808898239127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 0
+        width: 25
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942c5b27b38a1e520800000000000000
+      internalID: 2729647822444282441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 24
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b9823d856154e50800000000000000
+      internalID: 6792860183713848136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 23
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ac535792509df10800000000000000
+      internalID: 2294871160740235839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 538
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1462aa028cabfb9e0800000000000000
+      internalID: -1603357573616359871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 546
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff6322b639129b20800000000000000
+      internalID: 3139599612938252277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiro Sniper corregido-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 546
+        height: 24
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1aafc9bf23557b0800000000000000
+      internalID: -5236222935496482354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tiro Sniper corregido-Sheet_0: 6403199883171861259
+      Tiro Sniper corregido-Sheet_1: 1420876526115922843
+      Tiro Sniper corregido-Sheet_10: -8106041808898239127
+      Tiro Sniper corregido-Sheet_11: 2729647822444282441
+      Tiro Sniper corregido-Sheet_12: 6792860183713848136
+      Tiro Sniper corregido-Sheet_13: 2294871160740235839
+      Tiro Sniper corregido-Sheet_14: -1603357573616359871
+      Tiro Sniper corregido-Sheet_15: 3139599612938252277
+      Tiro Sniper corregido-Sheet_16: -5236222935496482354
+      Tiro Sniper corregido-Sheet_2: 1589503771170415612
+      Tiro Sniper corregido-Sheet_3: -644601035479026097
+      Tiro Sniper corregido-Sheet_4: -7017949410962889167
+      Tiro Sniper corregido-Sheet_5: -4135429703046589006
+      Tiro Sniper corregido-Sheet_6: 1056524382584325971
+      Tiro Sniper corregido-Sheet_7: 2337856377985558479
+      Tiro Sniper corregido-Sheet_8: 2548228922311563437
+      Tiro Sniper corregido-Sheet_9: 9184202901246736108
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
