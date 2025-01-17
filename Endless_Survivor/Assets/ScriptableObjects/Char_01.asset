@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Char_01
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: ee15a4173288afd448f25f8034437ac2, type: 3}
-  _characterPrefab: {fileID: 0}
+  _characterPrefab: {fileID: 8650669668938938846, guid: d16bb8b5c2ce6494498f200449fb1903, type: 3}
+  _characterHands: []
   _initialGuns: []
   _initialPassives: []
