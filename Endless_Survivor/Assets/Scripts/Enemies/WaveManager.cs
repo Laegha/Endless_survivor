@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager wm {  get { return instance; } }
 
     public List<GameObject> Enemies {  get { return _enemies; } }
+    public int LapsedWaves{  get { return _lapsedWaves; } }
 
     private void Awake()
     {
