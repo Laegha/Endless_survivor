@@ -17,7 +17,7 @@ public class MoveToTarget : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = _target.position - transform.position;
+        Vector2 direction = (_target.position - transform.position).normalized;
         _rb.velocity = direction * _moveSpeed * Time.deltaTime;
     }
 }
