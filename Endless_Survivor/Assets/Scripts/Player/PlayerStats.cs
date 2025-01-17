@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats
 {
     int _damage;
     int _attackSpeed;
@@ -33,5 +33,17 @@ public class PlayerStats : MonoBehaviour
     public int Speed
     {
         get { return _speed; } set { _speed = value; }
+    }
+
+    public PlayerStats(PlayerStats original = null)
+    {
+        if (original == null)
+            return;
+
+        Damage = original.Damage;
+        AttackSpeed = original.AttackSpeed;
+        Range = original.Range;
+        MaxHealth = original.MaxHealth;
+        Speed = original.Speed;
     }
 }

@@ -18,14 +18,14 @@ public class PlayerStateMachine : MonoBehaviour
     public Rigidbody PlayerRb { get { return _playerRb; } }
     public Animator PlayerAnimator { get { return _playerAnimator; } }
     public Vector2 Movement { get { return _movement; } set { _movement = value; } }
-    public PlayerStats PlayerStats { get { return _playerStats; } }
+    public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
 
     void Awake()
     {
         //variables definition
         _playerRb = GetComponent<Rigidbody>();
         _playerAnimator = GetComponent<Animator>();
-        _playerStats = GetComponent<PlayerStats>();
+        _playerStats = new PlayerStats(GameManager.gm.selectedCharacter.PlayerStats);
 
         //states initialization
         _states = new PlayerStateFactory(this);

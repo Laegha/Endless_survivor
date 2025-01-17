@@ -10,10 +10,13 @@ public class CharacterData : ScriptableObject
     [SerializeField] GameObject[] _characterHands;
     [SerializeField] GameObject[] _initialGuns;
     [SerializeField] GameObject[] _initialPassives;
+
+    [SerializeField] PlayerStats _playerStats;
     
     public Sprite MenuImage {  get { return _menuImage; } }
     public GameObject CharacterPrefab {  get { return _characterPrefab; } }
     public GameObject[] CharacterHands { get { return _characterHands; } }
     public GameObject[] InitialGuns { get { return _initialGuns; } }
     public GameObject[] InitialPassives { get { return _initialPassives; } }
+    public PlayerStats PlayerStats{ get { return _playerStats; } }
 }

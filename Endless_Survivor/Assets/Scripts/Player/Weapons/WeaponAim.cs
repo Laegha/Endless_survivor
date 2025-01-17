@@ -10,7 +10,7 @@ public class WeaponAim : MonoBehaviour
     private void Start()
     {
         _weapon = GetComponent<Weapon>();
-        _playerStats = GameManager.gm.player.GetComponent<PlayerStats>();
+        _playerStats = GameManager.gm.player.GetComponent<PlayerStateMachine>().PlayerStats;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -33,7 +33,7 @@ public class WeaponAim : MonoBehaviour
             _spriteRenderer.flipY = false;
 
         Vector2 distance = closestEnemy.position - GameManager.gm.player.position;
-        if (distance.magnitude <= _playerStats.Range + _weapon.Data.WeaponStats.Range)
+        if (distance.magnitude <= _playerStats.Range + _weapon.WeaponStats.Range)
             _weapon.Attack();
     }
 }
