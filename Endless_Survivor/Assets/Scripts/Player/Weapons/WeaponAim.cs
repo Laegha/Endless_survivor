@@ -23,14 +23,16 @@ public class WeaponAim : MonoBehaviour
         enemies.Sort(new EnemyDistComparer());
 
         Transform closestEnemy = enemies[0].transform;
-        Vector2 distance = closestEnemy.position - GameManager.gm.player.position;
-        Vector2 direction = distance.normalized;
-        transform.rotation = Quaternion.Euler(direction);
-        if(direction.x < 0)
-            _spriteRenderer.flipX = true;
-        else
-            _spriteRenderer.flipX = false;
+        Vector2 direction = transform.position - closestEnemy.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
+        if (direction.x < 0)
+            _spriteRenderer.flipY = true;
+        else
+            _spriteRenderer.flipY = false;
+
+        Vector2 distance = closestEnemy.position - GameManager.gm.player.position;
         if (distance.magnitude <= _playerStats.Range + _weapon.Range)
             _weapon.Attack();
     }
