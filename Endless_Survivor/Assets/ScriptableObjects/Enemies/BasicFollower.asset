@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: BasicFollower
   m_EditorClassIdentifier: 
-  _initialHP: 0
-  _enemyPrefab: {fileID: 0}
+  _initialHP: 5
+  _enemyPrefab: {fileID: 2373952663123277793, guid: c5ffe46174d62a64abb88cf7789b46a9, type: 3}
