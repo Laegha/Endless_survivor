@@ -21,7 +21,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
         GameObject hand = Instantiate(GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)], handPosition, Quaternion.identity);
         hand.transform.SetParent(_gunsHolder);
-        Transform newGun = Instantiate(hand, handPosition, Quaternion.identity).transform;
+        Transform newGun = Instantiate(gunPrefab, handPosition, Quaternion.identity).transform;
         newGun.SetParent(hand.transform);
         _heldGuns.Add(newGun);
     }
