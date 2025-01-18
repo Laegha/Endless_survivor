@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerStats
 {
-    int _damage;
-    int _attackSpeed;
-    int _range;
-    int _maxHealth;
-    int _speed;
+    [SerializeField]int _damage;
+    [SerializeField]int _attackSpeed;
+    [SerializeField]int _range;
+    [SerializeField]int _maxHealth;
+    [SerializeField]int _speed;
 
     public int Damage
     {
