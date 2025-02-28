@@ -6,6 +6,7 @@ public class PlayerRunState : PlayerBaseState
 
     public override void EnterState()
     {
+        isRootState = true;
         context.PlayerAnimator.Play("Run");
     }
 
@@ -13,10 +14,10 @@ public class PlayerRunState : PlayerBaseState
     {
         CheckSwitchStates();
 
-        Vector2 movement = (context.Movement * context.PlayerStats.Speed * Time.deltaTime).normalized;
+        Vector2 movement = context.Movement * context.PlayerStats.Speed;
         context.PlayerAnimator.SetFloat("Horizontal", movement.x);
         context.PlayerAnimator.SetFloat("Vertical", movement.y);
-        context.PlayerRb.velocity = new Vector3(movement.x, movement.y);
+        context.PlayerRb.velocity = movement;
     }
 
     public override void OnCollisionEnter(Collision collision) { }
