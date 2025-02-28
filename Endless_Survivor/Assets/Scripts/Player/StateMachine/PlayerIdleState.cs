@@ -6,6 +6,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void EnterState() 
     {
+        isRootState = true;
         context.PlayerAnimator.Play("Idle");
     }
 
@@ -19,9 +20,12 @@ public class PlayerIdleState : PlayerBaseState
     public override void ExitState() { }
 
     public override void CheckSwitchStates() 
-    {        
+    {
         if(context.Movement != Vector2.zero)
+        {
             SwitchState(factory.Run());
+
+        }
     }
 
     public override void InitializeSubState() { }
