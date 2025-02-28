@@ -34,7 +34,7 @@ public class WeaponAim : MonoBehaviour
 
         Vector2 distance = closestEnemy.position - GameManager.gm.player.position;
         if (distance.magnitude <= _playerStats.Range + _weapon.WeaponStats.Range)
-            _weapon.Attack();
+            _weapon.TryAttack();
     }
 }
 

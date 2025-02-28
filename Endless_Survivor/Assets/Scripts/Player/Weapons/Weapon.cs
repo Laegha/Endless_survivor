@@ -28,13 +28,18 @@ public class Weapon : MonoBehaviour
             _canShoot = true;
     }
 
-
-    public virtual void Attack()
+    public void TryAttack()
     {
         if (!_canShoot)
             return;
 
         _canShoot = false;
-        _shootCooldown = 1/(Data.WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
+        _shootCooldown = 1 / (Data.WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
+        Attack();
+    }
+
+    public virtual void Attack()
+    {
+        print("Attacking");
     }
 }
