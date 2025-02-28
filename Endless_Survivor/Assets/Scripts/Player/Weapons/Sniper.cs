@@ -20,12 +20,24 @@ public class Sniper : Weapon
             return;
             
         }
-        hit.collider.GetComponent<EnemyHP>().RecieveDamage(Data.WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage);
-
+        _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, hit.point);
+        EnemyHP enemyHP = hit.collider.GetComponent<EnemyHP>();
+        if (enemyHP != null)
+            enemyHP.RecieveDamage(Data.WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage);
     }
 
     public void UpdateLinePosition()
     {
         _lineRenderer.SetPosition(0, _firePoint.position);
+    }
+
+    public void ShowShootLine()
+    {
+        _lineRenderer.gameObject.SetActive(true);
+    }
+
+    public void HideShootLine()
+    {
+        _lineRenderer.gameObject.SetActive(false);
     }
 }
