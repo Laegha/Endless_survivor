@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: ee15a4173288afd448f25f8034437ac2, type: 3}
   _characterPrefab: {fileID: 8650669668938938846, guid: d16bb8b5c2ce6494498f200449fb1903, type: 3}
-  _characterHands: []
+  _characterHands:
+  - {fileID: 8274538778913185104, guid: 36d166338a89752468756d6b8011b52f, type: 3}
+  - {fileID: 8274538778913185104, guid: d408f4a4816b0134087e9b5f67adb356, type: 3}
   _initialWeapons:
   - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
   _initialPassives: []
@@ -23,4 +25,4 @@ MonoBehaviour:
     _attackSpeed: 0
     _range: 0
     _maxHealth: 0
-    _speed: 0
+    _speed: 3
