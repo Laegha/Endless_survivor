@@ -6,7 +6,7 @@ public class PlayerStateMachine : MonoBehaviour
     PlayerBaseState _currState;
     PlayerStateFactory _states;
 
-    Rigidbody _playerRb;
+    Rigidbody2D _playerRb;
 
     Animator _playerAnimator;
 
@@ -15,7 +15,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 
     public PlayerBaseState CurrState { get { return _currState; } set { _currState = value; } }
-    public Rigidbody PlayerRb { get { return _playerRb; } }
+    public Rigidbody2D PlayerRb { get { return _playerRb; } }
     public Animator PlayerAnimator { get { return _playerAnimator; } }
     public Vector2 Movement { get { return _movement; } set { _movement = value; } }
     public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
@@ -23,7 +23,7 @@ public class PlayerStateMachine : MonoBehaviour
     void Awake()
     {
         //variables definition
-        _playerRb = GetComponent<Rigidbody>();
+        _playerRb = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         _playerStats = new PlayerStats(GameManager.gm.selectedCharacter.PlayerStats);
 
