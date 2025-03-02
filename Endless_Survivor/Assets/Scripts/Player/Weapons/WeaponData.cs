@@ -5,9 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "ScriptableObjects/Weapon", order = 2)]
 public class WeaponData : ScriptableObject
 {
+    enum WeaponTypes
+    {
+        Proyectile,
+        Ray,
+        Custom
+    }
     [SerializeField] WeaponStats _weaponStats;
-    [SerializeField] GameObject _weaponPrefab;
+    WeaponDataTransferInterface _weaponDataTransferInterface;
 
     public WeaponStats WeaponStats { get { return _weaponStats; } }
-    public GameObject WeaponPrefab { get { return _weaponPrefab; } }
 }
