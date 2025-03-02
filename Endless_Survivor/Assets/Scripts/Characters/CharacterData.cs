@@ -17,11 +17,11 @@ public class CharacterData : ScriptableObject
     [SerializeField] PlayerStats _playerStats;
 
     [InspectorLabel("Animations")]
-    [SerializeField] CustomAnimation _idle;
-    [SerializeField] CustomAnimation _frontMoving;
-    [SerializeField] CustomAnimation _rightMoving;
-    [SerializeField] CustomAnimation _backMoving;
-    [SerializeField] CustomAnimation _leftMoving;
+    [SerializeField] CoordinateAnimation _idle;
+    [SerializeField] CoordinateAnimation _frontMoving;
+    [SerializeField] CoordinateAnimation _rightMoving;
+    [SerializeField] CoordinateAnimation _backMoving;
+    [SerializeField] CoordinateAnimation _leftMoving;
 
     public Sprite MenuImage {  get { return _menuImage; } }
     public GameObject CharacterPrefab {  get { return _characterPrefab; } }
@@ -29,14 +29,14 @@ public class CharacterData : ScriptableObject
     public WeaponData[] InitialWeapons { get { return _initialWeapons; } }
     public GameObject[] InitialPassives { get { return _initialPassives; } }
     public PlayerStats PlayerStats{ get { return _playerStats; } }
-    public Dictionary<string, CustomAnimation> Animations { get {
-            return new Dictionary<string, CustomAnimation>()
+    public List<CoordinateAnimation> Animations { get {
+            return new List<CoordinateAnimation>
             {
-                {"Idle", _idle},
-                {"FrontMoving", _frontMoving},
-                {"RightMoving", _rightMoving },
-                {"BackMoving", _backMoving},
-                {"LeftMoving", _leftMoving}
+                _idle,
+                _frontMoving,
+                _rightMoving,
+                _backMoving,
+                _leftMoving,
             };
     } } 
 }
