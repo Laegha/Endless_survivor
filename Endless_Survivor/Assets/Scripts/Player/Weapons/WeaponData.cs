@@ -15,4 +15,5 @@ public class WeaponData : ScriptableObject
     WeaponDataTransferInterface _weaponDataTransferInterface;
 
     public WeaponStats WeaponStats { get { return _weaponStats; } }
+    public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } }
 }
