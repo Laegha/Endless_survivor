@@ -78,7 +78,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6500567971880002770}
   - component: {fileID: 4175269687420856459}
-  - component: {fileID: 3401879145941176527}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -153,27 +152,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3401879145941176527
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2414860872153920414}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e562535ec31c2224d8a439ec9761a569, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3762185088687751493
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,13 +254,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6644071010800595875}
+  - component: {fileID: 3182739764998197922}
   - component: {fileID: 9219766451515535764}
-  - component: {fileID: 1133814544308942042}
   - component: {fileID: 7059952005309191444}
   - component: {fileID: 5175803263254807690}
-  - component: {fileID: 3182739764998197922}
+  - component: {fileID: 5201446069194199440}
   m_Layer: 0
-  m_Name: Char_01
+  m_Name: Char
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,6 +284,33 @@ Transform:
   - {fileID: 4278925457310125759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3182739764998197922
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650669668938938846}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &9219766451515535764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,27 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86626eeb48bb6ee49aa5a8792a3e32da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1133814544308942042
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650669668938938846}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e562535ec31c2224d8a439ec9761a569, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7059952005309191444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,33 +356,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStateMachine: {fileID: 9219766451515535764}
---- !u!50 &3182739764998197922
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &5201446069194199440
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650669668938938846}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66aeeea5ce1528409bfbcfa342af765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 4175269687420856459}
 --- !u!1 &8913021852594409741
 GameObject:
   m_ObjectHideFlags: 0
