@@ -7,7 +7,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState() 
     {
         isRootState = true;
-        context.PlayerAnimator.Play("Idle");
+        context.PlayerAnimator.ChangeAnim("Idle");
     }
 
     public override void UpdateState() 
