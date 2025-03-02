@@ -6,31 +6,30 @@ public class CustomAnimator : MonoBehaviour
 {
     CustomAnimation _currAnim;
     int _currFrameIndex;
-    CharacterData _characterData;
     [SerializeField] SpriteRenderer _spriteRenderer;
-
     float _animTimer;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public CustomAnimation CurrAnim { get {  return _currAnim; } set { _currAnim = value; } }
     void Update()
     {
+        _animTimer -= Time.time;
         if(_animTimer <= 0)
+        {
             NextFrame();
+            _animTimer = 1/_currAnim.FramesPerSecond;
+        }
     }
 
     public void NextFrame()
     {
         _spriteRenderer.sprite = _currAnim.Frames[_currFrameIndex];
         _currFrameIndex++;
+        if(_currFrameIndex >= _currAnim.Frames.Length)
+            _currFrameIndex = 0;
     }
 
-    public void ChangeAnim(string anim)
+    public virtual void ChangeAnim(string anim)
     {
-        _currAnim = _characterData.Animations[anim];
         _animTimer = 0;
     }
 }
