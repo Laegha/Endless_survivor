@@ -6,16 +6,9 @@ public class Weapon : MonoBehaviour
 {
     float _shootCooldown;
     bool _canShoot;
-    [SerializeField] WeaponData _data;
     WeaponStats _weaponStats;
 
-    public WeaponData Data {  get { return _data; } }
-    public WeaponStats WeaponStats {  get { return _weaponStats; } }
-
-    private void Start()
-    {
-        _weaponStats = new WeaponStats(_data.WeaponStats);
-    }
+    public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
 
     private void Update()
     {
@@ -34,7 +27,7 @@ public class Weapon : MonoBehaviour
             return;
 
         _canShoot = false;
-        _shootCooldown = 1 / (Data.WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
+        _shootCooldown = 1 / (WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
         Attack();
     }
 
