@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class PlayerAnimator : CustomAnimator
 {
-    CharacterData _characterData;
     string _currAnimationName;
     Vector2 _playerMovement;
+    List<CoordinateAnimation> _coordinateAnimations;
 
     public override void ChangeAnim(string animName)
     {
-        //_currAnim
-        var possibleAnimations = _characterData.Animations.Where(anim => anim.AnimationName == animName).ToList();
+        var possibleAnimations = _coordinateAnimations.Where(anim => anim.AnimationName == animName).ToList();
         CoordinateAnimation closestAnim = possibleAnimations[0];
         foreach (var possibleAnim in possibleAnimations)
         {
@@ -32,5 +31,10 @@ public class PlayerAnimator : CustomAnimator
             _playerMovement = playerMovement;
             ChangeAnim(CurrAnim.AnimationName);
         }
+    }
+    public override void AddAnimations(List<CustomAnimation> newAnimations)
+    {
+        base.AddAnimations(newAnimations);
+        newAnimations.ForEach(anim => _coordinateAnimations.Add(anim as CoordinateAnimation));
     }
 }
