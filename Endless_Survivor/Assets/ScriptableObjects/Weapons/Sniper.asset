@@ -16,6 +16,15 @@ MonoBehaviour:
     _range: 5
     _attackSpeed: 0.5
     _damage: 10
-  _weaponType: 0
+  _weaponType: 1
   _weaponDataTransferInterface:
-    test: 
+    rid: 768304730811138055
+  references:
+    version: 2
+    RefIds:
+    - rid: 768304730811138055
+      type: {class: SniperDataTransferInterface, ns: , asm: Assembly-CSharp}
+      data:
+        _rayMaterial: {fileID: 0}
+        _rayStartWidth: 123
+        _rayEndWidth: 0
