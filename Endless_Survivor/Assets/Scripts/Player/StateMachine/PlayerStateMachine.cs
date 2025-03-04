@@ -8,7 +8,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     Rigidbody2D _playerRb;
 
-    PlayerAnimator _playerAnimator;
+    [SerializeField]PlayerAnimator _playerAnimator;
 
     Vector2 _movement;
     PlayerStats _playerStats;
@@ -24,7 +24,6 @@ public class PlayerStateMachine : MonoBehaviour
     {
         //variables definition
         _playerRb = GetComponent<Rigidbody2D>();
-        _playerAnimator = GetComponent<PlayerAnimator>();
         _playerStats = new PlayerStats(GameManager.gm.selectedCharacter.PlayerStats);
 
         //states initialization
