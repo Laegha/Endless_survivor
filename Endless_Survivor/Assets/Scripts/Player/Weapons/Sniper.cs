@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Sniper : Weapon
 {
-    [SerializeField] LineRenderer _lineRenderer;
+    LineRenderer _lineRenderer;
     [SerializeField] Transform _firePoint;
     [SerializeField] Animator _animator;
 
+    public LineRenderer LineRenderer {  get { return _lineRenderer; } set { _lineRenderer = value; } }
     public override void Attack()
     {
         base.Attack();
