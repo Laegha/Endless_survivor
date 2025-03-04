@@ -6,14 +6,13 @@ public class Sniper : Weapon
 {
     LineRenderer _lineRenderer;
     [SerializeField] Transform _firePoint;
-    [SerializeField] Animator _animator;
 
     public LineRenderer LineRenderer {  get { return _lineRenderer; } set { _lineRenderer = value; } }
     public override void Attack()
     {
         base.Attack();
 
-        _animator.Play("Shoot");
+        WeaponAnimator.ChangeAnim("Shoot");
         RaycastHit2D hit = Physics2D.Raycast(_firePoint.position, _firePoint.right);
         if (!hit)
         {
