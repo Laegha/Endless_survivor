@@ -7,8 +7,10 @@ public class Weapon : MonoBehaviour
     float _shootCooldown;
     bool _canShoot;
     WeaponStats _weaponStats;
+    [SerializeField]CustomAnimator _customAnimator;
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
+    public CustomAnimator WeaponAnimator { get { return _customAnimator; } }
 
     private void Update()
     {
