@@ -8,7 +8,7 @@ public class CharacterData : ScriptableObject
 {
     [SerializeField] Sprite _menuImage;
     [SerializeField] GameObject _characterPrefab;
-    [SerializeField] GameObject[] _characterHands;
+    [SerializeField] Sprite[] _characterHands;
     [InspectorLabel("Initial weapons and passive items")]
     [SerializeField] WeaponData[] _initialWeapons;
     [SerializeField] GameObject[] _initialPassives;
@@ -25,12 +25,12 @@ public class CharacterData : ScriptableObject
 
     public Sprite MenuImage {  get { return _menuImage; } }
     public GameObject CharacterPrefab {  get { return _characterPrefab; } }
-    public GameObject[] CharacterHands { get { return _characterHands; } }
+    public Sprite[] CharacterHands { get { return _characterHands; } }
     public WeaponData[] InitialWeapons { get { return _initialWeapons; } }
     public GameObject[] InitialPassives { get { return _initialPassives; } }
     public PlayerStats PlayerStats{ get { return _playerStats; } }
-    public List<CoordinateAnimation> Animations { get {
-            return new List<CoordinateAnimation>
+    public List<CustomAnimation> Animations { get {
+            return new List<CustomAnimation>
             {
                 _idle,
                 _frontMoving,
