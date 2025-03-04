@@ -16,4 +16,6 @@ MonoBehaviour:
     _range: 5
     _attackSpeed: 0.5
     _damage: 10
-  _weaponPrefab: {fileID: 6577113693637118834, guid: ff0d5e11feb79544f87b430d3591d1d2, type: 3}
+  _weaponType: 0
+  _weaponDataTransferInterface:
+    test: 
