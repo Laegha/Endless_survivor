@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b07045bcdb0034eb890fb1ae50a6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 0}
+  _weaponPrefab: {fileID: 6577113693637118834, guid: ff0d5e11feb79544f87b430d3591d1d2, type: 3}
   _handPrefab: {fileID: 8274538778913185104, guid: d408f4a4816b0134087e9b5f67adb356, type: 3}
   _gunPositions:
   - {fileID: 1135759619103598737}
