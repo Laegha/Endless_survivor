@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CustomAnimator : MonoBehaviour
 {
-    List<CustomAnimation> _animations;
+    List<CustomAnimation> _animations = new List<CustomAnimation>();
     CustomAnimation _currAnim;
     int _currFrameIndex;
     [SerializeField] SpriteRenderer _spriteRenderer;
