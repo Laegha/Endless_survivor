@@ -6,26 +6,16 @@ public class PlayerStateMachine : MonoBehaviour
     PlayerBaseState _currState;
     PlayerStateFactory _states;
 
-    Rigidbody2D _playerRb;
-
-    [SerializeField]PlayerAnimator _playerAnimator;
+    [SerializeField] PlayerControl _playerControl;
 
     Vector2 _movement;
-    PlayerStats _playerStats;
-
 
     public PlayerBaseState CurrState { get { return _currState; } set { _currState = value; } }
-    public Rigidbody2D PlayerRb { get { return _playerRb; } }
-    public PlayerAnimator PlayerAnimator { get { return _playerAnimator; } }
+    public PlayerControl PlayerControl { get { return _playerControl; } }
     public Vector2 Movement { get { return _movement; } set { _movement = value; } }
-    public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
 
     void Awake()
     {
-        //variables definition
-        _playerRb = GetComponent<Rigidbody2D>();
-        _playerStats = new PlayerStats(GameManager.gm.selectedCharacter.PlayerStats);
-
         //states initialization
         _states = new PlayerStateFactory(this);
         _currState = _states.Idle();

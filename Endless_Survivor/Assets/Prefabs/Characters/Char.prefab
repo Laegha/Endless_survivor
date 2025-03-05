@@ -255,6 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6644071010800595875}
   - component: {fileID: 3182739764998197922}
+  - component: {fileID: 1415873127685750190}
   - component: {fileID: 9219766451515535764}
   - component: {fileID: 7059952005309191444}
   - component: {fileID: 5175803263254807690}
@@ -311,6 +312,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1415873127685750190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650669668938938846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6910a792476704ca0385fca995ca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 5201446069194199440}
+  _playerRb: {fileID: 3182739764998197922}
 --- !u!114 &9219766451515535764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86626eeb48bb6ee49aa5a8792a3e32da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerControl: {fileID: 1415873127685750190}
 --- !u!114 &7059952005309191444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b07045bcdb0034eb890fb1ae50a6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 0}
+  _handPrefab: {fileID: 8274538778913185104, guid: d408f4a4816b0134087e9b5f67adb356, type: 3}
   _gunPositions:
   - {fileID: 1135759619103598737}
   - {fileID: 2374084302550607411}

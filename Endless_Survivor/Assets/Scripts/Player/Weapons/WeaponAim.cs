@@ -10,7 +10,7 @@ public class WeaponAim : MonoBehaviour
     private void Start()
     {
         _weapon = GetComponent<Weapon>();
-        _playerStats = GameManager.gm.player.GetComponent<PlayerStateMachine>().PlayerStats;
+        _playerStats = GameManager.gm.player.GetComponent<PlayerStateMachine>().PlayerControl.PlayerStats;
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
