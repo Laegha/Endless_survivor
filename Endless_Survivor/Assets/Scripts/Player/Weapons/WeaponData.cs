@@ -17,7 +17,6 @@ public class WeaponData : ScriptableObject
     [SerializeField] IWeaponType _weaponType = IWeaponType.Proyectile;
     [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
 
-    [InspectorLabel("Animations")]
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] ChangeOnEndAnimation _attackAnimation;
 

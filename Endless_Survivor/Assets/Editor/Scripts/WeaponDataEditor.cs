@@ -9,12 +9,16 @@ public class WeaponDataEditor : Editor
     SerializedProperty _weaponType;
     SerializedProperty _weaponTransfer;
     SerializedProperty _weaponStats;
+    SerializedProperty _idleAnimation;
+    SerializedProperty _attackAnimation;
     WeaponDataTransferInterface tempInstance;
     private void OnEnable()
     {
         _weaponType = serializedObject.FindProperty("_weaponType");
         _weaponTransfer = serializedObject.FindProperty("_weaponDataTransferInterface");
         _weaponStats = serializedObject.FindProperty("_weaponStats");
+        _idleAnimation = serializedObject.FindProperty("_idleAnimation");
+        _attackAnimation = serializedObject.FindProperty("_attackAnimation");
         WeaponData weaponData = (WeaponData)target;
         tempInstance = weaponData.WeaponDataTransferInterface;
     }
@@ -45,6 +49,10 @@ public class WeaponDataEditor : Editor
         EditorGUILayout.PropertyField(_weaponTransfer, true);
 
         EditorGUILayout.PropertyField(_weaponStats);
+
+        EditorGUILayout.LabelField("Animations");
+        EditorGUILayout.PropertyField(_idleAnimation, true);
+        EditorGUILayout.PropertyField(_attackAnimation, true);
 
         serializedObject.ApplyModifiedProperties();
     }
