@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SniperDataTransferInterface : WeaponDataTransferInterface
+public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterface
 {
     [SerializeField] Material _rayMaterial;
     [SerializeField] float _rayStartWidth;
@@ -11,7 +11,7 @@ public class SniperDataTransferInterface : WeaponDataTransferInterface
     public override void TransferData(GameObject weaponObject, WeaponData weaponData)
     {
         base.TransferData(weaponObject, weaponData);
-        Sniper sniperComponent = weaponObject.AddComponent<Sniper>();
+        RayWeapon sniperComponent = weaponObject.AddComponent<RayWeapon>();
         LineRenderer ln = MonoBehaviour.Instantiate(new GameObject()).AddComponent<LineRenderer>();
         ln.material = _rayMaterial;
         ln.startWidth = _rayStartWidth;

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sniper : Weapon
+public class RayWeapon : ShootingWeapon
 {
     LineRenderer _lineRenderer;
-    [SerializeField] Transform _firePoint;
 
     public LineRenderer LineRenderer {  get { return _lineRenderer; } set { _lineRenderer = value; } }
     public override void Attack()
@@ -13,10 +12,10 @@ public class Sniper : Weapon
         base.Attack();
 
         WeaponAnimator.ChangeAnim("Shoot");
-        RaycastHit2D hit = Physics2D.Raycast(_firePoint.position, _firePoint.right);
+        RaycastHit2D hit = Physics2D.Raycast(base.FirePoint.position, FirePoint.right);
         if (!hit)
         {
-            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, _firePoint.position + _firePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
+            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, FirePoint.position + FirePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
             return;
             
         }
@@ -28,7 +27,7 @@ public class Sniper : Weapon
 
     public void UpdateLinePosition()
     {
-        _lineRenderer.SetPosition(0, _firePoint.position);
+        _lineRenderer.SetPosition(0, FirePoint.position);
     }
 
     public void ShowShootLine()
