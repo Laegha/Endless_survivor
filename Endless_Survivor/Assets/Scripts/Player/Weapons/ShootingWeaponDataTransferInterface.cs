@@ -10,6 +10,7 @@ public class ShootingWeaponDataTransferInterface : WeaponDataTransferInterface
         base.TransferData(weaponObject, weaponData);
         Transform firePoint = GameObject.Instantiate(new GameObject(), weaponObject.transform).transform;
         firePoint.localPosition = _firePointPosition;
+        firePoint.localRotation = Quaternion.identity;
         weaponObject.GetComponent<ShootingWeapon>().FirePoint = firePoint;
         
     }
