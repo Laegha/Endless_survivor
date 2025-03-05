@@ -9,7 +9,7 @@ public class WeaponDataTransferInterface
     {
         Weapon weapon = weaponObject.GetComponent<Weapon>();
         weapon.WeaponStats = new WeaponStats(weaponData.WeaponStats);
-        weapon.WeaponAnimator.AddAnimations(weaponData.Animations);
+        weapon.WeaponAnimator.AddAnimations(weaponData.Animations); 
 
     }
 }
