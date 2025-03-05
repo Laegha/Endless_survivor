@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RayWeapon : ShootingWeapon
 {
     LineRenderer _lineRenderer;
-
+    bool _shooting = false;
     public LineRenderer LineRenderer {  get { return _lineRenderer; } set { _lineRenderer = value; } }
+
+    private void Start()
+    {
+        WeaponAnimator.Animations.Where(anim => anim.AnimationName == "Shoot").ToArray()[0].OnAnimationEnd += StopShooting;    
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if(_shooting)
+            UpdateLinePosition();
+    }
     public override void Attack()
     {
         base.Attack();
 
         WeaponAnimator.ChangeAnim("Shoot");
-        RaycastHit2D hit = Physics2D.Raycast(base.FirePoint.position, FirePoint.right);
+        StartShooting();
+        RaycastHit2D hit = Physics2D.Raycast(FirePoint.position, FirePoint.right);
         if (!hit)
         {
             _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, FirePoint.position + FirePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
@@ -30,13 +44,15 @@ public class RayWeapon : ShootingWeapon
         _lineRenderer.SetPosition(0, FirePoint.position);
     }
 
-    public void ShowShootLine()
+    public void StartShooting()
     {
+        _shooting = true;
         _lineRenderer.gameObject.SetActive(true);
     }
 
-    public void HideShootLine()
+    public void StopShooting(CustomAnimator placeholder)
     {
+        _shooting = false;
         _lineRenderer.gameObject.SetActive(false);
     }
 }
