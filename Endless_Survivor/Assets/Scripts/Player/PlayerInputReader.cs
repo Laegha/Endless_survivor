@@ -15,7 +15,6 @@ public class PlayerInputReader : MonoBehaviour
     void Update()
     {
         Vector2 movement = new Vector2(joystick.Horizontal, joystick.Vertical);
-        print(movement);
         _playerStateMachine.Movement = movement.normalized;
     }
 }
