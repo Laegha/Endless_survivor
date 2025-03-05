@@ -18,13 +18,24 @@ MonoBehaviour:
     _damage: 10
   _weaponType: 1
   _weaponDataTransferInterface:
-    rid: 768304730811138055
+    rid: 768304771243442177
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 0
+  _attackAnimation:
+    _animationName: Attack
+    _frames: []
+    _framesPerSecond: 0
+    _exitAnimationName: Idle
   references:
     version: 2
     RefIds:
-    - rid: 768304730811138055
-      type: {class: SniperDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 768304771243442177
+      type: {class: RayWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _rayMaterial: {fileID: 0}
-        _rayStartWidth: 123
-        _rayEndWidth: 0
+        _firePointPosition: {x: -0.59375, y: 0.078125}
+        _rayMaterial: {fileID: 2100000, guid: aed3a3a8cf8b58a4f8a23517cabc0cb0, type: 2}
+        _rayStartWidth: 1
+        _rayEndWidth: 1
