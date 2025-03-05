@@ -33,7 +33,7 @@ public class CustomAnimator : MonoBehaviour
         if(_currFrameIndex >= _currAnim.Frames.Length)
         {
             _currFrameIndex = 0;
-            CurrAnim.AnimationEnded(this);
+            CurrAnim.OnAnimationEnd?.Invoke(this);
         }
     }
 

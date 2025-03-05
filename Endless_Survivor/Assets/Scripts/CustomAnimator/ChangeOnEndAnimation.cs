@@ -6,9 +6,13 @@ public class ChangeOnEndAnimation : CustomAnimation
 {
     [SerializeField] string _exitAnimationName;
 
-    public override void AnimationEnded(CustomAnimator customAnimator)
+    public ChangeOnEndAnimation()
     {
-        base.AnimationEnded(customAnimator);
+        OnAnimationEnd += ChangeAnimation;
+    }
+
+    public void ChangeAnimation(CustomAnimator customAnimator)
+    {
         customAnimator.ChangeAnim(_exitAnimationName);
     }
 }
