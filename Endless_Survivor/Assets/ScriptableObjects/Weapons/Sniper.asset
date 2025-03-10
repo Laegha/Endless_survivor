@@ -22,12 +22,27 @@ MonoBehaviour:
   _idleAnimation:
     _animationName: Idle
     _frames:
-    - {fileID: 0}
-    _framesPerSecond: 0
+    - {fileID: 274755858, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    _framesPerSecond: 1
   _attackAnimation:
     _animationName: Attack
-    _frames: []
-    _framesPerSecond: 0
+    _frames:
+    - {fileID: 6403199883171861259, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 1420876526115922843, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 1589503771170415612, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: -644601035479026097, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: -7017949410962889167, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: -4135429703046589006, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 1056524382584325971, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 2337856377985558479, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 2548228922311563437, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 9184202901246736108, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: -8106041808898239127, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 2729647822444282441, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 6792860183713848136, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 2294871160740235839, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    - {fileID: 274755858, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
+    _framesPerSecond: 13
     _exitAnimationName: Idle
   references:
     version: 2
@@ -35,7 +50,7 @@ MonoBehaviour:
     - rid: 768304771243442177
       type: {class: RayWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: -0.59375, y: 0.078125}
+        _firePointPosition: {x: -0.5937534, y: 0.015625}
         _rayMaterial: {fileID: 2100000, guid: aed3a3a8cf8b58a4f8a23517cabc0cb0, type: 2}
-        _rayStartWidth: 1
-        _rayEndWidth: 1
+        _rayStartWidth: 0.1
+        _rayEndWidth: 0.1
