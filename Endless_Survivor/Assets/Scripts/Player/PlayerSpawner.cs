@@ -12,7 +12,9 @@ public class PlayerSpawner : MonoBehaviour
         GameManager.gm.player = player.transform;
         
         PlayerWeaponManager playerWeaponManager = player.GetComponent<PlayerWeaponManager>();
-        player.GetComponent<PlayerControl>().PlayerAnimator.AddAnimations(selectedChar.Animations);
+        PlayerControl playerControl = player.GetComponent<PlayerControl>();
+        playerControl.PlayerAnimator.AddAnimations(selectedChar.Animations);
+        playerControl.PlayerStats = new PlayerStats(selectedChar.PlayerStats);
         
         //generate initial weapons and passives
         foreach(WeaponData weaponData in selectedChar.InitialWeapons)

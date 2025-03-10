@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     PlayerStats _playerStats;
     [SerializeField] Rigidbody2D _playerRb;
     public PlayerAnimator PlayerAnimator { get { return _playerAnimator; } }
-    public PlayerStats PlayerStats { get { return _playerStats; } }
+    public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
     public Rigidbody2D PlayerRb { get { return _playerRb; } }
 
     private void Start()
