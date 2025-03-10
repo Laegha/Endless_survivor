@@ -18,8 +18,13 @@ public class PlayerStateMachine : MonoBehaviour
     {
         //states initialization
         _states = new PlayerStateFactory(this);
+    }
+
+    private void Start()
+    {
         _currState = _states.Idle();
         _currState.EnterState();
+        
     }
 
     void Update()

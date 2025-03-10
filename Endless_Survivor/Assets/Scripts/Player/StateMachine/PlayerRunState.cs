@@ -7,7 +7,7 @@ public class PlayerRunState : PlayerBaseState
     public override void EnterState()
     {
         isRootState = true;
-        context.PlayerControl.PlayerAnimator.ChangeAnim("Run");
+        context.PlayerControl.PlayerAnimator.ChangeAnim("Moving");
     }
 
     public override void UpdateState() 
