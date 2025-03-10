@@ -7,7 +7,7 @@ public class PlayerAnimator : CustomAnimator
 {
     string _currAnimationName;
     Vector2 _playerMovement;
-    List<CoordinateAnimation> _coordinateAnimations;
+    List<CoordinateAnimation> _coordinateAnimations = new List<CoordinateAnimation>();
 
     public override void ChangeAnim(string animName)
     {
@@ -20,8 +20,10 @@ public class PlayerAnimator : CustomAnimator
             if (currAnimDist < closestDist)
                 closestAnim = possibleAnim;
         }
+        if (CurrAnim == closestAnim)
+            return;
         CurrAnim = closestAnim;
-        base.ChangeAnim(animName);
+        AnimTimer = 0;
     }
 
     public void SetMovement(Vector2 playerMovement)
