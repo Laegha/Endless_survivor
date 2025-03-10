@@ -11,7 +11,7 @@ public class WeaponAim : MonoBehaviour
     {
         _weapon = GetComponent<Weapon>();
         _playerStats = GameManager.gm.player.GetComponent<PlayerControl>().PlayerStats;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<WeaponControl>().Gfx;
     }
 
     void Update()
