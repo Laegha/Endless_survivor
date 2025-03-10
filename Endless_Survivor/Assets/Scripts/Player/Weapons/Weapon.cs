@@ -7,10 +7,16 @@ public class Weapon : MonoBehaviour
     float _shootCooldown;
     bool _canShoot;
     WeaponStats _weaponStats;
-    CustomAnimator _customAnimator;
+    WeaponControl _weaponControl;
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
-    public CustomAnimator WeaponAnimator { get { return _customAnimator; } }
+    public WeaponControl WeaponControl { get { return _weaponControl; } }
+
+    public virtual void Start()
+    {
+        _weaponControl = GetComponent<WeaponControl>();
+        _weaponControl.WeaponAnimator.ChangeAnim("Idle");
+    }
 
     public virtual void Update()
     {
