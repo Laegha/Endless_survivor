@@ -10,14 +10,16 @@ public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterfac
     [SerializeField] float _rayEndWidth;
     public override void TransferData(GameObject weaponObject, WeaponData weaponData)
     {
-        base.TransferData(weaponObject, weaponData);
         RayWeapon sniperComponent = weaponObject.AddComponent<RayWeapon>();
-        LineRenderer ln = MonoBehaviour.Instantiate(new GameObject()).AddComponent<LineRenderer>();
+        LineRenderer ln = new GameObject().AddComponent<LineRenderer>();
+        ln.transform.name = "RayRenderer";
         ln.material = _rayMaterial;
         ln.startWidth = _rayStartWidth;
         ln.endWidth = _rayEndWidth;
         ln.transform.SetParent(weaponObject.transform, false);
         sniperComponent.LineRenderer = ln;
 
+        base.TransferData(weaponObject, weaponData);
+        ln.SetPosition(0, sniperComponent.FirePoint.position);
     }
 }
