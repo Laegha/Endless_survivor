@@ -54,7 +54,7 @@ TextureImporter:
       213: -5236222935496482354
     second: Tiro Sniper corregido-Sheet_16
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -170,6 +170,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -177,12 +190,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 32
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +211,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 80
         y: 0
-        width: 32
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +232,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_2
       rect:
         serializedVersion: 2
-        x: 85
+        x: 160
         y: 0
-        width: 32
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,12 +253,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_3
       rect:
         serializedVersion: 2
-        x: 124
+        x: 240
         y: 0
-        width: 32
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,12 +274,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_4
       rect:
         serializedVersion: 2
-        x: 163
+        x: 320
         y: 0
-        width: 32
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -282,12 +295,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_5
       rect:
         serializedVersion: 2
-        x: 203
+        x: 400
         y: 0
-        width: 31
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -303,12 +316,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_6
       rect:
         serializedVersion: 2
-        x: 242
+        x: 480
         y: 0
-        width: 31
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -324,12 +337,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_7
       rect:
         serializedVersion: 2
-        x: 281
+        x: 560
         y: 0
-        width: 31
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -345,12 +358,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_8
       rect:
         serializedVersion: 2
-        x: 322
+        x: 640
         y: 0
-        width: 29
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -366,12 +379,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_9
       rect:
         serializedVersion: 2
-        x: 362
+        x: 720
         y: 0
-        width: 28
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -387,12 +400,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_10
       rect:
         serializedVersion: 2
-        x: 403
+        x: 800
         y: 0
-        width: 26
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -408,12 +421,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_11
       rect:
         serializedVersion: 2
-        x: 443
+        x: 880
         y: 0
-        width: 25
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -429,12 +442,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_12
       rect:
         serializedVersion: 2
-        x: 483
+        x: 960
         y: 0
-        width: 24
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -450,12 +463,12 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_13
       rect:
         serializedVersion: 2
-        x: 523
+        x: 1040
         y: 0
-        width: 23
+        width: 80
         height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -471,61 +484,19 @@ TextureImporter:
       name: Tiro Sniper corregido-Sheet_14
       rect:
         serializedVersion: 2
-        x: 8
+        x: 1120
         y: 0
-        width: 538
+        width: 80
         height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1462aa028cabfb9e0800000000000000
-      internalID: -1603357573616359871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiro Sniper corregido-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 546
-        height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ff6322b639129b20800000000000000
-      internalID: 3139599612938252277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiro Sniper corregido-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 546
-        height: 24
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec1aafc9bf23557b0800000000000000
-      internalID: -5236222935496482354
+      spriteID: c3641bb3381c3c44c9da81f814cce58a
+      internalID: 274755858
       vertices: []
       indices: 
       edges: []
@@ -547,9 +518,7 @@ TextureImporter:
       Tiro Sniper corregido-Sheet_11: 2729647822444282441
       Tiro Sniper corregido-Sheet_12: 6792860183713848136
       Tiro Sniper corregido-Sheet_13: 2294871160740235839
-      Tiro Sniper corregido-Sheet_14: -1603357573616359871
-      Tiro Sniper corregido-Sheet_15: 3139599612938252277
-      Tiro Sniper corregido-Sheet_16: -5236222935496482354
+      Tiro Sniper corregido-Sheet_14: 274755858
       Tiro Sniper corregido-Sheet_2: 1589503771170415612
       Tiro Sniper corregido-Sheet_3: -644601035479026097
       Tiro Sniper corregido-Sheet_4: -7017949410962889167
