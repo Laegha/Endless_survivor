@@ -9,9 +9,10 @@ public class RayWeapon : ShootingWeapon
     bool _shooting = false;
     public LineRenderer LineRenderer {  get { return _lineRenderer; } set { _lineRenderer = value; } }
 
-    private void Start()
+    public override void Start()
     {
-        WeaponAnimator.Animations.Where(anim => anim.AnimationName == "Shoot").ToArray()[0].OnAnimationEnd += StopShooting;    
+        base.Start();
+        WeaponControl.WeaponAnimator.Animations.Where(anim => anim.AnimationName == "Attack").ToArray()[0].OnAnimationEnd += StopShooting;
     }
 
     public override void Update()
@@ -24,12 +25,12 @@ public class RayWeapon : ShootingWeapon
     {
         base.Attack();
 
-        WeaponAnimator.ChangeAnim("Shoot");
+        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         StartShooting();
-        RaycastHit2D hit = Physics2D.Raycast(FirePoint.position, FirePoint.right);
+        RaycastHit2D hit = Physics2D.Raycast(FirePoint.position, FirePoint.right *-1);
         if (!hit)
         {
-            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, FirePoint.position + FirePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
+            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, FirePoint.position + FirePoint.right * -100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
             return;
             
         }
@@ -53,6 +54,7 @@ public class RayWeapon : ShootingWeapon
     public void StopShooting(CustomAnimator placeholder)
     {
         _shooting = false;
+        print("Stop shooting");
         _lineRenderer.gameObject.SetActive(false);
     }
 }
