@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class CoordinateAnimation : CustomAnimation
 {
     [SerializeField] Vector2 _coordinates;
