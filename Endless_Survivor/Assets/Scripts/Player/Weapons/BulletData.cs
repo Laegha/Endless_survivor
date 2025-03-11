@@ -10,4 +10,10 @@ public class BulletData
     [SerializeField] Vector2 _colliderSize;
     public Sprite BulletSprite {  get { return _bulletSprite; } }
     public Vector2 ColliderSize { get { return _colliderSize; } }
+    
+    public BulletData(BulletData original)
+    {
+        _bulletSprite = original.BulletSprite;
+        _colliderSize = original.ColliderSize;
+    }
 }
