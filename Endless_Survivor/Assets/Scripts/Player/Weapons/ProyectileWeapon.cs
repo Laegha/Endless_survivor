@@ -6,6 +6,7 @@ public class ProyectileWeapon : ShootingWeapon
 {
     [SerializeField] GameObject _bulletPrefab;
     BulletData _bulletData;
+    public BulletData BulletData {  get { return _bulletData; } set { _bulletData = value; } }
     public override void Attack()
     {
         base.Attack();
