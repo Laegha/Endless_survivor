@@ -5,17 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterface
 {
-    [SerializeField] Material _rayMaterial;
-    [SerializeField] float _rayStartWidth;
-    [SerializeField] float _rayEndWidth;
+    [SerializeField] RayData _rayData;
     public override void TransferData(GameObject weaponObject, WeaponData weaponData)
     {
         RayWeapon sniperComponent = weaponObject.AddComponent<RayWeapon>();
         LineRenderer ln = new GameObject().AddComponent<LineRenderer>();
         ln.transform.name = "RayRenderer";
-        ln.material = _rayMaterial;
-        ln.startWidth = _rayStartWidth;
-        ln.endWidth = _rayEndWidth;
+        ln.material = _rayData.RayMaterial;
+        ln.startWidth = _rayData.RayStartWidth;
+        ln.endWidth = _rayData.RayEndWidth;
         ln.transform.SetParent(weaponObject.transform, false);
         sniperComponent.LineRenderer = ln;
 
