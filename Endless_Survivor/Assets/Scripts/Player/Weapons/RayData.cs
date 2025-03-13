@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayData : MonoBehaviour
+[Serializable]
+public class RayData
 {
     [SerializeField] Material _rayMaterial;
     [SerializeField] float _rayStartWidth;
