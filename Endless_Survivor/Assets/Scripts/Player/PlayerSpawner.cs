@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject _playerPrefab;
     void Start()
     {
         CharacterData selectedChar = GameManager.gm.selectedCharacter;
-        GameObject player = Instantiate(_playerPrefab, transform.position, Quaternion.identity);
+        GameObject player = Instantiate(GameManager.gm.prefabHolder.Prefabs["Character"], transform.position, Quaternion.identity);
         GameManager.gm.player = player.transform;
         
         PlayerWeaponManager playerWeaponManager = player.GetComponent<PlayerWeaponManager>();
