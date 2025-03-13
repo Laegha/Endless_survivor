@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3115763766196076451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPosition (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3631869601777497282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPositions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6500567971880002770}
   - component: {fileID: 4175269687420856459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004028130203585761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPosition (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2374084302550607411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPosition (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7429722017359683839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPosition (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 7059952005309191444}
   - component: {fileID: 5175803263254807690}
   - component: {fileID: 5201446069194199440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Char
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -351,8 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b07045bcdb0034eb890fb1ae50a6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 6577113693637118834, guid: ff0d5e11feb79544f87b430d3591d1d2, type: 3}
-  _handPrefab: {fileID: 8274538778913185104, guid: d408f4a4816b0134087e9b5f67adb356, type: 3}
   _gunPositions:
   - {fileID: 1135759619103598737}
   - {fileID: 2374084302550607411}
@@ -361,6 +359,7 @@ MonoBehaviour:
   - {fileID: 7429722017359683839}
   - {fileID: 3115763766196076451}
   _gunsHolder: {fileID: 4278925457310125759}
+  _playerControl: {fileID: 1415873127685750190}
 --- !u!114 &5175803263254807690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1834303633001483032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPosition (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135759619103598737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4278925457310125759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

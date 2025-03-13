@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 255885279}
   - component: {fileID: 255885278}
   - component: {fileID: 255885277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1129,7 +1129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf2acff7f3c35c4283bf78f14c48f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 8650669668938938846, guid: d16bb8b5c2ce6494498f200449fb1903, type: 3}
 --- !u!1 &489508160
 GameObject:
   m_ObjectHideFlags: 0

@@ -646,6 +646,7 @@ MonoBehaviour:
   enemiesPrefabs:
   - {fileID: 2373952663123277793, guid: c5ffe46174d62a64abb88cf7789b46a9, type: 3}
   player: {fileID: 0}
+  prefabHolder: {fileID: 11400000, guid: 080c889d4f67cd942abc52eb0118bd2e, type: 2}
 --- !u!4 &498429080
 Transform:
   m_ObjectHideFlags: 0

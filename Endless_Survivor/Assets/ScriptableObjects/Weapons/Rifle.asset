@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  _weaponStats:
+    _range: 4
+    _attackSpeed: 1
+    _damage: 1
+  _weaponType: 0
+  _weaponDataTransferInterface:
+    rid: 768304907118444553
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -221434982, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
+    _framesPerSecond: 1
+  _attackAnimation:
+    _animationName: Attack
+    _frames:
+    - {fileID: 2077046966, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
+    - {fileID: -644692932, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
+    - {fileID: 2097127425, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
+    - {fileID: -1650684103, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
+    _framesPerSecond: 8
+    _exitAnimationName: Attack
+  references:
+    version: 2
+    RefIds:
+    - rid: 768304907118444553
+      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+      data:
+        _firePointPosition: {x: -0.453125, y: 0}
+        _defaultBulletData:
+          _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
+          _colliderSize: {x: 0.2, y: 0.2}
+        _bulletSpeed: 4
+        _bulletSpread: 15

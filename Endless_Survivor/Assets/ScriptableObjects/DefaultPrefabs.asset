@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132409731d467c9429f47713f549717b, type: 3}
+  m_Name: DefaultPrefabs
+  m_EditorClassIdentifier: 
+  _prefabs:
+    _serializedList:
+    - Key: Character
+      Value: {fileID: 8650669668938938846, guid: d16bb8b5c2ce6494498f200449fb1903, type: 3}
+    - Key: Hand
+      Value: {fileID: 8274538778913185104, guid: d408f4a4816b0134087e9b5f67adb356, type: 3}
+    - Key: Weapon
+      Value: {fileID: 6577113693637118834, guid: ff0d5e11feb79544f87b430d3591d1d2, type: 3}
+    - Key: Proyectile
+      Value: {fileID: 5542903177043885194, guid: 9a94a327314e9d0499153633a7ea4a76, type: 3}
+    - Key: Laser
+      Value: {fileID: 0}
+    - Key: Enemy
+      Value: {fileID: 0}
