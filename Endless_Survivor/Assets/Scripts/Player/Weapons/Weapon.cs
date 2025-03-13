@@ -8,9 +8,11 @@ public class Weapon : MonoBehaviour
     bool _canShoot;
     WeaponStats _weaponStats;
     WeaponControl _weaponControl;
+    PlayerControl _playerControl;
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
     public WeaponControl WeaponControl { get { return _weaponControl; } }
+    public PlayerControl PlayerControl { get { return _playerControl; } set { _playerControl = value; } }
 
     public virtual void Start()
     {
@@ -35,7 +37,7 @@ public class Weapon : MonoBehaviour
             return;
 
         _canShoot = false;
-        _shootCooldown = 1 / (WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
+        _shootCooldown = 1f / (float)(WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
         Attack();
     }
 
