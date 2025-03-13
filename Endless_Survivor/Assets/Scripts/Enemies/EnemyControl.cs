@@ -5,7 +5,10 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _spriteRenderer;
-    List<EnemyStatusEffect> _currentEffects;
+    [SerializeField] EnemyHP _enemyHP;
+    List<EnemyStatusEffect> _currentEffects = new List<EnemyStatusEffect>();
+
+    public EnemyHP EnemyHP { get { return _enemyHP; } }
     void Start()
     {
         
