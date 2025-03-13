@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class WeaponStats
 {
-    [SerializeField] float _range;
-    [SerializeField] float _attackSpeed;
+    [SerializeField] int _range;
+    [SerializeField] int _attackSpeed;
     [SerializeField] int _damage;
 
-    public float Range { get { return _range; } }
-    public float AttackSpeed { get { return _attackSpeed; } }
+    public int Range { get { return _range; } }
+    public int AttackSpeed { get { return _attackSpeed; } }
     public int Damage { get { return _damage; } }
 
     public WeaponStats(WeaponStats original = null)
