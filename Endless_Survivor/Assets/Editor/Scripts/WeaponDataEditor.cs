@@ -37,6 +37,11 @@ public class WeaponDataEditor : Editor
             if(weaponData.WeaponType == WeaponData.IWeaponType.Ray)
             {
                 newInterface = new RayWeaponDataTransferInterface();
+                
+            }
+            else if(weaponData.WeaponType == WeaponData.IWeaponType.Proyectile)
+            {
+                newInterface = new ProyectileWeaponDataTransferInterface();
             }
             else
             {
