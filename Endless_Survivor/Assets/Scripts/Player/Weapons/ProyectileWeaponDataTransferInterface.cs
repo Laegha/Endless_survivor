@@ -6,11 +6,15 @@ using UnityEngine;
 [Serializable]
 public class ProyectileWeaponDataTransferInterface : ShootingWeaponDataTransferInterface
 {
-    [SerializeField] BulletData _defaultBulletData;
+    [SerializeField] ProyectileData _defaultBulletData;
+    [SerializeField] float _proyectileSpeed;
+    [SerializeField] float _proyectileSpread;
     public override void TransferData(GameObject weaponObject, WeaponData weaponData)
     {
         ProyectileWeapon proyectileWeaponComponent = weaponObject.AddComponent<ProyectileWeapon>();
-        proyectileWeaponComponent.BulletData = new BulletData(_defaultBulletData);
+        proyectileWeaponComponent.ProyectileData = new ProyectileData(_defaultBulletData);
+        proyectileWeaponComponent.ProyectileSpeed = _proyectileSpeed;
+        proyectileWeaponComponent.ProyectileSpread = _proyectileSpread;
         base.TransferData(weaponObject, weaponData);
     }
 }
