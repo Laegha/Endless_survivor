@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class BulletData
+public class ProyectileData
 {
-    [SerializeField] Sprite _bulletSprite;
+    [SerializeField] Sprite _proyectileSprite;
     [SerializeField] Vector2 _colliderSize;
-    public Sprite BulletSprite {  get { return _bulletSprite; } }
+    public Sprite ProyectileSprite {  get { return _proyectileSprite; } }
     public Vector2 ColliderSize { get { return _colliderSize; } }
     
-    public BulletData(BulletData original)
+    public ProyectileData(ProyectileData original)
     {
-        _bulletSprite = original.BulletSprite;
+        _proyectileSprite = original.ProyectileSprite;
         _colliderSize = original.ColliderSize;
     }
 }
