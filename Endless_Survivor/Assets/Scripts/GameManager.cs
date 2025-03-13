@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public Transform player;
 
+    public PrefabHolder prefabHolder;
+
     public static GameManager gm
     {
         get { return instance; }
