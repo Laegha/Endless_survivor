@@ -5,15 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStats
 {
-    [SerializeField]int _damage;
-    [SerializeField]int _attackSpeed;
-    [SerializeField]int _range;
-    [SerializeField]int _maxHealth;
-    [SerializeField]int _speed;
+    [SerializeField]int _damage = 3;
+    [SerializeField]float _damageMultiplier = 1;
+    [SerializeField]int _attackSpeed = 1;
+    [SerializeField]int _range = 1;
+    [SerializeField]int _maxHealth = 10;
+    [SerializeField]int _speed = 1;
 
     public int Damage
     {
-        get { return _damage; } set { _damage = value; }
+        get { return (int)(_damage * _damageMultiplier); } set { _damage = value;  }
+    }
+    public float DamageMultiplier
+    {
+        get { return _damageMultiplier; }
+        set { _damageMultiplier = value; }
     }
 
     public int AttackSpeed
