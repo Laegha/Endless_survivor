@@ -27,10 +27,10 @@ public class RayWeapon : ShootingWeapon
 
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         StartShooting();
-        RaycastHit2D hit = Physics2D.Raycast(FirePoint.position, FirePoint.right *-1);
+        RaycastHit2D hit = Physics2D.Raycast(FirePoint.position, -FirePoint.right);
         if (!hit)
         {
-            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, FirePoint.position + FirePoint.right * -100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
+            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, FirePoint.position + -FirePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
             return;
             
         }
