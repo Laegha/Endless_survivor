@@ -7,10 +7,7 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] EnemyData _enemyData;
     int _leftHP;
 
-    private void Start()
-    {
-        _leftHP = _enemyData.InitialHP + WaveManager.wm.LapsedWaves * 3;
-    }
+    public int LeftHP {  get { return _leftHP; } set { _leftHP = value; } }
 
     public void RecieveDamage(int incomingDamage)
     {
