@@ -19,7 +19,7 @@ public class DamagePlayer : EnemyBehaviour
         damageCollider.direction = regularCollider.direction;
         damageCollider.size = regularCollider.size * 0.9f;
         damageCollider.isTrigger = true;
-        //damageColliderGO.AddComponent<>
+        damageColliderGO.AddComponent<PlayerDamageSource>().Damage = _damage;
         damageColliderGO.transform.localPosition = regularCollider.transform.localPosition;
     }
 }
