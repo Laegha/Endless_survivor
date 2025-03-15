@@ -10,12 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
-  m_Name: BasicFollower
+  m_Name: Test
   m_EditorClassIdentifier: 
-  _initialHP: 5
+  _initialHP: 0
   _colliderSize: {x: 0, y: 0}
   _colliderDirection: 0
-  _enemyBehaviours: []
+  _enemyBehaviours:
+  - rid: 768304977639374866
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 768304977639374866
+      type: {class: HarmPlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _damage: 0
