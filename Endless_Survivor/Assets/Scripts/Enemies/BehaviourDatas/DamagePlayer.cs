@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class DamagePlayer : EnemyBehaviour
 {
-    [SerializeReference] float _damage;
+    [SerializeReference] int _damage;
     public override void TransferData(EnemyControl enemyControl)
     {
         base.TransferData(enemyControl);
