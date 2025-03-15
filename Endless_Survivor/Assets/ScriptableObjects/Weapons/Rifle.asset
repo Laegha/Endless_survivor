@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponStats:
     _range: 4
-    _attackSpeed: 1
+    _attackSpeed: 5
     _damage: 1
   _weaponType: 0
   _weaponDataTransferInterface:
@@ -43,5 +43,5 @@ MonoBehaviour:
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
           _colliderSize: {x: 0.2, y: 0.2}
-        _bulletSpeed: 4
-        _bulletSpread: 15
+        _proyectileSpeed: 5
+        _proyectileSpread: 45

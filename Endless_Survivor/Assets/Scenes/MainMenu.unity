@@ -342,6 +342,7 @@ MonoBehaviour:
   _elegibleCharacters:
   - {fileID: 11400000, guid: af52e863b6c59954f9c692280bd30031, type: 2}
   - {fileID: 11400000, guid: 7d6dcd7670b335a459c30b78b45731e7, type: 2}
+  - {fileID: 11400000, guid: a44fe9b0a3c6edb4ea4701867dbe425e, type: 2}
   _selectCharBtnPrefab: {fileID: 7882280554708583930, guid: b13a3247b3c360d409ccaab3d5669ce9, type: 3}
   _buttonGrid: {fileID: 869418323}
   _mainMenu: {fileID: 777202100}
