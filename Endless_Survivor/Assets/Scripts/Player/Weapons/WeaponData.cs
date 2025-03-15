@@ -19,7 +19,7 @@ public class WeaponData : ScriptableObject
 
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] ChangeOnEndAnimation _attackAnimation;
-
+    
     public WeaponStats WeaponStats { get { return _weaponStats; } }
     public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } set { _weaponDataTransferInterface = value; } }
     public IWeaponType WeaponType { get { return _weaponType; } set { _weaponType = value; } }
