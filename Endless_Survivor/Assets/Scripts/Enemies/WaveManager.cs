@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] Wave[] _waves;
     [SerializeField] Transform[] _spawnBounds;
     [SerializeField] Vector2 _minSpawnDistFromPlayer;
     Transform _player;
     List<GameObject> _enemies = new List<GameObject>();
-    int _lapsedWaves;
+    int _currWave = 0;
 
     static WaveManager instance;
 
     public static WaveManager wm {  get { return instance; } }
 
     public List<GameObject> Enemies {  get { return _enemies; } }
-    public int LapsedWaves{  get { return _lapsedWaves; } }
+    public int LapsedWaves{  get { return _currWave; } }
 
     private void Awake()
     {
@@ -41,14 +42,20 @@ public class WaveManager : MonoBehaviour
 
     void StartWave()
     {
-        _lapsedWaves++;
-        float enemyCount = 3 + Mathf.Clamp(Random.Range(_lapsedWaves, _lapsedWaves), 0, Mathf.Infinity);
+        Wave newWave;
+        if(_currWave >= _waves.Length)
+            newWave = _waves[_waves.Length - 1];
+        else
+            newWave = _waves[_currWave];
+
+        float enemyCount = Random.Range(newWave.MinEnemyCount, newWave.MaxEnemyCount);
         for(int i = 0; i < enemyCount; i++)
         {
             Vector2 enemyPosition = GetEnemyPosition();
-            GameObject enemy = Instantiate(GameManager.gm.enemiesPrefabs[Random.Range(0, GameManager.gm.enemiesPrefabs.Length)], enemyPosition, Quaternion.identity);
-            _enemies.Add(enemy);
+            EnemyData enemyData = newWave.WaveEnemies[Random.Range(0, newWave.WaveEnemies.Count)].EnemyData;
+            _enemies.Add(SpawnEnemy(enemyData, enemyPosition));
         }
+        _currWave++;
         
     }
 
@@ -69,6 +76,13 @@ public class WaveManager : MonoBehaviour
             yPos = Random.Range(yMin, yMax);
 
         return new Vector2(xPos, yPos);
+    }
+
+    GameObject SpawnEnemy(EnemyData enemyData, Vector2 enemyPosition)
+    {
+        GameObject enemy = Instantiate(GameManager.gm.prefabHolder.Prefabs["Enemy"], enemyPosition, Quaternion.identity);
+        enemyData.TransferEnemyData(enemy);
+        return enemy;
     }
 
     public void EnemyKilled(GameObject enemy)
