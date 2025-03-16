@@ -15,7 +15,17 @@ MonoBehaviour:
   _initialHP: 5
   _colliderSize: {x: 0, y: 0}
   _colliderDirection: 0
-  _enemyBehaviours: []
+  _enemyBehaviours:
+  - rid: 768304996996087827
+  - rid: 768304996996087828
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 768304996996087827
+      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _damage: 0
+    - rid: 768304996996087828
+      type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _enemySpeed: 0

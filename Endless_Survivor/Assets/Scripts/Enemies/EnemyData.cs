@@ -22,7 +22,7 @@ public class EnemyData : ScriptableObject
         enemyControl.CapsuleCollider.size = _colliderSize;
         foreach(var enemyBehaviour in _enemyBehaviours)
         {
-            //enemyBehaviour.TransferData(enemyControl);
+            enemyBehaviour.TransferData(enemyControl);
         }
     }
 }
