@@ -1706,6 +1706,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd84ece0fcb4d24ebd08a1d82929bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waves:
+  - {fileID: 11400000, guid: fa1bae2f9c2fa2846b576fc3d9892045, type: 2}
+  - {fileID: 11400000, guid: fa1bae2f9c2fa2846b576fc3d9892045, type: 2}
+  - {fileID: 11400000, guid: fa1bae2f9c2fa2846b576fc3d9892045, type: 2}
   _spawnBounds:
   - {fileID: 729069310}
   - {fileID: 2000632965}

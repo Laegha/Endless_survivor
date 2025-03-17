@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: BasicFollower
   m_EditorClassIdentifier: 
   _initialHP: 5
-  _colliderSize: {x: 0, y: 0}
+  _colliderSize: {x: 0.4701658, y: 0.4701658}
+  _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 768304996996087827
@@ -28,4 +29,4 @@ MonoBehaviour:
     - rid: 768304996996087828
       type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
       data:
-        _enemySpeed: 0
+        _enemySpeed: 1

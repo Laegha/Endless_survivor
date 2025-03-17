@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3773552614040197757}
-  - component: {fileID: 5947275478624072454}
   - component: {fileID: 7642443675026033161}
   - component: {fileID: 6197107698754598958}
   - component: {fileID: -4557703695555915992}
@@ -38,20 +37,6 @@ Transform:
   - {fileID: 8057970360441805398}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5947275478624072454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2373952663123277793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4f4cee89498bb44a7c6024fb84bb1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 1
-  _targetTag: Player
 --- !u!212 &7642443675026033161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -143,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa103b41b272034a93058125126c28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyData: {fileID: 11400000, guid: 449b2daf2df4a024497d2e67ca130cf2, type: 2}
 --- !u!114 &213285716166281174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 7642443675026033161}
   _enemyHP: {fileID: -4557703695555915992}
+  _capsuleCollider: {fileID: 3331539037743308472}
 --- !u!70 &3331539037743308472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
