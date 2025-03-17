@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -17,7 +18,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager wm {  get { return instance; } }
 
     public List<GameObject> Enemies {  get { return _enemies; } }
-    public int LapsedWaves{  get { return _currWave; } }
+    public int CurrWave{  get { return _currWave; } }
 
     private void Awake()
     {
@@ -48,13 +49,34 @@ public class WaveManager : MonoBehaviour
         else
             newWave = _waves[_currWave];
 
+        Dictionary<dynamic, float> possibleEnemies = new Dictionary<dynamic, float>();
+        foreach(var waveEnemy in newWave.WaveEnemies)
+            possibleEnemies.Add(waveEnemy, waveEnemy.EnemyPoolWeight);
+
+        Roulette enemySelectRoulette = new Roulette(possibleEnemies);
+
         float enemyCount = Random.Range(newWave.MinEnemyCount, newWave.MaxEnemyCount);
+        Dictionary<WaveEnemy, int> spawnedEnemies = new Dictionary<WaveEnemy, int>();
+        foreach (var waveEnemy in newWave.WaveEnemies)
+            spawnedEnemies.Add(waveEnemy, 0);
+
         for(int i = 0; i < enemyCount; i++)
         {
             Vector2 enemyPosition = GetEnemyPosition();
-            EnemyData enemyData = newWave.WaveEnemies[Random.Range(0, newWave.WaveEnemies.Count)].EnemyData;
+            WaveEnemy spawnedEnemy = enemySelectRoulette.Spin();
+            EnemyData enemyData = spawnedEnemy.EnemyData;
             _enemies.Add(SpawnEnemy(enemyData, enemyPosition));
+            spawnedEnemies[spawnedEnemy]++;
         }
+
+        List<WaveEnemy> notEnoughEnemies = spawnedEnemies.Where(spawnedEnemy => spawnedEnemy.Key.MinSpawnCount < spawnedEnemy.Value).Select(spawnedEnemy => spawnedEnemy.Key).ToList();
+        foreach(var spawnedEnemy in notEnoughEnemies)
+            while(spawnedEnemy.MinSpawnCount > spawnedEnemies[spawnedEnemy])
+            {
+                Vector2 enemyPosition = GetEnemyPosition();
+                _enemies.Add(SpawnEnemy(spawnedEnemy.EnemyData, enemyPosition));
+                spawnedEnemies[spawnedEnemy]++;
+            }
         _currWave++;
         
     }
