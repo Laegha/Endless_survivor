@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public CharacterData selectedCharacter;
 
-    public GameObject[] enemiesPrefabs;
-
     public static GameManager instance;
 
     [HideInInspector] public Transform player;
