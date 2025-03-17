@@ -14,6 +14,7 @@ public class Roulette
         {
             _roulette.Add(new RouletteElement(element.Key, lastElementEnd, lastElementEnd + element.Value));
             _rouletteTotalWeight += element.Value;
+            lastElementEnd += element.Value;
         }
 
     }
@@ -21,7 +22,7 @@ public class Roulette
     public dynamic Spin()
     {
         float rouletteResult = Random.Range(0, _rouletteTotalWeight);
-        return _roulette.Where(element => element.minValue <= rouletteResult && element.maxValue > rouletteResult).ToList()[0].key;
+        return _roulette.Where(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult).ToList()[0].key;
     }
 }
 
