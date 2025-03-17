@@ -12,4 +12,6 @@ public class WaveEnemy
     [SerializeField] float _dropChance;
 
     public EnemyData EnemyData { get { return enemyData; } }
+    public int MinSpawnCount { get { return _minSpawnCount; } }
+    public float EnemyPoolWeight { get { return _enemyPoolWeight; } }
 }
