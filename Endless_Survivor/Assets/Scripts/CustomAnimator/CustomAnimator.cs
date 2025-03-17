@@ -19,6 +19,8 @@ public class CustomAnimator : MonoBehaviour
 
     void Update()
     {
+        if (_currAnim == null)
+            return;
         _animTimer -= Time.deltaTime;
         if(_animTimer <= 0)
         {
