@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    [SerializeField] EnemyData _enemyData;
     int _leftHP;
 
     public int LeftHP {  get { return _leftHP; } set { _leftHP = value; } }
