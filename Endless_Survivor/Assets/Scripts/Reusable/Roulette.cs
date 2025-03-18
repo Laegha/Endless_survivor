@@ -6,10 +6,10 @@ using UnityEngine;
 public class Roulette
 {
     List<RouletteElement> _roulette = new List<RouletteElement>();
-    float _rouletteTotalWeight = 0;
-    public Roulette(Dictionary<dynamic, float> elements)
+    int _rouletteTotalWeight = 0;
+    public Roulette(Dictionary<dynamic, int> elements)
     {
-        float lastElementEnd = 0;
+        int lastElementEnd = 0;
         foreach(var element in elements)
         {
             _roulette.Add(new RouletteElement(element.Key, lastElementEnd, lastElementEnd + element.Value));
@@ -21,7 +21,7 @@ public class Roulette
 
     public dynamic Spin()
     {
-        float rouletteResult = Random.Range(0, _rouletteTotalWeight);
+        int rouletteResult = Random.Range(0, _rouletteTotalWeight);
         return _roulette.Where(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult).ToList()[0].key;
     }
 }
@@ -29,10 +29,10 @@ public class Roulette
 public class RouletteElement
 {
     public dynamic key;
-    public float minValue;
-    public float maxValue;
+    public int minValue;
+    public int maxValue;
 
-    public RouletteElement(dynamic key, float minValue, float maxValue)
+    public RouletteElement(dynamic key, int minValue, int maxValue)
     {
         this.key = key;
         this.minValue = minValue;

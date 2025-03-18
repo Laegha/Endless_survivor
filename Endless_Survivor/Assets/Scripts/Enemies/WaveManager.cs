@@ -49,7 +49,7 @@ public class WaveManager : MonoBehaviour
         else
             newWave = _waves[_currWave];
 
-        Dictionary<dynamic, float> possibleEnemies = new Dictionary<dynamic, float>();
+        Dictionary<dynamic, int> possibleEnemies = new Dictionary<dynamic, int>();
         foreach(var waveEnemy in newWave.WaveEnemies)
             possibleEnemies.Add(waveEnemy, waveEnemy.EnemyPoolWeight);
 
