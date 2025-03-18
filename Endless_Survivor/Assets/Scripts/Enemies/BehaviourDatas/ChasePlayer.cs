@@ -8,13 +8,15 @@ using UnityEngine;
 public class ChasePlayer : EnemyBehaviour
 {
     [SerializeField] float _enemySpeed;
+    [SerializeField] CustomAnimation _chasingAnimation;
 
     public override void TransferData(EnemyControl enemyControl)
     {
         base.TransferData(enemyControl);
 
-        MoveToTarget moveToTarget = enemyControl.AddComponent<MoveToTarget>();
-        moveToTarget.MoveSpeed = _enemySpeed;
-        moveToTarget.TargetTag = "Player";
+        MoveToPlayer moveToPlayer = enemyControl.AddComponent<MoveToPlayer>();
+        moveToPlayer.MoveSpeed = _enemySpeed;
+        moveToPlayer.EnemyControl = enemyControl;
+        enemyControl.CustomAnimator.AddAnimations(new List<CustomAnimation>() { _chasingAnimation });
     }
 }
