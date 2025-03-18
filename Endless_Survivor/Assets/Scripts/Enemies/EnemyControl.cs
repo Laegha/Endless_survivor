@@ -14,10 +14,6 @@ public class EnemyControl : MonoBehaviour
     public EnemyHP EnemyHP { get { return _enemyHP; } }
     public CapsuleCollider2D CapsuleCollider { get { return _capsuleCollider; } }
     public CustomAnimator CustomAnimator { get { return _customAnimator; } }
-    void Start()
-    {
-        _customAnimator.ChangeAnim("Idle");
-    }
 
     void Update()
     {
