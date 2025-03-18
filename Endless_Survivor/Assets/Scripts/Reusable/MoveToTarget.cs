@@ -18,7 +18,7 @@ public class MoveToTarget : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    public virtual void Update()
     {
         Vector2 direction = (_target.position - transform.position).normalized;
         _rb.velocity = direction * _moveSpeed;
