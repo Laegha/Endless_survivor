@@ -19,6 +19,12 @@ MonoBehaviour:
   _enemyBehaviours:
   - rid: 768304996996087827
   - rid: 768304996996087828
+  _customAnimations:
+  - _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 6adcdde4c117744489ff5548e1cc7000, type: 3}
+    _framesPerSecond: 0
+    _priority: 0
   references:
     version: 2
     RefIds:

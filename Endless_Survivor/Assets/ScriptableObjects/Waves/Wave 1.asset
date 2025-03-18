@@ -17,5 +17,9 @@ MonoBehaviour:
     _minSpawnCount: 0
     _enemyPoolWeight: 0
     _dropChance: 0
+  - enemyData: {fileID: 11400000, guid: 7ad057314d83a3b4a8c22ddcd4ee11e8, type: 2}
+    _minSpawnCount: 0
+    _enemyPoolWeight: 0
+    _dropChance: 0
   _minEnemyCount: 4
   _maxEnemyCount: 6

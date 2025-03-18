@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   _initialHP: 0
-  _colliderSize: {x: 0, y: 0}
+  _colliderSize: {x: 0.4701658, y: 0.4701658}
+  _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
-  - rid: 768304977639374866
+  - rid: 768305042813878272
+  _customAnimations:
+  - _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: ee15a4173288afd448f25f8034437ac2, type: 3}
+    _framesPerSecond: 0
+    _priority: 0
   references:
     version: 2
     RefIds:
-    - rid: 768304977639374866
-      type: {class: HarmPlayer, ns: , asm: Assembly-CSharp}
+    - rid: 768305042813878272
+      type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
       data:
-        _damage: 0
+        _enemySpeed: 1
