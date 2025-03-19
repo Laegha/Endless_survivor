@@ -15,7 +15,7 @@ public class EnemyData : ScriptableObject
     public Vector2 ColliderSize {  get { return _colliderSize; } }
     public List<EnemyBehaviour> EnemyBehaviours { get { return _enemyBehaviours; } }
 
-    public virtual void TransferEnemyData(GameObject enemy)
+    public void TransferEnemyData(GameObject enemy)
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         enemyControl.EnemyHP.LeftHP = _initialHP + WaveManager.wm.CurrWave * 3;
@@ -26,7 +26,10 @@ public class EnemyData : ScriptableObject
 
         foreach(var enemyBehaviour in _enemyBehaviours)
         {
-            enemyBehaviour.TransferData(enemyControl);
+            if (enemyBehaviour == null)
+                continue;
+            enemyBehaviour.Start(enemyControl);
+            enemyControl.BehaviourManager.AddBehaviour(enemyBehaviour, enemyControl);
         }
     }
 }
