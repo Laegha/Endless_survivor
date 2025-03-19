@@ -10,9 +10,15 @@ public class ChasePlayer : EnemyBehaviour
     [SerializeField] float _enemySpeed;
     [SerializeField] CustomAnimation _chasingAnimation;
 
-    public override void TransferData(EnemyControl enemyControl)
+    public ChasePlayer(ChasePlayer original) : base(original)
     {
-        base.TransferData(enemyControl);
+        _enemySpeed = original._enemySpeed;
+        _chasingAnimation = original._chasingAnimation;
+    }
+
+    public override void Start(EnemyControl enemyControl)
+    {
+        base.Start(enemyControl);
 
         MoveToPlayer moveToPlayer = enemyControl.AddComponent<MoveToPlayer>();
         moveToPlayer.MoveSpeed = _enemySpeed;
