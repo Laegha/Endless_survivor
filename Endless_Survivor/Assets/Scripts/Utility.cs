@@ -13,4 +13,19 @@ public static class Utility
             .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(baseType))
             .ToList();
     }
+    public static int CountOccurrences(string text, string substring)
+    {
+        if (string.IsNullOrEmpty(substring)) return 0;
+
+        int count = 0;
+        int index = 0;
+
+        while ((index = text.IndexOf(substring, index, StringComparison.OrdinalIgnoreCase)) != -1)
+        {
+            count++;
+            index += substring.Length;
+        }
+
+        return count;
+    }
 }
