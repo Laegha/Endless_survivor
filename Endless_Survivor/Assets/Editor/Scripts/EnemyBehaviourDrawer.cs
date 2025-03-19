@@ -1,12 +1,31 @@
+using Codice.CM.Client.Differences.Graphic;
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(EnemyBehaviour), true)]
 public class EnemyBehaviourDrawer : PropertyDrawer
 {
+    List<Type> _overrideTypes = new List<Type>();
+    readonly float _labelShowSize = 20;
+    int foldouts;
+
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return EditorGUI.GetPropertyHeight(property, true); // Mantiene la altura correcta
+        EnemyBehaviour target = property.managedReferenceValue as EnemyBehaviour;
+        float baseHeight = EditorGUI.GetPropertyHeight(property, true);
+        foldouts = Utility.CountOccurrences(property.propertyPath, "Array.data[");
+
+        if (target == null || foldouts > 1)
+            return _labelShowSize;
+
+        if (property.isExpanded)
+        {
+            return baseHeight + 22;
+        }
+
+        return baseHeight;
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -17,10 +36,56 @@ public class EnemyBehaviourDrawer : PropertyDrawer
             return;
         }
 
-        // Cambiar el label para que muestre el nombre de la subclase
-        label.text = property.managedReferenceValue.GetType().Name;
+        GUIContent customLabel = new GUIContent(property.managedReferenceValue.GetType().Name);
 
-        // Dibujar el campo con el nuevo label y mantener la UI predeterminada
-        EditorGUI.PropertyField(position, property, label, true);
+        float propertyHeight = EditorGUI.GetPropertyHeight(property, true);
+
+        EnemyBehaviour targetBehaviour = property.managedReferenceValue as EnemyBehaviour;
+        if (foldouts > 1)
+        {
+            EditorGUI.LabelField(position, customLabel);
+            return;
+        }
+        // Draw the property
+        Rect propertyRect = new Rect(position.x, position.y, position.width, propertyHeight);
+        EditorGUI.PropertyField(propertyRect, property, customLabel, true);
+
+        if (!property.isExpanded)
+            return;
+        Rect buttonRect = new Rect(position.x, position.y + propertyHeight + 2, position.width, 18);
+        List<EnemyBehaviour> totalBehaviours = targetBehaviour.EnemyDataBehaviours();
+
+        SyncOverrideBehaviours(targetBehaviour);
+        if (EditorGUI.DropdownButton(buttonRect, new GUIContent("Add behaviour to override"), FocusType.Passive))
+        {
+            GenericMenu menu = new GenericMenu();
+            foreach (var behaviour in totalBehaviours)
+            {
+                if (_overrideTypes.Contains(behaviour.GetType()) || behaviour == targetBehaviour)
+                    continue;
+
+                menu.AddItem(new GUIContent(behaviour.GetType().Name), false, () =>
+                {
+                    EnemyBehaviour newBehaviour = (EnemyBehaviour)Activator.CreateInstance(behaviour.GetType());
+                    targetBehaviour.OverrideBehaviours.Add(newBehaviour);
+                });
+            }
+            menu.ShowAsContext();
+        }
+    }
+
+    void SyncOverrideBehaviours(EnemyBehaviour target)
+    {
+        _overrideTypes.Clear();
+        
+        foreach (var behaviour in target.OverrideBehaviours)
+        {
+            if(behaviour == null)
+            {
+                continue;
+            }
+            _overrideTypes.Add(behaviour.GetType());
+
+        }
     }
 }
