@@ -16,6 +16,7 @@ public class EnemyDataEditor : Editor
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(EnemyBehaviour));
         EnemyData enemyData = (EnemyData)target;
         behaviourTypes.ForEach(type => _behaviourTypes.Add(type, enemyData.EnemyBehaviours.Exists(behaviour => behaviour.GetType() == type)));
+        enemyData.EnemyBehaviours.ForEach(behaviour => behaviour.EnemyData = enemyData);
     }
     public override void OnInspectorGUI()
     {
@@ -38,12 +39,13 @@ public class EnemyDataEditor : Editor
                 {
                     EnemyBehaviour newBehaviour = (EnemyBehaviour)Activator.CreateInstance(type.Key);
                     enemyData.EnemyBehaviours.Add(newBehaviour);
+                    newBehaviour.EnemyData = enemyData;
                     EditorUtility.SetDirty(enemyData);
                 });
             }
             menu.ShowAsContext();
         }
-
+        
         serializedObject.ApplyModifiedProperties();
 
     }
