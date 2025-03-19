@@ -7,9 +7,15 @@ using UnityEngine;
 public class DamagePlayer : EnemyBehaviour
 {
     [SerializeReference] int _damage;
-    public override void TransferData(EnemyControl enemyControl)
+
+    public DamagePlayer(DamagePlayer original) : base(original)
     {
-        base.TransferData(enemyControl);
+        _damage = original._damage;
+    }
+
+    public override void Start(EnemyControl enemyControl)
+    {
+        base.Start(enemyControl);
 
         GameObject damageColliderGO = new GameObject("DamageCollider");
         damageColliderGO.transform.SetParent(enemyControl.transform, false);
