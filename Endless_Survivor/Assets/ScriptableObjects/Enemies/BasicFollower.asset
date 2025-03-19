@@ -19,20 +19,24 @@ MonoBehaviour:
   _enemyBehaviours:
   - rid: 768304996996087827
   - rid: 768304996996087828
-  _customAnimations:
-  - _animationName: Idle
-    _frames:
-    - {fileID: 21300000, guid: 6adcdde4c117744489ff5548e1cc7000, type: 3}
-    _framesPerSecond: 0
-    _priority: 0
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 768304996996087827
       type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
       data:
+        _overrideBehaviours: []
         _damage: 0
     - rid: 768304996996087828
       type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
       data:
+        _overrideBehaviours:
+        - rid: -2
         _enemySpeed: 1
+        _chasingAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _priority: 0
