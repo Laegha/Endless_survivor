@@ -6,16 +6,14 @@ using UnityEngine;
 [Serializable]
 public class DamagePlayer : EnemyBehaviour
 {
-    [SerializeReference] int _damage;
+    [SerializeField] int _damage;
 
-    public DamagePlayer(DamagePlayer original) : base(original)
+    public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
-        _damage = original._damage;
-    }
+        base.Initialize(original, enemyControl);
 
-    public override void Start(EnemyControl enemyControl)
-    {
-        base.Start(enemyControl);
+        DamagePlayer originalDamagePlayer = original as DamagePlayer;
+        _damage = originalDamagePlayer._damage;
 
         GameObject damageColliderGO = new GameObject("DamageCollider");
         damageColliderGO.transform.SetParent(enemyControl.transform, false);
