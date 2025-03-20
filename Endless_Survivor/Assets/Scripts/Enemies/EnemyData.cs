@@ -28,8 +28,8 @@ public class EnemyData : ScriptableObject
         {
             if (enemyBehaviour == null)
                 continue;
-            enemyBehaviour.Start(enemyControl);
             enemyControl.BehaviourManager.AddBehaviour(enemyBehaviour, enemyControl);
         }
+        enemyControl.BehaviourManager.RewriteAllOverrides();//rewrite overrides so they are pointing to the BehaviourManager behaviours instead of EnemyData behaviours
     }
 }
