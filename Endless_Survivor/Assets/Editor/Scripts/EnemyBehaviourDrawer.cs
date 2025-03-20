@@ -66,8 +66,7 @@ public class EnemyBehaviourDrawer : PropertyDrawer
 
                 menu.AddItem(new GUIContent(behaviour.GetType().Name), false, () =>
                 {
-                    EnemyBehaviour newBehaviour = (EnemyBehaviour)Activator.CreateInstance(behaviour.GetType());
-                    targetBehaviour.OverrideBehaviours.Add(newBehaviour);
+                    targetBehaviour.OverrideBehaviours.Add(behaviour);
                 });
             }
             menu.ShowAsContext();
