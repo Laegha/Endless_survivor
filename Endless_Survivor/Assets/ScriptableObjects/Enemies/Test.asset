@@ -17,29 +17,17 @@ MonoBehaviour:
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
-  - rid: 768305062982189063
-  - rid: 768305062982189071
+  - rid: 768305086805573636
+  - rid: 768305086805573637
   references:
     version: 2
     RefIds:
-    - rid: 768305062982189063
-      type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
+    - rid: 768305086805573636
+      type: {class: TestBehaviourA, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours:
-        - rid: 768305062982189074
-        _enemySpeed: 0
-        _chasingAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
-          _priority: 0
-    - rid: 768305062982189071
-      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
+        - rid: 768305086805573637
+    - rid: 768305086805573637
+      type: {class: TestBehaviourB, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours: []
-        _damage: 0
-    - rid: 768305062982189074
-      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
-      data:
-        _overrideBehaviours: []
-        _damage: 0

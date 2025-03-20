@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 213285716166281174}
   - component: {fileID: 3331539037743308472}
   - component: {fileID: 997789942096911037}
+  - component: {fileID: -2876188718530938169}
   m_Layer: 7
   m_Name: Enemy_01
   m_TagString: Untagged
@@ -144,6 +145,8 @@ MonoBehaviour:
   _enemyHP: {fileID: -4557703695555915992}
   _capsuleCollider: {fileID: 3331539037743308472}
   _customAnimator: {fileID: 997789942096911037}
+  _behaviourManager: {fileID: -2876188718530938169}
+  _rb: {fileID: 6197107698754598958}
 --- !u!70 &3331539037743308472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +195,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 7642443675026033161}
+--- !u!114 &-2876188718530938169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373952663123277793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3fbb2b5169446a4da0a9adcc2083b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
