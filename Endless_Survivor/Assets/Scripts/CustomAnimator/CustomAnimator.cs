@@ -42,7 +42,10 @@ public class CustomAnimator : MonoBehaviour
 
     public virtual void ChangeAnim(string animName)
     {
-        _currAnim = _animations.Where(anim => anim.AnimationName == animName).ToList()[0];
+        CustomAnimation newAnimation = _animations.Where(anim => anim.AnimationName == animName).ToList()[0];
+        if(_currAnim.Priority > newAnimation.Priority)
+            return;
+        _currAnim = newAnimation;
         _animTimer = 0;
     }
 
