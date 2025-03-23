@@ -39,6 +39,7 @@ public class EnemyBehaviourManager : MonoBehaviour
                 return false;
         }
         _activeBehaviours.Add(newBehaviour);
+        newBehaviour.IsActive = true;
 
         CheckOverrides(newBehaviour);
         return true;
@@ -55,5 +56,6 @@ public class EnemyBehaviourManager : MonoBehaviour
     public void KillBehaviour(EnemyBehaviour removedBehaviour)
     {
         _activeBehaviours.Remove(removedBehaviour);
+        removedBehaviour.IsActive = false;
     }
 }
