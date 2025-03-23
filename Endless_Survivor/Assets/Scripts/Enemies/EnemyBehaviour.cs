@@ -13,7 +13,7 @@ public class EnemyBehaviour
     [SerializeReference] List<EnemyBehaviour> _overrideBehaviours = new List<EnemyBehaviour>();
     EnemyControl _enemyControl;
 
-    public bool IsActive { get { return _isActive; } }
+    public bool IsActive { get { return _isActive; } set { _isActive = value; } }
     public EnemyData EnemyData { get { return _enemyData; } set { _enemyData = value; } }
     public List<EnemyBehaviour> OverrideBehaviours { get { return _overrideBehaviours; } }
     public EnemyControl EnemyControl { get {  return _enemyControl; } } 
