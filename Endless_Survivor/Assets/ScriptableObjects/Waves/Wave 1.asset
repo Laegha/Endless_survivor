@@ -17,5 +17,5 @@ MonoBehaviour:
     _minSpawnCount: 0
     _enemyPoolWeight: 0
     _dropChance: 0
-  _minEnemyCount: 4
-  _maxEnemyCount: 6
+  _minEnemyCount: 1
+  _maxEnemyCount: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 5
   _colliderSize: {x: 0.4701658, y: 0.4701658}
-  _colliderOffset: {x: 0, y: 0}
+  _colliderOffset: {x: 0, y: -0.125}
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 768305086805573633
@@ -31,9 +31,17 @@ MonoBehaviour:
       type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours: []
-        _enemySpeed: 0
+        _enemySpeed: 1
         _chasingAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: Moving
+          _frames:
+          - {fileID: -8671499197328673380, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 5967923524934253056, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 2912499765493947702, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: -8857330338355485086, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 6493913054963182071, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 3460380394918599231, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 3570692958104476324, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 8001596610593517921, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          _framesPerSecond: 10
           _priority: 0
