@@ -8,10 +8,12 @@ public class PlayerControl : MonoBehaviour
     PlayerStats _playerStats;
     [SerializeField] Rigidbody2D _playerRb;
     [SerializeField] PlayerHPManager _playerHPManager;
+    [SerializeField] PlayerWeaponManager _playerWeaponManager;
     public PlayerAnimator PlayerAnimator { get { return _playerAnimator; } }
     public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
     public Rigidbody2D PlayerRb { get { return _playerRb; } }
     public PlayerHPManager PlayerHPManager { get { return _playerHPManager; } }
+    public PlayerWeaponManager WeaponManager { get { return _playerWeaponManager; } }
 
     private void Start()
     {
