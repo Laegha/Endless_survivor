@@ -8,7 +8,10 @@ public class WeaponDataTransferInterface
     public virtual void TransferData(GameObject weaponObject, WeaponData weaponData)
     {
         Weapon weapon = weaponObject.GetComponent<Weapon>();
-        weapon.WeaponStats = new WeaponStats(weaponData.WeaponStats);
+        WeaponStats weaponStats = new WeaponStats(weaponData.WeaponStats);
+        weaponStats.ScaleStats(weaponData.StatsIncreaseScale);
+
+        weapon.WeaponStats = weaponStats;
         WeaponControl weaponControl = weaponObject.GetComponent<WeaponControl>();
         weaponControl.WeaponAnimator.AddAnimations(weaponData.Animations);
 
