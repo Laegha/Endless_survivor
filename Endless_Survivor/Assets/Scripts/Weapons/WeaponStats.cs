@@ -21,4 +21,11 @@ public class WeaponStats
         _attackSpeed = original.AttackSpeed;
         _damage = original.Damage;
     }
+
+    public void ScaleStats(WeaponStats statsScaling)
+    {
+        _range += ScalingFunctions.WeaponStatIncrease(statsScaling.Range, WaveManager.wm.CurrWave);
+        _attackSpeed += ScalingFunctions.WeaponStatIncrease(statsScaling.AttackSpeed, WaveManager.wm.CurrWave);
+        _damage += ScalingFunctions.WeaponStatIncrease(statsScaling.Damage, WaveManager.wm.CurrWave);
+    }
 }
