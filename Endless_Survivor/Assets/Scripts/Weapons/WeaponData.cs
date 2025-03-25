@@ -18,9 +18,11 @@ public class WeaponData : ScriptableObject
     [SerializeField] IWeaponType _weaponType = IWeaponType.Proyectile;
     [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
 
+    [SerializeField] Sprite _weaponDisplaySprite;
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] ChangeOnEndAnimation _attackAnimation;
     
+    public Sprite WeaponDisplaySprite { get { return _weaponDisplaySprite; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } }
     public WeaponStats StatsIncreaseScale { get { return _statsIncreaseScale; } }
     public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } set { _weaponDataTransferInterface = value; } }
