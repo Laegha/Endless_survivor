@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootingWeaponDataTransferInterface : WeaponDataTransferInterface
 {
     [SerializeField] Vector2 _firePointPosition;
-    public override void TransferData(GameObject weaponObject, WeaponData weaponData)
+    public override void TransferData(GameObject weaponObject, WeaponData weaponData, WeaponStats weaponStats)
     {
         Transform firePoint = new GameObject().transform;
         firePoint.transform.SetParent(weaponObject.transform, false);
@@ -14,6 +14,6 @@ public class ShootingWeaponDataTransferInterface : WeaponDataTransferInterface
         firePoint.localRotation = Quaternion.identity;
         weaponObject.GetComponent<ShootingWeapon>().FirePoint = firePoint;
         
-        base.TransferData(weaponObject, weaponData);
+        base.TransferData(weaponObject, weaponData, weaponStats);
     }
 }

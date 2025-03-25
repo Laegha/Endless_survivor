@@ -6,7 +6,7 @@ using UnityEngine;
 public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterface
 {
     [SerializeField] RayData _rayData;
-    public override void TransferData(GameObject weaponObject, WeaponData weaponData)
+    public override void TransferData(GameObject weaponObject, WeaponData weaponData, WeaponStats weaponStats)
     {
         RayWeapon sniperComponent = weaponObject.AddComponent<RayWeapon>();
         LineRenderer ln = new GameObject().AddComponent<LineRenderer>();
@@ -17,7 +17,7 @@ public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterfac
         ln.transform.SetParent(weaponObject.transform, false);
         sniperComponent.LineRenderer = ln;
 
-        base.TransferData(weaponObject, weaponData);
+        base.TransferData(weaponObject, weaponData, weaponStats);
         ln.SetPosition(0, sniperComponent.FirePoint.position);
     }
 }

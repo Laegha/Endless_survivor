@@ -5,11 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class WeaponDataTransferInterface
 {
-    public virtual void TransferData(GameObject weaponObject, WeaponData weaponData)
+    public virtual void TransferData(GameObject weaponObject, WeaponData weaponData, WeaponStats weaponStats)
     {
         Weapon weapon = weaponObject.GetComponent<Weapon>();
-        WeaponStats weaponStats = new WeaponStats(weaponData.WeaponStats);
-        weaponStats.ScaleStats(weaponData.StatsIncreaseScale);
 
         weapon.WeaponStats = weaponStats;
         WeaponControl weaponControl = weaponObject.GetComponent<WeaponControl>();

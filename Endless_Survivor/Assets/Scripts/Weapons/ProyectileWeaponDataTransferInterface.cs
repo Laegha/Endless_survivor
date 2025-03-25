@@ -9,12 +9,12 @@ public class ProyectileWeaponDataTransferInterface : ShootingWeaponDataTransferI
     [SerializeField] ProyectileData _defaultBulletData;
     [SerializeField] float _proyectileSpeed;
     [SerializeField] float _proyectileSpread;
-    public override void TransferData(GameObject weaponObject, WeaponData weaponData)
+    public override void TransferData(GameObject weaponObject, WeaponData weaponData, WeaponStats weaponStats)
     {
         ProyectileWeapon proyectileWeaponComponent = weaponObject.AddComponent<ProyectileWeapon>();
         proyectileWeaponComponent.ProyectileData = new ProyectileData(_defaultBulletData);
         proyectileWeaponComponent.ProyectileSpeed = _proyectileSpeed;
         proyectileWeaponComponent.ProyectileSpread = _proyectileSpread;
-        base.TransferData(weaponObject, weaponData);
+        base.TransferData(weaponObject, weaponData, weaponStats);
     }
 }

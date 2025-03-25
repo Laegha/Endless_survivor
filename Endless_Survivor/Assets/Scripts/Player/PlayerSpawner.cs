@@ -18,7 +18,7 @@ public class PlayerSpawner : MonoBehaviour
         //generate initial weapons and passives
         foreach(WeaponData weaponData in selectedChar.InitialWeapons)
         {
-            playerWeaponManager.PickupGun(weaponData);
+            playerWeaponManager.PickupGun(weaponData, new WeaponStats(weaponData.WeaponStats));
 
         }
 

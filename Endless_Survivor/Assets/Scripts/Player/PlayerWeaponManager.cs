@@ -9,14 +9,14 @@ public class PlayerWeaponManager : MonoBehaviour
     [SerializeField] PlayerControl _playerControl;
     List<Transform> _heldGuns = new List<Transform>();
 
-    public void PickupGun(WeaponData weaponData)
+    public void PickupGun(WeaponData weaponData, WeaponStats weaponStats)
     {
         if(_heldGuns.Count == _gunPositions.Length) 
             return;
-        GenerateGun(weaponData);
+        GenerateGun(weaponData, weaponStats);
     }
 
-    void GenerateGun(WeaponData weaponData)
+    void GenerateGun(WeaponData weaponData, WeaponStats weaponStats)
     {
         Vector2 handPosition = _gunPositions[_heldGuns.Count].position;
 
@@ -26,7 +26,8 @@ public class PlayerWeaponManager : MonoBehaviour
         hand.GetComponent<SpriteRenderer>().sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
         hand.transform.SetParent(newWeapon.transform);
         _heldGuns.Add(newWeapon);
-        weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData);
+        
+        weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData, weaponStats);
         newWeapon.GetComponent<Weapon>().PlayerControl = _playerControl;
     }
 }
