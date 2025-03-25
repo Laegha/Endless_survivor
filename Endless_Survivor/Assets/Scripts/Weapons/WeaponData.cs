@@ -14,6 +14,7 @@ public class WeaponData : ScriptableObject
     }
 
     [SerializeField] WeaponStats _weaponStats;
+    [SerializeField] WeaponStats _statsIncreaseScale;
     [SerializeField] IWeaponType _weaponType = IWeaponType.Proyectile;
     [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
 
@@ -21,6 +22,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] ChangeOnEndAnimation _attackAnimation;
     
     public WeaponStats WeaponStats { get { return _weaponStats; } }
+    public WeaponStats StatsIncreaseScale { get { return _statsIncreaseScale; } }
     public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } set { _weaponDataTransferInterface = value; } }
     public IWeaponType WeaponType { get { return _weaponType; } set { _weaponType = value; } }
     public List<CustomAnimation> Animations { get { 
