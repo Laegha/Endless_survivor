@@ -7,7 +7,6 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     [SerializeField] Sprite _menuImage;
-    [SerializeField] GameObject _characterPrefab;
     [SerializeField] Sprite[] _characterHands;
     [InspectorLabel("Initial weapons and passive items")]
     [SerializeField] WeaponData[] _initialWeapons;
@@ -24,7 +23,6 @@ public class CharacterData : ScriptableObject
     [SerializeField] CoordinateAnimation _leftMoving;
 
     public Sprite MenuImage {  get { return _menuImage; } }
-    public GameObject CharacterPrefab {  get { return _characterPrefab; } }
     public Sprite[] CharacterHands { get { return _characterHands; } }
     public WeaponData[] InitialWeapons { get { return _initialWeapons; } }
     public GameObject[] InitialPassives { get { return _initialPassives; } }
