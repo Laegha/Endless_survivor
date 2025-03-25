@@ -8,6 +8,7 @@ public class WeaponStats
     [SerializeField] int _range;
     [SerializeField] int _attackSpeed;
     [SerializeField] int _damage;
+    int _level;
 
     public int Range { get { return _range; } }
     public int AttackSpeed { get { return _attackSpeed; } }
@@ -22,10 +23,18 @@ public class WeaponStats
         _damage = original.Damage;
     }
 
-    public void ScaleStats(WeaponStats statsScaling)
+    public void ScaleStats(WeaponStats statsScaling, int level)
     {
-        _range += ScalingFunctions.WeaponStatIncrease(statsScaling.Range, WaveManager.wm.CurrWave);
-        _attackSpeed += ScalingFunctions.WeaponStatIncrease(statsScaling.AttackSpeed, WaveManager.wm.CurrWave);
-        _damage += ScalingFunctions.WeaponStatIncrease(statsScaling.Damage, WaveManager.wm.CurrWave);
+        _level = level;
+        _range += ScalingFunctions.WeaponStatIncrease(statsScaling.Range, level);
+        _attackSpeed += ScalingFunctions.WeaponStatIncrease(statsScaling.AttackSpeed, level);
+        _damage += ScalingFunctions.WeaponStatIncrease(statsScaling.Damage, level);
+    }
+    public static int CurrWaveLevel
+    { 
+        get
+        {
+            return WaveManager.wm.CurrWave / 2 + 1;
+        }
     }
 }
