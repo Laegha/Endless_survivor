@@ -13,6 +13,7 @@ public class WeaponStats
     public int Range { get { return _range; } }
     public int AttackSpeed { get { return _attackSpeed; } }
     public int Damage { get { return _damage; } }
+    public int Level { get { return _level; } }
 
     public WeaponStats(WeaponStats original = null)
     {
