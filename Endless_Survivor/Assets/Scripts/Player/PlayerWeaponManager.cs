@@ -7,27 +7,39 @@ public class PlayerWeaponManager : MonoBehaviour
     [SerializeField] Transform[] _gunPositions;
     [SerializeField] Transform _gunsHolder;
     [SerializeField] PlayerControl _playerControl;
-    List<Transform> _heldGuns = new List<Transform>();
+    List<Weapon> _heldWeapons = new List<Weapon>();
 
-    public void PickupGun(WeaponData weaponData, WeaponStats weaponStats)
+    public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        if(_heldGuns.Count == _gunPositions.Length) 
+        if(_heldWeapons.Count == _gunPositions.Length)
+        {
+            GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(_heldWeapons, SwitchWeapon);
             return;
-        GenerateGun(weaponData, weaponStats);
+        }
+        GenerateWeapon(weaponData, weaponStats);
     }
 
-    void GenerateGun(WeaponData weaponData, WeaponStats weaponStats)
+    void GenerateWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        Vector2 handPosition = _gunPositions[_heldGuns.Count].position;
+        Vector2 handPosition = _gunPositions[_heldWeapons.Count].position;
 
         Transform newWeapon = Instantiate(GameManager.gm.prefabHolder.Prefabs["Weapon"], handPosition, Quaternion.identity).transform;
         newWeapon.transform.SetParent(_gunsHolder);
+        
         GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], handPosition, Quaternion.identity);
         hand.GetComponent<SpriteRenderer>().sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
         hand.transform.SetParent(newWeapon.transform);
-        _heldGuns.Add(newWeapon);
-        
+
+        Weapon weapon = newWeapon.GetComponent<Weapon>();
+        _heldWeapons.Add(weapon);
         weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData, weaponStats);
-        newWeapon.GetComponent<Weapon>().PlayerControl = _playerControl;
+        weapon.PlayerControl = _playerControl;
+    }
+
+    void SwitchWeapon(Weapon removedWeapon)
+    {
+        _heldWeapons.Remove(removedWeapon);
+        Destroy(removedWeapon.gameObject);
+        GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
 }
