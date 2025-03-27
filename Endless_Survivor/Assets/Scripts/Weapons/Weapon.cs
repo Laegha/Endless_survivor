@@ -8,10 +8,12 @@ public class Weapon : MonoBehaviour
     bool _canShoot;
     WeaponStats _weaponStats;
     WeaponControl _weaponControl;
+    WeaponData _weaponData;
     PlayerControl _playerControl;
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
     public WeaponControl WeaponControl { get { return _weaponControl; } }
+    public WeaponData WeaponData { get { return _weaponData; } set { _weaponData = value; } }
     public PlayerControl PlayerControl { get { return _playerControl; } set { _playerControl = value; } }
 
     public virtual void Start()
