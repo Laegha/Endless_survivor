@@ -28,4 +28,10 @@ public static class Utility
 
         return count;
     }
+    public static Vector2 GetPointInCircle(float radius, float angle)
+    {
+        float xPos = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
+        float yPos = Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
+        return new Vector2(xPos, yPos);
+    }
 }
