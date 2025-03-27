@@ -12,9 +12,19 @@ public class WeaponData : ScriptableObject
         Ray,
         Custom
     }
+    public enum IWeaponTag
+    {
+        Melee,
+        Ranged,
+        HighDMG,
+        LowDMG,
+        HighAtkSpd,
+        LowAtkSpd
+    }
 
     [SerializeField] WeaponStats _weaponStats;
     [SerializeField] WeaponStats _statsIncreaseScale;
+    [SerializeField] IWeaponTag[] _weaponTags;
     [SerializeField] IWeaponType _weaponType = IWeaponType.Proyectile;
     [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
 
