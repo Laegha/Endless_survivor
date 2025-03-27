@@ -12,6 +12,9 @@ public class WeaponPickupMenu : MonoBehaviour
     WeaponData _currDisplayingWeapon;
     WeaponStats _currWeaponStats;
 
+    public WeaponData CurrDisplayingWeapon {  get { return _currDisplayingWeapon; } }
+    public WeaponStats CurrWeaponStats {  get { return _currWeaponStats; } }
+
     public void DisplayWeapon(WeaponData displayingWeapon)
     {
         _currDisplayingWeapon = displayingWeapon;
@@ -22,7 +25,7 @@ public class WeaponPickupMenu : MonoBehaviour
     }
     public void TakeWeapon()
     {
-        GameManager.gm.player.GetComponent<PlayerControl>().WeaponManager.PickupGun(_currDisplayingWeapon, _currWeaponStats);
+        GameManager.gm.player.GetComponent<PlayerControl>().WeaponManager.PickupWeapon(_currDisplayingWeapon, _currWeaponStats);
         _menuGfx.SetActive(false);
     }
 
