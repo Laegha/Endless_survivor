@@ -40,7 +40,7 @@ MonoBehaviour:
     - {fileID: -1650684103, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     _framesPerSecond: 8
     _priority: 0
-    _exitAnimationName: Attack
+    _exitAnimationName: Idle
   references:
     version: 2
     RefIds:
