@@ -16,14 +16,21 @@ MonoBehaviour:
     _range: 6
     _attackSpeed: 1
     _damage: 10
+  _statsIncreaseScale:
+    _range: 0
+    _attackSpeed: 0
+    _damage: 0
+  _weaponTags: 
   _weaponType: 1
   _weaponDataTransferInterface:
     rid: 768304771243442177
+  _weaponDisplaySprite: {fileID: 21300000, guid: 0a73151d05695284abeb6ab263e23a49, type: 3}
   _idleAnimation:
     _animationName: Idle
     _frames:
     - {fileID: 274755858, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
     _framesPerSecond: 1
+    _priority: 0
   _attackAnimation:
     _animationName: Attack
     _frames:
@@ -43,6 +50,7 @@ MonoBehaviour:
     - {fileID: 2294871160740235839, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
     - {fileID: 274755858, guid: 9efb5cc70dda8614dbc060e3ca19356f, type: 3}
     _framesPerSecond: 13
+    _priority: 0
     _exitAnimationName: Idle
   references:
     version: 2
