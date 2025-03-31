@@ -30,9 +30,9 @@ public class PlayerWeaponManager : MonoBehaviour
         hand.GetComponent<SpriteRenderer>().sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
         hand.transform.SetParent(newWeapon.transform);
 
+        weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData, weaponStats);
         Weapon weapon = newWeapon.GetComponent<Weapon>();
         _heldWeapons.Add(weapon);
-        weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData, weaponStats);
         weapon.PlayerControl = _playerControl;
     }
 
