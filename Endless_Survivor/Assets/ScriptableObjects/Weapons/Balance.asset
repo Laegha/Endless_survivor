@@ -24,7 +24,7 @@ MonoBehaviour:
   _weaponType: 0
   _weaponDataTransferInterface:
     rid: 768304907118444553
-  _weaponDisplaySprite: {fileID: 0}
+  _weaponDisplaySprite: {fileID: 21300000, guid: 25fcf6533d4aa9149bc69de9c2ba41dc, type: 3}
   _idleAnimation:
     _animationName: Idle
     _frames:
