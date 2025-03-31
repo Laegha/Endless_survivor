@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public static class Utility
 {
@@ -34,4 +35,27 @@ public static class Utility
         float yPos = Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
         return new Vector2(xPos, yPos);
     }
+    public static void ScaleImageToFitTarget(RectTransform imageTr, Sprite sprite, Vector2 targetSpace)
+    {
+        if (imageTr == null || sprite == null)
+        {
+            Debug.LogError("Image or Sprite is null!");
+            return;
+        }
+        
+        float spriteWidth = sprite.bounds.size.x;
+        float spriteHeight = sprite.bounds.size.y;
+        
+        float targetWidth = targetSpace.x;
+        float targetHeight = targetSpace.y;
+
+        float sizeScaleFactor = Mathf.Min(targetWidth / spriteWidth, targetHeight / spriteHeight);
+
+        float finalWidth = spriteWidth * sizeScaleFactor ;
+        float finalHeight = spriteHeight * sizeScaleFactor ;
+
+        imageTr.sizeDelta = new Vector2(finalWidth, finalHeight);
+        
+    }
+
 }
