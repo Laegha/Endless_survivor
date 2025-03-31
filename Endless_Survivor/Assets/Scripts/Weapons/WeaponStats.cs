@@ -35,7 +35,7 @@ public class WeaponStats
     { 
         get
         {
-            return WaveManager.wm.CurrWave / 2 + 1;
+            return WaveManager.wm != null ? WaveManager.wm.CurrWave / 2 + 1 : -1;
         }
     }
 }
