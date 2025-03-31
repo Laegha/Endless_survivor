@@ -11,6 +11,7 @@ public class WeaponDataEditor : Editor
     SerializedProperty _weaponStats;
     SerializedProperty _statsIncreaseScale;
     SerializedProperty _weaponTags;
+    SerializedProperty _weaponDisplaySprite;
     SerializedProperty _idleAnimation;
     SerializedProperty _attackAnimation;
     WeaponDataTransferInterface tempInstance;
@@ -21,6 +22,7 @@ public class WeaponDataEditor : Editor
         _weaponStats = serializedObject.FindProperty("_weaponStats");
         _statsIncreaseScale = serializedObject.FindProperty("_statsIncreaseScale");
         _weaponTags = serializedObject.FindProperty("_weaponTags");
+        _weaponDisplaySprite = serializedObject.FindProperty("_weaponDisplaySprite");
         _idleAnimation = serializedObject.FindProperty("_idleAnimation");
         _attackAnimation = serializedObject.FindProperty("_attackAnimation");
         WeaponData weaponData = (WeaponData)target;
@@ -62,6 +64,7 @@ public class WeaponDataEditor : Editor
         EditorGUILayout.PropertyField(_weaponTags);
 
         EditorGUILayout.LabelField("Animations");
+        EditorGUILayout.PropertyField(_weaponDisplaySprite, true);
         EditorGUILayout.PropertyField(_idleAnimation, true);
         EditorGUILayout.PropertyField(_attackAnimation, true);
 
