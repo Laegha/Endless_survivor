@@ -27,7 +27,7 @@ public class WeaponPickup : Pickup
     public override void PickUp(PlayerControl playerControl)
     {
         base.PickUp(playerControl);
-        GameUIManager.uiManager.WeaponPickupMenu.DisplayWeapon(_weaponData);
+        GameUIManager.uiManager.WeaponPickupMenu.DisplayMenu(_weaponData);
         Destroy(gameObject);
     }
 }
