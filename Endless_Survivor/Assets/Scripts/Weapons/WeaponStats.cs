@@ -6,12 +6,12 @@ using UnityEngine;
 public class WeaponStats
 {
     [SerializeField] int _range;
-    [SerializeField] int _attackSpeed;
+    [SerializeField] float _attackSpeed;
     [SerializeField] int _damage;
     int _level;
 
     public int Range { get { return _range; } }
-    public int AttackSpeed { get { return _attackSpeed; } }
+    public float AttackSpeed { get { return _attackSpeed; } }
     public int Damage { get { return _damage; } }
     public int Level { get { return _level; } }
 
@@ -27,9 +27,9 @@ public class WeaponStats
     public void ScaleStats(WeaponStats statsScaling, int level)
     {
         _level = level;
-        _range += ScalingFunctions.WeaponStatIncrease(statsScaling.Range, level);
-        _attackSpeed += ScalingFunctions.WeaponStatIncrease(statsScaling.AttackSpeed, level);
-        _damage += ScalingFunctions.WeaponStatIncrease(statsScaling.Damage, level);
+        _range += (int)(ScalingFunctions.WeaponStatIncrease(statsScaling.Range, level) + Random.Range(0f, 1f) * statsScaling.Range);
+        _attackSpeed += ScalingFunctions.WeaponStatIncrease(statsScaling.AttackSpeed, level) + Random.Range(0f, .5f) * statsScaling.AttackSpeed;
+        _damage += (int)(ScalingFunctions.WeaponStatIncrease(statsScaling.Damage, level) + Random.Range(0f, 1f) * statsScaling.Damage);
     }
     public static int CurrWaveLevel
     { 
