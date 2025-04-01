@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdbb8604a70bc4469fb10648781c501, type: 3}
+  m_Name: RandomStatBoost
+  m_EditorClassIdentifier: 
+  _possiblePickupDatas:
+  - {fileID: 11400000, guid: a92f8385d93f6e14aaa5cbb6cf88d802, type: 2}
+  - {fileID: 11400000, guid: 3c252cd32afdef64db236f9d27e6b63c, type: 2}
+  - {fileID: 11400000, guid: 00c44840b5f62f54191001076d6c8561, type: 2}
+  - {fileID: 11400000, guid: 7d896cc20530d3249a4de884b01cb81d, type: 2}
+  - {fileID: 11400000, guid: 9094a0e57bc0d9442b246e12bf33257f, type: 2}
