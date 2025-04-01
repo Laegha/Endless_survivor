@@ -10,16 +10,14 @@ public class EnemyData : ScriptableObject
     [SerializeField] Vector2 _colliderOffset;
     [SerializeField] CapsuleDirection2D _colliderDirection;
     [SerializeReference] List<EnemyBehaviour> _enemyBehaviours;
-    [SerializeField] float _weaponDropChance;
-    [SerializeField] float _passiveDropChance;
-    [SerializeField] float _statBoostDropChance;
+    [SerializeField] List<PickupData> _dropablePickups;
+    Dictionary<PickupData, int> _dropablePickupsChances = new Dictionary<PickupData, int>();
 
     public int InitialHP { get { return _initialHP; } }
     public Vector2 ColliderSize {  get { return _colliderSize; } }
     public List<EnemyBehaviour> EnemyBehaviours { get { return _enemyBehaviours; } }
-    public float WeaponDropChance { get { return _weaponDropChance; } }
-    public float PassiveDropChance { get { return _passiveDropChance; } }
-    public float StatBoostDropChance { get { return _statBoostDropChance; } }
+    public List<PickupData> DropablePickups {  get { return _dropablePickups; } }
+    public Dictionary<PickupData, int> DropablePickupsChances {  get { return _dropablePickupsChances; } }
 
     public void TransferEnemyData(GameObject enemy)
     {
