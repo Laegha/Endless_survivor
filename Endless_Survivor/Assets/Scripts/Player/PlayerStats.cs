@@ -7,7 +7,7 @@ public class PlayerStats
 {
     [SerializeField]int _damage = 3;
     [SerializeField]float _damageMultiplier = 1;
-    [SerializeField]int _attackSpeed = 1;
+    [SerializeField]float _attackSpeed = 1;
     [SerializeField]int _range = 1;
     [SerializeField]int _maxHealth = 10;
     [SerializeField]int _speed = 1;
@@ -22,7 +22,7 @@ public class PlayerStats
         set { _damageMultiplier = value; }
     }
 
-    public int AttackSpeed
+    public float AttackSpeed
     {
         get { return _attackSpeed; } set { _attackSpeed = value; }
     }
