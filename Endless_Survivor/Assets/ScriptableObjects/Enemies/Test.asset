@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  _initialHP: 0
-  _colliderSize: {x: 0.4701658, y: 0.4701658}
+  _initialHP: 123
+  _colliderSize: {x: 1.52, y: 0.4701658}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 768305086805573636
   - rid: 768305086805573637
+  - rid: 2600434085853921280
+  _weaponDropChance: 36.4
+  _passiveDropChance: 49.5
+  _statBoostDropChance: 0
   references:
     version: 2
     RefIds:
@@ -31,3 +35,13 @@ MonoBehaviour:
       type: {class: TestBehaviourB, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours: []
+    - rid: 2600434085853921280
+      type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _overrideBehaviours: []
+        _enemySpeed: 0
+        _chasingAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _priority: 0
