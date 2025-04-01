@@ -19,9 +19,9 @@ MonoBehaviour:
   _enemyBehaviours:
   - rid: 768305086805573633
   - rid: 768305086805573634
-  _weaponDropChance: 27.000004
-  _passiveDropChance: 13.399998
-  _statBoostDropChance: 59.6
+  _dropablePickups:
+  - {fileID: 11400000, guid: daaa5e6ac5b874941a49cd7d6f582234, type: 2}
+  - {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
   references:
     version: 2
     RefIds:
