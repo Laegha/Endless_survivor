@@ -8,11 +8,25 @@ using UnityEngine;
 public class EnemyDataEditor : Editor
 {
     Dictionary<Type, bool> _behaviourTypes = new Dictionary<Type, bool>();
-    
+
+    SerializedProperty _initialHP;
+    SerializedProperty _colliderSize;
+    SerializedProperty _colliderOffset;
+    SerializedProperty _colliderDirection;
     SerializedProperty _behaviours;
+    SerializedProperty _weaponDropChance;
+    SerializedProperty _passiveDropChance;
+    SerializedProperty _statBoostDropChance;
     private void OnEnable()
     {
+        _initialHP = serializedObject.FindProperty("_initialHP");
+        _colliderSize = serializedObject.FindProperty("_colliderSize");
+        _colliderOffset = serializedObject.FindProperty("_colliderOffset");
+        _colliderDirection = serializedObject.FindProperty("_colliderDirection");
         _behaviours = serializedObject.FindProperty("_enemyBehaviours");
+        _weaponDropChance = serializedObject.FindProperty("_weaponDropChance");
+        _passiveDropChance = serializedObject.FindProperty("_passiveDropChance");
+        _statBoostDropChance = serializedObject.FindProperty("_statBoostDropChance");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(EnemyBehaviour));
         EnemyData enemyData = (EnemyData)target;
         behaviourTypes.ForEach(type => _behaviourTypes.Add(type, enemyData.EnemyBehaviours.Exists(behaviour => behaviour.GetType() == type)));
@@ -20,7 +34,8 @@ public class EnemyDataEditor : Editor
     }
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        EditorGUILayout.PropertyField(_initialHP);
+        EditorGUILayout.PropertyField(_behaviours);
         serializedObject.Update();
 
         EnemyData enemyData = (EnemyData)target;
@@ -45,6 +60,17 @@ public class EnemyDataEditor : Editor
             }
             menu.ShowAsContext();
         }
+
+        EditorGUILayout.PropertyField(_colliderSize);
+        EditorGUILayout.PropertyField(_colliderOffset);
+        EditorGUILayout.PropertyField(_colliderDirection);
+
+        GUILayout.Label("Weapon drop chance");
+        _weaponDropChance.floatValue = Mathf.Clamp(EditorGUILayout.Slider(enemyData.WeaponDropChance, 0, 100), 0, 100 - enemyData.PassiveDropChance - enemyData.StatBoostDropChance);
+        GUILayout.Label("Passive item drop chance");
+        _passiveDropChance.floatValue = Mathf.Clamp(EditorGUILayout.Slider(enemyData.PassiveDropChance, 0, 100), 0, 100 - enemyData.WeaponDropChance - enemyData.StatBoostDropChance);
+        GUILayout.Label("Stat boost drop chance");
+        _statBoostDropChance.floatValue = Mathf.Clamp(EditorGUILayout.Slider(enemyData.StatBoostDropChance, 0, 100), 0, 100 - enemyData.WeaponDropChance - enemyData.PassiveDropChance);
         
         serializedObject.ApplyModifiedProperties();
 

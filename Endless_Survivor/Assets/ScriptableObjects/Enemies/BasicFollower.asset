@@ -19,6 +19,9 @@ MonoBehaviour:
   _enemyBehaviours:
   - rid: 768305086805573633
   - rid: 768305086805573634
+  _weaponDropChance: 0
+  _passiveDropChance: 0
+  _statBoostDropChance: 0
   references:
     version: 2
     RefIds:
