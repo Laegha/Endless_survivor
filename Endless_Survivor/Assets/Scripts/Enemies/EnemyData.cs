@@ -22,8 +22,10 @@ public class EnemyData : ScriptableObject
     public void TransferEnemyData(GameObject enemy)
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
-        enemyControl.EnemyHP.LeftHP = _initialHP + ScalingFunctions.EnemyHPIncrease(WaveManager.wm.CurrWave);
-       
+        EnemyHP enemyHP = enemyControl.EnemyHP;
+        enemyHP.LeftHP = _initialHP + ScalingFunctions.EnemyHPIncrease(WaveManager.wm.CurrWave);
+        enemyHP.DropablePickupChances = new Dictionary<PickupData, int>(_dropablePickupsChances);
+
         enemyControl.CapsuleCollider.direction = _colliderDirection;
         enemyControl.CapsuleCollider.size = _colliderSize;
         enemyControl.CapsuleCollider.offset = _colliderOffset;
