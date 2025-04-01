@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,10 @@ public static class ScalingFunctions
         return 0;
     }
 
-    public static int WeaponStatIncrease(float increaseScale, int x)
+    public static float WeaponStatIncrease(float increaseScale, int x)
     {
-        return 0;
+        float result = increaseScale * Mathf.Log(x, 2);
+        return result;
     }
 
 }
