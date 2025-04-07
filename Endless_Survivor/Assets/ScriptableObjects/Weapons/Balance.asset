@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponStats:
     _range: 4
-    _attackSpeed: 7
+    _attackSpeed: 5
     _damage: 1
   _statsIncreaseScale:
-    _range: 0
-    _attackSpeed: 0
-    _damage: 0
-  _weaponTags: 
+    _range: 1
+    _attackSpeed: 10
+    _damage: 5
+  _weaponTags: 010000000300000004000000
   _weaponType: 0
   _weaponDataTransferInterface:
     rid: 768304907118444553
@@ -52,4 +52,4 @@ MonoBehaviour:
           _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
           _colliderSize: {x: 0.2, y: 0.2}
         _proyectileSpeed: 5
-        _proyectileSpread: 25
+        _proyectileSpread: 15
