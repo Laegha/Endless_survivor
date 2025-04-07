@@ -154,7 +154,7 @@ TextureImporter:
         x: 0
         y: 0
         width: 32
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,7 +175,7 @@ TextureImporter:
         x: 32
         y: 0
         width: 32
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,7 +196,7 @@ TextureImporter:
         x: 64
         y: 0
         width: 32
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,7 +217,7 @@ TextureImporter:
         x: 96
         y: 0
         width: 32
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,69 +227,6 @@ TextureImporter:
       bones: []
       spriteID: 82698aee0e4d57130800000000000000
       internalID: 3563988742675404328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animacion idle-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf655692821a61542bcd6a45a356921f
-      internalID: -1470908673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animacion idle-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc68e5145c138a34fbedc4a02dc11d48
-      internalID: -107253329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animacion idle-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8319b4fa0c44f742b6cc6e3a23cf609
-      internalID: -1859318275
       vertices: []
       indices: 
       edges: []
@@ -309,9 +246,6 @@ TextureImporter:
       animacion idle-Sheet_1: 2046910665583749396
       animacion idle-Sheet_2: -5028018217962370549
       animacion idle-Sheet_3: 3563988742675404328
-      animacion idle-Sheet_4: -1470908673
-      animacion idle-Sheet_5: -107253329
-      animacion idle-Sheet_6: -1859318275
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

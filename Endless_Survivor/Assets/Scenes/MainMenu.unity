@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.036886618, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -342,7 +342,6 @@ MonoBehaviour:
   _elegibleCharacters:
   - {fileID: 11400000, guid: af52e863b6c59954f9c692280bd30031, type: 2}
   - {fileID: 11400000, guid: 7d6dcd7670b335a459c30b78b45731e7, type: 2}
-  - {fileID: 11400000, guid: a44fe9b0a3c6edb4ea4701867dbe425e, type: 2}
   _selectCharBtnPrefab: {fileID: 7882280554708583930, guid: b13a3247b3c360d409ccaab3d5669ce9, type: 3}
   _buttonGrid: {fileID: 869418323}
   _mainMenu: {fileID: 777202100}
@@ -403,7 +402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EndlEss survivor
+  m_text: Cyberpunk invasion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae53c561c6314144e854fe6db6a2ad2b, type: 2}
   m_sharedMaterial: {fileID: -2118320323272989249, guid: ae53c561c6314144e854fe6db6a2ad2b, type: 2}
@@ -412,8 +411,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285026796
-  m_fontColor: {r: 0.9245283, g: 0.31835172, b: 0.40947336, a: 1}
+    rgba: 4292411647
+  m_fontColor: {r: 1, g: 0, b: 0.8499565, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -430,8 +429,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 135
-  m_fontSizeBase: 135
+  m_fontSize: 116.2
+  m_fontSizeBase: 116.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
