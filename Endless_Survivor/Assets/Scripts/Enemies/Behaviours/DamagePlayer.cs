@@ -17,14 +17,16 @@ public class DamagePlayer : EnemyBehaviour
 
         GameObject damageColliderGO = new GameObject("DamageCollider");
         damageColliderGO.transform.SetParent(enemyControl.transform, false);
+        damageColliderGO.transform.localPosition = Vector3.zero;
         CapsuleCollider2D regularCollider = enemyControl.CapsuleCollider;
         CapsuleCollider2D damageCollider = damageColliderGO.AddComponent<CapsuleCollider2D>();
 
         damageCollider.direction = regularCollider.direction;
         damageCollider.size = regularCollider.size * 0.9f;
-        damageCollider.offset= regularCollider.offset;
+        damageCollider.offset = regularCollider.offset;
         damageCollider.isTrigger = true;
+        damageColliderGO.layer = LayerMask.NameToLayer("PlayerDetector");
         damageColliderGO.AddComponent<PlayerDamageSource>().Damage = _damage;
-        damageColliderGO.transform.localPosition = regularCollider.transform.localPosition;
+        //damageColliderGO.transform.localPosition = regularCollider.transform.localPosition;
     }
 }

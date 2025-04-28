@@ -11,12 +11,42 @@ public class Proyectile : MonoBehaviour
     int _damage = 1;
     float _lifeTime = 5;
     float _lapsedTime;
+    List<Collider2D> _ignoreColliders = new List<Collider2D>();
     public float Speed { get { return _speed; } set { _speed = value; } }
     public int Damage { get { return _damage; } set { _damage = value; } }
     public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } }
     public CapsuleCollider2D Collider { get { return _collider; } }
     public float LifeTime {  get { return _lifeTime; } set { _lifeTime = value; } }
 
+    public void Initiate(int damage, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0, List<Collider2D> ignoreColliders = null)
+    {
+        _damage = damage;
+        _speed = speed;
+        _lifeTime = lifeTime;
+        _spriteRenderer.sprite = proyectileData.ProyectileSprite;
+        if(proyectileData.ProyectileMaterial != null )
+            _spriteRenderer.material = proyectileData.ProyectileMaterial;
+        if(proyectileData.ParticlesPrefab != null )
+            Instantiate(proyectileData.ParticlesPrefab, transform)?.GetComponent<ParticleSystem>()?.Play();
+        if (proyectileData.ShootSFX != null)
+        {
+            SoundFXManager.sm.PlaySfx(proyectileData.ShootSFX, transform.position);
+        }
+        _collider.size = proyectileData.ColliderSize;
+        if(ignoreColliders == null)
+            ignoreColliders = new List<Collider2D>();
+        _ignoreColliders = ignoreColliders;
+        transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
+
+        DamageSource[] damageSources = GetComponents<DamageSource>();
+        foreach(DamageSource damageSource in damageSources)
+        {
+            damageSource.IgnoreColliders = ignoreColliders;
+            damageSource.Damage = _damage;
+        }
+        StartMoving();
+        
+    }
     private void Update()
     {
         _lapsedTime += Time.deltaTime;
@@ -28,14 +58,13 @@ public class Proyectile : MonoBehaviour
 
     public void StartMoving()
     {
-        _rb.velocity = -transform.right * Speed;
+        _rb.velocity = transform.right * Speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        EnemyControl hitEnemyControl = collider.GetComponent<EnemyControl>();
-        if(hitEnemyControl != null)
-            hitEnemyControl.EnemyHP.RecieveDamage(_damage);
+        if (_ignoreColliders.Contains(collider))
+            return;
         Destroy(gameObject);
     }
 }

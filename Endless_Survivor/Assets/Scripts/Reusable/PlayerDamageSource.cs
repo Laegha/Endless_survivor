@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDamageSource : MonoBehaviour
+public class PlayerDamageSource : DamageSource
 {
-    int _damage;
-    public int Damage { get { return _damage; } set { _damage = value; } }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerControl playerControl = collision.GetComponent<PlayerControl>();
-        if (playerControl == null)
+        if(!collision.CompareTag("Player"))
             return;
-        playerControl.PlayerHPManager.TakeDamage(_damage);
+        PlayerControl.pc.PlayerHPManager.TakeDamage(Damage);
     }
 }

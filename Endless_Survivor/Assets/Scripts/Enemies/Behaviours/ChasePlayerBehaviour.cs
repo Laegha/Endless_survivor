@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [Serializable]
-public class ChasePlayer : EnemyBehaviour
+public class ChasePlayerBehaviour : EnemyBehaviour
 {
     [SerializeField] float _enemySpeed;
     [SerializeField] CustomAnimation _chasingAnimation;
@@ -16,12 +13,12 @@ public class ChasePlayer : EnemyBehaviour
     {
         base.Initialize(original, enemyControl);
 
-        ChasePlayer originalChasePlayer = original as ChasePlayer;
+        ChasePlayerBehaviour originalChasePlayer = original as ChasePlayerBehaviour;
         _enemySpeed = originalChasePlayer._enemySpeed;
         _chasingAnimation = originalChasePlayer._chasingAnimation;
 
         _player = GameObject.FindObjectOfType<PlayerControl>().transform;
-        enemyControl.CustomAnimator.AddAnimations(new List<CustomAnimation>() { _chasingAnimation });
+        enemyControl.Animator.AddAnimations(new List<CustomAnimation>() { _chasingAnimation });
     }
 
     public override void PassiveUpdate()
@@ -34,9 +31,14 @@ public class ChasePlayer : EnemyBehaviour
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
-        if(EnemyControl.CustomAnimator.CurrAnim == null || EnemyControl.CustomAnimator.CurrAnim.AnimationName != _chasingAnimation.AnimationName)
-            EnemyControl.CustomAnimator.ChangeAnim(_chasingAnimation.AnimationName);
+        if (EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _chasingAnimation.AnimationName)
+            EnemyControl.Animator.ChangeAnim(_chasingAnimation.AnimationName);
         Vector2 direction = (_player.position - EnemyControl.transform.position).normalized;
         EnemyControl.Rb.velocity = direction * _enemySpeed;
+    }
+    public override void KillBehaviour()
+    {
+        base.KillBehaviour();
+        EnemyControl.Rb.velocity = Vector2.zero;
     }
 }

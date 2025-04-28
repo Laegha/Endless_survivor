@@ -23,13 +23,15 @@ public class EnemyBehaviour
         return _enemyData.EnemyBehaviours;
     }
 
-    public virtual void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
+    public virtual void Initialize(EnemyBehaviour original, EnemyControl enemyControl)//called when the behaviour is added to the list
     {
         _enemyData = original.EnemyData;
         _overrideBehaviours = original.OverrideBehaviours;
         _enemyControl = enemyControl;
         _overrideBehaviours = _overrideBehaviours.Where(behaviour => behaviour != null).ToList();
     }
+
+    public virtual void Start() { } //called after every behaviour has been initialized
 
     public void RewriteOverrides(List<EnemyBehaviour> totalBehaviours)
     {

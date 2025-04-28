@@ -7,13 +7,13 @@ public class StatBoostPickupData : PickupData
 {
     [SerializeField] CustomAnimation _pickupAnimation;
     [SerializeField] PlayerStats _statsBoost;
-    public override void TransferData(GameObject pickupGameObject)
+    public override void TransferData(PickupControl pickupControl)
     {
-        base.TransferData(pickupGameObject);
-        CustomAnimator pickupAnimator = pickupGameObject.GetComponent<PickupControl>().Animator;
+        base.TransferData(pickupControl);
+        CustomAnimator pickupAnimator = pickupControl.GetComponent<PickupControl>().Animator;
         pickupAnimator.AddAnimations(new List<CustomAnimation> { _pickupAnimation });
         pickupAnimator.ChangeAnim(_pickupAnimation.AnimationName);
-        pickupGameObject.AddComponent<StatBoost>();
+        pickupControl.gameObject.AddComponent<StatBoost>();
 
     }
 }

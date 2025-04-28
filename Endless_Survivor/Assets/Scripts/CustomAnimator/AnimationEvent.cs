@@ -1,0 +1,20 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+[Serializable]
+public class AnimationEvent
+{
+    public int frameIndex;
+    public Action frameAction;
+
+    public AnimationEvent(AnimationEvent original)
+    {
+        this.frameIndex = original.frameIndex;
+        if (original.frameAction != null)
+            foreach (var action in original.frameAction.GetInvocationList())
+                frameAction += (Action)action;
+    }
+}

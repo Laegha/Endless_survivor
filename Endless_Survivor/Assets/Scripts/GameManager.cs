@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,13 +12,12 @@ public class GameManager : MonoBehaviour
 
     public CharacterData selectedCharacter;
 
-    [HideInInspector] public Transform player;
-
     public PrefabHolder prefabHolder;
     public UnlockmentsHolder unlockmentsHolder;
     static string unlockmentsFileName = "unlockments.json";
     [HideInInspector] public List<CharacterData> unlockedCharacters;
     [HideInInspector] public List<WeaponData> unlockedWeapons;
+    [SerializeField] AudioMixer _audioMixer;
 
     public static GameManager gm
     {
@@ -48,5 +48,9 @@ public class GameManager : MonoBehaviour
     public void StartRun()
     {
         unlockedWeapons = unlockmentsHolder.UnlockedWeapons();
+    }
+    public void SetVolume(string volumeGroup, float volume)
+    {
+        _audioMixer.SetFloat(volumeGroup, Mathf.Log10(20) * volume);
     }
 }

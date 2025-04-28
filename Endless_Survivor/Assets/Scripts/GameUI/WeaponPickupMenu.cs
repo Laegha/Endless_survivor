@@ -28,7 +28,7 @@ public class WeaponPickupMenu : MonoBehaviour
     }
     public void TakeWeapon()
     {
-        GameManager.gm.player.GetComponent<PlayerControl>().WeaponManager.PickupWeapon(_currDisplayingWeapon, _currWeaponStats);
+        PlayerControl.pc.WeaponManager.PickupWeapon(_currDisplayingWeapon, _currWeaponStats);
         _menuGfx.SetActive(false);
     }
 

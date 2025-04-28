@@ -3,36 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Roulette
+public class Roulette<T>
 {
-    List<RouletteElement> _roulette = new List<RouletteElement>();
+    List<RouletteElement<T>> _roulette = new List<RouletteElement<T>>();
     int _rouletteTotalWeight = 0;
-    public Roulette(Dictionary<dynamic, int> elements)
+
+    public Roulette(Dictionary<T, int> elements)
     {
         int lastElementEnd = 0;
-        foreach(var element in elements)
+        foreach (var element in elements)
         {
-            _roulette.Add(new RouletteElement(element.Key, lastElementEnd, lastElementEnd + element.Value));
+            _roulette.Add(new RouletteElement<T>(element.Key, lastElementEnd, lastElementEnd + element.Value));
             _rouletteTotalWeight += element.Value;
             lastElementEnd += element.Value;
         }
 
     }
 
-    public dynamic Spin()
+    public T Spin()
     {
         int rouletteResult = Random.Range(0, _rouletteTotalWeight);
         return _roulette.Where(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult).ToList()[0].key;
     }
 }
 
-public class RouletteElement
+public class RouletteElement<T>
 {
-    public dynamic key;
+    public T key;
     public int minValue;
     public int maxValue;
 
-    public RouletteElement(dynamic key, int minValue, int maxValue)
+    public RouletteElement(T key, int minValue, int maxValue)
     {
         this.key = key;
         this.minValue = minValue;

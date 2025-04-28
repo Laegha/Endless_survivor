@@ -15,7 +15,14 @@ public class CustomAnimator : MonoBehaviour
     public List<CustomAnimation> Animations{ get {  return _animations; } set { _animations = value; } }
     public float AnimTimer { get { return _animTimer; } set { _animTimer = value; } }
 
-    public virtual void AddAnimations(List<CustomAnimation> newAnimations) => newAnimations.ForEach(anim => _animations.Add(anim));
+    public virtual void AddAnimations(List<CustomAnimation> newAnimations) 
+    {
+        foreach (var anim in newAnimations)
+        {
+            _animations.Add(new CustomAnimation(anim));
+        }
+
+    }
 
     void Update()
     {
@@ -38,6 +45,8 @@ public class CustomAnimator : MonoBehaviour
             CurrAnim.OnAnimationEnd?.Invoke(this);
         }
         _spriteRenderer.sprite = _currAnim.Frames[_currFrameIndex];
+        _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex)?.frameAction?.Invoke();//this doesn't work if the event is set for the frame 0, since the event is called after the frame changed
+        //Debug.Log("EVENTS FOR FRAME " + _currFrameIndex + " IN ANIMATION " + _currAnim.AnimationName + _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex));
     }
 
     public virtual void ChangeAnim(string animName)

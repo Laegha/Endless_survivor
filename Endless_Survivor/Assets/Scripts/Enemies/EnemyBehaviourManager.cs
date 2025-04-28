@@ -9,6 +9,13 @@ public class EnemyBehaviourManager : MonoBehaviour
     List<EnemyBehaviour> _behaviours = new List<EnemyBehaviour>();
     List<EnemyBehaviour> _activeBehaviours = new List<EnemyBehaviour>();
 
+    public List<EnemyBehaviour> Behaviours { get { return _behaviours; } }
+
+    private void Start()
+    {
+        _behaviours.ForEach(behaviour => behaviour.Start());
+    }
+
     void Update()
     {
         _behaviours.ForEach(behaviour => behaviour.PassiveUpdate());
@@ -34,7 +41,7 @@ public class EnemyBehaviourManager : MonoBehaviour
         foreach(var behaviour in _activeBehaviours)
         {
             bool isOverridenByActiveBehaviour = behaviour.OverrideBehaviours.Contains(newBehaviour);
-            print("Behaviour " + behaviour + "Overrides " + newBehaviour + ": " + isOverridenByActiveBehaviour);
+            //print("Behaviour " + behaviour + "Overrides " + newBehaviour + ": " + isOverridenByActiveBehaviour);
             if (isOverridenByActiveBehaviour)
                 return false;
         }

@@ -49,11 +49,11 @@ public class WaveManager : MonoBehaviour
         else
             newWave = _waves[_currWave];
 
-        Dictionary<dynamic, int> possibleEnemies = new Dictionary<dynamic, int>();
+        Dictionary<WaveEnemy, int> possibleEnemies = new Dictionary<WaveEnemy, int>();
         foreach(var waveEnemy in newWave.WaveEnemies)
             possibleEnemies.Add(waveEnemy, waveEnemy.EnemyPoolWeight);
 
-        Roulette enemySelectRoulette = new Roulette(possibleEnemies);
+        Roulette<WaveEnemy> enemySelectRoulette = new Roulette<WaveEnemy>(possibleEnemies);
 
         float enemyCount = Random.Range(newWave.MinEnemyCount, newWave.MaxEnemyCount);
         Dictionary<WaveEnemy, int> spawnedEnemies = new Dictionary<WaveEnemy, int>();

@@ -402,7 +402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cyberpunk invasion
+  m_text: Endless invasion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae53c561c6314144e854fe6db6a2ad2b, type: 2}
   m_sharedMaterial: {fileID: -2118320323272989249, guid: ae53c561c6314144e854fe6db6a2ad2b, type: 2}
@@ -648,6 +648,7 @@ MonoBehaviour:
   unlockmentsHolder: {fileID: 11400000, guid: 5b4ac3540502a1247a7d4d8a2942bca5, type: 2}
   unlockedCharacters: []
   unlockedWeapons: []
+  _audioMixer: {fileID: 24100000, guid: cd2588ac29cb5f842aa936deefcef760, type: 2}
 --- !u!4 &498429080
 Transform:
   m_ObjectHideFlags: 0

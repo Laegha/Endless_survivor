@@ -37,7 +37,7 @@ public class RayWeapon : ShootingWeapon
         _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, hit.point);
         EnemyHP enemyHP = hit.collider.GetComponent<EnemyHP>();
         if (enemyHP != null)
-            enemyHP.RecieveDamage(WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage);
+            enemyHP.TakeDamage(WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage);
     }
 
     public void UpdateLinePosition()

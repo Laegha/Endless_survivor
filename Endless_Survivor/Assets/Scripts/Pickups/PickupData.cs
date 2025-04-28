@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupData : ScriptableObject
 {
-    public virtual void TransferData(GameObject pickupGameObject)
+    public virtual void TransferData(PickupControl pickupControl)
     {
 
     }

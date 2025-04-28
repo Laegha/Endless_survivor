@@ -2,48 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHPManager : MonoBehaviour
+public class PlayerHPManager : HP
 {
-    int _remainingHP;
     bool _isInmune = false;
-    float _inmunityTimer = .5f;
-    PlayerControl _playerControl;
-    public PlayerControl PlayerControl {  get { return _playerControl; } }
+    float _inmunityTime = .5f;
+    float _inmunityTimer = 0;
+    [SerializeField] PlayerControl _playerControl;
+    [SerializeField]float _inmunityFlashingTime = .1f;
+    [SerializeField] Material _defaultMaterial;
+    [SerializeField] Material _inmunityFlashingMaterial;
+    SpriteMaterialFlashing _inmutiyFlashing;
+    SFXInfo _onHitSound;
+    SFXInfo _onDeathSound;
+    public SFXInfo OnHitSound { set { _onHitSound = value; } }
+    public SFXInfo OnDeathSound { set { _onDeathSound = value; } }
 
-    public void Initialize(PlayerControl playerControl)
+    public void Start()
     {
-        _playerControl = playerControl;
-        _remainingHP = _playerControl.PlayerStats.MaxHealth;
+        InitializeHP(_playerControl.PlayerStats.MaxHealth);
+        GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
+        _inmutiyFlashing = new SpriteMaterialFlashing(_playerControl.Renderers, _inmunityFlashingTime, _defaultMaterial, _inmunityFlashingMaterial);
     }
 
     private void Update()
     {
         if (!_isInmune)
             return;
-
         _inmunityTimer -= Time.deltaTime;
+        _inmutiyFlashing.Update();
         if (_inmunityTimer <= 0)
+        {
+            _inmutiyFlashing.End();
             _isInmune = false;
-
+        }
+        
     }
 
-    public void TakeDamage(int incomingDamage)
+    public override void TakeDamage(int incomingDamage)
     {
         if (_isInmune) 
             return;
-
-        _remainingHP -= incomingDamage;
+        SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
+        _inmutiyFlashing.Start();
         _isInmune = true;
-        if (_remainingHP <= 0)
-        {
-            Die();
-            return;
-        }
+        _inmunityTimer = _inmunityTime;
+        base.TakeDamage(incomingDamage);
+        GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
 
     }
 
-    void Die()
+    public override void Die()
     {
-
+        SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
     }
 }

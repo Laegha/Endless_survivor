@@ -18,10 +18,17 @@ MonoBehaviour:
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 768305086805573633
-  - rid: 768305086805573634
-  _dropablePickups:
-  - {fileID: 11400000, guid: daaa5e6ac5b874941a49cd7d6f582234, type: 2}
-  - {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
   references:
     version: 2
     RefIds:
@@ -30,21 +37,3 @@ MonoBehaviour:
       data:
         _overrideBehaviours: []
         _damage: 0
-    - rid: 768305086805573634
-      type: {class: ChasePlayer, ns: , asm: Assembly-CSharp}
-      data:
-        _overrideBehaviours: []
-        _enemySpeed: 1
-        _chasingAnimation:
-          _animationName: Moving
-          _frames:
-          - {fileID: -8671499197328673380, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: 5967923524934253056, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: 2912499765493947702, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: -8857330338355485086, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: 6493913054963182071, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: 3460380394918599231, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: 3570692958104476324, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          - {fileID: 8001596610593517921, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
-          _framesPerSecond: 10
-          _priority: 0

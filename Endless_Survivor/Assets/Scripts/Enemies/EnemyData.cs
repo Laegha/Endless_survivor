@@ -10,21 +10,25 @@ public class EnemyData : ScriptableObject
     [SerializeField] Vector2 _colliderOffset;
     [SerializeField] CapsuleDirection2D _colliderDirection;
     [SerializeReference] List<EnemyBehaviour> _enemyBehaviours;
-    [SerializeField] List<PickupData> _dropablePickups;
-    Dictionary<PickupData, int> _dropablePickupsChances = new Dictionary<PickupData, int>();
+    [SerializeField] List<PickupDataChance> _dropablePickupChances;
+
+    [SerializeField] SFXInfo _onHitSFX;
+    [SerializeField] SFXInfo _onDeathSFX;
 
     public int InitialHP { get { return _initialHP; } }
     public Vector2 ColliderSize {  get { return _colliderSize; } }
-    public List<EnemyBehaviour> EnemyBehaviours { get { return _enemyBehaviours; } }
-    public List<PickupData> DropablePickups {  get { return _dropablePickups; } }
-    public Dictionary<PickupData, int> DropablePickupsChances {  get { return _dropablePickupsChances; } }
+    public List<EnemyBehaviour> EnemyBehaviours { get { return _enemyBehaviours; }set { _enemyBehaviours = value; } }
+    public List<PickupDataChance> DropablePickupChances { get { return _dropablePickupChances; } }
 
     public void TransferEnemyData(GameObject enemy)
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         EnemyHP enemyHP = enemyControl.EnemyHP;
-        enemyHP.LeftHP = _initialHP + ScalingFunctions.EnemyHPIncrease(WaveManager.wm.CurrWave);
-        enemyHP.DropablePickupChances = new Dictionary<PickupData, int>(_dropablePickupsChances);
+        enemyHP.InitializeHP(InitialHP);
+        enemyHP.SetSounds(_onHitSFX, _onDeathSFX);
+        //enemyHP.LeftHP = _initialHP + ScalingFunctions.EnemyHPIncrease(WaveManager.wm.CurrWave);
+        enemyHP.DropablePickupChances = new List<PickupDataChance>(_dropablePickupChances);
+        Debug.Log("Dropable pickups_ " + _dropablePickupChances.Count);
 
         enemyControl.CapsuleCollider.direction = _colliderDirection;
         enemyControl.CapsuleCollider.size = _colliderSize;

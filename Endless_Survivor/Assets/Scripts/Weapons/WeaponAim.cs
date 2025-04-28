@@ -10,7 +10,7 @@ public class WeaponAim : MonoBehaviour
     private void Start()
     {
         _weapon = GetComponent<Weapon>();
-        _playerStats = GameManager.gm.player.GetComponent<PlayerControl>().PlayerStats;
+        _playerStats = PlayerControl.pc.PlayerStats;
         _spriteRenderer = GetComponent<WeaponControl>().Gfx;
     }
 
@@ -32,7 +32,7 @@ public class WeaponAim : MonoBehaviour
         else
             _spriteRenderer.flipY = false;
 
-        Vector2 distance = closestEnemy.position - GameManager.gm.player.position;
+        Vector2 distance = closestEnemy.position - PlayerControl.pc.transform.position;
         if (distance.magnitude <= _playerStats.Range + _weapon.WeaponStats.Range)
             _weapon.TryAttack();
     }
@@ -42,8 +42,8 @@ class EnemyDistComparer : IComparer<GameObject>
 {
     public int Compare(GameObject enemyA, GameObject enemyB)
     {
-        float distA = Mathf.Abs(GameManager.gm.player.position.magnitude - enemyA.transform.position.magnitude);
-        float distB = Mathf.Abs(GameManager.gm.player.position.magnitude - enemyB.transform.position.magnitude);
+        float distA = Mathf.Abs(PlayerControl.pc.transform.position.magnitude - enemyA.transform.position.magnitude);
+        float distB = Mathf.Abs(PlayerControl.pc.transform.position.magnitude - enemyB.transform.position.magnitude);
 
         return distA.CompareTo(distB);
     }

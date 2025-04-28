@@ -6,9 +6,9 @@ using UnityEngine;
 public class RandomPickupData : PickupData
 {
     [SerializeField] PickupData[] _possiblePickupDatas;
-    public override void TransferData(GameObject pickupGameObject)
+    public override void TransferData(PickupControl pickupControl)
     {
-        base.TransferData(pickupGameObject);
-        _possiblePickupDatas[Random.Range(0, _possiblePickupDatas.Length - 1)].TransferData(pickupGameObject);
+        base.TransferData(pickupControl);
+        _possiblePickupDatas[Random.Range(0, _possiblePickupDatas.Length - 1)].TransferData(pickupControl);
     }
 }

@@ -8,8 +8,9 @@ public class ChangeOnEndAnimation : CustomAnimation
 {
     [SerializeField] string _exitAnimationName;
 
-    public ChangeOnEndAnimation()
+    public ChangeOnEndAnimation(ChangeOnEndAnimation original = null, string exitAnimationName = "") : base(original)
     {
+        _exitAnimationName = original._exitAnimationName;
         OnAnimationEnd += ChangeAnimation;
     }
 

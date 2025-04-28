@@ -14,7 +14,9 @@ public class EnemyDataEditor : Editor
     SerializedProperty _colliderOffset;
     SerializedProperty _colliderDirection;
     SerializedProperty _behaviours;
-    SerializedProperty _dropablePickups;
+    SerializedProperty _dropablePickupChances;
+    SerializedProperty _onHitSFX;
+    SerializedProperty _onDeathSFX;
     private void OnEnable()
     {
         _initialHP = serializedObject.FindProperty("_initialHP");
@@ -22,17 +24,26 @@ public class EnemyDataEditor : Editor
         _colliderOffset = serializedObject.FindProperty("_colliderOffset");
         _colliderDirection = serializedObject.FindProperty("_colliderDirection");
         _behaviours = serializedObject.FindProperty("_enemyBehaviours");
-        _dropablePickups = serializedObject.FindProperty("_dropablePickups");
+        _dropablePickupChances = serializedObject.FindProperty("_dropablePickupChances");
+        _onHitSFX = serializedObject.FindProperty("_onHitSFX");
+        _onDeathSFX = serializedObject.FindProperty("_onDeathSFX");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(EnemyBehaviour));
         EnemyData enemyData = (EnemyData)target;
         behaviourTypes.ForEach(type => _behaviourTypes.Add(type, enemyData.EnemyBehaviours.Exists(behaviour => behaviour.GetType() == type)));
+        if (enemyData.EnemyBehaviours == null)
+            enemyData.EnemyBehaviours = new List<EnemyBehaviour>();
         enemyData.EnemyBehaviours.ForEach(behaviour => behaviour.EnemyData = enemyData);
     }
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_initialHP);
-        EditorGUILayout.PropertyField(_behaviours);
+        EditorGUILayout.PropertyField(_colliderSize);
+        EditorGUILayout.PropertyField(_colliderOffset);
+        EditorGUILayout.PropertyField(_colliderDirection);
+        EditorGUILayout.PropertyField(_onHitSFX);
+        EditorGUILayout.PropertyField(_onDeathSFX);
 
+        EditorGUILayout.PropertyField(_behaviours);
         serializedObject.ApplyModifiedProperties();
         serializedObject.Update();
 
@@ -59,24 +70,21 @@ public class EnemyDataEditor : Editor
             menu.ShowAsContext();
         }
 
-        EditorGUILayout.PropertyField(_colliderSize);
-        EditorGUILayout.PropertyField(_colliderOffset);
-        EditorGUILayout.PropertyField(_colliderDirection);
 
-        SyncPickupDatas(enemyData);
-        EditorGUILayout.PropertyField(_dropablePickups);
-        foreach(var pickupData in enemyData.DropablePickups)
+        EditorGUILayout.PropertyField(_dropablePickupChances);
+        foreach (var pickupData in enemyData.DropablePickupChances)
         {
-            if(pickupData == null) continue;
-            GUILayout.Label(pickupData.name, EditorStyles.boldLabel);
+            if (pickupData.PickupData == null) 
+                continue;
+            GUILayout.Label(pickupData.PickupData.name, EditorStyles.boldLabel);
             int maxPercentage = 100;
-            foreach(var pickupDataChance in enemyData.DropablePickupsChances)
+            foreach (var pickupDataChance in enemyData.DropablePickupChances)
             {
-                if(pickupDataChance.Key == pickupData)
+                if (pickupDataChance == pickupData)
                     continue;
-                maxPercentage -= pickupDataChance.Value;
+                maxPercentage -= pickupDataChance.Chance;
             }
-            enemyData.DropablePickupsChances[pickupData] = (int)Mathf.Clamp(EditorGUILayout.Slider(enemyData.DropablePickupsChances[pickupData], 0, 100), 0, maxPercentage);
+            pickupData.Chance = (int)Mathf.Clamp(EditorGUILayout.Slider(pickupData.Chance, 0, 100), 0, maxPercentage);
         }
 
         serializedObject.ApplyModifiedProperties();
@@ -96,29 +104,6 @@ public class EnemyDataEditor : Editor
         {
             if(behaviour == null) continue;
             _behaviourTypes[behaviour.GetType()] = true;
-        }
-    }
-    void SyncPickupDatas(EnemyData enemyData)
-    {
-        //add missing items to dict
-        foreach(var pickupData in enemyData.DropablePickups)
-        {
-            if (enemyData.DropablePickupsChances.ContainsKey(pickupData))
-                continue;
-            enemyData.DropablePickupsChances.Add(pickupData, 0);
-        }
-        //get all the leftover items from dict
-        List<PickupData> removablePickupDatas = new List<PickupData>();
-        foreach(var pickupDataChance in enemyData.DropablePickupsChances)
-        {
-            if(enemyData.DropablePickups.Contains(pickupDataChance.Key)) 
-                continue;
-            removablePickupDatas.Add(pickupDataChance.Key);
-        }
-        //remove the leftover items from dict
-        foreach(var removedPickupData in removablePickupDatas)
-        {
-            enemyData.DropablePickupsChances.Remove(removedPickupData);
         }
     }
 }

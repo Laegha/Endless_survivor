@@ -22,6 +22,10 @@ public class CharacterData : ScriptableObject
     [SerializeField] CoordinateAnimation _backMoving;
     [SerializeField] CoordinateAnimation _leftMoving;
 
+    [InspectorLabel("Sounds")]
+    [SerializeField] SFXInfo _onHitSound;
+    [SerializeField] SFXInfo _onDeathSound;
+
     public Sprite MenuImage {  get { return _menuImage; } }
     public Sprite[] CharacterHands { get { return _characterHands; } }
     public WeaponData[] InitialWeapons { get { return _initialWeapons; } }
@@ -36,5 +40,8 @@ public class CharacterData : ScriptableObject
                 _backMoving,
                 _leftMoving,
             };
-    } } 
+    }
+    }
+    public SFXInfo OnHitSound { get { return _onHitSound; } }
+    public SFXInfo OnDeathSound { get { return _onDeathSound; } }
 }
