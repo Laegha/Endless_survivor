@@ -15,6 +15,7 @@ public class PlayerSpawner : MonoBehaviour
         playerControl.PlayerStats = new PlayerStats(selectedChar.PlayerStats);
         playerControl.PlayerHPManager.OnHitSound= selectedChar.OnHitSound;
         playerControl.PlayerHPManager.OnDeathSound = selectedChar.OnDeathSound;
+        playerWeaponManager.MaxWeapons = selectedChar.InitialMaxWeapons;
         //generate initial weapons and passives
         foreach(WeaponData weaponData in selectedChar.InitialWeapons)
         {

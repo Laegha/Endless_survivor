@@ -5,46 +5,87 @@ using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
-    [SerializeField] Transform[] _gunPositions;
     [SerializeField] Transform _gunsHolder;
     [SerializeField] PlayerControl _playerControl;
-    Dictionary<Weapon, Transform> _heldWeapons = new Dictionary<Weapon, Transform>();
+    [SerializeField] float _weaponDistFromPlayer;
+    //Dictionary<Weapon, Transform> _heldWeapons = new Dictionary<Weapon, Transform>();
+    List<WeaponHolder> _heldWeapons = new List<WeaponHolder>();
+    int _maxWeapons;
+    int _heldWeaponsCount;
+
+    public int MaxWeapons { set { _maxWeapons = value; } }
 
     public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        if(_heldWeapons.Count == _gunPositions.Length)
+        if(_heldWeaponsCount == _maxWeapons)
         {
-            GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(_heldWeapons.Keys.ToList(), SwitchWeapon);
+            List<Weapon> weapons = new List<Weapon>();
+            _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));
+            GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(weapons, SwitchWeapon);
             return;
         }
         GenerateWeapon(weaponData, weaponStats);
     }
 
-    void GenerateWeapon(WeaponData weaponData, WeaponStats weaponStats, Transform gunPosition = null)
+    void GenerateWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        if (gunPosition == null)
-            gunPosition = _gunPositions[_heldWeapons.Count];
-            
-        Vector2 handPosition = gunPosition.position;
-
-        Transform newWeapon = Instantiate(GameManager.gm.prefabHolder.Prefabs["Weapon"], handPosition, Quaternion.identity).transform;
-        newWeapon.transform.SetParent(_gunsHolder);
-        
-        GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], handPosition, Quaternion.identity);
-        hand.GetComponent<SpriteRenderer>().sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
-        hand.transform.SetParent(newWeapon.transform);
-
+        //instantiate weapon
+        Transform newWeapon = Instantiate(GameManager.gm.prefabHolder.Prefabs["Weapon"]).transform;
         weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData, weaponStats);
         Weapon weapon = newWeapon.GetComponent<Weapon>();
-        _heldWeapons.Add(weapon, gunPosition);
         weapon.PlayerControl = _playerControl;
+
+        //check for empty holders
+        WeaponHolder emptyHolder = _heldWeapons.Where(x => x.holdingWeapon == null).FirstOrDefault();
+        if(emptyHolder != null)
+        {
+            newWeapon.transform.SetParent(emptyHolder.handTransform);
+            newWeapon.transform.localPosition = Vector2.zero;
+            return;
+        }
+        emptyHolder = new WeaponHolder();
+        _heldWeapons.Add(emptyHolder);
+
+        GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], _gunsHolder);
+        hand.GetComponent<SpriteRenderer>().sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
+        newWeapon.transform.SetParent(hand.transform);
+        newWeapon.transform.localPosition = Vector2.zero;
+        emptyHolder.handTransform = hand.transform;
+        emptyHolder.positionStays = false;
+        emptyHolder.holdingWeapon = weapon;
+        UpdateWeaponPositions();
+    }
+    void UpdateWeaponPositions()
+    {
+        List<WeaponHolder> updatingHolders = _heldWeapons.Where(x => !x.positionStays).ToList();
+        int nonStaticHoldersCount = updatingHolders.Count;
+        //float angleStep = 15 /** Mathf.Floor((nonStaticHoldersCount + 1) / 2) -15*/;
+        float significantWeapons = Mathf.Floor((nonStaticHoldersCount - 1) / 2);
+        float angleStep = nonStaticHoldersCount <= 2 ? 0 : 90 / significantWeapons;
+        float startAngle = 45;
+        Debug.Log("ANGLE STEP: " + angleStep);
+        Debug.Log("SIGNIFICANT WEAPONS: " + significantWeapons);
+        Debug.Log("START ANGLE: " + startAngle);
+
+        int x = 0;
+        
+        foreach(var weaponHolder in updatingHolders)
+        {
+            float cosX = Mathf.Cos(Mathf.PI * x);
+            float angleStart = 90 * cosX + startAngle * cosX;
+            float angleMultiplier = cosX * Mathf.Floor(x / 2);
+            float angle = angleStart - angleStep * angleMultiplier;
+            //print("ANGLE: " + angle);
+            weaponHolder.handTransform.GetComponent<SpriteRenderer>().sortingOrder = (int)angle;
+            Vector2 newHolderPosition = Utility.GetPointInCircle(_weaponDistFromPlayer, angle);
+            weaponHolder.handTransform.localPosition = newHolderPosition;
+            x++;
+        }
     }
 
     void SwitchWeapon(Weapon removedWeapon)
     {
-        Transform gunPosition = _heldWeapons[removedWeapon];
-        _heldWeapons.Remove(removedWeapon);
         Destroy(removedWeapon.gameObject);
-        GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats, gunPosition);
+        GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
 }
