@@ -21,7 +21,7 @@ public class PassiveItemDataEditor : Editor
         PassiveItemData passiveItemData = (PassiveItemData)target;
         SerializedProperty itemBehaviours = serializedObject.FindProperty("_itemBehaviours");
 
-        EditorGUILayout.LabelField("Object Behaviours", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("Item Behaviours", EditorStyles.boldLabel);
 
         //EditorGUILayout.PropertyField(_objectBehaviours);
         //for (int i = 0; i < _objectBehaviours.arraySize; i++)

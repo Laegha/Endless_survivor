@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ProyectileWeaponDataTransferInterface : ShootingWeaponDataTransferInterface
 {
+    public static bool isUsable => true;
     [SerializeField] ProyectileData _defaultBulletData;
     [SerializeField] float _proyectileSpeed;
     [SerializeField] float _proyectileSpread;

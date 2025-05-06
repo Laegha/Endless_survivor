@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -15,6 +16,8 @@ public class WeaponDataEditor : Editor
     SerializedProperty _idleAnimation;
     SerializedProperty _attackAnimation;
     WeaponDataTransferInterface tempInstance;
+
+    List<Type> _interfaceTypes = new List<Type>();
     private void OnEnable()
     {
         _weaponType = serializedObject.FindProperty("_weaponType");
@@ -27,6 +30,7 @@ public class WeaponDataEditor : Editor
         _attackAnimation = serializedObject.FindProperty("_attackAnimation");
         WeaponData weaponData = (WeaponData)target;
         tempInstance = weaponData.WeaponDataTransferInterface;
+        _interfaceTypes = Utility.GetSubclassesOf(typeof(WeaponDataTransferInterface));
     }
 
     public override void OnInspectorGUI()
@@ -34,28 +38,26 @@ public class WeaponDataEditor : Editor
         WeaponData weaponData = (WeaponData)target;
         serializedObject.Update();
 
-        EditorGUILayout.PropertyField(_weaponType);
+        EditorGUILayout.LabelField(weaponData.WeaponDataTransferInterface != null ? weaponData.WeaponDataTransferInterface.ToString() : "Unassigned weapon type", EditorStyles.boldLabel);
 
-        if(_weaponType.enumValueIndex != (int)weaponData.WeaponType)
-        { 
-            serializedObject.ApplyModifiedProperties();
-            WeaponDataTransferInterface newInterface = null;
-            if(weaponData.WeaponType == WeaponData.IWeaponType.Ray)
+        if(GUILayout.Button("Change weapon type"))
+        {
+            GenericMenu menu = new GenericMenu();
+            foreach (var type in _interfaceTypes)
             {
-                newInterface = new RayWeaponDataTransferInterface();
-                
+                var isTypeUsable = type.GetProperty("isUsable", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                if (isTypeUsable == null || !(bool)isTypeUsable.GetValue(null))
+                    continue;
+
+                menu.AddItem(new GUIContent(type.Name), false, () =>
+                {
+                    if (type == weaponData.WeaponDataTransferInterface.GetType())
+                        return;
+                    weaponData.WeaponDataTransferInterface = Activator.CreateInstance(type) as WeaponDataTransferInterface;
+                    EditorUtility.SetDirty(weaponData);
+                });
             }
-            else if(weaponData.WeaponType == WeaponData.IWeaponType.Proyectile)
-            {
-                newInterface = new ProyectileWeaponDataTransferInterface();
-            }
-            else
-            {
-                newInterface = new WeaponDataTransferInterface();
-            }
-            //add proyectile and custom
-            weaponData.WeaponDataTransferInterface = newInterface;
-            serializedObject.ApplyModifiedProperties();
+            menu.ShowAsContext();
         }
         EditorGUILayout.PropertyField(_weaponTransfer, true);
 

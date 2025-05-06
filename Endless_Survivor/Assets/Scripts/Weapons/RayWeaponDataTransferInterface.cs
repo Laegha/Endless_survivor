@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterface
 {
+    public static bool isUsable => true;
     [SerializeField] RayData _rayData;
     public override void TransferData(GameObject weaponObject, WeaponData weaponData, WeaponStats weaponStats)
     {
