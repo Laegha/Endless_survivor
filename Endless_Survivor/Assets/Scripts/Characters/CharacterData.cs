@@ -8,6 +8,7 @@ public class CharacterData : ScriptableObject
 {
     [SerializeField] Sprite _menuImage;
     [SerializeField] Sprite[] _characterHands;
+
     [InspectorLabel("Initial weapons and passive items")]
     [SerializeField] WeaponData[] _initialWeapons;
     [SerializeField] int _initialMaxWeapons = 2;
@@ -15,6 +16,11 @@ public class CharacterData : ScriptableObject
 
     [InspectorLabel("Character stats")]
     [SerializeField] PlayerStats _playerStats;
+
+    [InspectorLabel("Collider")]
+    [SerializeField] Vector2 _colliderSize = Vector2.one * .5f;
+    [SerializeField] Vector2 _colliderOffset = Vector2.down * 0.41f;
+    [SerializeField] CapsuleDirection2D _colliderDirection = CapsuleDirection2D.Vertical;
 
     [InspectorLabel("Animations")]
     [SerializeField] CoordinateAnimation _idle;
@@ -33,6 +39,9 @@ public class CharacterData : ScriptableObject
     public int InitialMaxWeapons { get { return _initialMaxWeapons;} }
     public GameObject[] InitialPassives { get { return _initialPassives; } }
     public PlayerStats PlayerStats{ get { return _playerStats; } }
+    public Vector2 ColliderSize {  get { return _colliderSize; } }
+    public Vector2 ColliderOffset {  get { return _colliderOffset; } }
+    public CapsuleDirection2D ColliderDirection {  get { return _colliderDirection; } }
     public List<CustomAnimation> Animations { get {
             return new List<CustomAnimation>
             {
