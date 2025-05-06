@@ -18,6 +18,8 @@ MonoBehaviour:
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 768305086805573633
+  - rid: 2600434731462950912
+  - rid: 2600434731462950913
   _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
@@ -36,4 +38,29 @@ MonoBehaviour:
       type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours: []
-        _damage: 0
+        _damage: 2
+    - rid: 2600434731462950912
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _overrideBehaviours: []
+        _enemySpeed: 2
+        _chasingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: -8671499197328673380, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 5967923524934253056, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 2912499765493947702, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: -8857330338355485086, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 6493913054963182071, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 3460380394918599231, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 3570692958104476324, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          - {fileID: 8001596610593517921, guid: 913f54148b0eed540b3fecb45720e5c0, type: 3}
+          _framesPerSecond: 16
+          _priority: 0
+    - rid: 2600434731462950913
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.4701658, y: 0.4701658}
+        _colliderOffset: {x: 0, y: 0.25}
+        _colliderDirection: 0
