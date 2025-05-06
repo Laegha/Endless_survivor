@@ -70,24 +70,45 @@ public class EnemyDataEditor : Editor
             menu.ShowAsContext();
         }
 
-
-        EditorGUILayout.PropertyField(_dropablePickupChances);
-        foreach (var pickupData in enemyData.DropablePickupChances)
-        {
-            if (pickupData.PickupData == null) 
-                continue;
-            GUILayout.Label(pickupData.PickupData.name, EditorStyles.boldLabel);
-            int maxPercentage = 100;
-            foreach (var pickupDataChance in enemyData.DropablePickupChances)
-            {
-                if (pickupDataChance == pickupData)
-                    continue;
-                maxPercentage -= pickupDataChance.Chance;
-            }
-            pickupData.Chance = (int)Mathf.Clamp(EditorGUILayout.Slider(pickupData.Chance, 0, 100), 0, maxPercentage);
-        }
-
         serializedObject.ApplyModifiedProperties();
+
+        //EditorGUILayout.PropertyField(_dropablePickupChances);
+        PickupDataChance removedDataChance = null;
+        for (int i = 0; i < enemyData.DropablePickupChances.Count; i++)
+        {
+            var pickupChance = enemyData.DropablePickupChances[i];
+
+            string pickupLabel = pickupChance.PickupData == null ? "Undefined pickup" : pickupChance.PickupData.name;
+            GUILayout.Label(pickupLabel, EditorStyles.boldLabel);
+
+            EditorGUI.indentLevel++;
+            SerializedProperty pickupProperty = _dropablePickupChances.GetArrayElementAtIndex(i);
+            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_pickupData"));
+            SerializedProperty chanceProperty = pickupProperty.FindPropertyRelative("_chance");
+            EditorGUILayout.BeginHorizontal();
+            int maxPercentage = 100;
+            foreach (var otherPickupChance in enemyData.DropablePickupChances)
+            {
+                if (otherPickupChance == pickupChance)
+                    continue;
+                maxPercentage -= otherPickupChance.Chance;
+            }
+            chanceProperty.intValue = Mathf.Clamp(EditorGUILayout.IntSlider("Chance", chanceProperty.intValue, 0, 100), 0, maxPercentage);
+            //pickupChance.Chance = (int)Mathf.Clamp(EditorGUILayout.Slider(pickupChance.Chance, 0, 100), 0, maxPercentage);
+            if (GUILayout.Button("Remove dropable pickup"))
+            {
+                removedDataChance = pickupChance;
+            }
+            EditorGUILayout.EndHorizontal();
+            EditorGUI.indentLevel--;
+            serializedObject.ApplyModifiedProperties();
+        }
+        if (removedDataChance != null)
+            enemyData.DropablePickupChances.Remove(removedDataChance);
+        if (GUILayout.Button("Add dropable pickup"))
+        {
+            enemyData.DropablePickupChances.Add(new PickupDataChance());
+        }
 
     }
 
@@ -102,7 +123,7 @@ public class EnemyDataEditor : Editor
         // Marcar los tipos presentes en la lista actual
         foreach (var behaviour in enemyData.EnemyBehaviours)
         {
-            if(behaviour == null) continue;
+            if (behaviour == null) continue;
             _behaviourTypes[behaviour.GetType()] = true;
         }
     }
