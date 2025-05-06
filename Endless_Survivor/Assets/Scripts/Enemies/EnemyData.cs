@@ -9,8 +9,8 @@ public class EnemyData : ScriptableObject
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] Vector2 _colliderOffset;
     [SerializeField] CapsuleDirection2D _colliderDirection;
-    [SerializeReference] List<EnemyBehaviour> _enemyBehaviours;
-    [SerializeField] List<PickupDataChance> _dropablePickupChances;
+    [SerializeReference] List<EnemyBehaviour> _enemyBehaviours = new List<EnemyBehaviour>();
+    [SerializeField] List<PickupDataChance> _dropablePickupChances = new List<PickupDataChance>();
 
     [SerializeField] SFXInfo _onHitSFX;
     [SerializeField] SFXInfo _onDeathSFX;
