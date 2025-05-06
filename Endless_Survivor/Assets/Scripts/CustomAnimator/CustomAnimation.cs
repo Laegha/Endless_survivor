@@ -18,6 +18,7 @@ public class CustomAnimation
 
     public string AnimationName {  get { return _animationName; } }
     public Sprite[] Frames {  get { return _frames; } }
+    public float AnimDuration { get { return _frames.Length / _framesPerSecond; } }
     public float FramesPerSecond {  get { return _framesPerSecond; } }
     public int Priority {  get { return _priority; } }
     public Action<CustomAnimator> OnAnimationEnd { get { return _onAnimationEnd; } set { _onAnimationEnd = value; } }
