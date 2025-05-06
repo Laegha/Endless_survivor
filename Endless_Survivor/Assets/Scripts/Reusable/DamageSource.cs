@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageSource : MonoBehaviour
 {
     int _damage;
-    List<Collider2D> _ignoreColliders;
+    List<Collider2D> _ignoreColliders = new List<Collider2D>();
     public int Damage { get { return _damage; } set {  _damage = value; } }
     public List<Collider2D> IgnoreColliders { get { return _ignoreColliders; } set { _ignoreColliders = value; } }
 
