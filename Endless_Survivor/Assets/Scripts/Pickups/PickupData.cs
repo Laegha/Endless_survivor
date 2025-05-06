@@ -6,6 +6,7 @@ public class PickupData : ScriptableObject
 {
     public virtual void TransferData(PickupControl pickupControl)
     {
-
+        pickupControl.Pickup.PickupData = this;
     }
+    public virtual void PickUp(PickupControl pickupControl) { }
 }

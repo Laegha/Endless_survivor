@@ -8,6 +8,7 @@ public class WeaponPickupData : PickupData
 {
     static readonly int _regularWeaponSpawnChance = 10;
     static readonly int _weaponCopySpawnChance = 20;
+    static readonly string _weaponVariableKey = "pickupWeapon";
 
     public override void TransferData(PickupControl pickupControl)
     {
@@ -18,12 +19,17 @@ public class WeaponPickupData : PickupData
             weaponWeights.Add(weaponData, _regularWeaponSpawnChance);//use _weaponCopySpawnChance if the player holds the same weapon
         }
         Roulette<WeaponData> weaponRoulette = new Roulette<WeaponData>(weaponWeights);
-        WeaponData resultWeaponData = weaponRoulette.Spin() as WeaponData;
+        WeaponData resultWeaponData = weaponRoulette.Spin();
+        pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
         CustomAnimation weponIdle = resultWeaponData.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
 
         PickupControl control = pickupControl.GetComponent<PickupControl>();
         control.Animator.AddAnimations(new List<CustomAnimation> { weponIdle });
         control.Animator.ChangeAnim("Idle");
-        pickupControl.gameObject.AddComponent<WeaponPickup>().WeaponData = resultWeaponData;
+    }
+    public override void PickUp(PickupControl pickupControl)
+    {
+        base.PickUp(pickupControl);
+        GameUIManager.uiManager.WeaponPickupMenu.DisplayMenu(pickupControl.Pickup.GetVariable<WeaponData>(_weaponVariableKey));
     }
 }

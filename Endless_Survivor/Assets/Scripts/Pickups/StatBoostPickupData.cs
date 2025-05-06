@@ -13,7 +13,17 @@ public class StatBoostPickupData : PickupData
         CustomAnimator pickupAnimator = pickupControl.GetComponent<PickupControl>().Animator;
         pickupAnimator.AddAnimations(new List<CustomAnimation> { _pickupAnimation });
         pickupAnimator.ChangeAnim(_pickupAnimation.AnimationName);
-        pickupControl.gameObject.AddComponent<StatBoost>();
 
+    }
+    public override void PickUp(PickupControl pickupControl)
+    {
+        base.PickUp(pickupControl);
+
+        PlayerStats playerStats = PlayerControl.pc.PlayerStats;
+        playerStats.Damage += _statsBoost.Damage;
+        playerStats.AttackSpeed += _statsBoost.AttackSpeed;
+        playerStats.Speed += _statsBoost.Speed;
+        playerStats.Range += _statsBoost.Range;
+        playerStats.MaxHealth += _statsBoost.MaxHealth;
     }
 }
