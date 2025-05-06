@@ -5,12 +5,12 @@ using UnityEngine;
 public class AttackEffectGroup : AttackEffect
 {
     [SerializeField] AttackEffect[] _attackEffects;
-    public override void Start()
+    public override void OnAttack(Weapon attackingWeapon)
     {
-        base.Start();
+        base.OnAttack(attackingWeapon);
         foreach (var effect in _attackEffects)
         {
-            effect.Start();
+            effect.OnAttack(attackingWeapon);
         }
     }
     public override void Update()
