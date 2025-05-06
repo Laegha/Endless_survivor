@@ -6,8 +6,17 @@ public class HP : MonoBehaviour
 {
     int _remainingHP;
     int _maxHP;
+    float _incomingDamageMultiplier = 1;
     public int RemainingHP {  get { return _remainingHP; } set { _remainingHP = value; } }
     public int MaxHP {  get { return _maxHP; } set { _maxHP = value; } }
+    public float IncomingDamageMultiplier 
+    {
+        get { return _incomingDamageMultiplier > 0.1f ? _incomingDamageMultiplier : 0.1f; }
+        set 
+        {
+            _incomingDamageMultiplier = value;
+        } 
+    }
     public void InitializeHP(int maxHP)
     {
         MaxHP = maxHP;
@@ -15,7 +24,7 @@ public class HP : MonoBehaviour
     }
     public virtual void TakeDamage(int incomingDamage) 
     {
-        _remainingHP -= incomingDamage;
+        _remainingHP -= (int)(incomingDamage * _incomingDamageMultiplier);
         if (_remainingHP <= 0)
         {
             Die();
