@@ -63,9 +63,6 @@ public class PlayerWeaponManager : MonoBehaviour
         float significantWeapons = Mathf.Floor((nonStaticHoldersCount - 1) / 2);
         float angleStep = nonStaticHoldersCount <= 2 ? 0 : 90 / significantWeapons;
         float startAngle = 45;
-        Debug.Log("ANGLE STEP: " + angleStep);
-        Debug.Log("SIGNIFICANT WEAPONS: " + significantWeapons);
-        Debug.Log("START ANGLE: " + startAngle);
 
         int x = 0;
         
@@ -75,8 +72,6 @@ public class PlayerWeaponManager : MonoBehaviour
             float angleStart = 90 * cosX + startAngle * cosX;
             float angleMultiplier = cosX * Mathf.Floor(x / 2);
             float angle = angleStart - angleStep * angleMultiplier;
-            //print("ANGLE: " + angle);
-            weaponHolder.handTransform.GetComponent<SpriteRenderer>().sortingOrder = (int)angle;
             Vector2 newHolderPosition = Utility.GetPointInCircle(_weaponDistFromPlayer, angle);
             weaponHolder.handTransform.localPosition = newHolderPosition;
             x++;

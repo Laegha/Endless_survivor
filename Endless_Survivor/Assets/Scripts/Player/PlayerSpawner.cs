@@ -16,6 +16,10 @@ public class PlayerSpawner : MonoBehaviour
         playerControl.PlayerHPManager.OnHitSound= selectedChar.OnHitSound;
         playerControl.PlayerHPManager.OnDeathSound = selectedChar.OnDeathSound;
         playerWeaponManager.MaxWeapons = selectedChar.InitialMaxWeapons;
+        CapsuleCollider2D playerCollider = player.GetComponent<CapsuleCollider2D>();
+        playerCollider.size = selectedChar.ColliderSize;
+        playerCollider.offset = selectedChar.ColliderOffset;
+        playerCollider.direction = selectedChar.ColliderDirection;
         //generate initial weapons and passives
         foreach(WeaponData weaponData in selectedChar.InitialWeapons)
         {
