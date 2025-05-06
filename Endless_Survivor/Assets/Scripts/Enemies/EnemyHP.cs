@@ -29,6 +29,7 @@ public class EnemyHP : HP
     {
         base.TakeDamage(incomingDamage);
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
+        print(RemainingHP);
         _damagedFlashing.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
     }
@@ -45,7 +46,8 @@ public class EnemyHP : HP
     }
     public override void Die()
     {
-        InstantiatePickup();
+        WaveManager.wm.EnemyKilled(gameObject);
+        InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
         Destroy(gameObject);
     }
