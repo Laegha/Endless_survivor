@@ -10,13 +10,14 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] CustomAnimator _customAnimator;
     [SerializeField] EnemyBehaviourManager _behaviourManager;
     [SerializeField] Rigidbody2D _rb;
-    //List<EnemyStatusEffect> _currentEffects = new List<EnemyStatusEffect>();
+    [SerializeField] EnemyStatusEffectManager _statusEffectManager;
 
     public EnemyHP EnemyHP { get { return _enemyHP; } }
     public CapsuleCollider2D CapsuleCollider { get { return _capsuleCollider; } }
     public CustomAnimator Animator { get { return _customAnimator; } }
     public EnemyBehaviourManager BehaviourManager { get { return _behaviourManager; } }
     public Rigidbody2D Rb { get { return _rb; } }
+    public EnemyStatusEffectManager StatusEffectManager {  get { return _statusEffectManager; } }
 
     void Update()
     {

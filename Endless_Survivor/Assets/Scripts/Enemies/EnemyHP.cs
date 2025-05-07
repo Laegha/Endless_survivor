@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class EnemyHP : HP
 {
     List<PickupDataChance> _dropablePickupsChances;
     [SerializeField] float _damagedFlashingTime = 1.5f;
+    [SerializeField] EnemyControl _enemyControl;
     float _damagedFlashingTimer;
     [SerializeField] float _damagedFlashingRate = .1f;
     [SerializeField] Material _defaultMaterial;
@@ -19,6 +21,7 @@ public class EnemyHP : HP
     private void Start()
     {
         _damagedFlashing = new SpriteMaterialFlashing(_renderers, _damagedFlashingRate, _defaultMaterial, _damagedFlashingMaterial);
+
     }
     public void SetSounds(SFXInfo onHitSound, SFXInfo onDeathSound)
     {
@@ -28,6 +31,7 @@ public class EnemyHP : HP
     public override void TakeDamage(int incomingDamage)
     {
         base.TakeDamage(incomingDamage);
+        _enemyControl.StatusEffectManager.OnHit();
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
         print(RemainingHP);
         _damagedFlashing.Start();
@@ -46,6 +50,7 @@ public class EnemyHP : HP
     }
     public override void Die()
     {
+        _enemyControl.StatusEffectManager.OnKilled();
         WaveManager.wm.EnemyKilled(gameObject);
         InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
