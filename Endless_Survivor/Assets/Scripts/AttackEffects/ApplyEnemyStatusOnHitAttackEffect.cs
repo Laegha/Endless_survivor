@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New EnemyStatusAtkEffect", menuName = "ScriptableObjects/AttackEffects/EnemyStatusAtkEffect", order = 0)]
+[CreateAssetMenu(fileName = "New EnemyStatusAtkEffect", menuName = "ScriptableObjects/AttackEffects/EnemyStatusAtkEffect", order = 1)]
 public class ApplyEnemyStatusOnHitAttackEffect : AttackEffect
 {
     [SerializeReference] EnemyStatusEffect _appliedStatusEffect;
