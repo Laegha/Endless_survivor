@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New ChangeAtkGfx", menuName = "ScriptableObjects/AttackEffects/ChangeAtkGfx", order = 3)]
+[CreateAssetMenu(fileName = "New ChangeAtkGfx", menuName = "ScriptableObjects/AttackEffects/ChangeAtkGfx", order = 0)]
 public class ChangeAttackGfxAttackEffect : AttackEffect
 {
     //List<AttackGfxHandler> attackGfxHandlers = new();
