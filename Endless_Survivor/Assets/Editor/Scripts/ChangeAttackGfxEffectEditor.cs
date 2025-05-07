@@ -28,7 +28,9 @@ public class ChangeAttackGfxEffectEditor : Editor
         {
             var elem = _gfxInterfaces.GetArrayElementAtIndex(i);
             EditorGUILayout.LabelField(changeAttackGfxAttackEffect.GfxInterfaces[i].ToString());
+            EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(elem, true);
+            EditorGUI.indentLevel--;
         }
         serializedObject.ApplyModifiedProperties();
     }
