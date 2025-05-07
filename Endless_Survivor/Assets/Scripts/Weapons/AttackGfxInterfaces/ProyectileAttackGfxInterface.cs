@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ProyectileAttackGfxInterface : AttackGfxInterface
 {
-    [SerializeField] Sprite _proyectileSprite;
-    [SerializeField] Material _proyectileMaterial;
+    public Sprite proyectileSprite;
+    public Material proyectileMaterial;
     public override Type weaponType => typeof(ProyectileWeapon);
 }
