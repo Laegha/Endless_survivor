@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] WeaponData firstWeaponData;
-    [SerializeField] WeaponData secondWeaponData;
-    [SerializeField] Transform player;
-    void Start()
+    [SerializeField] SpriteGrid grid;
+    [SerializeField] Sprite[] sprites;
+
+    private void Start()
     {
-        print(Mathf.Log(5, 2));
+        foreach (var sprite in sprites)
+            grid.AddSpriteToGrid(sprite);
     }
 
 }

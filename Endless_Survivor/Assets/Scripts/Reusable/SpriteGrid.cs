@@ -12,18 +12,19 @@ public class SpriteGrid : MonoBehaviour
     [SerializeField] GridOrientation orientation = GridOrientation.Horizontal;
     [SerializeField] float _spacing;
     [SerializeField] SpriteRenderer _spritePrefab;
-    List<GridSpriteInfo> _spritesInGrid;
+    List<GridSpriteInfo> _spritesInGrid = new();
     public GridSpriteInfo AddSpriteToGrid(Sprite sprite)
     {
         GridSpriteInfo addedSpriteInfo = new GridSpriteInfo();
         SpriteRenderer addedSpriteRenderer = Instantiate(_spritePrefab, transform);
-        addedSpriteInfo.transform = addedSpriteRenderer.transform.root;
+        addedSpriteInfo.transform = addedSpriteRenderer.transform;
         addedSpriteInfo.width = sprite.bounds.size.x;
         addedSpriteInfo.height = sprite.bounds.size.y;
+        addedSpriteRenderer.sprite = sprite;
 
+        _spritesInGrid.Add(addedSpriteInfo);
         //reorganize existing objects
         UpdateGridSpritesPositions();
-        _spritesInGrid.Add(addedSpriteInfo);
         return addedSpriteInfo;
     }
     public void RemoveSpriteFromGrid(GridSpriteInfo removedSprite)
@@ -34,15 +35,16 @@ public class SpriteGrid : MonoBehaviour
     }
     void UpdateGridSpritesPositions()
     {
-        float totalGridLength = _spritesInGrid.Count * _spacing;
+        float totalGridLength = (_spritesInGrid.Count-1) * _spacing;
         _spritesInGrid.ForEach(x => totalGridLength += orientation == GridOrientation.Vertical ? x.height : x.width);
         Vector2 placingDir = (orientation == GridOrientation.Vertical ? Vector2.down : Vector2.right);
         Vector2 startPosition = (totalGridLength/2) * -placingDir;
         float offset = 0;
         for(int i = 0; i < _spritesInGrid.Count; i++)
         {
-            _spritesInGrid[i].transform.localPosition = startPosition + offset * placingDir;
-            offset += _spacing + (totalGridLength += orientation == GridOrientation.Vertical ? _spritesInGrid[i].height : _spritesInGrid[i].width) / 2;
+            float size = (orientation == GridOrientation.Vertical ? _spritesInGrid[i].height : _spritesInGrid[i].width);
+            _spritesInGrid[i].transform.localPosition = startPosition + offset * placingDir + size * placingDir;
+            offset += _spacing + size / 2;
         }
     }
 }
