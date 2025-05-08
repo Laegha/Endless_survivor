@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effectChance: 50
   _appliedStatusEffect:
-    rid: -2
+    rid: 7418324839677820938
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 7418324839677820938
+      type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 0}
+        _statusEffectMaterial: {fileID: 0}
+        _damageMultiplierAddition: 0.25
+        _duration: 5

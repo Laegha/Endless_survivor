@@ -21,9 +21,8 @@ MonoBehaviour:
     _attackSpeed: 10
     _damage: 5
   _weaponTags: 010000000300000004000000
-  _weaponType: 0
   _weaponDataTransferInterface:
-    rid: 768304907118444553
+    rid: 7418324839677820933
   _weaponDisplaySprite: {fileID: 21300000, guid: 25fcf6533d4aa9149bc69de9c2ba41dc, type: 3}
   _idleAnimation:
     _animationName: Idle
@@ -44,12 +43,19 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 768304907118444553
+    - rid: 7418324839677820933
       type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: -0.453125, y: 0}
+        _firePointPosition: {x: 0, y: 0}
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
-          _colliderSize: {x: 0.2, y: 0.2}
-        _proyectileSpeed: 5
+          _colliderSize: {x: 1, y: 1}
+          _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _proyectileSpeed: 3
         _proyectileSpread: 15

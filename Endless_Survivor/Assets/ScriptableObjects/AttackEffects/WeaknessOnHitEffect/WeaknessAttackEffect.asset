@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: WeaknessAttackEffect
   m_EditorClassIdentifier: 
   _effectChance: 50
-  _attackEffects: []
+  _attackEffects:
+  - {fileID: 11400000, guid: b6aa6ef28a896b646bf65c5e20b76cf0, type: 2}
+  - {fileID: 11400000, guid: 7e44b11297b1dfb4780371c892dca241, type: 2}
