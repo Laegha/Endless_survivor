@@ -9,25 +9,47 @@ public class SpriteGrid : MonoBehaviour
         Vertical, 
         Horizontal
     }
+    [SerializeField] GridOrientation orientation = GridOrientation.Horizontal;
     [SerializeField] float _spacing;
-    [SerializeField] GameObject _spritePrefab;
+    [SerializeField] SpriteRenderer _spritePrefab;
     List<GridSpriteInfo> _spritesInGrid;
-    public void AddSpriteToGrid(Sprite sprite)
+    public GridSpriteInfo AddSpriteToGrid(Sprite sprite)
     {
         GridSpriteInfo addedSpriteInfo = new GridSpriteInfo();
-        GameObject addedSpriteObject = Instantiate(_spritePrefab, transform);
-        addedSpriteInfo.gameObject = addedSpriteObject;
+        SpriteRenderer addedSpriteRenderer = Instantiate(_spritePrefab, transform);
+        addedSpriteInfo.transform = addedSpriteRenderer.transform.root;
         addedSpriteInfo.width = sprite.bounds.size.x;
         addedSpriteInfo.height = sprite.bounds.size.y;
-        //scale added object to fit target size (indicated by prefab)
+
         //reorganize existing objects
+        UpdateGridSpritesPositions();
         _spritesInGrid.Add(addedSpriteInfo);
+        return addedSpriteInfo;
+    }
+    public void RemoveSpriteFromGrid(GridSpriteInfo removedSprite)
+    {
+        Destroy(removedSprite.transform);
+        _spritesInGrid.Remove(removedSprite);
+        UpdateGridSpritesPositions();
+    }
+    void UpdateGridSpritesPositions()
+    {
+        float totalGridLength = _spritesInGrid.Count * _spacing;
+        _spritesInGrid.ForEach(x => totalGridLength += orientation == GridOrientation.Vertical ? x.height : x.width);
+        Vector2 placingDir = (orientation == GridOrientation.Vertical ? Vector2.down : Vector2.right);
+        Vector2 startPosition = (totalGridLength/2) * -placingDir;
+        float offset = 0;
+        for(int i = 0; i < _spritesInGrid.Count; i++)
+        {
+            _spritesInGrid[i].transform.localPosition = startPosition + offset * placingDir;
+            offset += _spacing + (totalGridLength += orientation == GridOrientation.Vertical ? _spritesInGrid[i].height : _spritesInGrid[i].width) / 2;
+        }
     }
 }
 
-class GridSpriteInfo
+public class GridSpriteInfo
 {
-    public GameObject gameObject;
+    public Transform transform;
     public float width;
     public float height;
 }
