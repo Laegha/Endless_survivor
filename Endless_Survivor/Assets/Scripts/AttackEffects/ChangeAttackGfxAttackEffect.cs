@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New ChangeAtkGfx", menuName = "ScriptableObjects/AttackEffects/ChangeAtkGfx", order = 1)]
 public class ChangeAttackGfxAttackEffect : AttackEffect
 {
+    new public static bool isUsable => true;
     //List<AttackGfxHandler> attackGfxHandlers = new();
     [SerializeReference]List<AttackGfxInterface> _gfxInterfaces = new();
     public List<AttackGfxInterface> GfxInterfaces { get { return _gfxInterfaces; } }
