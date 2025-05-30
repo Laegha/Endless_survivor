@@ -29,7 +29,7 @@ public class SpriteGrid : MonoBehaviour
     }
     public void RemoveSpriteFromGrid(GridSpriteInfo removedSprite)
     {
-        Destroy(removedSprite.transform);
+        Destroy(removedSprite.transform.gameObject);
         _spritesInGrid.Remove(removedSprite);
         UpdateGridSpritesPositions();
     }
