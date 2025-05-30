@@ -5,25 +5,23 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(ApplyEnemyStatusOnHitAttackEffect))]
-public class ApplyEnemyStatusEffectOnHitEffectEditor : Editor
+public class ApplyEnemyStatusEffectOnHitEffectDrawer : PropertyDrawer
 {
-    SerializedProperty _statusEffect;
-    List<Type> _statusEffectTypes = new();
-    private void OnEnable()
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        _statusEffect = serializedObject.FindProperty("_appliedStatusEffect");
-        _statusEffectTypes = Utility.GetSubclassesOf(typeof(EnemyStatusEffect));
-    }
-    public override void OnInspectorGUI()
-    {
-        ApplyEnemyStatusOnHitAttackEffect attackEffect = (ApplyEnemyStatusOnHitAttackEffect)target;
+        base.OnGUI(position, property, label);
+        ApplyEnemyStatusOnHitAttackEffect attackEffect = (ApplyEnemyStatusOnHitAttackEffect)property.managedReferenceValue;
         EditorGUILayout.LabelField(attackEffect.AppliedStatusEffect != null ? attackEffect.AppliedStatusEffect.ToString() : "Unassigned status effect", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(_statusEffect, true);
+        var statusEffect = property.FindPropertyRelative("_appliedStatusEffect");
+        EditorGUILayout.PropertyField(statusEffect, true);
+
+        var statusEffectTypes = Utility.GetSubclassesOf(typeof(EnemyStatusEffect));
+
 
         if (GUILayout.Button("Change status effect"))
         {
             GenericMenu menu = new GenericMenu();
-            foreach (var type in _statusEffectTypes)
+            foreach (var type in statusEffectTypes)
             {
                 var isTypeUsable = type.GetProperty("isUsable", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
                 if (isTypeUsable == null || !(bool)isTypeUsable.GetValue(null))
@@ -34,7 +32,6 @@ public class ApplyEnemyStatusEffectOnHitEffectEditor : Editor
                     if (attackEffect.AppliedStatusEffect != null && type == attackEffect.AppliedStatusEffect.GetType())
                         return;
                     attackEffect.AppliedStatusEffect = Activator.CreateInstance(type) as EnemyStatusEffect;
-                    EditorUtility.SetDirty(attackEffect);
                 });
             }
             menu.ShowAsContext();
