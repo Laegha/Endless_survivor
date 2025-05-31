@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class CreateSomethingOnPositionItemBehaviour : PassiveItemBehaviour
 {
-    public static bool isUsable => false;
+    new public static bool isUsable => false;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         

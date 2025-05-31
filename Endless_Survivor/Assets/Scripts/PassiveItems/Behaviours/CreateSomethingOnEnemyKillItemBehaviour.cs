@@ -15,6 +15,6 @@ public class CreateSomethingOnEnemyKillItemBehaviour : CreateSomethingOnPosition
     }
     void CreateSomethingOnEnemyPosition(EnemyControl killedEnemy)
     {
-
+        CreateSomething(killedEnemy.transform.position);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class PassiveItemBehaviour
 {
+    public static bool isUsable => false;
     public virtual void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
 
