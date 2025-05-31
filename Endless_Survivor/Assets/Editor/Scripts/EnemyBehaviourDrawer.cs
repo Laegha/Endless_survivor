@@ -27,6 +27,7 @@ public class EnemyBehaviourDrawer : PropertyDrawer
 
         return baseHeight;
     }
+    
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -56,6 +57,7 @@ public class EnemyBehaviourDrawer : PropertyDrawer
         List<EnemyBehaviour> totalBehaviours = targetBehaviour.EnemyDataBehaviours();
 
         SyncOverrideBehaviours(targetBehaviour);
+        
         if (EditorGUI.DropdownButton(buttonRect, new GUIContent("Add behaviour to override"), FocusType.Passive))
         {
             GenericMenu menu = new GenericMenu();

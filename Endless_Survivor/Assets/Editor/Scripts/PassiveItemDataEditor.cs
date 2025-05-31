@@ -23,17 +23,13 @@ public class PassiveItemDataEditor : Editor
 
         EditorGUILayout.LabelField("Item Behaviours", EditorStyles.boldLabel);
 
-        //EditorGUILayout.PropertyField(_objectBehaviours);
-        //for (int i = 0; i < _objectBehaviours.arraySize; i++)
-        //{
-        //SerializedProperty behaviourProperty = _objectBehaviours.GetArrayElementAtIndex(i);
-
-        //EditorGUILayout.PropertyField(behaviourProperty);
-        //}
-
-
+        serializedObject.Update();
         for (int i = 0; i < passiveItemData.ItemBehaviours.Count; i++)
         {
+            if (itemBehaviours.arraySize <= i)
+            {
+                break;
+            }
             SerializedProperty behaviourProp = itemBehaviours.GetArrayElementAtIndex(i);
             if (behaviourProp != null)
                 EditorGUILayout.PropertyField(behaviourProp, new GUIContent(passiveItemData.ItemBehaviours[i].GetType().Name), true);
@@ -76,6 +72,7 @@ public class PassiveItemDataEditor : Editor
         EditorGUILayout.EndHorizontal();
 
         serializedObject.ApplyModifiedProperties();
+        serializedObject.Update();
     }
 
 }
