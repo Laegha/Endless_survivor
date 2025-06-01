@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Proyectile : MonoBehaviour
+public class Proyectile : Attack
 {
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] SpriteRenderer _spriteRenderer;
