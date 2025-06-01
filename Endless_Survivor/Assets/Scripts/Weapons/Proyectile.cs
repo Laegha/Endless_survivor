@@ -65,6 +65,9 @@ public class Proyectile : Attack
     {
         if (_ignoreColliders.Contains(collider))
             return;
+        var enemyControl = collider.GetComponent<EnemyControl>();
+        if (enemyControl != null)
+            EffectsHandler.EnemyHit(enemyControl);
         Destroy(gameObject);
     }
 }
