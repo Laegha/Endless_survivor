@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AttackEffectsHandler : MonoBehaviour
 {
-    List<AttackEffectData> _possibleEffects = new List<AttackEffectData>();
     List<AttackEffect> _activeEffects = new List<AttackEffect>();
 
     public void TryEffects(Attack attack)
     {
-        foreach (AttackEffectData effectData in _possibleEffects)
+        var availableEffects = PlayerControl.pc.EffectsHolder.availableEffects;
+        foreach (AttackEffectData effectData in availableEffects)
         {
             int rand = UnityEngine.Random.Range(0, 101);
             var activeEffects = effectData.GetActiveEffects(rand);
