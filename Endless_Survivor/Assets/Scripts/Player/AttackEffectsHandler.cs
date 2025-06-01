@@ -26,4 +26,9 @@ public class AttackEffectsHandler : MonoBehaviour
     {
         _activeEffects.ForEach(effect => effect.OnAttack());
     }
+    public void EnemyHit(EnemyControl enemyControl)
+    {
+        _activeEffects.ForEach(effect => effect.OnEnemyHit(enemyControl));
+
+    }
 }
