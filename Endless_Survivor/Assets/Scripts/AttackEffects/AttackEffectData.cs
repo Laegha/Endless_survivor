@@ -11,7 +11,7 @@ public class AttackEffectData : ScriptableObject
 
     public List<AttackEffect> AttackEffects { get { return _attackEffects; } }
     
-    List<AttackEffect> GetActiveEffects(int attackRand)
+    public List<AttackEffect> GetActiveEffects(int attackRand)
     {
         return _attackEffects.Where(x => attackRand <= (x.UsesSeparateChance ? x.EffectChance : _effectChance)).ToList();
     }
