@@ -5,9 +5,12 @@ using UnityEngine;
 public class ChangeEnemyColorOnHitAttackEffect : AttackEffect
 {
     new public static bool isUsable => true;
-    public override void OnEnemyHit(EnemyControl hitEnemyControl)
+    public ChangeEnemyColorOnHitAttackEffect(AttackEffect original, Attack affectedAttack): base(original, affectedAttack)
     {
-        base.OnEnemyHit(hitEnemyControl);
+        base.OnEnemyHit += OnEnemyHit;
+    }
+    public void ChangeEnemyColor(EnemyControl hitEnemyControl)
+    {
         //hitEnemyControl.Anim
     }
 }

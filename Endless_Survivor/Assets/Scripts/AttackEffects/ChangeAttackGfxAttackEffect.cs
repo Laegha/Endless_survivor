@@ -8,10 +8,13 @@ public class ChangeAttackGfxAttackEffect : AttackEffect
     //List<AttackGfxHandler> attackGfxHandlers = new();
     [SerializeReference]List<AttackGfxInterface> _gfxInterfaces = new();
     public List<AttackGfxInterface> GfxInterfaces { get { return _gfxInterfaces; } }
-    public override void OnAttack(Weapon attackingWeapon)
+    public ChangeAttackGfxAttackEffect(AttackEffect original, Attack affectedAttack) : base (original, affectedAttack) 
     {
-        base.OnAttack(attackingWeapon);
-        AttackGfxInterface attackGfxInterface = _gfxInterfaces.Find(x => x.weaponType == attackingWeapon.GetType());
-        attackingWeapon?.ChangeAttackGfx(attackGfxInterface);
+        base.OnAttack += ChangeAtkGfx;
+    }
+    public void ChangeAtkGfx()
+    {
+        //AttackGfxInterface attackGfxInterface = _gfxInterfaces.Find(x => x.weaponType == attackingWeapon.GetType());
+        //attackingWeapon?.ChangeAttackGfx(attackGfxInterface);
     }
 }
