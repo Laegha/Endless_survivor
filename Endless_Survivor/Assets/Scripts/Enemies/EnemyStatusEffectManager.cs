@@ -7,7 +7,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
 {
     [SerializeField] EnemyControl _enemyControl;
     [SerializeField] SpriteGrid _statusIndicatorsGrid;
-    List<EnemyStatusEffect> _currentEffects;
+    List<EnemyStatusEffect> _currentEffects = new();
 
     public void AddStatusGraphics(Sprite statusIcon, Material statusMaterial)
     {
