@@ -10,13 +10,13 @@ public class RayWeaponDataTransferInterface : ShootingWeaponDataTransferInterfac
     public override void TransferData(GameObject weaponObject, WeaponData weaponData, WeaponStats weaponStats)
     {
         RayWeapon sniperComponent = weaponObject.AddComponent<RayWeapon>();
+        sniperComponent.RayData = new RayData(_rayData);
         LineRenderer ln = new GameObject().AddComponent<LineRenderer>();
         ln.transform.name = "RayRenderer";
         ln.material = _rayData.RayMaterial;
         ln.startWidth = _rayData.RayStartWidth;
         ln.endWidth = _rayData.RayEndWidth;
         ln.transform.SetParent(weaponObject.transform, false);
-        sniperComponent.LineRenderer = ln;
 
         base.TransferData(weaponObject, weaponData, weaponStats);
         ln.SetPosition(0, sniperComponent.FirePoint.position);
