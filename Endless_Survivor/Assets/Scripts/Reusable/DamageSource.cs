@@ -14,7 +14,7 @@ public class DamageSource : MonoBehaviour
     {
         if(_ignoreColliders.Contains(other)) 
             return;
-        HP hitHP = other.GetComponent<HP>();
+        HP hitHP = Utility.FindFirstComponentInParent<HP>(other.gameObject);
         if(hitHP == null )
             return;
         hitHP.TakeDamage(Damage);

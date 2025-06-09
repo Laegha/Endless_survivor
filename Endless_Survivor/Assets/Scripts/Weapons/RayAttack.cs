@@ -52,11 +52,11 @@ public class RayAttack : Attack
         _exitSpeed = defaultRayData.RayExitSpeed;
         GoToNextExitPoint();
 
-        EnemyControl enemyControl = hit.collider.GetComponent<EnemyControl>();
+        EnemyControl enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(hit.collider.gameObject);
         if (enemyControl != null)
         {
-            EffectsHandler.EnemyHit(enemyControl);
             enemyControl.EnemyHP.TakeDamage((int)(damage * AttackDamageMultiplier + AttackDamage));
+            EffectsHandler.EnemyHit(enemyControl);
         }
 
     }
