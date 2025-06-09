@@ -5,7 +5,8 @@ using UnityEngine;
 public class RayAttack : Attack
 {
     [SerializeField] LineRenderer _lineRenderer;
-    float _timer;
+    [SerializeField] SpriteRenderer _startSpriteRenderer;
+
     Vector2 _startPosition;
     Vector2 _endPosition;
     Vector2 _shootDirection;
@@ -23,18 +24,17 @@ public class RayAttack : Attack
         float deltaMovement = _exitSpeed * Time.deltaTime;
         Vector2 newPosition = (Vector2)_lineRenderer.GetPosition(_currExitPointIndex-1) + _currExitDirection * deltaMovement;
         _lineRenderer.SetPosition(_currExitPointIndex-1, newPosition);
+        _startSpriteRenderer.transform.position = newPosition;
         _currExitPointElapsedDist += deltaMovement;
         
         if(_currExitPointElapsedDist >= _currExitPointDist)
             GoToNextExitPoint();
     }
-    public void Attack(float exitSpeed, int damage, RayData defaultRayData, Transform firePoint)
+    public void Attack(int damage, RayData defaultRayData, Transform firePoint)
     {
         _startPosition = firePoint.position;
 
-        _lineRenderer.material = defaultRayData.RayMaterial;
-        _lineRenderer.startWidth = defaultRayData.RayStartWidth;
-        _lineRenderer.endWidth = defaultRayData.RayEndWidth;
+        SetGFX(defaultRayData.RayMaterial, defaultRayData.RayStartWidth, defaultRayData.RayEndWidth, defaultRayData.RayStartSprite);
         
         _lineRenderer.SetPosition(0, firePoint.position);
         
@@ -49,21 +49,20 @@ public class RayAttack : Attack
         _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, _endPosition);
         EffectsHandler.TryEffects(this);
 
-        _exitSpeed = exitSpeed;
+        _exitSpeed = defaultRayData.RayExitSpeed;
         GoToNextExitPoint();
 
         EnemyControl enemyControl = hit.collider.GetComponent<EnemyControl>();
         if (enemyControl != null)
         {
             EffectsHandler.EnemyHit(enemyControl);
-            enemyControl.EnemyHP.TakeDamage(damage);
+            enemyControl.EnemyHP.TakeDamage((int)(damage * AttackDamageMultiplier + AttackDamage));
         }
 
     }
     void GoToNextExitPoint()
     {
         _currExitPointIndex++;
-        print(_lineRenderer.positionCount);
         if(_currExitPointIndex == _lineRenderer.positionCount)
         {
             Destroy(gameObject);
@@ -73,5 +72,15 @@ public class RayAttack : Attack
         _currExitDirection = distance.normalized;
         _currExitPointDist = distance.magnitude;
         _currExitPointElapsedDist = 0;
+
+        float startRotation = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg -90;
+        _startSpriteRenderer.transform.rotation = Quaternion.Euler(0, 0, startRotation);
+    }
+    void SetGFX(Material lineMaterial, float startWidth, float endWidth, Sprite startSprite)
+    {
+        _lineRenderer.material = lineMaterial;
+        _lineRenderer.startWidth = startWidth;
+        _lineRenderer.endWidth = endWidth;
+        _startSpriteRenderer.sprite = startSprite;
     }
 }

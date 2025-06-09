@@ -18,7 +18,7 @@ public class RayWeapon : ShootingWeapon
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         RayAttack laserAttack = Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
 
-        laserAttack.Attack(_rayData.RayExitSpeed, WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage, _rayData, FirePoint);
+        laserAttack.Attack(WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage, _rayData, FirePoint);
     }
 
 }
