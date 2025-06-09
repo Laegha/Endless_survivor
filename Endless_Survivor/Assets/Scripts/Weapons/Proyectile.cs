@@ -38,6 +38,8 @@ public class Proyectile : Attack
         _ignoreColliders = ignoreColliders;
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
 
+        EffectsHandler.TryEffects(this);
+
         DamageSource[] damageSources = GetComponents<DamageSource>();
         foreach(DamageSource damageSource in damageSources)
         {

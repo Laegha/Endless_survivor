@@ -17,6 +17,7 @@ public class ProyectileWeapon : ShootingWeapon
         Proyectile proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<Proyectile>();
         proyectile.transform.position = FirePoint.position;
         proyectile.transform.rotation = FirePoint.rotation;
+
         float proyectileSpeed = _proyectileSpeed;
         float proyectileLifeTime = WeaponStats.Range + PlayerControl.PlayerStats.Range;
         int proyectileDamage = WeaponStats.Damage + PlayerControl.PlayerStats.Damage;
