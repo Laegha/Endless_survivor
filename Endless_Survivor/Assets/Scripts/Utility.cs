@@ -83,4 +83,15 @@ public static class Utility
 
         return mask;
     }
+    public static T FindFirstComponentInParent<T>(GameObject obj) where T : Component
+    {
+        T foundComponent = obj.GetComponent<T>();
+        Transform checkingParent = obj.transform;
+        while(checkingParent.root != checkingParent && foundComponent == null)
+        {
+            checkingParent = checkingParent.parent;
+            foundComponent = checkingParent.GetComponent<T>();
+        }
+        return foundComponent;
+    }
 }
