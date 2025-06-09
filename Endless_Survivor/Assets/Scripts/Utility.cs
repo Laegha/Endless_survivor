@@ -57,5 +57,30 @@ public static class Utility
         imageTr.sizeDelta = new Vector2(finalWidth, finalHeight);
         
     }
+    public static float GetLineLength(LineRenderer line)
+    {
+        float distance = 0;
+        for(int i = 1; i < line.positionCount; i++)
+        {
+            float localDist = (line.GetPosition(i) - line.GetPosition(i - 1)).magnitude;
+            distance += localDist;
+        }
+        return distance;
+    }
+    public static LayerMask GetCollidableLayers(string layerName)
+    {
+        int targetLayer = LayerMask.NameToLayer(layerName);
+        int mask = 0;
 
+        for (int i = 0; i < 32; i++)
+        {
+            // If collision between targetLayer and layer i is enabled
+            if (!Physics2D.GetIgnoreLayerCollision(targetLayer, i))
+            {
+                mask |= (1 << i);
+            }
+        }
+
+        return mask;
+    }
 }
