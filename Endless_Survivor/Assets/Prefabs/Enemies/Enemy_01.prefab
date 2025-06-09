@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 997789942096911037}
   - component: {fileID: -2876188718530938169}
   - component: {fileID: 8908239817036417827}
+  - component: {fileID: 2742941424427891934}
   m_Layer: 7
   m_Name: Enemy_01
   m_TagString: Untagged
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagedFlashingTime: 1.5
-  _enemyControl: {fileID: 0}
+  _enemyControl: {fileID: 213285716166281174}
   _damagedFlashingRate: 0.1
   _defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   _damagedFlashingMaterial: {fileID: 2100000, guid: bb385dcae8033084689f99287c4be26c, type: 2}
@@ -156,7 +157,7 @@ MonoBehaviour:
   _customAnimator: {fileID: 997789942096911037}
   _behaviourManager: {fileID: -2876188718530938169}
   _rb: {fileID: 6197107698754598958}
-  _statusEffectManager: {fileID: 0}
+  _statusEffectManager: {fileID: 2742941424427891934}
 --- !u!70 &3331539037743308472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -232,6 +233,20 @@ MonoBehaviour:
   _sortingOrder: 3
   _affectedRenderers:
   - {fileID: 7642443675026033161}
+--- !u!114 &2742941424427891934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373952663123277793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8f316eee6f9af4c8164ffed9b933d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyControl: {fileID: 213285716166281174}
+  _statusIndicatorsGrid: {fileID: 93798968637392873}
 --- !u!1 &8787211392802782277
 GameObject:
   m_ObjectHideFlags: 0
