@@ -17,10 +17,7 @@ MonoBehaviour:
   - {fileID: -177209489, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
   - {fileID: 520054154, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
   _initialWeapons:
-  - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
-  - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
-  - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
-  - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
+  - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
   _initialMaxWeapons: 7
   _initialPassives: []
   _playerStats:
@@ -30,6 +27,9 @@ MonoBehaviour:
     _range: 1
     _maxHealth: 10
     _speed: 3
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
   _idle:
     _animationName: Idle
     _frames:
