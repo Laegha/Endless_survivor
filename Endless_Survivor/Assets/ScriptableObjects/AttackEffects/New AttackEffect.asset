@@ -10,7 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3f4c500d1b3dee48885e1e8f3388601, type: 3}
-  m_Name: WeaknessOnHitEffect
+  m_Name: New AttackEffect
   m_EditorClassIdentifier: 
   _effectChance: 0
-  _attackEffects: []
+  _attackEffects:
+  - rid: 278973828031053824
+  references:
+    version: 2
+    RefIds:
+    - rid: 278973828031053824
+      type: {class: ApplyEnemyStatusOnHitAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _effectChance: 50
+        _statusEffectData: {fileID: 0}
