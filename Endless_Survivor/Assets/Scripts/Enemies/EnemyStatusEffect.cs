@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyStatusEffect
 {
     //can be duplicated bool (should be virtual or smth)
+    public static bool isUsable => false;
     EnemyControl _affectedEnemyControl;
     [SerializeField] Sprite _statusEffectIndicator;
     [SerializeField] Material _statusEffectMaterial;

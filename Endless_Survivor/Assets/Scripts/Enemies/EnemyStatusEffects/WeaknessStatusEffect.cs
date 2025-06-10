@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class WeaknessStatusEffect : EnemyStatusEffect
 {
-    public static bool isUsable => true;
+    new public static bool isUsable => true;
     [SerializeField] float _damageMultiplierAddition = .25f;
     [SerializeField] float _duration = 5;
     float _timer = 0;

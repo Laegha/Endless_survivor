@@ -7,7 +7,7 @@ using UnityEngine;
 public class AttackEffectData : ScriptableObject
 {
     [SerializeField][Range(0, 100)] int _effectChance;
-    [SerializeField] List<AttackEffect> _attackEffects = new List<AttackEffect>();
+    [SerializeReference] List<AttackEffect> _attackEffects = new List<AttackEffect>();
 
     public List<AttackEffect> AttackEffects { get { return _attackEffects; } }
     
