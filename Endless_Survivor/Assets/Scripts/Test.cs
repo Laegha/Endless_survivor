@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] SpriteGrid grid;
-    [SerializeField] Sprite[] sprites;
+    [SerializeField] AttackEffectData givenAttackEffect;
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (var sprite in sprites)
-            grid.AddSpriteToGrid(sprite);
+        PlayerControl.pc.EffectsHolder.AddEffect(givenAttackEffect);
+        Destroy(gameObject);
     }
 
 }

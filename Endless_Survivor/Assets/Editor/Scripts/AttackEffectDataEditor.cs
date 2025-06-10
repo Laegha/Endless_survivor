@@ -21,6 +21,8 @@ public class AttackEffectDataEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_attackEffectChance);
+        serializedObject.ApplyModifiedProperties();
+        //base.OnInspectorGUI();
 
         AttackEffectData attackEffectData = (AttackEffectData)target;
         SerializedProperty attackEffects = serializedObject.FindProperty("_attackEffects");

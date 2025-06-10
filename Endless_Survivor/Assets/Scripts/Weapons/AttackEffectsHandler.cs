@@ -15,12 +15,16 @@ public class AttackEffectsHandler : MonoBehaviour
             var activeEffects = effectData.GetActiveEffects(rand);
             foreach(var effect in activeEffects)
             {
-                var effectInstance = Activator.CreateInstance(effect.GetType(), attack, effect);
+                var effectInstance = Activator.CreateInstance(effect.GetType(), effect, attack);
+                print("ACTIVE EFFECT " + (AttackEffect) effectInstance);
                 _activeEffects.Add((AttackEffect)effectInstance);
             }
         }
         foreach (AttackEffect effect in _activeEffects)
+        {
+            print("ACTIVATING " + effect);
             effect.OnAttack();
+        }
     }
     void Update()
     {

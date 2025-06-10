@@ -10,7 +10,7 @@ public class AttackEffect
     //activation requirements
     public static bool isUsable => false;
     [SerializeField] bool _usesSeparateChance = false;
-    [SerializeField][Range(0, 100)] float _effectChance = 50;
+    [SerializeField][Range(0, 100)] float _separateChance = 50;
 
     //activated values
     Attack _affectedAttack;
@@ -19,7 +19,7 @@ public class AttackEffect
     Action<EnemyControl> _onEnemyHit;
     IAttackEffectSinergy _sinergy = null;
     public bool UsesSeparateChance { get { return _usesSeparateChance; } }
-    public float EffectChance { get { return _effectChance; } }
+    public float EffectChance { get { return _separateChance; } }
     public Action OnAttack{ get { return _onAttack; } set { _onAttack = value; } }
     public Action Update { get { return _update; } set { _update = value; } }
     public Action<EnemyControl> OnEnemyHit { get { return _onEnemyHit;} set { _onEnemyHit = value; } }

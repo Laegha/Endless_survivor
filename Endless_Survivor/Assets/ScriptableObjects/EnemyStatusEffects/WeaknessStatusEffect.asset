@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
   m_Name: WeaknessStatusEffect
   m_EditorClassIdentifier: 
-  _statusEffects: []
+  _statusEffects:
+  - rid: 6091434301908320257
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6091434301908320257
+      type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: 0de29d874505a98468354b9154c186bd, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: 3feaec31572d14c4ab2d96adfdabbbb4, type: 2}
+        _damageMultiplierAddition: 0.25
+        _duration: 5
