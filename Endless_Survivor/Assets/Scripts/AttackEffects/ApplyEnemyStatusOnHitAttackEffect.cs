@@ -9,9 +9,12 @@ public class ApplyEnemyStatusOnHitAttackEffect : AttackEffect
     [SerializeReference] EnemyStatusEffect _appliedStatusEffect;
     public EnemyStatusEffect AppliedStatusEffect {get { return _appliedStatusEffect; } set {  _appliedStatusEffect = value; } }
     
-    public ApplyEnemyStatusOnHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack)
+    public ApplyEnemyStatusOnHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
+
+    public override void Initiate(AttackEffect original, Attack affectedAttack)
     {
-        base.OnEnemyHit += ApplyStatus;
+        base.Initiate(original, affectedAttack);
+        OnEnemyHit += ApplyStatus;
 
     }
     

@@ -61,7 +61,7 @@ public class AttackEffectDataEditor : Editor
 
                 menu.AddItem(new GUIContent(type.Key.Name), false, () =>
                 {
-                    AttackEffect newEffect = (AttackEffect)Activator.CreateInstance(type.Key);
+                    AttackEffect newEffect = (AttackEffect)Activator.CreateInstance(type.Key, null, null);
                     
                     attackEffectData.AttackEffects.Add(newEffect);
                     _attackEffects[type.Key] = true;

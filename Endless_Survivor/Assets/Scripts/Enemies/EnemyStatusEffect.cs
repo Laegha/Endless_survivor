@@ -22,7 +22,7 @@ public class EnemyStatusEffect
     public virtual void Start() 
     {
         //show indicator and change material
-        _affectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial);
+        _affectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial, this);
     }
     public virtual void Update() { }
     public virtual void End() { }

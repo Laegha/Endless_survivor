@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 [Serializable]
@@ -25,12 +26,17 @@ public class AttackEffect
 
     public AttackEffect(AttackEffect original, Attack affectedAttack)
     {
+        if (original != null)
+            Initiate(original, affectedAttack);
+    }
+    public virtual void Initiate(AttackEffect original, Attack affectedAttack)
+    {
         _affectedAttack = affectedAttack;
 
         var types = Utility.GetSubclassesOf(typeof(AttackWithEffectSinergy<,>));
-        foreach(var type in types )
+        foreach (var type in types)
         {
-            if(type.GetProperty("attack").PropertyType != affectedAttack.GetType() || type.GetProperty("effect").PropertyType == GetType())
+            if (type.GetProperty("attack").PropertyType != affectedAttack.GetType() || type.GetProperty("effect").PropertyType == GetType())
                 continue;
             _sinergy = (IAttackEffectSinergy)Activator.CreateInstance(type);
             _sinergy.Initiate(affectedAttack, this);
