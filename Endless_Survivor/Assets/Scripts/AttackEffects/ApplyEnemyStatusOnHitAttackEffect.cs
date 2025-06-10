@@ -6,8 +6,7 @@ using UnityEngine;
 public class ApplyEnemyStatusOnHitAttackEffect : AttackEffect
 {
     new public static bool isUsable => true;
-    [SerializeReference] EnemyStatusEffect _appliedStatusEffect;
-    public EnemyStatusEffect AppliedStatusEffect {get { return _appliedStatusEffect; } set {  _appliedStatusEffect = value; } }
+    [SerializeField] EnemyStatusEffectData _statusEffectData;
     
     public ApplyEnemyStatusOnHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
 
@@ -20,6 +19,6 @@ public class ApplyEnemyStatusOnHitAttackEffect : AttackEffect
     
     public void ApplyStatus(EnemyControl hitEnemyControl)
     {
-        hitEnemyControl.StatusEffectManager.AddEffect(_appliedStatusEffect);
+        _statusEffectData.ApplyEffects(hitEnemyControl.StatusEffectManager);
     }
 }
