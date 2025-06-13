@@ -14,13 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statusEffects:
   - rid: 6091434301908320257
+  - rid: 278973843044827136
   references:
     version: 2
     RefIds:
+    - rid: 278973843044827136
+      type: {class: GraphicsStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectMaxStacks: 1
+        _statusEffectIndicator: {fileID: 21300000, guid: 0de29d874505a98468354b9154c186bd, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: 3feaec31572d14c4ab2d96adfdabbbb4, type: 2}
     - rid: 6091434301908320257
       type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _statusEffectIndicator: {fileID: 21300000, guid: 0de29d874505a98468354b9154c186bd, type: 3}
-        _statusEffectMaterial: {fileID: 2100000, guid: 3feaec31572d14c4ab2d96adfdabbbb4, type: 2}
+        _effectMaxStacks: 1
         _damageMultiplierAddition: 0.25
         _duration: 5
