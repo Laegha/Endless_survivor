@@ -13,6 +13,8 @@ public class ApplyEnemyStatusOnHitAttackEffect : AttackEffect
     public override void Initiate(AttackEffect original, Attack affectedAttack)
     {
         base.Initiate(original, affectedAttack);
+        var statusEffectOriginal = (ApplyEnemyStatusOnHitAttackEffect)original;
+        _statusEffectData = statusEffectOriginal._statusEffectData;
         OnEnemyHit += ApplyStatus;
 
     }
