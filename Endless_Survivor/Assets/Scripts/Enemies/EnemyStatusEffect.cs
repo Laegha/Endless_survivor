@@ -6,25 +6,17 @@ using UnityEngine;
 [Serializable]
 public class EnemyStatusEffect
 {
-    //can be duplicated bool (should be virtual or smth)
     public static bool isUsable => false;
     EnemyControl _affectedEnemyControl;
-    [SerializeField] Sprite _statusEffectIndicator;
-    [SerializeField] Material _statusEffectMaterial;
+    [SerializeField] int _effectMaxStacks = 1;
     public EnemyControl AffectedEnemyControl {  get { return _affectedEnemyControl; } }
 
     public virtual void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {
         _affectedEnemyControl = affectedEnemyControl;
-        _statusEffectIndicator = original._statusEffectIndicator;
-        _statusEffectMaterial = original._statusEffectMaterial;
     }
 
-    public virtual void Start() 
-    {
-        //show indicator and change material
-        _affectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial, this);
-    }
+    public virtual void Start() { }
     public virtual void Update() { }
     public virtual void End() { }
     public virtual void EnemyHit() { }
