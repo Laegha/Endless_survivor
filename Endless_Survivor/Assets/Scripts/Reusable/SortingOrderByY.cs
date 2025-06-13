@@ -22,7 +22,7 @@ public class SortingOrderByY : MonoBehaviour
         else
         {
             foreach(var renderer in _affectedRenderers)
-                renderer.sortingOrder = PlayerControl.pc.Renderers[0].sortingOrder + _sortingOrder;
+                renderer.sortingOrder = PlayerControl.pc.MainRenderer.sortingOrder + _sortingOrder;
 
         }
     }
