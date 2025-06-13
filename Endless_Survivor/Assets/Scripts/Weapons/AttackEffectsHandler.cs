@@ -23,16 +23,16 @@ public class AttackEffectsHandler : MonoBehaviour
         foreach (AttackEffect effect in _activeEffects)
         {
             print("ACTIVATING " + effect);
-            effect.OnAttack();
+            effect.OnAttack?.Invoke();
         }
     }
     void Update()
     {
-        _activeEffects.ForEach(effect => effect.Update());
+        _activeEffects.ForEach(effect => effect.Update?.Invoke());
     }
     public void EnemyHit(EnemyControl enemyControl)
     {
-        _activeEffects.ForEach(effect => effect.OnEnemyHit(enemyControl));
+        _activeEffects.ForEach(effect => effect.OnEnemyHit?.Invoke(enemyControl));
 
     }
 }

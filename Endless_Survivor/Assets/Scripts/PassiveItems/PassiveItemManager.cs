@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PassiveItemManager : MonoBehaviour
 {
-    List<PassiveItem> _passiveItems;
+    List<PassiveItem> _passiveItems = new();
 
     public void AddPassiveItem(PassiveItemData itemData)
     {
