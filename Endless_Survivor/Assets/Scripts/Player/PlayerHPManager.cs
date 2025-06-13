@@ -9,8 +9,8 @@ public class PlayerHPManager : HP
     float _inmunityTimer = 0;
     [SerializeField] PlayerControl _playerControl;
     [SerializeField]float _inmunityFlashingTime = .1f;
-    [SerializeField] Material _defaultMaterial;
     [SerializeField] Material _inmunityFlashingMaterial;
+    static readonly int _flashingAuthority;
     SpriteMaterialFlashing _inmutiyFlashing;
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
@@ -21,7 +21,7 @@ public class PlayerHPManager : HP
     {
         InitializeHP(_playerControl.PlayerStats.MaxHealth);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
-        _inmutiyFlashing = new SpriteMaterialFlashing(_playerControl.Renderers, _inmunityFlashingTime, _defaultMaterial, _inmunityFlashingMaterial);
+        _inmutiyFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
     }
 
     private void Update()

@@ -5,26 +5,23 @@ using UnityEngine;
 
 public class SpriteMaterialFlashing
 {
-    SpriteRenderer[] _affectedRenderers;
+    MaterialManager _materialManager;
     float _flashTimer = 0;
     float _flashTime = .5f;
-    Material _defaultMaterial;
-    Material _flashingMaterial;
-    Material _nextMaterial;
+    MaterialOverride _flashingMaterialOverride;
+    bool _isActive = false;
 
-    public SpriteMaterialFlashing(SpriteRenderer[] affectedRenderers, float flashTime, Material defaultMaterial, Material flashingMaterial)
+    public SpriteMaterialFlashing(MaterialManager materialManager, float flashTime, MaterialOverride materialOverride)
     {
-        _affectedRenderers = affectedRenderers;
+        _materialManager = materialManager;
         _flashTime = flashTime;
-        _defaultMaterial = defaultMaterial;
-        _flashingMaterial = flashingMaterial;
+        _flashingMaterialOverride = materialOverride;
     }
 
     public void Start()
     {
         _flashTimer = 0;
-        ChangeMaterial(_flashingMaterial);
-        _nextMaterial = _defaultMaterial;
+        ToggleMaterial();
     }
 
     public void Update()
@@ -33,19 +30,20 @@ public class SpriteMaterialFlashing
         if(_flashTimer > _flashTime)
         {
             _flashTimer = 0;
-            ChangeMaterial(_nextMaterial);
-            _nextMaterial = _nextMaterial == _defaultMaterial ? _flashingMaterial : _defaultMaterial;
+            ToggleMaterial();
         }
     }
     public void End()
     {
-        ChangeMaterial(_defaultMaterial);
+        _materialManager.UnsetMaterialOverride(_flashingMaterialOverride);
     }
-    void ChangeMaterial(Material newMaterial)
+    void ToggleMaterial()
     {
-        foreach(var renderer in _affectedRenderers)
-        {
-            renderer.material = newMaterial;
-        }
+        _isActive = !_isActive;
+        if( _isActive )
+            _materialManager.SetMaterialOverride(_flashingMaterialOverride);
+        else
+            _materialManager.UnsetMaterialOverride(_flashingMaterialOverride);
     }
+
 }

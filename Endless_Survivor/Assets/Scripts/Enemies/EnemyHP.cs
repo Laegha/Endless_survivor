@@ -10,9 +10,8 @@ public class EnemyHP : HP
     [SerializeField] EnemyControl _enemyControl;
     float _damagedFlashingTimer;
     [SerializeField] float _damagedFlashingRate = .1f;
-    [SerializeField] Material _defaultMaterial;
     [SerializeField] Material _damagedFlashingMaterial;
-    [SerializeField] SpriteRenderer[] _renderers;
+    static readonly int _flashingMaterialAuthority = 5;
     SpriteMaterialFlashing _damagedFlashing;
 
     SFXInfo _onHitSound;
@@ -20,7 +19,7 @@ public class EnemyHP : HP
     public List<PickupDataChance> DropablePickupChances { set { _dropablePickupsChances = value; } }
     private void Start()
     {
-        _damagedFlashing = new SpriteMaterialFlashing(_renderers, _damagedFlashingRate, _defaultMaterial, _damagedFlashingMaterial);
+        _damagedFlashing = new SpriteMaterialFlashing(_enemyControl.MaterialManager, _damagedFlashingRate, new MaterialOverride(_flashingMaterialAuthority, _damagedFlashingMaterial));
 
     }
     public void SetSounds(SFXInfo onHitSound, SFXInfo onDeathSound)
