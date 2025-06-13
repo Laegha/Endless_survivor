@@ -216,6 +216,8 @@ GameObject:
   - component: {fileID: 5175803263254807690}
   - component: {fileID: 5201446069194199440}
   - component: {fileID: 4501143208424619687}
+  - component: {fileID: 7908762704824083078}
+  - component: {fileID: 1346448510886347756}
   - component: {fileID: 4418820985395750863}
   m_Layer: 6
   m_Name: Char
@@ -285,8 +287,9 @@ MonoBehaviour:
   _playerRb: {fileID: 3182739764998197922}
   _playerHPManager: {fileID: 4501143208424619687}
   _playerWeaponManager: {fileID: 7059952005309191444}
-  _renderers:
-  - {fileID: 4175269687420856459}
+  _passiveItemManager: {fileID: 1346448510886347756}
+  _playerMaterialManager: {fileID: 7908762704824083078}
+  _mainRenderer: {fileID: 4175269687420856459}
 --- !u!114 &9219766451515535764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,8 +358,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerControl: {fileID: 1415873127685750190}
   _inmunityFlashingTime: 0.1
-  _defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   _inmunityFlashingMaterial: {fileID: 2100000, guid: 0f114318c7108f54a9c87670f18baf5c, type: 2}
+--- !u!114 &7908762704824083078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650669668938938846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ca4d67c71317f4da2196e8665c7113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 4175269687420856459}
+--- !u!114 &1346448510886347756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650669668938938846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc979ef78f81b8e46b5fa176ea6a84aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &4418820985395750863
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -2876188718530938169}
   - component: {fileID: 8908239817036417827}
   - component: {fileID: 2742941424427891934}
+  - component: {fileID: -3144633452902221185}
   m_Layer: 7
   m_Name: Enemy_01
   m_TagString: Untagged
@@ -135,10 +136,7 @@ MonoBehaviour:
   _damagedFlashingTime: 1.5
   _enemyControl: {fileID: 213285716166281174}
   _damagedFlashingRate: 0.1
-  _defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   _damagedFlashingMaterial: {fileID: 2100000, guid: bb385dcae8033084689f99287c4be26c, type: 2}
-  _renderers:
-  - {fileID: 7642443675026033161}
 --- !u!114 &213285716166281174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +156,7 @@ MonoBehaviour:
   _behaviourManager: {fileID: -2876188718530938169}
   _rb: {fileID: 6197107698754598958}
   _statusEffectManager: {fileID: 2742941424427891934}
+  _materialManager: {fileID: -3144633452902221185}
 --- !u!70 &3331539037743308472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,6 +246,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyControl: {fileID: 213285716166281174}
   _statusIndicatorsGrid: {fileID: 93798968637392873}
+--- !u!114 &-3144633452902221185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373952663123277793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ca4d67c71317f4da2196e8665c7113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 7642443675026033161}
 --- !u!1 &8787211392802782277
 GameObject:
   m_ObjectHideFlags: 0
