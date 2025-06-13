@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyStatusEffectGFX
 {
     public GridSpriteInfo statusSprite;
-    public Material statusMaterial;
+    public MaterialOverride statusMaterial;
 
-    public EnemyStatusEffectGFX(GridSpriteInfo statusSprite, Material statusMaterial)
+    public EnemyStatusEffectGFX(GridSpriteInfo statusSprite, MaterialOverride statusMaterial)
     {
         this.statusSprite = statusSprite;
         this.statusMaterial = statusMaterial;
