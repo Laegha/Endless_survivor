@@ -47,7 +47,9 @@ public class PlayerWeaponManager : MonoBehaviour
         _heldWeapons.Add(emptyHolder);
 
         GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], _gunsHolder);
-        hand.GetComponent<SpriteRenderer>().sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
+        var handRenderer = hand.GetComponent<SpriteRenderer>();
+        handRenderer.sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
+        PlayerControl.pc.PlayerMaterialManager.AddRenderer(handRenderer);
         newWeapon.transform.SetParent(hand.transform);
         newWeapon.transform.localPosition = Vector2.zero;
         emptyHolder.handTransform = hand.transform;
@@ -81,6 +83,7 @@ public class PlayerWeaponManager : MonoBehaviour
     void SwitchWeapon(Weapon removedWeapon)
     {
         Destroy(removedWeapon.gameObject);
+        PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
         GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
 }
