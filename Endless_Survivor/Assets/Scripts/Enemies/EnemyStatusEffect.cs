@@ -10,6 +10,7 @@ public class EnemyStatusEffect
     EnemyControl _affectedEnemyControl;
     [SerializeField] int _effectMaxStacks = 1;
     public EnemyControl AffectedEnemyControl {  get { return _affectedEnemyControl; } }
+    public int EffectMaxStacks {  get { return _effectMaxStacks; } }
 
     public virtual void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {

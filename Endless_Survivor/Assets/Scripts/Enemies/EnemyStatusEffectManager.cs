@@ -34,6 +34,9 @@ public class EnemyStatusEffectManager : MonoBehaviour
     }
     public void AddEffect(EnemyStatusEffect effect)
     {
+        var currEffectStacks = _currentEffects.Where(x => x.GetType() == effect.GetType()).Count();
+        if (currEffectStacks > effect.EffectMaxStacks)
+            return;
         EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(effect.GetType());
         newEffect.Initialize(_enemyControl, effect);
         newEffect.Start();
