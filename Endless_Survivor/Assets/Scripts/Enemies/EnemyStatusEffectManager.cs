@@ -32,13 +32,13 @@ public class EnemyStatusEffectManager : MonoBehaviour
         _enemyControl.MaterialManager.UnsetMaterialOverride(_activeGfx[statusEffect].statusMaterial);
         _activeGfx.Remove(statusEffect);
     }
-    public void AddEffect(EnemyStatusEffect effect)
+    public void AddEffect(EnemyStatusEffect effect, ConditionHolder effectEndCondition)
     {
         var currEffectStacks = _currentEffects.Where(x => x.GetType() == effect.GetType()).Count();
         if (currEffectStacks > effect.EffectMaxStacks)
             return;
         EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(effect.GetType());
-        newEffect.Initialize(_enemyControl, effect);
+        newEffect.Initialize(_enemyControl, effect, effectEndCondition);
         newEffect.Start();
         _currentEffects.Add(newEffect);
     }

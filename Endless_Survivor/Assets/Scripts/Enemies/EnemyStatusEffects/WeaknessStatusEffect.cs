@@ -10,9 +10,9 @@ public class WeaknessStatusEffect : EnemyStatusEffect
     [SerializeField] float _damageMultiplierAddition = .25f;
     [SerializeField] float _duration = 5;
     float _timer = 0;
-    public override void Initialize(EnemyControl enemyControl, EnemyStatusEffect original) 
+    public override void Initialize(EnemyControl enemyControl, EnemyStatusEffect original, ConditionHolder endCondition) 
     {
-        base.Initialize(enemyControl, original);
+        base.Initialize(enemyControl, original, endCondition);
         WeaknessStatusEffect originalWeaknessEffect = (WeaknessStatusEffect)original;
         _damageMultiplierAddition = originalWeaknessEffect._damageMultiplierAddition;
         _duration = originalWeaknessEffect._duration;
