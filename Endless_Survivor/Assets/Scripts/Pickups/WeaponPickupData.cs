@@ -20,6 +20,8 @@ public class WeaponPickupData : PickupData
         }
         Roulette<WeaponData> weaponRoulette = new Roulette<WeaponData>(weaponWeights);
         WeaponData resultWeaponData = weaponRoulette.Spin();
+        if(resultWeaponData == null)
+            return;//THIS SHOULD NEVER HAPPEN, SINCE THERE ALWAYS WILL BE AT LEAST 1 WEAPON UNLOCKED TO APPEAR
         pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
         CustomAnimation weponIdle = resultWeaponData.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
 

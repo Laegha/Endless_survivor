@@ -7,9 +7,9 @@ public class GraphicsStatusEffect : EnemyStatusEffect
     new public static bool isUsable => true;
     [SerializeField] Sprite _statusEffectIndicator;
     [SerializeField] Material _statusEffectMaterial;
-    public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
+    public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original, ConditionHolder endCondition)
     {
-        base.Initialize(affectedEnemyControl, original);
+        base.Initialize(affectedEnemyControl, original, endCondition);
         var graphicsOriginal = (GraphicsStatusEffect)original;
         _statusEffectIndicator = graphicsOriginal._statusEffectIndicator;
         _statusEffectMaterial = graphicsOriginal._statusEffectMaterial;

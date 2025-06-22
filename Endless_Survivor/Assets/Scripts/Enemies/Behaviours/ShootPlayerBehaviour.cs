@@ -71,7 +71,7 @@ public class ShootPlayerBehaviour : EnemyBehaviour
         Debug.Log("Enemy Shooting");
         _shootCooldown = 1/ _atkSpeed;
         float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
-        Proyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["enemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<Proyectile>();
+        Proyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<Proyectile>();
         proyectile.Initiate(_damage, _proyectileSpeed, _proyectileLifetime, _proyectileData, _proyectileSpread);
     }
 }
