@@ -44,6 +44,7 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         emptyHolder = new WeaponHolder();
         _heldWeapons.Add(emptyHolder);
+        emptyHolder.destructibleHand = true;
 
         GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], _gunsHolder);
         var handRenderer = hand.GetComponent<SpriteRenderer>();
@@ -81,7 +82,11 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void SwitchWeapon(Weapon removedWeapon)
     {
+        var weaponHolder = _heldWeapons.Find(x => x.holdingWeapon == removedWeapon);
         Destroy(removedWeapon.gameObject);
+        if(weaponHolder != null && weaponHolder.destructibleHand)
+            DestroyImmediate(weaponHolder.handTransform.gameObject);
+        _heldWeapons.Remove(weaponHolder);
         PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
         GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
