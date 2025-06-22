@@ -23,7 +23,8 @@ public class Roulette<T>
     public T Spin()
     {
         int rouletteResult = Random.Range(0, _rouletteTotalWeight);
-        return _roulette.Where(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult).ToList()[0].key;
+        var elementResult = _roulette.Find(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult);
+        return elementResult != null ? elementResult.key : default;
     }
 }
 
