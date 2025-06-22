@@ -11,13 +11,12 @@ public class PlayerWeaponManager : MonoBehaviour
     //Dictionary<Weapon, Transform> _heldWeapons = new Dictionary<Weapon, Transform>();
     List<WeaponHolder> _heldWeapons = new List<WeaponHolder>();
     int _maxWeapons;
-    int _heldWeaponsCount;
 
     public int MaxWeapons { set { _maxWeapons = value; } }
 
     public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        if(_heldWeaponsCount == _maxWeapons)
+        if(_heldWeapons.Count >= _maxWeapons)
         {
             List<Weapon> weapons = new List<Weapon>();
             _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));

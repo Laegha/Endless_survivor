@@ -39,7 +39,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         _triggerDamageEvent = new AnimationEvent(originalMeleeAttack._triggerDamageEvent);
         _attackSfx = originalMeleeAttack._attackSfx;
 
-        _vfxAnimator = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["animatedObject"], enemyControl.transform).GetComponent<CustomAnimator>();
+        _vfxAnimator = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], enemyControl.transform).GetComponent<CustomAnimator>();
         //configure events
         _triggerVFXEvent.frameAction += TriggerAttackVFX;
         _triggerDamageEvent.frameAction += TriggerDamage;
