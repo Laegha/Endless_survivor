@@ -10,7 +10,7 @@ public class MaterialManager : MonoBehaviour
     List<MaterialOverride> _overridesQueue = new();   
     Dictionary<SpriteRenderer, Material> _defaultMaterials = new();
 
-    private void Start()
+    private void Awake()
     {
         foreach (var renderer in _renderers)
         {
@@ -40,6 +40,18 @@ public class MaterialManager : MonoBehaviour
             renderer.material = _currentOverride != null ? _currentOverride.material : _defaultMaterials[renderer];
         }
     }
-    public void AddRenderer(SpriteRenderer renderer) => _renderers.Add(renderer);
-    public void CleanRenderers() => _renderers.RemoveAll(x => x == null);
+    public void AddRenderer(SpriteRenderer renderer)
+    {
+        _renderers.Add(renderer);
+        _defaultMaterials.Add(renderer, renderer.material);
+    }
+    public void CleanRenderers()
+    {
+        foreach (var renderer in _renderers)
+        {
+            if(renderer == null)
+                _defaultMaterials.Remove(renderer);
+        }
+        _renderers.RemoveAll(x => x == null);
+    }
 }
