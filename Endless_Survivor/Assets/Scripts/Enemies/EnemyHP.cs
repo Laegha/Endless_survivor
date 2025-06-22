@@ -57,29 +57,19 @@ public class EnemyHP : HP
     }
     void InstantiatePickup()
     {
-        Dictionary<PickupDataKey, int> possiblePickups = new Dictionary<PickupDataKey, int>();
-        PickupDataKey nullPickupData = new PickupDataKey(null);
-        possiblePickups.Add(nullPickupData, 100);
+        Dictionary<PickupData, int> possiblePickups = new Dictionary<PickupData, int>();
+        possiblePickups.Add(null, 100);
         foreach (var dropablePickupChance in _dropablePickupsChances)
         {
-            possiblePickups[nullPickupData] = Mathf.Clamp(possiblePickups[nullPickupData] - dropablePickupChance.Chance, 0, 100);
-            possiblePickups.Add(new PickupDataKey(dropablePickupChance.PickupData), dropablePickupChance.Chance);
+            possiblePickups[null] = Mathf.Clamp(possiblePickups[null] - dropablePickupChance.Chance, 0, 100);
+            possiblePickups.Add(dropablePickupChance.PickupData, dropablePickupChance.Chance);
             print("Added " + dropablePickupChance.PickupData + " to possible pickups with a chance of " +  dropablePickupChance.Chance);
         }
-        Roulette<PickupDataKey> pickupRoulette = new Roulette<PickupDataKey>(possiblePickups);
-        PickupDataKey resultPickup = pickupRoulette.Spin();
-        if (resultPickup.pickupData == null)
+        Roulette<PickupData> pickupRoulette = new Roulette<PickupData>(possiblePickups);
+        PickupData resultPickup = pickupRoulette.Spin();
+        if (resultPickup == null)
             return;
-        GameObject newPickup = Instantiate(GameManager.gm.prefabHolder.Prefabs["pickup"], transform.position, Quaternion.identity);
-        resultPickup.pickupData.TransferData(newPickup.GetComponent<PickupControl>());
-    }
-}
-
-class PickupDataKey
-{
-    public PickupData pickupData;
-    public PickupDataKey(PickupData data)
-    {
-        this.pickupData = data;
+        GameObject newPickup = Instantiate(GameManager.gm.prefabHolder.Prefabs["Pickup"], transform.position, Quaternion.identity);
+        resultPickup.TransferData(newPickup.GetComponent<PickupControl>());
     }
 }
