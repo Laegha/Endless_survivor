@@ -10,12 +10,12 @@ public class PassiveItemManager : MonoBehaviour
     {
         PassiveItem addedItem = new PassiveItem();
         itemData.TransferData(addedItem);
-        addedItem.BehaviourManager.onPicked();
+        addedItem.BehaviourManager.onPicked?.Invoke();
         _passiveItems.Add(addedItem);
     }
     private void Update()
     {
-        _passiveItems.ForEach(item => item.BehaviourManager.onUpdate());
+        _passiveItems.ForEach(item => item.BehaviourManager.onUpdate?.Invoke());
     }
 
 }

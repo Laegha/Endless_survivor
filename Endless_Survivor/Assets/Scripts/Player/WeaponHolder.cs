@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponHolder
 {
     public bool positionStays;
-    public bool destructibleHand;
+    public bool destructible;
     public Weapon holdingWeapon;
     public Transform handTransform;
 }
