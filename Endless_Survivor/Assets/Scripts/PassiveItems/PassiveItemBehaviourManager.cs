@@ -13,12 +13,13 @@ public class PassiveItemBehaviourManager
     public Action<EnemyControl> onEnemyKilled;
     public Action onWaveChanged;
 
-    List<PassiveItemBehaviour> _itemBehaviours;
+    List<PassiveItemBehaviour> _itemBehaviours = new();
     public void CopyBehaviours(List<PassiveItemBehaviour> itemBehaviours)
     {
         foreach (PassiveItemBehaviour behaviour in itemBehaviours)
         {
-            PassiveItemBehaviour addedBehaviour = (PassiveItemBehaviour)Activator.CreateInstance(behaviour.GetType(), behaviour, this);
+            PassiveItemBehaviour addedBehaviour = (PassiveItemBehaviour)Activator.CreateInstance(behaviour.GetType());
+            addedBehaviour.CopyValues(behaviour, this);
             _itemBehaviours.Add(addedBehaviour);
         }
     }
