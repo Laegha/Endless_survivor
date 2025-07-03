@@ -43,7 +43,7 @@ MonoBehaviour:
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours: []
-        _enemySpeed: 2
+        _enemySpeed: 0
         _chasingAnimation:
           _animationName: Move
           _frames:

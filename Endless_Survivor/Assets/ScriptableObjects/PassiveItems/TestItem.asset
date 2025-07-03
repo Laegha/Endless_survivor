@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: TestItem
   m_EditorClassIdentifier: 
   _itemSprite: {fileID: 0}
-  _itemBehaviours: []
+  _itemBehaviours:
+  - rid: 278974108140830721
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 278974108140830721
+      type: {class: GiveAttackEffectItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _givenAttackEffects:
+        - {fileID: 11400000, guid: 7c5eb82578ca36c4e935ab537b34c827, type: 2}
