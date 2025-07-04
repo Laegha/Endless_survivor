@@ -47,9 +47,10 @@ public class EnemyStatusEffectManager : MonoBehaviour
         effect.End();
         _currentEffects.Remove(effect);
     }
-    private void LateUpdate()
+    private void Update()
     {
-        foreach (EnemyStatusEffect effect in _currentEffects) 
+        var activeEffects = new List<EnemyStatusEffect>(_currentEffects);
+        foreach (EnemyStatusEffect effect in activeEffects) 
         {
             effect.Update(); 
         }
