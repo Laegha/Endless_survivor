@@ -5,22 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject charSelectMenu;
+    [SerializeField] GameObject _menuObject;
+
+    private void Start()
+    {
+        
+    }
 
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
     }
 
-    public void OpenCharSelect()
-    {
-        charSelectMenu.SetActive(true);
-        gameObject.SetActive(false);
-    }
-
     public void ChangeMenu(GameObject menu)
     {
         menu.SetActive(true);
-        gameObject.SetActive(false);
+        _menuObject.SetActive(false);
     }
 }
