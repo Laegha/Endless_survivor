@@ -11,9 +11,6 @@ public class CharSelectMenu : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGrid;
 
-    [SerializeField] RectTransform _gridMax;
-    [SerializeField] RectTransform _gridMin;
-
     public void OnEnable()
     {
         var currentRow = Instantiate(_gridRowPrefab, _buttonGrid);
@@ -21,9 +18,6 @@ public class CharSelectMenu : MonoBehaviour
         foreach (CharacterData character in _elegibleCharacters)
         {
             var characterButton = Instantiate(_selectCharBtnPrefab, currentRow.transform);
-            characterButton.buttonImage.material = new Material(characterButton.buttonImage.material);
-            characterButton.buttonImage.material.SetFloat("_MaxHeight", _gridMax.anchoredPosition.y);
-            characterButton.buttonImage.material.SetFloat("_MinHeight", _gridMin.anchoredPosition.y);
             //characterButton.buttonImage.sprite = character.MenuImage;
             characterButton.characterData = character;
             characterButton.charSelectMenu = this;
