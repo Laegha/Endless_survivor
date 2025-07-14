@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: BasicFollower
   m_EditorClassIdentifier: 
-  _initialHP: 10000
+  _initialHP: 10
   _colliderSize: {x: 0.4701658, y: 0.4701658}
   _colliderOffset: {x: 0, y: -0.125}
   _colliderDirection: 0
@@ -20,7 +20,9 @@ MonoBehaviour:
   - rid: 768305086805573633
   - rid: 2600434731462950912
   - rid: 2600434731462950913
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _pickupData: {fileID: 11400000, guid: a92f8385d93f6e14aaa5cbb6cf88d802, type: 2}
+    _chance: 100
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
