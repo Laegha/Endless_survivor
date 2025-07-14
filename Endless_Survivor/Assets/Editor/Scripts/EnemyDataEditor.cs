@@ -43,6 +43,7 @@ public class EnemyDataEditor : Editor
         EditorGUILayout.PropertyField(_onHitSFX);
         EditorGUILayout.PropertyField(_onDeathSFX);
 
+        EditorGUILayout.LabelField("Enemy Behaviours");
         EditorGUILayout.PropertyField(_behaviours);
         serializedObject.ApplyModifiedProperties();
         serializedObject.Update();
@@ -73,6 +74,7 @@ public class EnemyDataEditor : Editor
         serializedObject.ApplyModifiedProperties();
 
         //EditorGUILayout.PropertyField(_dropablePickupChances);
+        EditorGUILayout.LabelField("Pickups dropped on death");
         PickupDataChance removedDataChance = null;
         for (int i = 0; i < enemyData.DropablePickupChances.Count; i++)
         {

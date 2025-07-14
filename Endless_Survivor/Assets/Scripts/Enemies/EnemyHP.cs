@@ -70,7 +70,7 @@ public class EnemyHP : HP
         PickupDataKey resultPickup = pickupRoulette.Spin();
         if (resultPickup.pickupData == null)
             return;
-        GameObject newPickup = Instantiate(GameManager.gm.prefabHolder.Prefabs["pickup"], transform.position, Quaternion.identity);
+        GameObject newPickup = Instantiate(GameManager.gm.prefabHolder.Prefabs["Pickup"], transform.position, Quaternion.identity);
         resultPickup.pickupData.TransferData(newPickup.GetComponent<PickupControl>());
     }
 }

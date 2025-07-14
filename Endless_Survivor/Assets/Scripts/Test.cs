@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] AttackEffectData givenAttackEffect;
+    [SerializeField] PickupData spawnedPickup;
+    [SerializeField] PickupControl pickup;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        PlayerControl.pc.EffectsHolder.AddEffect(givenAttackEffect);
-        Destroy(gameObject);
+        print(GameManager.gm.Unlockments.unlocked_characters);
+        foreach(var charac in GameManager.gm.Unlockments.unlocked_weapons)
+            print("CHARACTER: " + charac.Key + " IS " +  charac.Value);
     }
 
 }
