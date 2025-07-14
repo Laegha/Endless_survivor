@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
 {
     float _shootCooldown;
     bool _canShoot;
+    bool _inRange;
     WeaponStats _weaponStats;
     WeaponControl _weaponControl;
     WeaponData _weaponData;
@@ -17,11 +18,17 @@ public class Weapon : MonoBehaviour
     public WeaponControl WeaponControl { get { return _weaponControl; } }
     public WeaponData WeaponData { get { return _weaponData; } set { _weaponData = value; } }
     public PlayerControl PlayerControl { get { return _playerControl; } set { _playerControl = value; } }
+    public bool InRange { set  { _inRange = value; } }
 
     public virtual void Start()
     {
         _weaponControl = GetComponent<WeaponControl>();
         _weaponControl.WeaponAnimator.ChangeAnim("Idle");
+        var attackAnimation = _weaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == "Attack");
+        var attackEndEvent = new AnimationEvent();
+        attackEndEvent.frameIndex = attackAnimation.Frames.Length-1;
+        attackEndEvent.frameAction = AttackAnimEnd;
+        attackAnimation.Events.Add(attackEndEvent);
     }
 
     public virtual void Update()
@@ -45,6 +52,13 @@ public class Weapon : MonoBehaviour
         _canShoot = false;
         _shootCooldown = 1f / (WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
         Attack();
+    }
+    void AttackAnimEnd()
+    {
+        if(!_canShoot || !_inRange)
+        {
+            _weaponControl.WeaponAnimator.ChangeAnim("Idle");
+        }
     }
 
     public virtual void Attack()
