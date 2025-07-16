@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class WeaponAim : MonoBehaviour
             return;
 
         List<GameObject> enemies = new List<GameObject> (WaveManager.wm.Enemies);
-        enemies.Sort(new EnemyDistComparer());
+        enemies.Sort(new EnemyDistComparer(transform));
 
         Transform closestEnemy = enemies[0].transform;
         Vector2 direction = transform.position - closestEnemy.position;
@@ -34,17 +35,30 @@ public class WeaponAim : MonoBehaviour
 
         Vector2 distance = closestEnemy.position - PlayerControl.pc.transform.position;
         if (distance.magnitude <= _playerStats.Range + _weapon.WeaponStats.Range)
+        {
+            _weapon.InRange = true;
             _weapon.TryAttack();
+        }
+        else
+        {
+            _weapon.InRange = false;
+
+        }
     }
 }
 
 class EnemyDistComparer : IComparer<GameObject>
 {
+    Transform _comparingPoint;
+    public EnemyDistComparer(Transform comparingPoint)
+    {
+        _comparingPoint = comparingPoint;
+    }
     public int Compare(GameObject enemyA, GameObject enemyB)
     {
-        float distA = Mathf.Abs(PlayerControl.pc.transform.position.magnitude - enemyA.transform.position.magnitude);
-        float distB = Mathf.Abs(PlayerControl.pc.transform.position.magnitude - enemyB.transform.position.magnitude);
-
+        float distA = Vector2.Distance(enemyA.transform.position, _comparingPoint.position);
+        float distB = Vector2.Distance(enemyB.transform.position, _comparingPoint.position);
+       
         return distA.CompareTo(distB);
     }
 }

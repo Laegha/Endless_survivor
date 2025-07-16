@@ -32,7 +32,6 @@ public class EnemyHP : HP
         base.TakeDamage(incomingDamage);
         _enemyControl.StatusEffectManager.OnHit();
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
-        print(RemainingHP);
         _damagedFlashing.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
     }
@@ -64,7 +63,6 @@ public class EnemyHP : HP
         {
             possiblePickups[nullPickupData] = Mathf.Clamp(possiblePickups[nullPickupData] - dropablePickupChance.Chance, 0, 100);
             possiblePickups.Add(new PickupDataKey(dropablePickupChance.PickupData), dropablePickupChance.Chance);
-            print("Added " + dropablePickupChance.PickupData + " to possible pickups with a chance of " +  dropablePickupChance.Chance);
         }
         Roulette<PickupDataKey> pickupRoulette = new Roulette<PickupDataKey>(possiblePickups);
         PickupDataKey resultPickup = pickupRoulette.Spin();
