@@ -32,7 +32,6 @@ public class CustomAnimator : MonoBehaviour
         if(_animTimer <= 0)
         {
             NextFrame();
-            _animTimer = 1/_currAnim.FramesPerSecond;
         }
     }
 
@@ -46,6 +45,7 @@ public class CustomAnimator : MonoBehaviour
         }
         _spriteRenderer.sprite = _currAnim.Frames[_currFrameIndex];
         _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex)?.frameAction?.Invoke();//this doesn't work if the event is set for the frame 0, since the event is called after the frame changed
+        _animTimer = 1 / _currAnim.FramesPerSecond;
         //Debug.Log("EVENTS FOR FRAME " + _currFrameIndex + " IN ANIMATION " + _currAnim.AnimationName + _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex));
     }
 
@@ -55,8 +55,8 @@ public class CustomAnimator : MonoBehaviour
         if(_currAnim != null && _currAnim.Priority > newAnimation.Priority || _currAnim == newAnimation)
             return;
         _currAnim = newAnimation;
-        _animTimer = 0;
-        _currFrameIndex = 0;
+        _currFrameIndex = -1;
+        NextFrame();
     }
 
 }
