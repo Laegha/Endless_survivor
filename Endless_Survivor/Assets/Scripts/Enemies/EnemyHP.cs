@@ -14,9 +14,14 @@ public class EnemyHP : HP
     static readonly int _flashingMaterialAuthority = 5;
     SpriteMaterialFlashing _damagedFlashing;
 
+    Action<EnemyControl> _onEnemyDeath;
+    Action<EnemyControl, int> _onEnemyDamaged;
+
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
     public List<PickupDataChance> DropablePickupChances { set { _dropablePickupsChances = value; } }
+    public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath; } set { _onEnemyDeath = value; } }
+    public Action <EnemyControl, int> OnEnemyDamaged { get { return _onEnemyDamaged; } set  { _onEnemyDamaged = value; } }
     private void Start()
     {
         _damagedFlashing = new SpriteMaterialFlashing(_enemyControl.MaterialManager, _damagedFlashingRate, new MaterialOverride(_flashingMaterialAuthority, _damagedFlashingMaterial));
@@ -34,6 +39,7 @@ public class EnemyHP : HP
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
         _damagedFlashing.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
+        _onEnemyDamaged?.Invoke(_enemyControl, incomingDamage);
     }
     private void Update()
     {
@@ -52,6 +58,7 @@ public class EnemyHP : HP
         WaveManager.wm.EnemyKilled(gameObject);
         InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
+        _onEnemyDeath?.Invoke(_enemyControl);
         Destroy(gameObject);
     }
     void InstantiatePickup()
