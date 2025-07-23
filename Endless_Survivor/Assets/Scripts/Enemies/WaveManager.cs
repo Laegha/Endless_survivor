@@ -12,6 +12,8 @@ public class WaveManager : MonoBehaviour
     Transform _player;
     List<GameObject> _enemies = new List<GameObject>();
     int _currWave = 0;
+    System.Action<EnemyControl> _onEnemySpawned;
+    System.Action _onWaveStarted;
 
     static WaveManager instance;
 
@@ -19,6 +21,8 @@ public class WaveManager : MonoBehaviour
 
     public List<GameObject> Enemies {  get { return _enemies; } }
     public int CurrWave{  get { return _currWave; } }
+    public System.Action<EnemyControl> OnEnemySpawned { get { return _onEnemySpawned; } set { _onEnemySpawned = value; } }
+    public System.Action OnWaveStarted { get { return _onWaveStarted; } set { _onWaveStarted = value; } }
 
     private void Awake()
     {
@@ -78,7 +82,7 @@ public class WaveManager : MonoBehaviour
                 spawnedEnemies[spawnedEnemy]++;
             }
         _currWave++;
-        
+        _onWaveStarted?.Invoke();
     }
 
     Vector2 GetEnemyPosition()
@@ -104,6 +108,7 @@ public class WaveManager : MonoBehaviour
     {
         GameObject enemy = Instantiate(GameManager.gm.prefabHolder.Prefabs["Enemy"], enemyPosition, Quaternion.identity);
         enemyData.TransferEnemyData(enemy);
+        _onEnemySpawned?.Invoke(enemy.GetComponent<EnemyControl>());
         return enemy;
     }
 
