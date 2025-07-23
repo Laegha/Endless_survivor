@@ -13,7 +13,7 @@ public class UnlockmentsHolder : ScriptableObject
     
     public List<CharacterData> UnlockedCharacters()
     {
-        UnlockmentsInfo unlockmentsData = GameManager.gm.Unlockments;
+        UnlockmentsConverter unlockmentsData = GameManager.gm.Unlockments;
         List<CharacterData> unlockedCharacters = new List<CharacterData>();
         foreach (var unlockmentState in unlockmentsData.unlocked_characters)
         {
@@ -27,7 +27,7 @@ public class UnlockmentsHolder : ScriptableObject
 
     public List<WeaponData> UnlockedWeapons()
     {
-        UnlockmentsInfo unlockmentsData = GameManager.gm.Unlockments;
+        UnlockmentsConverter unlockmentsData = GameManager.gm.Unlockments;
         List<WeaponData> unlockedWeapons = new List<WeaponData>();
         foreach(var unlockmentState in unlockmentsData.unlocked_weapons)
         {
