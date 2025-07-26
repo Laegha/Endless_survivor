@@ -13,6 +13,26 @@ public class PlayerWeaponManager : MonoBehaviour
     int _maxWeapons;
 
     public int MaxWeapons { set { _maxWeapons = value; } }
+    public Dictionary<WeaponData.IWeaponTag, int> HeldWeaponTags
+    {
+        get
+        {
+            Dictionary<WeaponData.IWeaponTag, int> heldTags= new();
+            foreach(var heldWeapon in _heldWeapons)
+            {
+                foreach(var tag in heldWeapon.holdingWeapon.WeaponData.WeaponTags)
+                {
+                    if(!heldTags.ContainsKey(tag))
+                    {
+                        heldTags.Add(tag, 1);
+                        continue;
+                    }
+                    heldTags[tag]++;
+                }
+            }
+            return heldTags;
+        }
+    }
 
     public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
