@@ -37,4 +37,5 @@ public class WeaponData : ScriptableObject
             };
         }
     }
+    public IWeaponTag[] WeaponTags { get { return _weaponTags; } }
 }
