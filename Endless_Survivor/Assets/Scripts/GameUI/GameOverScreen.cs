@@ -8,6 +8,12 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] GameObject _menuObject;
     [SerializeField] TextMeshProUGUI _damageDealtDisplay;
     [SerializeField] TextMeshProUGUI _killedEnemiesDisplay;
+    [SerializeField] TextMeshProUGUI _wavesSurvivedDisplay;
+
+    [SerializeField] TextMeshProUGUI _totalEarnedCoinDisplay;
+    [SerializeField] TextMeshProUGUI _damageDealtCoinDisplay;
+    [SerializeField] TextMeshProUGUI _killedEnemiesCoinDisplay;
+    [SerializeField] TextMeshProUGUI _wavesSurvivedCoinDisplay;
 
     float _waveCoinRelation = 10;
     int _maxWaveCoins = 3;
@@ -20,11 +26,22 @@ public class GameOverScreen : MonoBehaviour
     float _killCoinRelation = 100;
     int _maxKillCoins = 2;
     int _earnedKillCoins = 0;
+
+    private void Start()
+    {
+        CalculateEarnedCoins();
+        DisplayMenu();
+    }
     public void DisplayMenu()
     {
         _menuObject.SetActive(true);
         _damageDealtDisplay.text = RunStatsManager.runStatsManager.totalDamageDealt + "";
         _killedEnemiesDisplay.text = RunStatsManager.runStatsManager.regularEnemiesKilled + "";
+        _wavesSurvivedDisplay.text = RunStatsManager.runStatsManager.wavesSurvived + "";
+
+        _wavesSurvivedDisplay.text = _earnedWaveCoins + "";
+        _damageDealtCoinDisplay.text = _earnedDamageCoins + "";
+        _killedEnemiesCoinDisplay.text = _earnedKillCoins + "";
     }
 
     void CalculateEarnedCoins()
@@ -40,5 +57,8 @@ public class GameOverScreen : MonoBehaviour
         var kills= RunStatsManager.runStatsManager.regularEnemiesKilled;
         _earnedKillCoins = (int)Mathf.Floor(kills/ _killCoinRelation);
         _earnedKillCoins = Mathf.Clamp(_earnedKillCoins, 0, _maxKillCoins);
+
+        var totalEarnedCoins = _earnedDamageCoins + _earnedKillCoins + _earnedWaveCoins;
+        UnlockmentsManager.GachaCoins += totalEarnedCoins;
     }
 }
