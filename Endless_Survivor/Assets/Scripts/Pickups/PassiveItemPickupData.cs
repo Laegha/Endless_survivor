@@ -1,7 +1,8 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Passive Item Pickup", menuName = "ScriptableObjects/Pickups/PassiveItem", order = 2)]
 public class PassiveItemPickupData : PickupData
 {
     static readonly int _regularWeaponSpawnChance = 10;
