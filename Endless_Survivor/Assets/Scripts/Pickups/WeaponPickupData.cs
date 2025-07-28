@@ -6,22 +6,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon Pickup", menuName = "ScriptableObjects/Pickups/Weapon", order = 2)]
 public class WeaponPickupData : PickupData
 {
-    static readonly int _regularWeaponSpawnChance = 10;
-    static readonly int _weaponCopySpawnChance = 20;
     static readonly string _weaponVariableKey = "pickupWeapon";
-
+    [SerializeField] WeaponFlags.IWeaponPool _droppedWeaponPool;
     public override void TransferData(PickupControl pickupControl)
     {
         base.TransferData(pickupControl);
-        Dictionary<WeaponData, int> weaponWeights = new Dictionary<WeaponData, int>();
-        foreach (var weaponData in GameManager.gm.unlockedWeapons)
-        {
-            weaponWeights.Add(weaponData, _regularWeaponSpawnChance);//use _weaponCopySpawnChance if the player holds the same weapon
-        }
-        Roulette<WeaponData> weaponRoulette = new Roulette<WeaponData>(weaponWeights);
-        WeaponData resultWeaponData = weaponRoulette.Spin();
-        if(resultWeaponData == null)
-            return;//THIS SHOULD NEVER HAPPEN, SINCE THERE ALWAYS WILL BE AT LEAST 1 WEAPON UNLOCKED TO APPEAR
+
+        var resultWeaponData = RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
         pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
         CustomAnimation weponIdle = resultWeaponData.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
 
