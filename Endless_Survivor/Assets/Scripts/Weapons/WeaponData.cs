@@ -7,18 +7,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "ScriptableObjects/Weapon", order = 2)]
 public class WeaponData : ScriptableObject
 {
-    public enum IWeaponTag
-    {
-        Melee,
-        Ranged,
-        HighDMG,
-        LowDMG,
-        HighAtkSpd,
-        LowAtkSpd
-    }
     [SerializeField] WeaponStats _weaponStats;
     [SerializeField] WeaponStats _statsIncreaseScale;
-    [SerializeField] IWeaponTag[] _weaponTags;
+    [SerializeField] WeaponFlags.IWeaponTag[] _weaponTags;
+    [SerializeField] WeaponFlags.IWeaponPool _weaponPools;
     [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
 
     [SerializeField] Sprite _weaponDisplaySprite;
@@ -37,5 +29,6 @@ public class WeaponData : ScriptableObject
             };
         }
     }
-    public IWeaponTag[] WeaponTags { get { return _weaponTags; } }
+    public WeaponFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
+    public WeaponFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }
 }
