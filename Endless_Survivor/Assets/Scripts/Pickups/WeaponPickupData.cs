@@ -7,7 +7,7 @@ using UnityEngine;
 public class WeaponPickupData : PickupData
 {
     static readonly string _weaponVariableKey = "pickupWeapon";
-    [SerializeField] WeaponFlags.IWeaponPool _droppedWeaponPool;
+    [SerializeField] CustomFlags.IWeaponPool _droppedWeaponPool;
     public override void TransferData(PickupControl pickupControl)
     {
         base.TransferData(pickupControl);

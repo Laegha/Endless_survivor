@@ -7,12 +7,12 @@ public class RandomWeaponGetter
 {
     static int _sharedTagChanceIncrementBase = 10;
     static int _sharedTagChanceIncrementPerTag = 1;
-    public static WeaponData GetWeapon(bool useBuildTags = true, WeaponFlags.IWeaponPool weaponPool = WeaponFlags.IWeaponPool.None)
+    public static WeaponData GetWeapon(bool useBuildTags = true, CustomFlags.IWeaponPool weaponPool = CustomFlags.IWeaponPool.None)
     {
         var availableWeapons = UnlockmentsManager.UnlockedWeapons;
-        if(weaponPool != WeaponFlags.IWeaponPool.None)
+        if(weaponPool != CustomFlags.IWeaponPool.None)
         {
-            availableWeapons = availableWeapons.Where(x => (x.WeaponPools & weaponPool) != WeaponFlags.IWeaponPool.None).ToList();
+            availableWeapons = availableWeapons.Where(x => (x.WeaponPools & weaponPool) != CustomFlags.IWeaponPool.None).ToList();
         }
 
         if(!useBuildTags)

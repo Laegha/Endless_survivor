@@ -9,8 +9,8 @@ public class WeaponData : ScriptableObject
 {
     [SerializeField] WeaponStats _weaponStats;
     [SerializeField] WeaponStats _statsIncreaseScale;
-    [SerializeField] WeaponFlags.IWeaponTag[] _weaponTags;
-    [SerializeField] WeaponFlags.IWeaponPool _weaponPools;
+    [SerializeField] CustomFlags.IWeaponTag[] _weaponTags;
+    [SerializeField] CustomFlags.IWeaponPool _weaponPools;
     [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
 
     [SerializeField] Sprite _weaponDisplaySprite;
@@ -29,6 +29,6 @@ public class WeaponData : ScriptableObject
             };
         }
     }
-    public WeaponFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
-    public WeaponFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }
+    public CustomFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
+    public CustomFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }
 }
