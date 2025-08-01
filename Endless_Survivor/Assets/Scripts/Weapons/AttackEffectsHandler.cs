@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AttackEffectsHandler : MonoBehaviour
@@ -8,7 +9,7 @@ public class AttackEffectsHandler : MonoBehaviour
 
     public void TryEffects(Attack attack)
     {
-        var availableEffects = PlayerControl.pc.EffectsHolder.availableEffects;
+        var availableEffects = attack.ParentWeapon.WeaponAttackEffects.availableEffects.Concat(PlayerControl.pc.EffectsHolder.availableEffects);
         foreach (AttackEffectData effectData in availableEffects)
         {
             int rand = UnityEngine.Random.Range(0, 101);
