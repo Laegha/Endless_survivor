@@ -10,15 +10,23 @@ public class RayWeapon : ShootingWeapon
     public override void Start()
     {
         base.Start();
+        InitializeAttack += InitiateLaser;
     }
     public override void Attack()
     {
         base.Attack();
 
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
-        RayAttack laserAttack = Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
+        RayAttack rayAttack = Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
 
-        laserAttack.Attack(WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage, _rayData, FirePoint);
+        InitializeAttack(rayAttack);
+    }
+
+    void InitiateLaser(Attack attack)
+    {
+        var rayAttack = attack as RayAttack;
+        rayAttack.Attack(WeaponStats.Damage + GameManager.gm.selectedCharacter.PlayerStats.Damage, _rayData, FirePoint);
+
     }
 
 }
