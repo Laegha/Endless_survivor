@@ -13,12 +13,16 @@ public class Weapon : MonoBehaviour
     WeaponControl _weaponControl;
     WeaponData _weaponData;
     PlayerControl _playerControl;
+    Action<Attack> _initializeAttack;
+    List<AttackEffectData> _weaponEffects = new();
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
     public WeaponControl WeaponControl { get { return _weaponControl; } }
     public WeaponData WeaponData { get { return _weaponData; } set { _weaponData = value; } }
     public PlayerControl PlayerControl { get { return _playerControl; } set { _playerControl = value; } }
     public bool InRange { set  { _inRange = value; } }
+    public Action<Attack> InitializeAttack { get { return _initializeAttack; } set { _initializeAttack = value; }  }
+    public List<AttackEffectData> WeaponEffects { get { return _weaponEffects; } set { _weaponEffects = value; } }
 
     public virtual void Start()
     {
@@ -29,6 +33,8 @@ public class Weapon : MonoBehaviour
         attackEndEvent.frameIndex = attackAnimation.Frames.Length-1;
         attackEndEvent.frameAction = AttackAnimEnd;
         attackAnimation.Events.Add(attackEndEvent);
+
+        _initializeAttack += SetWeaponOnAttack;
     }
 
     public virtual void Update()
@@ -64,5 +70,10 @@ public class Weapon : MonoBehaviour
     public virtual void Attack()
     {
         print("Attacking");
+    }
+
+    void SetWeaponOnAttack(Attack attack)
+    {
+        attack.ParentWeapon = this;
     }
 }
