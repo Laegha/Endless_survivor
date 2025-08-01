@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     WeaponData _weaponData;
     PlayerControl _playerControl;
     Action<Attack> _initializeAttack;
-    List<AttackEffectData> _weaponEffects = new();
+    AttackEffectsHolder _weaponAttackEffects = new();
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
     public WeaponControl WeaponControl { get { return _weaponControl; } }
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
     public PlayerControl PlayerControl { get { return _playerControl; } set { _playerControl = value; } }
     public bool InRange { set  { _inRange = value; } }
     public Action<Attack> InitializeAttack { get { return _initializeAttack; } set { _initializeAttack = value; }  }
-    public List<AttackEffectData> WeaponEffects { get { return _weaponEffects; } set { _weaponEffects = value; } }
+    public AttackEffectsHolder WeaponAttackEffects { get { return _weaponAttackEffects; } set { _weaponAttackEffects = value; } }
 
     public virtual void Start()
     {
