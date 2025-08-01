@@ -10,11 +10,22 @@ public class ProyectileWeapon : ShootingWeapon
     public ProyectileData ProyectileData {  get { return _proyectileData; } set { _proyectileData = value; } }
     public float ProyectileSpread { get { return _proyectileSpread; } set { _proyectileSpread = value; } }
     public float ProyectileSpeed { get { return _proyectileSpeed; } set { _proyectileSpeed = value; } }
+
+    public override void Start()
+    {
+        InitializeAttack += InitiateProyectile;
+    }
     public override void Attack()
     {
         base.Attack();
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         Proyectile proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<Proyectile>();
+        InitializeAttack.Invoke(proyectile);
+
+    }
+    void InitiateProyectile(Attack affectedAttack)
+    {
+        var proyectile = affectedAttack as Proyectile;
         proyectile.transform.position = FirePoint.position;
         proyectile.transform.rotation = FirePoint.rotation;
 
