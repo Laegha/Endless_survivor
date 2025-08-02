@@ -9,9 +9,10 @@ public class WeaponData : ScriptableObject
 {
     [SerializeField] WeaponStats _weaponStats;
     [SerializeField] WeaponStats _statsIncreaseScale;
+    [SerializeField] AttackEffectData[] _attackEffects;
     [SerializeField] CustomFlags.IWeaponTag[] _weaponTags;
     [SerializeField] CustomFlags.IWeaponPool _weaponPools;
-    [SerializeReference]WeaponDataTransferInterface _weaponDataTransferInterface;
+    [SerializeReference] WeaponDataTransferInterface _weaponDataTransferInterface;
 
     [SerializeField] Sprite _weaponDisplaySprite;
     [SerializeField] CustomAnimation _idleAnimation;
@@ -19,6 +20,7 @@ public class WeaponData : ScriptableObject
     
     public Sprite WeaponDisplaySprite { get { return _weaponDisplaySprite; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } }
+    public AttackEffectData[] AttackEffects { get { return _attackEffects; } }
     public WeaponStats StatsIncreaseScale { get { return _statsIncreaseScale; } }
     public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } set { _weaponDataTransferInterface = value; } }
     public List<CustomAnimation> Animations { get { 

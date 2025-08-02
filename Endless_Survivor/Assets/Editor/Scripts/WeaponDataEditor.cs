@@ -11,6 +11,7 @@ public class WeaponDataEditor : Editor
     SerializedProperty _weaponTransfer;
     SerializedProperty _weaponStats;
     SerializedProperty _statsIncreaseScale;
+    SerializedProperty _weaponAttackEffects;
     SerializedProperty _weaponTags;
     SerializedProperty _weaponPools;
     SerializedProperty _weaponDisplaySprite;
@@ -25,6 +26,7 @@ public class WeaponDataEditor : Editor
         _weaponTransfer = serializedObject.FindProperty("_weaponDataTransferInterface");
         _weaponStats = serializedObject.FindProperty("_weaponStats");
         _statsIncreaseScale = serializedObject.FindProperty("_statsIncreaseScale");
+        _weaponAttackEffects = serializedObject.FindProperty("_attackEffects");
         _weaponTags = serializedObject.FindProperty("_weaponTags");
         _weaponPools = serializedObject.FindProperty("_weaponPools");
         _weaponDisplaySprite = serializedObject.FindProperty("_weaponDisplaySprite");
@@ -41,6 +43,7 @@ public class WeaponDataEditor : Editor
         serializedObject.Update();
 
         EditorGUILayout.LabelField(weaponData.WeaponDataTransferInterface != null ? weaponData.WeaponDataTransferInterface.ToString() : "Unassigned weapon type", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(_weaponTransfer, true);
 
         if(GUILayout.Button("Change weapon type"))
         {
@@ -61,11 +64,15 @@ public class WeaponDataEditor : Editor
             }
             menu.ShowAsContext();
         }
-        EditorGUILayout.PropertyField(_weaponTransfer, true);
 
         EditorGUILayout.PropertyField(_weaponStats);
         EditorGUILayout.PropertyField(_statsIncreaseScale);
+        EditorGUILayout.PropertyField(_weaponAttackEffects);
+
+        EditorGUILayout.LabelField("Weapons with similar tags are more likely to spawn during runs", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_weaponTags);
+
+        EditorGUILayout.LabelField("Some enemies will drop only weapons of certain pools", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_weaponPools);
 
         EditorGUILayout.LabelField("Animations");
