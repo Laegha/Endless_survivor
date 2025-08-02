@@ -39,9 +39,10 @@ public class GameOverScreen : MonoBehaviour
         _killedEnemiesDisplay.text = RunStatsManager.runStatsManager.regularEnemiesKilled + "";
         _wavesSurvivedDisplay.text = RunStatsManager.runStatsManager.wavesSurvived + "";
 
-        _wavesSurvivedDisplay.text = _earnedWaveCoins + "";
-        _damageDealtCoinDisplay.text = _earnedDamageCoins + "";
-        _killedEnemiesCoinDisplay.text = _earnedKillCoins + "";
+        _totalEarnedCoinDisplay.text = "x" + _totalEarnedCoinDisplay;
+        _wavesSurvivedDisplay.text = "x" + _earnedWaveCoins;
+        _damageDealtCoinDisplay.text = "x" + _earnedDamageCoins;
+        _killedEnemiesCoinDisplay.text = "x" + _earnedKillCoins;
     }
 
     void CalculateEarnedCoins()
