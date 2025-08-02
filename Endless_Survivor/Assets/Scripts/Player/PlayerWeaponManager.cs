@@ -17,7 +17,7 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         get
         {
-            Dictionary< CustomFlags.IWeaponTag, int> heldTags= new();
+            Dictionary<CustomFlags.IWeaponTag, int> heldTags= new();
             foreach(var heldWeapon in _heldWeapons)
             {
                 foreach(var tag in heldWeapon.holdingWeapon.WeaponData.WeaponTags)
