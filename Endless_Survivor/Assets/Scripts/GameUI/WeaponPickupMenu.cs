@@ -20,6 +20,7 @@ public class WeaponPickupMenu : MonoBehaviour
     {
         //stop game
         _menuGfx.SetActive(true);
+        GameUIManager.uiManager.MenuDisplayed();
         _currDisplayingWeapon = displayingWeapon;
         Utility.ScaleImageToFitTarget(_weaponImage.rectTransform, displayingWeapon.WeaponDisplaySprite, _weaponImageTargetSize.sizeDelta);
         _weaponImage.sprite = _currDisplayingWeapon.WeaponDisplaySprite;
@@ -30,11 +31,12 @@ public class WeaponPickupMenu : MonoBehaviour
     {
         PlayerControl.pc.WeaponManager.PickupWeapon(_currDisplayingWeapon, _currWeaponStats);
         _menuGfx.SetActive(false);
+        GameUIManager.uiManager.MenuHid();
     }
 
     public void DiscardWeapon()
     {
         _menuGfx.SetActive(false);
-
+        GameUIManager.uiManager.MenuHid();
     }
 }
