@@ -19,7 +19,7 @@ public class RandomWeaponGetter
         {
             return availableWeapons[Random.Range(0, availableWeapons.Count)];
         }
-        var heldTags = PlayerControl.pc.WeaponManager.HeldWeaponTags;
+        var heldTags = PlayerControl.pc != null ? PlayerControl.pc.WeaponManager.HeldWeaponTags : new();
         Dictionary<WeaponData, int> rouletteMaterial = new Dictionary<WeaponData, int>();
         foreach(var weaponData in availableWeapons)
         {
