@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameUIManager : MonoBehaviour
 {
+    [SerializeField] GameObject _menuBG;
     [SerializeField] WeaponPickupMenu _weaponPickupMenu;
     [SerializeField] WeaponSwitchMenu _weaponOverrideMenu;
     [SerializeField] PlayerHPBar _playerHPBar;
@@ -15,5 +16,15 @@ public class GameUIManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+    }
+    public void MenuDisplayed()
+    {
+        _menuBG.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void MenuHid()
+    {
+        _menuBG.SetActive(false);
+        Time.timeScale = 1;
     }
 }
