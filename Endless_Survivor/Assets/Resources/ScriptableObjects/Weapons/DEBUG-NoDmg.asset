@@ -16,14 +16,22 @@ MonoBehaviour:
     _range: 4
     _attackSpeed: 1
     _damage: 0
-  _weaponType: 0
+  _statsIncreaseScale:
+    _range: 0
+    _attackSpeed: 0
+    _damage: 0
+  _attackEffects: []
+  _weaponTags: 
+  _weaponPools: 0
   _weaponDataTransferInterface:
-    rid: 768304907118444553
+    rid: 3410740109222608900
+  _weaponDisplaySprite: {fileID: 0}
   _idleAnimation:
     _animationName: Idle
     _frames:
     - {fileID: -221434982, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     _framesPerSecond: 1
+    _priority: 0
   _attackAnimation:
     _animationName: Attack
     _frames:
@@ -32,16 +40,18 @@ MonoBehaviour:
     - {fileID: 2097127425, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     - {fileID: -1650684103, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     _framesPerSecond: 8
+    _priority: 0
     _exitAnimationName: Attack
   references:
     version: 2
     RefIds:
-    - rid: 768304907118444553
-      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 3410740109222608900
+      type: {class: RayWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: -0.453125, y: 0}
-        _defaultBulletData:
-          _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
-          _colliderSize: {x: 0.2, y: 0.2}
-        _proyectileSpeed: 5
-        _proyectileSpread: 45
+        _firePointPosition: {x: 0, y: 0}
+        _rayData:
+          _rayMaterial: {fileID: 0}
+          _rayStartWidth: 0
+          _rayEndWidth: 0
+          _rayExitSpeed: 0
+          _rayStartSprite: {fileID: 0}

@@ -48,9 +48,9 @@ MonoBehaviour:
     - rid: 3410740109222608897
       type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: 0, y: 0}
+        _firePointPosition: {x: -0.5937534, y: 0.015625}
         _defaultBulletData:
-          _proyectileSprite: {fileID: 0}
+          _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
           _colliderSize: {x: 2, y: 0}
           _proyectileMaterial: {fileID: 2100000, guid: b92c6fe20023e7e41998266c428e5427, type: 2}
           _particlesPrefab: {fileID: 0}
@@ -59,5 +59,5 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-        _proyectileSpeed: 0
-        _proyectileSpread: 0
+        _proyectileSpeed: 5
+        _proyectileSpread: 45
