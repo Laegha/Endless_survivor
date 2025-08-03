@@ -13,6 +13,7 @@ public class ProyectileWeapon : ShootingWeapon
 
     public override void Start()
     {
+        base.Start();
         InitializeAttack += InitiateProyectile;
     }
     public override void Attack()
