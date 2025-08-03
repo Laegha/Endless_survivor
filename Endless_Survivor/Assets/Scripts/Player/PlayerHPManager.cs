@@ -54,5 +54,6 @@ public class PlayerHPManager : HP
     public override void Die()
     {
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
+        SceneLoadingFunctions.slf.GameOver();
     }
 }
