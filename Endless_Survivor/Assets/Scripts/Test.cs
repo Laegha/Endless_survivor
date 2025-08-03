@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] PickupData spawnedPickup;
-    [SerializeField] PickupControl pickup;
+    List<int> list = new List<int>() { 0, 1};
+    List<int> list2 = new List<int>() { 2, 3 };
 
     private void Start()
     {
-        print(GameManager.gm.Unlockments.unlocked_characters);
-        foreach(var charac in GameManager.gm.Unlockments.unlocked_weapons)
-            print("CHARACTER: " + charac.Key + " IS " +  charac.Value);
+        print("TEST " + list.Count);
+        print("TEST2 " + list.Concat(list2).Count());
+        print("TEST3 " + list.Count);
     }
 
 }
