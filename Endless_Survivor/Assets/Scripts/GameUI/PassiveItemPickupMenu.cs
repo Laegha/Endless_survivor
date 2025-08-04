@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PassiveItemPickupMenu : MonoBehaviour
 {
     [SerializeField] GameObject _menuGfx;
+    [SerializeField] Image _itemImage;
+    [SerializeField] RectTransform _itemImageTargetSize;
+    [SerializeField] TextMeshProUGUI _itemName;
+    [SerializeField] TextMeshProUGUI _itemDescript;
     PassiveItemData _currPickingItem;
 
     public void DisplayMenu(PassiveItemData pickingItem)
@@ -12,6 +18,7 @@ public class PassiveItemPickupMenu : MonoBehaviour
         _menuGfx.SetActive(true);
         GameUIManager.uiManager.MenuDisplayed();
         _currPickingItem = pickingItem;
+
     }
     public void TakeItem()
     {
@@ -21,8 +28,8 @@ public class PassiveItemPickupMenu : MonoBehaviour
     }
     public void DiscardItem()
     {
-
         _menuGfx.SetActive(false);
         GameUIManager.uiManager.MenuHid();
+        PlayerControl.pc.WeaponManager.LevelUpWeapons();
     }
 }
