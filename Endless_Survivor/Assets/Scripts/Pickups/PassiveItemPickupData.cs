@@ -15,6 +15,7 @@ public class PassiveItemPickupData : PickupData
         base.TransferData(pickupControl);
         var unlockedPassiveItems = UnlockmentsManager.UnlockedPassiveItems;
         var availableItems = unlockedPassiveItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
+        
         PassiveItemData pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)];//get a random passive
         pickupControl.Pickup.AddVariable(_itemVariableKey, pickupPassiveItem);
         pickupControl.Animator.AddAnimations(new List<CustomAnimation> { _itemBaseIdle, _itemBasePickup });
@@ -25,7 +26,7 @@ public class PassiveItemPickupData : PickupData
     {
         base.PickUp(pickupControl);
         pickupControl.Animator.ChangeAnim(_itemBasePickup.AnimationName);
-        PlayerControl.pc.PassiveItemManager.AddPassiveItem(pickupControl.Pickup.GetVariable<PassiveItemData>(_itemVariableKey));
+        GameUIManager.uiManager.PassiveItemPickupMenu.DisplayMenu(pickupControl.Pickup.GetVariable<PassiveItemData>(_itemVariableKey));
         Destroy(pickupControl.gameObject, _itemBasePickup.AnimDuration);
     }
 }
