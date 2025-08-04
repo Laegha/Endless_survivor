@@ -112,4 +112,16 @@ public class PlayerWeaponManager : MonoBehaviour
         PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
         GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
+
+    public void LevelUpWeapons(List<Weapon> weapons = null)
+    {
+        if(weapons == null || weapons.Count == 0 )
+        {
+            weapons = new();
+            _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));
+        }
+
+        weapons.ForEach(x => x.InducedLevelUp());
+    }
+
 }
