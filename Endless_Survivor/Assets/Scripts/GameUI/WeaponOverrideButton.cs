@@ -17,7 +17,7 @@ public class WeaponOverrideButton : MonoBehaviour
     {
         Utility.ScaleImageToFitTarget(_weaponGfx.rectTransform, weaponGfx, _weaponGfxTargetSize.sizeDelta);
         _weaponGfx.sprite = weaponGfx;
-        _levelGfx.text = "" + assignedWeapon.WeaponStats.Level;
+        _levelGfx.text = "" + assignedWeapon.WeaponStats.TrueLevel;
         _assignedWeapon = assignedWeapon;
         _onPressed = onPressed;
     }

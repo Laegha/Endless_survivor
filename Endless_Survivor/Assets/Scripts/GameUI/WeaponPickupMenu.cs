@@ -25,7 +25,7 @@ public class WeaponPickupMenu : MonoBehaviour
         Utility.ScaleImageToFitTarget(_weaponImage.rectTransform, displayingWeapon.WeaponDisplaySprite, _weaponImageTargetSize.sizeDelta);
         _weaponImage.sprite = _currDisplayingWeapon.WeaponDisplaySprite;
         _currWeaponStats = new WeaponStats(_currDisplayingWeapon.WeaponStats);
-        _currWeaponStats.ScaleStats(_currDisplayingWeapon.StatsIncreaseScale, WeaponStats.CurrWaveLevel);
+        _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, WeaponStats.CurrWaveLevel);
     }
     public void TakeWeapon()
     {
