@@ -76,4 +76,10 @@ public class Weapon : MonoBehaviour
     {
         attack.ParentWeapon = this;
     }
+
+    public void InducedLevelUp()
+    {
+        _weaponStats.InducedLevelUp(_weaponData.StatsIncreaseScale);
+        //spawn a little lvl up particle or smth
+    }
 }
