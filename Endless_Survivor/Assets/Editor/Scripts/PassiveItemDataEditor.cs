@@ -7,10 +7,14 @@ using UnityEngine;
 [CustomEditor(typeof(PassiveItemData))]
 public class PassiveItemDataEditor : Editor
 {
+    SerializedProperty _itemSprite;
+    SerializedProperty _itemPools;
     Dictionary<Type, bool> _behaviourTypes = new();
     
     private void OnEnable()
     {
+        _itemSprite = serializedObject.FindProperty("_itemSprite");
+        _itemPools = serializedObject.FindProperty("_itemPools");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(PassiveItemBehaviour));
         PassiveItemData passiveItemData = (PassiveItemData)target;
         behaviourTypes.ForEach(type => _behaviourTypes.Add(type, passiveItemData.ItemBehaviours.Exists(behaviour => behaviour.GetType() == type)));
@@ -18,6 +22,9 @@ public class PassiveItemDataEditor : Editor
     }
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.PropertyField(_itemSprite);
+        EditorGUILayout.PropertyField(_itemPools);
+        serializedObject.ApplyModifiedProperties();
         PassiveItemData passiveItemData = (PassiveItemData)target;
         SerializedProperty itemBehaviours = serializedObject.FindProperty("_itemBehaviours");
 

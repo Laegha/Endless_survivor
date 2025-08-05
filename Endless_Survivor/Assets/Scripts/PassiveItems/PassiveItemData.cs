@@ -9,6 +9,7 @@ public class PassiveItemData : ScriptableObject
     [SerializeReference] List<PassiveItemBehaviour> _itemBehaviours = new List<PassiveItemBehaviour>();
     [SerializeField] CustomFlags.IPassiveItemPool _itemPools;
 
+    public Sprite ItemSprite { get { return _itemSprite; } }
     public List<PassiveItemBehaviour> ItemBehaviours { get { return _itemBehaviours; } }
     public CustomFlags.IPassiveItemPool ItemPools { get { return _itemPools; } }
 
