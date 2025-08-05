@@ -12,14 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521738805e0fc28479bc3756b77bfa89, type: 3}
   m_Name: RegularPassiveItem
   m_EditorClassIdentifier: 
-  pickupPassiveItem: {fileID: 11400000, guid: d01d73ee33614974d989561962827a23, type: 2}
-  _itemBaseIdle:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
-    _priority: 0
-  _itemBasePickup:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
-    _priority: 0
+  _itemPools: 0
