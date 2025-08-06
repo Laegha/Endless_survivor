@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     PlayerControl _playerControl;
     Action<Attack> _initializeAttack;
     AttackEffectsHolder _weaponAttackEffects = new();
+    static readonly float _onLevelUpParticleDuration = 1.5f;
 
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
     public WeaponControl WeaponControl { get { return _weaponControl; } }
@@ -81,5 +82,7 @@ public class Weapon : MonoBehaviour
     {
         _weaponStats.InducedLevelUp(_weaponData.StatsIncreaseScale);
         //spawn a little lvl up particle or smth
+        ParticleConfig levelUpParticles = new(_weaponControl.OnLevelUpParticle, transform.position, Quaternion.identity, _onLevelUpParticleDuration);
+        ParticleManager.pm.SpawnParticles(levelUpParticles);
     }
 }
