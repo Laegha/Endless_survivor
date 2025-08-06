@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4355878121817951270}
   - component: {fileID: 5495909789129919652}
   - component: {fileID: 4544064862658322159}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7740000122451531079}
   - component: {fileID: 164987698632209480}
   - component: {fileID: 8890682336977411929}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4959,7 +4959,7 @@ GameObject:
   - component: {fileID: 3031660180573171501}
   - component: {fileID: 8092395713913227452}
   - component: {fileID: 8929391984769753380}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

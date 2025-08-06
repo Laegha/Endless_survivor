@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponAnimator: {fileID: 8017266537295601437}
   _gfx: {fileID: 2769403315937609654}
+  _onLevelUpParticle: {fileID: 2555208327605434357, guid: aac3198803d2934488447e7ecf1d029e, type: 3}
 --- !u!1 &8860193320851165239
 GameObject:
   m_ObjectHideFlags: 0
