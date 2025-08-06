@@ -20,8 +20,6 @@ public class CameraBGColorShifting : MonoBehaviour
 
     void Update()
     {
-        print(saturation);
-        print(value);
         _cycleTimer += Time.deltaTime;
         if(_cycleTimer >= _cycleTime)
             _cycleTimer = 0;
