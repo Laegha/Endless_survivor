@@ -646,11 +646,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedCharacter: {fileID: 11400000, guid: 7d6dcd7670b335a459c30b78b45731e7, type: 2}
   prefabHolder: {fileID: 11400000, guid: 080c889d4f67cd942abc52eb0118bd2e, type: 2}
-  unlockmentsHolder: {fileID: 11400000, guid: 5b4ac3540502a1247a7d4d8a2942bca5, type: 2}
   unlockedCharacters: []
   unlockedWeapons:
   - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
   _audioMixer: {fileID: 24100000, guid: cd2588ac29cb5f842aa936deefcef760, type: 2}
+  _testWeapon: {fileID: 0}
 --- !u!4 &498429080
 Transform:
   m_ObjectHideFlags: 0
