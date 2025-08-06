@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
   m_Name: WeaknessVirus
   m_EditorClassIdentifier: 
+  _itemName: M
+  _itemDescript: I
   _itemSprite: {fileID: 21300000, guid: 3a5c3f57ba87a6848bc1b6f315eee370, type: 3}
   _itemBehaviours:
   - rid: 278974108140830721

@@ -20,9 +20,7 @@ MonoBehaviour:
   - rid: 768305086805573633
   - rid: 2600434731462950912
   - rid: 2600434731462950913
-  _dropablePickupChances:
-  - _pickupData: {fileID: 11400000, guid: a92f8385d93f6e14aaa5cbb6cf88d802, type: 2}
-    _chance: 100
+  _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -45,7 +43,7 @@ MonoBehaviour:
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _overrideBehaviours: []
-        _enemySpeed: 0
+        _enemySpeed: 2
         _chasingAnimation:
           _animationName: Move
           _frames:

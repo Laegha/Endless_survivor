@@ -23,7 +23,7 @@ MonoBehaviour:
       data:
         _effectMaxStacks: 1
         _statusEffectIndicator: {fileID: 21300000, guid: 0de29d874505a98468354b9154c186bd, type: 3}
-        _statusEffectMaterial: {fileID: 2100000, guid: 3feaec31572d14c4ab2d96adfdabbbb4, type: 2}
+        _statusEffectMaterial: {fileID: 2100000, guid: 84034c6e3646f7041a4600d07cf9ba1e, type: 2}
     - rid: 6091434301908320257
       type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
       data:

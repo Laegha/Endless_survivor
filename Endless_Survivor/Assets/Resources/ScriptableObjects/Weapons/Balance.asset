@@ -20,7 +20,8 @@ MonoBehaviour:
     _range: 1
     _attackSpeed: 10
     _damage: 5
-  _attackEffects: []
+  _attackEffects:
+  - {fileID: 11400000, guid: 7c5eb82578ca36c4e935ab537b34c827, type: 2}
   _weaponTags: 010000000300000004000000
   _weaponPools: 0
   _weaponDataTransferInterface:
@@ -51,8 +52,8 @@ MonoBehaviour:
         _firePointPosition: {x: -0.5937534, y: 0.015625}
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
-          _colliderSize: {x: 2, y: 0}
-          _proyectileMaterial: {fileID: 2100000, guid: b92c6fe20023e7e41998266c428e5427, type: 2}
+          _colliderSize: {x: 0.2, y: 0.2}
+          _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
           _particlesPrefab: {fileID: 0}
           _shootSFX:
             _sound: {fileID: 0}
