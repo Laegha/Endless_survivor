@@ -35,6 +35,14 @@ public static class Utility
         float yPos = Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
         return new Vector2(xPos, yPos);
     }
+    public static float GetAngleFromPointInCircle(Vector2 point, bool clockwise = true)
+    {
+        float angle = Mathf.Atan2(clockwise ? point.x : point.y, clockwise ? point.y : point.x) * Mathf.Rad2Deg;
+        if (angle < 0)
+            angle += 360f;
+
+        return angle;
+    }
     public static void ScaleImageToFitTarget(RectTransform imageTr, Sprite sprite, Vector2 targetSpace)
     {
         if (imageTr == null || sprite == null)
@@ -93,5 +101,10 @@ public static class Utility
             foundComponent = checkingParent.GetComponent<T>();
         }
         return foundComponent;
+    }
+
+    public static AnimationClip GetClipFromAnimator(Animator animator, string clipName)
+    {
+        return animator.runtimeAnimatorController.animationClips.ToList().Find(clip => clip.name == clipName);
     }
 }
