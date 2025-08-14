@@ -2,35 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GachaUnlocker : MonoBehaviour
+public static class GachaUnlocker
 {
     static string _characterElement = "character";
     static string _weaponElement = "weapon";
     static string _passiveItemElement = "passiveItem";
     static string[] _elementKeys = { _characterElement, _weaponElement, _passiveItemElement };
 
-    void UnlockRandomElement()
+    public static int gachaCoinCost = 1;
+    public static ScriptableObject UnlockRandomElement()
     {
-        string unlockedElement = _elementKeys[Random.Range(0, _elementKeys.Length)];
+        List<ScriptableObject> unlockableElements = new List<ScriptableObject>();
+        unlockableElements.AddRange(UnlockmentsManager.LockedCharacters);
+        unlockableElements.AddRange(UnlockmentsManager.LockedWeapons);
+        unlockableElements.AddRange(UnlockmentsManager.LockedPassiveItems);
+        
+        if (unlockableElements.Count == 0)
+            return null;
 
-        if(unlockedElement == _characterElement)
+        var unlockedElement = unlockableElements[Random.Range(0, unlockableElements.Count)];
+        if(unlockedElement == null)
+            return null;
+        if(unlockedElement.GetType() == typeof(CharacterData))
         {
-            var lockedChars = UnlockmentsManager.LockedCharacters;
-            var unlockedCharacter = lockedChars[Random.Range(0, lockedChars.Count)];
-            UnlockmentsManager.UnlockCharacter(unlockedCharacter);
+            UnlockmentsManager.UnlockCharacter(unlockedElement as CharacterData);
         }
-        else if (unlockedElement == _weaponElement)
+        else if(unlockedElement.GetType() == typeof(WeaponData))
         {
-            var lockedWeapons = UnlockmentsManager.LockedWeapons;
-            var unlockedWeapon = lockedWeapons[Random.Range(0, lockedWeapons.Count)];
-            UnlockmentsManager.UnlockWeapon(unlockedWeapon);
+            UnlockmentsManager.UnlockWeapon(unlockedElement as WeaponData);
         }
-        else if (unlockedElement == _passiveItemElement)
+        else if(unlockedElement.GetType() == typeof(PassiveItemData))
         {
-            var lockedPassiveItems = UnlockmentsManager.LockedPassiveItems;
-            var unlockedPassiveItem = lockedPassiveItems[Random.Range(0, lockedPassiveItems.Count)];
-            UnlockmentsManager.UnlockPassiveItem(unlockedPassiveItem);
+            UnlockmentsManager.UnlockPassiveItem(unlockedElement as PassiveItemData);
         }
-        UnlockmentsManager.GachaCoins--;
+        UnlockmentsManager.GachaCoins -= gachaCoinCost;
+        return unlockedElement;
     }
 }
