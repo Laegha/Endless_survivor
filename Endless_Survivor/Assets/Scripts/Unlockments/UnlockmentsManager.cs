@@ -22,17 +22,23 @@ public static class UnlockmentsManager
     static string _passiveItemsJson = File.ReadAllText(_passiveItemsPath);
     static string _gachaCoinsJson = File.ReadAllText(_gachaCoinsPath);
 
+    static int _maxCoins = 9999999;
+
     public static int GachaCoins
     {
         get
         {
-            int collectedCoins = JsonConvert.DeserializeObject<int>(_charactersJson);
+            int collectedCoins = JsonConvert.DeserializeObject<int>(_gachaCoinsJson);
             return collectedCoins;
         }
         set
         {
-            int collectedCoins = JsonConvert.DeserializeObject<int>(_charactersJson);
+            int collectedCoins = JsonConvert.DeserializeObject<int>(_gachaCoinsJson);
             collectedCoins += value;
+            if(collectedCoins > _maxCoins)
+                collectedCoins = _maxCoins;
+            else if(collectedCoins < 0)
+                collectedCoins = 0;
             string collectedCoinsJson = JsonConvert.SerializeObject(collectedCoins, Formatting.Indented);
             File.WriteAllText(_gachaCoinsPath, collectedCoinsJson);
         }
@@ -42,7 +48,6 @@ public static class UnlockmentsManager
         Dictionary<string, bool> jsonDatas = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json);
         T[] allDatas = Resources.LoadAll<T>("");
         List<T> requestedDatas = allDatas.Where(data => jsonDatas.ContainsKey(data.name) && jsonDatas[data.name] == unlocked).ToList();
-        Debug.Log(requestedDatas.Count);
         return requestedDatas;
     }
     static void UnlockDataOnJson<T>(T unlockedData, string json, string jsonPath) where T : ScriptableObject
