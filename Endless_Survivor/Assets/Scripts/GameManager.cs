@@ -44,4 +44,9 @@ public class GameManager : MonoBehaviour
     {
         _audioMixer.SetFloat(volumeGroup, Mathf.Log10(20) * volume);
     }
+
+    public void RoutineRunner(IEnumerator routine)
+    {
+        StartCoroutine(routine);
+    }
 }
