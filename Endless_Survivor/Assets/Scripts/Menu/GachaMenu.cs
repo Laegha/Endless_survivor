@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,11 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     [Header("References")]
     [SerializeField] GameObject _menuObj;
     [SerializeField] TextMeshProUGUI _availableCoinsDisplay;
-    [SerializeField] GachaMenuGfxHolder _gfxHolder; 
-
-    [Header("Auxiliar")]
-    [SerializeField] float _delayAfterSpinningLever = .5f;
-    [SerializeField] float _delayAfterBallFall = .5f;
+    [SerializeField] Image _prizeImage;
+    [SerializeField] RectTransform _prizeImageTarget;
+    [SerializeField] TextMeshProUGUI _prizeTypeDisplay;
+    [SerializeField] TextMeshProUGUI _prizeNameDisplay;
+    [SerializeField] ObjectRotatorByDrag _leverRotator;
 
     [Header("GraphicStates")]
     [SerializeField] List<GachaMenuGfxState> _gfxStates;
@@ -28,16 +29,26 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     string _unlockedElementType;
 
     bool _skipAnimation = false;
+    float _stateTimer = 0;
     bool _enoughCoinsToGacha => UnlockmentsManager.GachaCoins >= GachaUnlocker.gachaCoinCost;
     private void Start()
     {
-        _gfxHolder.leverRotator.OnLimitReached += LeverSpun;
+        _leverRotator.OnLimitReached += NextState;
+    }
+    private void Update()
+    {
+        if (!_gfxStates[_currStateIndex].endsByTime)
+            return;
+        _stateTimer += Time.deltaTime;
+        if(_stateTimer >= _gfxStates[_currStateIndex].stateDuration + _gfxStates[_currStateIndex].delayAfterEnding)
+        {
+            NextState();
+        }
     }
     public void DisplayMenu()
     {
         _menuObj.SetActive(true);
 
-        _gfxHolder.coinSlotOutline.SetActive(_enoughCoinsToGacha);
         _availableCoinsDisplay.text = "x" + UnlockmentsManager.GachaCoins;
 
     }
@@ -51,6 +62,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             return;
         }
         var unlockedElement = GachaUnlocker.UnlockRandomElement();
+
         _unlockedElementName = unlockedElement.name;
         if (unlockedElement.GetType() == typeof(CharacterData))
         {
@@ -74,55 +86,51 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
         _availableCoinsDisplay.text = "x" + UnlockmentsManager.GachaCoins;
         if(_skipAnimation)
         {
-            StartCoroutine(ShowPrize());
+            ChangeState("OpeningPrize");
             return;
         }
-        _gfxHolder.coinSlotOutline.SetActive(false);
-        _gfxHolder.baseAnimator.Play("BaseInsertCoin");
-        StartCoroutine(WaitForInsertCoinAnimation());
+        NextState();
     }
-    IEnumerator WaitForInsertCoinAnimation()
+    public void ActivateLeverRotator() => _leverRotator.IsActive = true;
+    public void DeactivateLeverRotator() => _leverRotator.IsActive = false;
+    public void ScalePrizeImage() => Utility.ScaleImageToFitTarget(_prizeImage.GetComponent<RectTransform>(), _unlockedElementSprite, _prizeImageTarget.sizeDelta);
+    public void DisplayPrizeData()
     {
-        yield return new WaitForSeconds(Utility.GetClipFromAnimator(_gfxHolder.baseAnimator, "BaseInsertCoin").length);
-        _gfxHolder.faceAnimator.Play("FaceSpinning");
-        _gfxHolder.leverOutline.SetActive(true);
-        _gfxHolder.leverRotator.IsActive = true;
+        _prizeImage.sprite = _unlockedElementSprite;
+        _prizeNameDisplay.text = _unlockedElementName;
+        _prizeTypeDisplay.text = _unlockedElementType;
     }
-    public void LeverSpun()
-    {
-        _gfxHolder.faceAnimator.Play("FaceGaching");
-        _gfxHolder.leverOutline.SetActive(false);
-        _gfxHolder.leverRotator.IsActive = false;
-        StartCoroutine(WaitBeforeGachaBallAnimation());
-    }
-    IEnumerator WaitBeforeGachaBallAnimation()
-    {
-        yield return new WaitForSeconds(_delayAfterSpinningLever);
-        _gfxHolder.ballAnimator.Play("BallFall");
-        yield return new WaitForSeconds(Utility.GetClipFromAnimator(_gfxHolder.ballAnimator, "BallFall").length);
-        _gfxHolder.faceAnimator.Play("FaceHappy");
-        yield return new WaitForSeconds(_delayAfterBallFall);
 
-        StartCoroutine(ShowPrize());
-    }
-    IEnumerator ShowPrize()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        //toggle black bg
-        _gfxHolder.prizeBG.SetActive(true);
-        //play big ball animation
-        _gfxHolder.ballPrizeAnimator.Play("PrizeSlideIn");
-        yield return new WaitForSeconds(Utility.GetClipFromAnimator(_gfxHolder.ballPrizeAnimator, "PrizeSlideIn").length); //change for the duration of the ball sliding in animation
-        //when it's finished, show earned prize
-        _gfxHolder.prizeImage.gameObject.SetActive(true);
-        Utility.ScaleImageToFitTarget(_gfxHolder.prizeImage.GetComponent<RectTransform>(), _unlockedElementSprite, _gfxHolder.prizeImageTarget.sizeDelta);
-        yield return new WaitForSeconds(Utility.GetClipFromAnimator(_gfxHolder.ballPrizeAnimator, "PrizeOpen").length); //change for the duration of the ball sliding in animation
-        _gfxHolder.prizeInfoAnimator.Play("InfoFadeIn");
+            print("Pointer detected");
+        if(_gfxStates[_currStateIndex].isSkipable)
+        {
+            print("Should skip state");
+            SkipCurrentState();
+        }
     }
-    void ClosePrizeMenu()
+    void ChangeState(GachaMenuGfxState state)
     {
-        _gfxHolder.prizeBG.SetActive(false);
-        _gfxHolder.prizeImage.gameObject.SetActive(false);
-        _gfxHolder.prizeInfoAnimator.Play("Idle");
-        
+        state.StartState();
+        _currStateIndex = _gfxStates.IndexOf(state);
+    }
+    void ChangeState(string stateName)
+    {
+        ChangeState(_gfxStates.Find(x => x.stateName == stateName));
+    }
+    void ChangeState(int stateIndex)
+    {
+        ChangeState(_gfxStates[stateIndex]);
+    }
+    void SkipCurrentState()
+    {
+        _gfxStates[_currStateIndex].SkipState();
+        NextState();
+    }
+    public void NextState()
+    {
+        _stateTimer = 0;
+        ChangeState(_currStateIndex < _gfxStates.Count - 1 ? _currStateIndex + 1 : 0);
     }
 }
