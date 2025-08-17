@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 575cb5841c3ebe143bb37ee40b292cd5
+guid: 6442758b1d3c2364bae278329cbd36d5
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Ethnocentric
+  - Upheaval TT (BRK)
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
