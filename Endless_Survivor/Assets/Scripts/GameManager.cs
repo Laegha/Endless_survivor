@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -48,5 +49,14 @@ public class GameManager : MonoBehaviour
     public void RoutineRunner(IEnumerator routine)
     {
         StartCoroutine(routine);
+    }
+    public void DelayAction(float delay, Action action)
+    {
+        StartCoroutine(CallDelayedAction(delay, action));
+    }
+    IEnumerator CallDelayedAction(float delay, Action action)
+    {
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
     }
 }
