@@ -9,7 +9,8 @@ public class WeaponOverrideButton : MonoBehaviour
 {
     [SerializeField] Image _weaponGfx;
     [SerializeField] RectTransform _weaponGfxTargetSize;
-    [SerializeField] TextMeshProUGUI _levelGfx;
+    [SerializeField] TextMeshProUGUI _trueLevelGfx;
+    [SerializeField] TextMeshProUGUI _inducedLevelGfx;
     Weapon _assignedWeapon;
     public Action<Weapon> _onPressed;
 
@@ -17,7 +18,12 @@ public class WeaponOverrideButton : MonoBehaviour
     {
         Utility.ScaleImageToFitTarget(_weaponGfx.rectTransform, weaponGfx, _weaponGfxTargetSize.sizeDelta);
         _weaponGfx.sprite = weaponGfx;
-        _levelGfx.text = "" + assignedWeapon.WeaponStats.TrueLevel;
+        _trueLevelGfx.text = "" + assignedWeapon.WeaponStats.TrueLevel;
+        if(assignedWeapon.WeaponStats.InducedLevel > 0)
+        {
+            _inducedLevelGfx.gameObject.SetActive(true);
+            _inducedLevelGfx.text = "+" + assignedWeapon.WeaponStats.InducedLevel;
+        }
         _assignedWeapon = assignedWeapon;
         _onPressed = onPressed;
     }
