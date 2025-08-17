@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class CharSelectMenu : MonoBehaviour
 {
     [SerializeField] GameObject _mainMenu;
-    [SerializeField] CharacterData[] _elegibleCharacters;
     [SerializeField] CharacterButton _selectCharBtnPrefab;
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGrid;
@@ -15,7 +14,8 @@ public class CharSelectMenu : MonoBehaviour
     {
         var currentRow = Instantiate(_gridRowPrefab, _buttonGrid);
         float rowFilledSpace = 0;
-        foreach (CharacterData character in _elegibleCharacters)
+        var unlockedCharacters = UnlockmentsManager.UnlockedCharacters;
+        foreach (CharacterData character in unlockedCharacters)
         {
             var characterButton = Instantiate(_selectCharBtnPrefab, currentRow.transform);
             //characterButton.buttonImage.sprite = character.MenuImage;
