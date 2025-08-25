@@ -107,4 +107,21 @@ public static class Utility
     {
         return animator.runtimeAnimatorController.animationClips.ToList().Find(clip => clip.name == clipName);
     }
+    public static string GetTransfromPath(Transform tr)
+    {
+        string path = string.Empty;
+        Transform currTr = tr;
+        while (currTr != tr.root)
+        {
+            path = currTr.name + "/" + path;
+            currTr = currTr.parent;
+        }
+        return path;
+    }
+    public static float ChangeFloatDecimals(float num, int decimals)
+    {
+        int escalated = (int)(num * Mathf.Pow(10, decimals));
+        float decimatedNum = escalated / Mathf.Pow(10, decimals);
+        return decimatedNum;
+    }
 }

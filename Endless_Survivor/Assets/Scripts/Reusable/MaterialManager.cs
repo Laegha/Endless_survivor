@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MaterialManager : MonoBehaviour
@@ -44,6 +45,29 @@ public class MaterialManager : MonoBehaviour
     {
         _renderers.Add(renderer);
         _defaultMaterials.Add(renderer, renderer.material);
+    }
+    public void ChangeDefaultMaterial(string rendererTransformPath, Material newMaterial)
+    {
+        var defaultMaterialsCopy = new Dictionary<SpriteRenderer, Material>(_defaultMaterials);
+        foreach(var defaultRenderer in defaultMaterialsCopy)
+        {
+            if(Utility.GetTransfromPath(defaultRenderer.Key.transform) == rendererTransformPath)
+            {
+                _defaultMaterials[defaultRenderer.Key] = newMaterial;
+                defaultRenderer.Key.material = newMaterial;
+                return;
+            }
+        }
+    }
+    public void ChangeDefaultMaterial(Material newMaterial)
+    {
+        var defaultMaterialsCopy = new Dictionary<SpriteRenderer, Material>(_defaultMaterials);
+        foreach (var renderer in defaultMaterialsCopy.Keys)
+        {
+            _defaultMaterials[renderer] = newMaterial;
+            renderer.material = newMaterial;
+        }
+
     }
     public void CleanRenderers()
     {
