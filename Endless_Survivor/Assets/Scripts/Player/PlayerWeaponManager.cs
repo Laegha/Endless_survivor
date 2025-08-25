@@ -40,7 +40,7 @@ public class PlayerWeaponManager : MonoBehaviour
         {
             List<Weapon> weapons = new List<Weapon>();
             _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));
-            GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(weapons, SwitchWeapon);
+            GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(weapons, weaponData, weaponStats, SwitchWeapon);
             return;
         }
         GenerateWeapon(weaponData, weaponStats);

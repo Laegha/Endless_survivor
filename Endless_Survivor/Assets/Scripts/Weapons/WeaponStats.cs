@@ -25,6 +25,7 @@ public class WeaponStats
     {
         if (original == null)
             return;
+        _trueLevel = original._trueLevel;
         _range = original.Range;
         _attackSpeed = original.AttackSpeed;
         _damage = original.Damage;
@@ -35,14 +36,14 @@ public class WeaponStats
         _trueLevel = level;
         _range += (int)(ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.Range, level) + Random.Range(0f, _rangeStatVariation) * statsScaling.Range);
         _attackSpeed += ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.AttackSpeed, level) + Random.Range(0f, _atkSpeedStatVariation) * statsScaling.AttackSpeed;
-        _damage += (int)(ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.Damage, level) + Random.Range(0f, _damage) * statsScaling.Damage);
+        _damage += (int)(ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.Damage, level) + Random.Range(0f, _damageStatVariation) * statsScaling.Damage);
     }
     public void InducedLevelUp(WeaponStats statsScaling)
     {
         _inducedLevel++;
         _range += (int)(ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.Range, _trueLevel + _inducedLevel) + Random.Range(0f, _rangeStatVariation) * statsScaling.Range);
         _attackSpeed += ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.AttackSpeed, _trueLevel + _inducedLevel) + Random.Range(0f, _atkSpeedStatVariation) * statsScaling.AttackSpeed;
-        _damage += (int)(ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.Damage, _trueLevel + _inducedLevel) + Random.Range(0f, _damage) * statsScaling.Damage);
+        _damage += (int)(ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.Damage, _trueLevel + _inducedLevel) + Random.Range(0f, _damageStatVariation) * statsScaling.Damage);
     }
     public static int CurrWaveLevel
     { 
