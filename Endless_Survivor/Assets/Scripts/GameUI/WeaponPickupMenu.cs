@@ -10,6 +10,9 @@ public class WeaponPickupMenu : MonoBehaviour
     [SerializeField] Image _weaponImage;
     [SerializeField] RectTransform _weaponImageTargetSize;
     [SerializeField] TextMeshProUGUI _weaponLevelDisplay;
+    [SerializeField] TextMeshProUGUI _weaponDmgDisplay;
+    [SerializeField] TextMeshProUGUI _weaponAtkSpdDisplay;
+    [SerializeField] TextMeshProUGUI _weaponRangeDisplay;
     WeaponData _currDisplayingWeapon;
     WeaponStats _currWeaponStats;
 
@@ -23,9 +26,14 @@ public class WeaponPickupMenu : MonoBehaviour
         GameUIManager.uiManager.MenuDisplayed();
         _currDisplayingWeapon = displayingWeapon;
         Utility.ScaleImageToFitTarget(_weaponImage.rectTransform, displayingWeapon.WeaponDisplaySprite, _weaponImageTargetSize.sizeDelta);
-        _weaponImage.sprite = _currDisplayingWeapon.WeaponDisplaySprite;
+        _weaponImage.sprite = displayingWeapon.WeaponDisplaySprite;
         _currWeaponStats = new WeaponStats(_currDisplayingWeapon.WeaponStats);
         _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, WeaponStats.CurrWaveLevel);
+        _weaponLevelDisplay.text = _currWeaponStats.TrueLevel + "";
+        _weaponDmgDisplay.text = _currWeaponStats.Damage + "";
+        _weaponAtkSpdDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.AttackSpeed, 2) + "";
+        _weaponRangeDisplay.text = _currWeaponStats.Range + "";
+
     }
     public void TakeWeapon()
     {

@@ -18,6 +18,7 @@ public class WeaponOverrideButton : MonoBehaviour
     {
         Utility.ScaleImageToFitTarget(_weaponGfx.rectTransform, weaponGfx, _weaponGfxTargetSize.sizeDelta);
         _weaponGfx.sprite = weaponGfx;
+        print("WEAPON " + assignedWeapon + " LEVEL " + assignedWeapon.WeaponStats.TrueLevel);
         _trueLevelGfx.text = "" + assignedWeapon.WeaponStats.TrueLevel;
         if(assignedWeapon.WeaponStats.InducedLevel > 0)
         {
@@ -29,7 +30,6 @@ public class WeaponOverrideButton : MonoBehaviour
     }
     public void SelectWeapon()
     {
-        print("Presseed button");
         _onPressed.Invoke(_assignedWeapon);
     }
 }
