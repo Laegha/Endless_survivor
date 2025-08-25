@@ -7,16 +7,28 @@ public class PlayerRunState : PlayerBaseState
     public override void EnterState()
     {
         isRootState = true;
-        context.PlayerControl.PlayerAnimator.ChangeAnim("Moving");
     }
 
     public override void UpdateState() 
     {
-        CheckSwitchStates();
-
         Vector2 movement = context.Movement * context.PlayerControl.PlayerStats.Speed;
-        context.PlayerControl.PlayerAnimator.SetMovement(movement);
+        var animMovement = movement.normalized;
+        if(Mathf.Abs(animMovement.y) >= Mathf.Abs(animMovement.x))
+        {
+            if(animMovement.y < 0)
+                context.PlayerControl.PlayerAnimator.ChangeAnim("FrontMove");
+            else
+                context.PlayerControl.PlayerAnimator.ChangeAnim("BackMove");
+        }
+        else
+        {
+            if(animMovement.x > 0)
+                context.PlayerControl.PlayerAnimator.ChangeAnim("RightMove");
+            else
+            context.PlayerControl.PlayerAnimator.ChangeAnim("LeftMove");
+        }
         context.PlayerControl.PlayerRb.velocity = movement;
+        CheckSwitchStates();
     }
 
     public override void OnCollisionEnter(Collision collision) { }

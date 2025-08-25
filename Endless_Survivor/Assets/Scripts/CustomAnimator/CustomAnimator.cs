@@ -12,6 +12,7 @@ public class CustomAnimator : MonoBehaviour
     float _animTimer = 0;
 
     public CustomAnimation CurrAnim { get {  return _currAnim; } set { _currAnim = value; } }
+    public int CurrFrameIndex { set { _currFrameIndex = value; } }
     public List<CustomAnimation> Animations{ get {  return _animations; } set { _animations = value; } }
     public float AnimTimer { get { return _animTimer; } set { _animTimer = value; } }
 
@@ -51,7 +52,7 @@ public class CustomAnimator : MonoBehaviour
 
     public virtual void ChangeAnim(string animName)
     {
-        CustomAnimation newAnimation = _animations.Where(anim => anim.AnimationName == animName).ToList()[0];
+        CustomAnimation newAnimation = _animations.Find(anim => anim.AnimationName == animName);
         if(_currAnim != null && _currAnim.Priority > newAnimation.Priority || _currAnim == newAnimation)
             return;
         _currAnim = newAnimation;

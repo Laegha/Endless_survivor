@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     {
         instance = this;
     }
-    [SerializeField] PlayerAnimator _playerAnimator;
+    [SerializeField] CustomAnimator _playerAnimator;
     PlayerStats _playerStats;
     AttackEffectsHolder _attackEffectsHolder;
     [SerializeField] Rigidbody2D _playerRb;
@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] PassiveItemManager _passiveItemManager;
     [SerializeField] MaterialManager _playerMaterialManager;
     [SerializeField] SpriteRenderer _mainRenderer;
-    public PlayerAnimator PlayerAnimator { get { return _playerAnimator; } }
+    public CustomAnimator PlayerAnimator { get { return _playerAnimator; } }
     public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
     public AttackEffectsHolder EffectsHolder {  get { return _attackEffectsHolder; } }
     public Rigidbody2D PlayerRb { get { return _playerRb; } }
