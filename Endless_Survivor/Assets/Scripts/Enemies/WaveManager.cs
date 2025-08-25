@@ -73,7 +73,7 @@ public class WaveManager : MonoBehaviour
             spawnedEnemies[spawnedEnemy]++;
         }
 
-        List<WaveEnemy> notEnoughEnemies = spawnedEnemies.Where(spawnedEnemy => spawnedEnemy.Key.MinSpawnCount < spawnedEnemy.Value).Select(spawnedEnemy => spawnedEnemy.Key).ToList();
+        List<WaveEnemy> notEnoughEnemies = spawnedEnemies.Where(spawnedEnemy => spawnedEnemy.Key.MinSpawnCount > spawnedEnemy.Value).Select(spawnedEnemy => spawnedEnemy.Key).ToList();
         foreach(var spawnedEnemy in notEnoughEnemies)
             while(spawnedEnemy.MinSpawnCount > spawnedEnemies[spawnedEnemy])
             {
@@ -82,6 +82,7 @@ public class WaveManager : MonoBehaviour
                 spawnedEnemies[spawnedEnemy]++;
             }
         _currWave++;
+        GameUIManager.uiManager.WaveDisplay.text = "Wave: " + _currWave;
         _onWaveStarted?.Invoke();
     }
 
