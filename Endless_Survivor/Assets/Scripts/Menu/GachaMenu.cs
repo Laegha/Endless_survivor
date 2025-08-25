@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
+using Microsoft.Win32.SafeHandles;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,6 +11,8 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     [Header("References")]
     [SerializeField] GameObject _menuObj;
     [SerializeField] TextMeshProUGUI _availableCoinsDisplay;
+    [SerializeField] GameObject _skipAnimationCheckboxFill;
+    [SerializeField] Button _returnButton;
     [SerializeField] Image _prizeImage;
     [SerializeField] RectTransform _prizeImageTarget;
     [SerializeField] TextMeshProUGUI _prizeTypeDisplay;
@@ -30,7 +29,8 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
 
     bool _skipAnimation = false;
     float _stateTimer = 0;
-    bool _enoughCoinsToGacha => UnlockmentsManager.GachaCoins >= GachaUnlocker.gachaCoinCost;
+
+    bool _enoughCoinsToGacha = false;
     private void Start()
     {
         _leverRotator.OnLimitReached += NextState;
@@ -49,19 +49,37 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     {
         _menuObj.SetActive(true);
 
-        _availableCoinsDisplay.text = "x" + UnlockmentsManager.GachaCoins;
-
+        UnlockmentsManager.GetGachaCoins((int coins) => _availableCoinsDisplay.text = "x " +  coins);
     }
-    public void InsertCoin()
+    public void ToggleSkipAnimation()
     {
-        if (!_enoughCoinsToGacha)
+        _skipAnimation = !_skipAnimation;
+        _skipAnimationCheckboxFill.SetActive(_skipAnimation);
+    }
+    public void TurnOnReturnButton() => _returnButton.interactable = true;
+    public async void InsertCoin()
+    {
+        UnlockmentsManager.GetGachaCoins((int coins) => _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost);
+            if (!_enoughCoinsToGacha)
         {
             //play sfx
             //play animation?
             print("NOT ENOUGH COINS");
             return;
         }
-        var unlockedElement = GachaUnlocker.UnlockRandomElement();
+        _returnButton.interactable = false;
+        var unlockedElement = await GachaUnlocker.UnlockRandomElement();
+        if(unlockedElement == null)
+        {
+            var characters = await UnlockmentsManager.UnlockedCharacters();
+            var weapons = await UnlockmentsManager.UnlockedWeapons();
+            var passiveItems = await UnlockmentsManager.UnlockedPassiveItems();
+            List<ScriptableObject> elements = new List<ScriptableObject>();
+            elements.AddRange(characters);
+            elements.AddRange(weapons);
+            elements.AddRange(passiveItems);
+            unlockedElement = elements[Random.Range(0, elements.Count)];
+        }
 
         _unlockedElementName = unlockedElement.name;
         if (unlockedElement.GetType() == typeof(CharacterData))
@@ -82,11 +100,14 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             _unlockedElementType = "Passive Item";
             _unlockedElementSprite = unlockedPassiveItem.ItemSprite;
         }
-
-        _availableCoinsDisplay.text = "x" + UnlockmentsManager.GachaCoins;
+        UnlockmentsManager.GetGachaCoins((int coins) =>
+        {
+            _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost;
+            _availableCoinsDisplay.text = "x" + coins;
+        });
         if(_skipAnimation)
         {
-            ChangeState("OpeningPrize");
+            SkipStateUntil("OpeningPrize");
             return;
         }
         NextState();
@@ -132,5 +153,16 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     {
         _stateTimer = 0;
         ChangeState(_currStateIndex < _gfxStates.Count - 1 ? _currStateIndex + 1 : 0);
+    }
+    void SkipStateUntil(string targetStateName)
+    {
+        for(int i = 0; i < _gfxStates.Count; i++)
+        {
+            if (_gfxStates[i].stateName == targetStateName)
+                return;
+
+            ChangeState(i);
+            SkipCurrentState();
+        }
     }
 }
