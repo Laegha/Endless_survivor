@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 520054154, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
   _initialWeapons:
   - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
+  - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
   _initialMaxWeapons: 2
   _initialPassives: []
   _playerStats:
@@ -39,9 +40,8 @@ MonoBehaviour:
     - {fileID: 3563988742675404328, guid: f4b4ec77c934053499881f207a89e7e0, type: 3}
     _framesPerSecond: 9
     _priority: 0
-    _coordinates: {x: 0, y: 0}
   _frontMoving:
-    _animationName: Moving
+    _animationName: FrontMove
     _frames:
     - {fileID: 8464397358900574425, guid: 029b7d6db4d7c9243b1d72fe7dfadc79, type: 3}
     - {fileID: 353542138050538131, guid: 029b7d6db4d7c9243b1d72fe7dfadc79, type: 3}
@@ -53,9 +53,8 @@ MonoBehaviour:
     - {fileID: 1695818712, guid: 029b7d6db4d7c9243b1d72fe7dfadc79, type: 3}
     _framesPerSecond: 9
     _priority: 0
-    _coordinates: {x: 0, y: -1}
   _rightMoving:
-    _animationName: Moving
+    _animationName: RightMove
     _frames:
     - {fileID: 835204279356541934, guid: 45c54e06e6027f141855dd6efcd34ef8, type: 3}
     - {fileID: 8020404899835964243, guid: 45c54e06e6027f141855dd6efcd34ef8, type: 3}
@@ -67,9 +66,8 @@ MonoBehaviour:
     - {fileID: -4319307155311987400, guid: 45c54e06e6027f141855dd6efcd34ef8, type: 3}
     _framesPerSecond: 9
     _priority: 0
-    _coordinates: {x: 1, y: 0}
   _backMoving:
-    _animationName: Moving
+    _animationName: BackMove
     _frames:
     - {fileID: -6466509628099202734, guid: 50df0f5e3146a4341911214a2d9bf618, type: 3}
     - {fileID: -4674772738153717691, guid: 50df0f5e3146a4341911214a2d9bf618, type: 3}
@@ -81,9 +79,8 @@ MonoBehaviour:
     - {fileID: 1659534184, guid: 50df0f5e3146a4341911214a2d9bf618, type: 3}
     _framesPerSecond: 9
     _priority: 0
-    _coordinates: {x: 0, y: 1}
   _leftMoving:
-    _animationName: Moving
+    _animationName: LeftMove
     _frames:
     - {fileID: 5682961842945336991, guid: 6eb7c3c85ac4cdc4aa20e05b7d63b240, type: 3}
     - {fileID: 6372826809667161634, guid: 6eb7c3c85ac4cdc4aa20e05b7d63b240, type: 3}
@@ -95,7 +92,6 @@ MonoBehaviour:
     - {fileID: 8692370058880146608, guid: 6eb7c3c85ac4cdc4aa20e05b7d63b240, type: 3}
     _framesPerSecond: 9
     _priority: 0
-    _coordinates: {x: -1, y: 0}
   _onHitSound:
     _sound: {fileID: 0}
     _volume: 1
