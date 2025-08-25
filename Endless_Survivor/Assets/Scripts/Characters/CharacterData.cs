@@ -23,11 +23,11 @@ public class CharacterData : ScriptableObject
     [SerializeField] CapsuleDirection2D _colliderDirection = CapsuleDirection2D.Vertical;
 
     [InspectorLabel("Animations")]
-    [SerializeField] CoordinateAnimation _idle;
-    [SerializeField] CoordinateAnimation _frontMoving;
-    [SerializeField] CoordinateAnimation _rightMoving;
-    [SerializeField] CoordinateAnimation _backMoving;
-    [SerializeField] CoordinateAnimation _leftMoving;
+    [SerializeField] CustomAnimation _idle;
+    [SerializeField] CustomAnimation _frontMoving;
+    [SerializeField] CustomAnimation _rightMoving;
+    [SerializeField] CustomAnimation _backMoving;
+    [SerializeField] CustomAnimation _leftMoving;
 
     [InspectorLabel("Sounds")]
     [SerializeField] SFXInfo _onHitSound;
