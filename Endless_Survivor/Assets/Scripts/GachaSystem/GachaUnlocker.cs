@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public static class GachaUnlocker
@@ -10,12 +11,15 @@ public static class GachaUnlocker
     static string[] _elementKeys = { _characterElement, _weaponElement, _passiveItemElement };
 
     public static int gachaCoinCost = 1;
-    public static ScriptableObject UnlockRandomElement()
+    public static async Task<ScriptableObject> UnlockRandomElement()
     {
         List<ScriptableObject> unlockableElements = new List<ScriptableObject>();
-        unlockableElements.AddRange(UnlockmentsManager.LockedCharacters);
-        unlockableElements.AddRange(UnlockmentsManager.LockedWeapons);
-        unlockableElements.AddRange(UnlockmentsManager.LockedPassiveItems);
+        var characters = await UnlockmentsManager.LockedCharacters();
+        var weapons = await UnlockmentsManager.LockedWeapons();
+        var passiveItems = await UnlockmentsManager.LockedPassiveItems();
+        unlockableElements.AddRange(characters);
+        unlockableElements.AddRange(weapons);
+        unlockableElements.AddRange(passiveItems);
         
         if (unlockableElements.Count == 0)
             return null;
@@ -35,7 +39,7 @@ public static class GachaUnlocker
         {
             UnlockmentsManager.UnlockPassiveItem(unlockedElement as PassiveItemData);
         }
-        UnlockmentsManager.GachaCoins -= gachaCoinCost;
+        UnlockmentsManager.AddGachaCoins(-1);
         return unlockedElement;
     }
 }

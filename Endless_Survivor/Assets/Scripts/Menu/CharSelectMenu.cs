@@ -10,11 +10,11 @@ public class CharSelectMenu : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGrid;
 
-    public void OnEnable()
+    async void DisplayMenu()
     {
         var currentRow = Instantiate(_gridRowPrefab, _buttonGrid);
         float rowFilledSpace = 0;
-        var unlockedCharacters = UnlockmentsManager.UnlockedCharacters;
+        var unlockedCharacters = await UnlockmentsManager.UnlockedCharacters();
         foreach (CharacterData character in unlockedCharacters)
         {
             var characterButton = Instantiate(_selectCharBtnPrefab, currentRow.transform);
@@ -23,7 +23,7 @@ public class CharSelectMenu : MonoBehaviour
             characterButton.charSelectMenu = this;
             characterButton.SetImage(character.MenuImage);
             rowFilledSpace += _selectCharBtnPrefab.imageTargetSize.sizeDelta.x + currentRow.spacing;
-            if(rowFilledSpace + _selectCharBtnPrefab.imageTargetSize.sizeDelta.x > _buttonGrid.sizeDelta.x)
+            if (rowFilledSpace + _selectCharBtnPrefab.imageTargetSize.sizeDelta.x > _buttonGrid.sizeDelta.x)
             {
                 currentRow = Instantiate(_gridRowPrefab, _buttonGrid);
                 rowFilledSpace = 0;

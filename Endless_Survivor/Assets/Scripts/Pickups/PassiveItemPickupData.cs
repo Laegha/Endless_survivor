@@ -12,10 +12,15 @@ public class PassiveItemPickupData : PickupData
     public override void TransferData(PickupControl pickupControl)
     {
         base.TransferData(pickupControl);
-        var availableItems = UnlockmentsManager.UnlockedPassiveItems;
-        if (_itemPools != CustomFlags.IPassiveItemPool.None)
-            availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
-        
+        TransferAsync(pickupControl);
+    }
+    async void TransferAsync(PickupControl pickupControl)
+    {
+        var availableItems = await UnlockmentsManager.UnlockedPassiveItems();
+        //if (_itemPools != CustomFlags.IPassiveItemPool.None)
+            //availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
+            if(availableItems.Count == 0)
+            Application.Quit();
         PassiveItemData pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)];//get a random passive
         pickupControl.Pickup.AddVariable(_itemVariableKey, pickupPassiveItem);
         pickupControl.Renderer.sprite = pickupPassiveItem.ItemSprite;
