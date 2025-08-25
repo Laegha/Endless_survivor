@@ -13,17 +13,21 @@ public class Roulette<T>
         int lastElementEnd = 0;
         foreach (var element in elements)
         {
-            _roulette.Add(new RouletteElement<T>(element.Key, lastElementEnd, lastElementEnd + element.Value));
-            _rouletteTotalWeight += element.Value;
+            List<int> elementNumbers = new List<int>();
+            for(int i = lastElementEnd; i < lastElementEnd + element.Value; i++)
+                elementNumbers.Add(i);
+
+            _roulette.Add(new RouletteElement<T>(element.Key, lastElementEnd, lastElementEnd + element.Value, elementNumbers));
             lastElementEnd += element.Value;
         }
-
+        _rouletteTotalWeight = lastElementEnd;
     }
 
     public T Spin()
     {
         int rouletteResult = Random.Range(0, _rouletteTotalWeight);
-        var elementResult = _roulette.Find(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult);
+        //var elementResult = _roulette.Find(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult);
+        var elementResult = _roulette.Find(element => element.luckyNumbers.Contains(rouletteResult));  
         return elementResult != null ? elementResult.key : default;
     }
 }
@@ -33,11 +37,13 @@ public class RouletteElement<T>
     public T key;
     public int minValue;
     public int maxValue;
+    public List<int> luckyNumbers;
 
-    public RouletteElement(T key, int minValue, int maxValue)
+    public RouletteElement(T key, int minValue, int maxValue, List<int> luckyNumbers)
     {
         this.key = key;
         this.minValue = minValue;
         this.maxValue = maxValue;
+        this.luckyNumbers = luckyNumbers;
     }
 }

@@ -37,7 +37,7 @@ public class EnemyHP : HP
         base.TakeDamage(incomingDamage);
         _enemyControl.StatusEffectManager.OnHit();
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
-        _damagedFlashing.Start();
+        _damagedFlashing?.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
         _onEnemyDamaged?.Invoke(_enemyControl, incomingDamage);
     }
