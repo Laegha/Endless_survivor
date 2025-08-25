@@ -121,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponGfx: {fileID: 2828089838409958784}
   _weaponGfxTargetSize: {fileID: 4420742344325317240}
-  _trueLevelGfx: {fileID: 0}
-  _inducedLevelGfx: {fileID: 0}
+  _trueLevelGfx: {fileID: 5160913810660988503}
+  _inducedLevelGfx: {fileID: 2119084729147274247}
 --- !u!1 &276087651170174732
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +849,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b641a28cfd6904e92d7b8d3b10ff1c, type: 3}
+--- !u!114 &2119084729147274247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1210220196494569963, guid: 33b641a28cfd6904e92d7b8d3b10ff1c, type: 3}
+  m_PrefabInstance: {fileID: 982647346335106540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5396944196717658802 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5136035044346726238, guid: 33b641a28cfd6904e92d7b8d3b10ff1c, type: 3}

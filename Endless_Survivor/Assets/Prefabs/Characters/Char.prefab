@@ -214,11 +214,11 @@ GameObject:
   - component: {fileID: 9219766451515535764}
   - component: {fileID: 7059952005309191444}
   - component: {fileID: 5175803263254807690}
-  - component: {fileID: 5201446069194199440}
   - component: {fileID: 4501143208424619687}
   - component: {fileID: 7908762704824083078}
   - component: {fileID: 1346448510886347756}
   - component: {fileID: 4418820985395750863}
+  - component: {fileID: 8059257277699183042}
   m_Layer: 6
   m_Name: Char
   m_TagString: Player
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6910a792476704ca0385fca995ca2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 5201446069194199440}
+  _playerAnimator: {fileID: 8059257277699183042}
   _playerRb: {fileID: 3182739764998197922}
   _playerHPManager: {fileID: 4501143208424619687}
   _playerWeaponManager: {fileID: 7059952005309191444}
@@ -331,19 +331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStateMachine: {fileID: 9219766451515535764}
---- !u!114 &5201446069194199440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650669668938938846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66aeeea5ce1528409bfbcfa342af765, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 4175269687420856459}
 --- !u!114 &4501143208424619687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +407,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.41}
   m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
+--- !u!114 &8059257277699183042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650669668938938846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5ede9a5e70e684caebdf174d71fe3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 4175269687420856459}
 --- !u!1 &9137450022909922333
 GameObject:
   m_ObjectHideFlags: 0
