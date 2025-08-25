@@ -11,8 +11,11 @@ public class WeaponPickupData : PickupData
     public override void TransferData(PickupControl pickupControl)
     {
         base.TransferData(pickupControl);
-
-        var resultWeaponData = RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
+        TransferAsync(pickupControl);
+    }
+    async void TransferAsync(PickupControl pickupControl)
+    {
+        var resultWeaponData = await RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
         pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
         CustomAnimation weponIdle = resultWeaponData.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
 
