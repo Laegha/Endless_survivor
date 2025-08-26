@@ -15,7 +15,6 @@ public class EnemyData : ScriptableObject
     [SerializeField] SFXInfo _onHitSFX;
     [SerializeField] SFXInfo _onDeathSFX;
 
-    public int InitialHP { get { return _initialHP; } }
     public Vector2 ColliderSize {  get { return _colliderSize; } }
     public List<EnemyBehaviour> EnemyBehaviours { get { return _enemyBehaviours; }set { _enemyBehaviours = value; } }
     public List<PickupDataChance> DropablePickupChances { get { return _dropablePickupChances; } }
@@ -24,11 +23,9 @@ public class EnemyData : ScriptableObject
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         EnemyHP enemyHP = enemyControl.EnemyHP;
-        enemyHP.InitializeHP(InitialHP);
+        enemyHP.InitializeHP(_initialHP + ScalingFunctions.EnemyHPIncrease(ScalingFunctions.CurrWaveLevel));
         enemyHP.SetSounds(_onHitSFX, _onDeathSFX);
-        //enemyHP.LeftHP = _initialHP + ScalingFunctions.EnemyHPIncrease(WaveManager.wm.CurrWave);
         enemyHP.DropablePickupChances = new List<PickupDataChance>(_dropablePickupChances);
-        Debug.Log("Dropable pickups_ " + _dropablePickupChances.Count);
 
         enemyControl.CapsuleCollider.direction = _colliderDirection;
         enemyControl.CapsuleCollider.size = _colliderSize;
