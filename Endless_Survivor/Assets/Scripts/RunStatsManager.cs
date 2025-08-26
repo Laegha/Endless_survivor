@@ -7,10 +7,10 @@ public class RunStatsManager : MonoBehaviour
     public static RunStatsManager instance;
     public static RunStatsManager runStatsManager {  get { return instance; } }
 
-    public int wavesSurvived;
-    public int totalDamageDealt;
-    public int regularEnemiesKilled;
-    public int minibossesKilled;
+    [HideInInspector]public int wavesSurvived;
+    [HideInInspector]public int totalDamageDealt;
+    [HideInInspector]public int regularEnemiesKilled;
+    [HideInInspector]public int minibossesKilled;
 
     private void Awake()
     {
