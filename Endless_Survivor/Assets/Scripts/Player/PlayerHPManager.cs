@@ -19,9 +19,10 @@ public class PlayerHPManager : HP
 
     public void Start()
     {
-        InitializeHP(_playerControl.PlayerStats.MaxHealth);
+        InitializeHP(_playerControl.PlayerStats.InitialHP);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         _inmutiyFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
+        WaveManager.wm.OnWaveStarted += IncreaseMaxHP;
     }
 
     private void Update()
@@ -36,6 +37,18 @@ public class PlayerHPManager : HP
             _isInmune = false;
         }
         
+    }
+    void IncreaseMaxHP()
+    {
+        var previousMaxHP = MaxHP;
+        var remainingHPPercentage = MaxHP / RemainingHP;
+        MaxHP = ScalingFunctions.PlayerHPIncrease(ScalingFunctions.CurrWaveLevel, PlayerControl.pc.PlayerStats.HPIncrement, PlayerControl.pc.PlayerStats.InitialHP);
+        if (MaxHP == previousMaxHP)
+            return;
+        RemainingHP = RemainingHP * remainingHPPercentage;
+        GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
+        //display particles with MaxHP - previousMaxHP
+
     }
 
     public override void TakeDamage(int incomingDamage)
