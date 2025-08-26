@@ -6886,6 +6886,54 @@ MonoBehaviour:
   _pickingWeaponLevelDisplay: {fileID: 597965747}
   _weaponDisplayCircleCenter: {fileID: 425759504}
   _weaponDisplayCircleRadius: 380
+--- !u!1 &2061821794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061821796}
+  - component: {fileID: 2061821795}
+  m_Layer: 0
+  m_Name: RunStatsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2061821795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061821794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5681eada5ee978249a0ae55c784ec12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavesSurvived: 0
+  totalDamageDealt: 0
+  regularEnemiesKilled: 0
+  minibossesKilled: 0
+--- !u!4 &2061821796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061821794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074506219
 GameObject:
   m_ObjectHideFlags: 0
@@ -7379,3 +7427,4 @@ SceneRoots:
   - {fileID: 2020953880}
   - {fileID: 2011794886}
   - {fileID: 2117401091}
+  - {fileID: 2061821796}

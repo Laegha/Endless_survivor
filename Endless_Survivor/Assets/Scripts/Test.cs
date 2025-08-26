@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    List<int> list = new List<int>() { 0, 1};
-    List<int> list2 = new List<int>() { 2, 3 };
+    [SerializeField] CharacterData characterData;
+    [SerializeField] CustomAnimator animator;
 
     private void Start()
     {
-        print("TEST " + list.Count);
-        print("TEST2 " + list.Concat(list2).Count());
-        print("TEST3 " + list.Count);
+        animator.AddAnimations(new List<CustomAnimation>{characterData.Animations.Find(x => x.AnimationName == "Idle")});
+        animator.ChangeAnim("Idle");
     }
 
 }
