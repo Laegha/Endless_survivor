@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 [System.Serializable]
 public class WeaponStats
 {
     static readonly float _rangeStatVariation = 1f;
-    static readonly float _atkSpeedStatVariation = .5f;
+    static readonly float _atkSpeedStatVariation = .15f;
     static readonly float _damageStatVariation = 1f;
 
     [SerializeField] int _range;
@@ -34,22 +35,23 @@ public class WeaponStats
     public void SetTrueLevelStats(WeaponStats statsScaling, int level)
     {
         _trueLevel = level;
-        _range += (int)(ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.Range, level) + Random.Range(0f, _rangeStatVariation) * statsScaling.Range);
-        _attackSpeed += ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.AttackSpeed, level) + Random.Range(0f, _atkSpeedStatVariation) * statsScaling.AttackSpeed;
-        _damage += (int)(ScalingFunctions.WeaponStatIncreaseTrueLevel(statsScaling.Damage, level) + Random.Range(0f, _damageStatVariation) * statsScaling.Damage);
+        _range += (int) GetTrueStatIncrease(statsScaling.Range, level, _range, _rangeStatVariation);
+        _attackSpeed += GetTrueStatIncrease(statsScaling.AttackSpeed, level, _attackSpeed, _atkSpeedStatVariation);
+        _damage += (int) GetTrueStatIncrease(statsScaling.Damage, level, _damage, _damageStatVariation);
     }
     public void InducedLevelUp(WeaponStats statsScaling)
     {
         _inducedLevel++;
-        _range += (int)(ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.Range, _trueLevel + _inducedLevel) + Random.Range(0f, _rangeStatVariation) * statsScaling.Range);
-        _attackSpeed += ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.AttackSpeed, _trueLevel + _inducedLevel) + Random.Range(0f, _atkSpeedStatVariation) * statsScaling.AttackSpeed;
-        _damage += (int)(ScalingFunctions.WeaponStatIncreaseInducedLevel(statsScaling.Damage, _trueLevel + _inducedLevel) + Random.Range(0f, _damageStatVariation) * statsScaling.Damage);
+        _range += (int)GetInducedStatIncrease(statsScaling.Range, _trueLevel + _inducedLevel, _range, _rangeStatVariation);
+        _attackSpeed += (int)GetInducedStatIncrease(statsScaling.AttackSpeed, _trueLevel + _inducedLevel, _attackSpeed, _atkSpeedStatVariation);
+        _damage += (int)GetInducedStatIncrease(statsScaling.Damage, _trueLevel + _inducedLevel, _damage, _damageStatVariation);
     }
-    public static int CurrWaveLevel
-    { 
-        get
-        {
-            return WaveManager.wm != null ? WaveManager.wm.CurrWave / 2 + 1 : -1;
-        }
+    float GetTrueStatIncrease(float increaseScale, int level, float baseStat, float variation)
+    {
+        return ScalingFunctions.WeaponStatIncreaseTrueLevel(increaseScale, level) + Random.Range(baseStat > variation ? -variation : 0, variation);
+    }
+    float GetInducedStatIncrease(float increaseScale, int level, float baseStat, float variation)
+    {
+        return ScalingFunctions.WeaponStatIncreaseInducedLevel(increaseScale, level) + Random.Range(baseStat > variation ? -variation : 0, variation);
     }
 }
