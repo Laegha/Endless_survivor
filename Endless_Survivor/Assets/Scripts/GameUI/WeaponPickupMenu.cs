@@ -28,7 +28,7 @@ public class WeaponPickupMenu : MonoBehaviour
         Utility.ScaleImageToFitTarget(_weaponImage.rectTransform, displayingWeapon.WeaponDisplaySprite, _weaponImageTargetSize.sizeDelta);
         _weaponImage.sprite = displayingWeapon.WeaponDisplaySprite;
         _currWeaponStats = new WeaponStats(_currDisplayingWeapon.WeaponStats);
-        _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, WeaponStats.CurrWaveLevel);
+        _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, ScalingFunctions.CurrWaveLevel);
         _weaponLevelDisplay.text = _currWeaponStats.TrueLevel + "";
         _weaponDmgDisplay.text = _currWeaponStats.Damage + "";
         _weaponAtkSpdDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.AttackSpeed, 2) + "";

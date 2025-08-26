@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
             return;
 
         _canShoot = false;
-        _shootCooldown = 1f / (WeaponStats.AttackSpeed + GameManager.gm.selectedCharacter.PlayerStats.AttackSpeed);
+        _shootCooldown = 1f / (WeaponStats.AttackSpeed);
         Attack();
     }
     void AttackAnimEnd()

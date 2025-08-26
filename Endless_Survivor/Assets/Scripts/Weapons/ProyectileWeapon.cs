@@ -31,8 +31,8 @@ public class ProyectileWeapon : ShootingWeapon
         proyectile.transform.rotation = FirePoint.rotation;
 
         float proyectileSpeed = _proyectileSpeed;
-        float proyectileLifeTime = WeaponStats.Range + PlayerControl.PlayerStats.Range;
-        int proyectileDamage = WeaponStats.Damage + PlayerControl.PlayerStats.Damage;
+        float proyectileLifeTime = WeaponStats.Range;
+        int proyectileDamage = WeaponStats.Damage;
         proyectile.Initiate(proyectileDamage, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileSpread);
     }
 }

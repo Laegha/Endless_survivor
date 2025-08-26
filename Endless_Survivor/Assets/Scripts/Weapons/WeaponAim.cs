@@ -34,7 +34,7 @@ public class WeaponAim : MonoBehaviour
             _spriteRenderer.flipY = false;
 
         Vector2 distance = closestEnemy.position - PlayerControl.pc.transform.position;
-        if (distance.magnitude <= _playerStats.Range + _weapon.WeaponStats.Range)
+        if (distance.magnitude <= _weapon.WeaponStats.Range)
         {
             _weapon.InRange = true;
             _weapon.TryAttack();
