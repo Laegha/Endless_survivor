@@ -5,38 +5,25 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStats
 {
-    [SerializeField]int _damage = 3;
-    [SerializeField]float _damageMultiplier = 1;
-    [SerializeField]float _attackSpeed = 1;
-    [SerializeField]int _range = 1;
-    [SerializeField]int _maxHealth = 10;
+    //[SerializeField]float _damageMultiplier = 1;
+    [SerializeField]int _initialHP = 10;
+    [SerializeField]int _hpIncrement = 10;
     [SerializeField]int _speed = 1;
 
-    public int Damage
-    {
-        get { return (int)(_damage * _damageMultiplier); } set { _damage = value;  }
-    }
-    public float DamageMultiplier
-    {
-        get { return _damageMultiplier; }
-        set { _damageMultiplier = value; }
-    }
+    //public float DamageMultiplier
+    //{
+    //    get { return _damageMultiplier; }
+    //    set { _damageMultiplier = value; }
+    //}
 
-    public float AttackSpeed
+    public int InitialHP
     {
-        get { return _attackSpeed; } set { _attackSpeed = value; }
+        get { return _initialHP; } set { _initialHP = value; }
     }
-
-    public int Range
+    public int HPIncrement
     {
-        get { return _range; } set { _range = value; }
+        get { return _hpIncrement; } set { _hpIncrement = value; }
     }
-
-    public int MaxHealth
-    {
-        get { return _maxHealth; } set { _maxHealth = value; }
-    }
-
     public int Speed
     {
         get { return _speed; } set { _speed = value; }
@@ -47,10 +34,7 @@ public class PlayerStats
         if (original == null)
             return;
 
-        Damage = original.Damage;
-        AttackSpeed = original.AttackSpeed;
-        Range = original.Range;
-        MaxHealth = original.MaxHealth;
+        InitialHP = original.InitialHP;
         Speed = original.Speed;
     }
 }
