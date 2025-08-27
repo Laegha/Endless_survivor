@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponStats:
     _range: 4
-    _attackSpeed: 1
+    _attackSpeed: 3
     _damage: 1
   _statsIncreaseScale:
     _range: 1
