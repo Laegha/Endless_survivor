@@ -34,7 +34,8 @@ public class PlayerStats
         if (original == null)
             return;
 
-        InitialHP = original.InitialHP;
-        Speed = original.Speed;
+        _initialHP = original._initialHP;
+        _hpIncrement = original._hpIncrement;
+        _speed = original._speed;
     }
 }
