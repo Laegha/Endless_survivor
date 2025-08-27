@@ -42,10 +42,10 @@ public class PlayerHPManager : HP
     {
         var previousMaxHP = MaxHP;
         var remainingHPPercentage = MaxHP / RemainingHP;
-        MaxHP = ScalingFunctions.PlayerHPIncrease(ScalingFunctions.CurrWaveLevel, PlayerControl.pc.PlayerStats.HPIncrement, PlayerControl.pc.PlayerStats.InitialHP);
+        MaxHP = ScalingFunctions.PlayerHPIncrease(ScalingFunctions.CurrWaveLevel-1, PlayerControl.pc.PlayerStats.HPIncrement, PlayerControl.pc.PlayerStats.InitialHP);//the level is -1 so it starts at 0 instead of 1
         if (MaxHP == previousMaxHP)
             return;
-        RemainingHP = RemainingHP * remainingHPPercentage;
+        RemainingHP = MaxHP / remainingHPPercentage;
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         //display particles with MaxHP - previousMaxHP
 
