@@ -16,7 +16,9 @@ public class ParticleManager : MonoBehaviour
     {
         var instantiatedParticles = Instantiate(config.particlesPrefab, config.particlesParentTransform);
         if(config.particlesDuration >= 0)
-            Destroy(instantiatedParticles, config.particlesDuration);
+        {
+            Destroy(instantiatedParticles.gameObject, config.particlesDuration);
+        }
         instantiatedParticles.transform.position = config.particlesPosition;
         instantiatedParticles.transform.rotation = config.particlesRotation;
         return instantiatedParticles;
