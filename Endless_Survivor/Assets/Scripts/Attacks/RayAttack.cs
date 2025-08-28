@@ -9,7 +9,6 @@ public class RayAttack : Attack
 
     Vector2 _startPosition;
     Vector2 _endPosition;
-    Vector2 _shootDirection;
 
     float _exitSpeed = 0.5f;
     int _currExitPointIndex = 0;
@@ -17,8 +16,13 @@ public class RayAttack : Attack
     float _currExitPointElapsedDist;
     float _currExitPointDist;
 
-    public Vector2 StartPosition { get { return _startPosition; } }
-    public Vector2 EndPosition { get { return _endPosition; }}
+    public override AttackEffectArea AttackEffectArea
+    {
+        get
+        {
+            return new AttackEffectArea(AttackEffectArea.IAttackEffectAreaType.Vector, _startPosition, _endPosition, false);
+        }
+    }
     void Update()
     {
         float deltaMovement = _exitSpeed * Time.deltaTime;

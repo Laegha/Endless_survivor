@@ -8,11 +8,13 @@ public class ProyectileData
 {
     [SerializeField] Sprite _proyectileSprite;
     [SerializeField] Vector2 _colliderSize;
+    [SerializeField] CapsuleDirection2D _colliderDirection;
     [SerializeField] Material _proyectileMaterial;
     [SerializeField] GameObject _particlesPrefab;
     [SerializeField] SFXInfo _shootSFX;
     public Sprite ProyectileSprite {  get { return _proyectileSprite; } }
     public Vector2 ColliderSize { get { return _colliderSize; } }
+    public CapsuleDirection2D ColliderDirection {  get { return _colliderDirection; } }
     public Material ProyectileMaterial { get {  return _proyectileMaterial; } }
     public GameObject ParticlesPrefab {  get { return _particlesPrefab; } }
     public SFXInfo ShootSFX { get { return _shootSFX; } }
@@ -21,5 +23,9 @@ public class ProyectileData
     {
         _proyectileSprite = original.ProyectileSprite;
         _colliderSize = original.ColliderSize;
+        _proyectileMaterial = original.ProyectileMaterial;
+        _particlesPrefab = original.ParticlesPrefab;
+        _shootSFX = original.ShootSFX;
+        _colliderDirection = original._colliderDirection;
     }
 }

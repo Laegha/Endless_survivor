@@ -17,19 +17,17 @@ public class AttackEffectsHandler : MonoBehaviour
             foreach(var effect in activeEffects)
             {
                 var effectInstance = Activator.CreateInstance(effect.GetType(), effect, attack);
-                print("ACTIVE EFFECT " + (AttackEffect) effectInstance);
                 _activeEffects.Add((AttackEffect)effectInstance);
             }
         }
         foreach (AttackEffect effect in _activeEffects)
         {
-            print("ACTIVATING " + effect);
             effect.OnAttack?.Invoke();
         }
     }
     void Update()
     {
-        _activeEffects.ForEach(effect => effect.Update?.Invoke());
+        _activeEffects.ForEach(effect => effect.OnUpdate?.Invoke());
     }
     public void EnemyHit(EnemyControl enemyControl)
     {

@@ -12,6 +12,13 @@ public class Proyectile : Attack
     float _lifeTime = 5;
     float _lapsedTime;
     List<Collider2D> _ignoreColliders = new List<Collider2D>();
+    public override AttackEffectArea AttackEffectArea
+    {
+        get
+        {
+            return new AttackEffectArea(AttackEffectArea.IAttackEffectAreaType.Point, transform.position, transform.position, true);
+        }
+    }
     public float Speed { get { return _speed; } set { _speed = value; } }
     public int Damage { get { return _damage; } set { _damage = value; } }
     public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } }
@@ -32,6 +39,7 @@ public class Proyectile : Attack
         {
             SoundFXManager.sm.PlaySfx(proyectileData.ShootSFX, transform.position);
         }
+        _collider.direction = proyectileData.ColliderDirection;
         _collider.size = proyectileData.ColliderSize;
         if(ignoreColliders == null)
             ignoreColliders = new List<Collider2D>();
