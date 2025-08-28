@@ -17,6 +17,9 @@ public class WeaponDataEditor : Editor
     SerializedProperty _weaponDisplaySprite;
     SerializedProperty _idleAnimation;
     SerializedProperty _attackAnimation;
+    SerializedProperty _randomIdleAnimations;
+    SerializedProperty _randomIdleAnimChance;
+    SerializedProperty _randomIdleAnimTime;
     WeaponDataTransferInterface tempInstance;
 
     List<Type> _interfaceTypes = new List<Type>();
@@ -32,6 +35,10 @@ public class WeaponDataEditor : Editor
         _weaponDisplaySprite = serializedObject.FindProperty("_weaponDisplaySprite");
         _idleAnimation = serializedObject.FindProperty("_idleAnimation");
         _attackAnimation = serializedObject.FindProperty("_attackAnimation");
+        _randomIdleAnimations = serializedObject.FindProperty("_randomIdleAnimations");
+        _randomIdleAnimChance = serializedObject.FindProperty("_randomIdleAnimChance");
+        _randomIdleAnimTime = serializedObject.FindProperty("_randomIdleAnimTime");
+
         WeaponData weaponData = (WeaponData)target;
         tempInstance = weaponData.WeaponDataTransferInterface;
         _interfaceTypes = Utility.GetSubclassesOf(typeof(WeaponDataTransferInterface));
@@ -56,7 +63,7 @@ public class WeaponDataEditor : Editor
 
                 menu.AddItem(new GUIContent(type.Name), false, () =>
                 {
-                    if (type == weaponData.WeaponDataTransferInterface.GetType())
+                    if (weaponData.WeaponDataTransferInterface != null && type == weaponData.WeaponDataTransferInterface.GetType())
                         return;
                     weaponData.WeaponDataTransferInterface = Activator.CreateInstance(type) as WeaponDataTransferInterface;
                     EditorUtility.SetDirty(weaponData);
@@ -79,6 +86,11 @@ public class WeaponDataEditor : Editor
         EditorGUILayout.PropertyField(_weaponDisplaySprite, true);
         EditorGUILayout.PropertyField(_idleAnimation, true);
         EditorGUILayout.PropertyField(_attackAnimation, true);
+
+        EditorGUILayout.LabelField("This are animations that may trigger while idle. Leave blank if none should");
+        EditorGUILayout.PropertyField(_randomIdleAnimations,true);
+        EditorGUILayout.PropertyField(_randomIdleAnimChance, true);
+        EditorGUILayout.PropertyField(_randomIdleAnimTime, true);
 
         serializedObject.ApplyModifiedProperties();
     }

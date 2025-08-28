@@ -17,11 +17,17 @@ public class WeaponData : ScriptableObject
     [SerializeField] Sprite _weaponDisplaySprite;
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] ChangeOnEndAnimation _attackAnimation;
+
+    [SerializeField] List<RandomIdleAnimation>_randomIdleAnimations = new List<RandomIdleAnimation>();
+    [SerializeField] float _randomIdleAnimChance;
+    [SerializeField] float _randomIdleAnimTime;
     
     public Sprite WeaponDisplaySprite { get { return _weaponDisplaySprite; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } }
-    public AttackEffectData[] AttackEffects { get { return _attackEffects; } }
     public WeaponStats StatsIncreaseScale { get { return _statsIncreaseScale; } }
+    public AttackEffectData[] AttackEffects { get { return _attackEffects; } }
+    public CustomFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
+    public CustomFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }
     public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } set { _weaponDataTransferInterface = value; } }
     public List<CustomAnimation> Animations { get { 
             return new List<CustomAnimation>
@@ -31,6 +37,7 @@ public class WeaponData : ScriptableObject
             };
         }
     }
-    public CustomFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
-    public CustomFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }
+    public List<RandomIdleAnimation> RandomIdleAnimations { get { return _randomIdleAnimations; } }
+    public float RandomIdleAnimChance { get {   return _randomIdleAnimChance; } }
+    public float RandomIdleAnimTime { get { return _randomIdleAnimTime; } }
 }

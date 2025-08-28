@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -17,6 +18,11 @@ public class WeaponDataTransferInterface
         weapon.WeaponAttackEffects = attackEffectsHolder;
         WeaponControl weaponControl = weaponObject.GetComponent<WeaponControl>();
         weaponControl.WeaponAnimator.AddAnimations(weaponData.Animations);
+        if(weaponData.RandomIdleAnimations.Count > 0 )
+        {
+            var idleAnimator = weaponControl.AddComponent<RandomIdleAnimator>();
+            idleAnimator.SetData(weaponControl.WeaponAnimator,weaponData.RandomIdleAnimChance, weaponData.RandomIdleAnimTime, weaponData.RandomIdleAnimations);
+        }
 
     }
 }
