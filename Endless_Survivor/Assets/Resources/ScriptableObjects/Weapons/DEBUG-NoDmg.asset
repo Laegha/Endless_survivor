@@ -24,7 +24,7 @@ MonoBehaviour:
   _weaponTags: 
   _weaponPools: 0
   _weaponDataTransferInterface:
-    rid: 3410740109222608900
+    rid: 3410740686129463298
   _weaponDisplaySprite: {fileID: 0}
   _idleAnimation:
     _animationName: Idle
@@ -45,7 +45,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3410740109222608900
+    - rid: 3410740686129463298
       type: {class: RayWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
         _firePointPosition: {x: 0, y: 0}
