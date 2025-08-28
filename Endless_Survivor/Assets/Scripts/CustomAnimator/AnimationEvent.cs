@@ -10,10 +10,14 @@ public class AnimationEvent
     public int frameIndex;
     public Action frameAction;
 
-    public AnimationEvent(AnimationEvent original = null)
+    public AnimationEvent(AnimationEvent original = null, int frameIndex = 0, Action frameAction = null)
     {
         if (original == null)
+        {
+            this.frameIndex = frameIndex;
+            this.frameAction = frameAction;
             return;
+        }
         this.frameIndex = original.frameIndex;
         if (original.frameAction != null)
             foreach (var action in original.frameAction.GetInvocationList())
