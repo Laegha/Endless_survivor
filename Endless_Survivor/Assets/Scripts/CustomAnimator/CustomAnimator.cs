@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class CustomAnimator : MonoBehaviour
@@ -20,7 +22,8 @@ public class CustomAnimator : MonoBehaviour
     {
         foreach (var anim in newAnimations)
         {
-            _animations.Add(new CustomAnimation(anim));
+            var newAnim = Activator.CreateInstance(anim.GetType(),this, anim) as CustomAnimation;
+            _animations.Add(newAnim);
         }
 
     }
@@ -42,7 +45,7 @@ public class CustomAnimator : MonoBehaviour
         if(_currFrameIndex >= _currAnim.Frames.Length)
         {
             _currFrameIndex = 0;
-            CurrAnim.OnAnimationEnd?.Invoke(this);
+            //CurrAnim.OnAnimationEnd?.Invoke(this);
         }
         _spriteRenderer.sprite = _currAnim.Frames[_currFrameIndex];
         _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex)?.frameAction?.Invoke();//this doesn't work if the event is set for the frame 0, since the event is called after the frame changed
@@ -50,10 +53,15 @@ public class CustomAnimator : MonoBehaviour
         //Debug.Log("EVENTS FOR FRAME " + _currFrameIndex + " IN ANIMATION " + _currAnim.AnimationName + _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex));
     }
 
-    public virtual void ChangeAnim(string animName)
+    public virtual void ChangeAnim(string animName, bool overridePriority = false)
     {
         CustomAnimation newAnimation = _animations.Find(anim => anim.AnimationName == animName);
-        if(_currAnim != null && _currAnim.Priority > newAnimation.Priority || _currAnim == newAnimation)
+        if(newAnimation == null)
+        {
+            Debug.LogError("ERROR: Animation not found: " +  animName);
+            return;
+        }
+        if(_currAnim != null && _currAnim.Priority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation)
             return;
         _currAnim = newAnimation;
         _currFrameIndex = -1;

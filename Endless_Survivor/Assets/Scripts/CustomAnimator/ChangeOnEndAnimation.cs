@@ -8,14 +8,16 @@ public class ChangeOnEndAnimation : CustomAnimation
 {
     [SerializeField] string _exitAnimationName;
 
-    public ChangeOnEndAnimation(ChangeOnEndAnimation original = null, string exitAnimationName = "") : base(original)
+    public ChangeOnEndAnimation(CustomAnimator animator, ChangeOnEndAnimation original = null) : base(animator,original)
     {
         _exitAnimationName = original._exitAnimationName;
-        OnAnimationEnd += ChangeAnimation;
+        //Events.Add(new(null, Frames.Length - 1, ChangeAnimation));
+        //OnAnimationEnd += ChangeAnimation;
+        Events.Add(new(null, Frames.Length - 1, ChangeAnimation));
     }
 
-    public void ChangeAnimation(CustomAnimator customAnimator)
+    public void ChangeAnimation()
     {
-        customAnimator.ChangeAnim(_exitAnimationName);
+        Animator.ChangeAnim(_exitAnimationName, true);
     }
 }
