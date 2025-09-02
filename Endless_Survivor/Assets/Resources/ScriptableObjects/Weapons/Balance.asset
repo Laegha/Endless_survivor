@@ -41,7 +41,10 @@ MonoBehaviour:
     - {fileID: -1650684103, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     _framesPerSecond: 8
     _priority: 0
-    _exitAnimationName: Idle
+    _exitAnimationName: 
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
   references:
     version: 2
     RefIds:
@@ -52,6 +55,7 @@ MonoBehaviour:
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
           _colliderSize: {x: 0.2, y: 0.2}
+          _colliderDirection: 0
           _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
           _particlesPrefab: {fileID: 0}
           _shootSFX:

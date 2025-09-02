@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FishRevolver
   m_EditorClassIdentifier: 
   _weaponStats:
-    _range: 6
+    _range: 4
     _attackSpeed: 0.5
     _damage: 5
   _statsIncreaseScale:
@@ -69,13 +69,13 @@ MonoBehaviour:
     - rid: 3410740697792512000
       type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: 0.21875, y: 0.0625}
+        _firePointPosition: {x: 0.546875, y: 0.171875}
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: 3f7f604541f75b64bae97596ab17ae96, type: 3}
           _colliderSize: {x: 0.28125, y: 0.18}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-          _particlesPrefab: {fileID: 0}
+          _particlesPrefab: {fileID: 6619987818037842312, guid: 1a39e34327161c242a419b18a3f93138, type: 3}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1

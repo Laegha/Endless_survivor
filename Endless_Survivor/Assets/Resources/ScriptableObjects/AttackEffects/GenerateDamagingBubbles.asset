@@ -24,4 +24,5 @@ MonoBehaviour:
         _usesSeparateChance: 0
         _separateChance: 50
         _generatedObjPrefab: {fileID: 7878935331657132832, guid: ec904ea23d43aaf4b930a2e190579273, type: 3}
+        _firstObjDist: 0.3
         _distanceBetweenObjs: 1
