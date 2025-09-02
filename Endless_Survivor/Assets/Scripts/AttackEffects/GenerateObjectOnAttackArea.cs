@@ -8,6 +8,7 @@ public class GenerateObjectOnAttackArea : AttackEffect
     new public static bool isUsable => true;
 
     [SerializeField] GameObject _generatedObjPrefab;
+    [SerializeField] float _firstObjDist;
     [SerializeField] float _distanceBetweenObjs;
 
     float _lapsedDistance;
@@ -19,6 +20,7 @@ public class GenerateObjectOnAttackArea : AttackEffect
         var genreateObjOriginal = original as GenerateObjectOnAttackArea;
         _generatedObjPrefab = genreateObjOriginal._generatedObjPrefab;
         _distanceBetweenObjs = genreateObjOriginal._distanceBetweenObjs;
+        _lapsedDistance = _firstObjDist;
         switch(affectedAttack.AttackEffectArea.type)
         {
             case Point:
@@ -49,7 +51,13 @@ public class GenerateObjectOnAttackArea : AttackEffect
     void Update()
     {
         Vector2 deltaMovement = _prevPosition - AffectedAttack.AttackEffectArea.start;
-        _lapsedDistance += deltaMovement.magnitude;
+        _prevPosition = AffectedAttack.AttackEffectArea.start;
+        _lapsedDistance -= deltaMovement.magnitude;
+        if(_lapsedDistance <= 0)
+        {
+            _lapsedDistance = _distanceBetweenObjs;
+            GenerateObj(AffectedAttack.AttackEffectArea.start);
+        }
     }
     void GenerateAcrossLength()
     {

@@ -43,6 +43,7 @@ public class Proyectile : Attack
         _collider.size = proyectileData.ColliderSize;
         if(ignoreColliders == null)
             ignoreColliders = new List<Collider2D>();
+        
         _ignoreColliders = ignoreColliders;
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
 
