@@ -21,7 +21,7 @@ public class ProyectileWeapon : ShootingWeapon
         base.Attack();
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         Proyectile proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<Proyectile>();
-        InitializeAttack.Invoke(proyectile);
+        InitializeAttack?.Invoke(proyectile);
 
     }
     void InitiateProyectile(Attack affectedAttack)
