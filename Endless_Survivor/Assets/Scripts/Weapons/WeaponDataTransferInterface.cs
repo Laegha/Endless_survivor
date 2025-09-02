@@ -20,8 +20,6 @@ public class WeaponDataTransferInterface
         weaponControl.WeaponAnimator.AddAnimations(weaponData.Animations);
         if(weaponData.RandomIdleAnimations.Count > 0 )
         {
-            List<CustomAnimation> randomIdleAnims = new List<CustomAnimation>(weaponData.RandomIdleAnimations);
-            weaponControl.WeaponAnimator.AddAnimations(randomIdleAnims);
             var idleAnimator = weaponControl.AddComponent<RandomIdleAnimator>();
             idleAnimator.SetData(weaponControl.WeaponAnimator,weaponData.RandomIdleAnimChance, weaponData.RandomIdleAnimTime, weaponData.RandomIdleAnimations);
         }
