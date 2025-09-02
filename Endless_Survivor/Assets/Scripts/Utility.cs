@@ -124,4 +124,10 @@ public static class Utility
         float decimatedNum = escalated / Mathf.Pow(10, decimals);
         return decimatedNum;
     }
+    public static List<GameObject> GetClosestTo(List<GameObject> comparingObjects, Transform comparingTo)
+    {
+        List<GameObject> objs = new List<GameObject>(comparingObjects);
+        objs.Sort(new ObjectDistComparer(comparingTo));
+        return objs;
+    }
 }
