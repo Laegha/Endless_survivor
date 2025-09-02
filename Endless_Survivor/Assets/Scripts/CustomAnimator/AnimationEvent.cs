@@ -19,8 +19,9 @@ public class AnimationEvent
             return;
         }
         this.frameIndex = original.frameIndex;
-        if (original.frameAction != null)
-            foreach (var action in original.frameAction.GetInvocationList())
-                frameAction += (Action)action;
+        this.frameAction = original.frameAction;
+        //if (original.frameAction != null)
+            //foreach (var action in original.frameAction.GetInvocationList())
+                //frameAction += (Action)action;
     }
 }
