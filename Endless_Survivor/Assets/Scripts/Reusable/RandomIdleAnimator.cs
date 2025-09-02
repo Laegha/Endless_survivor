@@ -1,12 +1,12 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RandomIdleAnimator : MonoBehaviour
 {
     CustomAnimator _animator;
-    List<CustomAnimation> _animations = new List<CustomAnimation>();
     Roulette<CustomAnimation> _animationRoulette;
     float _randomAnimChance;
     float _randomAnimTime;
@@ -22,15 +22,19 @@ public class RandomIdleAnimator : MonoBehaviour
         Dictionary<CustomAnimation, int> rouletteELements = new Dictionary<CustomAnimation, int>();
         foreach (var anim in animations)
         {
-            CustomAnimation newAnim = new(anim);
+            CustomAnimation newAnim = new(_animator, anim);
             newAnim.Events.Add(new(null, newAnim.Frames.Length-1, ReturnToDefaultIdle));
-            _animations.Add(newAnim);
             rouletteELements.Add(newAnim, anim.AnimationWeight);
 
         }
+        _animator.AddAnimations(rouletteELements.Keys.ToList());
         _animationRoulette = new Roulette<CustomAnimation>(rouletteELements);
     }
-    void ReturnToDefaultIdle() => _animator.ChangeAnim("Idle");
+    void ReturnToDefaultIdle()
+    {
+        print("Random animation ended");
+        _animator.ChangeAnim("Idle");
+    }
     private void Update()
     {
         if (_isPlayingAnim)

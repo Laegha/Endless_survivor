@@ -21,7 +21,7 @@ public class ShootPlayerBehaviour : EnemyBehaviour
     {
         base.Initialize(original, enemyControl);
         ShootPlayerBehaviour originalShootPlayer = original as ShootPlayerBehaviour;
-        _shootingAnimation = new CustomAnimation(originalShootPlayer._shootingAnimation);
+        _shootingAnimation = new CustomAnimation(EnemyControl.Animator, originalShootPlayer._shootingAnimation);
         EnemyControl.Animator.AddAnimations(new List<CustomAnimation> { _shootingAnimation });
 
         _distanceToStopShooting = originalShootPlayer._distanceToStopShooting;

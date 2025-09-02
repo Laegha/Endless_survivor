@@ -33,8 +33,8 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         _attackRadius = originalMeleeAttack._attackRadius;
         
         //copy animations from SO
-        _enemyAttackAnimation = new CustomAnimation(originalMeleeAttack._enemyAttackAnimation);
-        _attackVFXAnimation = new ChangeOnEndAnimation(originalMeleeAttack._attackVFXAnimation);
+        _enemyAttackAnimation = new CustomAnimation(EnemyControl.Animator, originalMeleeAttack._enemyAttackAnimation);
+        _attackVFXAnimation = new ChangeOnEndAnimation(_vfxAnimator, originalMeleeAttack._attackVFXAnimation);
         _triggerVFXEvent = new AnimationEvent(originalMeleeAttack._triggerVFXEvent);
         _triggerDamageEvent = new AnimationEvent(originalMeleeAttack._triggerDamageEvent);
         _attackSfx = originalMeleeAttack._attackSfx;
@@ -46,7 +46,8 @@ public class MeleeAttackBehaviour : EnemyBehaviour
 
         //add events to the corresponding animations
         _enemyAttackAnimation.Events.Add(_triggerVFXEvent);
-        _enemyAttackAnimation.OnAnimationEnd += AnimationEnd;
+        //_enemyAttackAnimation.OnAnimationEnd += AnimationEnd;
+        _enemyAttackAnimation.OnAnimEnd.frameAction += AnimationEnd;
         _attackVFXAnimation.Events.Add(_triggerDamageEvent);
 
         EnemyControl.Animator.AddAnimations(new List<CustomAnimation> { _enemyAttackAnimation });
@@ -77,7 +78,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
 
         _vfxAnimator.ChangeAnim(_attackVFXAnimation.AnimationName);
     }
-    void AnimationEnd(CustomAnimator placeholder)
+    void AnimationEnd()
     {
         KillBehaviour();
     }
