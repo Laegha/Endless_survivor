@@ -60,7 +60,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     public async void InsertCoin()
     {
         UnlockmentsManager.GetGachaCoins((int coins) => _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost);
-            if (!_enoughCoinsToGacha)
+        if (!_enoughCoinsToGacha)
         {
             //play sfx
             //play animation?
@@ -81,23 +81,25 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             unlockedElement = elements[Random.Range(0, elements.Count)];
         }
 
-        _unlockedElementName = unlockedElement.name;
         if (unlockedElement.GetType() == typeof(CharacterData))
         {
             var unlockedCharacter = (CharacterData)unlockedElement;
             _unlockedElementType = "Character";
+            _unlockedElementName = unlockedCharacter.CharacterName;
             _unlockedElementSprite = unlockedCharacter.MenuImage;
         }
         else if (unlockedElement.GetType() == typeof(WeaponData))
         {
             var unlockedWeapon = (WeaponData)unlockedElement;
             _unlockedElementType = "Weapon";
+            _unlockedElementName = unlockedWeapon.WeaponName;
             _unlockedElementSprite = unlockedWeapon.WeaponDisplaySprite;
         }
         else if (unlockedElement.GetType() == typeof(PassiveItemData))
         {
             var unlockedPassiveItem = (PassiveItemData)unlockedElement;
             _unlockedElementType = "Passive Item";
+            _unlockedElementName = unlockedPassiveItem.ItemName;
             _unlockedElementSprite = unlockedPassiveItem.ItemSprite;
         }
         UnlockmentsManager.GetGachaCoins((int coins) =>

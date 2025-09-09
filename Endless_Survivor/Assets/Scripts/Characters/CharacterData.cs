@@ -7,6 +7,7 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     [SerializeField] Sprite _menuImage;
+    [SerializeField] string _characterName;
     [SerializeField] Sprite[] _characterHands;
 
     [InspectorLabel("Initial weapons and passive items")]
@@ -34,6 +35,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] SFXInfo _onDeathSound;
 
     public Sprite MenuImage {  get { return _menuImage; } }
+    public string CharacterName { get { return _characterName; } }
     public Sprite[] CharacterHands { get { return _characterHands; } }
     public WeaponData[] InitialWeapons { get { return _initialWeapons; } }
     public int InitialMaxWeapons { get { return _initialMaxWeapons;} }
