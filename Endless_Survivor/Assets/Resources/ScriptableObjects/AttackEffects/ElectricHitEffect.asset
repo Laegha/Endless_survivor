@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f4c500d1b3dee48885e1e8f3388601, type: 3}
+  m_Name: ElectricHitEffect
+  m_EditorClassIdentifier: 
+  _effectChance: 100
+  _attackEffects:
+  - rid: 575471264421642242
+  references:
+    version: 2
+    RefIds:
+    - rid: 575471264421642242
+      type: {class: ElectricHitAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _separateChance: 50
+        _maxElectricRays: 4
+        _maxDistBetweenEnemies: 3
+        _damagePercentage: 25
+        _zapVfxInterface:
+          tiles:
+          - _framesPerSecond: 8
+            _frames:
+            - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+          - _framesPerSecond: 8
+            _frames:
+            - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+          - _framesPerSecond: 8
+            _frames:
+            - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+          - _framesPerSecond: 8
+            _frames:
+            - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+            - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+          followTileOrder: 0
+          tileSize: {x: 7, y: 8}
+          isVertical: 1
+        _zapVfxDurationMin: 0.3
+        _zapVfxDurationMax: 0.5
