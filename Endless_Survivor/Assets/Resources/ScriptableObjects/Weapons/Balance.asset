@@ -51,7 +51,7 @@ MonoBehaviour:
     - rid: 3410740109222608897
       type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: -0.5937534, y: 0.015625}
+        _firePointPosition: {x: 19, y: 0.5}
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
           _colliderSize: {x: 0.2, y: 0.2}

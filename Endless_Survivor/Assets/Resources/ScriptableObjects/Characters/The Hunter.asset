@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: The Hunter
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: 2023260274ec9664c9c2ff7b6bb2eed9, type: 3}
+  _characterName: The Hunter
+  _characterHands:
+  - {fileID: -177209489, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
+  - {fileID: 520054154, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
+  _initialWeapons:
+  - {fileID: 11400000, guid: 0c66f01383ac1904fa95e17c1f10a935, type: 2}
+  _initialMaxWeapons: 2
+  _initialPassives: []
+  _playerStats:
+    _initialHP: 6
+    _hpIncrement: 2
+    _speed: 2
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: 1944667401, guid: 74a8ee153ca041f42ba23395d821cf2a, type: 3}
+    - {fileID: -1713295755, guid: 74a8ee153ca041f42ba23395d821cf2a, type: 3}
+    - {fileID: -1376963941, guid: 74a8ee153ca041f42ba23395d821cf2a, type: 3}
+    - {fileID: -1094676325, guid: 74a8ee153ca041f42ba23395d821cf2a, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: -140132331, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: 98228216, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: 1356690604, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: 1225793971, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: 14621812, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: -113864250, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: 586421352, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    - {fileID: -83284113, guid: 6010a72c616e1774a944685fed9a44fc, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: -2046770722, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: -1180609345, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: 1907748603, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: -1051316803, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: 1170505108, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: 123091526, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: -807876179, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    - {fileID: 1999226876, guid: 17800c76b1995494ca86b9681db7187b, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: -477430886, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: 185071623, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: -357298506, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: 1762209334, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: -133114664, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: -329355523, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: -635091255, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    - {fileID: 1363503948, guid: 9991e542379c2854aa7481bcb6eb3f75, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: -803927636, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: -75972127, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: -1507959668, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: 1033299351, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: 394830636, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: 950722884, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: 1684087686, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    - {fileID: -727075345, guid: 32a9d63870773734c9f299dc17469015, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _onHitSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0

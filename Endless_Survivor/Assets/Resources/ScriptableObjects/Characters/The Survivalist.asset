@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
-  m_Name: Char_02
+  m_Name: The Survivalist
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 6adcdde4c117744489ff5548e1cc7000, type: 3}
   _characterPrefab: {fileID: 0}

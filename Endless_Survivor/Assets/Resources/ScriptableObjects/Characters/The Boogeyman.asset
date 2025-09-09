@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
-  m_Name: Char_01
+  m_Name: The Boogeyman
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: ee15a4173288afd448f25f8034437ac2, type: 3}
+  _characterName: The Boogeyman
   _characterHands:
   - {fileID: -177209489, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
   - {fileID: 520054154, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
   _initialWeapons:
-  - {fileID: 11400000, guid: 3332b3b899c52f7418b840a887f561e3, type: 2}
+  - {fileID: 11400000, guid: 0c66f01383ac1904fa95e17c1f10a935, type: 2}
   _initialMaxWeapons: 2
   _initialPassives: []
   _playerStats:
     _initialHP: 4
     _hpIncrement: 2
-    _speed: 3
+    _speed: 4
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
   _colliderDirection: 0

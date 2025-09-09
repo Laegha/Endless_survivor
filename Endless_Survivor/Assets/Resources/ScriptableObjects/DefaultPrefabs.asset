@@ -24,6 +24,8 @@ MonoBehaviour:
       Value: {fileID: 5542903177043885194, guid: 9a94a327314e9d0499153633a7ea4a76, type: 3}
     - Key: Laser
       Value: {fileID: 3170957151181256545, guid: 2d82e08c123653f4db5a043792209c35, type: 3}
+    - Key: Melee
+      Value: {fileID: 2868723263697389708, guid: 5253c66c3ff0bfd4da0a852b5e4e7eb4, type: 3}
     - Key: Enemy
       Value: {fileID: 2373952663123277793, guid: c5ffe46174d62a64abb88cf7789b46a9, type: 3}
     - Key: Pickup

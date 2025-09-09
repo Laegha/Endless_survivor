@@ -53,13 +53,16 @@ MonoBehaviour:
     _framesPerSecond: 13
     _priority: 0
     _exitAnimationName: Idle
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
   references:
     version: 2
     RefIds:
     - rid: 768304771243442177
       type: {class: RayWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: -0.5937534, y: 0.015625}
+        _firePointPosition: {x: -19, y: 0.5}
         _rayData:
           _rayMaterial: {fileID: 2100000, guid: aed3a3a8cf8b58a4f8a23517cabc0cb0, type: 2}
           _rayStartWidth: 0.1

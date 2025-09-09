@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
-  m_Name: FishRevolver
+  m_Name: Fish Revolver
   m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: c1d4fc6b9b8f62d41bb5010837f076a4, type: 3}
+  _weaponName: 
   _weaponStats:
     _range: 4
     _attackSpeed: 0.5
@@ -26,7 +28,6 @@ MonoBehaviour:
   _weaponPools: 3
   _weaponDataTransferInterface:
     rid: 3410740697792512000
-  _weaponDisplaySprite: {fileID: 21300000, guid: fa369b21622ea2a4a8ddc5e24cf5d625, type: 3}
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -69,7 +70,7 @@ MonoBehaviour:
     - rid: 3410740697792512000
       type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: 0.546875, y: 0.171875}
+        _firePointPosition: {x: 17.5, y: 5.5}
         _defaultBulletData:
           _proyectileSprite: {fileID: 21300000, guid: 3f7f604541f75b64bae97596ab17ae96, type: 3}
           _colliderSize: {x: 0.28125, y: 0.18}

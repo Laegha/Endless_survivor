@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Red Queen
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: -47556698, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+  _weaponName: 
+  _weaponStats:
+    _range: 1
+    _attackSpeed: 3
+    _damage: 7
+  _statsIncreaseScale:
+    _range: 0.4
+    _attackSpeed: 0.7
+    _damage: 2
+  _attackEffects: []
+  _weaponTags: 0000000002000000
+  _weaponPools: 0
+  _weaponDataTransferInterface:
+    rid: 575471399616905216
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -47556698, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    _framesPerSecond: 0
+    _priority: 0
+  _attackAnimation:
+    _animationName: Attack
+    _frames:
+    - {fileID: -47556698, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    - {fileID: -799676155, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    - {fileID: -1607915792, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    - {fileID: 405736955, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    _framesPerSecond: 8
+    _priority: 0
+    _exitAnimationName: Idle
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 575471399616905216
+      type: {class: MeleeWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+      data:
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 1.5
+          _attackBoxSize: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: AttackVfx
+            _frames:
+            - {fileID: 111901774, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
+            - {fileID: 2140150665, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
+            - {fileID: -455923340, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
+            - {fileID: 984664027, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
+            _framesPerSecond: 8
+            _priority: 0
+          _damageFrame: 3
+          _attackParticles: {fileID: 0}
+          _particleDuration: -1
