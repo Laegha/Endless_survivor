@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class CharSelectMenu : MonoBehaviour
 {
-    [SerializeField] GameObject _mainMenu;
+    [SerializeField] GameObject _menuObj;
     [SerializeField] CharacterButton _selectCharBtnPrefab;
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGrid;
 
-    async void DisplayMenu()
+    public void DisplayMenu()
+    {
+        _menuObj.SetActive(true);
+        DisplayCharacters();
+    }
+    async void DisplayCharacters()
     {
         var currentRow = Instantiate(_gridRowPrefab, _buttonGrid);
         float rowFilledSpace = 0;
@@ -39,8 +44,6 @@ public class CharSelectMenu : MonoBehaviour
             if (button != _buttonGrid)
                 Destroy(button.gameObject);
         }
-
-        _mainMenu.SetActive(true);
-        gameObject.SetActive(false);
+        _menuObj.SetActive(false);
     }
 }
