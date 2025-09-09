@@ -431,6 +431,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponButtonPrefab: {fileID: 117332757864263799, guid: 72ce13efc1ba08242bd3e8a654651cdb, type: 3}
   _menuGfx: {fileID: 520512722}
+  _pickingWeaponImage: {fileID: 0}
+  _pickingWeaponImageTargetSize: {fileID: 0}
+  _pickingWeaponLevelDisplay: {fileID: 0}
   _weaponDisplayCircleCenter: {fileID: 835562442}
   _weaponDisplayCircleRadius: 120
 --- !u!1 &186485910
@@ -746,6 +749,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594006547}
   m_CullTransparentMesh: 1
+--- !u!1 &742423377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742423380}
+  - component: {fileID: 742423379}
+  - component: {fileID: 742423378}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &742423378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742423377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8bacc68113a9af4fbb4a3e1265f034c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &742423379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742423377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineInterface:
+    tiles:
+    - _framesPerSecond: 8
+      _frames:
+      - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+    - _framesPerSecond: 8
+      _frames:
+      - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+    - _framesPerSecond: 8
+      _frames:
+      - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+    - _framesPerSecond: 8
+      _frames:
+      - {fileID: 1387296016, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: -530855725, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: 539773014, guid: e96a07f145748e7419aae8666f529512, type: 3}
+      - {fileID: -2013945639, guid: e96a07f145748e7419aae8666f529512, type: 3}
+    followTileOrder: 0
+    tileSize: {x: 7, y: 8}
+    isVertical: 1
+  lineRenderer: {fileID: 742423378}
+--- !u!4 &742423380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742423377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &835562441
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +1020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &849390140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +1033,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineInterface:
+    tiles: []
+    followTileOrder: 0
+    tileSize: {x: 0, y: 0}
+    isVertical: 0
+  lineRenderer: {fileID: 0}
 --- !u!4 &849390141
 Transform:
   m_ObjectHideFlags: 0
@@ -1138,6 +1234,9 @@ MonoBehaviour:
   _weaponImage: {fileID: 1727565373}
   _weaponImageTargetSize: {fileID: 71783434}
   _weaponLevelDisplay: {fileID: 1026546896}
+  _weaponDmgDisplay: {fileID: 0}
+  _weaponAtkSpdDisplay: {fileID: 0}
+  _weaponRangeDisplay: {fileID: 0}
 --- !u!114 &956655527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1578,25 +1677,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuObj: {fileID: 0}
   _availableCoinsDisplay: {fileID: 0}
-  _gfxHolder:
-    coinSlotOutline: {fileID: 0}
-    leverOutline: {fileID: 0}
-    baseAnimator: {fileID: 0}
-    faceAnimator: {fileID: 0}
-    ballAnimator: {fileID: 0}
-    ballPrizeAnimator: {fileID: 0}
-    leverRotator: {fileID: 0}
-    prizeBG: {fileID: 0}
-    prizeInfoAnimator: {fileID: 0}
-    prizeImage: {fileID: 0}
-    prizeImageTarget: {fileID: 0}
-    prizeTypeDisplay: {fileID: 0}
-    prizeNameDisplay: {fileID: 0}
-  _delayAfterSpinningLever: 0.5
-  _delayAfterBallFall: 0.5
+  _skipAnimationCheckboxFill: {fileID: 0}
+  _returnButton: {fileID: 0}
+  _prizeImage: {fileID: 0}
+  _prizeImageTarget: {fileID: 0}
+  _prizeTypeDisplay: {fileID: 0}
+  _prizeNameDisplay: {fileID: 0}
+  _leverRotator: {fileID: 0}
   _gfxStates:
   - stateName: WaitingForCoin
     isSkipable: 0
+    endsByTime: 1
+    delayAfterEnding: 0
     startObjectActivations:
       _serializedList:
       - Key: {fileID: 0}
@@ -1623,6 +1715,8 @@ MonoBehaviour:
     chainAnimations: []
   - stateName: InsertingCoin
     isSkipable: 1
+    endsByTime: 1
+    delayAfterEnding: 0
     startObjectActivations:
       _serializedList:
       - Key: {fileID: 0}
@@ -1643,6 +1737,8 @@ MonoBehaviour:
     chainAnimations: []
   - stateName: Spinning
     isSkipable: 0
+    endsByTime: 1
+    delayAfterEnding: 0
     startObjectActivations:
       _serializedList:
       - Key: {fileID: 0}
@@ -1673,6 +1769,8 @@ MonoBehaviour:
     chainAnimations: []
   - stateName: Gaching
     isSkipable: 1
+    endsByTime: 1
+    delayAfterEnding: 0
     startObjectActivations:
       _serializedList:
       - Key: {fileID: 0}
@@ -1716,6 +1814,8 @@ MonoBehaviour:
       delay: 0.4
   - stateName: ShowingPrize
     isSkipable: 1
+    endsByTime: 1
+    delayAfterEnding: 0
     startObjectActivations:
       _serializedList:
       - Key: {fileID: 0}
@@ -1736,6 +1836,8 @@ MonoBehaviour:
     chainAnimations: []
   - stateName: OpeningPrize
     isSkipable: 1
+    endsByTime: 1
+    delayAfterEnding: 0
     startObjectActivations:
       _serializedList:
       - Key: {fileID: 0}
@@ -1868,6 +1970,7 @@ MonoBehaviour:
   _weaponOverrideMenu: {fileID: 178810059}
   _passiveItemPickupMenu: {fileID: 0}
   _playerHPBar: {fileID: 0}
+  _waveDisplay: {fileID: 0}
 --- !u!4 &1132782626
 Transform:
   m_ObjectHideFlags: 0
@@ -3357,3 +3460,4 @@ SceneRoots:
   - {fileID: 6644071009344869691}
   - {fileID: 1874087937}
   - {fileID: 1107562727}
+  - {fileID: 742423380}

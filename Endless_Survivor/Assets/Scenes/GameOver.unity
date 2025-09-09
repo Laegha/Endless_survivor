@@ -292,6 +292,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: RetryBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358910730}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneLoadingFunctions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SceneLoadingFunctions, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7155582868648070157, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_Material
       value: 
@@ -1313,6 +1341,18 @@ PrefabInstance:
     - target: {fileID: 1465043010057805034, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_Name
       value: MenuBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358910730}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneLoadingFunctions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7155582868648070157, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_Material
