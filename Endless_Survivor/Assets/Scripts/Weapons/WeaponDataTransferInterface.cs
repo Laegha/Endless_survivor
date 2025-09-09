@@ -14,7 +14,7 @@ public class WeaponDataTransferInterface
         weapon.WeaponStats = new WeaponStats(weaponStats);
         weapon.WeaponData = weaponData;
         AttackEffectsHolder attackEffectsHolder = new();
-        attackEffectsHolder.availableEffects = weaponData.AttackEffects.ToList();
+        attackEffectsHolder.availableEffects = new(weaponData.AttackEffects.ToList());
         weapon.WeaponAttackEffects = attackEffectsHolder;
         WeaponControl weaponControl = weaponObject.GetComponent<WeaponControl>();
         weaponControl.WeaponAnimator.AddAnimations(weaponData.Animations);
