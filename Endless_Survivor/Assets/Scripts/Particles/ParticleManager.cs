@@ -14,6 +14,8 @@ public class ParticleManager : MonoBehaviour
     }
     public ParticleSystem SpawnParticles(ParticleConfig config)
     {
+        if (config.particlesPrefab == null)
+            return null;
         var instantiatedParticles = Instantiate(config.particlesPrefab, config.particlesParentTransform);
         if(config.particlesDuration >= 0)
         {
