@@ -73,6 +73,11 @@ public class Weapon : MonoBehaviour
         print("Attacking");
     }
 
+    public virtual void Attack(Vector2 attackPosOffset, float attackRotationOffset, bool isSecondaryAttack)
+    {
+
+    }
+
     void SetWeaponOnAttack(Attack attack)
     {
         attack.ParentWeapon = this;
