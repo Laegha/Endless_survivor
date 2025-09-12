@@ -9,10 +9,12 @@ public class AttackEffectDataEditor : Editor
 {
     Dictionary<Type, bool> _attackEffects = new();
     SerializedProperty _attackEffectChance;
+    SerializedProperty _usedBySecondaryAttacks;
 
     private void OnEnable()
     {
         _attackEffectChance = serializedObject.FindProperty("_effectChance");
+        _usedBySecondaryAttacks = serializedObject.FindProperty("_usedBySecondaryAttacks");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(AttackEffect));
         AttackEffectData attackEffectData = (AttackEffectData)target;
         behaviourTypes.ForEach(type => _attackEffects.Add(type, attackEffectData.AttackEffects.Exists(behaviour => behaviour.GetType() == type)));
@@ -21,6 +23,7 @@ public class AttackEffectDataEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_attackEffectChance);
+        EditorGUILayout.PropertyField(_usedBySecondaryAttacks);
         serializedObject.ApplyModifiedProperties();
         //base.OnInspectorGUI();
 

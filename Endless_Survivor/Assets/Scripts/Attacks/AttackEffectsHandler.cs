@@ -12,6 +12,8 @@ public class AttackEffectsHandler : MonoBehaviour
         var availableEffects = attack.ParentWeapon.WeaponAttackEffects.availableEffects.Concat(PlayerControl.pc.EffectsHolder.availableEffects);
         foreach (AttackEffectData effectData in availableEffects)
         {
+            if(!effectData.UsedBySecondaryAttacks && attack.IsSecondaryAttack)
+                continue; 
             int rand = UnityEngine.Random.Range(0, 101);
             var activeEffects = effectData.GetActiveEffects(rand);
             foreach(var effect in activeEffects)
