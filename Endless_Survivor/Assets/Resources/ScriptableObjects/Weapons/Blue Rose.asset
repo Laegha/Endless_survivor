@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Blue Rose
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 0}
+  _weaponName: 
+  _weaponStats:
+    _range: 10
+    _attackSpeed: 0.4
+    _damage: 4
+  _statsIncreaseScale:
+    _range: 1
+    _attackSpeed: 0.5
+    _damage: 2
+  _attackEffects:
+  - {fileID: 11400000, guid: 5fa089420f13b7d4f877e7c6f3475d4b, type: 2}
+  _weaponTags: 
+  _weaponPools: 0
+  _weaponDataTransferInterface:
+    rid: 575471447047143425
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -378716513, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    _framesPerSecond: 1
+    _priority: 0
+  _attackAnimation:
+    _animationName: Attack
+    _frames:
+    - {fileID: -1839495553, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    - {fileID: -1096826968, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    - {fileID: 569519661, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    - {fileID: -618681036, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    - {fileID: -1853842762, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    - {fileID: 2130536008, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
+    _framesPerSecond: 14
+    _priority: 0
+    _exitAnimationName: Idle
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 575471447047143425
+      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+      data:
+        _firePointPosition: {x: 17, y: 7}
+        _defaultBulletData:
+          _proyectileSprite: {fileID: 21300000, guid: 3f7f604541f75b64bae97596ab17ae96, type: 3}
+          _colliderSize: {x: 0.5, y: 0.1}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _proyectileSpeed: 7
+        _proyectileSpread: 0
