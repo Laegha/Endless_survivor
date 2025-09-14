@@ -42,10 +42,10 @@ public class RayAttack : Attack
         
         _lineRenderer.SetPosition(0, firePoint.position);
         
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, -firePoint.right, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
         if (!hit)
         {
-            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, firePoint.position + -firePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
+            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, firePoint.position + firePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
             return;
 
         }

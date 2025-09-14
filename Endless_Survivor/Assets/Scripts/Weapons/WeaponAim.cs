@@ -27,7 +27,7 @@ public class WeaponAim : MonoBehaviour
             return;
         
         Transform closestEnemy = Utility.GetClosestTo(WaveManager.wm.Enemies, PlayerControl.pc.transform)[0].transform;
-        Vector2 direction = _directionBase.position - closestEnemy.position;
+        Vector2 direction = closestEnemy.position - _directionBase.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
