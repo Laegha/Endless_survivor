@@ -10,12 +10,17 @@ public class MeleeAttack : Attack
         get { return new AttackEffectArea(AttackEffectArea.IAttackEffectAreaType.Square, _attackAreaStart, _attackAreaEnd, false); }
     }
     [SerializeField] CustomAnimator _vfxAnimator;
+    [SerializeField] SpriteRenderer _vfxRenderer;
     MeleeData _attackData;
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
     float _circleRadius => Mathf.Clamp(_attackData.CircleRadius, ParentWeapon.WeaponStats.Range, Mathf.Infinity);
     Vector2 _boxSize => _attackData.BoxSize.magnitude >= ParentWeapon.WeaponStats.Range ? _attackData.BoxSize : _attackData.BoxSize.normalized * ParentWeapon.WeaponStats.Range;
 
+    private void Update()
+    {
+        _vfxRenderer.flipY = ParentWeapon.WeaponControl.Gfx.flipY;
+    }
     public void Attack(int damage, MeleeData attackData)
     {
         _attackData = attackData;
@@ -25,7 +30,7 @@ public class MeleeAttack : Attack
         EffectsHandler.TryEffects(this);
         var attackAnimation = new CustomAnimation(_vfxAnimator, attackData.AttackVfxAnimation);
         attackAnimation.Events.Add(new(null, attackData.DamageFrame, ApplyDamage));
-        attackAnimation.Events.Add(new(null, attackAnimation.Frames.Length - 1, () => Destroy(gameObject)));
+        attackAnimation.Events.Add(new(null, attackAnimation.Frames.Length -1, () => Destroy(gameObject)));
         _vfxAnimator.AddAnimations(new List<CustomAnimation> { attackAnimation });
         _vfxAnimator.ChangeAnim(attackAnimation.AnimationName);
         ParticleConfig particles = new ParticleConfig(attackData.AttackParticles, transform.position, transform.rotation, attackData.ParticleDuration, transform);
@@ -34,7 +39,6 @@ public class MeleeAttack : Attack
     }
     void ApplyDamage()
     {
-        print(_attackData);
         var affectedEnemies = _attackData.IsCircle ? Physics2D.OverlapCircleAll(transform.position, _circleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(transform.position, _boxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
         foreach(var enemyCol in affectedEnemies)
         {
