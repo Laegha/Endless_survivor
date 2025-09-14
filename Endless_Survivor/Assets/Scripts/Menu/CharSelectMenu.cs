@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharSelectMenu : MonoBehaviour
 {
     [SerializeField] GameObject _menuObj;
+    [SerializeField] GameObject _mainMenuObj;
     [SerializeField] CharacterButton _selectCharBtnPrefab;
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGrid;
@@ -45,5 +46,6 @@ public class CharSelectMenu : MonoBehaviour
                 Destroy(button.gameObject);
         }
         _menuObj.SetActive(false);
+        _mainMenuObj.SetActive(true);
     }
 }
