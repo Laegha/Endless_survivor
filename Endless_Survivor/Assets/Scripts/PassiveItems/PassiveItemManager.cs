@@ -17,5 +17,10 @@ public class PassiveItemManager : MonoBehaviour
     {
         _passiveItems.ForEach(item => item.BehaviourManager.onUpdate?.Invoke());
     }
+    public void WeaponAttack(Weapon weapon)
+    {
+        _passiveItems.ForEach(item => item.BehaviourManager.onAttack?.Invoke(weapon));
+
+    }
 
 }

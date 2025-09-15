@@ -7,7 +7,7 @@ public class PassiveItemBehaviourManager
 {
     public Action onPicked;
     public Action onUpdate;
-    public Action onAttack;//make a system for attacks, so passive items can modify them
+    public Action<Weapon> onAttack;//make a system for attacks, so passive items can modify them
     public Action onDamageRecieved;
     public Action<EnemyControl> onEnemyHit;
     public Action<EnemyControl> onEnemyKilled;

@@ -71,6 +71,7 @@ public class Weapon : MonoBehaviour
     public virtual void Attack()
     {
         print("Attacking");
+        PlayerControl.pc.PassiveItemManager.WeaponAttack(this);
     }
 
     public virtual void Attack(Vector2 attackPosOffset, float attackRotationOffset, bool isSecondaryAttack)
