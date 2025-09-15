@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31ebb905160e99b4196b85fbe85b66a1
+guid: 6f5cd173fe744ae4ca64591343aede22
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,85 +123,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RedQueen_Attack_0
+      name: Nero-LeftMove_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 70
-        height: 45
-      alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b8d95a161d98d04f896a241985f7429
-      internalID: -230454167
+      spriteID: 1b550b31c89c5d94388d02ec4f2830c2
+      internalID: 92168658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedQueen_Attack_1
+      name: Nero-LeftMove_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 32
         y: 0
-        width: 70
-        height: 45
-      alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 272d859a4ea693d4a98c8c748493b6d3
-      internalID: 295966228
+      spriteID: 103d0213b630d1b4ba275a05b289c8da
+      internalID: -1618772758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedQueen_Attack_2
+      name: Nero-LeftMove_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 64
         y: 0
-        width: 70
-        height: 45
-      alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa1f1d1b855fbd54c8311b1f500e2d24
-      internalID: -1416972509
+      spriteID: 631ca90fdb7ec7749b85369f42f1e44a
+      internalID: -1360505182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedQueen_Attack_3
+      name: Nero-LeftMove_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 96
         y: 0
-        width: 70
-        height: 45
-      alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d10686b5234bbc4e8dfb8ed1a2e7664
-      internalID: -1761358102
+      spriteID: ea32dd0b084f34d41bcf48563823cfb1
+      internalID: 1248216352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero-LeftMove_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe31895271182241bf9c17aa22d7c42
+      internalID: 416868119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero-LeftMove_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7e6d9eb992318479e27f9ba10ae2d6
+      internalID: 18200304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero-LeftMove_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52765adbed4939542abe38f87e332e8c
+      internalID: 376755258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero-LeftMove_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ad3ffbc450f0f429f7ab3d2b4750be
+      internalID: -1820432632
       vertices: []
       indices: 
       edges: []
@@ -217,10 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RedQueen_Attack_0: -230454167
-      RedQueen_Attack_1: 295966228
-      RedQueen_Attack_2: -1416972509
-      RedQueen_Attack_3: -1761358102
+      Nero-LeftMove_0: 92168658
+      Nero-LeftMove_1: -1618772758
+      Nero-LeftMove_2: -1360505182
+      Nero-LeftMove_3: 1248216352
+      Nero-LeftMove_4: 416868119
+      Nero-LeftMove_5: 18200304
+      Nero-LeftMove_6: 376755258
+      Nero-LeftMove_7: -1820432632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
