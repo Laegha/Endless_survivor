@@ -38,7 +38,8 @@ public class ElectricHitAttackEffect : AttackEffect
     {
         var reachableEnemies = new List<GameObject>(WaveManager.wm.Enemies.Where(x => Vector2.Distance(x.transform.position, mainEnemy.transform.position) <= _maxDistBetweenEnemies));
         var orderedEnemies = Utility.GetClosestTo(reachableEnemies, mainEnemy.transform);
-        
+        if (reachableEnemies.Count == 0)
+            return;
         for(int i = 0; i < _maxElectricRays; i++)
         {
             var reachedEnemyIndex = i >= reachableEnemies.Count ? Random.Range(0, reachableEnemies.Count) : i;
