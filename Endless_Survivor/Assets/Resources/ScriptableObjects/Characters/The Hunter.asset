@@ -15,8 +15,8 @@ MonoBehaviour:
   _menuImage: {fileID: 21300000, guid: 2023260274ec9664c9c2ff7b6bb2eed9, type: 3}
   _characterName: The Hunter
   _characterHands:
-  - {fileID: -177209489, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
-  - {fileID: 520054154, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
+  - {fileID: -169117831, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
+  - {fileID: 885243135, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
   _initialWeapons:
   - {fileID: 11400000, guid: 0c66f01383ac1904fa95e17c1f10a935, type: 2}
   _initialMaxWeapons: 2
@@ -24,7 +24,7 @@ MonoBehaviour:
   _playerStats:
     _initialHP: 6
     _hpIncrement: 2
-    _speed: 2
+    _speed: 3
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
   _colliderDirection: 0

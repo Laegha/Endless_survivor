@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
   m_Name: Red Queen
   m_EditorClassIdentifier: 
-  _weaponDisplaySprite: {fileID: -47556698, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+  _weaponDisplaySprite: {fileID: 21300000, guid: 56c88ae7f64bc5e448f938127cce8ca9, type: 3}
   _weaponName: 
   _weaponStats:
     _range: 1
-    _attackSpeed: 3
+    _attackSpeed: 1
     _damage: 7
   _statsIncreaseScale:
     _range: 0.4
@@ -24,22 +24,23 @@ MonoBehaviour:
     _damage: 2
   _attackEffects: []
   _weaponTags: 0000000002000000
-  _weaponPools: 0
+  _weaponPools: 1
   _weaponDataTransferInterface:
     rid: 575471399616905216
   _idleAnimation:
     _animationName: Idle
     _frames:
-    - {fileID: -47556698, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    - {fileID: -230454167, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
     _framesPerSecond: 0
     _priority: 0
   _attackAnimation:
     _animationName: Attack
     _frames:
-    - {fileID: -47556698, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
-    - {fileID: -799676155, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
-    - {fileID: -1607915792, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
-    - {fileID: 405736955, guid: 9603e4f782a6d1043813090f052e51e5, type: 3}
+    - {fileID: -230454167, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+    - {fileID: 295966228, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+    - {fileID: -1416972509, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+    - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+    - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
     _framesPerSecond: 8
     _priority: 0
     _exitAnimationName: Idle
@@ -54,17 +55,18 @@ MonoBehaviour:
       data:
         _meleeData:
           _isCircle: 1
-          _attackCircleRadius: 1.5
+          _attackCircleRadius: 1.1
           _attackBoxSize: {x: 0, y: 0}
           _attackVfxAnimation:
             _animationName: AttackVfx
             _frames:
-            - {fileID: 111901774, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
-            - {fileID: 2140150665, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
-            - {fileID: -455923340, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
-            - {fileID: 984664027, guid: 60e3840f6c19ebe44811708fee1e7841, type: 3}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: -382149833, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
+            - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
+            - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
             _framesPerSecond: 8
             _priority: 0
-          _damageFrame: 3
+          _damageFrame: 2
           _attackParticles: {fileID: 0}
           _particleDuration: -1

@@ -25,5 +25,5 @@ MonoBehaviour:
         _usesSeparateChance: 0
         _separateChance: 50
         _frameDelay: 3
-        _delayedAttackPosOffset: {x: 0, y: 0}
+        _delayedAttackPosOffset: {x: 0, y: 3}
         _delayedAttackRotationOffset: 0
