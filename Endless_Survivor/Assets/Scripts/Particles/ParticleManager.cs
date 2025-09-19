@@ -6,6 +6,7 @@ public class ParticleManager : MonoBehaviour
 {
     static ParticleManager instance;
     public static ParticleManager pm { get { return instance; } }
+    List<TransformFollowHandler> _particlesFollowing = new List<TransformFollowHandler>();
     private void Awake()
     {
         if (instance != null)
@@ -16,7 +17,9 @@ public class ParticleManager : MonoBehaviour
     {
         if (config.particlesPrefab == null)
             return null;
-        var instantiatedParticles = Instantiate(config.particlesPrefab, config.particlesParentTransform);
+        var instantiatedParticles = Instantiate(config.particlesPrefab);
+        if (config.particlesParentTransform != null)
+            _particlesFollowing.Add(new(instantiatedParticles.transform, config.particlesParentTransform, config.copyPosition, config.copyRotation));
         if(config.particlesDuration >= 0)
         {
             Destroy(instantiatedParticles.gameObject, config.particlesDuration);
@@ -24,5 +27,18 @@ public class ParticleManager : MonoBehaviour
         instantiatedParticles.transform.position = config.particlesPosition;
         instantiatedParticles.transform.rotation = config.particlesRotation;
         return instantiatedParticles;
+    }
+    private void Update()
+    {
+        var particlesFollowingCopy = new List<TransformFollowHandler>(_particlesFollowing);
+        foreach(var particleFollowing in particlesFollowingCopy)
+        {
+            if(particleFollowing.child == null)
+            {
+                _particlesFollowing.Remove(particleFollowing);
+                continue;
+            }
+            particleFollowing.Update();
+        }
     }
 }
