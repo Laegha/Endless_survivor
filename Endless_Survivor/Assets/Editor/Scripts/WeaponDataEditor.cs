@@ -71,8 +71,10 @@ public class WeaponDataEditor : Editor
             }
             menu.ShowAsContext();
         }
-
+        
+        EditorGUILayout.LabelField("Base stats for the weapon", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_weaponStats);
+        EditorGUILayout.LabelField("Multipliers to the function that increases stats by weapon level. KNOCKBACK DOESN'T INCREASE so changing its multiplier is useless", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_statsIncreaseScale);
         EditorGUILayout.PropertyField(_weaponAttackEffects);
 
