@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [SerializeField] int _initialHP;
+    [SerializeField] float _knockbackResistance;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] Vector2 _colliderOffset;
     [SerializeField] CapsuleDirection2D _colliderDirection;
@@ -26,6 +27,7 @@ public class EnemyData : ScriptableObject
         enemyHP.InitializeHP(_initialHP + ScalingFunctions.EnemyHPIncrease(ScalingFunctions.CurrWaveLevel));
         enemyHP.SetSounds(_onHitSFX, _onDeathSFX);
         enemyHP.DropablePickupChances = new List<PickupDataChance>(_dropablePickupChances);
+        enemyHP.KnockbackResistance = _knockbackResistance;
 
         enemyControl.CapsuleCollider.direction = _colliderDirection;
         enemyControl.CapsuleCollider.size = _colliderSize;

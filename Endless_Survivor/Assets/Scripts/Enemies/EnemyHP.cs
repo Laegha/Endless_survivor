@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyHP : HP
 {
+    float _knockbackResistance;
+
     List<PickupDataChance> _dropablePickupsChances;
     [SerializeField] float _damagedFlashingTime = 1.5f;
     [SerializeField] EnemyControl _enemyControl;
@@ -19,6 +21,7 @@ public class EnemyHP : HP
 
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
+    public float KnockbackResistance { set { _knockbackResistance = value; } }  
     public List<PickupDataChance> DropablePickupChances { set { _dropablePickupsChances = value; } }
     public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath; } set { _onEnemyDeath = value; } }
     public Action <EnemyControl, int> OnEnemyDamaged { get { return _onEnemyDamaged; } set  { _onEnemyDamaged = value; } }
@@ -40,6 +43,12 @@ public class EnemyHP : HP
         _damagedFlashing?.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
         _onEnemyDamaged?.Invoke(_enemyControl, incomingDamage);
+    }
+    public void TakeDamage(int incomingDamage, Vector2 impactDirection, float knockbackPower)
+    {
+        var knockbackForce = KnockbackUtility.GetKnockbackForceInfo(impactDirection, knockbackPower - _knockbackResistance);
+        _enemyControl.RbForcesController.ChangeCurrForce(knockbackForce);
+        TakeDamage(incomingDamage);
     }
     private void Update()
     {
