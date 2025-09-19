@@ -8,7 +8,6 @@ public class Proyectile : Attack
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] CapsuleCollider2D _collider;
     float _speed = 1;
-    int _damage = 1;
     float _lifeTime = 5;
     float _lapsedTime;
     List<Collider2D> _ignoreColliders = new List<Collider2D>();
@@ -20,14 +19,13 @@ public class Proyectile : Attack
         }
     }
     public float Speed { get { return _speed; } set { _speed = value; } }
-    public int Damage { get { return _damage; } set { _damage = value; } }
     public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } }
     public CapsuleCollider2D Collider { get { return _collider; } }
     public float LifeTime {  get { return _lifeTime; } set { _lifeTime = value; } }
 
-    public void Initiate(int damage, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0, List<Collider2D> ignoreColliders = null)
+    public void Initiate(int damage, float knockback, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0, List<Collider2D> ignoreColliders = null)
     {
-        _damage = damage;
+        AttackDamage = damage;
         _speed = speed;
         _lifeTime = lifeTime;
         _spriteRenderer.sprite = proyectileData.ProyectileSprite;
@@ -53,7 +51,10 @@ public class Proyectile : Attack
         foreach(DamageSource damageSource in damageSources)
         {
             damageSource.IgnoreColliders = ignoreColliders;
-            damageSource.Damage = _damage;
+            damageSource.Damage = AttackDamage;
+            var enemyDamageSource = damageSource as EnemyDamageSource;
+            if(enemyDamageSource != null ) 
+                enemyDamageSource.Knockback = knockback;
         }
         StartMoving();
         

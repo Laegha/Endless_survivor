@@ -32,7 +32,6 @@ public class ProyectileWeapon : ShootingWeapon
         var pixelOffset = attackPosOffset / 32;
         Vector2 offsetXDirection = -new Vector2(Mathf.Cos(firepointRotation), Mathf.Sin(firepointRotation)).normalized;//it's inverted because the firepoint faces left
         Vector2 offsetYDirection = new Vector2(1, (-offsetXDirection.x/offsetXDirection.y) * 1).normalized;
-        Debug.Log("FIREPOINT ANGLE:" + FirePoint.eulerAngles.z + " DIRECTION: " + offsetXDirection);
         Vector2 offsetXMovement = offsetXDirection * pixelOffset.x;
         Vector2 offsetYMovement = offsetYDirection * pixelOffset.y;
 
@@ -51,6 +50,6 @@ public class ProyectileWeapon : ShootingWeapon
         float proyectileSpeed = _proyectileSpeed;
         float proyectileLifeTime = WeaponStats.Range;
         int proyectileDamage = WeaponStats.Damage;
-        proyectile.Initiate(proyectileDamage, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileSpread);
+        proyectile.Initiate(proyectileDamage, WeaponStats.Knockback, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileSpread);
     }
 }
