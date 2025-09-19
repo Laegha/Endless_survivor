@@ -11,6 +11,7 @@ public class MeleeAttack : Attack
     }
     [SerializeField] CustomAnimator _vfxAnimator;
     [SerializeField] SpriteRenderer _vfxRenderer;
+    float _knockbackForce = 0f;
     MeleeData _attackData;
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
@@ -21,8 +22,10 @@ public class MeleeAttack : Attack
     {
         _vfxRenderer.flipY = ParentWeapon.WeaponControl.Gfx.flipY;
     }
-    public void Attack(int damage, MeleeData attackData)
+    public void Attack(int damage, float knockbackForce, MeleeData attackData)
     {
+        AttackDamage = damage;
+        _knockbackForce = knockbackForce;
         _attackData = attackData;
         _attackAreaStart = attackData.IsCircle ? (Vector2)transform.position - Vector2.one.normalized * attackData.CircleRadius : (Vector2)transform.position - attackData.BoxSize/2;
         _attackAreaEnd = attackData.IsCircle ? (Vector2)transform.position + Vector2.one.normalized * attackData.CircleRadius : (Vector2)transform.position + attackData.BoxSize/2;
@@ -46,7 +49,8 @@ public class MeleeAttack : Attack
             if (enemyControl == null)
                 continue;
             EffectsHandler.EnemyHit(enemyControl);
-            enemyControl.EnemyHP.TakeDamage(AttackDamage);
+            Vector2 hitDirection = (enemyCol.transform.position - PlayerControl.pc.transform.position).normalized;
+            enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, _knockbackForce);
         }
     }
 }
