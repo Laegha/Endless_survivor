@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BasicFollower
   m_EditorClassIdentifier: 
   _initialHP: 10
+  _knockbackResistance: 0
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.125}
   _colliderDirection: 0

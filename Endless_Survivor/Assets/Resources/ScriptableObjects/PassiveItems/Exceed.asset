@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Exceed
   _itemDescript: The power of coordinating attacks
-  _itemSprite: {fileID: 4225844244685256741, guid: e10de4b792a9b594ba22b5ebacb58792, type: 3}
+  _itemSprite: {fileID: 21300000, guid: f092e95ae2fe2884fa7ac39a1d5079f0, type: 3}
   _itemBehaviours:
   - rid: 575471513600524288
   _itemPools: 1
@@ -26,5 +26,8 @@ MonoBehaviour:
       data:
         _statBuffOnAttackCoordination:
           _range: 0
-          _attackSpeed: 13
+          _attackSpeed: 2
           _damage: 6
+          _knockback: 0
+        _onAttackCoordinationParticles: {fileID: 6362051271741657217, guid: fdb28ab5114be26458bee797ece2cf02, type: 3}
+        _particlesDuration: 2

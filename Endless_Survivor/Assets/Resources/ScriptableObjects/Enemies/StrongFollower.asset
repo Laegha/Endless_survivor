@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StrongFollower
   m_EditorClassIdentifier: 
   _initialHP: 20
+  _knockbackResistance: 20
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.125}
   _colliderDirection: 0

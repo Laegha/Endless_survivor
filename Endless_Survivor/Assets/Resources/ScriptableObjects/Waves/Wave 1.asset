@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: Wave 1
   m_EditorClassIdentifier: 
   _waveEnemies:
-  - enemyData: {fileID: 11400000, guid: 449b2daf2df4a024497d2e67ca130cf2, type: 2}
+  - enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
     _minSpawnCount: 1
     _enemyPoolWeight: 30
-  - enemyData: {fileID: 11400000, guid: 449b2daf2df4a024497d2e67ca130cf2, type: 2}
-    _minSpawnCount: 1
-    _enemyPoolWeight: 1
   _minEnemyCount: 10
   _maxEnemyCount: 15
