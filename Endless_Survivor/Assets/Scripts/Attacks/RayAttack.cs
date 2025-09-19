@@ -34,8 +34,9 @@ public class RayAttack : Attack
         if(_currExitPointElapsedDist >= _currExitPointDist)
             GoToNextExitPoint();
     }
-    public void Attack(int damage, RayData defaultRayData, Transform firePoint)
+    public void Attack(int damage, float knockback, RayData defaultRayData, Transform firePoint)
     {
+        AttackDamage = damage;
         _startPosition = firePoint.position;
 
         SetGFX(defaultRayData.RayMaterial, defaultRayData.RayStartWidth, defaultRayData.RayEndWidth, defaultRayData.RayStartSprite);
@@ -59,7 +60,8 @@ public class RayAttack : Attack
         EnemyControl enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(hit.collider.gameObject);
         if (enemyControl != null)
         {
-            enemyControl.EnemyHP.TakeDamage((int)(damage * AttackDamageMultiplier + AttackDamage));
+
+            enemyControl.EnemyHP.TakeDamage(AttackDamage, firePoint.right, knockback);
             EffectsHandler.EnemyHit(enemyControl);
         }
 
