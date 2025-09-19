@@ -18,6 +18,8 @@ public class PassiveItemPickupMenu : MonoBehaviour
         _menuGfx.SetActive(true);
         GameUIManager.uiManager.MenuDisplayed();
         _currPickingItem = pickingItem;
+        _itemImage.sprite = pickingItem.ItemSprite;
+        Utility.ScaleImageToFitTarget(_itemImage.rectTransform, pickingItem.ItemSprite, _itemImageTargetSize.sizeDelta);
         _itemName.text = pickingItem.ItemName;
         _itemDescript.text = pickingItem.ItemDescript;
 
