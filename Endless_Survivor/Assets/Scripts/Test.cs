@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] CharacterData characterData;
-    [SerializeField] CustomAnimator animator;
+    [SerializeField]CustomLineInterface lineInterface;
+    [SerializeField] CustomLineRenderer lineRenderer;
 
     private void Start()
     {
-        animator.AddAnimations(new List<CustomAnimation>{characterData.Animations.Find(x => x.AnimationName == "Idle")});
-        animator.ChangeAnim("Idle");
+        lineRenderer.GenerateLine(Vector2.zero, Vector2.up * 5, lineInterface);
     }
 
 }

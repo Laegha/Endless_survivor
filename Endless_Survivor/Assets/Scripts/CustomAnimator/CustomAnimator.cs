@@ -58,7 +58,7 @@ public class CustomAnimator : MonoBehaviour
         CustomAnimation newAnimation = _animations.Find(anim => anim.AnimationName == animName);
         if(newAnimation == null)
         {
-            Debug.LogError("ERROR: Animation not found: " +  animName);
+            Debug.LogError("ERROR: Animation not found: " +  animName + " on animator " + gameObject.name);
             return;
         }
         if(_currAnim != null && _currAnim.Priority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation)
