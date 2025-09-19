@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effectsHandler: {fileID: 4005513828873315568}
   _vfxAnimator: {fileID: 7774442669067926258}
+  _vfxRenderer: {fileID: 8522875959575289250}
 --- !u!114 &4005513828873315568
 MonoBehaviour:
   m_ObjectHideFlags: 0
