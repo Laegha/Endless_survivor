@@ -34,11 +34,11 @@ public class ChasePlayerBehaviour : EnemyBehaviour
         if (EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _chasingAnimation.AnimationName)
             EnemyControl.Animator.ChangeAnim(_chasingAnimation.AnimationName);
         Vector2 direction = (_player.position - EnemyControl.transform.position).normalized;
-        EnemyControl.Rb.velocity = direction * _enemySpeed;
+        EnemyControl.RbForcesController.ChangeCurrForce(new(direction, _enemySpeed, 0, ForceMode2D.Force));
     }
     public override void KillBehaviour()
     {
         base.KillBehaviour();
-        EnemyControl.Rb.velocity = Vector2.zero;
+        EnemyControl.RbForcesController.Stop();
     }
 }
