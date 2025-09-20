@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
   m_Name: Blue Rose
   m_EditorClassIdentifier: 
-  _weaponDisplaySprite: {fileID: 0}
-  _weaponName: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: dc805ff2539555141996c7655c8ccb5b, type: 3}
+  _weaponName: Blue Rose
   _weaponStats:
     _range: 10
     _attackSpeed: 0.4
     _damage: 4
+    _knockback: 0
   _statsIncreaseScale:
     _range: 1
     _attackSpeed: 0.5
     _damage: 2
+    _knockback: 0
   _attackEffects:
   - {fileID: 11400000, guid: 5fa089420f13b7d4f877e7c6f3475d4b, type: 2}
   _weaponTags: 

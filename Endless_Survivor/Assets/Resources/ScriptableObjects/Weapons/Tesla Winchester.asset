@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: Tesla Winchester
   m_EditorClassIdentifier: 
   _weaponDisplaySprite: {fileID: 21300000, guid: fab889a5be1394647a38e2cf3188ff90, type: 3}
-  _weaponName: 
+  _weaponName: Tesla Winchester
   _weaponStats:
     _range: 10
     _attackSpeed: 0.8
     _damage: 8
+    _knockback: 0
   _statsIncreaseScale:
     _range: 2
     _attackSpeed: 0.7
     _damage: 4
+    _knockback: 0
   _attackEffects:
   - {fileID: 11400000, guid: 7863b939900a2c94f8b6f63851c14859, type: 2}
   _weaponTags: 01000000

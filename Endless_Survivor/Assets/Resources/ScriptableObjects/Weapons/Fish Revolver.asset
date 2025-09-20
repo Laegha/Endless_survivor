@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: Fish Revolver
   m_EditorClassIdentifier: 
   _weaponDisplaySprite: {fileID: 21300000, guid: c1d4fc6b9b8f62d41bb5010837f076a4, type: 3}
-  _weaponName: 
+  _weaponName: Sea Revolver
   _weaponStats:
     _range: 4
     _attackSpeed: 0.5
     _damage: 5
+    _knockback: 0
   _statsIncreaseScale:
     _range: 1
     _attackSpeed: 0.8
     _damage: 3
+    _knockback: 0
   _attackEffects:
   - {fileID: 11400000, guid: 70121141263562b448af1ce6cab427d9, type: 2}
   _weaponTags: 01000000
