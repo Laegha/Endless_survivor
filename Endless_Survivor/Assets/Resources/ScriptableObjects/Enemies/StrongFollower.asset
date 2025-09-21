@@ -26,7 +26,7 @@ MonoBehaviour:
   - _pickupData: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
     _chance: 13
   - _pickupData: {fileID: 11400000, guid: b81cd9ee6d834c940924b0e437b666c7, type: 2}
-    _chance: 12
+    _chance: 0
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
