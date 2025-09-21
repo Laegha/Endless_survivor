@@ -602,6 +602,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aefebe0d920e7f48938c9e0890a439e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponStats:
+    _range: 0
+    _attackSpeed: 0
+    _damage: 0
+    _knockback: 0
 --- !u!114 &232842320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +948,7 @@ MonoBehaviour:
   _menuObj: {fileID: 1196554530}
   _mainMenuObj: {fileID: 997488210}
   _selectCharBtnPrefab: {fileID: 5291014270665965505, guid: b13a3247b3c360d409ccaab3d5669ce9, type: 3}
+  _newCharIndicatorPrefab: {fileID: 5371292941122230659, guid: 484982c74c2d16d419fb0a59b3111dcb, type: 3}
   _gridRowPrefab: {fileID: 4316747539647367134, guid: d3342436644a3d04ba85309f8772626e, type: 3}
   _buttonGrid: {fileID: 869418323}
 --- !u!1 &349249110
@@ -2183,7 +2189,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1465043010057805034, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1764578650}
   m_SourcePrefab: {fileID: 100100000, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
 --- !u!224 &757667669 stripped
 RectTransform:
@@ -3872,6 +3881,8 @@ MonoBehaviour:
       _serializedList:
       - Key: {fileID: 1965072075}
         Value: 1
+      - Key: {fileID: 1937525700}
+        Value: 0
       - Key: {fileID: 177923868}
         Value: 1
     startAnimations:
@@ -4727,6 +4738,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763769459}
   m_CullTransparentMesh: 1
+--- !u!1 &1764578646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1465043010057805034, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
+  m_PrefabInstance: {fileID: 757667668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1764578650
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764578646}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 15
+  m_TargetDisplay: 0
 --- !u!1 &1797060124
 GameObject:
   m_ObjectHideFlags: 0
