@@ -13,6 +13,7 @@ public class CharacterButton : MonoBehaviour
     public void SelectCharacter()
     {
         GameManager.gm.selectedCharacter = characterData;
+        UnlockmentsManager.SetNotNewCharacter(characterData);
         charSelectMenu.CloseMenu();
     }
 

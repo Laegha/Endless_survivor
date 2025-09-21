@@ -21,7 +21,7 @@ public class PassiveItemPickupData : PickupData
             //availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
             if(availableItems.Count == 0)
             Application.Quit();
-        PassiveItemData pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)];//get a random passive
+        PassiveItemData pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)].element;//get a random passive
         pickupControl.Pickup.AddVariable(_itemVariableKey, pickupPassiveItem);
         pickupControl.Renderer.sprite = pickupPassiveItem.ItemSprite;
     }

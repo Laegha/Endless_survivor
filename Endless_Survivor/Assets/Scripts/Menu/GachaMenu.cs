@@ -75,9 +75,12 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             var weapons = await UnlockmentsManager.UnlockedWeapons();
             var passiveItems = await UnlockmentsManager.UnlockedPassiveItems();
             List<ScriptableObject> elements = new List<ScriptableObject>();
-            elements.AddRange(characters);
-            elements.AddRange(weapons);
-            elements.AddRange(passiveItems);
+            foreach (var character in characters)
+                elements.Add(character.element);
+            foreach (var weapon in weapons)
+                elements.Add(weapon.element);
+            foreach (var passive in passiveItems)
+                elements.Add(passive.element);
             unlockedElement = elements[Random.Range(0, elements.Count)];
         }
 

@@ -27,61 +27,6 @@ public static class UnlockmentsManager
     //static string _passiveItemsJson = File.ReadAllText(_passiveItemsPath);
     //static string _gachaCoinsJson = File.ReadAllText(_gachaCoinsPath);
 
-    //static async string _charactersJsonData()
-    //{
-    //string jsonData = await ReadJson(_charactersPath);
-    //return jsonData;
-
-    //}
-
-    //static string _charactersJson
-    //{
-    //    get
-    //    {
-    //        string jsonData = "";
-    //        GameManager.gm.RoutineRunner(ReadJson(_charactersPath, (string param) =>
-    //        {
-    //            jsonData = param;
-    //        }));
-    //        return jsonData;
-    //    }
-    //}
-    //static string _weaponsJson
-    //{
-    //    get
-    //    {
-    //        string jsonData = "";
-    //        GameManager.gm.RoutineRunner(ReadJson(_weaponsPath, (string param) =>
-    //        {
-    //            jsonData = param;
-    //        }));
-    //        return jsonData;
-    //    }
-    //}
-    //static string _passiveItemsJson
-    //{
-    //    get
-    //    {
-    //        string jsonData = "";
-    //        GameManager.gm.RoutineRunner(ReadJson(_passiveItemsPath, (string param) =>
-    //        {
-    //            jsonData = param;
-    //        }));
-    //        return jsonData;
-    //    }
-    //}
-    //static string _gachaCoinsJson
-    //{
-    //    get
-    //    {
-    //        string jsonData = "";
-    //        GameManager.gm.RoutineRunner(ReadJson(_gachaCoinsPath, (string param) =>
-    //        {
-    //            jsonData = param;
-    //        }));
-    //        return jsonData;
-    //    }
-    //}
 
     static int _maxCoins = 9999999;
 
@@ -106,53 +51,50 @@ public static class UnlockmentsManager
     }
 
     //Weapons
-    //public static List<WeaponData> UnlockedWeapons { get { return GetListFromJson<WeaponData>(_weaponsJson, true); } }
-    //public static List<WeaponData> LockedWeapons { get { return GetListFromJson<WeaponData>(_weaponsJson, false); } }
-    public static async Task<List<WeaponData>> UnlockedWeapons()
+    public static async Task<List<ElementIsNewInfo<WeaponData>>> UnlockedWeapons()
     {
         var jsonData = await ReadJson(_weaponsPath);
-        var weaponList = GetListFromJson<WeaponData>(jsonData, true);
+        var weaponList = GetUnlockedElementsFromJsom<WeaponData>(jsonData);
         return weaponList;
     }
     public static async Task<List<WeaponData>> LockedWeapons()
     {
         var jsonData = await ReadJson(_weaponsPath);
-        var weaponList = GetListFromJson<WeaponData>(jsonData, false);
+        var weaponList = GetListOfLockedElementsFromJson<WeaponData>(jsonData);
         return weaponList;
     }
-    public static void UnlockWeapon(WeaponData unlockedWeapon) => UnlockDataOnJson(unlockedWeapon, _weaponsPath);
+    public static void UnlockWeapon(WeaponData unlockedWeapon) => AlterElementInfoOnJson(unlockedWeapon, _weaponsPath, true, true);
+    public static void SetNotNewWeapon(WeaponData unlockedWeapon) => AlterElementInfoOnJson(unlockedWeapon, _weaponsPath, true, false);
     //Characters
-    //public static List<CharacterData> UnlockedCharacters { get { return GetListFromJson<CharacterData>(_charactersJson, true); } }
-    //public static List<CharacterData> LockedCharacters { get { return GetListFromJson<CharacterData>(_charactersJson, false); } }
-    public static async Task<List<CharacterData>> UnlockedCharacters()
+    public static async Task<List<ElementIsNewInfo<CharacterData>>> UnlockedCharacters()
     {
         var jsonData = await ReadJson(_charactersPath);
-        var characterList = GetListFromJson<CharacterData>(jsonData, true);
+        var characterList = GetUnlockedElementsFromJsom<CharacterData>(jsonData);
         return characterList;
     }
     public static async Task<List<CharacterData>> LockedCharacters()
     {
         var jsonData = await ReadJson(_charactersPath);
-        var characterList = GetListFromJson<CharacterData>(jsonData, false);
+        var characterList = GetListOfLockedElementsFromJson<CharacterData>(jsonData);
         return characterList;
     }
-    public static void UnlockCharacter(CharacterData unlockedCharacter) => UnlockDataOnJson(unlockedCharacter, _charactersPath);
+    public static void UnlockCharacter(CharacterData unlockedCharacter) => AlterElementInfoOnJson(unlockedCharacter, _charactersPath, true, true);
+    public static void SetNotNewCharacter(CharacterData unlockedCharacter) => AlterElementInfoOnJson(unlockedCharacter, _charactersPath, true, false);
     //Passive Items
-    //public static List<PassiveItemData> UnlockedPassiveItems { get { return GetListFromJson<PassiveItemData>(_passiveItemsJson, true); } }
-    //public static List<PassiveItemData> LockedPassiveItems { get { return GetListFromJson<PassiveItemData>(_passiveItemsJson, false); } }
-    public static async Task<List<PassiveItemData>> UnlockedPassiveItems()
+    public static async Task<List<ElementIsNewInfo<PassiveItemData>>> UnlockedPassiveItems()
     {
         var jsonData = await ReadJson(_passiveItemsPath);
-        var passiveItemList = GetListFromJson<PassiveItemData>(jsonData, true);
-        return passiveItemList;
+        var passiveList = GetUnlockedElementsFromJsom<PassiveItemData>(jsonData);
+        return passiveList;
     }
     public static async Task<List<PassiveItemData>> LockedPassiveItems()
     {
         var jsonData = await ReadJson(_passiveItemsPath);
-        var passiveItemList = GetListFromJson<PassiveItemData>(jsonData, false);
+        var passiveItemList = GetListOfLockedElementsFromJson<PassiveItemData>(jsonData);
         return passiveItemList;
     }
-    public static void UnlockPassiveItem(PassiveItemData unlockedPassiveItem) => UnlockDataOnJson(unlockedPassiveItem, _passiveItemsPath);
+    public static void UnlockPassiveItem(PassiveItemData unlockedPassiveItem) => AlterElementInfoOnJson(unlockedPassiveItem, _passiveItemsPath, true, true);
+    public static void SetNotNewPassiveItem(PassiveItemData unlockedPassiveItem) => AlterElementInfoOnJson(unlockedPassiveItem, _passiveItemsPath, true, false);
 
     static async Task<string> ReadJson(string path)
     {
@@ -180,20 +122,40 @@ public static class UnlockmentsManager
         }
         return jsonData;
     }
-    static List<T> GetListFromJson<T>(string json, bool unlocked) where T : ScriptableObject
+    static List<ElementIsNewInfo<T>> GetUnlockedElementsFromJsom<T>(string json) where T : ScriptableObject
     {
-        Dictionary<string, bool> jsonDatas = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json);
-        T[] allDatas = Resources.LoadAll<T>("");
-        List<T> requestedDatas = allDatas.Where(data => jsonDatas.ContainsKey(data.name) && jsonDatas[data.name] == unlocked).ToList();
+        List<JsonElementInfo> jsonDatas = JsonConvert.DeserializeObject<List<JsonElementInfo>>(json);
+        List<T> allDatas = Resources.LoadAll<T>("").ToList();
+        List<ElementIsNewInfo<T>> requestedDatas = new ();
+        foreach(var jsonInfo in jsonDatas)
+        {
+            if (!jsonInfo.isUnlocked)
+                continue;
+            var foundSO = allDatas.Find(x => x.name == jsonInfo.fileName);
+            if(foundSO == null)
+            {
+                Debug.LogError("There is a " + typeof(T) + " in the json with no corresponding file of name: " + jsonInfo.fileName);
+            }
+            requestedDatas.Add(new(foundSO, jsonInfo.isNew));
+        }
         return requestedDatas;
     }
-    static async void UnlockDataOnJson<T>(T unlockedData, string jsonPath) where T : ScriptableObject
+    static List<T> GetListOfLockedElementsFromJson<T>(string json) where T : ScriptableObject
     {
-        var json = await ReadJson(jsonPath); 
-        Dictionary<string, bool> jsonDatas = JsonConvert.DeserializeObject<Dictionary<string, bool>>(json);
-        if (!jsonDatas.ContainsKey(unlockedData.name))
+        List<JsonElementInfo> jsonDatas = JsonConvert.DeserializeObject<List<JsonElementInfo>>(json);
+        T[] allDatas = Resources.LoadAll<T>("");
+        List<T> requestedDatas = allDatas.Where(data => jsonDatas.Exists(x => x.fileName == data.name) && !jsonDatas.Find(x => x.fileName == data.name).isUnlocked).ToList();
+        return requestedDatas;
+    }
+    static async void AlterElementInfoOnJson<T>(T unlockedData, string jsonPath, bool unlockmentState, bool isNewState) where T : ScriptableObject
+    {
+        var json = await ReadJson(jsonPath);
+        List<JsonElementInfo> jsonDatas = JsonConvert.DeserializeObject<List<JsonElementInfo>>(json);
+        var alteredElement = jsonDatas.Find(x => x.fileName == unlockedData.name);
+        if (alteredElement == null)
             return;
-        jsonDatas[unlockedData.name] = true;
+        alteredElement.isUnlocked = unlockmentState;
+        alteredElement.isNew = isNewState;
         string newJson = JsonConvert.SerializeObject(jsonDatas, Formatting.Indented);
         File.WriteAllText(jsonPath, newJson);
     }

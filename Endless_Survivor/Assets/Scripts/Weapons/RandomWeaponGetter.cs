@@ -13,25 +13,25 @@ public class RandomWeaponGetter
         var availableWeapons = await UnlockmentsManager.UnlockedWeapons();
         if(weaponPool != CustomFlags.IWeaponPool.None)
         {
-            availableWeapons = availableWeapons.Where(x => (x.WeaponPools & weaponPool) != CustomFlags.IWeaponPool.None).ToList();
+            availableWeapons = availableWeapons.Where(x => (x.element.WeaponPools & weaponPool) != CustomFlags.IWeaponPool.None).ToList();
         }
 
         if(!useBuildTags)
         {
-            return availableWeapons[Random.Range(0, availableWeapons.Count)];
+            return availableWeapons[Random.Range(0, availableWeapons.Count)].element;
         }
         var heldTags = PlayerControl.pc != null ? PlayerControl.pc.WeaponManager.HeldWeaponTags : new();
         Dictionary<WeaponData, int> rouletteMaterial = new Dictionary<WeaponData, int>();
         foreach(var weaponData in availableWeapons)
         {
-            rouletteMaterial.Add(weaponData, 10);
+            rouletteMaterial.Add(weaponData.element, 10);
         }
 
         foreach(var weaponData in availableWeapons)
         {
-            var sharedTags = weaponData.WeaponTags.Intersect(heldTags.Keys).Count();
+            var sharedTags = weaponData.element.WeaponTags.Intersect(heldTags.Keys).Count();
             var chanceIncrement = sharedTags == 0 ? 0 : _sharedTagChanceIncrementBase + sharedTags * _sharedTagChanceIncrementPerTag - 1;
-            rouletteMaterial[weaponData] += chanceIncrement;
+            rouletteMaterial[weaponData.element] += chanceIncrement;
         }
         Roulette<WeaponData> weaponRoulette = new(rouletteMaterial);
         return weaponRoulette.Spin();
