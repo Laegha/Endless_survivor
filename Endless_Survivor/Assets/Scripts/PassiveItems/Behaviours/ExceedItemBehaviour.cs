@@ -47,7 +47,10 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
     {
         if (_buffedWeapons.ContainsKey(weapon))
             return;
-        _weaponsInBuffLapse.Add(weapon, _buffLapseDuration);
+        if(_weaponsInBuffLapse.ContainsKey(weapon))
+            _weaponsInBuffLapse[weapon] = _buffLapseDuration;
+        else
+            _weaponsInBuffLapse.Add(weapon, _buffLapseDuration);
     }
 
     void DecreaseBuffLapseTime()
@@ -68,7 +71,6 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
             _buffedWeapons[weapon] -= Time.deltaTime;
             if (_buffedWeapons[weapon] <= 0)
             {
-                Debug.Log(weapon + " is NO LONGER buffed by exceed");
                 //Decrease stats
                 weapon.WeaponStats.TemporalStatIncrease(-_statBuffOnAttackCoordination.Range, -_statBuffOnAttackCoordination.AttackSpeed, -_statBuffOnAttackCoordination.Damage, -_statBuffOnAttackCoordination.Knockback);
                 _buffedWeapons.Remove(weapon);
