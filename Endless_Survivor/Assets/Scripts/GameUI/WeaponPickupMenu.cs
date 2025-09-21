@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class WeaponPickupMenu : MonoBehaviour
 {
     [SerializeField] GameObject _menuGfx;
+    [SerializeField] GameObject _newWeaponIndicator;
     [SerializeField] Image _weaponImage;
     [SerializeField] RectTransform _weaponImageTargetSize;
     [SerializeField] TextMeshProUGUI _weaponLevelDisplay;
@@ -15,11 +16,12 @@ public class WeaponPickupMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _weaponRangeDisplay;
     WeaponData _currDisplayingWeapon;
     WeaponStats _currWeaponStats;
+    GameObject _currNewIndicator;
 
     public WeaponData CurrDisplayingWeapon {  get { return _currDisplayingWeapon; } }
     public WeaponStats CurrWeaponStats {  get { return _currWeaponStats; } }
 
-    public void DisplayMenu(WeaponData displayingWeapon)
+    public void DisplayMenu(WeaponData displayingWeapon, bool isNew)
     {
         //stop game
         _menuGfx.SetActive(true);
@@ -27,6 +29,9 @@ public class WeaponPickupMenu : MonoBehaviour
         _currDisplayingWeapon = displayingWeapon;
         Utility.ScaleImageToFitTarget(_weaponImage.rectTransform, displayingWeapon.WeaponDisplaySprite, _weaponImageTargetSize.sizeDelta);
         _weaponImage.sprite = displayingWeapon.WeaponDisplaySprite;
+        if (isNew)
+            _currNewIndicator = Instantiate(_newWeaponIndicator, _weaponImageTargetSize);
+
         _currWeaponStats = new WeaponStats(_currDisplayingWeapon.WeaponStats);
         _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, ScalingFunctions.CurrWaveLevel);
         _weaponLevelDisplay.text = _currWeaponStats.TrueLevel + "";
@@ -38,6 +43,11 @@ public class WeaponPickupMenu : MonoBehaviour
     public void TakeWeapon()
     {
         PlayerControl.pc.WeaponManager.PickupWeapon(_currDisplayingWeapon, _currWeaponStats);
+        if(_currNewIndicator != null)
+        {
+            UnlockmentsManager.SetNotNewWeapon(_currDisplayingWeapon);
+            Destroy(_currNewIndicator);
+        }
         _menuGfx.SetActive(false);
         GameUIManager.uiManager.MenuHid();
     }
