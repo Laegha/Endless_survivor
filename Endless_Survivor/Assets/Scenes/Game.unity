@@ -2300,6 +2300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuGfx: {fileID: 58337560}
+  _newItemIndicator: {fileID: 5371292941122230659, guid: 9aebbbed8ae03cb4e9069762cac6651e, type: 3}
   _itemImage: {fileID: 505758996}
   _itemImageTargetSize: {fileID: 216832977}
   _itemName: {fileID: 1677331302}
@@ -6056,6 +6057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuGfx: {fileID: 1922473913}
+  _newWeaponIndicator: {fileID: 5371292941122230659, guid: 9aebbbed8ae03cb4e9069762cac6651e, type: 3}
   _weaponImage: {fileID: 1221524652}
   _weaponImageTargetSize: {fileID: 1859852209}
   _weaponLevelDisplay: {fileID: 705879889}
