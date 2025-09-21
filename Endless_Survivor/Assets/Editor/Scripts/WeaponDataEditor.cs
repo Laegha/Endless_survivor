@@ -7,6 +7,7 @@ using UnityEngine;
 [CustomEditor(typeof(WeaponData))]
 public class WeaponDataEditor : Editor
 {
+    SerializedProperty _weaponName;
     SerializedProperty _weaponType;
     SerializedProperty _weaponTransfer;
     SerializedProperty _weaponStats;
@@ -25,6 +26,7 @@ public class WeaponDataEditor : Editor
     List<Type> _interfaceTypes = new List<Type>();
     private void OnEnable()
     {
+        _weaponName = serializedObject.FindProperty("_weaponName");
         _weaponType = serializedObject.FindProperty("_weaponType");
         _weaponTransfer = serializedObject.FindProperty("_weaponDataTransferInterface");
         _weaponStats = serializedObject.FindProperty("_weaponStats");
@@ -48,6 +50,7 @@ public class WeaponDataEditor : Editor
     {
         WeaponData weaponData = (WeaponData)target;
         serializedObject.Update();
+        EditorGUILayout.PropertyField(_weaponName);
 
         EditorGUILayout.LabelField(weaponData.WeaponDataTransferInterface != null ? weaponData.WeaponDataTransferInterface.ToString() : "Unassigned weapon type", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_weaponTransfer, true);
