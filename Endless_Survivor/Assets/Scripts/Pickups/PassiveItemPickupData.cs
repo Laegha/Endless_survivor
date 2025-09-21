@@ -21,13 +21,14 @@ public class PassiveItemPickupData : PickupData
             //availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
             if(availableItems.Count == 0)
             Application.Quit();
-        PassiveItemData pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)].element;//get a random passive
+        var pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)];//get a random passive
         pickupControl.Pickup.AddVariable(_itemVariableKey, pickupPassiveItem);
-        pickupControl.Renderer.sprite = pickupPassiveItem.ItemSprite;
+        pickupControl.Renderer.sprite = pickupPassiveItem.element.ItemSprite;
     }
     public override void PickUp(PickupControl pickupControl)
     {
         base.PickUp(pickupControl);
-        GameUIManager.uiManager.PassiveItemPickupMenu.DisplayMenu(pickupControl.Pickup.GetVariable<PassiveItemData>(_itemVariableKey));
+        var itemElementInfo = pickupControl.Pickup.GetVariable<ElementIsNewInfo<PassiveItemData>>(_itemVariableKey);
+        GameUIManager.uiManager.PassiveItemPickupMenu.DisplayMenu(itemElementInfo.element, itemElementInfo.isNew);
     }
 }
