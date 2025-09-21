@@ -19,6 +19,8 @@ public class TransformFollowHandler
 
     public void Update()
     {
+        if (child == null || parent == null)
+            return;
         if(copyPosition)
             child.position = parent.position;
         if(copyRotation)
