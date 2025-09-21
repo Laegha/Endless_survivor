@@ -8,6 +8,7 @@ public class CharSelectMenu : MonoBehaviour
     [SerializeField] GameObject _menuObj;
     [SerializeField] GameObject _mainMenuObj;
     [SerializeField] CharacterButton _selectCharBtnPrefab;
+    [SerializeField] GameObject _newCharIndicatorPrefab;
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGrid;
 
@@ -21,13 +22,16 @@ public class CharSelectMenu : MonoBehaviour
         var currentRow = Instantiate(_gridRowPrefab, _buttonGrid);
         float rowFilledSpace = 0;
         var unlockedCharacters = await UnlockmentsManager.UnlockedCharacters();
-        foreach (CharacterData character in unlockedCharacters)
+        foreach (var character in unlockedCharacters)
         {
             var characterButton = Instantiate(_selectCharBtnPrefab, currentRow.transform);
             //characterButton.buttonImage.sprite = character.MenuImage;
-            characterButton.characterData = character;
+            characterButton.characterData = character.element;
             characterButton.charSelectMenu = this;
-            characterButton.SetImage(character.MenuImage);
+            characterButton.SetImage(character.element.MenuImage);
+            if(character.isNew)
+                Instantiate(_newCharIndicatorPrefab, characterButton.imageTargetSize.transform);
+
             rowFilledSpace += _selectCharBtnPrefab.imageTargetSize.sizeDelta.x + currentRow.spacing;
             if (rowFilledSpace + _selectCharBtnPrefab.imageTargetSize.sizeDelta.x > _buttonGrid.sizeDelta.x)
             {
