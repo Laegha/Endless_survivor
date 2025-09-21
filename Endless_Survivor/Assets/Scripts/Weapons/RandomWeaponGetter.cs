@@ -8,7 +8,7 @@ public class RandomWeaponGetter
 {
     static int _sharedTagChanceIncrementBase = 10;
     static int _sharedTagChanceIncrementPerTag = 1;
-    public static async Task<WeaponData>GetWeapon(bool useBuildTags = true, CustomFlags.IWeaponPool weaponPool = CustomFlags.IWeaponPool.None)
+    public static async Task<ElementIsNewInfo<WeaponData>>GetWeapon(bool useBuildTags = true, CustomFlags.IWeaponPool weaponPool = CustomFlags.IWeaponPool.None)
     {
         var availableWeapons = await UnlockmentsManager.UnlockedWeapons();
         if(weaponPool != CustomFlags.IWeaponPool.None)
@@ -18,22 +18,22 @@ public class RandomWeaponGetter
 
         if(!useBuildTags)
         {
-            return availableWeapons[Random.Range(0, availableWeapons.Count)].element;
+            return availableWeapons[Random.Range(0, availableWeapons.Count)];
         }
         var heldTags = PlayerControl.pc != null ? PlayerControl.pc.WeaponManager.HeldWeaponTags : new();
-        Dictionary<WeaponData, int> rouletteMaterial = new Dictionary<WeaponData, int>();
+        Dictionary<ElementIsNewInfo<WeaponData>, int> rouletteMaterial = new Dictionary<ElementIsNewInfo<WeaponData>, int>();
         foreach(var weaponData in availableWeapons)
         {
-            rouletteMaterial.Add(weaponData.element, 10);
+            rouletteMaterial.Add(weaponData, 10);
         }
 
-        foreach(var weaponData in availableWeapons)
+        foreach(var weaponElementInfo in availableWeapons)
         {
-            var sharedTags = weaponData.element.WeaponTags.Intersect(heldTags.Keys).Count();
+            var sharedTags = weaponElementInfo.element.WeaponTags.Intersect(heldTags.Keys).Count();
             var chanceIncrement = sharedTags == 0 ? 0 : _sharedTagChanceIncrementBase + sharedTags * _sharedTagChanceIncrementPerTag - 1;
-            rouletteMaterial[weaponData.element] += chanceIncrement;
+            rouletteMaterial[weaponElementInfo] += chanceIncrement;
         }
-        Roulette<WeaponData> weaponRoulette = new(rouletteMaterial);
+        Roulette<ElementIsNewInfo<WeaponData>> weaponRoulette = new(rouletteMaterial);
         return weaponRoulette.Spin();
     }
 }

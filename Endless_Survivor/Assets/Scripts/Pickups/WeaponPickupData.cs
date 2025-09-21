@@ -17,7 +17,7 @@ public class WeaponPickupData : PickupData
     {
         var resultWeaponData = await RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
         pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
-        CustomAnimation weponIdle = resultWeaponData.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
+        CustomAnimation weponIdle = resultWeaponData.element.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
 
         PickupControl control = pickupControl.GetComponent<PickupControl>();
         control.Animator.AddAnimations(new List<CustomAnimation> { weponIdle });
@@ -26,6 +26,7 @@ public class WeaponPickupData : PickupData
     public override void PickUp(PickupControl pickupControl)
     {
         base.PickUp(pickupControl);
-        GameUIManager.uiManager.WeaponPickupMenu.DisplayMenu(pickupControl.Pickup.GetVariable<WeaponData>(_weaponVariableKey));
+        var weaponElementInfo = pickupControl.Pickup.GetVariable<ElementIsNewInfo<WeaponData>>(_weaponVariableKey);
+        GameUIManager.uiManager.WeaponPickupMenu.DisplayMenu(weaponElementInfo.element, weaponElementInfo.isNew);
     }
 }
