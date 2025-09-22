@@ -19,6 +19,7 @@ public class WaveManager : MonoBehaviour
 
     public static WaveManager wm {  get { return instance; } }
 
+    public Transform[] SpawnBounds { get { return _spawnBounds; } }
     public List<GameObject> Enemies {  get { return _enemies; } }
     public int CurrWave{  get { return _currWave; } }
     public System.Action<EnemyControl> OnEnemySpawned { get { return _onEnemySpawned; } set { _onEnemySpawned = value; } }
