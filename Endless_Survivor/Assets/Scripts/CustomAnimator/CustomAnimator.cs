@@ -12,6 +12,7 @@ public class CustomAnimator : MonoBehaviour
     int _currFrameIndex;
     [SerializeField] SpriteRenderer _spriteRenderer;
     float _animTimer = 0;
+    int _currAnimPriority;
 
     public CustomAnimation CurrAnim { get {  return _currAnim; } set { _currAnim = value; } }
     public int CurrFrameIndex { set { _currFrameIndex = value; } }
@@ -53,6 +54,7 @@ public class CustomAnimator : MonoBehaviour
         //Debug.Log("EVENTS FOR FRAME " + _currFrameIndex + " IN ANIMATION " + _currAnim.AnimationName + _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex));
     }
 
+    public void ChangeAnim(CustomAnimation animation) => ChangeAnim(animation.AnimationName);
     public virtual void ChangeAnim(string animName, bool overridePriority = false)
     {
         CustomAnimation newAnimation = _animations.Find(anim => anim.AnimationName == animName);
@@ -61,11 +63,18 @@ public class CustomAnimator : MonoBehaviour
             Debug.LogError("ERROR: Animation not found: " +  animName + " on animator " + gameObject.name);
             return;
         }
-        if(_currAnim != null && _currAnim.Priority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation)
+        if(_currAnim != null && _currAnimPriority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation)
             return;
         _currAnim = newAnimation;
+        _currAnimPriority = newAnimation.Priority;
         _currFrameIndex = -1;
         NextFrame();
     }
-
+    public void EndAnimation(CustomAnimation endingAnimation) => EndAnimation(endingAnimation.AnimationName);
+    public void EndAnimation(string animationName)
+    {
+        if (_currAnim.AnimationName != animationName)
+            return;
+        _currAnimPriority = 0;
+    }
 }
