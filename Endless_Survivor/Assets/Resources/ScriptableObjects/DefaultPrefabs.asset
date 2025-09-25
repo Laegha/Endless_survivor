@@ -30,3 +30,5 @@ MonoBehaviour:
       Value: {fileID: 2373952663123277793, guid: c5ffe46174d62a64abb88cf7789b46a9, type: 3}
     - Key: Pickup
       Value: {fileID: 3438140968312141350, guid: 428eabb061ceaf84f89f0f0a6de61304, type: 3}
+    - Key: SupportObject
+      Value: {fileID: 3165747705039378651, guid: 0e14a3e6659cd8b4ea43d208e3b9f2fc, type: 3}
