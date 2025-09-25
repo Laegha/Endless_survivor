@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class SupportObjectBehaviourManager : MonoBehaviour
 {
-    List<SupportObjectBehaviour> _supportObjBehaviours;
+    [SerializeField] SupportObjectControl _objControl;
+    List<SupportObjectBehaviour> _supportObjBehaviours = new();
+
+    public List<SupportObjectBehaviour> Behaviours { get { return _supportObjBehaviours; } }
 
     public void SetBehaviours(List<SupportObjectBehaviour> originalBehaviours)
     {
@@ -13,7 +16,7 @@ public class SupportObjectBehaviourManager : MonoBehaviour
         {
             var behaviourCopy = (SupportObjectBehaviour)Activator.CreateInstance(behaviour.GetType());
             _supportObjBehaviours.Add(behaviourCopy);
-            behaviourCopy.Initiate(this, behaviour);
+            behaviourCopy.Initiate(_objControl, behaviour);
             behaviourCopy.OnStart?.Invoke();
         }
     }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class SupportObjectBehaviour
 {
     public static bool isUsable = false;
-    SupportObjectBehaviourManager _behaviourManager;
+    SupportObjectControl _supportObjControl;
 
     Action _onStart;
     Action _onUpdate;
@@ -15,8 +15,8 @@ public class SupportObjectBehaviour
     Action<EnemyControl> _onCollidedWithEnemy;
     Action _onCollidedWithOther;
 
-    public SupportObjectBehaviourManager BehaviourManager { get { return _behaviourManager; } }
-    public List<EnemyControl> closestEnemies => Utility.GetClosestTo(WaveManager.wm.Enemies, _behaviourManager.transform).ConvertAll(new Converter<GameObject, EnemyControl>((enemy) => enemy.GetComponent<EnemyControl>()));
+    public SupportObjectControl ObjControl { get { return _supportObjControl; } }
+    public List<EnemyControl> closestEnemies => Utility.GetClosestTo(WaveManager.wm.Enemies, _supportObjControl.transform).ConvertAll(new Converter<GameObject, EnemyControl>((enemy) => enemy.GetComponent<EnemyControl>()));
     public Vector2 MapMinBound
     {
         get
@@ -40,8 +40,8 @@ public class SupportObjectBehaviour
     public Action OnCollidedWithPlayer { get { return _onCollidedWithPlayer; } set { _onCollidedWithPlayer = value; } }
     public Action<EnemyControl> OnCollidedWithEnemy { get { return _onCollidedWithEnemy;} set { _onCollidedWithEnemy = value; } }
     public Action OnCollidedWithOther { get { return _onCollidedWithOther; } set { _onCollidedWithOther = value; } }
-    public virtual void Initiate(SupportObjectBehaviourManager manager, SupportObjectBehaviour original)
+    public virtual void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
-        _behaviourManager = manager;
+        _supportObjControl = control;
     }
 }
