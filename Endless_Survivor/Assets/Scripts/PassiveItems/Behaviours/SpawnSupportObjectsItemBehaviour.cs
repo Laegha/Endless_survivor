@@ -20,7 +20,7 @@ public class SpawnSupportObjectsItemBehaviour : PassiveItemBehaviour
         {
             for(int i = 0; i < obj.ammount; i++)
             {
-                var spawnedObj = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["supportObject"]).GetComponent<SupportObjectControl>();
+                var spawnedObj = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["SupportObject"]).GetComponent<SupportObjectControl>();
                 obj.generic.TransferData(spawnedObj);
             }
         }
