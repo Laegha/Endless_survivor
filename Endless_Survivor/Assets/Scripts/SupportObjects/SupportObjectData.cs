@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New SupportObject", menuName = "ScriptableObjects/Support Object", order = 2)]
 public class SupportObjectData : ScriptableObject
 {
-    [SerializeReference] List<SupportObjectBehaviour> _supportObjBehaviours;
+    [SerializeReference] List<SupportObjectBehaviour> _supportObjBehaviours = new();
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] ColliderData[] _supportObjColliders;
 
@@ -19,6 +19,7 @@ public class SupportObjectData : ScriptableObject
 
         supportObjControl.BehaviourManager.SetBehaviours(_supportObjBehaviours);
         supportObjControl.Animator.AddAnimations(new List<CustomAnimation>{_idleAnimation});
+        supportObjControl.Animator.ChangeAnim(_idleAnimation);
 
     }
 
