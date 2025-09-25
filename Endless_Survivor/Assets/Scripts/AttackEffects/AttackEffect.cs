@@ -33,14 +33,14 @@ public class AttackEffect
     {
         _affectedAttack = affectedAttack;
 
-        var types = Utility.GetSubclassesOf(typeof(AttackWithEffectSinergy<,>));
-        foreach (var type in types)
-        {
-            if (type.GetProperty("attack").PropertyType != affectedAttack.GetType() || type.GetProperty("effect").PropertyType != GetType())
-                continue;
-            _sinergy = (IAttackEffectSinergy)Activator.CreateInstance(type);
-            _sinergy.Initiate(affectedAttack, this);
-            break;
-        }
+        //var types = Utility.GetSubclassesOf(typeof(AttackWithEffectSinergy<,>));
+        //foreach (var type in types)
+        //{
+        //    if (type.GetProperty("attack").PropertyType != affectedAttack.GetType() || type.GetProperty("effect").PropertyType != GetType())
+        //        continue;
+        //    _sinergy = (IAttackEffectSinergy)Activator.CreateInstance(type);
+        //    _sinergy.Initiate(affectedAttack, this);
+        //    break;
+        //}
     }
 }
