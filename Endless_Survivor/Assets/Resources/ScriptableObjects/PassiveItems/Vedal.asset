@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: Vedal
+  m_EditorClassIdentifier: 
+  _itemName: Vedal
+  _itemDescript: He kind of just sits around... maybe you should shoot him
+  _itemSprite: {fileID: -839934344, guid: 9348cc9f6dd8b654287639c4e597a1d4, type: 3}
+  _itemBehaviours:
+  - rid: 575471762015256577
+  _itemPools: 5
+  references:
+    version: 2
+    RefIds:
+    - rid: 575471762015256577
+      type: {class: SpawnSupportObjectsItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _spawnedObjects:
+        - generic: {fileID: 11400000, guid: 5588e56434073af489052bb936e7a178, type: 2}
+          ammount: 1
