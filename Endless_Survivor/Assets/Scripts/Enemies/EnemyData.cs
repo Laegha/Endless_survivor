@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [SerializeField] int _initialHP;
+    [SerializeField] Sprite _referenceSizeSprite;
     [SerializeField] float _knockbackResistance;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] Vector2 _colliderOffset;
@@ -15,6 +16,8 @@ public class EnemyData : ScriptableObject
 
     [SerializeField] SFXInfo _onHitSFX;
     [SerializeField] SFXInfo _onDeathSFX;
+
+    readonly static Vector2 _defaultEnemySize = new Vector2(1f, 1f);
 
     public Vector2 ColliderSize {  get { return _colliderSize; } }
     public List<EnemyBehaviour> EnemyBehaviours { get { return _enemyBehaviours; }set { _enemyBehaviours = value; } }
@@ -40,5 +43,9 @@ public class EnemyData : ScriptableObject
             enemyControl.BehaviourManager.AddBehaviour(enemyBehaviour, enemyControl);
         }
         enemyControl.BehaviourManager.RewriteAllOverrides();//rewrite overrides so they are pointing to the BehaviourManager behaviours instead of EnemyData behaviours
+
+        var enemySize = _referenceSizeSprite != null ? (Vector2)_referenceSizeSprite.bounds.size : _defaultEnemySize;
+        Vector2 gridPos =new Vector2(0, enemySize.y / 2 - (_referenceSizeSprite != null ? _referenceSizeSprite.bounds.center.y : 0));
+        enemyControl.StatusEffectManager.SetGridLocalPos(gridPos);
     }
 }

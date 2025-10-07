@@ -10,6 +10,7 @@ public class EnemyDataEditor : Editor
     Dictionary<Type, bool> _behaviourTypes = new Dictionary<Type, bool>();
 
     SerializedProperty _initialHP;
+    SerializedProperty _referenceSizeSprite;
     SerializedProperty _knockbackResistance;
     SerializedProperty _colliderSize;
     SerializedProperty _colliderOffset;
@@ -21,6 +22,7 @@ public class EnemyDataEditor : Editor
     private void OnEnable()
     {
         _initialHP = serializedObject.FindProperty("_initialHP");
+        _referenceSizeSprite = serializedObject.FindProperty("_referenceSizeSprite");
         _knockbackResistance = serializedObject.FindProperty("_knockbackResistance");
         _colliderSize = serializedObject.FindProperty("_colliderSize");
         _colliderOffset = serializedObject.FindProperty("_colliderOffset");
@@ -39,6 +41,7 @@ public class EnemyDataEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_initialHP);
+        EditorGUILayout.PropertyField(_referenceSizeSprite);
         EditorGUILayout.PropertyField(_knockbackResistance);
         EditorGUILayout.PropertyField(_colliderSize);
         EditorGUILayout.PropertyField(_colliderOffset);

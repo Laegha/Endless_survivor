@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] EnemyHP _enemyHP;
     [SerializeField] CapsuleCollider2D _capsuleCollider;
     [SerializeField] CustomAnimator _customAnimator;
