@@ -2,31 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SortingOrderByY : MonoBehaviour
+public class SortingOrderByY<T> : MonoBehaviour where T : Component
 {
-    //[SerializeField] int _sortingOrder;
-    [SerializeField] SpriteRenderer[] _affectedRenderers;
-    //static readonly int _minOrder = -15;
-    //public static int MinOrder {  get { return _minOrder; } }
-    //public int SortingOrder { set { _sortingOrder = value; } }
-    public SpriteRenderer[] AffectedRenderers {  set { _affectedRenderers = value; } }
-
-    private void LateUpdate()
+    [SerializeField] T[] sortedElements;
+    static SortingOrderByY<T> _highestSorter;
+    public static int highestOrder;
+    Dictionary<T, int> _elementsOrders = new();
+    public T[] AffectedRenderers {  set { sortedElements = value; } }
+    public Dictionary<T, int> ElementsOrders { get { return _elementsOrders; } }
+    private void Start()
     {
-        //float distY = PlayerControl.pc.transform.position.y - transform.position.y;
-        //if(distY < 0)
-        //{
-        //    foreach(var renderer in _affectedRenderers)
-        //        renderer.sortingOrder = _minOrder + _sortingOrder;
-        //}
-        //else
-        //{
-        //    foreach(var renderer in _affectedRenderers)
-        //        renderer.sortingOrder = PlayerControl.pc.MainRenderer.sortingOrder + _sortingOrder;
+        foreach(var element in sortedElements) 
+            _elementsOrders.Add(element, 0);
+    }
 
-        //}
+    public virtual void LateUpdate()
+    {
+        int thisHighestOrder = 0;
+        bool sortingOrderDefined = false;
+        foreach (var sortedElement in sortedElements)
+        {
+            int elementOrder = (int)(-sortedElement.transform.position.y * 100);
+            _elementsOrders[sortedElement] = elementOrder;
+            if(!sortingOrderDefined || thisHighestOrder < elementOrder)
+            {
+                thisHighestOrder = elementOrder;
+                sortingOrderDefined = true;
+            }
+        }
 
-        foreach (var renderer in _affectedRenderers)
-            renderer.sortingOrder = (int)(-renderer.transform.position.y * 100);
+        if (thisHighestOrder < highestOrder && this != _highestSorter)
+            return;
+        highestOrder = thisHighestOrder;
+        _highestSorter = this;
     }
 }

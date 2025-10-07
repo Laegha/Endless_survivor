@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleSortingOrderByY : MonoBehaviour
+public class ParticleSortingOrderByY : SortingOrderByY<ParticleSystemRenderer>
 {
-    [SerializeField] ParticleSystem _particleSystem;
-    ParticleSystemRenderer _particleRenderer;
 
-    private void Start()
+    public override void LateUpdate()
     {
-        _particleRenderer = _particleSystem.GetComponent<ParticleSystemRenderer>();
-    }
-    private void LateUpdate()
-    {
-        _particleRenderer.sortingOrder = (int)(-transform.position.y * 100);
+        base.LateUpdate();
+        foreach (var elemOrder in ElementsOrders)
+            elemOrder.Key.sortingOrder = elemOrder.Value;
     }
 }
