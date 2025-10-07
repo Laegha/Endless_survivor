@@ -37,7 +37,7 @@ public class CustomLineRenderer : MonoBehaviour
             Sprite[] tileFrames = tileData.Frames;
             float tileFramesPerSecond = tileData.FramesPerSecond;
             var tileRenderer = tileObj.AddComponent<SpriteRenderer>();
-            var tileSpriteSorter = tileObj.AddComponent<SortingOrderByY>();
+            var tileSpriteSorter = tileObj.AddComponent<RendererSortingByY>();
             tileSpriteSorter.AffectedRenderers = new SpriteRenderer[] { tileRenderer };
             //create tile object and add it to the list
             _tiles.Add(new(tileRenderer, tileFramesPerSecond, tileFrames));
