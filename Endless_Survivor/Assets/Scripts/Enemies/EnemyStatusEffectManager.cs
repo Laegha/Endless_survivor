@@ -12,6 +12,9 @@ public class EnemyStatusEffectManager : MonoBehaviour
     readonly static int _materialAuthority =3;
     List<EnemyStatusEffect> _currentEffects = new();
     Dictionary<EnemyStatusEffect, EnemyStatusEffectGFX> _activeGfx = new();
+
+    public void SetGridLocalPos(Vector2 pos) => _statusIndicatorsGrid.transform.localPosition = pos;    
+
     public void AddStatusGraphics(Sprite statusIcon, Material statusMaterial, EnemyStatusEffect status)
     {
         //display icon and add material to a kind of queue
@@ -35,7 +38,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
     public void AddEffect(EnemyStatusEffect effect, ConditionHolder effectEndCondition)
     {
         var currEffectStacks = _currentEffects.Where(x => x.GetType() == effect.GetType()).Count();
-        if (currEffectStacks > effect.EffectMaxStacks)
+        if (currEffectStacks >= effect.EffectMaxStacks)
             return;
         EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(effect.GetType());
         newEffect.Initialize(_enemyControl, effect, effectEndCondition);

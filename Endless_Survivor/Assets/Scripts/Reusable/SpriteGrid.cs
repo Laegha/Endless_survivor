@@ -43,8 +43,8 @@ public class SpriteGrid : MonoBehaviour
         for(int i = 0; i < _spritesInGrid.Count; i++)
         {
             float size = (orientation == GridOrientation.Vertical ? _spritesInGrid[i].height : _spritesInGrid[i].width);
-            _spritesInGrid[i].transform.localPosition = startPosition + offset * placingDir + size * placingDir;
-            offset += _spacing + size / 2;
+            _spritesInGrid[i].transform.localPosition = startPosition + offset * placingDir + (size /2) * placingDir;
+            offset += _spacing + size;
         }
     }
 }
