@@ -21,12 +21,12 @@ MonoBehaviour:
     - rid: 278973843044827136
       type: {class: GraphicsStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _effectMaxStacks: 1
-        _statusEffectIndicator: {fileID: 21300000, guid: 0de29d874505a98468354b9154c186bd, type: 3}
+        _effectMaxStacks: 3
+        _statusEffectIndicator: {fileID: 21300000, guid: db19a901576c7ca4b92d5d119de7bc13, type: 3}
         _statusEffectMaterial: {fileID: 2100000, guid: 84034c6e3646f7041a4600d07cf9ba1e, type: 2}
     - rid: 6091434301908320257
       type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _effectMaxStacks: 1
+        _effectMaxStacks: 3
         _damageMultiplierAddition: 0.25
         _duration: 5

@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: CookieParticles
   m_EditorClassIdentifier: 
   _effectChance: 100
-  _usedBySecondaryAttacks: 1
+  _usedBySecondaryAttacks: 0
   _attackEffects:
-  - rid: 575471773757210624
-  - rid: 575471773757210625
+  - rid: 575471773757210628
+  - rid: 575471773757210634
   references:
     version: 2
     RefIds:
-    - rid: 575471773757210624
-      type: {class: SpawnParticlesOnAttackAttackEffect, ns: , asm: Assembly-CSharp}
+    - rid: 575471773757210628
+      type: {class: SpawnParticlesOnEnemyHitAttackEffect, ns: , asm: Assembly-CSharp}
       data:
         _usesSeparateChance: 0
         _separateChance: 50
         _onEnemyHitParticles: {fileID: 6362051271741657217, guid: f2a7cfa7f97d35c468a65191cf94d768, type: 3}
         _particlesDuration: 3
-    - rid: 575471773757210625
-      type: {class: SpawnParticlesOnEnemyHitAttackEffect, ns: , asm: Assembly-CSharp}
+    - rid: 575471773757210634
+      type: {class: SpawnParticlesOnAttackAttackEffect, ns: , asm: Assembly-CSharp}
       data:
         _usesSeparateChance: 0
         _separateChance: 50
