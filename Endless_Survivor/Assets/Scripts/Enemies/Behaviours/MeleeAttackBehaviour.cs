@@ -16,6 +16,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
     [SerializeField] float _attackRadius = 1;
 
     [SerializeField] CustomAnimation _enemyAttackAnimation;
+    [SerializeField] bool _usesVfx;
     [SerializeField] ChangeOnEndAnimation _attackVFXAnimation;
     [SerializeField] AnimationEvent _triggerVFXEvent;
     [SerializeField] AnimationEvent _triggerDamageEvent;
@@ -31,39 +32,60 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         _damage = originalMeleeAttack._damage;
         _attackRange = originalMeleeAttack._attackRange;
         _attackRadius = originalMeleeAttack._attackRadius;
+        _usesVfx = originalMeleeAttack._usesVfx;
         
         //copy animations from SO
         _enemyAttackAnimation = new CustomAnimation(EnemyControl.Animator, originalMeleeAttack._enemyAttackAnimation);
         _attackVFXAnimation = new ChangeOnEndAnimation(_vfxAnimator, originalMeleeAttack._attackVFXAnimation);
-        _triggerVFXEvent = new AnimationEvent(originalMeleeAttack._triggerVFXEvent);
         _triggerDamageEvent = new AnimationEvent(originalMeleeAttack._triggerDamageEvent);
         _attackSfx = originalMeleeAttack._attackSfx;
 
-        _vfxAnimator = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], enemyControl.transform).GetComponent<CustomAnimator>();
-        //configure events
-        _triggerVFXEvent.frameAction += TriggerAttackVFX;
+        _enemyAttackAnimation.Events.Add(new(null, _enemyAttackAnimation.Frames.Length - 1, AnimationEnd));
         _triggerDamageEvent.frameAction += TriggerDamage;
 
-        //add events to the corresponding animations
-        _enemyAttackAnimation.Events.Add(_triggerVFXEvent);
-        //_enemyAttackAnimation.OnAnimationEnd += AnimationEnd;
-        _enemyAttackAnimation.OnAnimEnd.frameAction += AnimationEnd;
-        _attackVFXAnimation.Events.Add(_triggerDamageEvent);
+        if (_usesVfx)
+        {
+            _triggerVFXEvent = new AnimationEvent(originalMeleeAttack._triggerVFXEvent);
+        
+            _vfxAnimator = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], enemyControl.transform).GetComponent<CustomAnimator>();
+            
+            _triggerVFXEvent.frameAction += TriggerAttackVFX;
+            _enemyAttackAnimation.Events.Add(_triggerVFXEvent);
+            _attackVFXAnimation.Events.Add(_triggerDamageEvent);
+            
+            CustomAnimation vfxIdleAnim = new CustomAnimation(null, "Idle", new Sprite[1]);
+            _vfxAnimator.AddAnimations(new List<CustomAnimation> { vfxIdleAnim, _attackVFXAnimation });
+        }
+        else
+        {
+            _enemyAttackAnimation.Events.Add(_triggerDamageEvent);
+
+        }
 
         EnemyControl.Animator.AddAnimations(new List<CustomAnimation> { _enemyAttackAnimation });
-        CustomAnimation vfxIdleAnim = new CustomAnimation(null, "Idle", new Sprite[1]);
-        _vfxAnimator.AddAnimations(new List<CustomAnimation> { vfxIdleAnim, _attackVFXAnimation });
+    }
+    public override void PassiveUpdate()
+    {
+        base.PassiveUpdate();
+        if (IsActive)
+            return;
+        float distToPlayer = Vector2.Distance(EnemyControl.transform.position, _player.position);
+        if (distToPlayer < _attackRange)
+        {
+            EnemyControl.BehaviourManager.ActivateBehaviour(this);
+        }
+
     }
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
 
-        if (!_attacked)
-        {
-            _attackDirection = ((Vector2)(_player.position - _enemy.position)).normalized;
-            _attacked = true;
-            Attack();
-        }
+        if (_attacked)
+            return;
+        _attackDirection = ((Vector2)(_player.position - _enemy.position)).normalized;
+        _attacked = true;
+        Attack();
+
     }
     void Attack()
     {
