@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: BoxingEnemy
+  m_EditorClassIdentifier: 
+  _initialHP: 10000
+  _referenceSizeSprite: {fileID: -1562088344, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+  _knockbackResistance: 30
+  _colliderSize: {x: 0.6, y: 0.6}
+  _colliderOffset: {x: 0, y: -0.3125}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 1814238352843472897
+  - rid: 1814238352843472896
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1814238352843472896
+      type: {class: MeleeAttackBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _overrideBehaviours:
+        - rid: 1814238352843472897
+        _damage: 5
+        _attackRange: 2
+        _attackRadius: 0.5
+        _enemyAttackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 1635123377, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: 1700330575, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: 2123434058, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: -1930073393, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: -1888272115, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: 1146862445, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          _framesPerSecond: 12
+          _priority: 1
+        _usesVfx: 0
+        _attackVFXAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _priority: 0
+          _exitAnimationName: 
+        _triggerVFXEvent:
+          frameIndex: 0
+        _triggerDamageEvent:
+          frameIndex: 3
+        _attackSfx:
+          _sound: {fileID: 0}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 1814238352843472897
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _overrideBehaviours: []
+        _enemySpeed: 3
+        _chasingAnimation:
+          _animationName: Moving
+          _frames:
+          - {fileID: 250925177, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          - {fileID: -1562088344, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          - {fileID: 1691518381, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          - {fileID: -1894791370, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          _framesPerSecond: 7
+          _priority: 0
