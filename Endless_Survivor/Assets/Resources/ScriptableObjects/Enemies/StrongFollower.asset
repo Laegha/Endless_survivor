@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: StrongFollower
   m_EditorClassIdentifier: 
-  _initialHP: 20
+  _initialHP: 35
   _referenceSizeSprite: {fileID: 1684011115, guid: ea1e321c2790a0544a548baca2059522, type: 3}
   _knockbackResistance: 20
   _colliderSize: {x: 0.5, y: 0.5}

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: TestWave
   m_EditorClassIdentifier: 
   _waveEnemies:
-  - enemyData: {fileID: 11400000, guid: 7ad057314d83a3b4a8c22ddcd4ee11e8, type: 2}
+  - enemyData: {fileID: 11400000, guid: 3f150ce13d0ca7a45ae526621cf9cefd, type: 2}
     _minSpawnCount: 0
-    _enemyPoolWeight: 0
-    _dropChance: 0
+    _enemyPoolWeight: 1
   _minEnemyCount: 1
   _maxEnemyCount: 1
