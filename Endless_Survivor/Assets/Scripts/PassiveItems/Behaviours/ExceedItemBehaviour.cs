@@ -37,7 +37,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
                 continue;
             _buffedWeapons.Add(weapon, _buffTimeDuration);
             //Increase weapon stats
-            weapon.WeaponStats.TemporalStatIncrease(_statBuffOnAttackCoordination);
+            weapon.WeaponStats.TemporalStatIncrease(_statBuffOnAttackCoordination, false);
             //generate particles
             ParticleConfig exceedParticleConfig = new(_onAttackCoordinationParticles, weapon.transform.position, Quaternion.identity, _particlesDuration, weapon.transform, true, false);
             ParticleManager.pm.SpawnParticles(exceedParticleConfig);
@@ -72,7 +72,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
             if (_buffedWeapons[weapon] <= 0)
             {
                 //Decrease stats
-                weapon.WeaponStats.TemporalStatIncrease(-_statBuffOnAttackCoordination.Range, -_statBuffOnAttackCoordination.AttackSpeed, -_statBuffOnAttackCoordination.Damage, -_statBuffOnAttackCoordination.Knockback);
+                weapon.WeaponStats.TemporalStatIncrease(_statBuffOnAttackCoordination, true);
                 _buffedWeapons.Remove(weapon);
             }
         }

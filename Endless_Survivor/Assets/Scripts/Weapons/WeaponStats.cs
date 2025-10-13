@@ -57,9 +57,12 @@ public class WeaponStats
         _knockback += knockback;
 
     }
-    public void TemporalStatIncrease(WeaponStats statIncrease)
+    public void TemporalStatIncrease(WeaponStats statIncrease, bool invertStats = false)
     {
-        TemporalStatIncrease(statIncrease.Range, statIncrease.AttackSpeed, statIncrease.Damage, statIncrease.Knockback);
+        if(!invertStats)
+            TemporalStatIncrease(statIncrease.Range, statIncrease.AttackSpeed, statIncrease.Damage, statIncrease.Knockback);
+        else
+            TemporalStatIncrease(-statIncrease.Range, -statIncrease.AttackSpeed, -statIncrease.Damage, -statIncrease.Knockback);
     }
     float GetTrueStatIncrease(float increaseScale, int level, float baseStat, float variation)
     {
