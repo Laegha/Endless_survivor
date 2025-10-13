@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5965812664275499795}
   - component: {fileID: 8017266537295601437}
   - component: {fileID: 6050974659231580225}
+  - component: {fileID: 4036783183393237624}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -76,6 +77,21 @@ MonoBehaviour:
   _weaponAnimator: {fileID: 8017266537295601437}
   _gfx: {fileID: 2769403315937609654}
   _onLevelUpParticle: {fileID: 2555208327605434357, guid: aac3198803d2934488447e7ecf1d029e, type: 3}
+--- !u!114 &4036783183393237624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577113693637118834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortedElements:
+  - {fileID: 2769403315937609654}
+  _offset: 0
 --- !u!1 &8860193320851165239
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,14 +165,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: e7ea6ab9220187146a00f5671e290e61, type: 3}
+  m_Sprite: {fileID: -221434982, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.31, y: 0.13}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
