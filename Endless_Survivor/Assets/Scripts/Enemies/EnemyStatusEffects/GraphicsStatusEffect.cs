@@ -7,17 +7,19 @@ public class GraphicsStatusEffect : EnemyStatusEffect
     new public static bool isUsable => true;
     [SerializeField] Sprite _statusEffectIndicator;
     [SerializeField] Material _statusEffectMaterial;
+    [SerializeField] ParticleSystem _statusEffectParticles;
     public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original, ConditionHolder endCondition)
     {
         base.Initialize(affectedEnemyControl, original, endCondition);
         var graphicsOriginal = (GraphicsStatusEffect)original;
         _statusEffectIndicator = graphicsOriginal._statusEffectIndicator;
         _statusEffectMaterial = graphicsOriginal._statusEffectMaterial;
+        _statusEffectParticles = graphicsOriginal._statusEffectParticles;
     }
     public override void Start()
     {
         base.Start();
-        AffectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial, this);
+        AffectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial, _statusEffectParticles, this);
     }
     public override void End()
     {

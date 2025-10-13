@@ -15,7 +15,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
 
     public void SetGridLocalPos(Vector2 pos) => _statusIndicatorsGrid.transform.localPosition = pos;    
 
-    public void AddStatusGraphics(Sprite statusIcon, Material statusMaterial, EnemyStatusEffect status)
+    public void AddStatusGraphics(Sprite statusIcon, Material statusMaterial, ParticleSystem statusParticles, EnemyStatusEffect status)
     {
         //display icon and add material to a kind of queue
         GridSpriteInfo statusSprite = null;
@@ -27,12 +27,21 @@ public class EnemyStatusEffectManager : MonoBehaviour
             _enemyControl.MaterialManager.SetMaterialOverride(materialOverride);
 
         }
-        _activeGfx.Add(status, new EnemyStatusEffectGFX(statusSprite, materialOverride));
+        ParticleSystem instantiatedParticles = null;
+        if(statusParticles != null)
+        {
+            ParticleConfig statusParticeConfig = new(statusParticles, transform.position, transform.rotation, -1, transform, true, true);
+            instantiatedParticles = ParticleManager.pm.SpawnParticles(statusParticeConfig);
+
+        }
+        _activeGfx.Add(status, new EnemyStatusEffectGFX(statusSprite, materialOverride, instantiatedParticles));
     }
     public void RemoveStatusGraphics(EnemyStatusEffect statusEffect)
     {
         _statusIndicatorsGrid.RemoveSpriteFromGrid(_activeGfx[statusEffect].statusSprite);
         _enemyControl.MaterialManager.UnsetMaterialOverride(_activeGfx[statusEffect].statusMaterial);
+        if(_activeGfx[statusEffect].statusParticles!= null)
+            Destroy(_activeGfx[statusEffect].statusParticles);
         _activeGfx.Remove(statusEffect);
     }
     public void AddEffect(EnemyStatusEffect effect, ConditionHolder effectEndCondition)

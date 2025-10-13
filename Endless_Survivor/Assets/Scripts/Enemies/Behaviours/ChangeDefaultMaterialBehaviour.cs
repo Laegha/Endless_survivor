@@ -8,9 +8,9 @@ using UnityEngine;
 public class ChangeDefaultMaterialBehaviour : EnemyBehaviour
 {
     [SerializeField] bool _changeAllRenderers;
-    [Header("USE ONLY IF CHANGEALLRENDERERS IS TRUE")]
-    [SerializeField] List<RendererPathMaterialInfo> _separateRenderersMaterials;
     [Header("USE ONLY IF CHANGEALLRENDERERS IS FALSE")]
+    [SerializeField] List<RendererPathMaterialInfo> _separateRenderersMaterials;
+    [Header("USE ONLY IF CHANGEALLRENDERERS IS TRUE")]
     [SerializeField] Material _globalMaterial;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {

@@ -6,10 +6,12 @@ public class EnemyStatusEffectGFX
 {
     public GridSpriteInfo statusSprite;
     public MaterialOverride statusMaterial;
+    public ParticleSystem statusParticles;
 
-    public EnemyStatusEffectGFX(GridSpriteInfo statusSprite, MaterialOverride statusMaterial)
+    public EnemyStatusEffectGFX(GridSpriteInfo statusSprite, MaterialOverride statusMaterial, ParticleSystem statusParticles)
     {
         this.statusSprite = statusSprite;
         this.statusMaterial = statusMaterial;
+        this.statusParticles = statusParticles;
     }
 }
