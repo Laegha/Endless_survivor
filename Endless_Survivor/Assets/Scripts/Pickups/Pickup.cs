@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    readonly int _maxInstantiatedPickups = 10;
+    static List<Pickup> _instantiatedPickups = new();
     List<PickupVariableBase> _variables = new List<PickupVariableBase>();
     PickupData _pickupData;
     [SerializeField] PickupControl _pickupControl;
     public PickupData PickupData { set {  _pickupData = value; } }
+    private void Start()
+    {
+        _instantiatedPickups.Add(this);
+        if(_instantiatedPickups.Count > _maxInstantiatedPickups)
+            DestroyOldestPickup();
+    }
+    void DestroyOldestPickup()
+    {
+        var oldestPickup = _instantiatedPickups[0];
+        _instantiatedPickups.Remove(oldestPickup);
+        Destroy(oldestPickup.gameObject);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PickUp();
@@ -25,6 +39,7 @@ public class Pickup : MonoBehaviour
     public void PickUp() 
     {
         _pickupData.PickUp(_pickupControl);
+        _instantiatedPickups.Remove(this);
         Destroy(gameObject);
     }
 }
