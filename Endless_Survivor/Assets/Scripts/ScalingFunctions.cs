@@ -27,7 +27,7 @@ public static class ScalingFunctions
 
     public static int PlayerHPIncrease(int level, float increaseScale, int initialHP)
     {
-        return (int)(increaseScale * _weaponStatIncreaseTrueLevelRoot + initialHP);
+        return (int)(increaseScale * level + initialHP);
     }
 
     public static float WeaponStatIncreaseTrueLevel(float increaseScale, int level)
