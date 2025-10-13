@@ -5,6 +5,7 @@ using UnityEngine;
 public class SortingOrderByY<T> : MonoBehaviour where T : Component
 {
     [SerializeField] T[] sortedElements;
+    [SerializeField] int _offset;
     static SortingOrderByY<T> _highestSorter;
     public static int highestOrder;
     Dictionary<T, int> _elementsOrders = new();
@@ -22,7 +23,7 @@ public class SortingOrderByY<T> : MonoBehaviour where T : Component
         bool sortingOrderDefined = false;
         foreach (var sortedElement in sortedElements)
         {
-            int elementOrder = (int)(-sortedElement.transform.position.y * 100);
+            int elementOrder = (int)(-sortedElement.transform.position.y * 100) + _offset;
             _elementsOrders[sortedElement] = elementOrder;
             if(!sortingOrderDefined || thisHighestOrder < elementOrder)
             {
