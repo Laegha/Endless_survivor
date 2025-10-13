@@ -11,7 +11,7 @@ public class PlayerHPManager : HP
     [SerializeField]float _inmunityFlashingTime = .1f;
     [SerializeField] Material _inmunityFlashingMaterial;
     static readonly int _flashingAuthority;
-    SpriteMaterialFlashing _inmutiyFlashing;
+    SpriteMaterialFlashing _inmunityFlashing;
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
     public SFXInfo OnHitSound { set { _onHitSound = value; } }
@@ -21,7 +21,7 @@ public class PlayerHPManager : HP
     {
         InitializeHP(_playerControl.PlayerStats.InitialHP);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
-        _inmutiyFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
+        _inmunityFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
         WaveManager.wm.OnWaveStarted += IncreaseMaxHP;
     }
 
@@ -30,10 +30,10 @@ public class PlayerHPManager : HP
         if (!_isInmune)
             return;
         _inmunityTimer -= Time.deltaTime;
-        _inmutiyFlashing.Update();
+        _inmunityFlashing.Update();
         if (_inmunityTimer <= 0)
         {
-            _inmutiyFlashing.End();
+            _inmunityFlashing.End();
             _isInmune = false;
         }
         
@@ -56,7 +56,7 @@ public class PlayerHPManager : HP
         if (_isInmune) 
             return;
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
-        _inmutiyFlashing.Start();
+        _inmunityFlashing.Start();
         _isInmune = true;
         _inmunityTimer = _inmunityTime;
         base.TakeDamage(incomingDamage);

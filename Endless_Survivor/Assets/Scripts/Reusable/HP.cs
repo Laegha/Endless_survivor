@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,10 @@ public class HP : MonoBehaviour
     int _remainingHP;
     int _maxHP;
     float _incomingDamageMultiplier = 1;
+    Action _onDamageTaken;
     public int RemainingHP {  get { return _remainingHP; } set { _remainingHP = value; } }
     public int MaxHP {  get { return _maxHP; } set { _maxHP = value; } }
+    public Action OnDamageTaken { get { return _onDamageTaken; } set { _onDamageTaken = value; } }
     public float IncomingDamageMultiplier 
     {
         get { return _incomingDamageMultiplier > 0.1f ? _incomingDamageMultiplier : 0.1f; }
@@ -24,6 +27,7 @@ public class HP : MonoBehaviour
     }
     public virtual void TakeDamage(int incomingDamage) 
     {
+        _onDamageTaken.Invoke();
         _remainingHP -= (int)(incomingDamage * _incomingDamageMultiplier);
         if (_remainingHP <= 0)
         {
