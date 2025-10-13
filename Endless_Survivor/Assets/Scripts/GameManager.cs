@@ -50,13 +50,15 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(routine);
     }
-    public void DelayAction(float delay, Action action)
+    public void DelayAction(float delay, Action action, Func<bool> abortCondition)
     {
-        StartCoroutine(CallDelayedAction(delay, action));
+        StartCoroutine(CallDelayedAction(delay, action, abortCondition));
     }
-    IEnumerator CallDelayedAction(float delay, Action action)
+    IEnumerator CallDelayedAction(float delay, Action action, Func<bool> abortCondition)
     {
         yield return new WaitForSeconds(delay);
+        if(abortCondition != null && abortCondition())
+            yield break;
         action?.Invoke();
     }
 }
