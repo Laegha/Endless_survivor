@@ -1,4 +1,27 @@
-{
-    "The Boogeyman": true,
-    "The Survivalist": true
-}
+[
+  {
+    "fileName": "The Boogeyman",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "The Survivalist",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "The Hunter",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Nero",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Neuro",
+    "isUnlocked": true,
+    "isNew": false
+  }
+]

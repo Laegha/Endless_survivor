@@ -1,3 +1,12 @@
-{
-  "WeaknessVirus": true
-}
+[
+  {
+    "fileName": "WeaknessVirus",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Exceed",
+    "isUnlocked": true,
+    "isNew": false
+  }
+]

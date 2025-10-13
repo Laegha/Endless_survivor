@@ -1,4 +1,32 @@
-{
-  "Purple Bullseye": true,
-  "Balance": true
-}
+[
+  {
+    "fileName": "Purple Bullseye",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Balance",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Fish Revolver",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Tesla Winchester",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Blue Rose",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Red Queen",
+    "isUnlocked": true,
+    "isNew": false
+  }
+]
