@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class ShootSecondDelayedAttack : AttackEffect
@@ -20,13 +21,12 @@ public class ShootSecondDelayedAttack : AttackEffect
     }
     void ThrowDelayedAttack()
     {
-        GameManager.gm.StartCoroutine(DelayedAttack());
-    }
-    IEnumerator DelayedAttack()
-    {
         float attackFps = AffectedAttack.ParentWeapon.WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == "Attack").FramesPerSecond;
         float delayTime = _frameDelay / attackFps;
-        yield return new WaitForSeconds(delayTime);
+        GameManager.gm.DelayAction(delayTime, DelayedAttack, () => AffectedAttack.ParentWeapon != null);
+    }
+    void DelayedAttack()
+    {
         AffectedAttack.ParentWeapon.Attack(_delayedAttackPosOffset, _delayedAttackRotationOffset, true);
     }
 }
