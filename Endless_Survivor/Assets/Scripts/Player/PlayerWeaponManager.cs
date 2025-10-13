@@ -12,6 +12,15 @@ public class PlayerWeaponManager : MonoBehaviour
     List<WeaponHolder> _heldWeapons = new List<WeaponHolder>();
     int _maxWeapons;
 
+    public List<Weapon> HeldWeapons
+    {
+        get
+        {
+            List<Weapon> list = new List<Weapon>();
+            _heldWeapons.ForEach(weaponHolder => list.Add(weaponHolder.holdingWeapon));
+            return list;
+        }
+    }
     public int MaxWeapons { set { _maxWeapons = value; } }
     public Dictionary<CustomFlags.IWeaponTag, int> HeldWeaponTags
     {
