@@ -6,6 +6,10 @@ public class PassiveItemManager : MonoBehaviour
 {
     List<PassiveItem> _passiveItems = new();
 
+    private void Start()
+    {
+        PlayerControl.pc.PlayerHPManager.OnDamageTaken += PlayerDamaged;
+    }
     public void AddPassiveItem(PassiveItemData itemData)
     {
         PassiveItem addedItem = new PassiveItem();
@@ -20,6 +24,11 @@ public class PassiveItemManager : MonoBehaviour
     public void WeaponAttack(Weapon weapon)
     {
         _passiveItems.ForEach(item => item.BehaviourManager.onAttack?.Invoke(weapon));
+
+    }
+    void PlayerDamaged()
+    {
+        _passiveItems.ForEach(item => item.BehaviourManager.onPlayerDamaged?.Invoke());
 
     }
 

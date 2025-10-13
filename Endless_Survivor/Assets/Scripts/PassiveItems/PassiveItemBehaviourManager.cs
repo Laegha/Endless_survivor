@@ -12,6 +12,7 @@ public class PassiveItemBehaviourManager
     public Action<EnemyControl> onEnemyHit;
     public Action<EnemyControl> onEnemyKilled;
     public Action onWaveChanged;
+    public Action onPlayerDamaged;
 
     List<PassiveItemBehaviour> _itemBehaviours = new();
     public void CopyBehaviours(List<PassiveItemBehaviour> itemBehaviours)
