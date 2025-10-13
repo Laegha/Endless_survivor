@@ -21,22 +21,16 @@ public class RunStatsManager : MonoBehaviour
 
     private void Start()
     {
-        WaveManager.wm.OnEnemySpawned += AddActionsToEnemy;
         WaveManager.wm.OnWaveStarted += IncreaseWaveCounter;
     }
 
-    void DamageDealt(EnemyControl enemyControl, int damage)
+    public void DamageDealt(int damage)
     {
         totalDamageDealt += damage;
     }
-    void EnemyKilled(EnemyControl killedEnemy)
+    public void EnemyKilled(EnemyControl killedEnemy)
     {
         regularEnemiesKilled++;
-    }
-    void AddActionsToEnemy(EnemyControl enemyControl)
-    {
-        enemyControl.EnemyHP.OnEnemyDamaged += DamageDealt;
-        enemyControl.EnemyHP.OnEnemyDeath += EnemyKilled;
     }
     void IncreaseWaveCounter()
     {

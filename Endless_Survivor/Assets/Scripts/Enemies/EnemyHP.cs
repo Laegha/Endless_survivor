@@ -16,19 +16,14 @@ public class EnemyHP : HP
     static readonly int _flashingMaterialAuthority = 5;
     SpriteMaterialFlashing _damagedFlashing;
 
-    Action<EnemyControl> _onEnemyDeath;
-    Action<EnemyControl, int> _onEnemyDamaged;
-
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
     public float KnockbackResistance { set { _knockbackResistance = value; } }  
     public List<PickupDataChance> DropablePickupChances { set { _dropablePickupsChances = value; } }
-    public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath; } set { _onEnemyDeath = value; } }
-    public Action <EnemyControl, int> OnEnemyDamaged { get { return _onEnemyDamaged; } set  { _onEnemyDamaged = value; } }
     private void Start()
     {
         _damagedFlashing = new SpriteMaterialFlashing(_enemyControl.MaterialManager, _damagedFlashingRate, new MaterialOverride(_flashingMaterialAuthority, _damagedFlashingMaterial));
-
+        OnDamageTaken += _enemyControl.StatusEffectManager.OnHit;
     }
     public void SetSounds(SFXInfo onHitSound, SFXInfo onDeathSound)
     {
@@ -38,11 +33,10 @@ public class EnemyHP : HP
     public override void TakeDamage(int incomingDamage)
     {
         base.TakeDamage(incomingDamage);
-        _enemyControl.StatusEffectManager.OnHit();
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
         _damagedFlashing?.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
-        _onEnemyDamaged?.Invoke(_enemyControl, incomingDamage);
+        RunStatsManager.runStatsManager.DamageDealt(incomingDamage);
     }
     public void TakeDamage(int incomingDamage, Vector2 impactDirection, float knockbackPower)
     {
@@ -67,7 +61,7 @@ public class EnemyHP : HP
         WaveManager.wm.EnemyKilled(gameObject);
         InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
-        _onEnemyDeath?.Invoke(_enemyControl);
+        RunStatsManager.runStatsManager.EnemyKilled(_enemyControl);
         Destroy(gameObject);
     }
     void InstantiatePickup()
