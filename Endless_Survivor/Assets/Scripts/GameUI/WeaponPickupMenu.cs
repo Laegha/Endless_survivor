@@ -42,6 +42,7 @@ public class WeaponPickupMenu : MonoBehaviour
     }
     public void TakeWeapon()
     {
+        GameUIManager.uiManager.MenuHid();
         PlayerControl.pc.WeaponManager.PickupWeapon(_currDisplayingWeapon, _currWeaponStats);
         if(_currNewIndicator != null)
         {
@@ -49,12 +50,11 @@ public class WeaponPickupMenu : MonoBehaviour
             Destroy(_currNewIndicator);
         }
         _menuGfx.SetActive(false);
-        GameUIManager.uiManager.MenuHid();
     }
 
     public void DiscardWeapon()
     {
-        _menuGfx.SetActive(false);
         GameUIManager.uiManager.MenuHid();
+        _menuGfx.SetActive(false);
     }
 }
