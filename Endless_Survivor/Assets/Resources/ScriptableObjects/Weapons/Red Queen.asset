@@ -15,12 +15,12 @@ MonoBehaviour:
   _weaponDisplaySprite: {fileID: 21300000, guid: 56c88ae7f64bc5e448f938127cce8ca9, type: 3}
   _weaponName: Red Queen
   _weaponStats:
-    _range: 0.5
+    _range: 2
     _attackSpeed: 1
     _damage: 7
     _knockback: 10
   _statsIncreaseScale:
-    _range: 0
+    _range: 0.3
     _attackSpeed: 0.7
     _damage: 2
     _knockback: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
           _isCircle: 1
           _attackCircleRadius: 0.5
           _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
           _attackVfxAnimation:
             _animationName: AttackVfx
             _frames:
