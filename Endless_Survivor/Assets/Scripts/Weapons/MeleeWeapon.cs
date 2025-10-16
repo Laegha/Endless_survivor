@@ -31,7 +31,6 @@ public class MeleeWeapon : Weapon
         {
             if(!InRange)
             {
-                UnPauseAttackCooldown();
                 ReturnToOriginalPos();
 
             }
@@ -62,6 +61,7 @@ public class MeleeWeapon : Weapon
     void PlayAttackAnimation()
     {
         var attackAnimDuration = WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == "Attack").AnimDuration;
+        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         UnPauseAttackCooldown();
         //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
 
@@ -72,7 +72,6 @@ public class MeleeWeapon : Weapon
     }
     void CreateMeleeAttack()
     {
-        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
         MeleeAttack meleeAttack = Instantiate(GameManager.gm.prefabHolder.Prefabs["Melee"], transform.position, transform.rotation).GetComponent<MeleeAttack>();
         meleeAttack.transform.SetParent(transform, true);
 
@@ -86,6 +85,7 @@ public class MeleeWeapon : Weapon
 
     void ReturnToOriginalPos()
     {
+        UnPauseAttackCooldown();
         Vector2 returnVector = _originalHandLocalPos - (Vector2)_hand.localPosition;
         TransformMover returnMover = new("Return", returnVector.normalized, returnVector.magnitude, _handSpeed, _hand, () => { _hand.localPosition = _originalHandLocalPos; _currHandMover = null; });
         _currHandMover = returnMover;
