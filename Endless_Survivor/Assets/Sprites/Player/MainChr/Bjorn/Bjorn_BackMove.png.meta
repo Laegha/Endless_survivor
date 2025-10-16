@@ -1,21 +1,9 @@
 fileFormatVersion: 2
-guid: 1df2823ee91e5254498da4868dc20fda
+guid: 0765e3a44733a8d4dacb23612b836f8d
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 780163081966807769
-    second: Char02_BackIdle_0
-  - first:
-      213: 1084745191945493661
-    second: Char02_BackIdle_1
-  - first:
-      213: -1445828435456353609
-    second: Char02_BackIdle_2
-  - first:
-      213: -7572137912278376178
-    second: Char02_BackIdle_3
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -97,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,11 +107,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Char02_BackIdle_0
+      name: Bjorn_BackMove_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9da61878032b3da00800000000000000
-      internalID: 780163081966807769
+      spriteID: 70b731d4a3f2416419ad2977274ba1d6
+      internalID: -305470402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_BackIdle_1
+      name: Bjorn_BackMove_1
       rect:
         serializedVersion: 2
         x: 32
@@ -170,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9c59bd310acd0f00800000000000000
-      internalID: 1084745191945493661
+      spriteID: 3b1a58895e81cf74aa5b4a427ccb9f12
+      internalID: -1357405401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_BackIdle_2
+      name: Bjorn_BackMove_2
       rect:
         serializedVersion: 2
         x: 64
@@ -191,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba1772c2b26febe0800000000000000
-      internalID: -1445828435456353609
+      spriteID: b67706611f3f03b4188310851d1792ea
+      internalID: -1404100086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_BackIdle_3
+      name: Bjorn_BackMove_3
       rect:
         serializedVersion: 2
         x: 96
@@ -212,8 +200,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e01216c00bc5ae690800000000000000
-      internalID: -7572137912278376178
+      spriteID: d5ea284364ea1a145b819c362b678ebd
+      internalID: -417552836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bjorn_BackMove_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b195c9844ae1e458fd91a2c3e17e04
+      internalID: -1509460930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bjorn_BackMove_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e288310daa48e4dbd2be598e8e155d
+      internalID: 1213489533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bjorn_BackMove_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41cfae1be93107f47b98bb35f8173134
+      internalID: -584929746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bjorn_BackMove_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76146931a2738e044ab32dc0c59a637c
+      internalID: -1884289287
       vertices: []
       indices: 
       edges: []
@@ -229,10 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Char02_BackIdle_0: 780163081966807769
-      Char02_BackIdle_1: 1084745191945493661
-      Char02_BackIdle_2: -1445828435456353609
-      Char02_BackIdle_3: -7572137912278376178
+      Bjorn_BackMove_0: -305470402
+      Bjorn_BackMove_1: -1357405401
+      Bjorn_BackMove_2: -1404100086
+      Bjorn_BackMove_3: -417552836
+      Bjorn_BackMove_4: -1509460930
+      Bjorn_BackMove_5: 1213489533
+      Bjorn_BackMove_6: -584929746
+      Bjorn_BackMove_7: -1884289287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

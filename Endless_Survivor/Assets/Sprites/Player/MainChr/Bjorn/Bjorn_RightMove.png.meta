@@ -1,36 +1,9 @@
 fileFormatVersion: 2
-guid: ecccc3260c27d644890b91b89b67ad64
+guid: 23ceda4f70fb4a945bdfe193e4d05afb
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 7573365598759266843
-    second: Char02_LeftMove_0
-  - first:
-      213: -512277071428103815
-    second: Char02_LeftMove_1
-  - first:
-      213: -3578604217577804145
-    second: Char02_LeftMove_2
-  - first:
-      213: -4426982106856177942
-    second: Char02_LeftMove_3
-  - first:
-      213: -5692973763327543734
-    second: Char02_LeftMove_4
-  - first:
-      213: 5953407334658657392
-    second: Char02_LeftMove_5
-  - first:
-      213: 7278718377938760442
-    second: Char02_LeftMove_6
-  - first:
-      213: -4028297605457840308
-    second: Char02_LeftMove_7
-  - first:
-      213: 1789110484879097572
-    second: Char02_LeftMove_8
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -112,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,11 +107,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -150,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Char02_LeftMove_0
+      name: Bjorn_RightMove_0
       rect:
         serializedVersion: 2
         x: 0
@@ -164,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1aa53cf2eff91960800000000000000
-      internalID: 7573365598759266843
+      spriteID: a8e54df1464958e4e8eecb233bf213ff
+      internalID: -701370477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_LeftMove_1
+      name: Bjorn_RightMove_1
       rect:
         serializedVersion: 2
         x: 32
@@ -185,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97153fab7b604e8f0800000000000000
-      internalID: -512277071428103815
+      spriteID: 21e5022411c4e2047ac2dd251591abb8
+      internalID: -687702807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_LeftMove_2
+      name: Bjorn_RightMove_2
       rect:
         serializedVersion: 2
         x: 64
@@ -206,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8e6f83ac6e365ec0800000000000000
-      internalID: -3578604217577804145
+      spriteID: f098523b5b3c6dd4a8671594acc589fd
+      internalID: -654695250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_LeftMove_3
+      name: Bjorn_RightMove_3
       rect:
         serializedVersion: 2
         x: 96
@@ -227,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeeb3dd9a333092c0800000000000000
-      internalID: -4426982106856177942
+      spriteID: a7a3b18ea5e9b794095bfaf9bcd61c75
+      internalID: -1745252301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_LeftMove_4
+      name: Bjorn_RightMove_4
       rect:
         serializedVersion: 2
         x: 128
@@ -248,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a463e31668e7ef0b0800000000000000
-      internalID: -5692973763327543734
+      spriteID: c875e4426397ac44c8851b99057ebf75
+      internalID: 455786630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_LeftMove_5
+      name: Bjorn_RightMove_5
       rect:
         serializedVersion: 2
         x: 160
@@ -269,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07cc889ad60ce9250800000000000000
-      internalID: 5953407334658657392
+      spriteID: 77fa1c5344503e74995250ed1e91850d
+      internalID: 1639412019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Char02_LeftMove_6
+      name: Bjorn_RightMove_6
       rect:
         serializedVersion: 2
         x: 192
@@ -290,50 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2b529ecc3330560800000000000000
-      internalID: 7278718377938760442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Char02_LeftMove_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c47f021bbac9818c0800000000000000
-      internalID: -4028297605457840308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Char02_LeftMove_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ee3523c18234d810800000000000000
-      internalID: 1789110484879097572
+      spriteID: e45a766185a47a141955a744b9271cbb
+      internalID: 1018558848
       vertices: []
       indices: 
       edges: []
@@ -349,15 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Char02_LeftMove_0: 7573365598759266843
-      Char02_LeftMove_1: -512277071428103815
-      Char02_LeftMove_2: -3578604217577804145
-      Char02_LeftMove_3: -4426982106856177942
-      Char02_LeftMove_4: -5692973763327543734
-      Char02_LeftMove_5: 5953407334658657392
-      Char02_LeftMove_6: 7278718377938760442
-      Char02_LeftMove_7: -4028297605457840308
-      Char02_LeftMove_8: 1789110484879097572
+      Bjorn_RightMove_0: -701370477
+      Bjorn_RightMove_1: -687702807
+      Bjorn_RightMove_2: -654695250
+      Bjorn_RightMove_3: -1745252301
+      Bjorn_RightMove_4: 455786630
+      Bjorn_RightMove_5: 1639412019
+      Bjorn_RightMove_6: 1018558848
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
