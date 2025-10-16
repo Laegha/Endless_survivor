@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: Bjorn
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: 37dd9605714fcbb4ea23a9503190c223, type: 3}
+  _characterName: Bjorn
+  _characterHands:
+  - {fileID: 2041128565, guid: 75f0f06eb5636254bbd4c2b4754a612a, type: 3}
+  - {fileID: -537974312, guid: 75f0f06eb5636254bbd4c2b4754a612a, type: 3}
+  _initialWeapons:
+  - {fileID: 11400000, guid: 625216b8a4db3ae4bbd0a109f537a0c7, type: 2}
+  _initialMaxWeapons: 2
+  _initialPassives: []
+  _playerStats:
+    _initialHP: 25
+    _hpIncrement: 3
+    _speed: 4
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: -50696782, guid: 5bbaefe79020d474e84f7562f5c5fb1f, type: 3}
+    - {fileID: 1642048729, guid: 5bbaefe79020d474e84f7562f5c5fb1f, type: 3}
+    - {fileID: -1680393105, guid: 5bbaefe79020d474e84f7562f5c5fb1f, type: 3}
+    - {fileID: 1348301683, guid: 5bbaefe79020d474e84f7562f5c5fb1f, type: 3}
+    _framesPerSecond: 8
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: -368080052, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: 1327296263, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: -2090026117, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: -1288298044, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: 2048673721, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: -236935327, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: -1993391698, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    - {fileID: -785296982, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: -701370477, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    - {fileID: -687702807, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    - {fileID: -654695250, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    - {fileID: -1745252301, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    - {fileID: 455786630, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    - {fileID: 1639412019, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    - {fileID: 1018558848, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
+    _framesPerSecond: 8
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: -305470402, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: -1357405401, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: -1404100086, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: -417552836, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: -1509460930, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: 1213489533, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: -584929746, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    - {fileID: -1884289287, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
+    _framesPerSecond: 9
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: -1768192454, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    - {fileID: 1543164453, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    - {fileID: 424771261, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    - {fileID: -1027297113, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    - {fileID: 1552605252, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    - {fileID: -888359255, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    - {fileID: 256685941, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
+    _framesPerSecond: 8
+    _priority: 0
+  _onHitSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
