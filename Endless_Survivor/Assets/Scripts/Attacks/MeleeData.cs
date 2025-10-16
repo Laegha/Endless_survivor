@@ -10,6 +10,7 @@ public class MeleeData
     [SerializeField] float _attackCircleRadius;
     [Header("Use if not IsCircle")]
     [SerializeField] Vector2 _attackBoxSize;
+    [SerializeField] Vector2 _attackOffset;
     [SerializeField] CustomAnimation _attackVfxAnimation;
     [SerializeField] int _damageFrame;
     [SerializeField] ParticleSystem _attackParticles;
@@ -18,6 +19,7 @@ public class MeleeData
     public bool IsCircle { get { return _isCircle; } }
     public float CircleRadius { get { return _attackCircleRadius; } }
     public Vector2 BoxSize {  get { return _attackBoxSize; } }
+    public Vector2 AttackOffset {  get { return _attackOffset; } }
     public CustomAnimation AttackVfxAnimation { get { return _attackVfxAnimation; } }
     public int DamageFrame {  get { return _damageFrame; } }
     public ParticleSystem AttackParticles { get { return _attackParticles; } }
@@ -28,6 +30,7 @@ public class MeleeData
         _isCircle = original._isCircle;
         _attackCircleRadius = original._attackCircleRadius;
         _attackBoxSize = original._attackBoxSize;
+        _attackOffset = original._attackOffset;
         _attackVfxAnimation = original._attackVfxAnimation;
         _damageFrame = original._damageFrame;
         _attackParticles = original._attackParticles;

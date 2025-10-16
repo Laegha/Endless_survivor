@@ -15,8 +15,6 @@ public class MeleeAttack : Attack
     MeleeData _attackData;
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
-    float _circleRadius => Mathf.Clamp(_attackData.CircleRadius, ParentWeapon.WeaponStats.Range, Mathf.Infinity);
-    Vector2 _boxSize => _attackData.BoxSize.magnitude >= ParentWeapon.WeaponStats.Range ? _attackData.BoxSize : _attackData.BoxSize.normalized * ParentWeapon.WeaponStats.Range;
 
     private void Update()
     {
@@ -42,7 +40,8 @@ public class MeleeAttack : Attack
     }
     void ApplyDamage()
     {
-        var affectedEnemies = _attackData.IsCircle ? Physics2D.OverlapCircleAll(transform.position, _circleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(transform.position, _boxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
+        var attackPos = (Vector2)transform.position + (Vector2)(transform.right * _attackData.AttackOffset.x + transform.up * _attackData.AttackOffset.y);
+        var affectedEnemies = _attackData.IsCircle ? Physics2D.OverlapCircleAll(attackPos, _attackData.CircleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(attackPos, _attackData.BoxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
         foreach(var enemyCol in affectedEnemies)
         {
             var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(enemyCol.gameObject);
