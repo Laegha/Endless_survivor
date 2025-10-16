@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    float _shootCooldown;
+    float _attackCooldown;
     bool _canShoot;
     bool _inRange;
+    bool _reduceCooldown = true;
     WeaponStats _weaponStats;
     WeaponControl _weaponControl;
     WeaponData _weaponData;
@@ -17,11 +18,13 @@ public class Weapon : MonoBehaviour
     AttackEffectsHolder _weaponAttackEffects = new();
     static readonly float _onLevelUpParticleDuration = 1.5f;
 
+
+    public float AttackCooldown { get { return _attackCooldown; } }
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
     public WeaponControl WeaponControl { get { return _weaponControl; } }
     public WeaponData WeaponData { get { return _weaponData; } set { _weaponData = value; } }
     public PlayerControl PlayerControl { get { return _playerControl; } set { _playerControl = value; } }
-    public bool InRange { set  { _inRange = value; } }
+    public bool InRange { get { return _inRange; } set  { _inRange = value; } }
     public Action<Attack> InitializeAttack { get { return _initializeAttack; } set { _initializeAttack = value; }  }
     public AttackEffectsHolder WeaponAttackEffects { get { return _weaponAttackEffects; } set { _weaponAttackEffects = value; } }
 
@@ -40,9 +43,12 @@ public class Weapon : MonoBehaviour
 
     public virtual void Update()
     {
-        if (_shootCooldown > 0)
+        if (!_reduceCooldown)
+            return;
+
+        if (_attackCooldown > 0)
         {
-            _shootCooldown -= Time.deltaTime;
+            _attackCooldown -= Time.deltaTime;
             return;
         }
         if(!_canShoot)
@@ -57,9 +63,19 @@ public class Weapon : MonoBehaviour
             return;
 
         _canShoot = false;
-        _shootCooldown = 1f / (WeaponStats.AttackSpeed);
+        _attackCooldown = 1f / (WeaponStats.AttackSpeed);
         Attack();
     }
+    public void OverrideAttackCooldown(float newCooldown) => _attackCooldown = newCooldown;
+    public void PauseAttackCooldown()
+    {
+        _reduceCooldown = false;
+    }
+    public void UnPauseAttackCooldown()
+    {
+        _reduceCooldown = true;
+    }
+    
     void AttackAnimEnd()
     {
         if(!_canShoot || !_inRange)
@@ -70,7 +86,6 @@ public class Weapon : MonoBehaviour
 
     public virtual void Attack()
     {
-        print("Attacking");
         PlayerControl.pc.PassiveItemManager.WeaponAttack(this);
     }
 
