@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using TMPro;
@@ -9,10 +10,12 @@ public class WeaponAim : MonoBehaviour
     PlayerStats _playerStats;
     SpriteRenderer _spriteRenderer;
     Transform _directionBase;
+    Func<Vector2> _distCheckPosition;
 
     private void Awake()
     {
         _directionBase = transform;
+        _distCheckPosition = () => { return transform.position; };
     }
     private void Start()
     {
@@ -35,8 +38,7 @@ public class WeaponAim : MonoBehaviour
             _spriteRenderer.flipY = true;
         else
             _spriteRenderer.flipY = false;
-
-        Vector2 distance = closestEnemy.position - transform.position;
+        Vector2 distance = (Vector2)closestEnemy.position - _distCheckPosition();
         if (distance.magnitude <= _weapon.WeaponStats.Range)
         {
             _weapon.InRange = true;
@@ -49,4 +51,5 @@ public class WeaponAim : MonoBehaviour
         }
     }
     public void ChangeDirectionBase(Transform newBase) => _directionBase = newBase;
+    public void ChangeDistCheckPos(Func<Vector2> newPos) => _distCheckPosition = newPos;
 }
