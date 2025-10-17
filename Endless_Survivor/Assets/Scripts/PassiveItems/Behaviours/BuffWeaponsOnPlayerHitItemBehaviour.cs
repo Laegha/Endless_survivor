@@ -8,6 +8,8 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
     [SerializeField] WeaponStats _statsBuffs;
     [SerializeField] float _chanceOfHappenning = 100f;
     //ADD GFX CHANGE TO THE PLAYER!!!!
+    [SerializeField] PlayerGFXChanger _gfxChanger;
+    int _gfxCounter;
     enum BuffDurationType
     {
         ByWaves,
@@ -24,6 +26,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         var buffWeaponsOriginal = original as BuffWeaponsOnPlayerHitItemBehaviour;
         _statsBuffs = new WeaponStats(buffWeaponsOriginal._statsBuffs);
         _chanceOfHappenning = buffWeaponsOriginal._chanceOfHappenning;
+        _gfxChanger = buffWeaponsOriginal._gfxChanger;
         
         _durationType = buffWeaponsOriginal._durationType;
         _timeDuration = buffWeaponsOriginal._timeDuration;
@@ -38,6 +41,9 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         float rand = Random.Range(0, 100f);
         if (rand > _chanceOfHappenning)
             return;
+
+        _gfxCounter++;
+        _gfxChanger.ApplyGFX();
         var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
         foreach (var weapon in buffedWeapons)
             weapon.WeaponStats.TemporalStatIncrease(_statsBuffs, false);
@@ -45,7 +51,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         WeaponDebuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs);
 
         if (_durationType == BuffDurationType.ByTime)
-            GameManager.gm.DelayAction(_timeDuration, weaponDebuffHandler.DebuffWeapons, null);
+            GameManager.gm.DelayAction(_timeDuration,() => { weaponDebuffHandler.DebuffWeapons(); DecreaseGFXCounter(); }, null);
         else
             _debuffHandlersWaveCounter.Add(weaponDebuffHandler, 0);
     }
@@ -58,8 +64,16 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
             if (_debuffHandlersWaveCounter[debuffHandler.Key] >= _wavesDuration)
             {
                 debuffHandler.Key.DebuffWeapons();
+                DecreaseGFXCounter();
                 _debuffHandlersWaveCounter.Remove(debuffHandler.Key);
             }
         }
+
+    }
+    void DecreaseGFXCounter()
+    {
+        _gfxCounter--;
+        if (_gfxCounter <= 0)
+            _gfxChanger.UnApplyGFX();
     }
 }
