@@ -40,7 +40,7 @@ public class EnemyHP : HP
     }
     public void TakeDamage(int incomingDamage, Vector2 impactDirection, float knockbackPower)
     {
-        var knockbackForce = KnockbackUtility.GetKnockbackForceInfo(impactDirection, knockbackPower - _knockbackResistance);
+        var knockbackForce = KnockbackUtility.GetKnockbackForceInfo(impactDirection, Mathf.Clamp(knockbackPower - _knockbackResistance,0, Mathf.Infinity));//Maybe there sould be a max so the enemies don't fly off the map
         _enemyControl.RbForcesController.ChangeCurrForce(knockbackForce);
         TakeDamage(incomingDamage);
     }
