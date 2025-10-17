@@ -19,7 +19,7 @@ public class MeleeWeapon : Weapon
         base.Start();
         _hand = transform.parent;
         _originalHandLocalPos = _hand.localPosition;
-        WeaponControl.WeaponAim.ChangeDistCheckPos(() => {return (Vector2)PlayerControl.pc.transform.position + _originalHandLocalPos; });
+        WeaponControl.WeaponAim.ChangeDistCheckPos(() => { return (Vector2)PlayerControl.pc.transform.position;/* + _originalHandLocalPos;*/ });
         InitializeAttack += InitiateMelee;
     }
     public override void Update()
