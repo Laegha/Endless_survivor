@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class MaterialOverride
 {
     //authorities should go from 0 to 5
-    public int authority;
+    [Range(0, 5)]public int authority;
     public Material material;
 
     public MaterialOverride(int authority, Material material)
