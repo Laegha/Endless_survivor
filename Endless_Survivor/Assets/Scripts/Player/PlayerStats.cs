@@ -8,6 +8,7 @@ public class PlayerStats
     //[SerializeField]float _damageMultiplier = 1;
     [SerializeField]int _initialHP = 10;
     [SerializeField]int _hpIncrement = 10;
+    [SerializeField] float _hpRegeneration = 1f;
     [SerializeField]int _speed = 1;
 
     //public float DamageMultiplier
@@ -24,6 +25,10 @@ public class PlayerStats
     {
         get { return _hpIncrement; } set { _hpIncrement = value; }
     }
+    public float HPRegeneration
+    {
+        get { return _hpRegeneration; } set { _hpRegeneration = value; } 
+    }
     public int Speed
     {
         get { return _speed; } set { _speed = value; }
@@ -36,6 +41,7 @@ public class PlayerStats
 
         _initialHP = original._initialHP;
         _hpIncrement = original._hpIncrement;
+        _hpRegeneration = original._hpRegeneration;
         _speed = original._speed;
     }
 }
