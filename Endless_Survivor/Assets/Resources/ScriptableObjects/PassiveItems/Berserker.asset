@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
   m_Name: Berserker
   m_EditorClassIdentifier: 
-  _itemName: 
-  _itemDescript: 
+  _itemName: Berserker
+  _itemDescript: When hit, chance to become berserk
   _itemSprite: {fileID: 0}
-  _itemBehaviours: []
-  _itemPools: 0
+  _itemBehaviours:
+  - rid: 1814238555663499265
+  _itemPools: 1
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1814238555663499265
+      type: {class: BuffWeaponsOnPlayerHitItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _statsBuffs:
+          _range: 0
+          _attackSpeed: 4
+          _damage: 10
+          _knockback: 0
+        _chanceOfHappenning: 100
+        _gfxChanger:
+          materialOverride:
+            authority: 3
+            material: {fileID: 2100000, guid: f20cfc567dfbc814fa7c61f699dd0d0c, type: 2}
+          addedParticles: {fileID: 0}
+        _durationType: 1
+        _timeDuration: 10
+        _wavesDuration: 2

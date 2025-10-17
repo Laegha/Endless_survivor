@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
   m_Name: Rage
   m_EditorClassIdentifier: 
-  _itemName: 
-  _itemDescript: 
+  _itemName: Rage
+  _itemDescript: Get angrier and stronger when hit
   _itemSprite: {fileID: 0}
-  _itemBehaviours: []
-  _itemPools: 0
+  _itemBehaviours:
+  - rid: 1814238555663499264
+  _itemPools: 1
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1814238555663499264
+      type: {class: BuffWeaponsOnPlayerHitItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _statsBuffs:
+          _range: 0
+          _attackSpeed: 0.1
+          _damage: 3
+          _knockback: 0
+        _chanceOfHappenning: 100
+        _gfxChanger:
+          materialOverride:
+            authority: 0
+            material: {fileID: 0}
+          addedParticles: {fileID: 0}
+        _durationType: 0
+        _timeDuration: 5
+        _wavesDuration: 2
