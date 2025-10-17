@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 35
   _referenceSizeSprite: {fileID: 1684011115, guid: ea1e321c2790a0544a548baca2059522, type: 3}
-  _knockbackResistance: 20
+  _knockbackResistance: 0
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.125}
   _colliderDirection: 0

@@ -16,9 +16,9 @@ MonoBehaviour:
   _weaponName: Combat Knife
   _weaponStats:
     _range: 2.1
-    _attackSpeed: 4
-    _damage: 10
-    _knockback: 6
+    _attackSpeed: 12
+    _damage: 1
+    _knockback: 0
   _statsIncreaseScale:
     _range: 0.1
     _attackSpeed: 0.8
@@ -41,7 +41,7 @@ MonoBehaviour:
     - {fileID: -258320911, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
     - {fileID: 1549829580, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
     - {fileID: -172985205, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
-    _framesPerSecond: 8
+    _framesPerSecond: 18
     _priority: 0
     _exitAnimationName: Idle
   _randomIdleAnimations: []
@@ -64,7 +64,7 @@ MonoBehaviour:
             - {fileID: 0}
             - {fileID: -1349961720, guid: 9af5317460a6028419f19846fcb1b1b7, type: 3}
             - {fileID: 44956522, guid: 9af5317460a6028419f19846fcb1b1b7, type: 3}
-            _framesPerSecond: 8
+            _framesPerSecond: 18
             _priority: 0
           _damageFrame: 1
           _attackParticles: {fileID: 0}
