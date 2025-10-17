@@ -1,12 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHPManager : HP
 {
-    bool _isInmune = false;
-    float _inmunityTime = .5f;
-    float _inmunityTimer = 0;
     [SerializeField] PlayerControl _playerControl;
     [SerializeField]float _inmunityFlashingTime = .1f;
     [SerializeField] Material _inmunityFlashingMaterial;
@@ -14,6 +12,14 @@ public class PlayerHPManager : HP
     SpriteMaterialFlashing _inmunityFlashing;
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
+
+    bool _isInmune = false;
+    float _inmunityTime = .5f;
+    float _inmunityTimer = 0;
+
+    float _regenerationTimer;
+
+    Action _onUpdateActions;
     public SFXInfo OnHitSound { set { _onHitSound = value; } }
     public SFXInfo OnDeathSound { set { _onDeathSound = value; } }
 
@@ -23,9 +29,17 @@ public class PlayerHPManager : HP
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         _inmunityFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
         WaveManager.wm.OnWaveStarted += IncreaseMaxHP;
+        _onUpdateActions += HandleInmunity;
+        _onUpdateActions += HandleRegeneration;
+
     }
 
     private void Update()
+    {
+        _onUpdateActions?.Invoke();
+        
+    }
+    void HandleInmunity()
     {
         if (!_isInmune)
             return;
@@ -36,7 +50,16 @@ public class PlayerHPManager : HP
             _inmunityFlashing.End();
             _isInmune = false;
         }
-        
+    }
+    void HandleRegeneration()
+    {
+        _regenerationTimer -= Time.deltaTime;
+        if(_regenerationTimer <= 0)
+        {
+            //Heal 1 hp
+            Heal(1);    
+            _regenerationTimer = 1 / PlayerControl.pc.PlayerStats.HPRegeneration;
+        }
     }
     void IncreaseMaxHP()
     {
@@ -49,6 +72,11 @@ public class PlayerHPManager : HP
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         //display particles with MaxHP - previousMaxHP
 
+    }
+    public override void Heal(int healedHP)
+    {
+        base.Heal(healedHP);
+        GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
     }
 
     public override void TakeDamage(int incomingDamage)
