@@ -68,7 +68,7 @@ public class MeleeWeapon : Weapon
         CreateMeleeAttack();
 
         _currHandMover = null;
-        GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, null); 
+        GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => this == null); 
     }
     void CreateMeleeAttack()
     {
