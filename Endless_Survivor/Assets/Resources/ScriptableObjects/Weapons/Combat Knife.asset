@@ -16,7 +16,7 @@ MonoBehaviour:
   _weaponName: Combat Knife
   _weaponStats:
     _range: 2.1
-    _attackSpeed: 12
+    _attackSpeed: 4
     _damage: 1
     _knockback: 0
   _statsIncreaseScale:

@@ -30,6 +30,7 @@ MonoBehaviour:
           _damage: 10
           _knockback: 0
         _chanceOfHappenning: 100
+        _maxStacks: 1
         _gfxChanger:
           materialOverride:
             authority: 3

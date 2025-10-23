@@ -26,7 +26,7 @@ MonoBehaviour:
   _playerStats:
     _initialHP: 25
     _hpIncrement: 3
-    _hpRegeneration: 10
+    _hpRegeneration: 0.5
     _speed: 4
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
