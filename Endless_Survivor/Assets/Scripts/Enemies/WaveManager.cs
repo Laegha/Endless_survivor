@@ -60,31 +60,72 @@ public class WaveManager : MonoBehaviour
 
         Roulette<WaveEnemy> enemySelectRoulette = new Roulette<WaveEnemy>(possibleEnemies);
 
-        float enemyCount = Random.Range(newWave.MinEnemyCount, newWave.MaxEnemyCount);
-        Dictionary<WaveEnemy, int> spawnedEnemies = new Dictionary<WaveEnemy, int>();
+        float enemyCount = newWave.EnemyCount.rand;
+
+        Dictionary<WaveEnemy, int> spawningEnemiesCounts = new Dictionary<WaveEnemy, int>();
         foreach (var waveEnemy in newWave.WaveEnemies)
-            spawnedEnemies.Add(waveEnemy, 0);
+            spawningEnemiesCounts.Add(waveEnemy, 0);
 
         for(int i = 0; i < enemyCount; i++)
         {
-            Vector2 enemyPosition = GetEnemyPosition();
+            //Vector2 enemyPosition = GetEnemyPosition();
             WaveEnemy spawnedEnemy = enemySelectRoulette.Spin();
-            EnemyData enemyData = spawnedEnemy.EnemyData;
-            _enemies.Add(SpawnEnemy(enemyData, enemyPosition));
-            spawnedEnemies[spawnedEnemy]++;
+            //_enemies.Add(SpawnEnemy(enemyData, enemyPosition));
+            spawningEnemiesCounts[spawnedEnemy]++;
         }
 
-        List<WaveEnemy> notEnoughEnemies = spawnedEnemies.Where(spawnedEnemy => spawnedEnemy.Key.MinSpawnCount > spawnedEnemy.Value).Select(spawnedEnemy => spawnedEnemy.Key).ToList();
+        List<WaveEnemy> notEnoughEnemies = spawningEnemiesCounts.Where(spawnedEnemy => spawnedEnemy.Key.MinSpawnCount > spawnedEnemy.Value).Select(spawnedEnemy => spawnedEnemy.Key).ToList();
         foreach(var spawnedEnemy in notEnoughEnemies)
-            while(spawnedEnemy.MinSpawnCount > spawnedEnemies[spawnedEnemy])
+        {
+            while(spawnedEnemy.MinSpawnCount > spawningEnemiesCounts[spawnedEnemy])
             {
-                Vector2 enemyPosition = GetEnemyPosition();
-                _enemies.Add(SpawnEnemy(spawnedEnemy.EnemyData, enemyPosition));
-                spawnedEnemies[spawnedEnemy]++;
+                //Vector2 enemyPosition = GetEnemyPosition();
+                //_enemies.Add(SpawnEnemy(spawnedEnemy.EnemyData, enemyPosition));
+                spawningEnemiesCounts[spawnedEnemy]++;
             }
+
+        }
+        List<EnemyData> spawningEnemies = new();
+        foreach(var enemy in spawningEnemiesCounts)
+        {
+            spawningEnemies.AddRange(Enumerable.Repeat(enemy.Key.EnemyData, enemy.Value));
+        }
+
+        StartCoroutine(WaveLoop(spawningEnemies, newWave));
         _currWave++;
         GameUIManager.uiManager.WaveDisplay.text = "Wave: " + _currWave;
         _onWaveStarted?.Invoke();
+    }
+    
+    IEnumerator WaveLoop(List<EnemyData> spawningEnemies, Wave waveData)
+    {
+        float nextSpawnTimer = 0;
+        while(spawningEnemies.Count > 0)
+        {
+            nextSpawnTimer -= Time.deltaTime;
+            if(nextSpawnTimer <= 0)
+            {
+                nextSpawnTimer = waveData.TimeBetweenSpawns.rand;
+                int spawnEnemyCount = Mathf.Clamp((int)waveData.EnemiesPerSpawn.rand, 1, spawningEnemies.Count);
+                List<EnemyData> currSpawnEnemies = new();
+                for(int i = 0; i < spawnEnemyCount; i++)
+                {
+                    var enemy = spawningEnemies[Random.Range(0, spawningEnemies.Count)];
+                    currSpawnEnemies.Add(enemy);
+                    spawningEnemies.Remove(enemy);
+                }
+                SpawnEnemies(currSpawnEnemies);
+            }
+            yield return null;
+        }
+    }
+    void SpawnEnemies(List<EnemyData> spawningEnemies)
+    {
+        foreach(var enemy in spawningEnemies)
+        {
+            Vector2 enemyPosition = GetEnemyPosition();
+            _enemies.Add(SpawnEnemy(enemy, enemyPosition));
+        }
     }
 
     Vector2 GetEnemyPosition()

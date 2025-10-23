@@ -7,10 +7,12 @@ using UnityEngine;
 public class Wave : ScriptableObject
 {
     [SerializeField] List<WaveEnemy> _waveEnemies;
-    [SerializeField] int _minEnemyCount;
-    [SerializeField] int _maxEnemyCount;
+    [SerializeField] RandomBetweenTwoConstants _enemyCount;
+    [SerializeField] RandomBetweenTwoConstants _enemiesPerSpawn;
+    [SerializeField] RandomBetweenTwoConstants _timeBetweenSpawns;
 
     public List<WaveEnemy> WaveEnemies {  get { return _waveEnemies; } }
-    public int MinEnemyCount { get { return _minEnemyCount; } }
-    public int MaxEnemyCount { get { return _maxEnemyCount; } }
+    public RandomBetweenTwoConstants EnemyCount { get { return _enemyCount; } }
+    public RandomBetweenTwoConstants EnemiesPerSpawn { get { return _enemiesPerSpawn; } }
+    public RandomBetweenTwoConstants TimeBetweenSpawns { get { return _timeBetweenSpawns; } }
 }
