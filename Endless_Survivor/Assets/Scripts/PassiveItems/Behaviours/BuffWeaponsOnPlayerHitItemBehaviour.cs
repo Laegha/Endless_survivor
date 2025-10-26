@@ -7,9 +7,10 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
     new public static bool isUsable => true;
     [SerializeField] WeaponStats _statsBuffs;
     [SerializeField] float _chanceOfHappenning = 100f;
+    [SerializeField] int _maxStacks = 1;
     //ADD GFX CHANGE TO THE PLAYER!!!!
     [SerializeField] PlayerGFXChanger _gfxChanger;
-    int _gfxCounter;
+    int _activeStacks = 0;
     enum BuffDurationType
     {
         ByWaves,
@@ -26,6 +27,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         var buffWeaponsOriginal = original as BuffWeaponsOnPlayerHitItemBehaviour;
         _statsBuffs = new WeaponStats(buffWeaponsOriginal._statsBuffs);
         _chanceOfHappenning = buffWeaponsOriginal._chanceOfHappenning;
+        _maxStacks = buffWeaponsOriginal._maxStacks;
         _gfxChanger = buffWeaponsOriginal._gfxChanger;
         
         _durationType = buffWeaponsOriginal._durationType;
@@ -38,11 +40,13 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
     }
     void TryBuffStats()
     {
+        if(_activeStacks >= _maxStacks)
+            return; 
         float rand = Random.Range(0, 100f);
         if (rand > _chanceOfHappenning)
             return;
 
-        _gfxCounter++;
+        _activeStacks++;
         _gfxChanger.ApplyGFX();
         var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
         foreach (var weapon in buffedWeapons)
@@ -51,7 +55,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         WeaponDebuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs);
 
         if (_durationType == BuffDurationType.ByTime)
-            GameManager.gm.DelayAction(_timeDuration,() => { weaponDebuffHandler.DebuffWeapons(); DecreaseGFXCounter(); }, null);
+            GameManager.gm.DelayAction(_timeDuration,() => { weaponDebuffHandler.DebuffWeapons(); DecreaseStacks(); }, null);
         else
             _debuffHandlersWaveCounter.Add(weaponDebuffHandler, 0);
     }
@@ -64,16 +68,16 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
             if (_debuffHandlersWaveCounter[debuffHandler.Key] >= _wavesDuration)
             {
                 debuffHandler.Key.DebuffWeapons();
-                DecreaseGFXCounter();
+                DecreaseStacks();
                 _debuffHandlersWaveCounter.Remove(debuffHandler.Key);
             }
         }
 
     }
-    void DecreaseGFXCounter()
+    void DecreaseStacks()
     {
-        _gfxCounter--;
-        if (_gfxCounter <= 0)
+        _activeStacks--;
+        if (_activeStacks <= 0)
             _gfxChanger.UnApplyGFX();
     }
 }
