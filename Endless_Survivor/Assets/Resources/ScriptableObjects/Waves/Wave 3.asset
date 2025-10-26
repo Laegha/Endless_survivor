@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: Wave 3
   m_EditorClassIdentifier: 
   _waveEnemies:
-  - enemyData: {fileID: 11400000, guid: e9b99d99baa3992438bf5fe80a96e0c3, type: 2}
+  - enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
     _minSpawnCount: 0
     _enemyPoolWeight: 3
   - enemyData: {fileID: 11400000, guid: 3f150ce13d0ca7a45ae526621cf9cefd, type: 2}
     _minSpawnCount: 0
     _enemyPoolWeight: 1
-  _minEnemyCount: 15
-  _maxEnemyCount: 30
+  _enemyCount:
+    min: 35
+    max: 40
+  _enemiesPerSpawn:
+    min: 5
+    max: 7
+  _timeBetweenSpawns:
+    min: 2
+    max: 4
