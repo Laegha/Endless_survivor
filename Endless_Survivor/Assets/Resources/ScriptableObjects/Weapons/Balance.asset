@@ -24,7 +24,8 @@ MonoBehaviour:
     _attackSpeed: 2
     _damage: 2
     _knockback: 0
-  _attackEffects: []
+  _attackEffects:
+  - {fileID: 11400000, guid: 7c5eb82578ca36c4e935ab537b34c827, type: 2}
   _weaponTags: 010000000300000004000000
   _weaponPools: -1
   _weaponDataTransferInterface:

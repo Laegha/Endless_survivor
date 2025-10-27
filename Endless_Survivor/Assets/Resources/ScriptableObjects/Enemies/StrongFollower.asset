@@ -76,5 +76,4 @@ MonoBehaviour:
       data:
         _overrideBehaviours: []
         _changeAllRenderers: 1
-        _separateRenderersMaterials: []
-        _globalMaterial: {fileID: 2100000, guid: a338a7a10ea40294983eb43000b93aa1, type: 2}
+        _defaultMat: {fileID: 2100000, guid: a338a7a10ea40294983eb43000b93aa1, type: 2}
