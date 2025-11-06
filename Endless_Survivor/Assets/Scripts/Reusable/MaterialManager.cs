@@ -43,36 +43,32 @@ public class MaterialManager : MonoBehaviour
             if (_sprites[renderer] == renderer.sprite)
                 continue;
             //get input texture
-            //Rect subtexRect = renderer.sprite.rect;
-            //print("RECT: " + subtexRect);
-            //Color[] subtexPixels = renderer.sprite.texture.GetPixels((int)subtexRect.x, (int)subtexRect.y, (int)subtexRect.width, (int)subtexRect.height);
-            //Texture2D inputTex = new Texture2D((int)subtexRect.width, (int)subtexRect.height);
-            //inputTex.SetPixels(subtexPixels);
             Texture2D inputTex = renderer.sprite.texture;
             Rect textureRect = renderer.sprite.rect;
             print("RECT: " + textureRect);
 
             //create an output texture
-            RenderTexture tempRT = RenderTexture.GetTemporary(inputTex.width, inputTex.height);
+            RenderTexture tempRT = RenderTexture.GetTemporary(inputTex.width, inputTex.height, 0, RenderTextureFormat.ARGB64);
+            Graphics.SetRenderTarget(tempRT);
+            RenderTexture.active = tempRT;
             Texture2D outputTex = inputTex;
             //apply materials to output rt
             foreach (var matOverride in _overridesQueue)
             {
+                GL.Clear(true, true, Color.clear);
+
                 Graphics.Blit(outputTex, tempRT, matOverride.material);
-                RenderTexture.active = tempRT;
 
                 //extract the texture from the RT with the new material
                 Texture2D extractedTex = new(tempRT.width, tempRT.height);
                 extractedTex.ReadPixels(textureRect, (int)textureRect.x, (int)textureRect.y);
                 extractedTex.Apply();
-                RenderTexture.active = null;
 
                 outputTex = extractedTex;
             }
+            RenderTexture.active = null;
             outputTex.filterMode = inputTex.filterMode;
-
-            //Rect subtexRect = renderer.sprite.rect;
-            //Color[] subtexPixels = renderer.sprite.texture.GetPixels((int)subtexRect.x, (int)subtexRect.y, (int)subtexRect.width, (int)subtexRect.height);
+            RenderTexture.ReleaseTemporary(tempRT);
 
             //create sprite with outputTex and apply it
             Vector2 pivot = renderer.sprite.pivot;
