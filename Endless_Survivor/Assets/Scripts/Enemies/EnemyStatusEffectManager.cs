@@ -44,13 +44,13 @@ public class EnemyStatusEffectManager : MonoBehaviour
             Destroy(_activeGfx[statusEffect].statusParticles);
         _activeGfx.Remove(statusEffect);
     }
-    public void AddEffect(EnemyStatusEffect effect, ConditionHolder effectEndCondition)
+    public void AddEffect(EnemyStatusEffect effect)
     {
         var currEffectStacks = _currentEffects.Where(x => x.GetType() == effect.GetType()).Count();
         if (currEffectStacks >= effect.EffectMaxStacks)
             return;
         EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(effect.GetType());
-        newEffect.Initialize(_enemyControl, effect, effectEndCondition);
+        newEffect.Initialize(_enemyControl, effect);
         newEffect.Start();
         _currentEffects.Add(newEffect);
     }

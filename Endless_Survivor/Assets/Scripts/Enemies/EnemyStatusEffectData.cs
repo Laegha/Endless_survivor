@@ -10,10 +10,9 @@ public class EnemyStatusEffectData : ScriptableObject
 
     public void ApplyEffects(EnemyStatusEffectManager effectManager)
     {
-        var endCondition = new ConditionHolder(false);
         foreach(var effect in _statusEffects)
         {
-            effectManager.AddEffect(effect, endCondition);
+            effectManager.AddEffect(effect);
         }
     }
 }

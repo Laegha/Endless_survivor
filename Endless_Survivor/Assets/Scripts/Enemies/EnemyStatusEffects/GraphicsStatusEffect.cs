@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,9 @@ public class GraphicsStatusEffect : EnemyStatusEffect
     [SerializeField] Sprite _statusEffectIndicator;
     [SerializeField] Material _statusEffectMaterial;
     [SerializeField] ParticleSystem _statusEffectParticles;
-    public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original, ConditionHolder endCondition)
+    public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {
-        base.Initialize(affectedEnemyControl, original, endCondition);
+        base.Initialize(affectedEnemyControl, original);
         var graphicsOriginal = (GraphicsStatusEffect)original;
         _statusEffectIndicator = graphicsOriginal._statusEffectIndicator;
         _statusEffectMaterial = graphicsOriginal._statusEffectMaterial;
