@@ -33,6 +33,8 @@ public class ParticleManager : MonoBehaviour
         var particlesFollowingCopy = new List<TransformFollowHandler>(_particlesFollowing);
         foreach(var particleFollowing in particlesFollowingCopy)
         {
+            if(particleFollowing.parent == null)
+                DestroyImmediate(particleFollowing.child.gameObject);
             if(particleFollowing.child == null)
             {
                 _particlesFollowing.Remove(particleFollowing);
