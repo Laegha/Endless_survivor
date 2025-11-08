@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Crucible
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 5c17610487729724da6c6c17f9fbb814, type: 3}
+  _weaponName: Crucible
+  _weaponStats:
+    _range: 1.3
+    _attackSpeed: 0.8
+    _damage: 10
+    _knockback: 15
+  _statsIncreaseScale:
+    _range: 0
+    _attackSpeed: 0.5
+    _damage: 2
+    _knockback: 0
+  _attackEffects: []
+  _weaponTags: 0000000002000000
+  _weaponPools: 1
+  _weaponDataTransferInterface:
+    rid: 1428374630825984000
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: bebfd7a69eedad346bbbb09b646ebd48, type: 3}
+    _framesPerSecond: 0
+    _priority: 0
+  _attackAnimation:
+    _animationName: Attack
+    _frames:
+    - {fileID: 659789779, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+    - {fileID: 1348826584, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+    - {fileID: 899221377, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+    - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+    - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+    _framesPerSecond: 8
+    _priority: 0
+    _exitAnimationName: Idle
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1428374630825984000
+      type: {class: MeleeWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+      data:
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 1
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: AttackVfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            _framesPerSecond: 8
+            _priority: 0
+          _damageFrame: 3
+          _attackParticles: {fileID: 0}
+          _particleDuration: -1
