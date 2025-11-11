@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: BurnStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 1814238801220337668
+  - rid: 1814238801220337669
+  _effectMaxStacks: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: 1814238801220337668
+      type: {class: DamageAfterTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 2
+        _damage: 5
+    - rid: 1814238801220337669
+      type: {class: GraphicsStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: e38a2d83deb3cda448f4c58a79ad8a3c, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: 7950e9034a7e98347a4e2cebcefaa8e7, type: 2}
+        _statusEffectParticles: {fileID: 1098826074969476210, guid: 790bb99d9f6a77e4bb81973021bdeff8, type: 3}
