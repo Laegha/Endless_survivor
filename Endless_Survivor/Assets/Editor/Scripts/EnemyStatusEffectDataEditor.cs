@@ -7,17 +7,22 @@ using UnityEngine;
 [CustomEditor(typeof(EnemyStatusEffectData))]
 public class EnemyStatusEffectDataEditor : Editor
 {
+    SerializedProperty _maxStacks;
     Dictionary<Type, bool> _addedStatusEffects = new();
 
     private void OnEnable()
     {
         List<Type> effectTypes = Utility.GetSubclassesOf(typeof(EnemyStatusEffect));
+        _maxStacks = serializedObject.FindProperty("_effectMaxStacks");
         EnemyStatusEffectData statusEffectData = (EnemyStatusEffectData)target;
         effectTypes.ForEach(type => _addedStatusEffects.Add(type, statusEffectData.StatusEffects.Exists(effect => effect.GetType() == type)));
         statusEffectData.StatusEffects.RemoveAll(effect => effect == null);
     }
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.PropertyField(_maxStacks);
+        serializedObject.ApplyModifiedProperties();
+        serializedObject.Update();
         EnemyStatusEffectData statusEffectData = (EnemyStatusEffectData)target;
         SerializedProperty statusEffects = serializedObject.FindProperty("_statusEffects");
 

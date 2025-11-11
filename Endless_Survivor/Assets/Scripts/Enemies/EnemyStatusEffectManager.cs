@@ -10,7 +10,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
     [SerializeField] EnemyControl _enemyControl;
     [SerializeField] SpriteGrid _statusIndicatorsGrid;
     readonly static int _materialAuthority =3;
-    List<EnemyStatusEffect> _currentEffects = new();
+    List<EnemyStatusEffectGroup> _currentEffects = new();
     Dictionary<EnemyStatusEffect, EnemyStatusEffectGFX> _activeGfx = new();
 
     public void SetGridLocalPos(Vector2 pos) => _statusIndicatorsGrid.transform.localPosition = pos;    
@@ -44,37 +44,45 @@ public class EnemyStatusEffectManager : MonoBehaviour
             Destroy(_activeGfx[statusEffect].statusParticles);
         _activeGfx.Remove(statusEffect);
     }
-    public void AddEffect(EnemyStatusEffect effect)
+    public void AddEffects(List<EnemyStatusEffect> originalEffects, EnemyStatusEffectData effectData)
     {
-        var currEffectStacks = _currentEffects.Where(x => x.GetType() == effect.GetType()).Count();
-        if (currEffectStacks >= effect.EffectMaxStacks)
+        var currEffectStacks = _currentEffects.Where(x => x.effectData == effectData).Count();
+        if (currEffectStacks >= effectData.EffectMaxStacks)
             return;
-        EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(effect.GetType());
-        newEffect.Initialize(_enemyControl, effect);
-        newEffect.Start();
-        _currentEffects.Add(newEffect);
+
+        List<EnemyStatusEffect> newEffects = new();
+        foreach (EnemyStatusEffect originalEffect in originalEffects)
+        {
+            EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(originalEffect.GetType());
+            newEffect.Initialize(_enemyControl, originalEffect);
+            newEffects.Add(newEffect);
+        }
+        EnemyStatusEffectGroup newEffectGroup = new(effectData, newEffects);
+        newEffectGroup.Start();
+        _currentEffects.Add(newEffectGroup);
     }
     public void RemoveEffect(EnemyStatusEffect effect)
     {
-        effect.End();
-        _currentEffects.Remove(effect);
+        var effectGroup = _currentEffects.Find(x => x == effect.ThisGroup);
+        effectGroup.End();
+        _currentEffects.Remove(effectGroup);
     }
     private void Update()
     {
-        var activeEffects = new List<EnemyStatusEffect>(_currentEffects);
-        foreach (EnemyStatusEffect effect in activeEffects) 
+        var activeEffects = new List<EnemyStatusEffectGroup>(_currentEffects);
+        foreach (EnemyStatusEffectGroup effect in activeEffects) 
         {
-            effect.Update(); 
+            effect.Update();
         }
     }
     public void OnKilled()
     {
-        foreach (EnemyStatusEffect effect in _currentEffects) 
-            effect.EnemyKilled();
+        foreach (EnemyStatusEffectGroup effect in _currentEffects) 
+            effect.OnKilled();
     }
     public void OnHit()
     {
-        foreach(EnemyStatusEffect effect in _currentEffects) 
-            effect.EnemyHit();
+        foreach(EnemyStatusEffectGroup effect in _currentEffects) 
+            effect.OnHit();
     }
 }

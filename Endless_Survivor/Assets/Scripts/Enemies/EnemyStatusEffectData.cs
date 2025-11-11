@@ -6,13 +6,12 @@ using UnityEngine;
 public class EnemyStatusEffectData : ScriptableObject
 {
     [SerializeReference] List<EnemyStatusEffect>_statusEffects = new();
+    [SerializeField] int _effectMaxStacks;
     public List<EnemyStatusEffect> StatusEffects { get {  return _statusEffects; } }
+    public int EffectMaxStacks {  get { return _effectMaxStacks; } }
 
     public void ApplyEffects(EnemyStatusEffectManager effectManager)
     {
-        foreach(var effect in _statusEffects)
-        {
-            effectManager.AddEffect(effect);
-        }
+        effectManager.AddEffects(_statusEffects, this);
     }
 }

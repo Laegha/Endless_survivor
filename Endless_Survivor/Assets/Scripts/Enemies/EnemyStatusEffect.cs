@@ -7,12 +7,12 @@ using UnityEngine;
 public class EnemyStatusEffect
 {
     public static bool isUsable => false;
+    EnemyStatusEffectGroup _thisGroup;
     EnemyControl _affectedEnemyControl;
-    [SerializeField] int _effectMaxStacks = 1; //i'm pretty sure this should be in the scriptable object and MAYBE allow for a specific effect to stack a different ammount
     Func<bool> _endCondition;
     bool _ended = false;
+    public EnemyStatusEffectGroup ThisGroup { get { return _thisGroup; }  set { _thisGroup = value; } }
     public EnemyControl AffectedEnemyControl {  get { return _affectedEnemyControl; } }
-    public int EffectMaxStacks {  get { return _effectMaxStacks; } }
     public Func<bool> EndCondition { get { return _endCondition; } set { _endCondition = value; } }
 
     public virtual void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
