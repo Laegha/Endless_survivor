@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
+{    
+    new public static bool isUsable => true;
+    [SerializeField] int _explosionDamage = 25;
+    [SerializeField] float _explosionRadius;
+    [SerializeField] ParticleSystem _explosionParticles;
+    [SerializeField] float _particlesDuration;
+    [SerializeField] CustomAnimation _explosionAnimation;
+    [SerializeField] LayerMask _affectedLayers;
+
+    public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
+    {
+        base.Initiate(control, original);
+        ExplosionSupportObjBehaviour explosionOriginal = original as ExplosionSupportObjBehaviour;
+        _explosionDamage = explosionOriginal._explosionDamage;
+        _explosionRadius = explosionOriginal._explosionRadius;
+        _explosionParticles = explosionOriginal._explosionParticles;
+        _particlesDuration = explosionOriginal._particlesDuration;
+        _explosionAnimation = explosionOriginal._explosionAnimation;
+        OnStart += Explode;
+    }
+    public void Explode()
+    {
+        ParticleConfig explosionParticleConfig = new(_explosionParticles, ObjControl.transform.position, Quaternion.identity, _particlesDuration);
+        ParticleManager.pm.SpawnParticles(explosionParticleConfig);
+        var affectedObjs = Physics2D.OverlapCircleAll(ObjControl.transform.position, _explosionRadius, _affectedLayers);
+        foreach(var obj in affectedObjs)
+        {
+            var objHP = obj.GetComponent<HP>();
+            if (objHP == null)
+                continue;
+            objHP.TakeDamage(_explosionDamage);
+        }
+
+    }
+}
