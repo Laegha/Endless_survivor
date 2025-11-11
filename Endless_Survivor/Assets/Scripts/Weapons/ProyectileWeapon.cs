@@ -16,7 +16,7 @@ public class ProyectileWeapon : ShootingWeapon
     {
         base.Attack();
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
-        Proyectile proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<Proyectile>();
+        ProyectileAttack proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
         InitializeAttack?.Invoke(proyectile);
         InitiateProyectile(proyectile, FirePoint.position, FirePoint.rotation);
     }
@@ -25,7 +25,7 @@ public class ProyectileWeapon : ShootingWeapon
         base.Attack(attackPosOffset, attackRotationOffset, isSecondaryAttack);
 
         WeaponControl.WeaponAnimator.ChangeAnim("Attack");
-        Proyectile proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<Proyectile>();
+        ProyectileAttack proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
         InitializeAttack?.Invoke(proyectile);
         var firepointRotation = FirePoint.eulerAngles.z * Mathf.Deg2Rad;
         //Vector2 offsetYDirection = ; // (p1, p2) * (o1, o2) = p1*o1 + p2*o2 = 0 => o2p2 = -o1p1 => p2 = -o1/o2p1
@@ -42,7 +42,7 @@ public class ProyectileWeapon : ShootingWeapon
         InitiateProyectile(proyectile,(Vector2)FirePoint.position + (offsetXDirection.x * offsetXDirection.y > 0 ? offsetMovement : -offsetMovement), FirePoint.rotation);// I only tested this with y movement, idk with x
 
     }
-    void InitiateProyectile(Proyectile proyectile, Vector2 proyectilePosition, Quaternion proyectileRotation)
+    void InitiateProyectile(ProyectileAttack proyectile, Vector2 proyectilePosition, Quaternion proyectileRotation)
     {
         proyectile.transform.position = proyectilePosition;
         proyectile.transform.rotation = proyectileRotation;
