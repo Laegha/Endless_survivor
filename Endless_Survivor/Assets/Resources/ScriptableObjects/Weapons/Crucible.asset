@@ -17,14 +17,15 @@ MonoBehaviour:
   _weaponStats:
     _range: 1.3
     _attackSpeed: 0.8
-    _damage: 10
+    _damage: 5
     _knockback: 15
   _statsIncreaseScale:
     _range: 0
     _attackSpeed: 0.5
     _damage: 2
     _knockback: 0
-  _attackEffects: []
+  _attackEffects:
+  - {fileID: 11400000, guid: 00d91aebd6e4e584280b5bf782261db5, type: 2}
   _weaponTags: 0000000002000000
   _weaponPools: 1
   _weaponDataTransferInterface:
@@ -63,6 +64,7 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: AttackVfx
             _frames:
+            - {fileID: 0}
             - {fileID: 0}
             - {fileID: 0}
             - {fileID: 0}
