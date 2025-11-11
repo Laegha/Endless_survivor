@@ -45,7 +45,6 @@ public class MaterialManager : MonoBehaviour
             //get input texture
             Texture2D inputTex = renderer.sprite.texture;
             Rect textureRect = renderer.sprite.rect;
-            print("RECT: " + textureRect);
 
             //create an output texture
             RenderTexture tempRT = RenderTexture.GetTemporary(inputTex.width, inputTex.height, 0, RenderTextureFormat.ARGB64);
