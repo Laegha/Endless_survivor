@@ -46,6 +46,8 @@ public class CustomAnimator : MonoBehaviour
         if(_currFrameIndex >= _currAnim.Frames.Length)
         {
             _currFrameIndex = 0;
+            if (!_currAnim.LoopAnimation)
+                EndAnimation(_currAnim);
             //CurrAnim.OnAnimationEnd?.Invoke(this);
         }
         _spriteRenderer.sprite = _currAnim.Frames[_currFrameIndex];

@@ -11,6 +11,7 @@ public class CustomAnimation
     [SerializeField] string _animationName;
     [SerializeField] Sprite[] _frames;
     [SerializeField] float _framesPerSecond;
+    [SerializeField] bool _loopAnimation = true;
     [Tooltip("The higher the number the more priority the animation has")]
     [SerializeField] int _priority;
 
@@ -22,6 +23,7 @@ public class CustomAnimation
     public Sprite[] Frames {  get { return _frames; } }
     public float AnimDuration { get { return _frames.Length / _framesPerSecond; } }
     public float FramesPerSecond {  get { return _framesPerSecond; } }
+    public bool LoopAnimation { get { return _loopAnimation; } }
     public int Priority {  get { return _priority; } }
     //public Action<CustomAnimator> OnAnimationEnd { get { return _onAnimationEnd; } set { _onAnimationEnd = value; } }
     public AnimationEvent OnAnimEnd
@@ -44,6 +46,7 @@ public class CustomAnimation
         _animationName = original._animationName;
         _frames = original._frames;
         _framesPerSecond = original._framesPerSecond;
+        _loopAnimation = original._loopAnimation;
         _priority = original._priority;
         //if(original._onAnimationEnd != null) 
         //foreach (var action in original._onAnimationEnd.GetInvocationList())
@@ -55,12 +58,13 @@ public class CustomAnimation
                 _events.Add(new AnimationEvent(animEvent));
             }
     }
-    public CustomAnimation(CustomAnimator animator, string animationName = "", Sprite[] frames = null, float framesPerSecond = 1, int priority = 0, List<AnimationEvent> events = null)
+    public CustomAnimation(CustomAnimator animator, string animationName = "", Sprite[] frames = null, float framesPerSecond = 1, bool loopAnimation = true, int priority = 0, List<AnimationEvent> events = null)
     {
         _animator = animator;
         _animationName = animationName;
         _frames = frames;
         _framesPerSecond = framesPerSecond;
+        _loopAnimation = loopAnimation;
         _priority = priority;
         _events = events != null ? events : new List<AnimationEvent>();
     }
