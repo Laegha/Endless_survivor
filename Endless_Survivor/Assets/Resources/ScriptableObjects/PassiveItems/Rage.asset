@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rage
   m_EditorClassIdentifier: 
   _itemName: Rage
-  _itemDescript: Get angrier and stronger when hit
+  _itemDescript: Buffs your weapons when hit
   _itemSprite: {fileID: 0}
   _itemBehaviours:
   - rid: 1814238555663499264
@@ -30,6 +30,7 @@ MonoBehaviour:
           _damage: 3
           _knockback: 0
         _chanceOfHappenning: 100
+        _maxStacks: 1
         _gfxChanger:
           materialOverride:
             authority: 0

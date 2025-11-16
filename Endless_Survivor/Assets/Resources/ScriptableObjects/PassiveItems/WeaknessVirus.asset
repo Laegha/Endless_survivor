@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WeaknessVirus
   m_EditorClassIdentifier: 
   _itemName: Weakness virus
-  _itemDescript: Inject enemies with weakness
-  _itemSprite: {fileID: 21300000, guid: 3a5c3f57ba87a6848bc1b6f315eee370, type: 3}
+  _itemDescript: Applies weakness on enemies
+  _itemSprite: {fileID: 21300000, guid: 2f67abc6acb388e47aaac5e7de2daab0, type: 3}
   _itemBehaviours:
   - rid: 278974108140830721
   _itemPools: -1

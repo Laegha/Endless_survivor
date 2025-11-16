@@ -28,6 +28,8 @@ MonoBehaviour:
       Value: {fileID: 2868723263697389708, guid: 5253c66c3ff0bfd4da0a852b5e4e7eb4, type: 3}
     - Key: Enemy
       Value: {fileID: 2373952663123277793, guid: c5ffe46174d62a64abb88cf7789b46a9, type: 3}
+    - Key: EnemyProyectile
+      Value: {fileID: 5542903177043885194, guid: 3ed1e06485ec540459a889dec34aa2bf, type: 3}
     - Key: Pickup
       Value: {fileID: 3438140968312141350, guid: 428eabb061ceaf84f89f0f0a6de61304, type: 3}
     - Key: SupportObject

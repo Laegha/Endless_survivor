@@ -58,6 +58,7 @@ MonoBehaviour:
           - {fileID: -1087541958, guid: ea1e321c2790a0544a548baca2059522, type: 3}
           - {fileID: 204996936, guid: ea1e321c2790a0544a548baca2059522, type: 3}
           _framesPerSecond: 16
+          _loopAnimation: 0
           _priority: 0
     - rid: 2600434731462950913
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
