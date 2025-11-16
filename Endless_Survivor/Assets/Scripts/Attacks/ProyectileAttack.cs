@@ -70,7 +70,7 @@ public class ProyectileAttack : Attack
 
     public void StartMoving()
     {
-        _rb.velocity = transform.right * Speed;
+        _rb.velocity = transform.right * _speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
