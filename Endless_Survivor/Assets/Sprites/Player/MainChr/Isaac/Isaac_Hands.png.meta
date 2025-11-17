@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a09a39adde8cdc648859afa59a30ae7f
+guid: 4dbdfb6125a69b04cb62c0adc1f295f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Isaac_Idle_0
+      name: Isaac_Hands_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 28
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ea4ca4978a18c4fa6a337472d5482b
-      internalID: -306707088
+      spriteID: 4bd8a2cf58c835141808ec13d75cac87
+      internalID: 299159617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isaac_Idle_1
+      name: Isaac_Hands_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 4
         y: 0
-        width: 32
-        height: 28
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,50 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f59d560d5322492438e0f7b05da82a49
-      internalID: 1453562012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Isaac_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa668907b0e25604dac1a486cdcda2bb
-      internalID: 1396940420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Isaac_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65a9a04dfad79714bb54284c8f1e01ec
-      internalID: 173888182
+      spriteID: 734845ca3a16db64fa0a3c0d13165a6a
+      internalID: 1966441354
       vertices: []
       indices: 
       edges: []
@@ -217,10 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Isaac_Idle_0: -306707088
-      Isaac_Idle_1: 1453562012
-      Isaac_Idle_2: 1396940420
-      Isaac_Idle_3: 173888182
+      Isaac_Hands_0: 299159617
+      Isaac_Hands_1: 1966441354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a09a39adde8cdc648859afa59a30ae7f
+guid: 23bb1fd4c81243d4e8b6049508d369f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Isaac_Idle_0
+      name: Isaac_BackWalk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ea4ca4978a18c4fa6a337472d5482b
-      internalID: -306707088
+      spriteID: 47056e89c1a1767458a4df1e90e6b845
+      internalID: -2004631056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isaac_Idle_1
+      name: Isaac_BackWalk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f59d560d5322492438e0f7b05da82a49
-      internalID: 1453562012
+      spriteID: c94bc291a7f478e4a9690a40b223058a
+      internalID: 1705324575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isaac_Idle_2
+      name: Isaac_BackWalk_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa668907b0e25604dac1a486cdcda2bb
-      internalID: 1396940420
+      spriteID: de457351d2c00834fac899bb1915f9bb
+      internalID: -1955868754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isaac_Idle_3
+      name: Isaac_BackWalk_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,8 +200,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65a9a04dfad79714bb54284c8f1e01ec
-      internalID: 173888182
+      spriteID: 1a9bd1ef65adcac41a4666f36427b551
+      internalID: 2107366464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isaac_BackWalk_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff11da3fbe1bce04d85abdceb3b373ed
+      internalID: -626124790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isaac_BackWalk_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a77f152f02690429b0ee6f4ef5ecb4
+      internalID: -1828587638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isaac_BackWalk_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c774a2aa9c22d42b2efa0c7afdb9f5
+      internalID: -1009308959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isaac_BackWalk_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1fc23ed36ef54428acb5cf5c31217d
+      internalID: 824393398
       vertices: []
       indices: 
       edges: []
@@ -217,10 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Isaac_Idle_0: -306707088
-      Isaac_Idle_1: 1453562012
-      Isaac_Idle_2: 1396940420
-      Isaac_Idle_3: 173888182
+      Isaac_BackWalk_0: -2004631056
+      Isaac_BackWalk_1: 1705324575
+      Isaac_BackWalk_2: -1955868754
+      Isaac_BackWalk_3: 2107366464
+      Isaac_BackWalk_4: -626124790
+      Isaac_BackWalk_5: -1828587638
+      Isaac_BackWalk_6: -1009308959
+      Isaac_BackWalk_7: 824393398
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
