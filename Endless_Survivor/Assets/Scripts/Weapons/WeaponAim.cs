@@ -12,6 +12,8 @@ public class WeaponAim : MonoBehaviour
     Transform _directionBase;
     Func<Vector2> _distCheckPosition;
 
+    RaycastHit2D _currTrackingEnemyHit;
+    public RaycastHit2D CurrTrackingEnemyHit { get {  return _currTrackingEnemyHit; } }
     private void Awake()
     {
         _directionBase = transform;
@@ -26,9 +28,9 @@ public class WeaponAim : MonoBehaviour
 
     void Update()
     {
-        if(WaveManager.wm.Enemies.Count == 0)
+        if (WaveManager.wm.Enemies.Count == 0)
             return;
-        
+
         Transform closestEnemy = Utility.GetClosestTo(WaveManager.wm.Enemies, PlayerControl.pc.transform)[0].transform;
         Vector2 direction = closestEnemy.position - _directionBase.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -38,8 +40,12 @@ public class WeaponAim : MonoBehaviour
             _spriteRenderer.flipY = true;
         else
             _spriteRenderer.flipY = false;
-        Vector2 distance = (Vector2)closestEnemy.position - _distCheckPosition();
-        if (distance.magnitude <= _weapon.WeaponStats.Range)
+        Vector2 distDirection = (Vector2)closestEnemy.position - _distCheckPosition();
+        var closestEnemyHit = Physics2D.Raycast(_distCheckPosition(), distDirection, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
+        _currTrackingEnemyHit = closestEnemyHit;
+        float distance = closestEnemyHit.distance;
+        //print("DISTANCE WITH CLOSEST ENEMY: " + distance + ". CLOSEST ENEMY: " + closestEnemyHit.collider);
+        if (distance <= _weapon.WeaponStats.Range)
         {
             _weapon.InRange = true;
             _weapon.TryAttack();
