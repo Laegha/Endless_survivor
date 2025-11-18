@@ -10,41 +10,46 @@ public class MaterialManager : MonoBehaviour
     [SerializeField] List<SpriteRenderer> _renderers;
     Dictionary<SpriteRenderer, Material> _defaultMaterials = new();
     List<MaterialOverride> _overridesQueue = new();
-    Dictionary<SpriteRenderer, Sprite> _sprites = new();
+    Dictionary<SpriteRenderer, Sprite> _spritesCurrent = new();
 
     private void Awake()
     {
         foreach (var renderer in _renderers)
         {
             _defaultMaterials.Add(renderer, renderer.material);
-            _sprites.Add(renderer, null);
+            _spritesCurrent.Add(renderer, null);
         }
     }
     private void Update()
     {
-        UpdateMaterials();
+        UpdateMaterials(false);
     }
     public void SetMaterialOverride(MaterialOverride newMaterial)
     {
         _overridesQueue.Add(newMaterial);
         SortMaterials();
+        UpdateMaterials(true);
     }
     public void UnsetMaterialOverride(MaterialOverride unsetMaterial)
     {
         _overridesQueue.Remove(unsetMaterial);
         SortMaterials();
+        UpdateMaterials(true);
 
     }
     void SortMaterials() => _overridesQueue.Sort(new MaterialAuthorityComparer());
-    void UpdateMaterials()
+    void UpdateMaterials(bool forceMaterialUpdate)
     {
         foreach (var renderer in _renderers)
         {
-            if (_sprites[renderer] == renderer.sprite)
+            if (_spritesCurrent[renderer] == renderer.sprite && !forceMaterialUpdate)
                 continue;
-            //get input texture
-            Texture2D inputTex = renderer.sprite.texture;
-            Rect textureRect = renderer.sprite.rect;
+            if (_spritesCurrent[renderer] == null || renderer.sprite != null && _spritesCurrent[renderer].name != renderer.sprite.name)
+                _spritesCurrent[renderer] = renderer.sprite;
+            
+            //get a clean input texture
+            Texture2D inputTex = _spritesCurrent[renderer].texture;
+            Rect textureRect = _spritesCurrent[renderer].rect;
 
             //create an output texture
             RenderTexture tempRT = RenderTexture.GetTemporary(inputTex.width, inputTex.height, 0, RenderTextureFormat.ARGB64);
@@ -74,7 +79,6 @@ public class MaterialManager : MonoBehaviour
             Sprite newSprite = Sprite.Create(outputTex, textureRect, new Vector2(pivot.x / textureRect.width, pivot.y / textureRect.height), renderer.sprite.pixelsPerUnit);
             newSprite.name = renderer.sprite.name;
             renderer.sprite = newSprite;
-            _sprites[renderer] = renderer.sprite;
 
         }
     }
@@ -82,7 +86,7 @@ public class MaterialManager : MonoBehaviour
     {
         _renderers.Add(renderer);
         _defaultMaterials.Add(renderer, renderer.material);
-        _sprites.Add(renderer, null);
+        _spritesCurrent.Add(renderer, null);
     }
     public void CleanRenderers()
     {
