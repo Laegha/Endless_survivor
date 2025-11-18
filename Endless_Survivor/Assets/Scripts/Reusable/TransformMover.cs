@@ -10,17 +10,21 @@ public class TransformMover
     public float distance;
     public float speed;
     public Transform movedTr;
+    public Transform destinationTarget;
     public Action onDistanceReached;
     float _lapsedDistance = 0;
+    Vector2 _previousPos;
 
-    public TransformMover(string id, Vector2 direction, float distance, float speed, Transform movedTr, Action onDistanceReached)
+    public TransformMover(string id, Vector2 direction, float distance, float speed, Transform movedTr, Transform destinationTarget, Action onDistanceReached)
     {
         this.id = id;
         this.direction = direction;
         this.distance = distance;
         this.speed = speed;
         this.movedTr = movedTr;
+        this.destinationTarget = destinationTarget;
         this.onDistanceReached = onDistanceReached;
+        _previousPos = movedTr.position;
     }
 
     public void Update()

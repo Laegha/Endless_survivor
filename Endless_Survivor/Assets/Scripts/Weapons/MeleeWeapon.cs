@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -49,12 +50,12 @@ public class MeleeWeapon : Weapon
             CreateMeleeAttack();
             return;
         }
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
-        Vector2 enemyPos = hit.point;
+
+        Vector2 enemyPos = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
         Vector2 handMovement = enemyPos - (Vector2)_hand.position;
         PauseAttackCooldown();
         float dist = handMovement.magnitude /*- (_meleeData.IsCircle ? _meleeData.CircleRadius : _meleeData.BoxSize.y) * _handStopDistFactor*/;
-        TransformMover attackTrMover = new("Attack", handMovement.normalized, dist, _handSpeed, _hand, PlayAttackAnimation);
+        TransformMover attackTrMover = new("Attack", handMovement.normalized, dist, _handSpeed, _hand, WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform, PlayAttackAnimation);
         _currHandMover = attackTrMover;
     }
 
@@ -68,7 +69,18 @@ public class MeleeWeapon : Weapon
         CreateMeleeAttack();
 
         _currHandMover = null;
-        GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => this == null); 
+        GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => this == null);
+        StartCoroutine(StuckHandInAttackPos(_hand.position, attackAnimDuration));
+    }
+    IEnumerator StuckHandInAttackPos(Vector2 attackPos, float attackDuration)
+    {
+        float lapsedTime = 0;
+        while(lapsedTime < attackDuration)
+        {
+            yield return null;
+            lapsedTime += Time.deltaTime;
+            _hand.position = attackPos;
+        }
     }
     void CreateMeleeAttack()
     {
@@ -87,12 +99,13 @@ public class MeleeWeapon : Weapon
     {
         UnPauseAttackCooldown();
         Vector2 returnVector = _originalHandLocalPos - (Vector2)_hand.localPosition;
-        TransformMover returnMover = new("Return", returnVector.normalized, returnVector.magnitude, _handSpeed, _hand, () => { _hand.localPosition = _originalHandLocalPos; _currHandMover = null; });
+        TransformMover returnMover = new("Return", returnVector.normalized, returnVector.magnitude, _handSpeed, _hand, null, () => { _hand.localPosition = _originalHandLocalPos; _currHandMover = null; });
         _currHandMover = returnMover;
     }
     void UpdateMoverDist()
     {
-        var newPoint = Physics2D.Raycast(transform.position, _currHandMover.direction, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).point;
+        var objsInDir = Physics2D.RaycastAll(transform.position, _currHandMover.direction, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
+        var newPoint = objsInDir.Find(x => x.collider.transform == _currHandMover.destinationTarget).point;
         var newDist = newPoint - (Vector2)_hand.position;
         _currHandMover.distance = newDist.magnitude;
     }
