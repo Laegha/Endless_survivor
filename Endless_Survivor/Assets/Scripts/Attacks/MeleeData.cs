@@ -10,6 +10,7 @@ public class MeleeData
     [SerializeField] float _attackCircleRadius;
     [Header("Use if not IsCircle")]
     [SerializeField] Vector2 _attackBoxSize;
+    [Header("")]
     [SerializeField] Vector2 _attackOffset;
     [SerializeField] CustomAnimation _attackVfxAnimation;
     [SerializeField] int _damageFrame;
