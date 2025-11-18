@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
 [System.Serializable]
 public class WeaponStats
@@ -14,6 +13,7 @@ public class WeaponStats
     [SerializeField] float _attackSpeed;
     [SerializeField] int _damage;
     [SerializeField] float _knockback;
+    System.Action _onStatsIncrease;
     int _trueLevel;
     int _inducedLevel = 0;
 
@@ -21,6 +21,7 @@ public class WeaponStats
     public float AttackSpeed { get { return _attackSpeed; } }
     public int Damage { get { return _damage; } }
     public float Knockback { get { return _knockback; } }
+    public System.Action OnStatIncrease {  get { return _onStatsIncrease; } set { _onStatsIncrease = value; }}
     public int TrueLevel { get { return _trueLevel; } }
     public int InducedLevel { get { return _inducedLevel; } }
 
@@ -45,11 +46,12 @@ public class WeaponStats
     public void InducedLevelUp(WeaponStats statsScaling)
     {
         _inducedLevel++;
-        _range += GetInducedStatIncrease(statsScaling.Range, _trueLevel + _inducedLevel, _range, _rangeStatVariation);
-        _attackSpeed += (int)GetInducedStatIncrease(statsScaling.AttackSpeed, _trueLevel + _inducedLevel, _attackSpeed, _atkSpeedStatVariation);
-        _damage += (int)GetInducedStatIncrease(statsScaling.Damage, _trueLevel + _inducedLevel, _damage, _damageStatVariation);
+        var rangeIncrease = GetInducedStatIncrease(statsScaling.Range, _trueLevel + _inducedLevel, _range, _rangeStatVariation);
+        var attackSpeedIncrease = (int)GetInducedStatIncrease(statsScaling.AttackSpeed, _trueLevel + _inducedLevel, _attackSpeed, _atkSpeedStatVariation);
+        var damageIncrease = (int)GetInducedStatIncrease(statsScaling.Damage, _trueLevel + _inducedLevel, _damage, _damageStatVariation);
+        StatIncrease(rangeIncrease, attackSpeedIncrease, damageIncrease, 0);
     }
-    public void TemporalStatIncrease(float range, float attackSpeed, int damage, float knockback)
+    public void StatIncrease(float range, float attackSpeed, int damage, float knockback)
     {
         _range += range;
         _attackSpeed += attackSpeed;
@@ -60,9 +62,9 @@ public class WeaponStats
     public void TemporalStatIncrease(WeaponStats statIncrease, bool invertStats = false)
     {
         if(!invertStats)
-            TemporalStatIncrease(statIncrease.Range, statIncrease.AttackSpeed, statIncrease.Damage, statIncrease.Knockback);
+            StatIncrease(statIncrease.Range, statIncrease.AttackSpeed, statIncrease.Damage, statIncrease.Knockback);
         else
-            TemporalStatIncrease(-statIncrease.Range, -statIncrease.AttackSpeed, -statIncrease.Damage, -statIncrease.Knockback);
+            StatIncrease(-statIncrease.Range, -statIncrease.AttackSpeed, -statIncrease.Damage, -statIncrease.Knockback);
     }
     float GetTrueStatIncrease(float increaseScale, int level, float baseStat, float variation)
     {
