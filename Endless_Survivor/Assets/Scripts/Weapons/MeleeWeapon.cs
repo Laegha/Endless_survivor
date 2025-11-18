@@ -11,8 +11,19 @@ public class MeleeWeapon : Weapon
     Vector2 _originalHandLocalPos;
     MeleeData _meleeData;
 
+    float _weaponStopDist
+    {
+        get
+        {
+            if (_meleeData.IsCircle)
+                return _meleeData.CircleRadius * _handStopDistFactor;
+            else
+                return Mathf.Min(_meleeData.BoxSize.x, _meleeData.BoxSize.y) * _handStopDistFactor;
+        }
+    }
+
     readonly static float _handSpeed = 15;
-    readonly static float _handStopDistFactor = .5f;
+    readonly static float _handStopDistFactor = .7f;
 
     public MeleeData MeleeData { set { _meleeData = value; } }
     public override void Start()
@@ -54,7 +65,7 @@ public class MeleeWeapon : Weapon
         Vector2 enemyPos = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
         Vector2 handMovement = enemyPos - (Vector2)_hand.position;
         PauseAttackCooldown();
-        float dist = handMovement.magnitude /*- (_meleeData.IsCircle ? _meleeData.CircleRadius : _meleeData.BoxSize.y) * _handStopDistFactor*/;
+        float dist = handMovement.magnitude - _weaponStopDist /*- (_meleeData.IsCircle ? _meleeData.CircleRadius : _meleeData.BoxSize.y) * _handStopDistFactor*/;
         TransformMover attackTrMover = new("Attack", handMovement.normalized, dist, _handSpeed, _hand, WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform, PlayAttackAnimation);
         _currHandMover = attackTrMover;
     }
@@ -104,10 +115,12 @@ public class MeleeWeapon : Weapon
     }
     void UpdateMoverDist()
     {
-        var objsInDir = Physics2D.RaycastAll(transform.position, _currHandMover.direction, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
+        var newDir = (_currHandMover.destinationTarget.position - _hand.position).normalized;
+        var objsInDir = Physics2D.RaycastAll(transform.position, newDir, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
         var newPoint = objsInDir.Find(x => x.collider.transform == _currHandMover.destinationTarget).point;
         var newDist = (newPoint - (Vector2)_hand.position).magnitude + _currHandMover.lapsedDistance;
-        _currHandMover.distance = newDist;
+        _currHandMover.distance = newDist - _weaponStopDist;
+        _currHandMover.direction = newDir;
     }
 }
 
