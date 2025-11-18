@@ -64,18 +64,6 @@ public class MeleeAttackBehaviour : EnemyBehaviour
 
         EnemyControl.Animator.AddAnimations(new List<CustomAnimation> { _enemyAttackAnimation });
     }
-    public override void PassiveUpdate()
-    {
-        base.PassiveUpdate();
-        if (IsActive)
-            return;
-        float distToPlayer = Vector2.Distance(EnemyControl.transform.position, _player.position);
-        if (distToPlayer < _attackRange)
-        {
-            EnemyControl.BehaviourManager.ActivateBehaviour(this);
-        }
-
-    }
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
@@ -110,7 +98,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         //trigger an animation
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(_attackDirection * _attackRange + (Vector2)_enemy.position, _attackRadius);
 
-        foreach(Collider2D collider in hitColliders)
+        foreach (Collider2D collider in hitColliders)
         {
             if(collider.CompareTag("Player"))
             {
@@ -122,6 +110,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
     public override void KillBehaviour()
     {
         base.KillBehaviour();
+        EnemyControl.Animator.EndAnimation(_enemyAttackAnimation);
         _attacked = false;
     }
 }
