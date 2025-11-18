@@ -18,8 +18,8 @@ public class PassiveItemPickupData : PickupData
     {
         var availableItems = await UnlockmentsManager.UnlockedPassiveItems();
         //if (_itemPools != CustomFlags.IPassiveItemPool.None)
-            //availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
-            if(availableItems.Count == 0)
+        //availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
+        if (availableItems.Count == 0)
             Application.Quit();
         var pickupPassiveItem = availableItems[Random.Range(0, availableItems.Count)];//get a random passive
         pickupControl.Pickup.AddVariable(_itemVariableKey, pickupPassiveItem);
