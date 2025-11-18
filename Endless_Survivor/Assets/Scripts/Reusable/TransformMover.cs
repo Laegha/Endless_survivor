@@ -12,7 +12,7 @@ public class TransformMover
     public Transform movedTr;
     public Transform destinationTarget;
     public Action onDistanceReached;
-    float _lapsedDistance = 0;
+    public float lapsedDistance = 0;
     Vector2 _previousPos;
 
     public TransformMover(string id, Vector2 direction, float distance, float speed, Transform movedTr, Transform destinationTarget, Action onDistanceReached)
@@ -32,8 +32,8 @@ public class TransformMover
         Vector2 deltaMovement = direction * speed * Time.deltaTime;
         movedTr.Translate(deltaMovement);
 
-        _lapsedDistance += deltaMovement.magnitude;
-        if(_lapsedDistance >= distance)
+        lapsedDistance += deltaMovement.magnitude;
+        if(lapsedDistance >= distance)
             onDistanceReached?.Invoke();
     }
 }

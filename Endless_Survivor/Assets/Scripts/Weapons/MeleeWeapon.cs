@@ -106,8 +106,8 @@ public class MeleeWeapon : Weapon
     {
         var objsInDir = Physics2D.RaycastAll(transform.position, _currHandMover.direction, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
         var newPoint = objsInDir.Find(x => x.collider.transform == _currHandMover.destinationTarget).point;
-        var newDist = newPoint - (Vector2)_hand.position;
-        _currHandMover.distance = newDist.magnitude;
+        var newDist = (newPoint - (Vector2)_hand.position).magnitude + _currHandMover.lapsedDistance;
+        _currHandMover.distance = newDist;
     }
 }
 
