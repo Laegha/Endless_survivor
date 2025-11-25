@@ -130,4 +130,31 @@ public static class Utility
         objs.Sort(new ObjectDistComparer(comparingTo));
         return objs;
     }
+    public static Vector3 TouchPosition()
+    {
+        Vector3 Return = Vector3.zero;
+
+#if UNITY_IOS || UNITY_ANDROID && !UNITY_EDITOR
+            Return = Input.GetTouch(0).position;
+#else
+            Return = Input.mousePosition;
+#endif
+        return Return;
+    }
+    public static Vector2 ScreenSize { get { return new Vector2(Screen.width, Screen.height); } }
+    public static Vector2 CanvasSize { 
+        get 
+        {
+            RectTransform canvasTr = GameObject.FindObjectOfType<Canvas>().GetComponent<RectTransform>();
+            return new Vector2(canvasTr.rect.width, canvasTr.rect.height); 
+        }
+    }
+    public static Vector2 ScreenToCanvas(Vector2 screenPos)
+    {
+        Vector2 canvasSize = CanvasSize;
+        float x = screenPos.x / Screen.width * canvasSize.x;
+        float y = screenPos.y / Screen.height * canvasSize.y;
+
+        return new Vector2(x, y);
+    }
 }
