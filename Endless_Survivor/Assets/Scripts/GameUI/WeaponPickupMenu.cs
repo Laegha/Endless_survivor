@@ -11,6 +11,7 @@ public class WeaponPickupMenu : MonoBehaviour
     [SerializeField] GameObject _newWeaponIndicator;
     [SerializeField] Image _weaponImage;
     [SerializeField] RectTransform _weaponImageTargetSize;
+    [SerializeField] TextMeshProUGUI _weaponName;
     [SerializeField] TextMeshProUGUI _weaponLevelDisplay;
     [SerializeField] TextMeshProUGUI _weaponDmgDisplay;
     [SerializeField] TextMeshProUGUI _weaponAtkSpdDisplay;
@@ -31,6 +32,7 @@ public class WeaponPickupMenu : MonoBehaviour
         _menuGfx.SetActive(true);
         GameUIManager.uiManager.MenuDisplayed();
 
+        _onMenuOpen?.Invoke();
         SetMenuWeapon(displayingWeapon, isNew);
 
     }
@@ -76,7 +78,7 @@ public class WeaponPickupMenu : MonoBehaviour
         _currWeaponStats = new WeaponStats(_currDisplayingWeapon.WeaponStats);
         _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, ScalingFunctions.CurrWaveLevel);
 
-
+        _weaponName.text = _currDisplayingWeapon.WeaponName;
         _weaponLevelDisplay.text = _currWeaponStats.TrueLevel + "";
         _weaponDmgDisplay.text = _currWeaponStats.Damage + "";
         _weaponAtkSpdDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.AttackSpeed, 2) + "";

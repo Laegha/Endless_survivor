@@ -20,6 +20,7 @@ public class PassiveItemPickupMenu : MonoBehaviour
     {
         _menuGfx.SetActive(true);
         GameUIManager.uiManager.MenuDisplayed();
+        _onMenuOpen?.Invoke();
         SetItemMenu(pickingItem, isNew);
 
     }
