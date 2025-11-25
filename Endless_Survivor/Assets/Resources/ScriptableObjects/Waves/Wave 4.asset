@@ -15,10 +15,10 @@ MonoBehaviour:
   _waveEnemies:
   - enemyData: {fileID: 11400000, guid: 3a669a4d6a238bb4392827043fb7f076, type: 2}
     _minSpawnCount: 0
-    _enemyPoolWeight: 5
+    _enemyPoolWeight: 1
   - enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
     _minSpawnCount: 0
-    _enemyPoolWeight: 1
+    _enemyPoolWeight: 4
   _enemyCount:
     min: 12
     max: 24

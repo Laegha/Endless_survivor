@@ -24,8 +24,7 @@ MonoBehaviour:
     _attackSpeed: 2
     _damage: 2
     _knockback: 0
-  _attackEffects:
-  - {fileID: 11400000, guid: 00d91aebd6e4e584280b5bf782261db5, type: 2}
+  _attackEffects: []
   _weaponTags: 010000000300000004000000
   _weaponPools: -1
   _weaponDataTransferInterface:
@@ -35,6 +34,7 @@ MonoBehaviour:
     _frames:
     - {fileID: -221434982, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     _framesPerSecond: 1
+    _endAnimationOnEnd: 0
     _priority: 0
   _attackAnimation:
     _animationName: Attack
@@ -44,6 +44,7 @@ MonoBehaviour:
     - {fileID: 2097127425, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     - {fileID: -1650684103, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
     _framesPerSecond: 8
+    _endAnimationOnEnd: 0
     _priority: 0
     _exitAnimationName: Idle
   _randomIdleAnimations: []

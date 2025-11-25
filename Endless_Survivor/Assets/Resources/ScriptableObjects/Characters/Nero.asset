@@ -26,6 +26,7 @@ MonoBehaviour:
   _playerStats:
     _initialHP: 12
     _hpIncrement: 5
+    _hpRegeneration: 0
     _speed: 5
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
@@ -38,6 +39,7 @@ MonoBehaviour:
     - {fileID: -149709616, guid: a9a9f676a479f4942abfc2d267d1d8de, type: 3}
     - {fileID: 1273606842, guid: a9a9f676a479f4942abfc2d267d1d8de, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _frontMoving:
     _animationName: FrontMove
@@ -51,6 +53,7 @@ MonoBehaviour:
     - {fileID: -665173920, guid: 25a5cb18fe259f442a2cc92e60c1475d, type: 3}
     - {fileID: 1902648872, guid: 25a5cb18fe259f442a2cc92e60c1475d, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _rightMoving:
     _animationName: RightMove
@@ -64,6 +67,7 @@ MonoBehaviour:
     - {fileID: -1074529906, guid: 573138c4f4a9e20458d1d9bccaa8283e, type: 3}
     - {fileID: 1148286501, guid: 573138c4f4a9e20458d1d9bccaa8283e, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _backMoving:
     _animationName: BackMove
@@ -77,6 +81,7 @@ MonoBehaviour:
     - {fileID: -358932815, guid: 6167550c4c51a7d4e8fd53dd6793ed21, type: 3}
     - {fileID: 1170216899, guid: 6167550c4c51a7d4e8fd53dd6793ed21, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _leftMoving:
     _animationName: LeftMove
@@ -90,6 +95,7 @@ MonoBehaviour:
     - {fileID: 376755258, guid: 6f5cd173fe744ae4ca64591343aede22, type: 3}
     - {fileID: -1820432632, guid: 6f5cd173fe744ae4ca64591343aede22, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _onHitSound:
     _sound: {fileID: 0}

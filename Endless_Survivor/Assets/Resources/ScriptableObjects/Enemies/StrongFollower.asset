@@ -25,9 +25,9 @@ MonoBehaviour:
   - rid: 3410740468448755712
   _dropablePickupChances:
   - _pickupData: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
-    _chance: 0
+    _chance: 10
   - _pickupData: {fileID: 11400000, guid: b81cd9ee6d834c940924b0e437b666c7, type: 2}
-    _chance: 100
+    _chance: 10
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
           - {fileID: -1087541958, guid: ea1e321c2790a0544a548baca2059522, type: 3}
           - {fileID: 204996936, guid: ea1e321c2790a0544a548baca2059522, type: 3}
           _framesPerSecond: 16
-          _loopAnimation: 0
+          _endAnimationOnEnd: 0
           _priority: 0
     - rid: 2600434731462950913
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
