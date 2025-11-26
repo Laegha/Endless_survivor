@@ -157,4 +157,34 @@ public static class Utility
 
         return new Vector2(x, y);
     }
+
+    public static T GetRouletteElement<T>(List<RouletteElementChance<T>> selectableElements)
+    {
+        Dictionary<RouletteElementKey<T>, int> rouletteElements = new Dictionary<RouletteElementKey<T>, int>();// WE USE RouletteElementKey IN CASE RouletteElementChance.element is null, therefore it can't be added as a dict key
+        //PickupDataKey nullPickupData = new PickupDataKey(null);
+        //possiblePickups.Add(nullPickupData, 100);
+        foreach (var element in selectableElements)
+        {
+            //possiblePickups[nullPickupData] = Mathf.Clamp(possiblePickups[nullPickupData] - dropablePickupChance.Chance, 0, 100);
+            rouletteElements.Add(new(element.Element), element.Chance);
+        }
+        Roulette<RouletteElementKey<T>> roulette = new Roulette<RouletteElementKey<T>>(rouletteElements);
+        T resultElement = roulette.Spin().element;
+        return resultElement;
+    }
+    public static T GetRouletteElementWithNullChance<T>(List<RouletteElementChance<T>> selectableElements) where T : class
+    {
+        List<RouletteElementChance<T>> possibleElements = new List<RouletteElementChance<T>>();
+        int nullChance = 100;
+        foreach (var dropablePickup in selectableElements)
+        {
+            nullChance -= dropablePickup.Chance;
+            possibleElements.Add(dropablePickup);
+
+        }
+        possibleElements.Add(new(null, nullChance));
+
+        var resultPickup = GetRouletteElement(possibleElements);
+        return resultPickup;
+    }
 }
