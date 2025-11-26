@@ -81,17 +81,17 @@ public class EnemyDataEditor : Editor
 
         //EditorGUILayout.PropertyField(_dropablePickupChances);
         EditorGUILayout.LabelField("Pickups dropped on death");
-        PickupDataChance removedDataChance = null;
+        RouletteElementChance<PickupData> removedDataChance = null;
         for (int i = 0; i < enemyData.DropablePickupChances.Count; i++)
         {
             var pickupChance = enemyData.DropablePickupChances[i];
 
-            string pickupLabel = pickupChance.PickupData == null ? "Undefined pickup" : pickupChance.PickupData.name;
+            string pickupLabel = pickupChance.Element == null ? "Undefined pickup" : pickupChance.Element.name;
             GUILayout.Label(pickupLabel, EditorStyles.boldLabel);
 
             EditorGUI.indentLevel++;
             SerializedProperty pickupProperty = _dropablePickupChances.GetArrayElementAtIndex(i);
-            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_pickupData"));
+            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_element"));
             SerializedProperty chanceProperty = pickupProperty.FindPropertyRelative("_chance");
             EditorGUILayout.BeginHorizontal();
             int maxPercentage = 100;
@@ -115,7 +115,7 @@ public class EnemyDataEditor : Editor
             enemyData.DropablePickupChances.Remove(removedDataChance);
         if (GUILayout.Button("Add dropable pickup"))
         {
-            enemyData.DropablePickupChances.Add(new PickupDataChance());
+            enemyData.DropablePickupChances.Add(new RouletteElementChance<PickupData>(null, 0));
         }
 
     }

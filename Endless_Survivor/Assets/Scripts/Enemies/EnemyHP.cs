@@ -7,7 +7,7 @@ public class EnemyHP : HP
 {
     float _knockbackResistance;
 
-    List<PickupDataChance> _dropablePickupsChances;
+    List<RouletteElementChance<PickupData>> _dropablePickupsChances;
     [SerializeField] float _damagedFlashingTime = 1.5f;
     [SerializeField] EnemyControl _enemyControl;
     float _damagedFlashingTimer;
@@ -19,7 +19,7 @@ public class EnemyHP : HP
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
     public float KnockbackResistance { set { _knockbackResistance = value; } }  
-    public List<PickupDataChance> DropablePickupChances { set { _dropablePickupsChances = value; } }
+    public List<RouletteElementChance<PickupData>> DropablePickupChances { set { _dropablePickupsChances = value; } }
     private void Start()
     {
         _damagedFlashing = new SpriteMaterialFlashing(_enemyControl.MaterialManager, _damagedFlashingRate, new MaterialOverride(_flashingMaterialAuthority, _damagedFlashingMaterial));
@@ -66,28 +66,10 @@ public class EnemyHP : HP
     }
     void InstantiatePickup()
     {
-        Dictionary<PickupDataKey, int> possiblePickups = new Dictionary<PickupDataKey, int>();
-        PickupDataKey nullPickupData = new PickupDataKey(null);
-        possiblePickups.Add(nullPickupData, 100);
-        foreach (var dropablePickupChance in _dropablePickupsChances)
-        {
-            possiblePickups[nullPickupData] = Mathf.Clamp(possiblePickups[nullPickupData] - dropablePickupChance.Chance, 0, 100);
-            possiblePickups.Add(new PickupDataKey(dropablePickupChance.PickupData), dropablePickupChance.Chance);
-        }
-        Roulette<PickupDataKey> pickupRoulette = new Roulette<PickupDataKey>(possiblePickups);
-        PickupDataKey resultPickup = pickupRoulette.Spin();
-        if (resultPickup.pickupData == null)
+        var resultPickup = Utility.GetRouletteElementWithNullChance(_dropablePickupsChances);
+        if (resultPickup == null)
             return;
         GameObject newPickup = Instantiate(GameManager.gm.prefabHolder.Prefabs["Pickup"], transform.position, Quaternion.identity);
-        resultPickup.pickupData.TransferData(newPickup.GetComponent<PickupControl>());
-    }
-}
-
-class PickupDataKey
-{
-    public PickupData pickupData;
-    public PickupDataKey(PickupData data)
-    {
-        this.pickupData = data;
+        resultPickup.TransferData(newPickup.GetComponent<PickupControl>());
     }
 }

@@ -17,7 +17,7 @@ public class Roulette<T>
             for(int i = lastElementEnd; i < lastElementEnd + element.Value; i++)
                 elementNumbers.Add(i);
 
-            _roulette.Add(new RouletteElement<T>(element.Key, lastElementEnd, lastElementEnd + element.Value, elementNumbers));
+            _roulette.Add(new RouletteElement<T>(element.Key, elementNumbers));
             lastElementEnd += element.Value;
         }
         _rouletteTotalWeight = lastElementEnd;
@@ -35,15 +35,11 @@ public class Roulette<T>
 public class RouletteElement<T>
 {
     public T key;
-    public int minValue;
-    public int maxValue;
     public List<int> luckyNumbers;
 
-    public RouletteElement(T key, int minValue, int maxValue, List<int> luckyNumbers)
+    public RouletteElement(T key, List<int> luckyNumbers)
     {
         this.key = key;
-        this.minValue = minValue;
-        this.maxValue = maxValue;
         this.luckyNumbers = luckyNumbers;
     }
 }
