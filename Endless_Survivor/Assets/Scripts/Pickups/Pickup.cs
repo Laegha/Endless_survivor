@@ -40,7 +40,11 @@ public class Pickup : MonoBehaviour
     {
         _pickupData.PickUp(_pickupControl);
         _instantiatedPickups.Remove(this);
-        Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        if (_instantiatedPickups.Contains(this))
+            _instantiatedPickups.Remove(this);
     }
 }
 

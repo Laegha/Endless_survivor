@@ -15,6 +15,8 @@ public class PickupData : ScriptableObject
 
         }
     }
+    public virtual void PickUp(PickupControl pickupControl)
+    {
+        Destroy(pickupControl.gameObject);
     }
-    public virtual void PickUp(PickupControl pickupControl) { }
 }
