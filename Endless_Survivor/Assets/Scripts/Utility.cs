@@ -187,4 +187,10 @@ public static class Utility
         var resultPickup = GetRouletteElement(possibleElements);
         return resultPickup;
     }
+    public static PickupControl GeneratePickup(PickupData generatedPickup, Vector2 pickupPosition)
+    {
+        PickupControl newPickup = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Pickup"], pickupPosition, Quaternion.identity).GetComponent<PickupControl>();
+        generatedPickup.TransferData(newPickup);
+        return newPickup;
+    }
 }
