@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class SupportObjectDataEditor : Editor
 {
     SerializedProperty _idleAnimation;
     SerializedProperty _supportObjColliders;
-    Dictionary<Type, bool> _behaviourTypes = new();
+    Dictionary<Type, int> _behaviourTypes = new();
 
     private void OnEnable()
     {
@@ -17,7 +18,7 @@ public class SupportObjectDataEditor : Editor
         _supportObjColliders = serializedObject.FindProperty("_supportObjColliders");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(SupportObjectBehaviour));
         SupportObjectData supportObjectData = (SupportObjectData)target;
-        behaviourTypes.ForEach(type => _behaviourTypes.Add(type, supportObjectData.SupportObjBehaviours.Exists(behaviour => behaviour.GetType() == type)));
+        behaviourTypes.ForEach(type => _behaviourTypes.Add(type, supportObjectData.SupportObjBehaviours.Where(behaviour => behaviour.GetType() == type).Count()));
         supportObjectData.SupportObjBehaviours.RemoveAll(behaviour => behaviour == null);
     }
     public override void OnInspectorGUI()
@@ -52,15 +53,15 @@ public class SupportObjectDataEditor : Editor
             GenericMenu menu = new GenericMenu();
             foreach (var type in _behaviourTypes)
             {
-                var isTypeUsable = type.Key.GetProperty("isUsable", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-                if (type.Value || isTypeUsable == null || !(bool)isTypeUsable.GetValue(null))
+                var typeMaxStacks = type.Key.GetProperty("maxStacks", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                if (typeMaxStacks == null || type.Value >= (int)typeMaxStacks.GetValue(null) && (int)typeMaxStacks.GetValue(null) >= 0)
                     continue;
 
                 menu.AddItem(new GUIContent(type.Key.Name), false, () =>
                 {
                     SupportObjectBehaviour newBehaviour = (SupportObjectBehaviour)Activator.CreateInstance(type.Key);
                     supportObjData.SupportObjBehaviours.Add(newBehaviour);
-                    _behaviourTypes[type.Key] = true;
+                    _behaviourTypes[type.Key]++;
                     EditorUtility.SetDirty(supportObjData);
                 });
             }
@@ -74,7 +75,7 @@ public class SupportObjectDataEditor : Editor
                 menu.AddItem(new GUIContent(behaviour.GetType().Name), false, () =>
                 {
                     supportObjData.SupportObjBehaviours.Remove(behaviour);
-                    _behaviourTypes[behaviour.GetType()] = false;
+                    _behaviourTypes[behaviour.GetType()]--;
                     EditorUtility.SetDirty(supportObjData);
                 });
             }

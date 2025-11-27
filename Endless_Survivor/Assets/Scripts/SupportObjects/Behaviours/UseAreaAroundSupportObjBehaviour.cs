@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UseAreaAroundSupportObjBehaviour : SupportObjectBehaviour
 {
-    new public static bool isUsable => false;
+    new public static int maxStacks => 0;
     [SerializeField] string _areaName = "AreaIdentifier";
     CheckAreaAroundSupportObjBehaviour _checkAreaBehaviour;
 

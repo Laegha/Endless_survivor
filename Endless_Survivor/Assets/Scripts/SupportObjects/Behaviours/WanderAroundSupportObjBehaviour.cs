@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => 1;
     [SerializeField] RandomBetweenTwoConstants _movementSpeed;
     [SerializeField] RandomBetweenTwoConstants _movementDistance;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenMovements;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuffAttacksAroundAreaSupportObjBehaviour : UseAreaAroundSupportObjBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
     [SerializeField] float _attackDamageMultiplierIncrease = 2;
     //[SerializeField] AttackGfxInterface _attackGfxChange;
     [SerializeField] GameObject _buffedAttackGfxIndicatorPrefab;

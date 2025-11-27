@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class SupportObjectBehaviour
 {
-    public static bool isUsable = false;
+    public static int maxStacks = 0;
     SupportObjectControl _supportObjControl;
 
     Action _onStart;
