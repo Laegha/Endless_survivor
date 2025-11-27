@@ -15,9 +15,11 @@ public class EnemyHP : HP
     [SerializeField] Material _damagedFlashingMaterial;
     static readonly int _flashingMaterialAuthority = 5;
     SpriteMaterialFlashing _damagedFlashing;
+    Action<EnemyControl> _onDeath;
 
     SFXInfo _onHitSound;
     SFXInfo _onDeathSound;
+    public Action<EnemyControl> OnDeath { get { return _onDeath; } set { _onDeath = value; } }
     public float KnockbackResistance { set { _knockbackResistance = value; } }  
     public List<RouletteElementChance<PickupData>> DropablePickupChances { set { _dropablePickupsChances = value; } }
     private void Start()
@@ -59,6 +61,7 @@ public class EnemyHP : HP
     {
         _enemyControl.StatusEffectManager.OnKilled();
         WaveManager.wm.EnemyKilled(gameObject);
+        _onDeath?.Invoke(_enemyControl);
         InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
         RunStatsManager.runStatsManager.EnemyKilled(_enemyControl);
@@ -69,7 +72,6 @@ public class EnemyHP : HP
         var resultPickup = Utility.GetRouletteElementWithNullChance(_dropablePickupsChances);
         if (resultPickup == null)
             return;
-        GameObject newPickup = Instantiate(GameManager.gm.prefabHolder.Prefabs["Pickup"], transform.position, Quaternion.identity);
-        resultPickup.TransferData(newPickup.GetComponent<PickupControl>());
+        Utility.GeneratePickup(resultPickup, transform.position);
     }
 }
