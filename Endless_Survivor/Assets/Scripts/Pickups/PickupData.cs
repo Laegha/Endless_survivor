@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PickupData : ScriptableObject
 {
+    [SerializeField] ParticleSystem _pickupParticles;
     public virtual void TransferData(PickupControl pickupControl)
     {
         pickupControl.Pickup.PickupData = this;
+        if(_pickupParticles != null)
+        {
+            var particleConfig = new ParticleConfig(_pickupParticles, pickupControl.transform.position, Quaternion.identity, -1, pickupControl.transform, true, true);
+            ParticleManager.pm.SpawnParticles(particleConfig);
+
+        }
+    }
     }
     public virtual void PickUp(PickupControl pickupControl) { }
 }
