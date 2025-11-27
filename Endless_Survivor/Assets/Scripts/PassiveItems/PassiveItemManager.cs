@@ -9,6 +9,7 @@ public class PassiveItemManager : MonoBehaviour
     private void Start()
     {
         PlayerControl.pc.PlayerHPManager.OnDamageTaken += PlayerDamaged;
+        WaveManager.wm.OnEnemySpawned += (enemyControl) => enemyControl.EnemyHP.OnDeath += EnemyKilled;
     }
     public void AddPassiveItem(PassiveItemData itemData)
     {
@@ -30,6 +31,10 @@ public class PassiveItemManager : MonoBehaviour
     {
         _passiveItems.ForEach(item => item.BehaviourManager.onPlayerDamaged?.Invoke());
 
+    }
+    void EnemyKilled(EnemyControl killedEnemy)
+    {
+        _passiveItems.ForEach(item => item.BehaviourManager.onEnemyKilled?.Invoke(killedEnemy));
     }
 
 }
