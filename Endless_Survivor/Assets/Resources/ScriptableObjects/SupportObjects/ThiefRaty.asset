@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: ThiefRaty
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1428375083982782464
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 2004564543, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 1
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1428375083982782464
+      type: {class: StealPickupsSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _moveSpeed: 2.5
+        _triggerStealDistance: 0.5
+        _startAnimation:
+          _animationName: LookAround
+          _frames:
+          - {fileID: 862832978, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: 439442230, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -697113601, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -481599250, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -1950051484, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -29812500, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: 1457690331, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: 386677459, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -1575978471, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -1964382642, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: 119125488, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: 1021603828, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -260675869, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -1886415798, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -1751937732, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: 2102890338, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -1834849940, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          - {fileID: -568292974, guid: 194f2d5aadd69384688320392042ed3c, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: 660747831, guid: e7430ef76510dac4a9e4e30b1c334c8f, type: 3}
+          - {fileID: 329300247, guid: e7430ef76510dac4a9e4e30b1c334c8f, type: 3}
+          - {fileID: 722229221, guid: e7430ef76510dac4a9e4e30b1c334c8f, type: 3}
+          - {fileID: -901964110, guid: e7430ef76510dac4a9e4e30b1c334c8f, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _stealAnimation:
+          _animationName: Steal
+          _frames:
+          - {fileID: 2004564543, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: 1240431037, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -1058192915, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -1084404254, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: 897131931, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -1666815733, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -474103961, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: 261110726, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -998846696, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: 817734897, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -820320611, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          - {fileID: -221021462, guid: f2fd2071a4c6340489684ec714db76c3, type: 3}
+          _framesPerSecond: 20
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _destroyPickupFrame: 8
+        _fleeAnimation:
+          _animationName: Flee
+          _frames:
+          - {fileID: 924265427, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: -984256925, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: 272903077, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: 742567027, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: 404560495, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: -326976173, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: -346731241, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: 1617232569, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: 1943048607, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: 597712342, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: -405328212, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          - {fileID: -329663042, guid: 01b7ec1b6142a524f93f3c4bc466a74e, type: 3}
+          _framesPerSecond: 14
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _failedTheftAnimation:
+          _animationName: FailedTheft
+          _frames:
+          - {fileID: -233679892, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          - {fileID: -1955774683, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          - {fileID: -2008280659, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          - {fileID: 1240951077, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          - {fileID: 1757291623, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          - {fileID: -1705591146, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          - {fileID: -1459545762, guid: 9c267ebd503e4de4baba426057411978, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
