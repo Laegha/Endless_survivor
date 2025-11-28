@@ -24,7 +24,7 @@ MonoBehaviour:
     - rid: 1428375083982782467
       type: {class: CreatePickupItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _dropChance: 100
+        _dropChance: 35
         _possiblePickups:
         - _element: {fileID: 11400000, guid: 86f4007f28d2a554abc0e1c14a1e8b66, type: 2}
           _chance: 1
