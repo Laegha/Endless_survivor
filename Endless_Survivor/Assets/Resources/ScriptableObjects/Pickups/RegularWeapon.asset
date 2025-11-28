@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f44d098b9383e74386571c64e7471a1, type: 3}
   m_Name: RegularWeapon
   m_EditorClassIdentifier: 
+  _pickupParticles: {fileID: 3854260980243891339, guid: b4d1270a86673844c80d19e794f8221b, type: 3}
+  _droppedWeaponPool: 0
