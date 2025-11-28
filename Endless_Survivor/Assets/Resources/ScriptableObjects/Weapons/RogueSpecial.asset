@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: RogueSpecial
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 98830a320715e27449c3c1082107f8a9, type: 3}
+  _weaponName: Rogue Special
+  _weaponStats:
+    _range: 10
+    _attackSpeed: 2.5
+    _damage: 7
+    _knockback: 5
+  _statsIncreaseScale:
+    _range: 1.5
+    _attackSpeed: 1
+    _damage: 1
+    _knockback: 0
+  _attackEffects: []
+  _weaponTags: 01000000
+  _weaponPools: 0
+  _weaponDataTransferInterface:
+    rid: 1428375083982782466
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 98830a320715e27449c3c1082107f8a9, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _attackAnimation:
+    _animationName: Attack
+    _frames:
+    - {fileID: -152904890, guid: 6c057d4d3adfd1544b7043db5aa588f3, type: 3}
+    - {fileID: 309936698, guid: 6c057d4d3adfd1544b7043db5aa588f3, type: 3}
+    - {fileID: -2041856182, guid: 6c057d4d3adfd1544b7043db5aa588f3, type: 3}
+    - {fileID: 1668659346, guid: 6c057d4d3adfd1544b7043db5aa588f3, type: 3}
+    - {fileID: 1879862034, guid: 6c057d4d3adfd1544b7043db5aa588f3, type: 3}
+    _framesPerSecond: 7
+    _endAnimationOnEnd: 1
+    _priority: 0
+    _exitAnimationName: Idle
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1428375083982782466
+      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+      data:
+        _firePointPosition: {x: 16, y: 7}
+        _defaultBulletData:
+          _proyectileSprite: {fileID: 21300000, guid: 5d5956a3d04c0694fb7522aafb58b4f2, type: 3}
+          _colliderSize: {x: 0.35, y: 0.23}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _proyectileSpeed: 7
+        _proyectileSpread: 5
