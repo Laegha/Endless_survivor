@@ -28,5 +28,15 @@
     "fileName": "Doomguy",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Isaac",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Pilot",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]

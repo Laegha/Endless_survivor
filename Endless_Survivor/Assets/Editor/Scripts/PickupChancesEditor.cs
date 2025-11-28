@@ -18,7 +18,6 @@ public class PickupChancesEditor : PropertyDrawer
         }
         PickupChances pickupChances = property.managedReferenceValue as PickupChances;
         SerializedProperty _dropablePickupChances = property.FindPropertyRelative("_dropablePickupChances");
-        Debug.Log(property.managedReferenceValue);
         //var pickupChances = new PickupChances();
         //EditorGUILayout.PropertyField(_dropablePickupChances);
         RouletteElementChance<PickupData> removedDataChance = null;
