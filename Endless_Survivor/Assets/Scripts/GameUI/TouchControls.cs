@@ -28,9 +28,8 @@ public class TouchControls : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             return;
         Vector2 touchPosInCanvas = Utility.ScreenToCanvas(currTouchPos - Utility.ScreenSize/2);
         Vector2 dragDistance = touchPosInCanvas - GetComponent<RectTransform>().anchoredPosition;
-        print(dragDistance.magnitude);
 
-        _currLine.AddVertex(dragDistance.magnitude > _dragDistanceDeadZone ? dragDistance.normalized * _dragDistanceDeadZone : touchPosInCanvas);
+        _currLine.AddVertex(dragDistance.magnitude > _dragDistanceDeadZone ? touchPosInCanvas : touchPosInCanvas);
         _draggingDirection = dragDirection;
         _previousTouchPos = currTouchPos;
     }
@@ -38,6 +37,9 @@ public class TouchControls : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         _draggingDirection = Vector2.zero;
         UILineDissapearAnimator uILineDissapearAnimator = _currLine.GetComponent<UILineDissapearAnimator>();
-        uILineDissapearAnimator.OnOneVertexLeft += () => Destroy(uILineDissapearAnimator.gameObject, _lineDestroyAfterReleaseDelay);
+        if (_currLine.LineVertices.Count == 1)
+            Destroy(uILineDissapearAnimator.gameObject, _lineDestroyAfterReleaseDelay);
+        else
+            uILineDissapearAnimator.OnOneVertexLeft += () => Destroy(uILineDissapearAnimator.gameObject, _lineDestroyAfterReleaseDelay);
     }
 }
