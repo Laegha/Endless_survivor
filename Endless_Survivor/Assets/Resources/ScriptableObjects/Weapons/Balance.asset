@@ -17,13 +17,13 @@ MonoBehaviour:
   _weaponStats:
     _range: 4
     _attackSpeed: 3
-    _damage: 1
+    _damage:
+      _damageAmmount: 0
+      _damageType: 0
     _knockback: 4
-  _statsIncreaseScale:
-    _range: 1
-    _attackSpeed: 2
-    _damage: 2
-    _knockback: 0
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 2
+  _damageIncrease: 2
   _attackEffects: []
   _weaponTags: 010000000300000004000000
   _weaponPools: -1

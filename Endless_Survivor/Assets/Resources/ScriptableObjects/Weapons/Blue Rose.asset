@@ -17,13 +17,13 @@ MonoBehaviour:
   _weaponStats:
     _range: 10
     _attackSpeed: 0.4
-    _damage: 4
+    _damage:
+      _damageAmmount: 0
+      _damageType: 0
     _knockback: 0
-  _statsIncreaseScale:
-    _range: 1
-    _attackSpeed: 0.5
-    _damage: 2
-    _knockback: 0
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0.5
+  _damageIncrease: 2
   _attackEffects:
   - {fileID: 11400000, guid: 5fa089420f13b7d4f877e7c6f3475d4b, type: 2}
   _weaponTags: 
@@ -35,6 +35,7 @@ MonoBehaviour:
     _frames:
     - {fileID: -378716513, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
     _framesPerSecond: 1
+    _endAnimationOnEnd: 0
     _priority: 0
   _attackAnimation:
     _animationName: Attack
@@ -46,6 +47,7 @@ MonoBehaviour:
     - {fileID: -1853842762, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
     - {fileID: 2130536008, guid: 265cf9d2b50b1424fb0f305d333272b1, type: 3}
     _framesPerSecond: 14
+    _endAnimationOnEnd: 0
     _priority: 0
     _exitAnimationName: Idle
   _randomIdleAnimations: []
