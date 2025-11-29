@@ -18,7 +18,7 @@ MonoBehaviour:
     _range: 6
     _attackSpeed: 1.2
     _damage:
-      _damageAmmount: 0
+      _damageAmmount: 3
       _damageType: 0
     _knockback: 6
   _rangeIncrease: 2

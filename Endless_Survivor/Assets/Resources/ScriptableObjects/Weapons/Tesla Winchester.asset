@@ -18,8 +18,8 @@ MonoBehaviour:
     _range: 10
     _attackSpeed: 0.8
     _damage:
-      _damageAmmount: 0
-      _damageType: 0
+      _damageAmmount: 8
+      _damageType: 32
     _knockback: 0
   _rangeIncrease: 2
   _attackSpeedIncrease: 0.7

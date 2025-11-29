@@ -6,17 +6,18 @@ using UnityEngine;
 [Serializable]
 public class DamageInfo
 {
+    [System.Flags]
     public enum DamageType
     {
-        None,
-        Normal,
-        Explosive,
-        Fire,
-        Poison,
-        Ice,
-        Electric,
-        Cutting,
-        Laser
+        None = 0,
+        Normal = 1 << 0,
+        Explosive = 1 << 1,
+        Fire = 1 << 2,
+        Poison = 1 << 3,
+        Ice = 1 << 4,
+        Electric = 1 << 5,
+        Cutting = 1 << 6,
+        Laser = 1 << 7
 
     }
     [SerializeField] float _damageAmmount;

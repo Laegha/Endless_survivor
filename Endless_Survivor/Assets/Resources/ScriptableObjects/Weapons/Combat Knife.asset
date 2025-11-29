@@ -18,11 +18,11 @@ MonoBehaviour:
     _range: 2.1
     _attackSpeed: 4
     _damage:
-      _damageAmmount: 0
-      _damageType: 0
+      _damageAmmount: 1
+      _damageType: 65
     _knockback: 0
   _rangeIncrease: 0
-  _attackSpeedIncrease: 4
+  _attackSpeedIncrease: 0.8
   _damageIncrease: 1
   _attackEffects: []
   _weaponTags: 000000000300000004000000

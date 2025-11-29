@@ -16,9 +16,9 @@ MonoBehaviour:
   _weaponName: Rogue Special
   _weaponStats:
     _range: 10
-    _attackSpeed: 2.5
+    _attackSpeed: 2
     _damage:
-      _damageAmmount: 0
+      _damageAmmount: 3
       _damageType: 0
     _knockback: 5
   _rangeIncrease: 1.5
