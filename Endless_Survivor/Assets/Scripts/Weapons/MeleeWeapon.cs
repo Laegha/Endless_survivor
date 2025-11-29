@@ -103,7 +103,7 @@ public class MeleeWeapon : Weapon
     void InitiateMelee(Attack attack)
     {
         var meleeAttack = attack as MeleeAttack;
-        meleeAttack.Attack(WeaponStats.Damage, WeaponStats.Knockback, _meleeData);
+        meleeAttack.Attack((int)WeaponStats.Damage.CalculatedDamage, WeaponStats.Knockback, _meleeData);
     }
 
     void ReturnToOriginalPos()

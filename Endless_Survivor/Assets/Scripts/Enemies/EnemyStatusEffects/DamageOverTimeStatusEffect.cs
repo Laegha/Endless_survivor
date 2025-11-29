@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageOverTimeStatusEffect : EndByTimeStatusEffect
 {
     new public static bool isUsable => true;
-    [SerializeField] int _damage = 1;
+    [SerializeField] DamageInfo _damage;
     [SerializeField] float _damageFrequency = .5f;
     float _damageTimer = 0;
     public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
@@ -23,7 +23,7 @@ public class DamageOverTimeStatusEffect : EndByTimeStatusEffect
         _damageTimer += Time.deltaTime;
         if(_damageTimer >= _damageFrequency)
         {
-            AffectedEnemyControl.EnemyHP.TakeDamage(_damage);
+            AffectedEnemyControl.EnemyHP.TakeDamage((int)_damage.CalculatedDamage);
             _damageTimer = 0;
         }
     }

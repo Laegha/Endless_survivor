@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     bool _inRange;
     bool _reduceCooldown = true;
     WeaponStats _weaponStats;
+    DamageInfo.DamageType _weaponDamageType;
     WeaponControl _weaponControl;
     WeaponData _weaponData;
     PlayerControl _playerControl;

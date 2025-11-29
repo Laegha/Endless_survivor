@@ -11,7 +11,9 @@ public class WeaponDataEditor : Editor
     SerializedProperty _weaponType;
     SerializedProperty _weaponTransfer;
     SerializedProperty _weaponStats;
-    SerializedProperty _statsIncreaseScale;
+    SerializedProperty _rangeIncreaseScale;
+    SerializedProperty _attackSpeedIncreaseScale;
+    SerializedProperty _damageIncreaseScale;
     SerializedProperty _weaponAttackEffects;
     SerializedProperty _weaponTags;
     SerializedProperty _weaponPools;
@@ -30,7 +32,11 @@ public class WeaponDataEditor : Editor
         _weaponType = serializedObject.FindProperty("_weaponType");
         _weaponTransfer = serializedObject.FindProperty("_weaponDataTransferInterface");
         _weaponStats = serializedObject.FindProperty("_weaponStats");
-        _statsIncreaseScale = serializedObject.FindProperty("_statsIncreaseScale");
+
+        _rangeIncreaseScale = serializedObject.FindProperty("_rangeIncrease");
+        _attackSpeedIncreaseScale = serializedObject.FindProperty("_attackSpeedIncrease");
+        _damageIncreaseScale = serializedObject.FindProperty("_damageIncrease");
+
         _weaponAttackEffects = serializedObject.FindProperty("_attackEffects");
         _weaponTags = serializedObject.FindProperty("_weaponTags");
         _weaponPools = serializedObject.FindProperty("_weaponPools");
@@ -77,8 +83,10 @@ public class WeaponDataEditor : Editor
         
         EditorGUILayout.LabelField("Base stats for the weapon", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_weaponStats);
-        EditorGUILayout.LabelField("Multipliers to the function that increases stats by weapon level. KNOCKBACK DOESN'T INCREASE so changing its multiplier is useless", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(_statsIncreaseScale);
+        EditorGUILayout.LabelField("Multipliers to the function that increases stats by weapon level.", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(_rangeIncreaseScale);
+        EditorGUILayout.PropertyField(_attackSpeedIncreaseScale);
+        EditorGUILayout.PropertyField(_damageIncreaseScale);
         EditorGUILayout.PropertyField(_weaponAttackEffects);
 
         EditorGUILayout.LabelField("Weapons with similar tags are more likely to spawn during runs", EditorStyles.boldLabel);

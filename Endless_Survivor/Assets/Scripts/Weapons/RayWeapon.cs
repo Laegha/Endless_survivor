@@ -25,7 +25,7 @@ public class RayWeapon : ShootingWeapon
     void InitiateLaser(Attack attack)
     {
         var rayAttack = attack as RayAttack;
-        rayAttack.Attack(WeaponStats.Damage, WeaponStats.Knockback, _rayData, FirePoint);
+        rayAttack.Attack((int)WeaponStats.Damage.CalculatedDamage, WeaponStats.Knockback, _rayData, FirePoint);
 
     }
 

@@ -50,7 +50,7 @@ public class ElectricHitAttackEffect : AttackEffect
     }
     void ZapEnemy(EnemyControl mainEnemy, EnemyControl zappedEnemy)
     {
-        zappedEnemy.EnemyHP.TakeDamage((int)(AffectedAttack.ParentWeapon.WeaponStats.Damage * _damageMultiplier));
+        zappedEnemy.EnemyHP.TakeDamage((int)(AffectedAttack.ParentWeapon.WeaponStats.Damage.CalculatedDamage * _damageMultiplier));
         var vfx = new GameObject("ElectricHitVFX");
         var lr = vfx.AddComponent<CustomLineRenderer>();
         //lr.SetLineData(, _zapVfxInterface.isVertical, _zapVfxInterface.tileSize);

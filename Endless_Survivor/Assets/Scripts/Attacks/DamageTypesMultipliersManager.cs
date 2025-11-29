@@ -1,0 +1,44 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class DamageTypesMultipliersManager : MonoBehaviour
+{
+    static DamageTypesMultipliersManager instance;
+    public static DamageTypesMultipliersManager DamageTypesManager
+    {
+        get
+        {
+            return instance;
+        }
+    }
+    Dictionary<DamageInfo.DamageType, float> _typesMultipliers;
+    public Dictionary<DamageInfo.DamageType, float> TypesMultipliers;
+
+    private void Awake()
+    {
+        instance = this;
+        foreach (var item in Enum.GetValues(typeof(DamageInfo.DamageType)))
+        {
+            var damageType = item.ConvertTo<DamageInfo.DamageType>();
+            _typesMultipliers.Add(damageType, 1);
+        }
+
+
+    }
+
+    public float GetMultipliers(DamageInfo.DamageType type)
+    {
+        float resultMultiplier = 0;
+        foreach(var typeMultiplier in _typesMultipliers)
+        {
+            if (!type.HasFlag(typeMultiplier.Key))
+                continue;
+            resultMultiplier *= typeMultiplier.Value;
+
+        }
+        return resultMultiplier;
+    }
+}

@@ -11,7 +11,9 @@ public class WeaponData : ScriptableObject
     [SerializeField] string _weaponName;
 
     [SerializeField] WeaponStats _weaponStats;
-    [SerializeField] WeaponStats _statsIncreaseScale;
+    [SerializeField] float _rangeIncrease;
+    [SerializeField] float _attackSpeedIncrease;
+    [SerializeField] float _damageIncrease;
     [SerializeField] AttackEffectData[] _attackEffects;
     [SerializeField] CustomFlags.IWeaponTag[] _weaponTags;
     [SerializeField] CustomFlags.IWeaponPool _weaponPools;
@@ -27,7 +29,7 @@ public class WeaponData : ScriptableObject
     public Sprite WeaponDisplaySprite { get { return _weaponDisplaySprite; } }
     public string WeaponName { get { return _weaponName; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } }
-    public WeaponStats StatsIncreaseScale { get { return _statsIncreaseScale; } }
+    public WeaponStats StatsIncreaseScale { get { return new WeaponStats(_rangeIncrease, _attackSpeedIncrease, new DamageInfo(_damageIncrease,0), 0, 0, 0); } }
     public AttackEffectData[] AttackEffects { get { return _attackEffects; } }
     public CustomFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
     public CustomFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }

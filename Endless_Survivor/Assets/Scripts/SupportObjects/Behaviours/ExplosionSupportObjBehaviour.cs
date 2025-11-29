@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
 {    
     new public static bool isUsable => true;
-    [SerializeField] int _explosionDamage = 25;
+    [SerializeField] DamageInfo _explosionDamage;
     [SerializeField] float _explosionRadius;
     [SerializeField] ParticleSystem _explosionParticles;
     [SerializeField] float _particlesDuration;
@@ -33,7 +33,7 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
             var objHP = obj.GetComponent<HP>();
             if (objHP == null)
                 continue;
-            objHP.TakeDamage(_explosionDamage);
+            objHP.TakeDamage((int)_explosionDamage.CalculatedDamage);
         }
 
     }

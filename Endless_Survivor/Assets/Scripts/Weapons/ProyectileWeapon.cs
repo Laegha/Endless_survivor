@@ -49,7 +49,7 @@ public class ProyectileWeapon : ShootingWeapon
 
         float proyectileSpeed = _proyectileSpeed;
         float proyectileLifeTime = WeaponStats.Range;
-        int proyectileDamage = WeaponStats.Damage;
+        int proyectileDamage = (int)WeaponStats.Damage.CalculatedDamage;
         proyectile.Initiate(proyectileDamage, WeaponStats.Knockback, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileSpread);
     }
 }

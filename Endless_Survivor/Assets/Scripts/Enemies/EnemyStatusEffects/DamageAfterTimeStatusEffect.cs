@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageAfterTimeStatusEffect : EndByTimeStatusEffect
 {
     new public static bool isUsable => true;
-    [SerializeField] int _damage = 5;
+    [SerializeField] DamageInfo _damage;
 
     public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {
@@ -18,6 +18,6 @@ public class DamageAfterTimeStatusEffect : EndByTimeStatusEffect
     public override void End()
     {
         base.End();
-        AffectedEnemyControl.EnemyHP.TakeDamage(_damage);
+        AffectedEnemyControl.EnemyHP.TakeDamage((int)_damage.CalculatedDamage);
     }
 }
