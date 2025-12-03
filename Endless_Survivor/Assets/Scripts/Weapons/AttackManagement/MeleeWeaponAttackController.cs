@@ -29,10 +29,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
         base.Initialize(weaponControl, original);
         var meleeWeaponOriginal = original as MeleeWeaponAttackController;
         _meleeData = meleeWeaponOriginal._meleeData;
-    }
-    public override void Start()
-    {
-        base.Start();
+
         _hand = WeaponControl.transform.parent;
         _originalHandLocalPos = _hand.localPosition;
         WeaponControl.WeaponAim.ChangeDistCheckPos(() => { return (Vector2)PlayerControl.pc.transform.position;/* + _originalHandLocalPos;*/ });
