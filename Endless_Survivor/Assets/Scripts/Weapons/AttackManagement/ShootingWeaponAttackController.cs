@@ -23,14 +23,9 @@ public class ShootingWeaponAttackController : WeaponAttackController
         _firePoint = new GameObject().transform;
         _firePoint.transform.SetParent(weaponControl.transform, false);
         _firePoint.name = AttackId + " FirePoint";
-        _firePoint.localPosition = _firePointPosition / 32;
+        _firePointPos = _firePointPosition / 32;
+        _firePoint.localPosition = _firePointPos;
         _firePoint.localRotation = Quaternion.identity;
-    }
-    public override void Start()
-    {
-        base.Start();
-        _firePointPos = _firePoint.localPosition;
-        //WeaponControl.WeaponAim.ChangeDirectionBase(_firePoint);
     }
     public override void Update()
     {
