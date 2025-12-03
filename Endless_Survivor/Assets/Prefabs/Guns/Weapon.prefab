@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3385022096508002976}
+  - component: {fileID: 6050974659231580225}
+  - component: {fileID: 9119836679215488894}
   - component: {fileID: 5965812664275499795}
   - component: {fileID: 8017266537295601437}
-  - component: {fileID: 6050974659231580225}
   - component: {fileID: 4036783183393237624}
   m_Layer: 6
   m_Name: Weapon
@@ -36,6 +37,35 @@ Transform:
   - {fileID: 2432045649384664020}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6050974659231580225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577113693637118834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489fdb983c7543a4d98ee06e5967a419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponAim: {fileID: 5965812664275499795}
+  _weaponAttackManager: {fileID: 9119836679215488894}
+  _weaponAnimator: {fileID: 8017266537295601437}
+  _gfx: {fileID: 2769403315937609654}
+  _onLevelUpParticle: {fileID: 2555208327605434357, guid: aac3198803d2934488447e7ecf1d029e, type: 3}
+--- !u!114 &9119836679215488894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577113693637118834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f533a80359ccec6448f0c05ab6efc2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5965812664275499795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,22 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2769403315937609654}
---- !u!114 &6050974659231580225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577113693637118834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489fdb983c7543a4d98ee06e5967a419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponAim: {fileID: 5965812664275499795}
-  _weaponAnimator: {fileID: 8017266537295601437}
-  _gfx: {fileID: 2769403315937609654}
-  _onLevelUpParticle: {fileID: 2555208327605434357, guid: aac3198803d2934488447e7ecf1d029e, type: 3}
 --- !u!114 &4036783183393237624
 MonoBehaviour:
   m_ObjectHideFlags: 0
