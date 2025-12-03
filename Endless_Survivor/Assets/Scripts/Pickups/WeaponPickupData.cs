@@ -17,7 +17,7 @@ public class WeaponPickupData : PickupData
     {
         var resultWeaponData = await RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
         pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
-        CustomAnimation weponIdle = resultWeaponData.element.Animations.Where(animation => animation.AnimationName == "Idle").ToArray()[0];
+        CustomAnimation weponIdle = resultWeaponData.element.IdleAnim;
 
         PickupControl control = pickupControl.GetComponent<PickupControl>();
         control.Animator.AddAnimations(new List<CustomAnimation> { weponIdle });

@@ -23,7 +23,6 @@ public class WeaponData : ScriptableObject
     [SerializeReference] List<WeaponAttackChangeCondition> _attackConditions = new();
 
     [SerializeField] CustomAnimation _idleAnimation;
-    [SerializeField] ChangeOnEndAnimation _attackAnimation;
 
     [SerializeField] List<RandomIdleAnimation>_randomIdleAnimations = new List<RandomIdleAnimation>();
     [SerializeField] float _randomIdleAnimChance;
@@ -38,14 +37,7 @@ public class WeaponData : ScriptableObject
     [Tooltip("SET ONLY IN EDITOR!!")]public WeaponAttackController DefaultAttack { get { return _defaultAttack; } set { _defaultAttack = value; } }
     public List<WeaponAttackController> WeaponAttacks { get { return _weaponAttacks; } set { _weaponAttacks = value; } }
     public List<WeaponAttackChangeCondition> AttackConditions { get { return _attackConditions; } }
-    public List<CustomAnimation> Animations { get { 
-            return new List<CustomAnimation>
-            {
-                _idleAnimation,
-                _attackAnimation
-            };
-        }
-    }
+    public CustomAnimation IdleAnim { get { return _idleAnimation; } }
     public List<RandomIdleAnimation> RandomIdleAnimations { get { return _randomIdleAnimations; } }
     public float RandomIdleAnimChance { get {   return _randomIdleAnimChance; } }
     public float RandomIdleAnimTime { get { return _randomIdleAnimTime; } }
