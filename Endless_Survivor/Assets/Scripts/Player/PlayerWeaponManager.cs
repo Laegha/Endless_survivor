@@ -12,11 +12,11 @@ public class PlayerWeaponManager : MonoBehaviour
     List<WeaponHolder> _heldWeapons = new List<WeaponHolder>();
     int _maxWeapons;
 
-    public List<Weapon> HeldWeapons
+    public List<WeaponAttackManager> HeldWeapons
     {
         get
         {
-            List<Weapon> list = new List<Weapon>();
+            List<WeaponAttackManager> list = new List<WeaponAttackManager>();
             _heldWeapons.ForEach(weaponHolder => list.Add(weaponHolder.holdingWeapon));
             return list;
         }
@@ -47,7 +47,7 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         if(_heldWeapons.Count >= _maxWeapons)
         {
-            List<Weapon> weapons = new List<Weapon>();
+            List<WeaponAttackManager> weapons = new List<WeaponAttackManager>();
             _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));
             GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(weapons, weaponData, weaponStats, SwitchWeapon);
             return;
@@ -59,9 +59,8 @@ public class PlayerWeaponManager : MonoBehaviour
     {
         //instantiate weapon
         Transform newWeapon = Instantiate(GameManager.gm.prefabHolder.Prefabs["Weapon"]).transform;
-        weaponData.WeaponDataTransferInterface.TransferData(newWeapon.gameObject, weaponData, weaponStats);
-        Weapon weapon = newWeapon.GetComponent<Weapon>();
-        weapon.PlayerControl = _playerControl;
+        WeaponAttackManager weaponAttackManager = newWeapon.GetComponent<WeaponAttackManager>();
+        weaponAttackManager.Initiate(weaponData.AttackConditions, weaponStats, weaponData);
 
         //check for empty holders
         WeaponHolder emptyHolder = _heldWeapons.Where(x => x.holdingWeapon == null).FirstOrDefault();
@@ -83,7 +82,7 @@ public class PlayerWeaponManager : MonoBehaviour
         newWeapon.transform.localPosition = Vector2.zero;
         emptyHolder.handTransform = hand.transform;
         emptyHolder.positionStays = false;
-        emptyHolder.holdingWeapon = weapon;
+        emptyHolder.holdingWeapon = weaponAttackManager;
         UpdateWeaponPositions();
     }
     void UpdateWeaponPositions()
@@ -109,7 +108,7 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
 
-    void SwitchWeapon(Weapon removedWeapon)
+    void SwitchWeapon(WeaponAttackManager removedWeapon)
     {
         var weaponHolder = _heldWeapons.Find(x => x.holdingWeapon == removedWeapon);
         Destroy(removedWeapon.gameObject);
@@ -122,7 +121,7 @@ public class PlayerWeaponManager : MonoBehaviour
         GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
 
-    public void LevelUpWeapons(List<Weapon> weapons = null)
+    public void LevelUpWeapons(List<WeaponAttackManager> weapons = null)
     {
         if(weapons == null || weapons.Count == 0 )
         {

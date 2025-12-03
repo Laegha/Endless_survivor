@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 class WeaponDebuffHandler
 {
-    public List<Weapon> buffedWeapons;
+    public List<WeaponAttackManager> buffedWeapons;
     public WeaponStats statsBuff;
 
-    public WeaponDebuffHandler(List<Weapon> buffedWeapons, WeaponStats statsBuff)
+    public WeaponDebuffHandler(List<WeaponAttackManager> buffedWeapons, WeaponStats statsBuff)
     {
         this.buffedWeapons = buffedWeapons;
         this.statsBuff = statsBuff;

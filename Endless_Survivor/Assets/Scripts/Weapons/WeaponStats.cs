@@ -11,7 +11,7 @@ public class WeaponStats
 
     [SerializeField] float _range;
     [SerializeField] float _attackSpeed;
-    [SerializeField] DamageInfo _damage;
+    [SerializeField] float _damage;
     [SerializeField] float _knockback;
     System.Action _onStatsIncrease;
     int _trueLevel;
@@ -19,7 +19,7 @@ public class WeaponStats
 
     public float Range { get { return _range; } }
     public float AttackSpeed { get { return _attackSpeed; } }
-    public DamageInfo Damage { get { return _damage; } }
+    public float Damage { get { return _damage; } }
     public float Knockback { get { return _knockback; } }
     public System.Action OnStatIncrease {  get { return _onStatsIncrease; } set { _onStatsIncrease = value; }}
     public int TrueLevel { get { return _trueLevel; } }
@@ -35,7 +35,7 @@ public class WeaponStats
         _damage = original.Damage;
         _knockback = original.Knockback;
     }
-    public WeaponStats(float range, float attackSpeed, DamageInfo damage, float knockback, int trueLevel, int inducedLevel)
+    public WeaponStats(float range, float attackSpeed, float damage, float knockback, int trueLevel, int inducedLevel)
     {
         _range = range;
         _attackSpeed = attackSpeed;
@@ -50,30 +50,30 @@ public class WeaponStats
         _trueLevel = level;
         _range += GetTrueStatIncrease(statsScaling.Range, level, _range, _rangeStatVariation);
         _attackSpeed += GetTrueStatIncrease(statsScaling.AttackSpeed, level, _attackSpeed, _atkSpeedStatVariation);
-        _damage.DamageAmmount += (int) GetTrueStatIncrease(statsScaling.Damage.DamageAmmount, level, _damage.DamageAmmount, _damageStatVariation);
+        _damage += GetTrueStatIncrease(statsScaling.Damage, level, _damage, _damageStatVariation);
     }
     public void InducedLevelUp(WeaponStats statsScaling)
     {
         _inducedLevel++;
         var rangeIncrease = GetInducedStatIncrease(statsScaling.Range, _trueLevel + _inducedLevel, _range, _rangeStatVariation);
         var attackSpeedIncrease = GetInducedStatIncrease(statsScaling.AttackSpeed, _trueLevel + _inducedLevel, _attackSpeed, _atkSpeedStatVariation);
-        var damageIncrease = (int)GetInducedStatIncrease(statsScaling.Damage.DamageAmmount, _trueLevel + _inducedLevel, _damage.DamageAmmount, _damageStatVariation);
+        var damageIncrease = GetInducedStatIncrease(statsScaling.Damage, _trueLevel + _inducedLevel, _damage, _damageStatVariation);
         StatIncrease(rangeIncrease, attackSpeedIncrease, damageIncrease, 0);
     }
     public void StatIncrease(float range, float attackSpeed, float damage, float knockback)
     {
         _range += range;
         _attackSpeed += attackSpeed;
-        _damage.DamageAmmount += damage;
+        _damage += damage;
         _knockback += knockback;
 
     }
     public void TemporalStatIncrease(WeaponStats statIncrease, bool invertStats = false)
     {
         if(!invertStats)
-            StatIncrease(statIncrease.Range, statIncrease.AttackSpeed, statIncrease.Damage.DamageAmmount, statIncrease.Knockback);
+            StatIncrease(statIncrease.Range, statIncrease.AttackSpeed, statIncrease.Damage, statIncrease.Knockback);
         else
-            StatIncrease(-statIncrease.Range, -statIncrease.AttackSpeed, -statIncrease.Damage.DamageAmmount, -statIncrease.Knockback);
+            StatIncrease(-statIncrease.Range, -statIncrease.AttackSpeed, -statIncrease.Damage, -statIncrease.Knockback);
     }
     float GetTrueStatIncrease(float increaseScale, int level, float baseStat, float variation)
     {

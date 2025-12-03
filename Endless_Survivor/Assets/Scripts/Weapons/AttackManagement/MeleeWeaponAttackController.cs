@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class MeleeWeapon : Weapon
+public class MeleeWeaponAttackController : WeaponAttackController
 {
+    new public static bool isUsable => true;
+    [SerializeField]MeleeData _meleeData;
     TransformMover _currHandMover = null;
     Transform _hand;
     Vector2 _originalHandLocalPos;
-    MeleeData _meleeData;
 
     float _weaponStopDist
     {
@@ -25,11 +24,16 @@ public class MeleeWeapon : Weapon
     readonly static float _handSpeed = 15;
     readonly static float _handStopDistFactor = .7f;
 
-    public MeleeData MeleeData { set { _meleeData = value; } }
+    public override void Initialize(WeaponControl weaponControl, WeaponAttackController original)
+    {
+        base.Initialize(weaponControl, original);
+        var meleeWeaponOriginal = original as MeleeWeaponAttackController;
+        _meleeData = meleeWeaponOriginal._meleeData;
+    }
     public override void Start()
     {
         base.Start();
-        _hand = transform.parent;
+        _hand = WeaponControl.transform.parent;
         _originalHandLocalPos = _hand.localPosition;
         WeaponControl.WeaponAim.ChangeDistCheckPos(() => { return (Vector2)PlayerControl.pc.transform.position;/* + _originalHandLocalPos;*/ });
         InitializeAttack += InitiateMelee;
@@ -41,7 +45,7 @@ public class MeleeWeapon : Weapon
             return;
         if (_currHandMover.id != "Return")
         {
-            if(!InRange)
+            if(!WeaponControl.WeaponAttackManager.InRange)
             {
                 ReturnToOriginalPos();
 
@@ -53,35 +57,38 @@ public class MeleeWeapon : Weapon
         }
         _currHandMover.Update();
     }
-    public override void Attack()
+    public override void StartAttack()
     {
-        base.Attack();
-        if (WeaponControl.WeaponAnimator.CurrAnim.AnimationName == "Attack")
+        base.StartAttack();
+        if (WeaponControl.WeaponAnimator.CurrAnim.AnimationName == AnimationName)
         {
-            CreateMeleeAttack();
+            Attack();
             return;
         }
 
         Vector2 enemyPos = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
         Vector2 handMovement = enemyPos - (Vector2)_hand.position;
-        PauseAttackCooldown();
-        float dist = handMovement.magnitude - _weaponStopDist /*- (_meleeData.IsCircle ? _meleeData.CircleRadius : _meleeData.BoxSize.y) * _handStopDistFactor*/;
+        WeaponControl.WeaponAttackManager.PauseAttackCooldown();
+        float dist = handMovement.magnitude - _weaponStopDist;
         TransformMover attackTrMover = new("Attack", handMovement.normalized, dist, _handSpeed, _hand, WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform, PlayAttackAnimation);
         _currHandMover = attackTrMover;
+    }
+    public override void End()
+    {
+        base.End();
+        EndReturnMovement();
     }
 
     void PlayAttackAnimation()
     {
-        var attackAnimDuration = WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == "Attack").AnimDuration;
-        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
-        UnPauseAttackCooldown();
+        var attackAnimDuration = WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == AnimationName).AnimDuration;
+        WeaponControl.WeaponAnimator.ChangeAnim(AnimationName);
+        WeaponControl.WeaponAttackManager.UnPauseAttackCooldown();
         //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
-
-        CreateMeleeAttack();
 
         _currHandMover = null;
         GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => this == null);
-        StartCoroutine(StuckHandInAttackPos(_hand.position, attackAnimDuration));
+        GameManager.gm.RoutineRunner(StuckHandInAttackPos(_hand.position, attackAnimDuration));
     }
     IEnumerator StuckHandInAttackPos(Vector2 attackPos, float attackDuration)
     {
@@ -93,34 +100,40 @@ public class MeleeWeapon : Weapon
             _hand.position = attackPos;
         }
     }
-    void CreateMeleeAttack()
+    public override void Attack()
     {
-        MeleeAttack meleeAttack = Instantiate(GameManager.gm.prefabHolder.Prefabs["Melee"], transform.position, transform.rotation).GetComponent<MeleeAttack>();
-        meleeAttack.transform.SetParent(transform, true);
+        base.Attack();
+        MeleeAttack meleeAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Melee"], WeaponControl.transform.position, WeaponControl.transform.rotation).GetComponent<MeleeAttack>();
+        meleeAttack.transform.SetParent(WeaponControl.transform, true);
 
         InitializeAttack(meleeAttack);
     }
     void InitiateMelee(Attack attack)
     {
         var meleeAttack = attack as MeleeAttack;
-        meleeAttack.Attack((int)WeaponStats.Damage.CalculatedDamage, WeaponStats.Knockback, _meleeData);
+        meleeAttack.Attack((int)Damage, WeaponStats.Knockback, _meleeData);
     }
 
     void ReturnToOriginalPos()
     {
-        UnPauseAttackCooldown();
+        WeaponControl.WeaponAttackManager.UnPauseAttackCooldown();
         Vector2 returnVector = _originalHandLocalPos - (Vector2)_hand.localPosition;
-        TransformMover returnMover = new("Return", returnVector.normalized, returnVector.magnitude, _handSpeed, _hand, null, () => { _hand.localPosition = _originalHandLocalPos; _currHandMover = null; });
+        TransformMover returnMover = new("Return", returnVector.normalized, returnVector.magnitude, _handSpeed, _hand, null, EndReturnMovement);
         _currHandMover = returnMover;
     }
     void UpdateMoverDist()
     {
         var newDir = (_currHandMover.destinationTarget.position - _hand.position).normalized;
-        var objsInDir = Physics2D.RaycastAll(transform.position, newDir, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
+        var objsInDir = Physics2D.RaycastAll(WeaponControl.transform.position, newDir, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
         var newPoint = objsInDir.Find(x => x.collider.transform == _currHandMover.destinationTarget).point;
         var newDist = (newPoint - (Vector2)_hand.position).magnitude + _currHandMover.lapsedDistance;
         _currHandMover.distance = newDist - _weaponStopDist;
         _currHandMover.direction = newDir;
+    }
+    void EndReturnMovement()
+    {
+        _hand.localPosition = _originalHandLocalPos; 
+        _currHandMover = null;
     }
 }
 

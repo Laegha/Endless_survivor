@@ -17,18 +17,17 @@ MonoBehaviour:
   _weaponStats:
     _range: 2.1
     _attackSpeed: 4
-    _damage:
-      _damageAmmount: 1
-      _damageType: 65
+    _damage: 0
     _knockback: 0
   _rangeIncrease: 0
   _attackSpeedIncrease: 0.8
   _damageIncrease: 1
-  _attackEffects: []
   _weaponTags: 000000000300000004000000
   _weaponPools: 1
-  _weaponDataTransferInterface:
-    rid: 575471399616905216
+  _defaultAttack:
+    rid: 1204507356210659345
+  _weaponAttacks: []
+  _attackConditions: []
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -52,23 +51,32 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 575471399616905216
-      type: {class: MeleeWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 1204507356210659345
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
+        _attackId: Default
+        _attackAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 0
         _meleeData:
           _isCircle: 0
           _attackCircleRadius: 0
-          _attackBoxSize: {x: 0.3, y: 0.2}
-          _attackOffset: {x: 0.35, y: 0}
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
           _attackVfxAnimation:
-            _animationName: AttackVfx
-            _frames:
-            - {fileID: 0}
-            - {fileID: -1349961720, guid: 9af5317460a6028419f19846fcb1b1b7, type: 3}
-            - {fileID: 44956522, guid: 9af5317460a6028419f19846fcb1b1b7, type: 3}
-            _framesPerSecond: 18
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
             _endAnimationOnEnd: 0
             _priority: 0
-          _damageFrame: 1
+          _damageFrame: 0
           _attackParticles: {fileID: 0}
-          _particleDuration: -1
+          _particleDuration: 0

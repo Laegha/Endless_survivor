@@ -16,7 +16,7 @@ public class AttackEffect
     Action _onAttack;
     Action _onUpdate;
     Action<EnemyControl> _onEnemyHit;
-    IAttackEffectSinergy _sinergy = null;
+    //IAttackEffectSinergy _sinergy = null;
     public Attack AffectedAttack { get { return _affectedAttack; } }
     public bool UsesSeparateChance { get { return _usesSeparateChance; } }
     public float EffectChance { get { return _separateChance; } }

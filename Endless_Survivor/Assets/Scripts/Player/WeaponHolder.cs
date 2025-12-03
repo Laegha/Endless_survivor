@@ -6,6 +6,6 @@ public class WeaponHolder
 {
     public bool positionStays;
     public bool destructible;
-    public Weapon holdingWeapon;
+    public WeaponAttackManager holdingWeapon;
     public Transform handTransform;
 }

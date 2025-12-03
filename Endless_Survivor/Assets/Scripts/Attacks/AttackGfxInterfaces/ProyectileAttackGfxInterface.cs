@@ -8,5 +8,5 @@ public class ProyectileAttackGfxInterface : AttackGfxInterface
 {
     public Sprite proyectileSprite;
     public Material proyectileMaterial;
-    public override Type weaponType => typeof(ProyectileWeapon);
+    public override Type weaponType => typeof(ProyectileWeaponAttackController);
 }

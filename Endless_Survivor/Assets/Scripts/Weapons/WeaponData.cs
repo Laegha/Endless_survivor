@@ -14,10 +14,13 @@ public class WeaponData : ScriptableObject
     [SerializeField] float _rangeIncrease;
     [SerializeField] float _attackSpeedIncrease;
     [SerializeField] float _damageIncrease;
-    [SerializeField] AttackEffectData[] _attackEffects;
+
     [SerializeField] CustomFlags.IWeaponTag[] _weaponTags;
     [SerializeField] CustomFlags.IWeaponPool _weaponPools;
-    [SerializeReference] WeaponDataTransferInterface _weaponDataTransferInterface;
+
+    [SerializeReference] WeaponAttackController _defaultAttack;
+    [SerializeReference] List<WeaponAttackController> _weaponAttacks = new();
+    [SerializeReference] List<WeaponAttackChangeCondition> _attackConditions = new();
 
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] ChangeOnEndAnimation _attackAnimation;
@@ -29,11 +32,12 @@ public class WeaponData : ScriptableObject
     public Sprite WeaponDisplaySprite { get { return _weaponDisplaySprite; } }
     public string WeaponName { get { return _weaponName; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } }
-    public WeaponStats StatsIncreaseScale { get { return new WeaponStats(_rangeIncrease, _attackSpeedIncrease, new DamageInfo(_damageIncrease,0), 0, 0, 0); } }
-    public AttackEffectData[] AttackEffects { get { return _attackEffects; } }
+    public WeaponStats StatsIncreaseScale { get { return new WeaponStats(_rangeIncrease, _attackSpeedIncrease, _damageIncrease, 0, 0, 0); } }
     public CustomFlags.IWeaponTag[] WeaponTags { get { return _weaponTags; } }
     public CustomFlags.IWeaponPool WeaponPools { get { return _weaponPools; } }
-    public WeaponDataTransferInterface WeaponDataTransferInterface { get { return _weaponDataTransferInterface; } set { _weaponDataTransferInterface = value; } }
+    [Tooltip("SET ONLY IN EDITOR!!")]public WeaponAttackController DefaultAttack { get { return _defaultAttack; } set { _defaultAttack = value; } }
+    public List<WeaponAttackController> WeaponAttacks { get { return _weaponAttacks; } set { _weaponAttacks = value; } }
+    public List<WeaponAttackChangeCondition> AttackConditions { get { return _attackConditions; } }
     public List<CustomAnimation> Animations { get { 
             return new List<CustomAnimation>
             {

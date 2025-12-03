@@ -10,10 +10,10 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
     [SerializeField] WeaponStats _statBuffOnAttackCoordination;
     [SerializeField] ParticleSystem _onAttackCoordinationParticles;
     [SerializeField] float _particlesDuration = 1;
-    Dictionary<Weapon, float> _weaponsInBuffLapse = new();
+    Dictionary<WeaponAttackManager, float> _weaponsInBuffLapse = new();
     readonly float _buffLapseDuration = 0.05f;
     readonly float _buffTimeDuration = 2f;
-    Dictionary<Weapon, float> _buffedWeapons = new();
+    Dictionary<WeaponAttackManager, float> _buffedWeapons = new();
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
@@ -30,7 +30,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
     {
         if (_weaponsInBuffLapse.Count <= 1)
             return;
-        var weaponsInBuffLapse = new List<Weapon>(_weaponsInBuffLapse.Keys);
+        var weaponsInBuffLapse = new List<WeaponAttackManager>(_weaponsInBuffLapse.Keys);
         foreach (var weapon in weaponsInBuffLapse)
         {
             if (_buffedWeapons.ContainsKey(weapon))
@@ -43,7 +43,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
             ParticleManager.pm.SpawnParticles(exceedParticleConfig);
         }
     }
-    void PutWeaponInBuffLapse(Weapon weapon)
+    void PutWeaponInBuffLapse(WeaponAttackManager weapon)
     {
         if (_buffedWeapons.ContainsKey(weapon))
             return;
@@ -55,7 +55,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
 
     void DecreaseBuffLapseTime()
     {
-        var weaponsInBuffLapse = new List<Weapon>(_weaponsInBuffLapse.Keys);
+        var weaponsInBuffLapse = new List<WeaponAttackManager>(_weaponsInBuffLapse.Keys);
         foreach(var weapon in weaponsInBuffLapse)
         {
             _weaponsInBuffLapse[weapon] -= Time.deltaTime;
@@ -65,7 +65,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
     }
     void DecreaseActiveBuffTime()
     {
-        var buffedWeapons = new List<Weapon>(_buffedWeapons.Keys);
+        var buffedWeapons = new List<WeaponAttackManager>(_buffedWeapons.Keys);
         foreach(var weapon in buffedWeapons)
         {
             _buffedWeapons[weapon] -= Time.deltaTime;

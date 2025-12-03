@@ -16,8 +16,8 @@ public class WeaponSwitchMenu : MonoBehaviour
     [SerializeField] Transform _weaponDisplayCircleCenter;
     [SerializeField] float _weaponDisplayCircleRadius;
     List<GameObject> _generatedButtons = new List<GameObject>();
-    Action<Weapon> _onWeaponSelected;
-    public void DisplayMenu(List<Weapon> holdingWeapons, WeaponData pickingWeapon, WeaponStats pickingWeaponStats, Action<Weapon> onWeaponSelected)
+    Action<WeaponAttackManager> _onWeaponSelected;
+    public void DisplayMenu(List<WeaponAttackManager> holdingWeapons, WeaponData pickingWeapon, WeaponStats pickingWeaponStats, Action<WeaponAttackManager> onWeaponSelected)
     {
         _menuGfx.SetActive(true);
         GameUIManager.uiManager.MenuDisplayed();
@@ -40,7 +40,7 @@ public class WeaponSwitchMenu : MonoBehaviour
 
     }
 
-    void WeaponSelected(Weapon selectedWeapon)
+    void WeaponSelected(WeaponAttackManager selectedWeapon)
     {
         CloseMenu();
         _onWeaponSelected?.Invoke(selectedWeapon);

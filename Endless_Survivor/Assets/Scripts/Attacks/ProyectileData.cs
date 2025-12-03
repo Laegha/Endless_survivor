@@ -6,12 +6,17 @@ using UnityEngine;
 [Serializable]
 public class ProyectileData
 {
+    [SerializeField] float _proyectileSpeed;
+    [SerializeField] float _proyectileSpread;
     [SerializeField] Sprite _proyectileSprite;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] CapsuleDirection2D _colliderDirection;
     [SerializeField] Material _proyectileMaterial;
     [SerializeField] GameObject _particlesPrefab;
     [SerializeField] SFXInfo _shootSFX;
+
+    public float ProyectileSpeed { get { return _proyectileSpeed; } }
+    public float ProyectileSpread { get { return _proyectileSpread; } }
     public Sprite ProyectileSprite {  get { return _proyectileSprite; } }
     public Vector2 ColliderSize { get { return _colliderSize; } }
     public CapsuleDirection2D ColliderDirection {  get { return _colliderDirection; } }
@@ -21,6 +26,8 @@ public class ProyectileData
 
     public ProyectileData(ProyectileData original)
     {
+        _proyectileSpeed = original._proyectileSpeed;
+        _proyectileSpread = original._proyectileSpread;
         _proyectileSprite = original.ProyectileSprite;
         _colliderSize = original.ColliderSize;
         _proyectileMaterial = original.ProyectileMaterial;

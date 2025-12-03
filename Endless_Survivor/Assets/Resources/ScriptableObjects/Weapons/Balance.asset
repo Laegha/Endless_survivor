@@ -12,61 +12,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
   m_Name: Balance
   m_EditorClassIdentifier: 
-  _weaponDisplaySprite: {fileID: 21300000, guid: 25fcf6533d4aa9149bc69de9c2ba41dc, type: 3}
-  _weaponName: Balance
+  _weaponDisplaySprite: {fileID: 0}
+  _weaponName: 
   _weaponStats:
-    _range: 4
-    _attackSpeed: 3
-    _damage:
-      _damageAmmount: 1
-      _damageType: 1
-    _knockback: 4
-  _rangeIncrease: 1
-  _attackSpeedIncrease: 2
-  _damageIncrease: 2
-  _attackEffects: []
-  _weaponTags: 010000000300000004000000
-  _weaponPools: -1
-  _weaponDataTransferInterface:
-    rid: 3410740109222608897
+    _range: 0
+    _attackSpeed: 0
+    _damage: 0
+    _knockback: 0
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0
+  _damageIncrease: 0
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 1204507356210659344
+  _weaponAttacks: []
+  _attackConditions: []
   _idleAnimation:
-    _animationName: Idle
-    _frames:
-    - {fileID: -221434982, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
-    _framesPerSecond: 1
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
     _endAnimationOnEnd: 0
     _priority: 0
   _attackAnimation:
-    _animationName: Attack
-    _frames:
-    - {fileID: 2077046966, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
-    - {fileID: -644692932, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
-    - {fileID: 2097127425, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
-    - {fileID: -1650684103, guid: 3079a760b8dd9f443ae01e68cd425403, type: 3}
-    _framesPerSecond: 8
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
     _endAnimationOnEnd: 0
     _priority: 0
-    _exitAnimationName: Idle
+    _exitAnimationName: 
   _randomIdleAnimations: []
   _randomIdleAnimChance: 0
   _randomIdleAnimTime: 0
   references:
     version: 2
     RefIds:
-    - rid: 3410740109222608897
-      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 1204507356210659344
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
-        _firePointPosition: {x: 22, y: 3.5}
-        _defaultBulletData:
-          _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
-          _colliderSize: {x: 0.2, y: 0.2}
+        _attackId: 
+        _attackAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 0, y: 0}
+        _proyectileData:
+          _proyectileSpeed: 0
+          _proyectileSpread: 0
+          _proyectileSprite: {fileID: 0}
+          _colliderSize: {x: 0, y: 0}
           _colliderDirection: 0
-          _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+          _proyectileMaterial: {fileID: 0}
           _particlesPrefab: {fileID: 0}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-        _proyectileSpeed: 5
-        _proyectileSpread: 35

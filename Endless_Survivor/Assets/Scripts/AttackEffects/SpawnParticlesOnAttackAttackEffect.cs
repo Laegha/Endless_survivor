@@ -21,7 +21,7 @@ public class SpawnParticlesOnAttackAttackEffect : AttackEffect
     }
     void SpawnParticles()
     {
-        ParticleConfig particles = new(_onEnemyHitParticles, AffectedAttack.ParentWeapon.transform.position, Quaternion.identity, _particlesDuration);
+        ParticleConfig particles = new(_onEnemyHitParticles, AffectedAttack.ParentWeapon.WeaponControl.transform.position, Quaternion.identity, _particlesDuration);
         ParticleManager.pm.SpawnParticles(particles);
     }
 }

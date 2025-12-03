@@ -11,10 +11,10 @@ public class WeaponOverrideButton : MonoBehaviour
     [SerializeField] RectTransform _weaponGfxTargetSize;
     [SerializeField] TextMeshProUGUI _trueLevelGfx;
     [SerializeField] TextMeshProUGUI _inducedLevelGfx;
-    Weapon _assignedWeapon;
-    public Action<Weapon> _onPressed;
+    WeaponAttackManager _assignedWeapon;
+    public Action<WeaponAttackManager> _onPressed;
 
-    public void SetData(Sprite weaponGfx, Weapon assignedWeapon, Action<Weapon> onPressed)
+    public void SetData(Sprite weaponGfx, WeaponAttackManager assignedWeapon, Action<WeaponAttackManager> onPressed)
     {
         Utility.ScaleImageToFitTarget(_weaponGfx.rectTransform, weaponGfx, _weaponGfxTargetSize.sizeDelta);
         _weaponGfx.sprite = weaponGfx;

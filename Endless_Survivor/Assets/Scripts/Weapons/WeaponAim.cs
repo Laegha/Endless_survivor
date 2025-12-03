@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WeaponAim : MonoBehaviour
 {
-    Weapon _weapon;
+    WeaponAttackManager _weapon;
     PlayerStats _playerStats;
     SpriteRenderer _spriteRenderer;
     Transform _directionBase;
@@ -21,7 +21,7 @@ public class WeaponAim : MonoBehaviour
     }
     private void Start()
     {
-        _weapon = GetComponent<Weapon>();
+        _weapon = GetComponent<WeaponAttackManager>();
         _playerStats = PlayerControl.pc.PlayerStats;
         _spriteRenderer = GetComponent<WeaponControl>().Gfx;
     }

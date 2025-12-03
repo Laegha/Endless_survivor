@@ -1,22 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
-
-public class ProyectileWeapon : ShootingWeapon
+[Serializable]
+public class ProyectileWeaponAttackController : ShootingWeaponAttackController
 {
-    ProyectileData _proyectileData;
-    float _proyectileSpeed;
-    float _proyectileSpread = 5f;
-    public ProyectileData ProyectileData {  get { return _proyectileData; } set { _proyectileData = value; } }
-    public float ProyectileSpread { get { return _proyectileSpread; } set { _proyectileSpread = value; } }
-    public float ProyectileSpeed { get { return _proyectileSpeed; } set { _proyectileSpeed = value; } }
+    new public static bool isUsable => true;
+    [SerializeField] ProyectileData _proyectileData;
 
+    public override void StartAttack()
+    {
+        base.StartAttack();
+        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
+    }
     public override void Attack()
     {
         base.Attack();
-        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
-        ProyectileAttack proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
+
+        ProyectileAttack proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
         InitializeAttack?.Invoke(proyectile);
         InitiateProyectile(proyectile, FirePoint.position, FirePoint.rotation);
     }
@@ -24,8 +26,7 @@ public class ProyectileWeapon : ShootingWeapon
     {
         base.Attack(attackPosOffset, attackRotationOffset, isSecondaryAttack);
 
-        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
-        ProyectileAttack proyectile = Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
+        ProyectileAttack proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
         InitializeAttack?.Invoke(proyectile);
         var firepointRotation = FirePoint.eulerAngles.z * Mathf.Deg2Rad;
         //Vector2 offsetYDirection = ; // (p1, p2) * (o1, o2) = p1*o1 + p2*o2 = 0 => o2p2 = -o1p1 => p2 = -o1/o2p1
@@ -47,9 +48,9 @@ public class ProyectileWeapon : ShootingWeapon
         proyectile.transform.position = proyectilePosition;
         proyectile.transform.rotation = proyectileRotation;
 
-        float proyectileSpeed = _proyectileSpeed;
+        float proyectileSpeed = _proyectileData.ProyectileSpeed;
         float proyectileLifeTime = WeaponStats.Range;
-        int proyectileDamage = (int)WeaponStats.Damage.CalculatedDamage;
-        proyectile.Initiate(proyectileDamage, WeaponStats.Knockback, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileSpread);
+        int proyectileDamage = (int)Damage;
+        proyectile.Initiate(proyectileDamage, WeaponStats.Knockback, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileData.ProyectileSpread);
     }
 }

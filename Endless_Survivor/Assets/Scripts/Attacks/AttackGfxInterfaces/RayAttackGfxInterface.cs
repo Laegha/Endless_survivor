@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class RayAttackGfxInterface : AttackGfxInterface
 {
-    public override Type weaponType => typeof(RayWeapon);
+    public override Type weaponType => typeof(RayWeaponAttackController);
     public Material rayMaterial;
     public float rayWidth;
 }

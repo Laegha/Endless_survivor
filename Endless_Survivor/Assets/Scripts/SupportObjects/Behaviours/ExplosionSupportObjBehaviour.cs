@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
 {    
-    new public static bool isUsable => true;
+    new public static int maxStacks => 1;
     [SerializeField] DamageInfo _explosionDamage;
     [SerializeField] float _explosionRadius;
     [SerializeField] ParticleSystem _explosionParticles;
