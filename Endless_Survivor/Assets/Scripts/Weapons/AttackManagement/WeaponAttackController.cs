@@ -26,7 +26,7 @@ public class WeaponAttackController
     {
         get
         {
-            return DamageInfo.CalculatedDamage * _damageMultiplier;
+            return DamageInfo.CalculatedDamage;
         }
     }
     public string AttackId {  get { return _attackId; } }
@@ -43,8 +43,10 @@ public class WeaponAttackController
         _weaponStats = weaponControl.WeaponAttackManager.WeaponStats;
 
         _attackAnimation = new(weaponControl.WeaponAnimator, original._attackAnimation);
+        _attackFrame = original._attackFrame;
         _attackAnimation.Events.Add(new(null, _attackFrame, Attack));
         _attackAnimation.Events.Add(new(null, _attackAnimation.Frames.Length - 1, () => WeaponControl.WeaponAnimator.ChangeAnim("Idle", true)));
+        weaponControl.WeaponAnimator.AddAnimations(new() { _attackAnimation });
 
         AttackEffectsHolder attackEffectsHolder = new();
         attackEffectsHolder.availableEffects = new(original._weaponAttackEffects.availableEffects);
@@ -53,12 +55,8 @@ public class WeaponAttackController
         _damageMultiplier = original._damageMultiplier;
         _damageType = original._damageType;
         _initializeAttack += SetWeaponOnAttack;
+        _initializeAttack += SetAttackDamageMultiplier;
     }
-
-    public virtual void Start()
-    {
-    }
-
     public virtual void Update()
     {
         
@@ -73,6 +71,7 @@ public class WeaponAttackController
 
     public virtual void StartAttack()
     {
+
     }
 
     public virtual void Attack(Vector2 attackPosOffset, float attackRotationOffset, bool isSecondaryAttack)
@@ -90,5 +89,9 @@ public class WeaponAttackController
     void SetWeaponOnAttack(Attack attack)
     {
         attack.ParentWeapon = this;
+    }
+    void SetAttackDamageMultiplier(Attack attack)
+    {
+        attack.AttackDamageMultiplier = _damageMultiplier; 
     }
 }
