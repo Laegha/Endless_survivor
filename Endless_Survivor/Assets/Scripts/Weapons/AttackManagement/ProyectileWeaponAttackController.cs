@@ -17,7 +17,7 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
     public override void StartAttack()
     {
         base.StartAttack();
-        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
+        WeaponControl.WeaponAnimator.ChangeAnim(AnimationName, false, true);
     }
     public override void Attack()
     {

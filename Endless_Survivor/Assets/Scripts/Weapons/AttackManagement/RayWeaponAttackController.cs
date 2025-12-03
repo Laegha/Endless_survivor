@@ -8,23 +8,19 @@ using UnityEngine;
 public class RayWeaponAttackController : ShootingWeaponAttackController
 {
     new public static bool isUsable => true;
-    [SerializeReference] RayData _rayData;
+    [SerializeField] RayData _rayData;
     public override void Initialize(WeaponControl weaponControl, WeaponAttackController original)
     {
         base.Initialize(weaponControl, original);
         RayWeaponAttackController rayWeaponOriginal = original as RayWeaponAttackController;
         _rayData = rayWeaponOriginal._rayData;
-    }
-    public override void Start()
-    {
-        base.Start();
         InitializeAttack += InitiateLaser;
     }
     public override void StartAttack()
     {
         base.StartAttack();
 
-        WeaponControl.WeaponAnimator.ChangeAnim("Attack");
+        WeaponControl.WeaponAnimator.ChangeAnim(AnimationName, false, true);
     }
 
     public override void Attack()

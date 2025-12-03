@@ -55,7 +55,7 @@ public class CustomAnimator : MonoBehaviour
     }
 
     public void ChangeAnim(CustomAnimation animation) => ChangeAnim(animation.AnimationName);
-    public virtual void ChangeAnim(string animName, bool overridePriority = false)
+    public virtual void ChangeAnim(string animName, bool overridePriority = false, bool resetSameAnim = false)
     {
         CustomAnimation newAnimation = _animations.Find(anim => anim.AnimationName == animName);
         if(newAnimation == null)
@@ -63,7 +63,7 @@ public class CustomAnimator : MonoBehaviour
             Debug.LogError("ERROR: Animation not found: " +  animName + " on animator " + gameObject.name);
             return;
         }
-        if(_currAnim != null && _currAnimPriority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation)
+        if(_currAnim != null && _currAnimPriority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation && !resetSameAnim)
             return;
         _currAnim = newAnimation;
         _currAnimPriority = newAnimation.Priority;
