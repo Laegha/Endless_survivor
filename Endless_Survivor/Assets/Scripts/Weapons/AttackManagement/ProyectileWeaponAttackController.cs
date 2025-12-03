@@ -8,7 +8,12 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
 {
     new public static bool isUsable => true;
     [SerializeField] ProyectileData _proyectileData;
-
+    public override void Initialize(WeaponControl weaponControl, WeaponAttackController original)
+    {
+        base.Initialize(weaponControl, original);
+        ProyectileWeaponAttackController proyectileOriginal = original as ProyectileWeaponAttackController;
+        _proyectileData = new(proyectileOriginal._proyectileData);
+    }
     public override void StartAttack()
     {
         base.StartAttack();
