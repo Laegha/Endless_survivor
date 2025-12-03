@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: UltraRevolver
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: dfdaf4bc206143a43bdfdd2f1225a8f1, type: 3}
+  _weaponName: Ultra Revolver
+  _weaponStats:
+    _range: 8
+    _attackSpeed: 0.7
+    _damage: 7
+    _knockback: 8
+  _rangeIncrease: 0.9
+  _attackSpeedIncrease: 0.8
+  _damageIncrease: 1.5
+  _weaponTags: 0100000002000000
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 1204507362318090240
+  _weaponAttacks:
+  - rid: 1204507362318090241
+  - rid: 1204507362318090243
+  _attackConditions:
+  - rid: 1204507362318090242
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: dfdaf4bc206143a43bdfdd2f1225a8f1, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507362318090240
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 905526458, guid: ac8264a58c140e940868ec2ccf5e14dd, type: 3}
+          - {fileID: 899835417, guid: ac8264a58c140e940868ec2ccf5e14dd, type: 3}
+          - {fileID: 56935752, guid: ac8264a58c140e940868ec2ccf5e14dd, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 1
+        _firePointPosition: {x: 16, y: 6}
+        _proyectileData:
+          _proyectileSpeed: 6
+          _proyectileSpread: 5
+          _proyectileSprite: {fileID: 21300000, guid: 6b93a0b3c864a8949a374b8ab8385870, type: 3}
+          _colliderSize: {x: 0.25, y: 0.2}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 1204507362318090241
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: PierceAttack
+        _attackAnimation:
+          _animationName: PierceAttack
+          _frames:
+          - {fileID: 558410117, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -1125676174, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: 1457453929, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -1340231419, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -2047151891, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -302631194, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: 569095588, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: 2130003129, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -1868351928, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -2116192025, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -456902121, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: -894778074, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          - {fileID: 787406249, guid: e7a83908072319c47a22ef7c71934eff, type: 3}
+          _framesPerSecond: 20
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 8
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 2
+        _damageType: 1
+        _firePointPosition: {x: 16, y: 6}
+        _proyectileData:
+          _proyectileSpeed: 4
+          _proyectileSpread: 0
+          _proyectileSprite: {fileID: 21300000, guid: fdd6bad579276cd49bd31aacd559e5a6, type: 3}
+          _colliderSize: {x: 0.5, y: 0.4}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 1204507362318090242
+      type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _attackIds: []
+        _changeChance: 51.6
+        _idsWeights:
+        - _element: PierceAttack
+          _chance: 1
+    - rid: 1204507362318090243
+      type: {class: RayWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: 
+        _attackAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 0, y: 0}
+        _rayData:
+          _rayMaterial: {fileID: 0}
+          _rayStartWidth: 0
+          _rayEndWidth: 0
+          _rayExitSpeed: 0
+          _rayStartSprite: {fileID: 0}
