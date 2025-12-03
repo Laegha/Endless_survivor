@@ -7,13 +7,13 @@ using UnityEngine;
 public class WeaponAttackManager : MonoBehaviour
 {
     WeaponAttackController _currAttackController;
-    List<WeaponAttackChangeCondition> _attackConditions;
+    List<WeaponAttackChangeCondition> _attackConditions = new();
     WeaponAttackController _defaultAttack;
-    List<WeaponAttackController> _attackControllers;
+    List<WeaponAttackController> _attackControllers = new();
 
     float _attackCooldown;
     bool _inCooldown;
-    bool _prevAttackFinished;
+    bool _prevAttackFinished = true;
     bool _inRange;
     bool _reduceCooldown = true;
     WeaponStats _weaponStats;
@@ -38,18 +38,19 @@ public class WeaponAttackManager : MonoBehaviour
         _weaponData = data;
         _weaponControl = GetComponent<WeaponControl>();
 
-        _weaponControl.WeaponAnimator.AddAnimations(data.Animations);
+        _weaponControl.WeaponAnimator.AddAnimations(new(){ data.IdleAnim });
         if (data.RandomIdleAnimations.Count > 0)
         {
             var idleAnimator = _weaponControl.AddComponent<RandomIdleAnimator>();
             idleAnimator.SetData(_weaponControl.WeaponAnimator, data.RandomIdleAnimChance, data.RandomIdleAnimTime, data.RandomIdleAnimations);
         }
-        WeaponAttackController defaultAttackController = new();
+        _weaponControl.WeaponAnimator.ChangeAnim(data.IdleAnim.AnimationName);
+        WeaponAttackController defaultAttackController = Activator.CreateInstance(data.DefaultAttack.GetType()) as WeaponAttackController;
         defaultAttackController.Initialize(_weaponControl, data.DefaultAttack);
         _defaultAttack = defaultAttackController;
         foreach(var attackController in data.WeaponAttacks)
         {
-            var instantiatedController = new WeaponAttackController();
+            var instantiatedController = Activator.CreateInstance(attackController.GetType()) as WeaponAttackController;
             instantiatedController.Initialize(_weaponControl, attackController);
             _attackControllers.Add(instantiatedController);
         }
@@ -57,7 +58,7 @@ public class WeaponAttackManager : MonoBehaviour
 
     public void ChangeAttackController(WeaponAttackController newAttackController)
     {
-        _currAttackController.End();
+        _currAttackController?.End();
         _currAttackController = newAttackController;
     }
     void GetNewAttackController()
