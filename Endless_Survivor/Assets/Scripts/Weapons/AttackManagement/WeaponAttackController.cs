@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
 public class WeaponAttackController
@@ -75,6 +76,10 @@ public class WeaponAttackController
     }
 
     public virtual void Attack(Vector2 attackPosOffset, float attackRotationOffset, bool isSecondaryAttack)
+    {
+
+    }
+    public virtual void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders = null)
     {
 
     }
