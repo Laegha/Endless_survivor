@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: V1OperativeSystem
+  m_EditorClassIdentifier: 
+  _itemName: V1 Operative System
+  _itemDescript: Prevents health regen, heal with melee attacks instead
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 1204507400439857156
+  - rid: 1204507400439857158
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507400439857156
+      type: {class: HealPlayerOnEnemyHitItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _weaponsThatHeal: 02000000
+        _healAmmount: 2
+    - rid: 1204507400439857158
+      type: {class: LockPlayerStatsItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _maxHpLock:
+          isLocked: 0
+          min: 0
+          minInfinity: 0
+          max: 0
+          maxInfinity: 0
+        _hpRegenLock:
+          isLocked: 1
+          min: 0
+          minInfinity: 0
+          max: 0
+          maxInfinity: 0
+        _speedLock:
+          isLocked: 0
+          min: 0
+          minInfinity: 0
+          max: 0
+          maxInfinity: 0
