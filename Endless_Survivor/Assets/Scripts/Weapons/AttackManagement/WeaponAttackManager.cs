@@ -25,6 +25,7 @@ public class WeaponAttackManager : MonoBehaviour
     public WeaponData WeaponData { get { return _weaponData; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } }
     public List<WeaponAttackController> AttackControllers { get { return _attackControllers; } }
+    public WeaponAttackController CurrAttackController { get { return _currAttackController; } }
 
     public void Initiate(List<WeaponAttackChangeCondition> attackConditions, WeaponStats stats, WeaponData data)
     {
