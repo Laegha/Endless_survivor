@@ -16,7 +16,7 @@ MonoBehaviour:
   _weaponName: Ultra Revolver
   _weaponStats:
     _range: 8
-    _attackSpeed: 0.7
+    _attackSpeed: 1
     _damage: 7
     _knockback: 8
   _rangeIncrease: 0.9
@@ -28,9 +28,12 @@ MonoBehaviour:
     rid: 1204507362318090240
   _weaponAttacks:
   - rid: 1204507362318090241
-  - rid: 1204507362318090243
+  - rid: 1204507376629841920
+  - rid: 1204507384218386437
+  - rid: 1204507400439857152
   _attackConditions:
-  - rid: 1204507362318090242
+  - rid: 1204507400439857153
+  - rid: 1204507400439857154
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -101,10 +104,11 @@ MonoBehaviour:
           _priority: 0
         _attackFrame: 8
         _weaponAttackEffects:
-          availableEffects: []
+          availableEffects:
+          - {fileID: 11400000, guid: 6661100d5d34e7f4db3c568bac49dfd0, type: 2}
         _damageMultiplier: 2
         _damageType: 1
-        _firePointPosition: {x: 16, y: 6}
+        _firePointPosition: {x: 16, y: 5}
         _proyectileData:
           _proyectileSpeed: 4
           _proyectileSpread: 0
@@ -118,33 +122,126 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-    - rid: 1204507362318090242
-      type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
+    - rid: 1204507376629841920
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
-        _attackIds: []
-        _changeChance: 51.6
-        _idsWeights:
-        - _element: PierceAttack
-          _chance: 1
-    - rid: 1204507362318090243
-      type: {class: RayWeaponAttackController, ns: , asm: Assembly-CSharp}
-      data:
-        _attackId: 
+        _attackId: SplitAttack
         _attackAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: SplitAttack
+          _frames:
+          - {fileID: -1691983379, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: 2063974592, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: -1053775843, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 0
         _attackFrame: 0
         _weaponAttackEffects:
-          availableEffects: []
-        _damageMultiplier: 1
+          availableEffects:
+          - {fileID: 11400000, guid: b2d06fb2e39ad3b45b187b683101db81, type: 2}
+        _damageMultiplier: 3
+        _damageType: 1
+        _firePointPosition: {x: 16, y: 5}
+        _proyectileData:
+          _proyectileSpeed: 6
+          _proyectileSpread: 0
+          _proyectileSprite: {fileID: 21300000, guid: 49b7f1de067e6714684719d435d31c98, type: 3}
+          _colliderSize: {x: 0.25, y: 0.2}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 1204507384218386437
+      type: {class: RayWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: RicochetAttack
+        _attackAnimation:
+          _animationName: RicochetAttack
+          _frames:
+          - {fileID: -411336411, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -1810284460, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: 74918255, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -115311600, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: 260507441, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -1720161196, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: 787988156, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: 564676474, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -1581179861, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -377447830, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -1672938656, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: -546120044, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          - {fileID: 2066123043, guid: 43a42a90d71e41a4a9846761eff24a14, type: 3}
+          _framesPerSecond: 20
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 9
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: fad7e18c7153b194292d75e6bb5eabfb, type: 2}
+        _damageMultiplier: 2.5
         _damageType: 0
-        _firePointPosition: {x: 0, y: 0}
+        _firePointPosition: {x: 16, y: 5}
         _rayData:
-          _rayMaterial: {fileID: 0}
-          _rayStartWidth: 0
-          _rayEndWidth: 0
-          _rayExitSpeed: 0
+          _rayMaterial: {fileID: 2100000, guid: 0f399db452b32f641b1be4083eede9f3, type: 2}
+          _rayStartWidth: 0.15
+          _rayEndWidth: 0.15
+          _rayExitSpeed: 8
           _rayStartSprite: {fileID: 0}
+    - rid: 1204507400439857152
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: SplitAttackCoin
+        _attackAnimation:
+          _animationName: SplitAttackCoin
+          _frames:
+          - {fileID: 944966730, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: 1445033791, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: 1987858420, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: -1781144975, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: -556445664, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: -924349811, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          - {fileID: -1170682717, guid: 6904a58dfa4a6c74caff11fc14ed697a, type: 3}
+          _framesPerSecond: 20
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 2ad8805079b78a447a302c87fe83ea22, type: 2}
+        _damageMultiplier: 0.5
+        _damageType: 1
+        _firePointPosition: {x: 28, y: 5}
+        _proyectileData:
+          _proyectileSpeed: 1
+          _proyectileSpread: 0
+          _proyectileSprite: {fileID: 21300000, guid: 42c0d068c6afea445b776cb684963a91, type: 3}
+          _colliderSize: {x: 0.2, y: 0.2}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 1204507400439857153
+      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _conditionAttacksIds:
+        - SplitAttackCoin
+        _triggeredAttackId: SplitAttack
+    - rid: 1204507400439857154
+      type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _changeChance: 25
+        _idsWeights:
+        - _element: SplitAttackCoin
+          _chance: 1
+        - _element: PierceAttack
+          _chance: 1
+        - _element: RicochetAttack
+          _chance: 1
