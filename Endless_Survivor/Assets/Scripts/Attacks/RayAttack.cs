@@ -16,6 +16,7 @@ public class RayAttack : Attack
     float _currExitPointElapsedDist;
     float _currExitPointDist;
 
+    new public LineAttackGfxInterface AttackGfxInterface => new LineAttackGfxInterface();
     public override AttackEffectArea AttackEffectArea
     {
         get
@@ -81,6 +82,11 @@ public class RayAttack : Attack
 
         float startRotation = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg -90;
         _startSpriteRenderer.transform.rotation = Quaternion.Euler(0, 0, startRotation);
+    }
+    public override void ChangeGfx(AttackGfxInterface gfxInterface)
+    {
+        LineAttackGfxInterface lineAttackGfxInterface = gfxInterface as LineAttackGfxInterface;
+        lineAttackGfxInterface.ApplyGfx(_lineRenderer);
     }
     void SetGFX(Material lineMaterial, float startWidth, float endWidth, Sprite startSprite)
     {

@@ -11,6 +11,7 @@ public class ProyectileAttack : Attack
     float _lifeTime = 5;
     float _lapsedTime;
     List<Collider2D> _ignoreColliders = new List<Collider2D>();
+    new public AnimationChangeAttackGfxInterface AttackGfxInterface => new AnimationChangeAttackGfxInterface();
     public override AttackEffectArea AttackEffectArea
     {
         get
@@ -81,5 +82,9 @@ public class ProyectileAttack : Attack
         if (enemyControl != null)
             EffectsHandler.EnemyHit(enemyControl);
         Destroy(gameObject);
+    public override void ChangeGfx(AttackGfxInterface gfxInterface)
+    {
+        AnimationChangeAttackGfxInterface attackAnimInterface = gfxInterface as AnimationChangeAttackGfxInterface;
+        //attackAnimInterface.ChangeAttackGfx()
     }
 }
