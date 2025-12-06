@@ -38,5 +38,10 @@
     "fileName": "Pilot",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "V1",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]
