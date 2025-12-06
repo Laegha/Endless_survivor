@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: V1Fist
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: -1408454230, guid: 9df9bb916590cc84aa4f000a7ec46cb1, type: 3}
+  _weaponName: V1 Fist
+  _weaponStats:
+    _range: 2.5
+    _attackSpeed: 1.1
+    _damage: 12
+    _knockback: 20
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 1.1
+  _damageIncrease: 0.5
+  _weaponTags: 0000000004000000
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 1204507400439857159
+  _weaponAttacks: []
+  _attackConditions: []
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -1408454230, guid: 9df9bb916590cc84aa4f000a7ec46cb1, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507400439857159
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: FistPunch
+        _attackAnimation:
+          _animationName: FistPunch
+          _frames:
+          - {fileID: -1610186579, guid: 9df9bb916590cc84aa4f000a7ec46cb1, type: 3}
+          - {fileID: -1432742333, guid: 9df9bb916590cc84aa4f000a7ec46cb1, type: 3}
+          - {fileID: -1408454230, guid: 9df9bb916590cc84aa4f000a7ec46cb1, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 1
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 9c761981b6170b14ba6d141cc4a10db1, type: 2}
+        _damageMultiplier: 1
+        _damageType: 1
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.2
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.15, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: -1775671596, guid: d875579fc425ea04ca04ea9b4fccd374, type: 3}
+            - {fileID: -1038459619, guid: d875579fc425ea04ca04ea9b4fccd374, type: 3}
+            - {fileID: -504350205, guid: d875579fc425ea04ca04ea9b4fccd374, type: 3}
+            - {fileID: -880646409, guid: d875579fc425ea04ca04ea9b4fccd374, type: 3}
+            - {fileID: -1150188202, guid: d875579fc425ea04ca04ea9b4fccd374, type: 3}
+            - {fileID: 337172497, guid: d875579fc425ea04ca04ea9b4fccd374, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _damageFrame: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
