@@ -13,7 +13,7 @@ public class MeleeData
     [Header("")]
     [SerializeField] Vector2 _attackOffset;
     [SerializeField] CustomAnimation _attackVfxAnimation;
-    [SerializeField] int _damageFrame;
+    [SerializeField] bool _dropVfxOnDamage;
     [SerializeField] ParticleSystem _attackParticles;
     [SerializeField] float _particleDuration = -1;
 
@@ -22,7 +22,7 @@ public class MeleeData
     public Vector2 BoxSize {  get { return _attackBoxSize; } }
     public Vector2 AttackOffset {  get { return _attackOffset; } }
     public CustomAnimation AttackVfxAnimation { get { return _attackVfxAnimation; } }
-    public int DamageFrame {  get { return _damageFrame; } }
+    public bool DropVfxOnAttack { get { return _dropVfxOnDamage; } }
     public ParticleSystem AttackParticles { get { return _attackParticles; } }
     public float ParticleDuration { get { return _particleDuration; } }
 
@@ -33,7 +33,7 @@ public class MeleeData
         _attackBoxSize = original._attackBoxSize;
         _attackOffset = original._attackOffset;
         _attackVfxAnimation = original._attackVfxAnimation;
-        _damageFrame = original._damageFrame;
+        _dropVfxOnDamage = original._dropVfxOnDamage;
         _attackParticles = original._attackParticles;
         _particleDuration = original._particleDuration;
 
