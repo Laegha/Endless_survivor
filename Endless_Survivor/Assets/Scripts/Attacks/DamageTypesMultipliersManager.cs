@@ -14,8 +14,7 @@ public class DamageTypesMultipliersManager : MonoBehaviour
             return instance;
         }
     }
-    Dictionary<DamageInfo.DamageType, float> _typesMultipliers;
-    public Dictionary<DamageInfo.DamageType, float> TypesMultipliers;
+    Dictionary<DamageInfo.DamageType, float> _typesMultipliers = new();
 
     private void Awake()
     {
