@@ -81,7 +81,11 @@ public class ProyectileAttack : Attack
         var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(collider.gameObject);
         if (enemyControl != null)
             EffectsHandler.EnemyHit(enemyControl);
-        Destroy(gameObject);
+        AttackPiercing--;
+        if(AttackPiercing < 0)
+            Destroy(gameObject);
+    }
+
     public override void ChangeGfx(AttackGfxInterface gfxInterface)
     {
         AnimationChangeAttackGfxInterface attackAnimInterface = gfxInterface as AnimationChangeAttackGfxInterface;
