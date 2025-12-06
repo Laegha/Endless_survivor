@@ -48,7 +48,16 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
         InitiateProyectile(proyectile,(Vector2)FirePoint.position + (offsetXDirection.x * offsetXDirection.y > 0 ? offsetMovement : -offsetMovement), FirePoint.rotation);// I only tested this with y movement, idk with x
 
     }
-    void InitiateProyectile(ProyectileAttack proyectile, Vector2 proyectilePosition, Quaternion proyectileRotation)
+    public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders = null)
+    {
+        base.Attack(attackPos, attackDirection, isSecondaryAttack, ignoreColliders);
+        ProyectileAttack proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
+        proyectile.IsSecondaryAttack = isSecondaryAttack;
+        InitializeAttack?.Invoke(proyectile);
+        float proyectileRotation = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+        InitiateProyectile(proyectile, attackPos, Quaternion.Euler(0,0,proyectileRotation), ignoreColliders);
+    }
+    void InitiateProyectile(ProyectileAttack proyectile, Vector2 proyectilePosition, Quaternion proyectileRotation, List<Collider2D> ignoreColliders = null)
     {
         proyectile.transform.position = proyectilePosition;
         proyectile.transform.rotation = proyectileRotation;
