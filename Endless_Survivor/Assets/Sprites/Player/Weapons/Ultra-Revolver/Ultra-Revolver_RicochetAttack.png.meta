@@ -121,7 +121,280 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7c23e15117d184ab49eee3ed57a40b
+      internalID: -411336411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b7900fff7f7bb40aac47bc9259af73
+      internalID: -1810284460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5fccb7f8a115b409fe5b08ce98da0e
+      internalID: 74918255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_3
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67edf1abdbbcf984fb9228da86b9f492
+      internalID: -115311600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_4
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29240fb130db58340abc8cfe04eca4b6
+      internalID: 260507441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_5
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6e06990cef0a04e91d884408229556
+      internalID: -1720161196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_6
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f98dc7b97a0de4aa829e7ff2f33622
+      internalID: 787988156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_7
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6567982fe49ac79498f99a67f7c203c1
+      internalID: 564676474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_8
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813e7c1a2477fa14288a21b4bd8ead8e
+      internalID: -1581179861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_9
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325619c6fa95ce946a61664acf3a04fb
+      internalID: -377447830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_10
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.2459016, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f7916ae59594e4ab0a64665342cac1
+      internalID: -1672938656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_11
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.2459016, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1230bd4e2ca2f3a42a5d2ca39125d049
+      internalID: -546120044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_RicochetAttack_12
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 0
+        width: 61
+        height: 31
+      alignment: 9
+      pivot: {x: 0.24590164, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f197fc1ead53db4faa08bc85dfc6070
+      internalID: 2066123043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +405,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ultra-Revolver_RicochetAttack_0: -411336411
+      Ultra-Revolver_RicochetAttack_1: -1810284460
+      Ultra-Revolver_RicochetAttack_10: -1672938656
+      Ultra-Revolver_RicochetAttack_11: -546120044
+      Ultra-Revolver_RicochetAttack_12: 2066123043
+      Ultra-Revolver_RicochetAttack_2: 74918255
+      Ultra-Revolver_RicochetAttack_3: -115311600
+      Ultra-Revolver_RicochetAttack_4: 260507441
+      Ultra-Revolver_RicochetAttack_5: -1720161196
+      Ultra-Revolver_RicochetAttack_6: 787988156
+      Ultra-Revolver_RicochetAttack_7: 564676474
+      Ultra-Revolver_RicochetAttack_8: -1581179861
+      Ultra-Revolver_RicochetAttack_9: -377447830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

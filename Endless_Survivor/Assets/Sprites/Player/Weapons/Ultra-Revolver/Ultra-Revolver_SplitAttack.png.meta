@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df22ee1d1866c742be14c6804187516
+      internalID: 944966730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4325b7e15628024da21b4e516127bed
+      internalID: 1445033791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0ed6f3c312c584a8dfc69e5b7c1d95
+      internalID: 1987858420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d9e93f72b6a154c87429c16c22568f
+      internalID: -1781144975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ce8030569f0ef42abe553039c10739
+      internalID: -556445664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16e58d9e6421644ebfa131b37c471d7
+      internalID: -924349811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696e0e3fb50ed2b4492547902353d1a4
+      internalID: -1170682717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356277d4a0df682469d3bda9e2b6c3c5
+      internalID: -1691983379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6d71413873e6d488bb0d8ae7154c94
+      internalID: 2063974592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ultra-Revolver_SplitAttack_9
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 0
+        width: 30
+        height: 14
+      alignment: 9
+      pivot: {x: 0.13333334, y: 0.32142857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd62e6e09f8f1fb4bb8c0b0bfffdbe17
+      internalID: -1053775843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ultra-Revolver_SplitAttack_0: 944966730
+      Ultra-Revolver_SplitAttack_1: 1445033791
+      Ultra-Revolver_SplitAttack_2: 1987858420
+      Ultra-Revolver_SplitAttack_3: -1781144975
+      Ultra-Revolver_SplitAttack_4: -556445664
+      Ultra-Revolver_SplitAttack_5: -924349811
+      Ultra-Revolver_SplitAttack_6: -1170682717
+      Ultra-Revolver_SplitAttack_7: -1691983379
+      Ultra-Revolver_SplitAttack_8: 2063974592
+      Ultra-Revolver_SplitAttack_9: -1053775843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
