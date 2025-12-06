@@ -14,7 +14,6 @@ public class RayWeaponAttackController : ShootingWeaponAttackController
         base.Initialize(weaponControl, original);
         RayWeaponAttackController rayWeaponOriginal = original as RayWeaponAttackController;
         _rayData = rayWeaponOriginal._rayData;
-        InitializeAttack += InitiateLaser;
     }
     public override void StartAttack()
     {
@@ -30,13 +29,29 @@ public class RayWeaponAttackController : ShootingWeaponAttackController
         RayAttack rayAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
 
         InitializeAttack(rayAttack);
+        InitiateLaser(rayAttack);
+    }
+    public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders)
+    {
+        base.Attack(attackPos, attackDirection, isSecondaryAttack);
+        RayAttack rayAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
+        rayAttack.IsSecondaryAttack = isSecondaryAttack;
+        InitializeAttack(rayAttack);
+        rayAttack.Attack((int)Damage, WeaponStats.Knockback, _rayData, attackPos, attackDirection, ignoreColliders);
+
     }
 
     void InitiateLaser(Attack attack)
     {
         var rayAttack = attack as RayAttack;
-        rayAttack.Attack((int)Damage, WeaponStats.Knockback, _rayData, FirePoint);
+        Vector2 rayDir = FirePoint.right;
+        rayAttack.Attack((int)Damage, WeaponStats.Knockback, _rayData, FirePoint.position, rayDir);
 
+    }
+
+    public override void ChangeAttackGfx(AttackGfxInterface gfxInterface)
+    {
+        base.ChangeAttackGfx(gfxInterface);
     }
 
 }
