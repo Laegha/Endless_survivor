@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RayAttack : Attack
@@ -15,7 +16,6 @@ public class RayAttack : Attack
     Vector2 _currExitDirection;
     float _currExitPointElapsedDist;
     float _currExitPointDist;
-
     new public LineAttackGfxInterface AttackGfxInterface => new LineAttackGfxInterface();
     public override AttackEffectArea AttackEffectArea
     {
@@ -35,35 +35,50 @@ public class RayAttack : Attack
         if(_currExitPointElapsedDist >= _currExitPointDist)
             GoToNextExitPoint();
     }
-    public void Attack(int damage, float knockback, RayData defaultRayData, Transform firePoint)
+    public void Attack(int damage, float knockback, RayData defaultRayData, Vector2 position, Vector2 direction, List<Collider2D> ignoreColliders = null)
     {
         AttackDamage = damage;
-        _startPosition = firePoint.position;
+        _startPosition = position;
 
         SetGFX(defaultRayData.RayMaterial, defaultRayData.RayStartWidth, defaultRayData.RayEndWidth, defaultRayData.RayStartSprite);
         
-        _lineRenderer.SetPosition(0, firePoint.position);
-        
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
-        if (!hit)
+        _lineRenderer.SetPosition(0, position);
+
+        var hitObjs = Physics2D.RaycastAll(position, direction, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
+        if (hitObjs.Length == 0)
         {
-            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, firePoint.position + firePoint.right * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
+            _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, position + direction * 100);//if the player didn't hit nothing (which should not happen), setting the end of the ray far enough so the player can't see it
             return;
 
         }
-        _endPosition = hit.transform.position;
+        List<RaycastHit2D>filteredHitObjs = new (hitObjs.ToList());
+        if(ignoreColliders != null)
+            foreach (var hitObj in hitObjs)
+            {
+                if(!ignoreColliders.Contains(hitObj.collider))
+                    continue;
+                filteredHitObjs.Remove(hitObj);
+            }
+
+        int hitObjsAmmount = Mathf.Min(AttackPiercing, filteredHitObjs.Count - 1);
+        RaycastHit2D lastHit = filteredHitObjs[hitObjsAmmount];
+        _endPosition = lastHit.transform.position;
         _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, _endPosition);
         EffectsHandler.TryEffects(this);
 
         _exitSpeed = defaultRayData.RayExitSpeed;
         GoToNextExitPoint();
 
-        EnemyControl enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(hit.collider.gameObject);
-        if (enemyControl != null)
+        for(int i = 0; i <= hitObjsAmmount; i++)
         {
+            var hit = filteredHitObjs[i];
+            EnemyControl enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(hit.collider.gameObject);
+            if (enemyControl != null)
+            {
+                enemyControl.EnemyHP.TakeDamage(AttackDamage, direction, knockback);
+                EffectsHandler.EnemyHit(enemyControl);
+            }
 
-            enemyControl.EnemyHP.TakeDamage(AttackDamage, firePoint.right, knockback);
-            EffectsHandler.EnemyHit(enemyControl);
         }
 
     }
