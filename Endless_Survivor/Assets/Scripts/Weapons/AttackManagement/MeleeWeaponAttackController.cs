@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
     TransformMover _currHandMover = null;
     Transform _hand;
     Vector2 _originalHandLocalPos;
+    Action _onAttackApply;
 
     float _weaponStopDist
     {
@@ -23,6 +25,8 @@ public class MeleeWeaponAttackController : WeaponAttackController
 
     readonly static float _handSpeed = 15;
     readonly static float _handStopDistFactor = .7f;
+
+    public Action OnAttackApply {get { return _onAttackApply; } set { _onAttackApply = value; } }
 
     public override void Initialize(WeaponControl weaponControl, WeaponAttackController original)
     {
@@ -81,8 +85,13 @@ public class MeleeWeaponAttackController : WeaponAttackController
         var attackAnimDuration = WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == AnimationName).AnimDuration;
         WeaponControl.WeaponAnimator.ChangeAnim(AnimationName);
         WeaponControl.WeaponAttackManager.UnPauseAttackCooldown();
-        //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
 
+        MeleeAttack meleeAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Melee"], WeaponControl.transform.position, WeaponControl.transform.rotation).GetComponent<MeleeAttack>();
+        meleeAttack.transform.SetParent(WeaponControl.transform, true);
+
+        InitializeAttack(meleeAttack);
+
+        //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
         _currHandMover = null;
         GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => this == null);
         GameManager.gm.RoutineRunner(StuckHandInAttackPos(_hand.position, attackAnimDuration));
@@ -100,15 +109,12 @@ public class MeleeWeaponAttackController : WeaponAttackController
     public override void Attack()
     {
         base.Attack();
-        MeleeAttack meleeAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Melee"], WeaponControl.transform.position, WeaponControl.transform.rotation).GetComponent<MeleeAttack>();
-        meleeAttack.transform.SetParent(WeaponControl.transform, true);
-
-        InitializeAttack(meleeAttack);
+        _onAttackApply?.Invoke();
     }
     void InitiateMelee(Attack attack)
     {
         var meleeAttack = attack as MeleeAttack;
-        meleeAttack.Attack((int)Damage, WeaponStats.Knockback, _meleeData);
+        meleeAttack.StartAttack((int)Damage, WeaponStats.Knockback, _meleeData);
     }
 
     void ReturnToOriginalPos()
@@ -131,6 +137,8 @@ public class MeleeWeaponAttackController : WeaponAttackController
     {
         _hand.localPosition = _originalHandLocalPos; 
         _currHandMover = null;
+
+        WeaponControl.WeaponAttackManager.FinishAttack();
     }
 }
 
