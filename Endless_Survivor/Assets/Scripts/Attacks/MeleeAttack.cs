@@ -15,6 +15,7 @@ public class MeleeAttack : Attack
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
 
+    new public AnimationChangeAttackGfxInterface AttackGfxInterface => new AnimationChangeAttackGfxInterface();
     private void Update()
     {
         _vfxRenderer.flipY = ParentWeapon.WeaponControl.Gfx.flipY;
@@ -50,5 +51,9 @@ public class MeleeAttack : Attack
             Vector2 hitDirection = (enemyCol.transform.position - PlayerControl.pc.transform.position).normalized;
             enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, _knockbackForce);
         }
+    public override void ChangeGfx(AttackGfxInterface gfxInterface)
+    {
+        var animationInterface = gfxInterface as AnimationChangeAttackGfxInterface;
+        animationInterface.ChangeAttackGfx(_vfxAnimator, new SpriteRenderer[] { _vfxRenderer });
     }
 }
