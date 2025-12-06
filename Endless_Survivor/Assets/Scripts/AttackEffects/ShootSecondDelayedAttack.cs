@@ -21,7 +21,7 @@ public class ShootSecondDelayedAttack : AttackEffect
     }
     void ThrowDelayedAttack()
     {
-        float attackFps = AffectedAttack.ParentWeapon.WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == "Attack").FramesPerSecond;
+        float attackFps = AffectedAttack.ParentWeapon.WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == AffectedAttack.ParentWeapon.AnimationName).FramesPerSecond;
         float delayTime = _frameDelay / attackFps;
         GameManager.gm.DelayAction(delayTime, DelayedAttack, () => AffectedAttack.ParentWeapon == null);
     }
