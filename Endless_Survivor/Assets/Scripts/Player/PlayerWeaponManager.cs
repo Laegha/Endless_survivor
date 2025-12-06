@@ -60,7 +60,6 @@ public class PlayerWeaponManager : MonoBehaviour
         //instantiate weapon
         Transform newWeapon = Instantiate(GameManager.gm.prefabHolder.Prefabs["Weapon"]).transform;
         WeaponAttackManager weaponAttackManager = newWeapon.GetComponent<WeaponAttackManager>();
-        weaponAttackManager.Initiate(weaponData.AttackConditions, weaponStats, weaponData);
 
         //check for empty holders
         WeaponHolder emptyHolder = _heldWeapons.Where(x => x.holdingWeapon == null).FirstOrDefault();
@@ -83,7 +82,9 @@ public class PlayerWeaponManager : MonoBehaviour
         emptyHolder.handTransform = hand.transform;
         emptyHolder.positionStays = false;
         emptyHolder.holdingWeapon = weaponAttackManager;
+
         UpdateWeaponPositions();
+        weaponAttackManager.Initiate(weaponData.AttackConditions, weaponStats, weaponData);
     }
     void UpdateWeaponPositions()
     {
