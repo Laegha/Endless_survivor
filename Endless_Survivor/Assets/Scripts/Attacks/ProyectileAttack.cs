@@ -23,7 +23,12 @@ public class ProyectileAttack : Attack
     public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } }
     public CapsuleCollider2D Collider { get { return _collider; } }
     public float LifeTime {  get { return _lifeTime; } set { _lifeTime = value; } }
+    public void StartProyectile(Vector2 position, float rotation)
+    {
+        transform.position = position;
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
 
+    }
     public void Initiate(int damage, float knockback, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0, List<Collider2D> ignoreColliders = null)
     {
         AttackDamage = damage;
