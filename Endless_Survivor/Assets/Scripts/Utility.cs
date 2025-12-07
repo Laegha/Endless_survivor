@@ -193,4 +193,14 @@ public static class Utility
         generatedPickup.TransferData(newPickup);
         return newPickup;
     }
+    public static SupportObjectControl GenerateSupportObj(SupportObjectData generatedSupportObjectData, Vector2 supportObjPosition, Quaternion supportObjRotation)
+    {
+        SupportObjectControl supportObj = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["SupportObject"], supportObjPosition, supportObjRotation).GetComponent<SupportObjectControl>();
+        generatedSupportObjectData.TransferData(supportObj);
+        return supportObj;
+    }
+    public static Vector2 GetRandomPosInMap()
+    {
+        return Vector2.zero;
+    }
 }
