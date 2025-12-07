@@ -14,7 +14,7 @@ public class SupportObjectBehaviour
     Action _onCollidedWithPlayer;
     Action<EnemyControl> _onCollidedWithEnemy;
     Action _onCollidedWithOther;
-
+    Action _onDestroyed;
     public SupportObjectControl ObjControl { get { return _supportObjControl; } }
     public List<EnemyControl> closestEnemies => Utility.GetClosestTo(WaveManager.wm.Enemies, _supportObjControl.transform).ConvertAll(new Converter<GameObject, EnemyControl>((enemy) => enemy.GetComponent<EnemyControl>()));
     public Vector2 MapMinBound
@@ -40,6 +40,7 @@ public class SupportObjectBehaviour
     public Action OnCollidedWithPlayer { get { return _onCollidedWithPlayer; } set { _onCollidedWithPlayer = value; } }
     public Action<EnemyControl> OnCollidedWithEnemy { get { return _onCollidedWithEnemy;} set { _onCollidedWithEnemy = value; } }
     public Action OnCollidedWithOther { get { return _onCollidedWithOther; } set { _onCollidedWithOther = value; } }
+    public Action OnDestroyed { get { return _onDestroyed; } set { _onDestroyed = value; } }
     public virtual void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
         _supportObjControl = control;
