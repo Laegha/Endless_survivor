@@ -36,4 +36,9 @@ public class SupportObjectBehaviourManager : MonoBehaviour
         foreach (var behaviour in _supportObjBehaviours)
             behaviour.OnCollidedWithEnemy?.Invoke(collidedEnemy);
     }
+    private void OnDestroy()
+    {
+        foreach (var behaviour in _supportObjBehaviours)
+            behaviour.OnDestroyed?.Invoke();
+    }
 }

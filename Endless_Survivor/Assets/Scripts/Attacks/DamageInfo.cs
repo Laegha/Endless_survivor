@@ -36,4 +36,9 @@ public class DamageInfo
         _damageAmmount = damageAmmount;
         _damageType = damageType;
     }
+    public DamageInfo(DamageInfo original)
+    {
+        _damageAmmount = original._damageAmmount;
+        _damageType = original._damageType;
+    }
 }
