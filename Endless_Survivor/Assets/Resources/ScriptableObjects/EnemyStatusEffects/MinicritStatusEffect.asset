@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: MinicritStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 7757969562384465922
+  - rid: 7757969562384465923
+  _effectMaxStacks: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 7757969562384465922
+      type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 15
+        _damageMultiplierAddition: 3
+    - rid: 7757969562384465923
+      type: {class: GraphicsStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 0}
+        _statusEffectMaterial: {fileID: 0}
+        _statusEffectParticles: {fileID: 0}
