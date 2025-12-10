@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2324fd4e75b4714697947188723a7c5, type: 3}
+  m_Name: CreateJaratePickup
+  m_EditorClassIdentifier: 
+  _pickupParticles: {fileID: 0}
+  _pickupAnim:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: ba323e03719e3d74f854b6d3dc5b508d, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _createdSupportObj: {fileID: 11400000, guid: 567dd47a4079009468705b333050d5bd, type: 2}
