@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new SupportObj Pickup", menuName = "Pickups/Create Support Obj Pickup", order = 6)]
+[CreateAssetMenu(fileName = "new SupportObj Pickup", menuName = "ScriptableObjects/Pickups/Create Support Obj Pickup", order = 6)]
 public class CreateSupportObjPickupData : PickupData
 {
     [SerializeField] CustomAnimation _pickupAnim;
