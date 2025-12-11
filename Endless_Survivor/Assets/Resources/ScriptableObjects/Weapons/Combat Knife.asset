@@ -17,7 +17,7 @@ MonoBehaviour:
   _weaponStats:
     _range: 2.1
     _attackSpeed: 4
-    _damage: 0
+    _damage: 7
     _knockback: 0
   _rangeIncrease: 0
   _attackSpeedIncrease: 0.8
@@ -35,16 +35,6 @@ MonoBehaviour:
     _framesPerSecond: 0
     _endAnimationOnEnd: 0
     _priority: 0
-  _attackAnimation:
-    _animationName: Attack
-    _frames:
-    - {fileID: -258320911, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
-    - {fileID: 1549829580, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
-    - {fileID: -172985205, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
-    _framesPerSecond: 18
-    _endAnimationOnEnd: 0
-    _priority: 0
-    _exitAnimationName: Idle
   _randomIdleAnimations: []
   _randomIdleAnimChance: 0
   _randomIdleAnimTime: 0
@@ -54,29 +44,35 @@ MonoBehaviour:
     - rid: 1204507356210659345
       type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
-        _attackId: Default
+        _attackId: DefaultAttack
         _attackAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
-          _endAnimationOnEnd: 0
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: -258320911, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
+          - {fileID: 1549829580, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
+          - {fileID: -172985205, guid: a2d1861f007a5554dbdcc155b4e08062, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 1
           _priority: 0
-        _attackFrame: 0
+        _attackFrame: 1
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
-        _damageType: 0
+        _damageType: 65
         _meleeData:
           _isCircle: 0
           _attackCircleRadius: 0
-          _attackBoxSize: {x: 0, y: 0}
-          _attackOffset: {x: 0, y: 0}
+          _attackBoxSize: {x: 0.35, y: 0.2}
+          _attackOffset: {x: 0.4, y: 0}
           _attackVfxAnimation:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
-            _endAnimationOnEnd: 0
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: -1349961720, guid: 9af5317460a6028419f19846fcb1b1b7, type: 3}
+            - {fileID: 44956522, guid: 9af5317460a6028419f19846fcb1b1b7, type: 3}
+            _framesPerSecond: 10
+            _endAnimationOnEnd: 1
             _priority: 0
-          _damageFrame: 0
+          _dropVfxOnDamage: 1
           _attackParticles: {fileID: 0}
           _particleDuration: 0

@@ -15,21 +15,19 @@ MonoBehaviour:
   _weaponDisplaySprite: {fileID: 21300000, guid: c1d4fc6b9b8f62d41bb5010837f076a4, type: 3}
   _weaponName: Sea Revolver
   _weaponStats:
-    _range: 4
+    _range: 6
     _attackSpeed: 0.5
-    _damage:
-      _damageAmmount: 5
-      _damageType: 0
+    _damage: 12
     _knockback: 0
   _rangeIncrease: 1
   _attackSpeedIncrease: 0.8
   _damageIncrease: 3
-  _attackEffects:
-  - {fileID: 11400000, guid: 70121141263562b448af1ce6cab427d9, type: 2}
   _weaponTags: 01000000
   _weaponPools: 3
-  _weaponDataTransferInterface:
-    rid: 3410740697792512000
+  _defaultAttack:
+    rid: 7757969577072656389
+  _weaponAttacks: []
+  _attackConditions: []
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -37,21 +35,6 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
-  _attackAnimation:
-    _animationName: Attack
-    _frames:
-    - {fileID: 730450207, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: 1583132390, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: -926550687, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: -207481726, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: 411598226, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: 1998529522, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: -2010578304, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    - {fileID: -718326915, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
-    _framesPerSecond: 12
-    _endAnimationOnEnd: 0
-    _priority: 1
-    _exitAnimationName: Idle
   _randomIdleAnimations:
   - _animationName: RandomIdle1
     _frames:
@@ -72,20 +55,41 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3410740697792512000
-      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 7757969577072656389
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 730450207, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: 1583132390, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: -926550687, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: -207481726, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: 411598226, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: 1998529522, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: -2010578304, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          - {fileID: -718326915, guid: 2ad077f9360b60941af0a9f6e439f860, type: 3}
+          _framesPerSecond: 18
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 5
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 70121141263562b448af1ce6cab427d9, type: 2}
+        _damageMultiplier: 1
+        _damageType: 1
         _firePointPosition: {x: 17.5, y: 5.5}
-        _defaultBulletData:
+        _proyectileData:
+          _proyectileSpeed: 10
+          _proyectileSpread: 0
           _proyectileSprite: {fileID: 21300000, guid: 3f7f604541f75b64bae97596ab17ae96, type: 3}
-          _colliderSize: {x: 0.28125, y: 0.18}
-          _colliderDirection: 0
-          _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-          _particlesPrefab: {fileID: 6619987818037842312, guid: 1a39e34327161c242a419b18a3f93138, type: 3}
+          _colliderSize: {x: 0.35, y: 0.2}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-        _proyectileSpeed: 4
-        _proyectileSpread: 0

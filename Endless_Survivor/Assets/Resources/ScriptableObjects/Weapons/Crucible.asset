@@ -17,19 +17,17 @@ MonoBehaviour:
   _weaponStats:
     _range: 2
     _attackSpeed: 0.8
-    _damage:
-      _damageAmmount: 5
-      _damageType: 4
+    _damage: 15
     _knockback: 15
   _rangeIncrease: 0
   _attackSpeedIncrease: 0.5
   _damageIncrease: 2
-  _attackEffects:
-  - {fileID: 11400000, guid: 00d91aebd6e4e584280b5bf782261db5, type: 2}
   _weaponTags: 0000000002000000
   _weaponPools: 1
-  _weaponDataTransferInterface:
-    rid: 1428374630825984000
+  _defaultAttack:
+    rid: 7757969577072656388
+  _weaponAttacks: []
+  _attackConditions: []
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -37,43 +35,42 @@ MonoBehaviour:
     _framesPerSecond: 0
     _endAnimationOnEnd: 0
     _priority: 0
-  _attackAnimation:
-    _animationName: Attack
-    _frames:
-    - {fileID: 659789779, guid: c792c65491eb8544b96099f1136aef84, type: 3}
-    - {fileID: 1348826584, guid: c792c65491eb8544b96099f1136aef84, type: 3}
-    - {fileID: 899221377, guid: c792c65491eb8544b96099f1136aef84, type: 3}
-    - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
-    - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
-    _framesPerSecond: 8
-    _endAnimationOnEnd: 0
-    _priority: 0
-    _exitAnimationName: Idle
   _randomIdleAnimations: []
   _randomIdleAnimChance: 0
   _randomIdleAnimTime: 0
   references:
     version: 2
     RefIds:
-    - rid: 1428374630825984000
-      type: {class: MeleeWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 7757969577072656388
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 659789779, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+          - {fileID: 1348826584, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+          - {fileID: 899221377, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+          - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 5
         _meleeData:
           _isCircle: 1
-          _attackCircleRadius: 1
+          _attackCircleRadius: 1.5
           _attackBoxSize: {x: 0, y: 0}
-          _attackOffset: {x: 0, y: 0}
+          _attackOffset: {x: 0.4, y: 0.4}
           _attackVfxAnimation:
-            _animationName: AttackVfx
-            _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            _framesPerSecond: 8
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
             _endAnimationOnEnd: 0
             _priority: 0
-          _damageFrame: 3
+          _dropVfxOnDamage: 0
           _attackParticles: {fileID: 0}
-          _particleDuration: -1
+          _particleDuration: 0

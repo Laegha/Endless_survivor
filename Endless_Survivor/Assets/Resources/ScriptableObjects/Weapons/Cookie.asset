@@ -17,19 +17,17 @@ MonoBehaviour:
   _weaponStats:
     _range: 6
     _attackSpeed: 1.2
-    _damage:
-      _damageAmmount: 3
-      _damageType: 0
+    _damage: 11
     _knockback: 6
   _rangeIncrease: 2
   _attackSpeedIncrease: 1.1
   _damageIncrease: 2.1
-  _attackEffects:
-  - {fileID: 11400000, guid: e0825e4892f39654d8e26c88f9fad8b8, type: 2}
   _weaponTags: 01000000
   _weaponPools: -1
-  _weaponDataTransferInterface:
-    rid: 575471762015256578
+  _defaultAttack:
+    rid: 7757969577072656387
+  _weaponAttacks: []
+  _attackConditions: []
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -37,34 +35,40 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
-  _attackAnimation:
-    _animationName: Attack
-    _frames:
-    - {fileID: 21300000, guid: b4015eb556337a643a497c697c45727b, type: 3}
-    _framesPerSecond: 1
-    _endAnimationOnEnd: 0
-    _priority: 0
-    _exitAnimationName: Idle
   _randomIdleAnimations: []
   _randomIdleAnimChance: 0
   _randomIdleAnimTime: 0
   references:
     version: 2
     RefIds:
-    - rid: 575471762015256578
-      type: {class: ProyectileWeaponDataTransferInterface, ns: , asm: Assembly-CSharp}
+    - rid: 7757969577072656387
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 21300000, guid: b4015eb556337a643a497c697c45727b, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: e0825e4892f39654d8e26c88f9fad8b8, type: 2}
+        _damageMultiplier: 1
+        _damageType: 1
         _firePointPosition: {x: 0, y: 0}
-        _defaultBulletData:
+        _proyectileData:
+          _proyectileSpeed: 3
+          _proyectileSpread: 0
           _proyectileSprite: {fileID: 21300000, guid: b4015eb556337a643a497c697c45727b, type: 3}
-          _colliderSize: {x: 0.6875, y: 0.6875}
+          _colliderSize: {x: 0.6, y: 0.6}
           _colliderDirection: 0
-          _proyectileMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+          _proyectileMaterial: {fileID: 0}
           _particlesPrefab: {fileID: 0}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-        _proyectileSpeed: 2
-        _proyectileSpread: 0
