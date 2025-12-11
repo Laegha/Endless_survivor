@@ -27,6 +27,6 @@ MonoBehaviour:
     - rid: 7757969562384465923
       type: {class: GraphicsStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _statusEffectIndicator: {fileID: 0}
-        _statusEffectMaterial: {fileID: 0}
-        _statusEffectParticles: {fileID: 0}
+        _statusEffectIndicator: {fileID: 21300000, guid: 32da43748175b4c4d89d4089564dd001, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: cd943843d71bebe429e6b2bf53854220, type: 2}
+        _statusEffectParticles: {fileID: 1098826074969476210, guid: 2458a7673b4146643940122b8ba46fab, type: 3}
