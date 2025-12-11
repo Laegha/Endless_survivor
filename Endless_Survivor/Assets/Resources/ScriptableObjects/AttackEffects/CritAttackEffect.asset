@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f4c500d1b3dee48885e1e8f3388601, type: 3}
   m_Name: CritAttackEffect
   m_EditorClassIdentifier: 
-  _effectChance: 0
+  _effectChance: 100
   _usedBySecondaryAttacks: 1
-  _attackEffects: []
+  _attackEffects:
+  - rid: 7757969562384465924
+  - rid: 7757969562384465925
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7757969562384465924
+      type: {class: AddAttackMultiplierAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _separateChance: 50
+        _addedMultiplier: 2
+    - rid: 7757969562384465925
+      type: {class: SpawnParticlesOnEnemyHitAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _separateChance: 50
+        _onEnemyHitParticles: {fileID: 2555208327605434357, guid: 7c5104245deb48347bb5c2ede566cb82, type: 3}
+        _particlesDuration: 5
