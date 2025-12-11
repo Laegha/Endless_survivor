@@ -21,10 +21,15 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     {
         base.Initiate(control, original);
         var throwOriginal = original as ThrowAtEnemySupportObjBehaviour;
+        _thrownAnimation = throwOriginal._thrownAnimation;
         _throwSpeed = throwOriginal._throwSpeed;
         _collisionCheckRadius = throwOriginal._collisionCheckRadius;
         _collidedLayers = throwOriginal._collidedLayers;
+
+        ObjControl.Animator.AddAnimations(new(){_thrownAnimation});
+
         OnStart += CalculateDirection;
+        OnStart += () => ObjControl.Animator.ChangeAnim(_thrownAnimation.AnimationName);
         OnUpdate += MoveTowardsEnemy;
     }
     void CalculateDirection()
@@ -37,7 +42,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     void MoveTowardsEnemy()
     {
         Vector2 movementDelta = _throwDirection * Time.deltaTime * _throwSpeed;
-        ObjControl.transform.Translate(movementDelta);
+        ObjControl.transform.position += (Vector3)movementDelta;
         _lapsedDistance += movementDelta.magnitude;
         var collidingObjs = Physics2D.OverlapCircleAll(ObjControl.transform.position, _collisionCheckRadius, _collidedLayers);
         if(collidingObjs.Length > 0)
@@ -45,7 +50,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
             GameObject.Destroy(ObjControl.gameObject);
             return;
         }
-        if(_lapsedDistance >= _totalDistance)
+        if(_lapsedDistance < _totalDistance)
             return;
         GameObject.Destroy(ObjControl.gameObject);
     }
