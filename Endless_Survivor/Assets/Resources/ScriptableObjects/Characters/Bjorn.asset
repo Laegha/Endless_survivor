@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 625216b8a4db3ae4bbd0a109f537a0c7, type: 2}
   _initialMaxWeapons: 2
   _initialPassives:
-  - {fileID: 11400000, guid: b7d8a6c1a2fcc4441bfd1ef1f2335fdb, type: 2}
+  - {fileID: 11400000, guid: a6c792945f5ef724e904e0b811bd1aa7, type: 2}
   _playerStats:
     _initialHP: 25
     _hpIncrement: 3
@@ -39,6 +39,7 @@ MonoBehaviour:
     - {fileID: -1680393105, guid: 5bbaefe79020d474e84f7562f5c5fb1f, type: 3}
     - {fileID: 1348301683, guid: 5bbaefe79020d474e84f7562f5c5fb1f, type: 3}
     _framesPerSecond: 8
+    _endAnimationOnEnd: 0
     _priority: 0
   _frontMoving:
     _animationName: FrontMove
@@ -52,6 +53,7 @@ MonoBehaviour:
     - {fileID: -1993391698, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
     - {fileID: -785296982, guid: 32d46af60381f484e9ed19fea3282f68, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _rightMoving:
     _animationName: RightMove
@@ -64,6 +66,7 @@ MonoBehaviour:
     - {fileID: 1639412019, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
     - {fileID: 1018558848, guid: 23ceda4f70fb4a945bdfe193e4d05afb, type: 3}
     _framesPerSecond: 8
+    _endAnimationOnEnd: 0
     _priority: 0
   _backMoving:
     _animationName: BackMove
@@ -77,6 +80,7 @@ MonoBehaviour:
     - {fileID: -584929746, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
     - {fileID: -1884289287, guid: 0765e3a44733a8d4dacb23612b836f8d, type: 3}
     _framesPerSecond: 9
+    _endAnimationOnEnd: 0
     _priority: 0
   _leftMoving:
     _animationName: LeftMove
@@ -89,6 +93,7 @@ MonoBehaviour:
     - {fileID: -888359255, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
     - {fileID: 256685941, guid: ed36f81bef5cecb4fbb92e7033772a77, type: 3}
     _framesPerSecond: 8
+    _endAnimationOnEnd: 0
     _priority: 0
   _onHitSound:
     _sound: {fileID: 0}

@@ -48,6 +48,39 @@ MonoBehaviour:
         _collidedLayers:
           serializedVersion: 2
           m_Bits: 128
+        _verticalMovementCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 1.1856768
+            outSlope: 1.1856768
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5119983
+            value: 1.6070645
+            inSlope: -0.029151738
+            outSlope: -0.029151738
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: -1.2439803
+            outSlope: -1.2439803
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
     - rid: 7757969562384465921
       type: {class: ApplyEnemyStatusEffectOnAreaOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
