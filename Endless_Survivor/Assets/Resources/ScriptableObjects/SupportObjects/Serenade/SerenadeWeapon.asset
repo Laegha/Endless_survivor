@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: SerenadeWeapon
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 0}
+  _weaponName: 
+  _weaponStats:
+    _range: 0
+    _attackSpeed: 0
+    _damage: 0
+    _knockback: 0
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0
+  _damageIncrease: 0
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: -2
+  _weaponAttacks: []
+  _attackConditions: []
+  _idleAnimation:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
