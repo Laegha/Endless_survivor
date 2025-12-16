@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: SerenadeFollower
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1204507652299161600
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -1980107058, guid: bca4b0496389f3d47875ee36a266c3ec, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507652299161600
+      type: {class: FollowPlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _playerPosOffset: {x: -1.5, y: 1}
+        _moveSpeed: 2
