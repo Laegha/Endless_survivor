@@ -11,6 +11,6 @@ public class SupportObjectControl : MonoBehaviour
 
     public SupportObjectBehaviourManager BehaviourManager { get { return _behaviourManager; } }
     public Transform ColliderHolder { get { return _colliderHolder; } }
-    public CustomAnimator Animator { get { return _animator; } }
+    public CustomAnimator Animator { get { return _animator; } set { _animator = value; } }
     public List<SpriteRenderer> Renderers { get { return _renderers; } }
 }
