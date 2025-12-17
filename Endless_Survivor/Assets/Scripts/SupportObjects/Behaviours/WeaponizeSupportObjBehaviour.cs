@@ -35,10 +35,14 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         _weaponAttackManager = weaponControl.WeaponAttackManager;
         _weaponAttackManager.Initiate(_objWeapon.AttackConditions, weaponStats, _objWeapon);
 
+
+        weaponControl.WeaponAim.ChangeDistCheckPos(() => ObjControl.transform.position);
+
         foreach (var renderer in ObjControl.Renderers)
         {
             renderer.enabled = false;
         }
+        ObjControl.Renderers.AddRange(weaponControl.GfxSorter.AffectedRenderers);
         var objAnimations = ObjControl.Animator.Animations;
         ObjControl.Animator = weaponControl.WeaponAnimator;
         ObjControl.Animator.AddAnimations(objAnimations);
