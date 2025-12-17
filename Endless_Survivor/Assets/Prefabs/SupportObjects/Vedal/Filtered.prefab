@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.02}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.764483, y: 0.1748503}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3590953672843724520
@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 4751292754687268318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.76448303, y: 0.17485027, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,8 +264,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2759557014863435515}
-  - component: {fileID: 4215456768560383710}
   - component: {fileID: 5320116042131842686}
+  - component: {fileID: 4482681132453168777}
   m_Layer: 0
   m_Name: Filtered
   m_TagString: Untagged
@@ -290,20 +290,6 @@ Transform:
   - {fileID: 4978053788948047129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4215456768560383710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8504629477405893268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2646919d6b846248a08d847b1525adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _affectedRenderers:
-  - {fileID: 809101207376125598}
 --- !u!114 &5320116042131842686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,5 +302,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2f158fb5a684f4d8a53c49eedd8456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _affectedText:
-  - {fileID: 1372474138382819168}
+  sortedElements: []
+  _offset: 5
+--- !u!114 &4482681132453168777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504629477405893268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortedElements:
+  - {fileID: 809101207376125598}
+  _offset: 0

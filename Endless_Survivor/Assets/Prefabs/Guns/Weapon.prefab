@@ -53,6 +53,7 @@ MonoBehaviour:
   _weaponAttackManager: {fileID: 9119836679215488894}
   _weaponAnimator: {fileID: 8017266537295601437}
   _gfx: {fileID: 2769403315937609654}
+  _rendererSorter: {fileID: 4036783183393237624}
   _onLevelUpParticle: {fileID: 2555208327605434357, guid: aac3198803d2934488447e7ecf1d029e, type: 3}
 --- !u!114 &9119836679215488894
 MonoBehaviour:
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortedElements:
+  _sortedElements:
   - {fileID: 2769403315937609654}
   _offset: 0
 --- !u!1 &8860193320851165239
