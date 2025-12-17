@@ -23,8 +23,14 @@ public class SupportObjectBehaviourManager : MonoBehaviour
 
     private void Update()
     {
-        foreach( var behaviour in _supportObjBehaviours)
+        foreach(var behaviour in _supportObjBehaviours)
             behaviour.OnUpdate?.Invoke();
+    }
+    private void LateUpdate()
+    {
+
+        foreach (var behaviour in _supportObjBehaviours)
+            behaviour.OnLateUpdate?.Invoke();
     }
     public void CollidedWithPlayer()
     {
