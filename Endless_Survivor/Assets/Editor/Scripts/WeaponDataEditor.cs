@@ -22,6 +22,7 @@ public class WeaponDataEditor : Editor
     SerializedProperty _weaponPools;
 
     SerializedProperty _weaponDisplaySprite;
+    SerializedProperty _rendererOrderOffset;
     SerializedProperty _idleAnimation;
     SerializedProperty _randomIdleAnimations;
     SerializedProperty _randomIdleAnimChance;
@@ -47,6 +48,7 @@ public class WeaponDataEditor : Editor
         _weaponPools = serializedObject.FindProperty("_weaponPools");
 
         _weaponDisplaySprite = serializedObject.FindProperty("_weaponDisplaySprite");
+        _rendererOrderOffset = serializedObject.FindProperty("_spriteRenderOrderOffset");
         _idleAnimation = serializedObject.FindProperty("_idleAnimation");
         _randomIdleAnimations = serializedObject.FindProperty("_randomIdleAnimations");
         _randomIdleAnimChance = serializedObject.FindProperty("_randomIdleAnimChance");
@@ -188,8 +190,9 @@ public class WeaponDataEditor : Editor
         EditorGUILayout.LabelField("Some enemies will drop only weapons of certain pools", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(_weaponPools);
 
-        EditorGUILayout.LabelField("Animations");
         EditorGUILayout.PropertyField(_weaponDisplaySprite, true);
+        EditorGUILayout.PropertyField(_rendererOrderOffset, true);
+        EditorGUILayout.LabelField("Animations");
         EditorGUILayout.PropertyField(_idleAnimation, true);
 
         EditorGUILayout.LabelField("This are animations that may trigger while idle. Leave blank if none should");

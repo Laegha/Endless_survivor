@@ -39,6 +39,7 @@ public class WeaponAttackManager : MonoBehaviour
         _weaponData = data;
         _weaponControl = GetComponent<WeaponControl>();
 
+        _weaponControl.GfxSorter.Offset = _weaponData.SpriteRenderOrderOffset;
         _weaponControl.WeaponAnimator.AddAnimations(new(){ data.IdleAnim });
         if (data.RandomIdleAnimations.Count > 0)
         {

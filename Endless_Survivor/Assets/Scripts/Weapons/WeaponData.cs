@@ -22,6 +22,7 @@ public class WeaponData : ScriptableObject
     [SerializeReference] List<WeaponAttackController> _weaponAttacks = new();
     [SerializeReference] List<WeaponAttackChangeCondition> _attackConditions = new();
 
+    [SerializeField] int _spriteRenderOrderOffset;
     [SerializeField] CustomAnimation _idleAnimation;
 
     [SerializeField] List<RandomIdleAnimation>_randomIdleAnimations = new List<RandomIdleAnimation>();
@@ -37,6 +38,7 @@ public class WeaponData : ScriptableObject
     [Tooltip("SET ONLY IN EDITOR!!")]public WeaponAttackController DefaultAttack { get { return _defaultAttack; } set { _defaultAttack = value; } }
     public List<WeaponAttackController> WeaponAttacks { get { return _weaponAttacks; } set { _weaponAttacks = value; } }
     public List<WeaponAttackChangeCondition> AttackConditions { get { return _attackConditions; } }
+    public int SpriteRenderOrderOffset { get { return _spriteRenderOrderOffset; } }
     public CustomAnimation IdleAnim { get { return _idleAnimation; } }
     public List<RandomIdleAnimation> RandomIdleAnimations { get { return _randomIdleAnimations; } }
     public float RandomIdleAnimChance { get {   return _randomIdleAnimChance; } }
