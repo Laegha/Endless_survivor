@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _supportObjBehaviours:
   - rid: 1204507652299161600
+  - rid: 1204507656489533440
+  - rid: 1204507670207528960
+  - rid: 1204507670207528961
   _idleAnimation:
     _animationName: Idle
     _frames:
-    - {fileID: -1980107058, guid: bca4b0496389f3d47875ee36a266c3ec, type: 3}
-    _framesPerSecond: 1
+    - {fileID: 1508371693, guid: 4b0580ac5bb7c134a8aa3a7d90abc45f, type: 3}
+    - {fileID: -120304941, guid: 4b0580ac5bb7c134a8aa3a7d90abc45f, type: 3}
+    - {fileID: -1417289648, guid: 4b0580ac5bb7c134a8aa3a7d90abc45f, type: 3}
+    - {fileID: 594407382, guid: 4b0580ac5bb7c134a8aa3a7d90abc45f, type: 3}
+    _framesPerSecond: 6
     _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
@@ -28,5 +34,31 @@ MonoBehaviour:
     - rid: 1204507652299161600
       type: {class: FollowPlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: -724268399, guid: 7fdde74d3c497a04fb466aa7cee7127b, type: 3}
+          - {fileID: -577114766, guid: 7fdde74d3c497a04fb466aa7cee7127b, type: 3}
+          - {fileID: -415387818, guid: 7fdde74d3c497a04fb466aa7cee7127b, type: 3}
+          - {fileID: -2042102359, guid: 7fdde74d3c497a04fb466aa7cee7127b, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
         _playerPosOffset: {x: -1.5, y: 1}
-        _moveSpeed: 2
+        _speedLessThanPlayer: 0.5
+        _stopDist: 0.2
+    - rid: 1204507656489533440
+      type: {class: WeaponizeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _objWeapon: {fileID: 11400000, guid: 6e2ce1aa408a8254a8c5a95ef1d73b3b, type: 2}
+    - rid: 1204507670207528960
+      type: {class: ForceRotationSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _rotation: 0
+    - rid: 1204507670207528961
+      type: {class: ForceSpriteFlipSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _forceXFlip: 0
+        _flipX: 0
+        _forceYFlip: 1
+        _flipY: 0
