@@ -919,6 +919,7 @@ MonoBehaviour:
   _weaponAttackManager: {fileID: 0}
   _weaponAnimator: {fileID: 232842321}
   _gfx: {fileID: 513894574}
+  _rendererSorter: {fileID: 0}
   _onLevelUpParticle: {fileID: 2555208327605434357, guid: aac3198803d2934488447e7ecf1d029e, type: 3}
 --- !u!114 &232842321
 MonoBehaviour:
@@ -5854,7 +5855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -109.00049}
+  m_AnchoredPosition: {x: 0, y: -109.00061}
   m_SizeDelta: {x: -123.7664, y: -275.9179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763769461
