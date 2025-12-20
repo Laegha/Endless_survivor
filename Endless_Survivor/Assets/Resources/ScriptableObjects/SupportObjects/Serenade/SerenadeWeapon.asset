@@ -54,6 +54,8 @@ MonoBehaviour:
           - {fileID: -1422743469, guid: 90dab85539190b047bc01da94665a2a4, type: 3}
           - {fileID: -1080036289, guid: 90dab85539190b047bc01da94665a2a4, type: 3}
           - {fileID: 1985205644, guid: 90dab85539190b047bc01da94665a2a4, type: 3}
+          - {fileID: 1985205644, guid: 90dab85539190b047bc01da94665a2a4, type: 3}
+          - {fileID: 1985205644, guid: 90dab85539190b047bc01da94665a2a4, type: 3}
           _framesPerSecond: 10
           _endAnimationOnEnd: 1
           _priority: 1
@@ -68,9 +70,16 @@ MonoBehaviour:
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0, y: -0.4}
           _attackVfxAnimation:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 1928685387, guid: b34ee51cdbd0fc942b9289de806060aa, type: 3}
+            - {fileID: -1420579850, guid: b34ee51cdbd0fc942b9289de806060aa, type: 3}
+            - {fileID: -1612130922, guid: b34ee51cdbd0fc942b9289de806060aa, type: 3}
+            _framesPerSecond: 10
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0

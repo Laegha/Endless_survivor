@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
   m_Name: SerenadeItem
   m_EditorClassIdentifier: 
-  _itemName: 
-  _itemDescript: 
+  _itemName: Serenade
+  _itemDescript: Follows you and attacks enemies
   _itemSprite: {fileID: 0}
   _itemBehaviours:
   - rid: 1204507652299161601
-  _itemPools: 0
+  _itemPools: 1
   references:
     version: 2
     RefIds:

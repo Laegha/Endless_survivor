@@ -23,11 +23,7 @@ MonoBehaviour:
   - rid: 2600434731462950912
   - rid: 2600434731462950913
   - rid: 3410740468448755712
-  _dropablePickupChances:
-  - _pickupData: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
-    _chance: 10
-  - _pickupData: {fileID: 11400000, guid: b81cd9ee6d834c940924b0e437b666c7, type: 2}
-    _chance: 10
+  _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
