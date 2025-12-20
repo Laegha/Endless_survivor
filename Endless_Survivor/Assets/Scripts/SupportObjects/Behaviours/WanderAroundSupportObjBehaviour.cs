@@ -54,7 +54,6 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
         _currMovingSpeed = _movementSpeed.rand;
         _currLapsedDistance = 0;
         _isMoving = true;
-        ObjControl.Animator.ChangeAnim(_movingAnimation);
         foreach (var renderer in ObjControl.Renderers)
         {
             renderer.flipX = _currMovingDirection.x < 0;
@@ -64,7 +63,15 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
     void Move()
     {
         if (!_isMoving)
+        {
+            ObjControl.Animator.ChangeAnim(ObjControl.BehaviourManager.SupportObjData.IdleAnimation.AnimationName);
             return;
+        }
+        if (ObjControl.Animator.CurrAnim.AnimationName != _movingAnimation.AnimationName)
+        {
+            ObjControl.Animator.ChangeAnim(_movingAnimation);
+            return;
+        }
         var movementDelta = Time.deltaTime * _currMovingSpeed;
         _currLapsedDistance += movementDelta;
         var movement = _currMovingDirection * movementDelta;
@@ -73,7 +80,6 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
         {
             //end animation
             ObjControl.Animator.EndAnimation(_movingAnimation);
-            ObjControl.Animator.ChangeAnim("Idle");
             _isMoving = false;
             _onMovementEnded?.Invoke();
         }
