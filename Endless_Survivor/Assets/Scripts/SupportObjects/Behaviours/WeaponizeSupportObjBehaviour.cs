@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
 {
     [SerializeField] WeaponData _objWeapon;
+    [SerializeField] bool _setSupportObjAsDistCheck;
     WeaponAttackManager _weaponAttackManager;
     new public static int maxStacks => 1;
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
@@ -13,6 +14,7 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         base.Initiate(control, original);
         var weaponizeOriginal = original as WeaponizeSupportObjBehaviour;
         _objWeapon = weaponizeOriginal._objWeapon;
+        _setSupportObjAsDistCheck = weaponizeOriginal._setSupportObjAsDistCheck;
 
         OnStart += CreateWeapon;
         WaveManager.wm.OnWaveStarted += UpdateWeaponStats;
@@ -35,8 +37,8 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         _weaponAttackManager = weaponControl.WeaponAttackManager;
         _weaponAttackManager.Initiate(_objWeapon.AttackConditions, weaponStats, _objWeapon);
 
-
-        weaponControl.WeaponAim.ChangeDistCheckPos(() => ObjControl.transform.position);
+        if(_setSupportObjAsDistCheck)
+            weaponControl.WeaponAim.ChangeDistCheckPos(() => ObjControl.transform.position);
 
         foreach (var renderer in ObjControl.Renderers)
         {
