@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Broadsword
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 481a132584bd08d42a3834cb004166c2, type: 3}
+  _weaponName: Broadsword
+  _weaponStats:
+    _range: 2
+    _attackSpeed: 0.7
+    _damage: 12.5
+    _knockback: 10
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0
+  _damageIncrease: 2
+  _weaponTags: 00000000
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 1204507682168897536
+  _weaponAttacks:
+  - rid: 1204507682168897537
+  - rid: 1204507682168897538
+  _attackConditions:
+  - rid: 1204507698414485504
+  - rid: 1204507698414485505
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: c79f990a0d82ab1419a75f10e4c9f855, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507682168897536
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack0
+        _attackAnimation:
+          _animationName: Attack0
+          _frames:
+          - {fileID: 942172480, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: 791560851, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: 138148920, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: 1400868815, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: -207829492, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: -614082419, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: -614082419, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 5
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 65
+        _meleeData:
+          _isCircle: 0
+          _attackCircleRadius: 0
+          _attackBoxSize: {x: 2, y: 0.7}
+          _attackOffset: {x: 0.1, y: -0.15}
+          _attackVfxAnimation:
+            _animationName: Attack0Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 1860783838, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
+            - {fileID: -1621053071, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
+            - {fileID: 1848007537, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
+            _framesPerSecond: 5
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 1204507682168897537
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack1
+        _attackAnimation:
+          _animationName: Attack1
+          _frames:
+          - {fileID: 1168513459, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: 865315188, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: 979889724, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: 1907351297, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: -2028611902, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: -2028611902, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: -2028611902, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 4
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 2
+        _damageType: 65
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.9
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.3, y: 0.15}
+          _attackVfxAnimation:
+            _animationName: Attack1Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: -1595410662, guid: 02669ae6d9beae24698afa38bd19464a, type: 3}
+            - {fileID: -1569613658, guid: 02669ae6d9beae24698afa38bd19464a, type: 3}
+            - {fileID: -1136356525, guid: 02669ae6d9beae24698afa38bd19464a, type: 3}
+            _framesPerSecond: 7
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 1204507682168897538
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack2
+        _attackAnimation:
+          _animationName: Attack2
+          _frames:
+          - {fileID: 1679206683, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          - {fileID: -890206761, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          - {fileID: 1366491088, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          - {fileID: 941972415, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          - {fileID: -1210316222, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 4
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 2
+        _damageType: 65
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.7
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.4, y: 0}
+          _attackVfxAnimation:
+            _animationName: Attack2Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 2081534801, guid: 02216ac7d8409904f99f42487ed3464d, type: 3}
+            - {fileID: -528945710, guid: 02216ac7d8409904f99f42487ed3464d, type: 3}
+            - {fileID: 1687685137, guid: 02216ac7d8409904f99f42487ed3464d, type: 3}
+            _framesPerSecond: 5
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 1204507698414485504
+      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _conditionAttacksIds:
+        - Attack0
+        _triggeredAttackId: Attack1
+    - rid: 1204507698414485505
+      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _conditionAttacksIds:
+        - Attack1
+        _triggeredAttackId: Attack2
