@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sortedElements:
   - {fileID: 7642443675026033161}
-  _offset: 0
+  _offset: -150
 --- !u!1 &8787211392802782277
 GameObject:
   m_ObjectHideFlags: 0
