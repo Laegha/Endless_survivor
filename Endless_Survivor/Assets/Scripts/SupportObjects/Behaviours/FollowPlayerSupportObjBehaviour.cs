@@ -35,7 +35,10 @@ public class FollowPlayerSupportObjBehaviour : SupportObjectBehaviour
         Vector2 targetPos = (Vector2)PlayerControl.pc.transform.position + _playerPosOffset * dirMultiplier;
         Vector2 movementVector = targetPos - (Vector2)ObjControl.transform.position;
         if (movementVector.magnitude <= _stopDist)
+        {
+            ObjControl.Animator.ChangeAnim(ObjControl.BehaviourManager.SupportObjData.IdleAnimation.AnimationName);
             return;
+        }
         if(ObjControl.Animator.CurrAnim.AnimationName != _movingAnimation.AnimationName)
         {
             ObjControl.Animator.ChangeAnim(_movingAnimation.AnimationName);
