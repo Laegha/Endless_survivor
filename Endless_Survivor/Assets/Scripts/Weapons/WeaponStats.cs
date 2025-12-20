@@ -77,7 +77,7 @@ public class WeaponStats
     }
     float GetTrueStatIncrease(float increaseScale, int level, float baseStat, float variation)
     {
-        return ScalingFunctions.WeaponStatIncreaseTrueLevel(increaseScale, level) + Random.Range(baseStat > variation ? -variation : 0, variation);
+        return ScalingFunctions.WeaponStatIncreaseTrueLevel(increaseScale, level) + Random.Range(baseStat > variation ? -variation : 0, variation) * increaseScale;
     }
     float GetInducedStatIncrease(float increaseScale, int level, float baseStat, float variation)
     {
