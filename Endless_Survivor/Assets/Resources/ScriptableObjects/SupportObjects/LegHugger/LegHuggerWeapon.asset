@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: LegHuggerWeapon
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 0}
+  _weaponName: Leg Hugger
+  _weaponStats:
+    _range: 1
+    _attackSpeed: 2
+    _damage: 20
+    _knockback: 5
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0.5
+  _damageIncrease: 1.5
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 1204507693099515905
+  _weaponAttacks:
+  - rid: 1204507693099515906
+  _attackConditions:
+  - rid: 1204507693099515911
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: WeaponIdle
+    _frames:
+    - {fileID: 398404735, guid: ce911fa0ab1c8f848bb7260adb9f8409, type: 3}
+    - {fileID: -974306243, guid: ce911fa0ab1c8f848bb7260adb9f8409, type: 3}
+    _framesPerSecond: 4
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507693099515905
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 1467281126, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: -640310909, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: 82402709, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: 1952135113, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: -1533294651, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: -1012350077, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: -1215382251, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: -457943252, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          - {fileID: -635119928, guid: 83140580a5b4b2c4aa8d681508ad0c98, type: 3}
+          _framesPerSecond: 14
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 7
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _damageType: 1
+        _meleeData:
+          _isCircle: 0
+          _attackCircleRadius: 0
+          _attackBoxSize: {x: 0.9, y: 1}
+          _attackOffset: {x: 0.4, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 1204507693099515906
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: SpecialAttack
+        _attackAnimation:
+          _animationName: SpecialAttack
+          _frames:
+          - {fileID: -1548006737, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 417231357, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 520994649, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 449894223, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 561703510, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 11857861, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 1212180392, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 104026001, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          - {fileID: 1021019021, guid: c41e72a4edb0f97438712488834bf09f, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 7
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 2
+        _damageType: 0
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.8
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 1204507693099515911
+      type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _changeChance: 20
+        _idsWeights:
+        - _element: SpecialAttack
+          _chance: 1

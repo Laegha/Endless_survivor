@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: LegHugger
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1204507693099515907
+  - rid: 1204507693099515908
+  - rid: 1204507693099515909
+  - rid: 1204507693099515910
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 398404735, guid: ce911fa0ab1c8f848bb7260adb9f8409, type: 3}
+    - {fileID: -974306243, guid: ce911fa0ab1c8f848bb7260adb9f8409, type: 3}
+    _framesPerSecond: 4
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507693099515907
+      type: {class: WanderAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movementSpeed:
+          min: 3
+          max: 4
+        _movementDistance:
+          min: 3
+          max: 8
+        _timeBetweenMovements:
+          min: 1
+          max: 3
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: 400929925, guid: 68f00fdd93b4f8c48b7f01658bb9e205, type: 3}
+          - {fileID: -189957325, guid: 68f00fdd93b4f8c48b7f01658bb9e205, type: 3}
+          - {fileID: 765221669, guid: 68f00fdd93b4f8c48b7f01658bb9e205, type: 3}
+          - {fileID: 417266607, guid: 68f00fdd93b4f8c48b7f01658bb9e205, type: 3}
+          - {fileID: -1243129645, guid: 68f00fdd93b4f8c48b7f01658bb9e205, type: 3}
+          _framesPerSecond: 12
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 1204507693099515908
+      type: {class: WeaponizeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _objWeapon: {fileID: 11400000, guid: 71f405f43c375af47b1f35b6a01c540f, type: 2}
+        _setSupportObjAsDistCheck: 1
+    - rid: 1204507693099515909
+      type: {class: ForceRotationSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _rotation: 0
+    - rid: 1204507693099515910
+      type: {class: ForceSpriteFlipSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _forceXFlip: 0
+        _flipX: 0
+        _forceYFlip: 1
+        _flipY: 0
