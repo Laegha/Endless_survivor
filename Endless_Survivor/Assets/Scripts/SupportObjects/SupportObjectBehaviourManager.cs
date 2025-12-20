@@ -7,11 +7,14 @@ public class SupportObjectBehaviourManager : MonoBehaviour
 {
     [SerializeField] SupportObjectControl _objControl;
     List<SupportObjectBehaviour> _supportObjBehaviours = new();
+    SupportObjectData _supportObjData;
 
     public List<SupportObjectBehaviour> Behaviours { get { return _supportObjBehaviours; } }
+    public SupportObjectData SupportObjData {  get { return _supportObjData; } }
 
-    public void SetBehaviours(List<SupportObjectBehaviour> originalBehaviours)
+    public void SetBehaviours(List<SupportObjectBehaviour> originalBehaviours, SupportObjectData supportObjectData)
     {
+        _supportObjData = supportObjectData;
         foreach(var behaviour in originalBehaviours)
         {
             var behaviourCopy = (SupportObjectBehaviour)Activator.CreateInstance(behaviour.GetType());

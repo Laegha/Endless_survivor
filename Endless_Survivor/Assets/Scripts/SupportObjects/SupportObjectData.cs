@@ -10,6 +10,7 @@ public class SupportObjectData : ScriptableObject
     [SerializeField] ColliderData[] _supportObjColliders;
 
     public List<SupportObjectBehaviour> SupportObjBehaviours { get { return _supportObjBehaviours; } }
+    public CustomAnimation IdleAnimation { get { return _idleAnimation; } }
     public void TransferData(SupportObjectControl supportObjControl)
     {
         if(_supportObjColliders.Length > 0)
@@ -17,7 +18,7 @@ public class SupportObjectData : ScriptableObject
             CreateColldiers(supportObjControl);
         }
 
-        supportObjControl.BehaviourManager.SetBehaviours(_supportObjBehaviours);
+        supportObjControl.BehaviourManager.SetBehaviours(_supportObjBehaviours, this);
         supportObjControl.Animator.AddAnimations(new List<CustomAnimation>{_idleAnimation});
         supportObjControl.Animator.ChangeAnim(_idleAnimation);
 
