@@ -74,4 +74,9 @@ public class MeleeAttack : Attack
         var animationInterface = gfxInterface as AnimationChangeAttackGfxInterface;
         animationInterface.ChangeAttackGfx(_vfxAnimator, new SpriteRenderer[] { _vfxRenderer });
     }
+    private void OnDestroy()
+    {
+        var meleeWeapon = ParentWeapon as MeleeWeaponAttackController;
+        meleeWeapon.OnAttackApply -= ApplyDamage;
+    }
 }
