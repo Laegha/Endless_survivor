@@ -7,12 +7,12 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState() 
     {
         isRootState = true;
-        context.PlayerControl.PlayerAnimator.ChangeAnim("Idle");
     }
 
     public override void UpdateState() 
     {
         CheckSwitchStates();
+        context.PlayerControl.PlayerAnimator.ChangeAnim("Idle");
     }
 
     public override void OnCollisionEnter(Collision collision) { }
