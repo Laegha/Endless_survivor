@@ -9,7 +9,8 @@ public class AttackEffectsHandler : MonoBehaviour
 
     public void TryEffects(Attack attack)
     {
-        var availableEffects = attack.ParentWeapon.WeaponAttackEffects.availableEffects.Concat(PlayerControl.pc.EffectsHolder.availableEffects);
+        var weaponEffects = attack.ParentWeapon != null ? attack.ParentWeapon.WeaponAttackEffects.availableEffects : new();
+        var availableEffects = weaponEffects.Concat(PlayerControl.pc.EffectsHolder.availableEffects);
         foreach (AttackEffectData effectData in availableEffects)
         {
             if(!effectData.UsedBySecondaryAttacks && attack.IsSecondaryAttack)
