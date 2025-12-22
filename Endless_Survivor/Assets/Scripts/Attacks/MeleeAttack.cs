@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +15,12 @@ public class MeleeAttack : Attack
     MeleeData _attackData;
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
+
     new public AnimationChangeAttackGfxInterface AttackGfxInterface => new AnimationChangeAttackGfxInterface();
     private void Update()
     {
-        _vfxRenderer.flipY = ParentWeapon.WeaponControl.Gfx.flipY;
+        if(ParentWeapon != null) 
+            _vfxRenderer.flipY = ParentWeapon.WeaponControl.Gfx.flipY;
     }
     public void StartAttack(int damage, float knockbackForce, MeleeData attackData)
     {
@@ -42,9 +45,10 @@ public class MeleeAttack : Attack
 
         }
 
+        if (ParentWeapon == null)
+            return;
         var meleeWeapon = ParentWeapon as MeleeWeaponAttackController;
         meleeWeapon.OnAttackApply += ApplyDamage;
-
         var weaponAnimDuration = ParentWeapon.WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == ParentWeapon.AnimationName).AnimDuration;
         var vfxAnimDuration = _attackData.AttackVfxAnimation.Frames.Length > 0 ? _attackData.AttackVfxAnimation.AnimDuration : 0;
         if(_attackData.DropVfxOnAttack)
@@ -52,7 +56,7 @@ public class MeleeAttack : Attack
         Destroy(gameObject, Mathf.Max(vfxAnimDuration, weaponAnimDuration));
 
     }
-    void ApplyDamage()
+    public void ApplyDamage()
     {
         var attackPos = (Vector2)transform.position + (Vector2)(transform.right * _attackData.AttackOffset.x + transform.up * _attackData.AttackOffset.y * (_vfxRenderer.flipY ? -1 : 1));
         var affectedEnemies = _attackData.IsCircle ? Physics2D.OverlapCircleAll(attackPos, _attackData.CircleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(attackPos, _attackData.BoxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
@@ -63,10 +67,15 @@ public class MeleeAttack : Attack
                 continue;
             EffectsHandler.EnemyHit(enemyControl);
             Vector2 hitDirection = (enemyCol.transform.position - PlayerControl.pc.transform.position).normalized;
+            Debug.Log(AttackDamage);
             enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, _knockbackForce);
         }
-        var meleeWeapon = ParentWeapon as MeleeWeaponAttackController;
-        meleeWeapon.OnAttackApply -= ApplyDamage;
+        if(ParentWeapon != null)
+        {
+
+            var meleeWeapon = ParentWeapon as MeleeWeaponAttackController;
+            meleeWeapon.OnAttackApply -= ApplyDamage;
+        }
         _vfxAnimator.transform.SetParent(null);
     }
     public override void ChangeGfx(AttackGfxInterface gfxInterface)
@@ -76,7 +85,11 @@ public class MeleeAttack : Attack
     }
     private void OnDestroy()
     {
-        var meleeWeapon = ParentWeapon as MeleeWeaponAttackController;
-        meleeWeapon.OnAttackApply -= ApplyDamage;
+        if (ParentWeapon != null)
+        {
+
+            var meleeWeapon = ParentWeapon as MeleeWeaponAttackController;
+            meleeWeapon.OnAttackApply -= ApplyDamage;
+        }
     }
 }
