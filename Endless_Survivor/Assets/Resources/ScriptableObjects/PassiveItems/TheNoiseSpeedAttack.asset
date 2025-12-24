@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: TheNoiseSpeedAttack
+  m_EditorClassIdentifier: 
+  _itemName: 
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 1204507796050018304
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507796050018304
+      type: {class: AttackWhenHighSpeedItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _speedThreshold: 6.5
+        _speedTop: 100000
+        _rightAnimation:
+          _animationName: RightAttack
+          _frames:
+          - {fileID: 2069616203, guid: c8b738e5056050a45b33493dd32eefaa, type: 3}
+          - {fileID: -729802307, guid: c8b738e5056050a45b33493dd32eefaa, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _leftAnimation:
+          _animationName: LeftAttack
+          _frames:
+          - {fileID: -476651955, guid: 24feae987ee983e42982745e8db6c328, type: 3}
+          - {fileID: -533406838, guid: 24feae987ee983e42982745e8db6c328, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 1
+        _attackOffset: {x: 0, y: 0}
+        _attackBaseStats:
+          _range: 1
+          _attackSpeed: 0
+          _damage: 10
+          _knockback: 25
+        _statsScaling:
+          _range: 0
+          _attackSpeed: 0
+          _damage: 1
+          _knockback: 0
+        _damageType: 1
+        _attackData:
+          _isCircle: 1
+          _attackCircleRadius: 0.8
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.15, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0

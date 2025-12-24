@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: NoiseExplosion
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1428374630825984005
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1428374630825984005
+      type: {class: ExplosionSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _explosionDamage:
+          _damageAmmount: 7.5
+          _damageType: 2
+        _explosionRadius: 1.5
+        _explosionParticles: {fileID: 6362051271741657217, guid: 1a39e34327161c242a419b18a3f93138, type: 3}
+        _particlesDuration: 0
+        _explosionAnimation:
+          _animationName: Explosion
+          _frames:
+          - {fileID: 512905947, guid: f6588adb7f7fc1c4fa8a11c634b98bd4, type: 3}
+          - {fileID: 1123338282, guid: f6588adb7f7fc1c4fa8a11c634b98bd4, type: 3}
+          - {fileID: -693129488, guid: f6588adb7f7fc1c4fa8a11c634b98bd4, type: 3}
+          - {fileID: -1131194483, guid: f6588adb7f7fc1c4fa8a11c634b98bd4, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 128
