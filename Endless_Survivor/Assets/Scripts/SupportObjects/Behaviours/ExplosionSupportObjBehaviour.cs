@@ -21,6 +21,10 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
         _explosionParticles = explosionOriginal._explosionParticles;
         _particlesDuration = explosionOriginal._particlesDuration;
         _explosionAnimation = explosionOriginal._explosionAnimation;
+        _affectedLayers = explosionOriginal._affectedLayers;
+
+        if (_explosionAnimation.Frames.Length > 0)
+            ObjControl.Animator.AddAnimations(new(){ _explosionAnimation });
         OnStart += Explode;
     }
     public void Explode()
@@ -35,6 +39,12 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
                 continue;
             objHP.TakeDamage((int)_explosionDamage.CalculatedDamage);
         }
-
+        if(_explosionAnimation.Frames.Length > 0)
+        {
+            ObjControl.Animator.ChangeAnim(_explosionAnimation);
+            GameObject.Destroy(ObjControl.gameObject, _explosionAnimation.AnimDuration);
+            return;
+        }
+        GameObject.Destroy(ObjControl.gameObject);
     }
 }
