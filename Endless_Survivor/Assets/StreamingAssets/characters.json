@@ -48,5 +48,15 @@
     "fileName": "Sniper",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Beheaded",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "TheNoise",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]
