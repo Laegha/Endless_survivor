@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: TheNoise
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: 9d821faca007bbb478201bacafa0bbb6, type: 3}
+  _characterName: The Noise
+  _characterHands:
+  - {fileID: -1447811584, guid: 39453a8e3bca7e8409c55d6f04f55b6e, type: 3}
+  - {fileID: 1981890593, guid: 39453a8e3bca7e8409c55d6f04f55b6e, type: 3}
+  _initialWeapons:
+  - {fileID: 11400000, guid: 0cc4c59ccb169564b8a0fe9a9ff6f919, type: 2}
+  _initialMaxWeapons: 1
+  _initialPassives:
+  - {fileID: 11400000, guid: a23ca2e1c0eec5243b5413cd5989dfc8, type: 2}
+  _playerStats:
+    _initialHP: 16
+    _hpIncrement: 2
+    _hpRegeneration: 1
+    _speed: 7
+    _acceleration: 0.5
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: -1904307727, guid: 241218a5fcac9b7458a83ffb543a79fe, type: 3}
+    - {fileID: 826215696, guid: 241218a5fcac9b7458a83ffb543a79fe, type: 3}
+    - {fileID: 33921160, guid: 241218a5fcac9b7458a83ffb543a79fe, type: 3}
+    - {fileID: -495231325, guid: 241218a5fcac9b7458a83ffb543a79fe, type: 3}
+    _framesPerSecond: 4
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: 1782435267, guid: 46b867dd510f035409c9160a8583ebd4, type: 3}
+    - {fileID: -277393563, guid: 46b867dd510f035409c9160a8583ebd4, type: 3}
+    - {fileID: -123882835, guid: 46b867dd510f035409c9160a8583ebd4, type: 3}
+    - {fileID: -46413610, guid: 46b867dd510f035409c9160a8583ebd4, type: 3}
+    - {fileID: -33116322, guid: 46b867dd510f035409c9160a8583ebd4, type: 3}
+    - {fileID: -892506719, guid: 46b867dd510f035409c9160a8583ebd4, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: 633730636, guid: 8a5fd1849fb25b845928154008086289, type: 3}
+    - {fileID: -1530619265, guid: 8a5fd1849fb25b845928154008086289, type: 3}
+    - {fileID: -1250264319, guid: 8a5fd1849fb25b845928154008086289, type: 3}
+    - {fileID: 1290008088, guid: 8a5fd1849fb25b845928154008086289, type: 3}
+    - {fileID: 1706637961, guid: 8a5fd1849fb25b845928154008086289, type: 3}
+    - {fileID: 1580549870, guid: 8a5fd1849fb25b845928154008086289, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: -1148271251, guid: 9542758539df37743823a107db04496f, type: 3}
+    - {fileID: -287183855, guid: 9542758539df37743823a107db04496f, type: 3}
+    - {fileID: -882540111, guid: 9542758539df37743823a107db04496f, type: 3}
+    - {fileID: -1559145389, guid: 9542758539df37743823a107db04496f, type: 3}
+    - {fileID: 639246170, guid: 9542758539df37743823a107db04496f, type: 3}
+    - {fileID: -528801621, guid: 9542758539df37743823a107db04496f, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: 421449558, guid: 43730356a6b9b78428c52818e26e2cd4, type: 3}
+    - {fileID: 2038135152, guid: 43730356a6b9b78428c52818e26e2cd4, type: 3}
+    - {fileID: -1302488126, guid: 43730356a6b9b78428c52818e26e2cd4, type: 3}
+    - {fileID: 769994599, guid: 43730356a6b9b78428c52818e26e2cd4, type: 3}
+    - {fileID: -335274641, guid: 43730356a6b9b78428c52818e26e2cd4, type: 3}
+    - {fileID: -1198668304, guid: 43730356a6b9b78428c52818e26e2cd4, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _onHitSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
