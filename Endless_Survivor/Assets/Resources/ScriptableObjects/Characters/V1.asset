@@ -28,6 +28,7 @@ MonoBehaviour:
     _hpIncrement: 1
     _hpRegeneration: 0
     _speed: 6
+    _acceleration: 1
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
   _colliderDirection: 0
