@@ -6,10 +6,11 @@ using UnityEngine;
 public class PlayerStats
 {
     //[SerializeField]float _damageMultiplier = 1;
-    [SerializeField]int _initialHP = 10;
-    [SerializeField]int _hpIncrement = 10;
+    [SerializeField] int _initialHP = 10;
+    [SerializeField] int _hpIncrement = 10;
     [SerializeField] float _hpRegeneration = 1f;
-    [SerializeField]int _speed = 1;
+    [SerializeField] float _speed = 1;
+    [SerializeField] float _acceleration = 1f;
 
     //public float DamageMultiplier
     //{
@@ -29,9 +30,13 @@ public class PlayerStats
     {
         get { return _hpRegeneration; } set { _hpRegeneration = value; } 
     }
-    public int Speed
+    public float Speed
     {
         get { return _speed; } set { _speed = value; }
+    }
+    public float Acceleration
+    {
+        get { return _acceleration; } set { _acceleration = value; }
     }
 
     public PlayerStats(PlayerStats original = null)
@@ -43,5 +48,6 @@ public class PlayerStats
         _hpIncrement = original._hpIncrement;
         _hpRegeneration = original._hpRegeneration;
         _speed = original._speed;
+        _acceleration = original._acceleration;
     }
 }
