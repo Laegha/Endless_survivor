@@ -14,6 +14,7 @@ public class DamageTypesMultipliersManager : MonoBehaviour
             return instance;
         }
     }
+
     Dictionary<DamageInfo.DamageType, float> _typesMultipliers = new();
 
     private void Awake()
@@ -30,7 +31,7 @@ public class DamageTypesMultipliersManager : MonoBehaviour
 
     public float GetMultipliers(DamageInfo.DamageType type)
     {
-        float resultMultiplier = 0;
+        float resultMultiplier = 1;
         foreach(var typeMultiplier in _typesMultipliers)
         {
             if (!type.HasFlag(typeMultiplier.Key))
