@@ -21,12 +21,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0cc4c59ccb169564b8a0fe9a9ff6f919, type: 2}
   _initialMaxWeapons: 1
   _initialPassives:
+  - {fileID: 11400000, guid: 731671d9c3bac7142a2f96d691203f0f, type: 2}
   - {fileID: 11400000, guid: a23ca2e1c0eec5243b5413cd5989dfc8, type: 2}
   _playerStats:
     _initialHP: 16
     _hpIncrement: 2
     _hpRegeneration: 1
-    _speed: 7
+    _maxSpeed: 8
+    _minSpeed: 5
     _acceleration: 0.5
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
