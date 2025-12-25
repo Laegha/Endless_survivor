@@ -4,16 +4,15 @@ public class PlayerRunState : PlayerBaseState
 {
     public PlayerRunState(PlayerStateMachine newContext, PlayerStateFactory newFactory) : base(newContext, newFactory) { }
     float _currSpeed;
-    static readonly float _startMovingSpeedReduction = 2;
     float _angularDragSpeedPenalty = 0.0005f;
     Vector2 _prevDirection;
 
     public override void EnterState()
     {
         isRootState = true;
-        _currSpeed = context.PlayerControl.PlayerStats.Speed - (context.PlayerControl.PlayerStats.Acceleration != 0 ? _startMovingSpeedReduction : 0);
+        _currSpeed = context.PlayerControl.PlayerStats.Acceleration != 0 ? context.PlayerControl.PlayerStats.MinSpeed :context.PlayerControl.PlayerStats.MaxSpeed;
         _prevDirection = context.Movement;
-        _angularDragSpeedPenalty = _startMovingSpeedReduction / 360;
+        //_angularDragSpeedPenalty = _startMovingSpeedReduction / 360;
     }
 
     public override void UpdateState() 
@@ -39,10 +38,10 @@ public class PlayerRunState : PlayerBaseState
         }
         context.PlayerControl.PlayerRb.velocity = movement;
 
-        if (_currSpeed < context.PlayerControl.PlayerStats.Speed)
+        if (_currSpeed < context.PlayerControl.PlayerStats.MaxSpeed)
             _currSpeed += context.PlayerControl.PlayerStats.Acceleration * Time.deltaTime;
-        else if (_currSpeed > context.PlayerControl.PlayerStats.Speed)
-            _currSpeed = context.PlayerControl.PlayerStats.Speed;
+        else if (_currSpeed > context.PlayerControl.PlayerStats.MaxSpeed)
+            _currSpeed = context.PlayerControl.PlayerStats.MaxSpeed;
         CheckSwitchStates();
     }
 
@@ -59,7 +58,7 @@ public class PlayerRunState : PlayerBaseState
     public override void InitializeSubState() { }
     void HandleAngularDrag()
     {
-        if (_currSpeed <= context.PlayerControl.PlayerStats.Speed - _startMovingSpeedReduction)
+        if (_currSpeed <= context.PlayerControl.PlayerStats.MinSpeed)
             return;
         var prevAngle = Utility.GetAngleFromPointInCircle(_prevDirection);
         var currAngle = Utility.GetAngleFromPointInCircle(context.Movement);

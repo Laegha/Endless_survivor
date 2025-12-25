@@ -9,7 +9,7 @@ public class LockPlayerStatsItemBehaviour : PassiveItemBehaviour
     new public static bool isUsable => true;
     [SerializeField] PlayerStatLockInfo _maxHpLock;
     [SerializeField] PlayerStatLockInfo _hpRegenLock;
-    [SerializeField] PlayerStatLockInfo _speedLock;
+    [SerializeField] PlayerStatLockInfo _maxSpeedLock;
 
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
@@ -18,7 +18,7 @@ public class LockPlayerStatsItemBehaviour : PassiveItemBehaviour
         var lockStatsOriginal = original as LockPlayerStatsItemBehaviour;
         _maxHpLock = lockStatsOriginal._maxHpLock;
         _hpRegenLock = lockStatsOriginal._hpRegenLock;
-        _speedLock = lockStatsOriginal._speedLock;
+        _maxSpeedLock = lockStatsOriginal._maxSpeedLock;
 
     }
 
@@ -36,11 +36,11 @@ public class LockPlayerStatsItemBehaviour : PassiveItemBehaviour
             float max = _hpRegenLock.maxInfinity ? Mathf.Infinity : _hpRegenLock.max;
             Mathf.Clamp(PlayerControl.pc.PlayerStats.HPRegeneration, min, max);
         }
-        if (_speedLock.isLocked)
+        if (_maxSpeedLock.isLocked)
         {
-            float min = _speedLock.minInfinity ? Mathf.Infinity : _speedLock.min;
-            float max = _speedLock.maxInfinity ? Mathf.Infinity : _speedLock.max;
-            Mathf.Clamp(PlayerControl.pc.PlayerStats.Speed, min, max);
+            float min = _maxSpeedLock.minInfinity ? Mathf.Infinity : _maxSpeedLock.min;
+            float max = _maxSpeedLock.maxInfinity ? Mathf.Infinity : _maxSpeedLock.max;
+            Mathf.Clamp(PlayerControl.pc.PlayerStats.MaxSpeed, min, max);
         }
     }
 }

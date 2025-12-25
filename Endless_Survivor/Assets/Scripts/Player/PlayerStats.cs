@@ -9,7 +9,8 @@ public class PlayerStats
     [SerializeField] int _initialHP = 10;
     [SerializeField] int _hpIncrement = 10;
     [SerializeField] float _hpRegeneration = 1f;
-    [SerializeField] float _speed = 1;
+    [SerializeField] float _maxSpeed = 1;
+    [SerializeField] float _minSpeed = 1;
     [SerializeField] float _acceleration = 1f;
 
     //public float DamageMultiplier
@@ -30,9 +31,13 @@ public class PlayerStats
     {
         get { return _hpRegeneration; } set { _hpRegeneration = value; } 
     }
-    public float Speed
+    public float MaxSpeed
     {
-        get { return _speed; } set { _speed = value; }
+        get { return _maxSpeed; } set { _maxSpeed = value; }
+    }
+    public float MinSpeed
+    {
+        get { return _minSpeed; } set { _minSpeed = value; }
     }
     public float Acceleration
     {
@@ -47,7 +52,8 @@ public class PlayerStats
         _initialHP = original._initialHP;
         _hpIncrement = original._hpIncrement;
         _hpRegeneration = original._hpRegeneration;
-        _speed = original._speed;
+        _maxSpeed = original._maxSpeed;
+        _minSpeed = original._minSpeed;
         _acceleration = original._acceleration;
     }
 }
