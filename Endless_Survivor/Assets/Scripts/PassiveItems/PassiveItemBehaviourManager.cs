@@ -15,6 +15,7 @@ public class PassiveItemBehaviourManager
     public Action onPlayerDamaged;
 
     List<PassiveItemBehaviour> _itemBehaviours = new();
+    public List<PassiveItemBehaviour> ItemBehaviours {  get { return _itemBehaviours; } }
     public void CopyBehaviours(List<PassiveItemBehaviour> itemBehaviours)
     {
         foreach (PassiveItemBehaviour behaviour in itemBehaviours)
