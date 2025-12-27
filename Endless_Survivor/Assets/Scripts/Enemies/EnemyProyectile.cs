@@ -6,6 +6,7 @@ public class EnemyProyectile : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] CustomAnimator _animator;
     [SerializeField] CapsuleCollider2D _collider;
     float _speed = 1;
     float _lifeTime = 5;
@@ -15,7 +16,8 @@ public class EnemyProyectile : MonoBehaviour
     {
         _speed = speed;
         _lifeTime = lifeTime;
-        _spriteRenderer.sprite = proyectileData.ProyectileSprite;
+        _animator.AddAnimations(new() { proyectileData.ProyectileAnim });
+        _animator.ChangeAnim(proyectileData.ProyectileAnim.AnimationName);
         if (proyectileData.ProyectileMaterial != null)
             _spriteRenderer.material = proyectileData.ProyectileMaterial;
         if (proyectileData.ParticlesPrefab != null)

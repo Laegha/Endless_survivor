@@ -8,7 +8,7 @@ public class ProyectileData
 {
     [SerializeField] float _proyectileSpeed;
     [SerializeField] float _proyectileSpread;
-    [SerializeField] Sprite _proyectileSprite;
+    [SerializeField] CustomAnimation _proyectileAnim;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] CapsuleDirection2D _colliderDirection;
     [SerializeField] Material _proyectileMaterial;
@@ -17,7 +17,7 @@ public class ProyectileData
 
     public float ProyectileSpeed { get { return _proyectileSpeed; } }
     public float ProyectileSpread { get { return _proyectileSpread; } }
-    public Sprite ProyectileSprite {  get { return _proyectileSprite; } }
+    public CustomAnimation ProyectileAnim {  get { return _proyectileAnim; } }
     public Vector2 ColliderSize { get { return _colliderSize; } }
     public CapsuleDirection2D ColliderDirection {  get { return _colliderDirection; } }
     public Material ProyectileMaterial { get {  return _proyectileMaterial; } }
@@ -28,7 +28,7 @@ public class ProyectileData
     {
         _proyectileSpeed = original._proyectileSpeed;
         _proyectileSpread = original._proyectileSpread;
-        _proyectileSprite = original.ProyectileSprite;
+        _proyectileAnim = original._proyectileAnim;
         _colliderSize = original.ColliderSize;
         _proyectileMaterial = original.ProyectileMaterial;
         _particlesPrefab = original.ParticlesPrefab;

@@ -5,6 +5,8 @@ using UnityEngine;
 public class ProyectileAttack : Attack
 {
     [SerializeField] Rigidbody2D _rb;
+
+    [SerializeField] CustomAnimator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] CapsuleCollider2D _collider;
     float _speed = 1;
@@ -20,7 +22,7 @@ public class ProyectileAttack : Attack
         }
     }
     public float Speed { get { return _speed; } set { _speed = value; } }
-    public SpriteRenderer SpriteRenderer { get { return _spriteRenderer; } }
+    public CustomAnimator Animator { get { return _animator; } }
     public CapsuleCollider2D Collider { get { return _collider; } }
     public float LifeTime {  get { return _lifeTime; } set { _lifeTime = value; } }
     public void StartProyectile(Vector2 position, float rotation)
@@ -34,7 +36,8 @@ public class ProyectileAttack : Attack
         AttackDamage = damage;
         _speed = speed;
         _lifeTime = lifeTime;
-        _spriteRenderer.sprite = proyectileData.ProyectileSprite;
+        _animator.AddAnimations(new() { proyectileData.ProyectileAnim });
+        _animator.ChangeAnim(proyectileData.ProyectileAnim.AnimationName);
         if(proyectileData.ProyectileMaterial != null )
             _spriteRenderer.material = proyectileData.ProyectileMaterial;
         if(proyectileData.ParticlesPrefab != null )
