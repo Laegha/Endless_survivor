@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] PlayerHPManager _playerHPManager;
     [SerializeField] PlayerWeaponManager _playerWeaponManager;
     [SerializeField] PassiveItemManager _passiveItemManager;
+    [SerializeField] PlayerStatusEffectManager _statusEffectManager;
     [SerializeField] MaterialManager _playerMaterialManager;
     [SerializeField] SpriteRenderer _mainRenderer;
     public CustomAnimator PlayerAnimator { get { return _playerAnimator; } }
@@ -25,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     public Rigidbody2D PlayerRb { get { return _playerRb; } }
     public PlayerHPManager PlayerHPManager { get { return _playerHPManager; } }
     public PassiveItemManager PassiveItemManager {  get { return _passiveItemManager; } }
+    public PlayerStatusEffectManager StatusEffectManager {  get { return _statusEffectManager; } }
     public PlayerWeaponManager WeaponManager { get { return _playerWeaponManager; } }
     public MaterialManager PlayerMaterialManager { get { return _playerMaterialManager; } }
     public SpriteRenderer MainRenderer { get { return _mainRenderer; } }
