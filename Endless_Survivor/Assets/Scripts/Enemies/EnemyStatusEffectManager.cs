@@ -11,7 +11,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
     [SerializeField] SpriteGrid _statusIndicatorsGrid;
     readonly static int _materialAuthority =3;
     List<EnemyStatusEffectGroup> _currentEffects = new();
-    Dictionary<EnemyStatusEffect, EnemyStatusEffectGFX> _activeGfx = new();
+    Dictionary<EnemyStatusEffect, StatusEffectGFX> _activeGfx = new();
 
     public void SetGridLocalPos(Vector2 pos) => _statusIndicatorsGrid.transform.localPosition = pos;    
 
@@ -34,7 +34,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
             instantiatedParticles = ParticleManager.pm.SpawnParticles(statusParticeConfig);
 
         }
-        _activeGfx.Add(status, new EnemyStatusEffectGFX(statusSprite, materialOverride, instantiatedParticles));
+        _activeGfx.Add(status, new StatusEffectGFX(statusSprite, materialOverride, instantiatedParticles));
     }
     public void RemoveStatusGraphics(EnemyStatusEffect statusEffect)
     {
