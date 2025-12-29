@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => 1;
     [SerializeField] WeaponStats _statsBuffs;
     [SerializeField] float _chanceOfHappenning = 100f;
     [SerializeField] int _maxStacks = 1;

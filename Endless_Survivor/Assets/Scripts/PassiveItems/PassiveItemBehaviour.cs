@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class PassiveItemBehaviour
 {
-    public static bool isUsable = false;
+    public static int maxStacks => 0;
     [SerializeField] string _behaviourId;
     PassiveItemBehaviourManager _behaviourManager;
     public string BehaviourId { get {  return _behaviourId; } }

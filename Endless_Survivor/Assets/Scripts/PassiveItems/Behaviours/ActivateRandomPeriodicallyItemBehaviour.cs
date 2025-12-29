@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
     [SerializeField] List<RouletteElementChance<string>> _possibleActivatedIds;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenActivations;
     float _activationTimer;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CreatePickupItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
     [Range(0, 100)][SerializeField] float _dropChance;
     [SerializeField] List<RouletteElementChance<PickupData>> _possiblePickups;
     [SerializeField] bool _createOnEnemyKill;

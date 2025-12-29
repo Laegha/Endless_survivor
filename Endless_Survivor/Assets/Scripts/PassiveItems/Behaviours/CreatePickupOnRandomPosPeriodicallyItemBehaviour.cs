@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreatePickupOnRandomPosPeriodicallyItemBehaviour : PassiveItemBehaviour
 {
+    new public static int maxStacks => -1;
     [SerializeField] PickupData _createdPickup;
     [SerializeField] float _timeBetweenSpawns;
     [Range(0, 100)][SerializeField] float _chanceOfSpawning;

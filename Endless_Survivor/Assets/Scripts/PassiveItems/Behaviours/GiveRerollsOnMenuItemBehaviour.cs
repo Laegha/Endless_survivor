@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GiveRerollsOnMenuItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
 
     [SerializeField] int _usePriority;
     [SerializeField] int _rerollAmmount;

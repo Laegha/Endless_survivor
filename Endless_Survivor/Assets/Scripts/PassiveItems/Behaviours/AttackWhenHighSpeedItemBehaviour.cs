@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
     [SerializeField] float _speedThreshold;
     [SerializeField] float _speedTop;
     [SerializeField] CustomAnimation _rightAnimation;

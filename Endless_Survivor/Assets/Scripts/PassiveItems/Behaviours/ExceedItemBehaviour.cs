@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ExceedItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => 1;
     [SerializeField] WeaponStats _statBuffOnAttackCoordination;
     [SerializeField] ParticleSystem _onAttackCoordinationParticles;
     [SerializeField] float _particlesDuration = 1;

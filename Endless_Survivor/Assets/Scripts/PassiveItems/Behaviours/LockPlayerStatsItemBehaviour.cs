@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class LockPlayerStatsItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => 1;
     [SerializeField] PlayerStatLockInfo _maxHpLock;
     [SerializeField] PlayerStatLockInfo _hpRegenLock;
     [SerializeField] PlayerStatLockInfo _maxSpeedLock;

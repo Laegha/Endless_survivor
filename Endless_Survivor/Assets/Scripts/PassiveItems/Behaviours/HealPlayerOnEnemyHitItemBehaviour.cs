@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealPlayerOnEnemyHitItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
     [SerializeField] WeaponAttackControllerTypeHelper.AttackControllerTypes[] _weaponsThatHeal;
     [SerializeField] int _healAmmount;
     List<Type> _enlistedTypes = new();

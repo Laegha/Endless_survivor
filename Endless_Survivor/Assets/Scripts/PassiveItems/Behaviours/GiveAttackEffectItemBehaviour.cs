@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GiveAttackEffectItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => 1;
     [SerializeField] AttackEffectData[] _givenAttackEffects;
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)

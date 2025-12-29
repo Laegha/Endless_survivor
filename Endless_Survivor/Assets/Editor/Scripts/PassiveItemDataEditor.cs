@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class PassiveItemDataEditor : Editor
     SerializedProperty _itemDescript;
     SerializedProperty _itemSprite;
     SerializedProperty _itemPools;
-    Dictionary<Type, bool> _behaviourTypes = new();
+    Dictionary<Type, int> _behaviourTypes = new();
     
     private void OnEnable()
     {
@@ -21,7 +22,7 @@ public class PassiveItemDataEditor : Editor
         _itemPools = serializedObject.FindProperty("_itemPools");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(PassiveItemBehaviour));
         PassiveItemData passiveItemData = (PassiveItemData)target;
-        behaviourTypes.ForEach(type => _behaviourTypes.Add(type, passiveItemData.ItemBehaviours.Exists(behaviour => behaviour.GetType() == type)));
+        behaviourTypes.ForEach(type => _behaviourTypes.Add(type, passiveItemData.ItemBehaviours.Where(behaviour => behaviour.GetType() == type).Count()));
         passiveItemData.ItemBehaviours.RemoveAll(behaviour => behaviour == null);
     }
     public override void OnInspectorGUI()
@@ -54,15 +55,18 @@ public class PassiveItemDataEditor : Editor
             GenericMenu menu = new GenericMenu();
             foreach (var type in _behaviourTypes)
             {
-                var isTypeUsable = type.Key.GetProperty("isUsable", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-                if (type.Value || isTypeUsable == null || !(bool)isTypeUsable.GetValue(null))
+                int behaviourCurrStacks = type.Value;
+
+                var behaviourMaxStacksProperty = type.Key.GetProperty("maxStacks", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                int behaviourMaxStacks = behaviourMaxStacksProperty == null ? 0 : (int)behaviourMaxStacksProperty.GetValue(null);
+                if (behaviourMaxStacksProperty == null || behaviourMaxStacks >= 0 && behaviourMaxStacks <= behaviourCurrStacks)
                     continue;
 
                 menu.AddItem(new GUIContent(type.Key.Name), false, () =>
                 {
                     PassiveItemBehaviour newBehaviour = (PassiveItemBehaviour)Activator.CreateInstance(type.Key);
                     passiveItemData.ItemBehaviours.Add(newBehaviour);
-                    _behaviourTypes[type.Key] = true;
+                    _behaviourTypes[type.Key] ++;
                     EditorUtility.SetDirty(passiveItemData);
                 });
             }
@@ -76,7 +80,7 @@ public class PassiveItemDataEditor : Editor
                 menu.AddItem(new GUIContent(behaviour.GetType().Name), false, () =>
                 {
                     passiveItemData.ItemBehaviours.Remove(behaviour);
-                    _behaviourTypes[behaviour.GetType()] = false;
+                    _behaviourTypes[behaviour.GetType()] --;
                     EditorUtility.SetDirty(passiveItemData);
                 });
             }

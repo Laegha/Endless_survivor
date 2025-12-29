@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreateSupportObjsOnRandomPositionsOnActivateItemBehaviour : PassiveItemBehaviour
 {
+    new public static int maxStacks => -1;
     [SerializeField] List<RouletteElementChance<SupportObjectData>> _possibleSupportObjs;
     [SerializeField] RandomBetweenTwoConstants _ammountPerSpawn;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)

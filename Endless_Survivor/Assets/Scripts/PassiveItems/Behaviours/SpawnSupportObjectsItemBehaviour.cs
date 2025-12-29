@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnSupportObjectsItemBehaviour : PassiveItemBehaviour
 {
-    new public static bool isUsable => true;
+    new public static int maxStacks => -1;
     [SerializeField] GenericAmmountHolder<SupportObjectData>[] _spawnedObjects;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {

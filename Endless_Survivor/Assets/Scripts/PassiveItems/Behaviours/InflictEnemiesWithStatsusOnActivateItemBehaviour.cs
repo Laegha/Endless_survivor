@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InflictEnemiesWithStatsusOnActivateItemBehaviour : PassiveItemBehaviour
 {
+    new public static int maxStacks => -1;
     [SerializeField] List<RouletteElementChance<EnemyStatusEffectData>> _inflictedStatusEffects;
     [SerializeField] RandomBetweenTwoConstants _effectsPerEnemy;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
