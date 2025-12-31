@@ -8,8 +8,9 @@ public class EnemyBehaviourManager : MonoBehaviour
 {
     List<EnemyBehaviour> _behaviours = new List<EnemyBehaviour>();
     List<EnemyBehaviour> _activeBehaviours = new List<EnemyBehaviour>();
-
+    bool _isStunned;
     public List<EnemyBehaviour> Behaviours { get { return _behaviours; } }
+    public bool IsStunned { get { return _isStunned; } set { _isStunned = value; } }
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class EnemyBehaviourManager : MonoBehaviour
 
     void Update()
     {
+        if (_isStunned)
+            return;
         _behaviours.ForEach(behaviour => behaviour.PassiveUpdate());
         List<EnemyBehaviour> activeBehaviours = new List<EnemyBehaviour>(_activeBehaviours);
         activeBehaviours.ForEach(behaviour => behaviour.ActiveUpdate());
