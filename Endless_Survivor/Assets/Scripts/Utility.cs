@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public static class Utility
 {
@@ -201,7 +202,20 @@ public static class Utility
     }
     public static Vector2 GetRandomPosInMap()
     {
-        return Vector2.zero;
+        Transform[] spawnBounds = WaveManager.wm.SpawnBounds;
+        float xMax = Mathf.Max(spawnBounds[0].position.x, spawnBounds[1].position.x);
+        float xMin = Mathf.Min(spawnBounds[0].position.x, spawnBounds[1].position.x);
+        float yMax = Mathf.Max(spawnBounds[0].position.y, spawnBounds[1].position.y);
+        float yMin = Mathf.Min(spawnBounds[0].position.y, spawnBounds[1].position.y);
+
+        float xPos = UnityEngine.Random.Range(xMin, xMax);
+        float yPos = UnityEngine.Random.Range(yMin, yMax);
+
+        xPos = UnityEngine.Random.Range(xMin, xMax);
+
+        yPos = UnityEngine.Random.Range(yMin, yMax);
+
+        return new Vector2(xPos, yPos);
     }
     public static Vector2 GetPerpendicularVector(Vector2 vector)
     {
