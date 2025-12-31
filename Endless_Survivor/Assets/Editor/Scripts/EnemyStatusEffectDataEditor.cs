@@ -30,6 +30,7 @@ public class EnemyStatusEffectDataEditor : Editor
 
 
         serializedObject.Update();
+        statusEffectData.StatusEffects.RemoveAll(x => x == null);
         for (int i = 0; i < statusEffectData.StatusEffects.Count; i++)
         {
             if (statusEffects.arraySize <= i)
