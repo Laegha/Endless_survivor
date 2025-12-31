@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a99f11ed5a23334891152eec9b053c3
+guid: 92fe26302c7978c4dbea097ecd879cea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChaosDiamonds_0
+      name: ChaosExplosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 23
+        width: 22
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b8cb6ae06b5ab45916f2640dcca24d
-      internalID: -1844309377
+      spriteID: a3c79dc412d4c7e4f90bb9fd16db6633
+      internalID: 77368041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_1
+      name: ChaosExplosion_1
       rect:
         serializedVersion: 2
-        x: 23
+        x: 22
         y: 0
-        width: 23
+        width: 22
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6958c92fe361b5d4fab64852595b8e83
-      internalID: -1102043050
+      spriteID: 61595ceccd27d5b428710f4e1f204900
+      internalID: -1207198583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_2
+      name: ChaosExplosion_2
       rect:
         serializedVersion: 2
-        x: 46
+        x: 44
         y: 0
-        width: 23
+        width: 22
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -179,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c250a21b7c943b429cf11ee8398e0f0
-      internalID: -1803345256
+      spriteID: e8d0435a17049f94fabb9c5773f20d2f
+      internalID: -1114377197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_3
+      name: ChaosExplosion_3
       rect:
         serializedVersion: 2
-        x: 69
+        x: 66
         y: 0
-        width: 23
+        width: 22
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,50 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4357a1644e1ff3944ac98068f539f738
-      internalID: -1008568373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChaosDiamonds_4
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6254b18064e075842a6accb9b52ab5b1
-      internalID: 4168313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChaosDiamonds_5
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fcb94ec1d98de347868d455b36f789b
-      internalID: 1295434947
+      spriteID: a532683134415ef4b8edfcbca6bd2a4f
+      internalID: 1850925044
       vertices: []
       indices: 
       edges: []
@@ -259,12 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ChaosDiamonds_0: -1844309377
-      ChaosDiamonds_1: -1102043050
-      ChaosDiamonds_2: -1803345256
-      ChaosDiamonds_3: -1008568373
-      ChaosDiamonds_4: 4168313
-      ChaosDiamonds_5: 1295434947
+      ChaosExplosion_0: 77368041
+      ChaosExplosion_1: -1207198583
+      ChaosExplosion_2: -1114377197
+      ChaosExplosion_3: 1850925044
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a99f11ed5a23334891152eec9b053c3
+guid: 2f0db4132b620d6448b8c8696fee6624
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,127 +123,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChaosDiamonds_0
+      name: ChaosCubsFalling_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b8cb6ae06b5ab45916f2640dcca24d
-      internalID: -1844309377
+      spriteID: 81fcbe6367680cb4688a08a5d96c4485
+      internalID: 2110758189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_1
+      name: ChaosCubsFalling_1
       rect:
         serializedVersion: 2
-        x: 23
+        x: 25
         y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6958c92fe361b5d4fab64852595b8e83
-      internalID: -1102043050
+      spriteID: b2bfdaf5ebd86ec4497556d8fa2fa757
+      internalID: -1540631014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_2
+      name: ChaosCubsFalling_2
       rect:
         serializedVersion: 2
-        x: 46
+        x: 50
         y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c250a21b7c943b429cf11ee8398e0f0
-      internalID: -1803345256
+      spriteID: ed28d49e4ff7119408b0f0651f361174
+      internalID: 1711044595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_3
+      name: ChaosCubsFalling_3
       rect:
         serializedVersion: 2
-        x: 69
+        x: 75
         y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4357a1644e1ff3944ac98068f539f738
-      internalID: -1008568373
+      spriteID: e54ff99afa47ce3489eeb1f0da8cf562
+      internalID: -1671131964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_4
+      name: ChaosCubsFalling_4
       rect:
         serializedVersion: 2
-        x: 92
+        x: 100
         y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6254b18064e075842a6accb9b52ab5b1
-      internalID: 4168313
+      spriteID: 999b8ca4b6f55794ca1a7d2db66d8d9a
+      internalID: -1144064295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChaosDiamonds_5
+      name: ChaosCubsFalling_5
       rect:
         serializedVersion: 2
-        x: 115
+        x: 125
         y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fcb94ec1d98de347868d455b36f789b
-      internalID: 1295434947
+      spriteID: c83a6b6b9950736499cda49a9b671e03
+      internalID: 1064358721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChaosCubsFalling_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ba8f7b204b2ec4e8bc86dad4da5122
+      internalID: -1759327985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChaosCubsFalling_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 25
+        height: 160
+      alignment: 9
+      pivot: {x: 0.5, y: 0.028125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae2eeb235ce74d4aa0c84113504f370
+      internalID: 849521006
       vertices: []
       indices: 
       edges: []
@@ -259,12 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ChaosDiamonds_0: -1844309377
-      ChaosDiamonds_1: -1102043050
-      ChaosDiamonds_2: -1803345256
-      ChaosDiamonds_3: -1008568373
-      ChaosDiamonds_4: 4168313
-      ChaosDiamonds_5: 1295434947
+      ChaosCubsFalling_0: 2110758189
+      ChaosCubsFalling_1: -1540631014
+      ChaosCubsFalling_2: 1711044595
+      ChaosCubsFalling_3: -1671131964
+      ChaosCubsFalling_4: -1144064295
+      ChaosCubsFalling_5: 1064358721
+      ChaosCubsFalling_6: -1759327985
+      ChaosCubsFalling_7: 849521006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
