@@ -18,6 +18,11 @@ public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
         base.CopyValues(original, behaviourManager);
         var activateRandOriginal = original as ActivateRandomPeriodicallyItemBehaviour;
         _possibleActivatedIds = new(activateRandOriginal._possibleActivatedIds);
+        _timeBetweenActivations = activateRandOriginal._timeBetweenActivations;
+        _particlesOnActivation = activateRandOriginal._particlesOnActivation;
+        _particlesOffsetFromPlayer = activateRandOriginal._particlesOffsetFromPlayer;
+        _particlesDuration = activateRandOriginal._particlesDuration;
+
         ResetTimer();
         behaviourManager.onUpdate += ReduceActivationTimer;
     }
@@ -41,7 +46,7 @@ public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
         activatedBehaviour.Activate();
         if (_particlesOnActivation == null)
             return;
-        ParticleConfig particleConfig = new(_particlesOnActivation,(Vector2)PlayerControl.pc.transform.position + _particlesOffsetFromPlayer, Quaternion.identity, 1);
+        ParticleConfig particleConfig = new(_particlesOnActivation,(Vector2)PlayerControl.pc.transform.position + _particlesOffsetFromPlayer, Quaternion.identity, _particlesDuration);
         ParticleManager.pm.SpawnParticles(particleConfig);
     }
 }
