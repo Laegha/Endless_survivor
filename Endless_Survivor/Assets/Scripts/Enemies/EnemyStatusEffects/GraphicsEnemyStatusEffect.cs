@@ -9,6 +9,7 @@ public class GraphicsEnemyStatusEffect : EnemyStatusEffect
     [SerializeField] Sprite _statusEffectIndicator;
     [SerializeField] Material _statusEffectMaterial;
     [SerializeField] ParticleSystem _statusEffectParticles;
+    [SerializeField] Vector2 _particlesOffset;
     public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {
         base.Initialize(affectedEnemyControl, original);
@@ -16,11 +17,12 @@ public class GraphicsEnemyStatusEffect : EnemyStatusEffect
         _statusEffectIndicator = graphicsOriginal._statusEffectIndicator;
         _statusEffectMaterial = graphicsOriginal._statusEffectMaterial;
         _statusEffectParticles = graphicsOriginal._statusEffectParticles;
+        _particlesOffset = graphicsOriginal._particlesOffset;
     }
     public override void Start()
     {
         base.Start();
-        AffectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial, _statusEffectParticles, this);
+        AffectedEnemyControl.StatusEffectManager.AddStatusGraphics(_statusEffectIndicator, _statusEffectMaterial, _statusEffectParticles, _particlesOffset, this);
     }
     public override void End()
     {

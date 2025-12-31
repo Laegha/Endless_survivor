@@ -13,7 +13,7 @@ public class PlayerStatusEffectManager : MonoBehaviour
 
     public void SetGridLocalPos(Vector2 pos) => _statusIndicatorsGrid.transform.localPosition = pos;
 
-    public void AddStatusGraphics(Sprite statusIcon, Material statusMaterial, ParticleSystem statusParticles, PlayerStatusEffect status)
+    public void AddStatusGraphics(Sprite statusIcon, Material statusMaterial, ParticleSystem statusParticles, Vector2 particlesOffset, PlayerStatusEffect status)
     {
         //display icon and add material to a kind of queue
         GridSpriteInfo statusSprite = null;
@@ -28,7 +28,7 @@ public class PlayerStatusEffectManager : MonoBehaviour
         ParticleSystem instantiatedParticles = null;
         if (statusParticles != null)
         {
-            ParticleConfig statusParticeConfig = new(statusParticles, transform.position, transform.rotation, -1, transform, true, true);
+            ParticleConfig statusParticeConfig = new(statusParticles, particlesOffset, transform.rotation, -1, transform, true, true);
             instantiatedParticles = ParticleManager.pm.SpawnParticles(statusParticeConfig);
 
         }

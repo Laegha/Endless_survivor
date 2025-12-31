@@ -19,7 +19,7 @@ public class ParticleManager : MonoBehaviour
             return null;
         var instantiatedParticles = Instantiate(config.particlesPrefab);
         if (config.particlesParentTransform != null)
-            _particlesFollowing.Add(new(instantiatedParticles.transform, config.particlesParentTransform, config.copyPosition, config.copyRotation));
+            _particlesFollowing.Add(new(instantiatedParticles.transform, config.particlesParentTransform, config.copyPosition, config.copyRotation, config.particlesPosition));
         if(config.particlesDuration >= 0)
         {
             Destroy(instantiatedParticles.gameObject, config.particlesDuration);
