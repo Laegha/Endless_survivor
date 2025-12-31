@@ -17,6 +17,7 @@ public class InflictEnemiesWithStatusOnActivateItemBehaviour : PassiveItemBehavi
         _inflictedStatusEffects = new List<RouletteElementChance<EnemyStatusEffectData>>(inflictEffectsOriginal._inflictedStatusEffects);
         _effectsPerEnemy = inflictEffectsOriginal._effectsPerEnemy;
         _particlesOnEnemyInflicted = inflictEffectsOriginal._particlesOnEnemyInflicted;
+        _particlesDuration = inflictEffectsOriginal._particlesDuration;
         _particlesOffset = inflictEffectsOriginal._particlesOffset;
     }
     public override void Activate()
@@ -33,7 +34,7 @@ public class InflictEnemiesWithStatusOnActivateItemBehaviour : PassiveItemBehavi
                 enemy.GetComponent<EnemyControl>().StatusEffectManager.AddEffects(addedEffectData.StatusEffects, addedEffectData);
 
             }
-            ParticleConfig particleConfig = new(_particlesOnEnemyInflicted, (Vector2)enemy.transform.position + _particlesOffset, Quaternion.identity, _particlesDuration, enemy.transform, true, true);
+            ParticleConfig particleConfig = new(_particlesOnEnemyInflicted, _particlesOffset, Quaternion.identity, _particlesDuration, enemy.transform, true, true);
             ParticleManager.pm.SpawnParticles(particleConfig);
         }
     }
