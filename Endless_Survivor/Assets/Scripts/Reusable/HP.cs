@@ -35,6 +35,8 @@ public class HP : MonoBehaviour
     public virtual void TakeDamage(int incomingDamage) 
     {
         _onDamageTaken?.Invoke();
+        if (_remainingHP <= 0)
+            return;
         _remainingHP -= (int)(incomingDamage * _incomingDamageMultiplier);
         if (_remainingHP <= 0)
         {
