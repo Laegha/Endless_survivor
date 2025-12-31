@@ -30,7 +30,7 @@ MonoBehaviour:
       data:
         _explosionDamage:
           _damageAmmount: 15
-          _damageType: 0
+          _damageType: 6
         _explosionRadius: 1.5
         _explosionParticles: {fileID: 2751937218881223315, guid: 5c3a0c2a31c69ac458b715c6b5cfb064, type: 3}
         _particlesDuration: 3

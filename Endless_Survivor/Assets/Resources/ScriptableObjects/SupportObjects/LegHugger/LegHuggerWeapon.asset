@@ -30,7 +30,7 @@ MonoBehaviour:
   - rid: 1204507693099515906
   _attackConditions:
   - rid: 1204507693099515911
-  _spriteRenderOrderOffset: 0
+  _spriteRenderOrderOffset: 150
   _idleAnimation:
     _animationName: WeaponIdle
     _frames:

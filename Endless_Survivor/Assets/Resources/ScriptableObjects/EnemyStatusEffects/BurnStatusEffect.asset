@@ -14,19 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statusEffects:
   - rid: 1814238801220337668
-  - rid: 1814238801220337669
+  - rid: 1204507964760915989
   _effectMaxStacks: 3
   references:
     version: 2
     RefIds:
-    - rid: 1814238801220337668
-      type: {class: DamageAfterTimeStatusEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _effectDuration: 2
-        _damage: 5
-    - rid: 1814238801220337669
-      type: {class: GraphicsStatusEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1204507964760915989
+      type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
       data:
         _statusEffectIndicator: {fileID: 21300000, guid: e38a2d83deb3cda448f4c58a79ad8a3c, type: 3}
         _statusEffectMaterial: {fileID: 2100000, guid: 7950e9034a7e98347a4e2cebcefaa8e7, type: 2}
         _statusEffectParticles: {fileID: 1098826074969476210, guid: 790bb99d9f6a77e4bb81973021bdeff8, type: 3}
+        _particlesOffset: {x: 0, y: 0}
+    - rid: 1814238801220337668
+      type: {class: DamageAfterTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 2
+        _damage:
+          _damageAmmount: 7
+          _damageType: 4
