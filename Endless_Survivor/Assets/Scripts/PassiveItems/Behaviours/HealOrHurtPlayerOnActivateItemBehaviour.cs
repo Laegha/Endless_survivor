@@ -19,6 +19,10 @@ public class HealOrHurtPlayerOnActivateItemBehaviour : PassiveItemBehaviour
         var healOrHurtOriginal = original as HealOrHurtPlayerOnActivateItemBehaviour;
         _heal = new(healOrHurtOriginal._heal.Element, healOrHurtOriginal._heal.Chance);
         _hurt = new(healOrHurtOriginal._hurt.Element, healOrHurtOriginal._hurt.Chance);
+        _healParticles = healOrHurtOriginal._healParticles;
+        _hurtParticles = healOrHurtOriginal._hurtParticles;
+        _particlesOffsetFromPlayer = healOrHurtOriginal._particlesOffsetFromPlayer;
+        _particlesDuration = healOrHurtOriginal._particlesDuration;
 
         Dictionary<RouletteElementChance<int>, int> rouletteElements = new()
         {
@@ -46,7 +50,7 @@ public class HealOrHurtPlayerOnActivateItemBehaviour : PassiveItemBehaviour
     }
     void GenerateParticles(ParticleSystem particles)
     {
-        ParticleConfig particleConfig = new(particles, (Vector2)PlayerControl.pc.transform.position + _particlesOffsetFromPlayer, Quaternion.identity, _particlesDuration, PlayerControl.pc.transform, true, false);
+        ParticleConfig particleConfig = new(particles, _particlesOffsetFromPlayer, Quaternion.identity, _particlesDuration, PlayerControl.pc.transform, true, false);
         ParticleManager.pm.SpawnParticles(particleConfig);
     }
 }
