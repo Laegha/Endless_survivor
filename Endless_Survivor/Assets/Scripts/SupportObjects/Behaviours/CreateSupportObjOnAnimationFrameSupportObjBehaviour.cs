@@ -8,8 +8,8 @@ public class CreateSupportObjOnAnimationFrameSupportObjBehaviour : SupportObject
 {
     new public static int maxStacks => -1;
     [SerializeField] string _animationName;
-    [SerializeField] SupportObjectData _createdSupportObj;
     [SerializeField] int _createFrame;
+    [SerializeField] SupportObjectData _createdSupportObj;
     [SerializeField] Vector2 _positionOffset;
     [SerializeField] bool _loop;
     [SerializeField] bool _destroyOriginal;
@@ -20,6 +20,8 @@ public class CreateSupportObjOnAnimationFrameSupportObjBehaviour : SupportObject
     {
         base.Initiate(control, original);
         var createSupportObjOriginal = original as CreateSupportObjOnAnimationFrameSupportObjBehaviour;
+        _animationName = createSupportObjOriginal._animationName;
+        _createFrame = createSupportObjOriginal._createFrame;
         _createdSupportObj = createSupportObjOriginal._createdSupportObj;
         _positionOffset = createSupportObjOriginal._positionOffset;
         _loop = createSupportObjOriginal._loop;
