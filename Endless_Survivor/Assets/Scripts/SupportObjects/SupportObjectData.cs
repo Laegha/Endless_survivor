@@ -18,9 +18,9 @@ public class SupportObjectData : ScriptableObject
             CreateColldiers(supportObjControl);
         }
 
-        supportObjControl.BehaviourManager.SetBehaviours(_supportObjBehaviours, this);
         supportObjControl.Animator.AddAnimations(new List<CustomAnimation>{_idleAnimation});
         supportObjControl.Animator.ChangeAnim(_idleAnimation);
+        supportObjControl.BehaviourManager.SetBehaviours(_supportObjBehaviours, this);
 
     }
 
