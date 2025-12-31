@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: ClubBomb
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1204507964760915979
+  _idleAnimation:
+    _animationName: ClubFall
+    _frames:
+    - {fileID: 2110758189, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: -1540631014, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: 1711044595, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: -1671131964, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: -1144064295, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: 1064358721, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: -1759327985, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    - {fileID: 849521006, guid: 2f0db4132b620d6448b8c8696fee6624, type: 3}
+    _framesPerSecond: 7
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507964760915979
+      type: {class: CreateSupportObjOnAnimationFrameSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _animationName: ClubFall
+        _createFrame: 7
+        _createdSupportObj: {fileID: 11400000, guid: b610497f449077e42bfad115910eb89c, type: 2}
+        _positionOffset: {x: 0, y: 0}
+        _loop: 0
+        _destroyOriginal: 1
