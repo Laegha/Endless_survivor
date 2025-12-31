@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: DevilsKnife
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: -1278486818, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+  _weaponName: Devil's Knife
+  _weaponStats:
+    _range: 5
+    _attackSpeed: 0.75
+    _damage: 0
+    _knockback: 0
+  _rangeIncrease: 1.2
+  _attackSpeedIncrease: 0.5
+  _damageIncrease: 2
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 1204507904635305984
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 6db30d46e6ca7974ca5f85fffdea42bc, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507904635305984
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: -1278486818, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: 1876409895, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: -1599000150, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: -1601379316, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: -39433367, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: -1496839469, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: 861703360, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          - {fileID: -451001871, guid: 51a03c788c52a594b8cd3221d16de635, type: 3}
+          _framesPerSecond: 14
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: c96188e77eefcff43b0c9eae0a3eddfe, type: 2}
+        _damageMultiplier: 1
+        _damageType: 64
+        _firePointPosition: {x: 0, y: 0}
+        _proyectileData:
+          _proyectileSpeed: 8
+          _proyectileSpread: 5
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: -1278486818, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: 1876409895, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: -1599000150, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: -1601379316, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: -39433367, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: -1496839469, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: 861703360, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            - {fileID: -451001871, guid: ad95e24b4dbdb504b85dbc4b4253fe7c, type: 3}
+            _framesPerSecond: 16
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 1.2, y: 1.2}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
