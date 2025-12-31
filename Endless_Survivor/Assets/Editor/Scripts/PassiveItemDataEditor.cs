@@ -38,6 +38,7 @@ public class PassiveItemDataEditor : Editor
         EditorGUILayout.LabelField("Item Behaviours", EditorStyles.boldLabel);
 
         serializedObject.Update();
+        passiveItemData.ItemBehaviours.RemoveAll(x => x == null);
         for (int i = 0; i < passiveItemData.ItemBehaviours.Count; i++)
         {
             if (itemBehaviours.arraySize <= i)
@@ -48,7 +49,6 @@ public class PassiveItemDataEditor : Editor
             if (behaviourProp != null)
                 EditorGUILayout.PropertyField(behaviourProp, new GUIContent(passiveItemData.ItemBehaviours[i].GetType().Name), true);
         }
-
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Add Behaviour"))
         {
