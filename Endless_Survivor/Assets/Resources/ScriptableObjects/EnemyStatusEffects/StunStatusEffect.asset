@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: StunStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 1204507988447199232
+  - rid: 1204507988447199235
+  _effectMaxStacks: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507988447199232
+      type: {class: StunEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 2
+    - rid: 1204507988447199235
+      type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: e518c90f530baf14a93d9abd2918aa13, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: 9006713962470f14189ac16f36ecbcfc, type: 2}
+        _statusEffectParticles: {fileID: 0}
+        _particlesOffset: {x: 0, y: 0}
