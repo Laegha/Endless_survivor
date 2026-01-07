@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TriggerBehavioursAtDistance : EnemyBehaviour
 {
+    new public static int maxStacks => -1;
     [SerializeReference] List<EnemyBehaviour> _behavioursToTrigger = new List<EnemyBehaviour>();
     [SerializeField] float _distanceToTrigger;
     Transform _player;

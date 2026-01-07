@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class DamagePlayer : EnemyBehaviour
 {
+    new public static int maxStacks => 1;
     [SerializeField] int _damage;
 
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)

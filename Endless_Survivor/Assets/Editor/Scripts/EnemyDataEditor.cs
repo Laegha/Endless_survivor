@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(EnemyData))]
 public class EnemyDataEditor : Editor
 {
-    Dictionary<Type, bool> _behaviourTypes = new Dictionary<Type, bool>();
+    Dictionary<Type, int> _behaviourTypes = new Dictionary<Type, int>();
 
     SerializedProperty _initialHP;
     SerializedProperty _referenceSizeSprite;
@@ -33,7 +34,7 @@ public class EnemyDataEditor : Editor
         _onDeathSFX = serializedObject.FindProperty("_onDeathSFX");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(EnemyBehaviour));
         EnemyData enemyData = (EnemyData)target;
-        behaviourTypes.ForEach(type => _behaviourTypes.Add(type, enemyData.EnemyBehaviours.Exists(behaviour => behaviour.GetType() == type)));
+        behaviourTypes.ForEach(type => _behaviourTypes.Add(type, enemyData.EnemyBehaviours.Where(behaviour => behaviour.GetType() == type).Count()));
         if (enemyData.EnemyBehaviours == null)
             enemyData.EnemyBehaviours = new List<EnemyBehaviour>();
         enemyData.EnemyBehaviours.ForEach(behaviour => behaviour.EnemyData = enemyData);
@@ -63,7 +64,11 @@ public class EnemyDataEditor : Editor
             GenericMenu menu = new GenericMenu();
             foreach (var type in _behaviourTypes)
             {
-                if (type.Value)
+                int behaviourCurrStacks = type.Value;
+
+                var behaviourMaxStacksProperty = type.Key.GetProperty("maxStacks", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                int behaviourMaxStacks = behaviourMaxStacksProperty == null ? 0 : (int)behaviourMaxStacksProperty.GetValue(null);
+                if (behaviourMaxStacksProperty == null || behaviourMaxStacks >= 0 && behaviourMaxStacks <= behaviourCurrStacks)
                     continue;
 
                 menu.AddItem(new GUIContent(type.Key.Name), false, () =>
@@ -125,14 +130,14 @@ public class EnemyDataEditor : Editor
         // Reiniciar el diccionario antes de actualizar
         foreach (var key in new List<Type>(_behaviourTypes.Keys))
         {
-            _behaviourTypes[key] = false;
+            _behaviourTypes[key] --;
         }
 
         // Marcar los tipos presentes en la lista actual
         foreach (var behaviour in enemyData.EnemyBehaviours)
         {
             if (behaviour == null) continue;
-            _behaviourTypes[behaviour.GetType()] = true;
+            _behaviourTypes[behaviour.GetType()] ++;
         }
     }
 }

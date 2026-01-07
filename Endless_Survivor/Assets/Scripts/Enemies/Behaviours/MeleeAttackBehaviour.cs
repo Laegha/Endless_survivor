@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MeleeAttackBehaviour : EnemyBehaviour
 {
+    new public static int maxStacks => -1;
     Transform _player;
     Transform _enemy;
     bool _attacked = false;

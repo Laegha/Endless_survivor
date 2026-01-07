@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class AddAditionalHitboxEnemyBehaviour : EnemyBehaviour
 {
+    new public static int maxStacks => -1;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] Vector2 _colliderOffset;
     [SerializeField] CapsuleDirection2D _colliderDirection;

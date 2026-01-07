@@ -7,6 +7,7 @@ using UnityEngine;
 [Serializable]
 public class ChangeDefaultMaterialBehaviour : EnemyBehaviour
 {
+    new public static int maxStacks => 1;
     [SerializeField] bool _changeAllRenderers;
     [SerializeField] Material _defaultMat;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)

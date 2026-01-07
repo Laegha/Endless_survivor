@@ -8,6 +8,7 @@ using UnityEngine;
 [Serializable]
 public class EnemyBehaviour
 {
+    public static int maxStacks => 0;
     bool _isActive = false;
     EnemyData _enemyData;
     [SerializeReference] List<EnemyBehaviour> _overrideBehaviours = new List<EnemyBehaviour>();
@@ -47,7 +48,7 @@ public class EnemyBehaviour
 
     public virtual void ActiveUpdate() { }//is called every frame only when the behaviour is executing
 
-    public virtual void KillBehaviour()//BEWARE: there is a tick of delay between the kill behaviour and the last ActiveUpdate, to be considered while developing precise behaviour on ActiveUpdate
+    public virtual void KillBehaviour()//BEWARE: there is a frame of delay between the kill behaviour and the last ActiveUpdate, to be considered while developing precise behaviour on ActiveUpdate
     {
         _enemyControl.BehaviourManager.KillBehaviour(this);
     }

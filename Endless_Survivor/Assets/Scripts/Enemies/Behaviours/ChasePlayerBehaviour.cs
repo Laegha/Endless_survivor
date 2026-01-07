@@ -5,6 +5,7 @@ using UnityEngine;
 [Serializable]
 public class ChasePlayerBehaviour : EnemyBehaviour
 {
+    new public static int maxStacks => 1;
     [SerializeField] float _enemySpeed;
     [SerializeField] CustomAnimation _chasingAnimation;
     Transform _player;

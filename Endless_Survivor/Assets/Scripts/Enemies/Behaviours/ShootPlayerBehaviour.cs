@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShootPlayerBehaviour : EnemyBehaviour
 {
+    new public static int maxStacks => -1;
     Transform _player;
     Transform _enemy;
     float _shootCooldown = 0;
