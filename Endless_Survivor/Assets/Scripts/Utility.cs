@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEditor;
 
 public static class Utility
 {
@@ -13,6 +13,12 @@ public static class Utility
         return AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(assembly => assembly.GetTypes())
             .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(baseType))
+            .ToList();
+    }
+    public static List<Type> GetImplementationsOf<T>()
+    {
+        return TypeCache.GetTypesDerivedFrom<T>()
+            .Where(t => !t.IsAbstract && !t.IsInterface)
             .ToList();
     }
     public static int CountOccurrences(string text, string substring)
@@ -222,5 +228,17 @@ public static class Utility
         float perpendicularX = 1;
         float perpendicularY = (-(perpendicularX * vector.x)) / vector.y;
         return new Vector2(perpendicularX, perpendicularY).normalized;
+    }
+    public static List<T> ShuffleList<T>(List<T> original)
+    {
+        List<T> shuffledList = new(original.Count);
+        List<int> elegibleIndexes = Enumerable.Range(0, original.Count).ToList();
+        for(int i = 0; i < original.Count; i++)
+        {
+            int originalIndex = elegibleIndexes[UnityEngine.Random.Range(0, elegibleIndexes.Count)];
+            elegibleIndexes.Remove(originalIndex);
+            shuffledList[i] = original[originalIndex];
+        }
+        return shuffledList;
     }
 }
