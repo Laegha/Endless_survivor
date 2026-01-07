@@ -3,7 +3,7 @@ using UnityEngine;
 public class CreateSuportObjsOnDeathStatusEffect : EnemyStatusEffect
 {
     new public static bool isUsable => true;
-    [SerializeField] GenericAmmountHolder<SupportObjectData>[] _createdObjsDatas;
+    [SerializeField] GenericNumHolder<SupportObjectData>[] _createdObjsDatas;
     public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {
         base.Initialize(affectedEnemyControl, original);
@@ -16,7 +16,7 @@ public class CreateSuportObjsOnDeathStatusEffect : EnemyStatusEffect
 
         foreach(var obj in _createdObjsDatas)
         {
-            for(int i = 0; i < obj.ammount; i ++)
+            for(int i = 0; i < obj.num; i ++)
             {
                 var spawnedObj = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["SupportObject"], AffectedEnemyControl.transform.position, Quaternion.identity).GetComponent<SupportObjectControl>();
                 obj.generic.TransferData(spawnedObj);

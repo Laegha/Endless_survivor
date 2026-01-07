@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class GenericAmmountHolder<T>
+public class GenericNumHolder<T>
 {
     public T generic;
-    public int ammount = 1;
+    public int num = 1;
 }
