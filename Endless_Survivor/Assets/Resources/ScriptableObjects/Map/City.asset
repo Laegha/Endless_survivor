@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97cc974257d6e643a781cca03f7bef6, type: 3}
+  m_Name: City
+  m_EditorClassIdentifier: 
+  _floorTile: {fileID: 21300000, guid: bc10dea475d28fd44b9da5bfb250fdb5, type: 3}
+  _topWallTile: {fileID: 21300000, guid: 4017a088e13368d46972dbfb442c2edf, type: 3}
+  _rightWallTile: {fileID: 21300000, guid: 8eaa38a49366902459d37529dae8f1e9, type: 3}
+  _bottomWallTile: {fileID: 21300000, guid: 04395c39ca92ee44b835493806f879f1, type: 3}
+  _leftWallTile: {fileID: 21300000, guid: e1acfd61b0d6ac447bbc1d9ca4537168, type: 3}
+  _cornerTopRightClosed: {fileID: 21300000, guid: 120fe37772d74dd418720400d5de6156, type: 3}
+  _cornerTopRightOpen: {fileID: 21300000, guid: 3cca38c50bde5434ebc40d3d78571295, type: 3}
+  _cornerRightBotClosed: {fileID: 21300000, guid: 0e4f0a4dbb981e948a18c4041931d8ed, type: 3}
+  _cornerRightBotOpen: {fileID: 21300000, guid: 47cb79e2604bf5a44be9d5e37aaf9d2f, type: 3}
+  _cornerBotLeftClosed: {fileID: 21300000, guid: 6d347664d36a61a4a8196c1cf7251f82, type: 3}
+  _cornerBotLeftOpen: {fileID: 21300000, guid: c6326c02a9904574ab8f8746f4e2547a, type: 3}
+  _cornerLeftTopClosed: {fileID: 21300000, guid: d7372eace3a84fd4592c69dce1ad4666, type: 3}
+  _cornerLeftTopOpen: {fileID: 21300000, guid: abe91c6ace17f1c49b7fc63a89789f44, type: 3}
+  _tileGeneratableSupportObjs: []
+  _biomeEnemyWaves: []
+  _biomeChampions: []
+  _biomeBosses: []
+  _championIndicator: {fileID: 0}
+  _bossIndicator: {fileID: 0}
