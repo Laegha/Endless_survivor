@@ -9,6 +9,7 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
 {
     public new static int maxStacks => -1;
     [SerializeField] string _areaName = "AreaIdentifier";
+    [SerializeField] LayerMask _collidingLayers;
     [SerializeField] Vector2 _areaSize;
     [SerializeField] Vector2 _areaOffset;
     [SerializeField] Sprite _areaGfx;
@@ -27,6 +28,7 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
         base.Initiate(control, original);
         var checkAreaOriginal = original as CheckAreaAroundSupportObjBehaviour;
         _areaName = checkAreaOriginal._areaName;
+        _collidingLayers = checkAreaOriginal._collidingLayers;
         _areaSize = checkAreaOriginal._areaSize;
         _areaOffset = checkAreaOriginal._areaOffset;
         _areaGfx = checkAreaOriginal._areaGfx;
@@ -49,7 +51,7 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
     }
     void CheckArea()
     {
-        var colsInArea = Physics2D.OverlapBoxAll((Vector2)ObjControl.transform.position + _areaOffset, _areaSize, 0);
+        var colsInArea = Physics2D.OverlapBoxAll((Vector2)ObjControl.transform.position + _areaOffset, _areaSize, 0, _collidingLayers);
         foreach(var col in colsInArea)
         {
             if(!_objsInArea.Contains(col.gameObject))
