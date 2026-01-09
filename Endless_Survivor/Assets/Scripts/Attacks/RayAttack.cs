@@ -38,6 +38,7 @@ public class RayAttack : Attack
     public void Attack(int damage, float knockback, RayData defaultRayData, Vector2 position, Vector2 direction, List<Collider2D> ignoreColliders = null)
     {
         AttackDamage = damage;
+        AttackKnockback = knockback;
         _startPosition = position;
 
         SetGFX(defaultRayData.RayMaterial, defaultRayData.RayStartWidth, defaultRayData.RayEndWidth, defaultRayData.RayStartSprite);
@@ -75,7 +76,7 @@ public class RayAttack : Attack
             EnemyControl enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(hit.collider.gameObject);
             if (enemyControl != null)
             {
-                enemyControl.EnemyHP.TakeDamage(AttackDamage, direction, knockback);
+                enemyControl.EnemyHP.TakeDamage(AttackDamage, direction, AttackKnockback);
                 EffectsHandler.EnemyHit(enemyControl);
             }
 

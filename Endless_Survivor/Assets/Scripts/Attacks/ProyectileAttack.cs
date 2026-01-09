@@ -34,6 +34,7 @@ public class ProyectileAttack : Attack
     public void Initiate(int damage, float knockback, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0, List<Collider2D> ignoreColliders = null)
     {
         AttackDamage = damage;
+        AttackKnockback = knockback;
         _speed = speed;
         _lifeTime = lifeTime;
         _animator.AddAnimations(new() { proyectileData.ProyectileAnim });
@@ -50,7 +51,8 @@ public class ProyectileAttack : Attack
         _collider.size = proyectileData.ColliderSize;
         if(ignoreColliders == null)
             ignoreColliders = new List<Collider2D>();
-        
+
+        Debug.Log("ATTACK ON THE PROYECTIELK " + AttackKnockback);
         _ignoreColliders = ignoreColliders;
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
 
@@ -63,7 +65,7 @@ public class ProyectileAttack : Attack
             damageSource.Damage = AttackDamage;
             var enemyDamageSource = damageSource as EnemyDamageSource;
             if(enemyDamageSource != null ) 
-                enemyDamageSource.Knockback = knockback;
+                enemyDamageSource.Knockback = AttackKnockback;
         }
         StartMoving();
         
@@ -89,7 +91,7 @@ public class ProyectileAttack : Attack
         var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(collider.gameObject);
         if (enemyControl != null)
             EffectsHandler.EnemyHit(enemyControl);
-        if(AttackPiercing < 0)
+        if(AttackPiercing <= 0)
             Destroy(gameObject);
         AttackPiercing--;
     }

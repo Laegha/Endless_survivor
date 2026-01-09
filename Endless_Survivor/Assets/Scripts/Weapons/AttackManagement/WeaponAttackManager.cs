@@ -74,7 +74,9 @@ public class WeaponAttackManager : MonoBehaviour
             break;
         }
         if(newAttackController != _currAttackController)
+        {
             ChangeAttackController(newAttackController);
+        }
     }
 
     private void Update()

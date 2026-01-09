@@ -8,6 +8,8 @@ public abstract class Attack : MonoBehaviour
     WeaponAttackController _parentWeapon;
     int _attackDamage = 0;
     float _attackDamageMultiplier = 1;
+    float _knockback;
+    float _knockbackMultiplier = 1;
     int _attackPiercing = 0;
     bool _isSecondaryAttack;
     public AttackGfxInterface AttackGfxInterface => new AttackGfxInterface();
@@ -15,6 +17,8 @@ public abstract class Attack : MonoBehaviour
     public AttackEffectsHandler EffectsHandler { get { return _effectsHandler; } }
     public int AttackDamage { get { return (int)(_attackDamage * _attackDamageMultiplier); } set { _attackDamage = value; } }
     public float AttackDamageMultiplier { get { return _attackDamageMultiplier; } set { _attackDamageMultiplier = value; } }
+    public float AttackKnockback { get { return _knockback * _knockbackMultiplier; } set {  _knockback = value; } }
+    public float AttackKnockbackMultiplier { get { return _knockbackMultiplier; } set { _knockbackMultiplier = value; } }
     public WeaponAttackController ParentWeapon { get { return _parentWeapon; } set { _parentWeapon = value; } }
     public int AttackPiercing { get { return _attackPiercing; } set { _attackPiercing = value; } }
     public bool IsSecondaryAttack { get { return _isSecondaryAttack; } set { _isSecondaryAttack = value; } }

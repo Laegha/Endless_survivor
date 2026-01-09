@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 [Serializable]
 public class WeaponAttackController
@@ -10,6 +11,7 @@ public class WeaponAttackController
     [SerializeField] int _attackFrame;
     [SerializeField] AttackEffectsHolder _weaponAttackEffects = new();
     [SerializeField] float _damageMultiplier = 1;
+    [SerializeField] float _knockbackMultiplier = 1;
     [SerializeField] DamageInfo.DamageType _damageType;
 
     WeaponControl _weaponControl;
@@ -40,6 +42,7 @@ public class WeaponAttackController
     public virtual void Initialize(WeaponControl weaponControl, WeaponAttackController original)
     {
         _attackId = original._attackId;
+
         _weaponControl = weaponControl;
         _weaponStats = weaponControl.WeaponAttackManager.WeaponStats;
 
@@ -54,9 +57,11 @@ public class WeaponAttackController
         _weaponAttackEffects = attackEffectsHolder;
 
         _damageMultiplier = original._damageMultiplier;
+        _knockbackMultiplier = original._knockbackMultiplier;
+        Debug.Log("KNOCKBACK MULTIPLIER " + _knockbackMultiplier);
         _damageType = original._damageType;
         _initializeAttack += SetWeaponOnAttack;
-        _initializeAttack += SetAttackDamageMultiplier;
+        _initializeAttack += SetAttackMultipliers;
     }
     public virtual void Update()
     {
@@ -95,8 +100,9 @@ public class WeaponAttackController
     {
         attack.ParentWeapon = this;
     }
-    void SetAttackDamageMultiplier(Attack attack)
+    void SetAttackMultipliers(Attack attack)
     {
         attack.AttackDamageMultiplier = _damageMultiplier; 
+        attack.AttackKnockbackMultiplier = _knockbackMultiplier; 
     }
 }
