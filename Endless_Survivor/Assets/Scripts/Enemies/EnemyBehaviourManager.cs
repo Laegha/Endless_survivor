@@ -38,12 +38,15 @@ public class EnemyBehaviourManager : MonoBehaviour
         foreach(EnemyBehaviour behaviour in _behaviours)
             behaviour.RewriteOverrides(_behaviours); 
     }
-
+    public bool ActivateBehaviour(string newBehaviourId)
+    {
+        return ActivateBehaviour(Behaviours.Find(x => x.BehaviourId == newBehaviourId));
+    }
     public bool ActivateBehaviour(EnemyBehaviour newBehaviour)
     {
         foreach(var behaviour in _activeBehaviours)
         {
-            bool isOverridenByActiveBehaviour = behaviour.OverrideBehaviours.Contains(newBehaviour);
+            bool isOverridenByActiveBehaviour = behaviour.OverrideBehaviours.Contains(newBehaviour.BehaviourId);
             //print("Behaviour " + behaviour + "Overrides " + newBehaviour + ": " + isOverridenByActiveBehaviour);
             if (isOverridenByActiveBehaviour)
                 return false;
@@ -56,16 +59,20 @@ public class EnemyBehaviourManager : MonoBehaviour
     }
     void CheckOverrides(EnemyBehaviour addedBehaviour)
     {
-        foreach(var behaviour in addedBehaviour.OverrideBehaviours)
+        foreach(var behaviourId in addedBehaviour.OverrideBehaviours)
         {
-            bool overridesActiveBehaviour = _activeBehaviours.Contains(behaviour);
-            if (overridesActiveBehaviour)
-                behaviour.KillBehaviour();
+            var overridenBehaviour = _activeBehaviours.Find(x => x.BehaviourId == behaviourId);
+            if (overridenBehaviour != null)
+                overridenBehaviour.KillBehaviour();
         }
     }
     public void KillBehaviour(EnemyBehaviour removedBehaviour)
     {
         _activeBehaviours.Remove(removedBehaviour);
         removedBehaviour.IsActive = false;
+    }
+    public EnemyBehaviour GetBehaviour(string behaviourId)
+    {
+        return Behaviours.Find(x => x.BehaviourId == behaviourId);
     }
 }

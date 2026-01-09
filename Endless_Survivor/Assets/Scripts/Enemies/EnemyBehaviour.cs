@@ -11,12 +11,14 @@ public class EnemyBehaviour
     public static int maxStacks => 0;
     bool _isActive = false;
     EnemyData _enemyData;
-    [SerializeReference] List<EnemyBehaviour> _overrideBehaviours = new List<EnemyBehaviour>();
+    [SerializeField] string _behaviourId;
+    [SerializeReference] List<string> _overrideBehaviours = new List<string>();
     EnemyControl _enemyControl;
 
     public bool IsActive { get { return _isActive; } set { _isActive = value; } }
+    public string BehaviourId { get { return _behaviourId; } }
     public EnemyData EnemyData { get { return _enemyData; } set { _enemyData = value; } }
-    public List<EnemyBehaviour> OverrideBehaviours { get { return _overrideBehaviours; } }
+    public List<string> OverrideBehaviours { get { return _overrideBehaviours; } }
     public EnemyControl EnemyControl { get {  return _enemyControl; } } 
 
     public List<EnemyBehaviour> EnemyDataBehaviours()
@@ -29,19 +31,14 @@ public class EnemyBehaviour
         _enemyData = original.EnemyData;
         _overrideBehaviours = original.OverrideBehaviours;
         _enemyControl = enemyControl;
-        _overrideBehaviours = _overrideBehaviours.Where(behaviour => behaviour != null).ToList();
+        _behaviourId = original.BehaviourId;
     }
 
     public virtual void Start() { } //called after every behaviour has been initialized
 
     public void RewriteOverrides(List<EnemyBehaviour> totalBehaviours)
     {
-        List<EnemyBehaviour> rewrittenBehaviours = new List<EnemyBehaviour>();
-        foreach(EnemyBehaviour overrideBehaviour in _overrideBehaviours)
-        {
-            rewrittenBehaviours.Add(totalBehaviours.Where(behaviour => behaviour.GetType() == overrideBehaviour.GetType()).ToList()[0]);
-        }
-        _overrideBehaviours = rewrittenBehaviours;
+        _overrideBehaviours = _overrideBehaviours.Where(behaviour => _enemyControl.BehaviourManager.GetBehaviour(behaviour) != null).ToList();
     }
 
     public virtual void PassiveUpdate() { }//is called every frame, regardless the state of the behaviour

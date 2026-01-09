@@ -5,11 +5,11 @@ using UnityEngine;
 public class TriggerBehavioursAtDistance : EnemyBehaviour
 {
     new public static int maxStacks => -1;
-    [SerializeReference] List<EnemyBehaviour> _behavioursToTrigger = new List<EnemyBehaviour>();
+    [SerializeReference] List<string> _behavioursToTrigger = new List<string>();
     [SerializeField] float _distanceToTrigger;
     Transform _player;
 
-    public List<EnemyBehaviour> BehavioursToTrigger {  get { return _behavioursToTrigger; } }
+    public List<string> BehavioursToTrigger {  get { return _behavioursToTrigger; } }
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
         base.Initialize(original, enemyControl);
@@ -17,22 +17,6 @@ public class TriggerBehavioursAtDistance : EnemyBehaviour
         _behavioursToTrigger = originalTriggerBehavioursAtDistance._behavioursToTrigger;
         _distanceToTrigger = originalTriggerBehavioursAtDistance._distanceToTrigger;
         _player = GameObject.FindObjectOfType<PlayerControl>().transform;
-    }
-    public override void Start()
-    {
-        base.Start();
-        List<EnemyBehaviour> runtimeBehavioursToTrigger = new List<EnemyBehaviour>();
-        foreach (var assetBehaviour in _behavioursToTrigger)
-        {
-            var runtimeBehaviour = EnemyControl.BehaviourManager.Behaviours.Find(behaviour => behaviour.GetType() == assetBehaviour.GetType());
-            if (runtimeBehaviour == null)
-            {
-                Debug.LogError("Trying to trigger at distance the behaviour " + assetBehaviour.GetType() + " that isn't in the gameobject (this should never happen)");
-                continue;
-            }
-            runtimeBehavioursToTrigger.Add(runtimeBehaviour);
-        }
-        _behavioursToTrigger = runtimeBehavioursToTrigger;
     }
     public override void PassiveUpdate()
     {
@@ -52,7 +36,7 @@ public class TriggerBehavioursAtDistance : EnemyBehaviour
         base.ActiveUpdate();
         foreach (var behaviour in _behavioursToTrigger)
         {
-            if (behaviour.IsActive)
+            if (EnemyControl.BehaviourManager.GetBehaviour(behaviour).IsActive)
                 return;
         }
         KillBehaviour();
