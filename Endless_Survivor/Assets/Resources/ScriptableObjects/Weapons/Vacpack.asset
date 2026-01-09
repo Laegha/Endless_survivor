@@ -1,0 +1,435 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Vacpack
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 6540f2977014d7747b3aa5f982b64e19, type: 3}
+  _weaponName: Vacpack
+  _weaponStats:
+    _range: 12
+    _attackSpeed: 0.5
+    _damage: 8
+    _knockback: 7
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0.2
+  _damageIncrease: 1.2
+  _weaponTags: 01000000
+  _weaponPools: 5
+  _defaultAttack:
+    rid: 3262446909440393218
+  _weaponAttacks:
+  - rid: 3262446909440393217
+  - rid: 3262446909440393219
+  - rid: 3262446909440393220
+  - rid: 3262446909440393221
+  - rid: 3262446909440393222
+  - rid: 3262446909440393223
+  - rid: 3262446909440393224
+  - rid: 3262446909440393226
+  _attackConditions:
+  - rid: 3262446909440393227
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -1428762401, guid: 06089eb96e7e4bc4dacf45b293763228, type: 3}
+    - {fileID: -57965222, guid: 06089eb96e7e4bc4dacf45b293763228, type: 3}
+    - {fileID: 793923375, guid: 06089eb96e7e4bc4dacf45b293763228, type: 3}
+    - {fileID: 2003441037, guid: 06089eb96e7e4bc4dacf45b293763228, type: 3}
+    _framesPerSecond: 3
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262446909440393217
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: RockSlime
+        _attackAnimation:
+          _animationName: RockSlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1.1
+        _knockbackMultiplier: 5
+        _damageType: 1
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 63ac7e5641d7ef845bf76d6c99746a8e, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393218
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: 
+        _attackAnimation:
+          _animationName: 
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 0, y: 0}
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: TEST
+            _frames:
+            - {fileID: 21300000, guid: f238d3701a853c243ba48f5f961fd8b7, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 1, y: 1}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393219
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: BoomSlime
+        _attackAnimation:
+          _animationName: BoomSlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: f1a93b2e99b16fb41b719c210468218e, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 0.5
+        _damageType: 3
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 6
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 3cf564ec4fd580a4ba0670ae4bd01176, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393220
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: RadSlime
+        _attackAnimation:
+          _animationName: RadSlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 063c967b3b35c5448a3a8452f9e0790c, type: 2}
+        _damageMultiplier: 0.9
+        _knockbackMultiplier: 1
+        _damageType: 9
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 6
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 946295c1a3b198d4b98db4887d86b676, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393221
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: FireSlime
+        _attackAnimation:
+          _animationName: FireSlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: db13bc1ab38dd664eac2cd796e63411f, type: 2}
+        _damageMultiplier: 0.85
+        _knockbackMultiplier: 1
+        _damageType: 5
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 6.5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: d4dde16b2876ec04a9d3ce0fbd16b832, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393222
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: TangleSlime
+        _attackAnimation:
+          _animationName: TangleSlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 9f6fb5d034903bc4990ff68855348a87, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 0
+        _damageType: 1
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 3209e21ad5764f940b5ed2b821d16034, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393223
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: QuantumSlime
+        _attackAnimation:
+          _animationName: QuantumSlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 5fbece5366b82a54685903315a1b2fbb, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 0
+        _damageType: 1
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 6.5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 34923f958942ec64cbbc0555ed6feff1, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393224
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: QuicksilverSlime
+        _attackAnimation:
+          _animationName: QuicksilverSlime
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: b096c22ff80f1ab4084e3d917040e638, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 7.5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 8b9b9af7ba2baab4683afbd8b80f9a4b, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393226
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: LuckySlime
+        _attackAnimation:
+          _animationName: LuckySlimeAttack
+          _frames:
+          - {fileID: -1835884919, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: 931224854, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          - {fileID: -2101004039, guid: 37f12bca1d195d74aafef86d48dedd54, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 8f6f36ef6bd4d374cb9cdd27815f5290, type: 2}
+        _damageMultiplier: 2
+        _knockbackMultiplier: 1
+        _damageType: 1
+        _firePointPosition: {x: 34, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 8634e3966ce7a6b46a47006b22b1a4e8, type: 3}
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262446909440393227
+      type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _changeChance: 100
+        _idsWeights:
+        - _element: RockSlime
+          _chance: 3
+        - _element: BoomSlime
+          _chance: 3
+        - _element: RadSlime
+          _chance: 3
+        - _element: FireSlime
+          _chance: 3
+        - _element: TangleSlime
+          _chance: 3
+        - _element: QuantumSlime
+          _chance: 3
+        - _element: QuicksilverSlime
+          _chance: 1
+        - _element: LuckySlime
+          _chance: 1
