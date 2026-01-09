@@ -19,6 +19,7 @@ public class SplitOnCollidedWithObjAttackEffect : AttackEffect
         _destroyCollidedObj = splitOnColOriginal._destroyCollidedObj;
         _collisionAreaRadius = splitOnColOriginal._collisionAreaRadius;
         _splitAmmount = splitOnColOriginal._splitAmmount;
+        _distBetweenSplits = splitOnColOriginal._distBetweenSplits;
 
         OnUpdate += CheckCollisionArea;
     }
