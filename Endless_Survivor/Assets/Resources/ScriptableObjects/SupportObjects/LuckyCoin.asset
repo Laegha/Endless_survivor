@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: LuckyCoin
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 3262446918998425600
+  - rid: 3262446918998425604
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262446918998425600
+      type: {class: ThrowAtEnemySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _thrownAnimation:
+          _animationName: CoinThrow
+          _frames:
+          - {fileID: -1632597040, guid: 11a75d4d9813475429a206797139483f, type: 3}
+          - {fileID: 121713325, guid: 11a75d4d9813475429a206797139483f, type: 3}
+          - {fileID: 1558293900, guid: 11a75d4d9813475429a206797139483f, type: 3}
+          - {fileID: 465363449, guid: 11a75d4d9813475429a206797139483f, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _throwSpeed: 10
+        _collisionCheckRadius: 0.25
+        _collidedLayers:
+          serializedVersion: 2
+          m_Bits: 128
+        _verticalMovementCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 3262446918998425604
+      type: {class: ExplodeOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _explosionDamage:
+          _damageAmmount: 5
+          _damageType: 0
+        _explosionRadius: 0.1
+        _explosionParticles: {fileID: 0}
+        _particlesDuration: 0
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 128
