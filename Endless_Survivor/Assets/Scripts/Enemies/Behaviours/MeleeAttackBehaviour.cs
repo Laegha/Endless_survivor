@@ -19,8 +19,8 @@ public class MeleeAttackBehaviour : EnemyBehaviour
     [SerializeField] CustomAnimation _enemyAttackAnimation;
     [SerializeField] bool _usesVfx;
     [SerializeField] ChangeOnEndAnimation _attackVFXAnimation;
-    [SerializeField] AnimationEvent _triggerVFXEvent;
-    [SerializeField] AnimationEvent _triggerDamageEvent;
+    [SerializeField] int _triggerVFXFrame;
+    [SerializeField] int _triggerDamageFrame;
     [SerializeField] SFXInfo _attackSfx;
     CustomAnimator _vfxAnimator;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
@@ -38,28 +38,27 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         //copy animations from SO
         _enemyAttackAnimation = new CustomAnimation(EnemyControl.Animator, originalMeleeAttack._enemyAttackAnimation);
         _attackVFXAnimation = new ChangeOnEndAnimation(_vfxAnimator, originalMeleeAttack._attackVFXAnimation);
-        _triggerDamageEvent = new AnimationEvent(originalMeleeAttack._triggerDamageEvent);
+        _triggerDamageFrame = originalMeleeAttack._triggerDamageFrame;
         _attackSfx = originalMeleeAttack._attackSfx;
 
         _enemyAttackAnimation.Events.Add(new(null, _enemyAttackAnimation.Frames.Length - 1, AnimationEnd));
-        _triggerDamageEvent.frameAction += TriggerDamage;
 
         if (_usesVfx)
         {
-            _triggerVFXEvent = new AnimationEvent(originalMeleeAttack._triggerVFXEvent);
+            _triggerVFXFrame = originalMeleeAttack._triggerVFXFrame;
         
             _vfxAnimator = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], enemyControl.transform).GetComponent<CustomAnimator>();
             
-            _triggerVFXEvent.frameAction += TriggerAttackVFX;
-            _enemyAttackAnimation.Events.Add(_triggerVFXEvent);
-            _attackVFXAnimation.Events.Add(_triggerDamageEvent);
-            
+            _enemyAttackAnimation.Events.Add(new(null, _triggerVFXFrame, TriggerAttackVFX));
+            _attackVFXAnimation.Events.Add(new(null, _triggerDamageFrame, TriggerDamage));
+
+
             CustomAnimation vfxIdleAnim = new CustomAnimation(null, "Idle", new Sprite[1]);
             _vfxAnimator.AddAnimations(new List<CustomAnimation> { vfxIdleAnim, _attackVFXAnimation });
         }
         else
         {
-            _enemyAttackAnimation.Events.Add(_triggerDamageEvent);
+            _enemyAttackAnimation.Events.Add(new(null, _triggerDamageFrame, TriggerDamage));
 
         }
 
