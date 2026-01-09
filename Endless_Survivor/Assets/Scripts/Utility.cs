@@ -15,12 +15,7 @@ public static class Utility
             .Where(type => type.IsClass && !type.IsAbstract && type.IsSubclassOf(baseType))
             .ToList();
     }
-    public static List<Type> GetImplementationsOf<T>()
-    {
-        return TypeCache.GetTypesDerivedFrom<T>()
-            .Where(t => !t.IsAbstract && !t.IsInterface)
-            .ToList();
-    }
+    
     public static int CountOccurrences(string text, string substring)
     {
         if (string.IsNullOrEmpty(substring)) return 0;
@@ -231,13 +226,13 @@ public static class Utility
     }
     public static List<T> ShuffleList<T>(List<T> original)
     {
-        List<T> shuffledList = new(original.Count);
+        List<T> shuffledList = new();
         List<int> elegibleIndexes = Enumerable.Range(0, original.Count).ToList();
         for(int i = 0; i < original.Count; i++)
         {
             int originalIndex = elegibleIndexes[UnityEngine.Random.Range(0, elegibleIndexes.Count)];
             elegibleIndexes.Remove(originalIndex);
-            shuffledList[i] = original[originalIndex];
+            shuffledList.Add(original[originalIndex]);
         }
         return shuffledList;
     }

@@ -18,7 +18,7 @@ public class PatternDrawer : PropertyDrawer
         {
             GenericMenu menu = new GenericMenu();
 
-            foreach (var type in Utility.GetImplementationsOf<IPattern>())
+            foreach (var type in InterfaceHelper.GetImplementationsOf<IPattern>())
             {
                 menu.AddItem(
                     new GUIContent(type.Name),
