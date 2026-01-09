@@ -7,7 +7,7 @@ public class GenerateObjectOnAttackArea : AttackEffect
 {
     new public static bool isUsable => true;
 
-    [SerializeField] GameObject _generatedObjPrefab;
+    [SerializeField] SupportObjectData _generatedSupportObj;
     [SerializeField] float _firstObjDist;
     [SerializeField] float _distanceBetweenObjs;
 
@@ -18,7 +18,7 @@ public class GenerateObjectOnAttackArea : AttackEffect
     {
         base.Initiate(original, affectedAttack);
         var genreateObjOriginal = original as GenerateObjectOnAttackArea;
-        _generatedObjPrefab = genreateObjOriginal._generatedObjPrefab;
+        _generatedSupportObj = genreateObjOriginal._generatedSupportObj;
         _distanceBetweenObjs = genreateObjOriginal._distanceBetweenObjs;
         _lapsedDistance = _firstObjDist;
         switch(affectedAttack.AttackEffectArea.type)
@@ -45,8 +45,7 @@ public class GenerateObjectOnAttackArea : AttackEffect
 
     void GenerateObj(Vector2 position)
     {
-        GameObject.Instantiate(_generatedObjPrefab, position, Quaternion.identity);
-
+        Utility.GenerateSupportObj(_generatedSupportObj, position, Quaternion.identity);
     }
     void Update()
     {
