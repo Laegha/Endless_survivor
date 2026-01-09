@@ -23,6 +23,7 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
         _invokationPattern = invokeEnemiesOriginal._invokationPattern;
 
         _invokingAnim.Events.Add(new(null, _invokeFrame, InvokeEnemies));
+        _invokingAnim.Events.Add(new(null, _invokingAnim.Frames.Length -1, KillBehaviour));
         EnemyControl.Animator.AddAnimations(new() { _invokingAnim });
 
     }
@@ -30,7 +31,6 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
     {
         base.ActiveUpdate();
         EnemyControl.Animator.ChangeAnim(_invokingAnim.AnimationName);
-        KillBehaviour();
     }
 
     void InvokeEnemies()
