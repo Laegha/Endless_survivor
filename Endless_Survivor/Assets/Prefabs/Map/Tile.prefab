@@ -146,6 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 3544605296598489516}
   _collider: {fileID: 4487969149738200181}
+  _airSprites:
+  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  - {fileID: 0}
 --- !u!114 &6124617511689116843
 MonoBehaviour:
   m_ObjectHideFlags: 0
