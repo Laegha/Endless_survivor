@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _renderer;
     [SerializeField] Collider2D _collider;
+    [SerializeField] Sprite[] _airSprites;
     SupportObjectControl _tileSupportObj;
     bool _isWall;
     Biome _tileBiome;
@@ -21,7 +22,7 @@ public class Tile : MonoBehaviour
     {
         var adyacentTiles = GetAdyacentTiles();
         
-        bool isWall = adyacentTiles.Any(tile => tile.Value == null);
+        bool isWall = adyacentTiles.Any(tile => tile.Value == null || _airSprites.Contains(tile.Value.Renderer.sprite));
         if(isWall != _isWall && _tileSupportObj != null)
         {
             Destroy(_tileSupportObj.gameObject);
@@ -29,10 +30,7 @@ public class Tile : MonoBehaviour
         _isWall = isWall;
         _collider.enabled = _isWall;
 
-        SetSprite(adyacentTiles);
-
-        
-
+        SetSpriteAndDir(adyacentTiles);
     }
 
     Dictionary<Vector2, Tile> GetAdyacentTiles()
@@ -51,14 +49,19 @@ public class Tile : MonoBehaviour
         List<Vector2> directions = adyacentTiles.Keys.ToList();
         foreach (var tileDir in directions)
         {
-            adyacentTiles[tileDir] = MapGenerationHandler.mgh.TileMatrix.Find(tile => (Vector2)(tile.transform.position - transform.position) == tileDir);
+            var adyacentTilePos = (Vector2)transform.position + tileDir;
+            if(MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(adyacentTilePos))
+            {
+                var tilesInDir = MapManager.mm.GenerationHandler.TileMatrix[adyacentTilePos];
+                adyacentTiles[tileDir] = tilesInDir.FirstOrDefault();
+            }
         }
         return adyacentTiles;
     }
 
-    void SetSprite(Dictionary<Vector2, Tile> adyacentTiles)
+    void SetSpriteAndDir(Dictionary<Vector2, Tile> adyacentTiles)
     {
-        Dictionary<Vector2, Tile> airTiles = adyacentTiles.Where(tile => tile.Value == null).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        Dictionary<Vector2, Tile> airTiles = adyacentTiles.Where(tile => tile.Value == null || _airSprites.Contains(tile.Value.Renderer.sprite)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         if(airTiles.Count == 0)//is floor
         {
             _renderer.sprite = _tileBiome.BiomeData.FloorTile;
@@ -69,17 +72,15 @@ public class Tile : MonoBehaviour
             _renderer.sprite = GetOpenCornerSprite(airTiles.First().Key);
             return;
         }
-        var nonAirTiles = adyacentTiles.Where(tile => tile.Value != null).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        var nonAirTiles = adyacentTiles.Where(tile => tile.Value != null && !_airSprites.Contains(tile.Value.Renderer.sprite)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         if (airTiles.Count > nonAirTiles.Count)//is a closed corner
         {
-            var oppositeDirectionTile = adyacentTiles.Where(tile => tile.Value != null && tile.Key.magnitude != 1).FirstOrDefault();
-            Vector2 cornerDirection = oppositeDirectionTile.Key * -1;
-            _renderer.sprite = GetClosedCornerSprite(cornerDirection);
+            var oppositeDirectionTile = adyacentTiles.Where(tile => tile.Value != null && !_airSprites.Contains(tile.Value.Renderer.sprite) && tile.Key.magnitude != 1).FirstOrDefault();
+            _renderer.sprite = GetClosedCornerSprite(oppositeDirectionTile.Key * -1);
             return;
         }
 
-        var wallDir = airTiles.Keys.Where(dir => dir.magnitude == 1).ToArray()[0];//the only air tile perpendicular to the wall
-        _renderer.sprite = GetWallSprite(wallDir);
+        _renderer.sprite = GetWallSprite(airTiles.Keys.Where(dir => dir.magnitude == 1).ToArray()[0]);//the only air tile perpendicular to the wall
     }
     Sprite GetOpenCornerSprite(Vector2 direction)
     {
