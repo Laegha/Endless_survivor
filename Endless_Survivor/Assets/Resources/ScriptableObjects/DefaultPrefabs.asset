@@ -32,6 +32,8 @@ MonoBehaviour:
       Value: {fileID: 5542903177043885194, guid: 3ed1e06485ec540459a889dec34aa2bf, type: 3}
     - Key: Pickup
       Value: {fileID: 3438140968312141350, guid: 428eabb061ceaf84f89f0f0a6de61304, type: 3}
+    - Key: AnimatedObject
+      Value: {fileID: 4363394436518446989, guid: 2ace3f902db4e164cbf9e69af73d2f8f, type: 3}
     - Key: Tile
       Value: {fileID: 6690923476748336467, guid: ae9b50d63bfc25946862a613b41031c0, type: 3}
     - Key: SupportObject
