@@ -18,7 +18,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
 
     [SerializeField] CustomAnimation _enemyAttackAnimation;
     [SerializeField] bool _usesVfx;
-    [SerializeField] ChangeOnEndAnimation _attackVFXAnimation;
+    [SerializeField] CustomAnimation _attackVFXAnimation;
     [SerializeField] int _triggerVFXFrame;
     [SerializeField] int _triggerDamageFrame;
     [SerializeField] SFXInfo _attackSfx;
@@ -37,7 +37,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         
         //copy animations from SO
         _enemyAttackAnimation = new CustomAnimation(EnemyControl.Animator, originalMeleeAttack._enemyAttackAnimation);
-        _attackVFXAnimation = new ChangeOnEndAnimation(_vfxAnimator, originalMeleeAttack._attackVFXAnimation);
+        _attackVFXAnimation = new CustomAnimation(_vfxAnimator, originalMeleeAttack._attackVFXAnimation);
         _triggerDamageFrame = originalMeleeAttack._triggerDamageFrame;
         _attackSfx = originalMeleeAttack._attackSfx;
 
@@ -51,6 +51,7 @@ public class MeleeAttackBehaviour : EnemyBehaviour
             
             _enemyAttackAnimation.Events.Add(new(null, _triggerVFXFrame, TriggerAttackVFX));
             _attackVFXAnimation.Events.Add(new(null, _triggerDamageFrame, TriggerDamage));
+            _attackVFXAnimation.Events.Add(new(null, _attackVFXAnimation.Frames.Length -1, () => _vfxAnimator.ChangeAnim("Idle")));
 
 
             CustomAnimation vfxIdleAnim = new CustomAnimation(null, "Idle", new Sprite[1]);
