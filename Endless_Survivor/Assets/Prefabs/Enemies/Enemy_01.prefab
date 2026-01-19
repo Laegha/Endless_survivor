@@ -153,6 +153,8 @@ MonoBehaviour:
   _enemyHP: {fileID: -4557703695555915992}
   _capsuleCollider: {fileID: 3331539037743308472}
   _customAnimator: {fileID: 997789942096911037}
+  _renderers:
+  - {fileID: 7642443675026033161}
   _behaviourManager: {fileID: -2876188718530938169}
   _rbForcesController: {fileID: -4821308228866926432}
   _statusEffectManager: {fileID: 2742941424427891934}
