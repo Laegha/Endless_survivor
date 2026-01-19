@@ -7,6 +7,8 @@ public class RbForcesController : MonoBehaviour
     [SerializeField] Rigidbody2D _rb;
     RbForceInfo _currForceInfo;
     float _impulseForceTimer = 0;
+
+    public Rigidbody2D Rb { get { return _rb; } }
     void Update()
     {
         if (_currForceInfo == null)
