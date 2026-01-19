@@ -10,6 +10,8 @@ public class ChasePlayerBehaviour : EnemyBehaviour
     [SerializeField] CustomAnimation _chasingAnimation;
     Transform _player;
 
+    bool _stopped;
+
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
         base.Initialize(original, enemyControl);
@@ -26,12 +28,14 @@ public class ChasePlayerBehaviour : EnemyBehaviour
     {
         base.PassiveUpdate();
         if(!IsActive)
-            EnemyControl.BehaviourManager.ActivateBehaviour(this);
+            _stopped = !EnemyControl.BehaviourManager.ActivateBehaviour(this);
     }
 
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
+        if (_stopped)
+            return;
         if (EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _chasingAnimation.AnimationName)
             EnemyControl.Animator.ChangeAnim(_chasingAnimation.AnimationName);
         Vector2 direction = (_player.position - EnemyControl.transform.position).normalized;
@@ -40,6 +44,7 @@ public class ChasePlayerBehaviour : EnemyBehaviour
     public override void KillBehaviour()
     {
         base.KillBehaviour();
+        _stopped = true;
         EnemyControl.RbForcesController.Stop();
     }
 }
