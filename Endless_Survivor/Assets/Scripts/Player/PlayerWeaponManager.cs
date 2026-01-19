@@ -9,6 +9,8 @@ public class PlayerWeaponManager : MonoBehaviour
     [SerializeField] PlayerControl _playerControl;
     [SerializeField] float _weaponDistFromPlayer;
     //Dictionary<Weapon, Transform> _heldWeapons = new Dictionary<Weapon, Transform>();
+    System.Action _onWeaponPickup;
+    System.Action _onWeaponRemoved;
     List<WeaponHolder> _heldWeapons = new List<WeaponHolder>();
     int _maxWeapons;
 
@@ -22,6 +24,8 @@ public class PlayerWeaponManager : MonoBehaviour
         }
     }
     public int MaxWeapons { set { _maxWeapons = value; } }
+    public System.Action OnWeaponPickup { get  { return _onWeaponPickup; } set { _onWeaponPickup = value; } }
+    public System.Action OnWeaponRemoved {  get { return _onWeaponRemoved; } set { _onWeaponRemoved = value; } }
     public Dictionary<CustomFlags.IWeaponTag, int> HeldWeaponTags
     {
         get
@@ -85,6 +89,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
         UpdateWeaponPositions();
         weaponAttackManager.Initiate(weaponData.AttackConditions, weaponStats, weaponData);
+        _onWeaponPickup?.Invoke();
     }
     void UpdateWeaponPositions()
     {
@@ -111,15 +116,20 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void SwitchWeapon(WeaponAttackManager removedWeapon)
     {
+        RemoveWeapon(removedWeapon);
+        PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
+        GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
+    }
+    public void RemoveWeapon(WeaponAttackManager removedWeapon)
+    {
         var weaponHolder = _heldWeapons.Find(x => x.holdingWeapon == removedWeapon);
         Destroy(removedWeapon.gameObject);
-        if(weaponHolder != null && weaponHolder.destructible)
+        if (weaponHolder != null && weaponHolder.destructible)
         {
             DestroyImmediate(weaponHolder.handTransform.gameObject);
             _heldWeapons.Remove(weaponHolder);
         }
-        PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
-        GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
+        _onWeaponRemoved?.Invoke();
     }
 
     public void LevelUpWeapons(List<WeaponAttackManager> weapons = null)
