@@ -7,6 +7,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] EnemyHP _enemyHP;
     [SerializeField] CapsuleCollider2D _capsuleCollider;
     [SerializeField] CustomAnimator _customAnimator;
+    [SerializeField] SpriteRenderer[] _renderers;
     [SerializeField] EnemyBehaviourManager _behaviourManager;
     [SerializeField] RbForcesController _rbForcesController;
     [SerializeField] EnemyStatusEffectManager _statusEffectManager;
@@ -15,6 +16,7 @@ public class EnemyControl : MonoBehaviour
     public EnemyHP EnemyHP { get { return _enemyHP; } }
     public CapsuleCollider2D CapsuleCollider { get { return _capsuleCollider; } }
     public CustomAnimator Animator { get { return _customAnimator; } }
+    public SpriteRenderer[] Renderers { get { return _renderers; } }
     public EnemyBehaviourManager BehaviourManager { get { return _behaviourManager; } }
     public RbForcesController RbForcesController { get { return _rbForcesController; } }
     public EnemyStatusEffectManager StatusEffectManager {  get { return _statusEffectManager; } }
