@@ -10,7 +10,7 @@ public class WeaponInteractionManager : MonoBehaviour
 
     private void Start()
     {
-        
+        _weaponInteractionDatas = Resources.LoadAll<WeaponInteractionData>("").ToArray();
         PlayerControl.pc.WeaponManager.OnWeaponPickup += CheckForFullfiledInteractions;
         PlayerControl.pc.WeaponManager.OnWeaponRemoved += CheckForUnfullfiledInteractions;
     }
