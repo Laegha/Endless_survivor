@@ -7,27 +7,28 @@ public class SpriteMaterialFlashing
 {
     MaterialManager _materialManager;
     float _flashTimer = 0;
-    float _flashTime = .5f;
+    float _flashRate = .5f;
     MaterialOverride _flashingMaterialOverride;
     bool _isActive = false;
 
     public SpriteMaterialFlashing(MaterialManager materialManager, float flashTime, MaterialOverride materialOverride)
     {
         _materialManager = materialManager;
-        _flashTime = flashTime;
+        _flashRate = flashTime;
         _flashingMaterialOverride = materialOverride;
     }
 
     public void Start()
     {
         _flashTimer = 0;
+        //_isActive = false;
         ToggleMaterial();
     }
 
     public void Update()
     {
         _flashTimer += Time.deltaTime;
-        if(_flashTimer > _flashTime)
+        if(_flashTimer > _flashRate)
         {
             _flashTimer = 0;
             ToggleMaterial();
