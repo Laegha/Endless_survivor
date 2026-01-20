@@ -18,7 +18,7 @@ public class MeleeAttack : Attack
     new public AnimationChangeAttackGfxInterface AttackGfxInterface => new AnimationChangeAttackGfxInterface();
     private void Update()
     {
-        if(ParentWeapon != null) 
+        if(ParentWeapon != null && ParentWeapon.WeaponControl != null) 
             _vfxRenderer.flipY = ParentWeapon.WeaponControl.Gfx.flipY;
     }
     public void StartAttack(int damage, float knockbackForce, MeleeData attackData)
