@@ -12,6 +12,7 @@ public class CreateSupportObjAfterTimeSupportObjBehaviour : SupportObjectBehavio
     [SerializeField] float _timeToGenerate;
     [SerializeField] bool _loop;
     [SerializeField] bool _destroyOriginal;
+    [SerializeField] bool _isChildOfOriginal;
     float _timer;
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
@@ -21,6 +22,7 @@ public class CreateSupportObjAfterTimeSupportObjBehaviour : SupportObjectBehavio
         _positionOffset = createSupportObjOriginal._positionOffset;
         _timeToGenerate = createSupportObjOriginal._timeToGenerate;
         _loop = createSupportObjOriginal._loop;
+        _isChildOfOriginal = createSupportObjOriginal._isChildOfOriginal;
         _destroyOriginal = createSupportObjOriginal._destroyOriginal;
         _timer = _timeToGenerate;
         OnUpdate += ReduceTimer;
@@ -31,11 +33,16 @@ public class CreateSupportObjAfterTimeSupportObjBehaviour : SupportObjectBehavio
         _timer -= Time.deltaTime;
         if (_timer > 0)
             return;
-        Utility.GenerateSupportObj(_createdSupportObj, (Vector2)ObjControl.transform.position + _positionOffset, Quaternion.identity);
+        var supportObjControl = Utility.GenerateSupportObj(_createdSupportObj, (Vector2)ObjControl.transform.position + _positionOffset, Quaternion.identity);
         if(_destroyOriginal)
         {
             GameObject.Destroy(ObjControl.gameObject);
             return;
+        }
+        if(_isChildOfOriginal)
+        {
+            supportObjControl.transform.parent = ObjControl.transform;
+            supportObjControl.transform.localPosition = _positionOffset;
         }
         if (_loop)
             _timer = _timeToGenerate;
