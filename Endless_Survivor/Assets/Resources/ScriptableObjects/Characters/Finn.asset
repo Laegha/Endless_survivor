@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: Finn
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: ac61dc9ba2102664b983520ff913de2b, type: 3}
+  _characterName: Finn
+  _characterHands:
+  - {fileID: -221639484, guid: 142e3daa6b33a6c48962d425392197d2, type: 3}
+  - {fileID: -1697576661, guid: 142e3daa6b33a6c48962d425392197d2, type: 3}
+  _initialWeapons:
+  - {fileID: 11400000, guid: e3a44398bd9119e4abc266d325a7f790, type: 2}
+  _initialMaxWeapons: 2
+  _initialPassives: []
+  _playerStats:
+    _initialHP: 16
+    _hpIncrement: 2
+    _hpRegeneration: 0.2
+    _maxSpeed: 3
+    _minSpeed: 4
+    _acceleration: 2
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: 791925920, guid: 9054d3bec5fe98b4aac9f797a95af138, type: 3}
+    - {fileID: 808178169, guid: 9054d3bec5fe98b4aac9f797a95af138, type: 3}
+    - {fileID: 2127244656, guid: 9054d3bec5fe98b4aac9f797a95af138, type: 3}
+    - {fileID: 300506838, guid: 9054d3bec5fe98b4aac9f797a95af138, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: -1459597685, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: 1285872629, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: -1743527210, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: 1700329795, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: 1410602451, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: 480513453, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: -389092568, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    - {fileID: 881655877, guid: c667d3e8ddb0aa842bc0c2dc96c821b8, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: 1183824562, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    - {fileID: 1972550855, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    - {fileID: 977096173, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    - {fileID: -571502421, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    - {fileID: -798167056, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    - {fileID: -1534079766, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    - {fileID: -896397347, guid: 261a415557905e9408bdc2055ee75b27, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: 1652733758, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 59979365, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 1669150669, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 507090547, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 1531349910, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 1135685524, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 2010712698, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    - {fileID: 1460906941, guid: 8b4a914f66762bd4ba03a89f9a95e464, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: -2032257174, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    - {fileID: -232304391, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    - {fileID: -1404157894, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    - {fileID: 243704555, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    - {fileID: -347179433, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    - {fileID: -892633410, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    - {fileID: -634883842, guid: d18bf81f531b56443ba1b387925f4c90, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _onHitSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
