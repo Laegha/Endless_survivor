@@ -27,7 +27,7 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         //theoricHand.transform.position = Vector2.zero;
 
         var weaponObj = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Weapon"], theoricHand.transform);
-        weaponObj.transform.position = Vector2.zero;
+        weaponObj.transform.localPosition = Vector2.zero;
         weaponObj.transform.rotation = Quaternion.identity;
 
         var weaponStats = new WeaponStats(_objWeapon.WeaponStats);
