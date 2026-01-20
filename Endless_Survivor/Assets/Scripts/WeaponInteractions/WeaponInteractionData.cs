@@ -7,7 +7,7 @@ using UnityEngine;
 public class WeaponInteractionData : ScriptableObject
 {
     [SerializeField] List<WeaponInteractionWeaponInfo> _weaponsNeededForInteraction;
-    [SerializeReference] List<WeaponInteraction> _interactionsBehaviours;
+    [SerializeReference] List<WeaponInteraction> _interactionsBehaviours = new();
 
     public List<WeaponInteractionWeaponInfo> WeaponsNeededForInteraction { get {  return _weaponsNeededForInteraction; } }
     public List<WeaponInteraction> InteractionBeahviours { get { return _interactionsBehaviours; } }
