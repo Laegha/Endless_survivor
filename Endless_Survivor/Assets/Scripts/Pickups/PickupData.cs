@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickupData : ScriptableObject
 {
     [SerializeField] ParticleSystem _pickupParticles;
+    [SerializeField] Vector2 _colliderSize;
     public virtual void TransferData(PickupControl pickupControl)
     {
         pickupControl.Pickup.PickupData = this;
@@ -14,6 +15,7 @@ public class PickupData : ScriptableObject
             ParticleManager.pm.SpawnParticles(particleConfig);
 
         }
+        pickupControl.Collider.size = _colliderSize;
     }
     public virtual void PickUp(PickupControl pickupControl)
     {
