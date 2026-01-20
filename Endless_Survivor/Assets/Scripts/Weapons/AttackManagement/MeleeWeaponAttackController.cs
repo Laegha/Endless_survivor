@@ -93,7 +93,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
 
         //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
         _currHandMover = null;
-        GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => WeaponControl.transform == null);
+        GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => WeaponControl == null);
         GameManager.gm.RoutineRunner(StuckHandInAttackPos(_hand.position, attackAnimDuration));
     }
     IEnumerator StuckHandInAttackPos(Vector2 attackPos, float attackDuration)
@@ -102,6 +102,8 @@ public class MeleeWeaponAttackController : WeaponAttackController
         while(lapsedTime < attackDuration)
         {
             yield return null;
+            if(_hand == null)
+                yield break;
             lapsedTime += Time.deltaTime;
             _hand.position = attackPos;
         }
