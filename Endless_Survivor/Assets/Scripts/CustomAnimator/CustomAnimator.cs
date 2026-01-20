@@ -50,7 +50,7 @@ public class CustomAnimator : MonoBehaviour
                 EndAnimation(_currAnim);
         }
         _spriteRenderer.sprite = _currAnim.Frames[_currFrameIndex];
-        _currAnim.Events.Find(animEvent => animEvent.frameIndex == _currFrameIndex)?.frameAction?.Invoke();//this doesn't work if the event is set for the frame 0, since the event is called after the frame changed
+        _currAnim.Events.Where(animEvent => animEvent.frameIndex == _currFrameIndex)?.ToList().ForEach(animEvent => animEvent.frameAction?.Invoke());//this doesn't work if the event is set for the frame 0, since the event is called after the frame changed
         _animTimer = 1 / _currAnim.FramesPerSecond;
     }
 
