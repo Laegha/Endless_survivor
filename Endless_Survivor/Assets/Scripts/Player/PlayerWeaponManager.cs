@@ -127,6 +127,7 @@ public class PlayerWeaponManager : MonoBehaviour
         if (weaponHolder != null && weaponHolder.destructible)
         {
             DestroyImmediate(weaponHolder.handTransform.gameObject);
+            PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
             _heldWeapons.Remove(weaponHolder);
         }
         _onWeaponRemoved?.Invoke();
