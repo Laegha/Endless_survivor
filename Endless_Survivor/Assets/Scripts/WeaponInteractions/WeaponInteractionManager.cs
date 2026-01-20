@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class WeaponInteractionManager : MonoBehaviour
 {
     WeaponInteractionData[] _weaponInteractionDatas;
-    List<WeaponInteraction> _activeInteractions;
+    List<WeaponInteraction> _activeInteractions = new();
 
     private void Start()
     {
@@ -42,12 +43,19 @@ public class WeaponInteractionManager : MonoBehaviour
     }
     void AddInteractions(WeaponInteractionData interactionData, List<WeaponAttackManager> interactingWeapons)
     {
+        List<WeaponInteraction> addedInteractions = new();
+        print("ADDING " + interactionData.name);
         foreach(var interactionBehaviour in interactionData.InteractionBeahviours)
         {
-            var newInteraction = new WeaponInteraction();
+            WeaponInteraction newInteraction = Activator.CreateInstance(interactionBehaviour.GetType()) as WeaponInteraction;
             newInteraction.Initialize(interactionBehaviour, interactionData, interactingWeapons);
-            _activeInteractions.Add(newInteraction);
+            addedInteractions.Add(newInteraction);
         }
+        foreach(var interaction in addedInteractions)
+        {
+            interaction.InteractionStart();
+        }
+        _activeInteractions.AddRange(addedInteractions);
         foreach(var weapon in interactingWeapons)
         {
             if(interactionData.WeaponsNeededForInteraction.Find(x => x.weaponNeededForTheInteraction ==  weapon.WeaponData).isDestroyed)
