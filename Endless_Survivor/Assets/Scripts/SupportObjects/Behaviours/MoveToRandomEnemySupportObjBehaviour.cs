@@ -65,6 +65,8 @@ public class MoveToRandomEnemySupportObjBehaviour : SupportObjectBehaviour
     void StartMovingInRandomDirection()
     {
         GameObject randEnemy = WaveManager.wm.Enemies[Random.Range(0, WaveManager.wm.Enemies.Count)];
+        if (randEnemy == null)
+            return;
         Vector2 movement = randEnemy.transform.position - ObjControl.transform.position;
 
         _currMovingDirection = movement.normalized;
@@ -74,10 +76,6 @@ public class MoveToRandomEnemySupportObjBehaviour : SupportObjectBehaviour
         _isMoving = true;
 
         _currAnim = GetAnimationFromDirection();
-        foreach (var renderer in ObjControl.Renderers)
-        {
-            renderer.flipX = _currMovingDirection.x < 0;
-        }
         //Apply speed to rb instead of translating transform in move?
     }
     void Move()
