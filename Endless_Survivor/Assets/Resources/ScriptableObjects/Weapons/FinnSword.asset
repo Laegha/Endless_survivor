@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: FinnSword
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 04f5e3154bc68544fa41b46b558fb196, type: 3}
+  _weaponName: Finn Sword
+  _weaponStats:
+    _range: 1.2
+    _attackSpeed: 1.2
+    _damage: 10
+    _knockback: 10
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0
+  _damageIncrease: 2
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 3262447163961769985
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 02f7542dfcf28b14eb35da51ca2ecdaf, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447163961769985
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 1717815437, guid: 4c5cebbecd95f72489acd5feaa947973, type: 3}
+          - {fileID: 1286084035, guid: 4c5cebbecd95f72489acd5feaa947973, type: 3}
+          - {fileID: 624424977, guid: 4c5cebbecd95f72489acd5feaa947973, type: 3}
+          - {fileID: 1182327207, guid: 4c5cebbecd95f72489acd5feaa947973, type: 3}
+          - {fileID: 1182327207, guid: 4c5cebbecd95f72489acd5feaa947973, type: 3}
+          - {fileID: 1182327207, guid: 4c5cebbecd95f72489acd5feaa947973, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 1.5
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 1842789376, guid: 4221ce15fc2a09341ab43702c806856b, type: 3}
+            - {fileID: -21410200, guid: 4221ce15fc2a09341ab43702c806856b, type: 3}
+            - {fileID: 794640361, guid: 4221ce15fc2a09341ab43702c806856b, type: 3}
+            _framesPerSecond: 7
+            _endAnimationOnEnd: 1
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
