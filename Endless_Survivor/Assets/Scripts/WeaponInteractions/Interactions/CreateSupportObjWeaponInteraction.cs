@@ -23,6 +23,16 @@ public class CreateSupportObjWeaponInteraction : WeaponInteraction
     public override void InteractionStart()
     {
         base.InteractionStart();
-        Utility.GenerateSupportObj(_createdSupportObj, (Vector2)PlayerControl.pc.transform.position + _offsetFromPlayer, Quaternion.Euler(0,0, _rotation));
+        //cast a raycast from the player to the suposed spawn position, colliding only with walls. if the raycast hits a wall, create the support obj in the hit point instead
+        Vector2 desiredSpawnPos = (Vector2)PlayerControl.pc.transform.position + _offsetFromPlayer;
+        Vector2 spawnCheckVector = desiredSpawnPos - (Vector2)PlayerControl.pc.transform.position;
+        float checkDist = spawnCheckVector.magnitude;
+        Vector2 checkDir = spawnCheckVector.normalized;
+
+        var spawnObstacle = Physics2D.Raycast(PlayerControl.pc.transform.position, checkDir, checkDist, LayerMask.NameToLayer("Map"));
+
+        Vector2 actualSpawnPos = spawnObstacle ? spawnObstacle.point : desiredSpawnPos;
+
+        Utility.GenerateSupportObj(_createdSupportObj, actualSpawnPos, Quaternion.Euler(0,0, _rotation));
     }
 }
