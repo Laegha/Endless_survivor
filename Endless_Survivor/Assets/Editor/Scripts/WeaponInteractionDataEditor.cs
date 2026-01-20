@@ -21,6 +21,8 @@ public class WeaponInteractionDataEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_weaponsNeededForInteraction);
+        serializedObject.ApplyModifiedProperties();
+        serializedObject.Update();
 
         WeaponInteractionData weaponInteractionData = (WeaponInteractionData)target;
         SerializedProperty interactions = serializedObject.FindProperty("_interactionsBehaviours");
