@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Fern
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 3262447163961769984
+  - rid: 3262447163961769989
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -2024900099, guid: 55a15ac93d4782d4db07ebe85e265509, type: 3}
+    - {fileID: -843331311, guid: 55a15ac93d4782d4db07ebe85e265509, type: 3}
+    - {fileID: 1095106717, guid: 55a15ac93d4782d4db07ebe85e265509, type: 3}
+    - {fileID: -982846983, guid: 55a15ac93d4782d4db07ebe85e265509, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447163961769984
+      type: {class: CreateSupportObjAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _createdSupportObj: {fileID: 11400000, guid: d50bfb5b1a25148449f3031b7c2a841a, type: 2}
+        _positionOffset: {x: 0.45, y: -0.25}
+        _timeToGenerate: 0
+        _loop: 0
+        _destroyOriginal: 0
+        _isChildOfOriginal: 1
+    - rid: 3262447163961769989
+      type: {class: MoveToRandomEnemySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movementSpeed:
+          min: 4
+          max: 4.5
+        _stopDistance: 1
+        _timeBetweenMovements:
+          min: 2
+          max: 4
+        _movingUpAnimation:
+          _animationName: MoveUp
+          _frames:
+          - {fileID: -508275760, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: 1093540210, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: -1472121622, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: -176329715, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: -1866392158, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: -266146587, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: -1977711953, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          - {fileID: -805453310, guid: f88d0648cb6d32647aa6c775052fa257, type: 3}
+          _framesPerSecond: 9
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingRightAnimation:
+          _animationName: MoveRight
+          _frames:
+          - {fileID: -1761130294, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          - {fileID: 2112331970, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          - {fileID: 872229821, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          - {fileID: -116338698, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          - {fileID: 529033323, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          - {fileID: 1737104221, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          - {fileID: 1267639181, guid: bf1e5cfe2bba05a429a31fc0fefcd7be, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingDownAnimation:
+          _animationName: MoveDown
+          _frames:
+          - {fileID: 1053487437, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: 1104960548, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: -2136272617, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: -1585242022, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: -1186667386, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: 505506707, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: -1018438172, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          - {fileID: 2108968392, guid: 2e2341de4cd860c4db08a2dbf5d0cb4a, type: 3}
+          _framesPerSecond: 9
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingLeftAnimation:
+          _animationName: MoveLeft
+          _frames:
+          - {fileID: -350799686, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          - {fileID: 1106699732, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          - {fileID: 1700902746, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          - {fileID: -2116998885, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          - {fileID: -44896015, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          - {fileID: -905748408, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          - {fileID: 1590039989, guid: d2f41e7ff4d040c4c89321d4d4dcf1f2, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
