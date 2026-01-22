@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect : AttackEffect
 {
-    public SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
+    new public static bool isUsable => true;
     [SerializeField] ChangeAttackConditionPointsPickupData _spawnedPickupData;
     [SerializeField] bool _throwInRandomDirUponSpawn;
     [SerializeField] AnimationCurve _throwCurve;
     [SerializeField] float _throwDist;
     [SerializeField] float _throwSpeed;
 
+    public SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
     public override void Initiate(AttackEffect original, Attack affectedAttack)
     {
         base.Initiate(original, affectedAttack);

@@ -66,7 +66,6 @@ public class MeleeAttack : Attack
                 continue;
             EffectsHandler.EnemyHit(enemyControl);
             Vector2 hitDirection = (enemyCol.transform.position - PlayerControl.pc.transform.position).normalized;
-            Debug.Log(AttackDamage);
             enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, AttackKnockback);
         }
         if(ParentWeapon != null)
