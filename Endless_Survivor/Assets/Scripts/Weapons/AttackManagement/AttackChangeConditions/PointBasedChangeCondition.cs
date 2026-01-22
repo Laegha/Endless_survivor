@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PointBasedChangeCondition : WeaponAttackChangeCondition
 {
+    new public static bool isUsable => true;
     static Dictionary<WeaponAttackManager, int> _weaponsPoints = new Dictionary<WeaponAttackManager, int>();
     [SerializeField] int _neededPoints;
     [SerializeField] string _triggeredAttackId;
