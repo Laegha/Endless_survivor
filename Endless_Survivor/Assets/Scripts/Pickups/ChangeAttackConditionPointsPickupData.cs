@@ -7,10 +7,9 @@ public class ChangeAttackConditionPointsPickupData : PickupData
 {
     [SerializeField] CustomAnimation _pickupAnimation;
     [SerializeField] int _points;
-    static readonly string _pickupWeaponId = "weapon";
+    public static readonly string pickupWeaponId = "weapon";
     static readonly string _pointsId = "points";
 
-    public string PickupWeaponId { get { return _pickupWeaponId; } }
 
     public override void TransferData(PickupControl pickupControl)
     {
@@ -22,7 +21,7 @@ public class ChangeAttackConditionPointsPickupData : PickupData
     public override void PickUp(PickupControl pickupControl)
     {
         base.PickUp(pickupControl);
-        WeaponAttackManager relatedWeapon = pickupControl.Pickup.GetVariable<WeaponAttackManager>(_pickupWeaponId);
+        WeaponAttackManager relatedWeapon = pickupControl.Pickup.GetVariable<WeaponAttackManager>(pickupWeaponId);
         if (!PointBasedChangeCondition.WeaponPoints.ContainsKey(relatedWeapon))
             return;
         int points = pickupControl.Pickup.GetVariable<int>(_pointsId);

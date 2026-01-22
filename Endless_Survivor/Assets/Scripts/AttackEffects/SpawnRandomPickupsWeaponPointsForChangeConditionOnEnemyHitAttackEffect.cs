@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect : AttackEffect
+public class SpawnRandomPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect : AttackEffect
 {
     new public static bool isUsable => true;
-    [SerializeField] ChangeAttackConditionPointsPickupData _spawnedPickupData;
+    [SerializeField] ChangeAttackConditionPointsPickupData[] _possibleSpawnedPickupDatas;
     [SerializeField] bool _throwInRandomDirUponSpawn;
     [SerializeField] AnimationCurve _throwCurve;
     [SerializeField] float _throwDist;
     [SerializeField] float _throwSpeed;
 
-    public SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
+    public SpawnRandomPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
     public override void Initiate(AttackEffect original, Attack affectedAttack)
     {
         base.Initiate(original, affectedAttack);
-        var spawnPickupPointsOriginal = original as SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect;
-        _spawnedPickupData = spawnPickupPointsOriginal._spawnedPickupData;
+        var spawnPickupPointsOriginal = original as SpawnRandomPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect;
+        _possibleSpawnedPickupDatas = spawnPickupPointsOriginal._possibleSpawnedPickupDatas;
         _throwInRandomDirUponSpawn = spawnPickupPointsOriginal._throwInRandomDirUponSpawn;
         _throwCurve = spawnPickupPointsOriginal._throwCurve;
         _throwDist = spawnPickupPointsOriginal._throwDist;
@@ -26,9 +26,10 @@ public class SpawnPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEffect : 
     }
     void Spawn(EnemyControl hitEnemy)
     {
+        var spawnedPickupData = _possibleSpawnedPickupDatas[Random.Range(0, _possibleSpawnedPickupDatas.Length)];
         Vector2 initialPos = hitEnemy.transform.position;
-        var pickupComponent = Utility.GeneratePickup(_spawnedPickupData, initialPos).Pickup;
-        pickupComponent.AddVariable<WeaponAttackManager>(_spawnedPickupData.PickupWeaponId, AffectedAttack.ParentWeapon.WeaponControl.WeaponAttackManager);
+        var pickupComponent = Utility.GeneratePickup(spawnedPickupData, initialPos).Pickup;
+        pickupComponent.AddVariable<WeaponAttackManager>(ChangeAttackConditionPointsPickupData.pickupWeaponId, AffectedAttack.ParentWeapon.WeaponControl.WeaponAttackManager);
 
         if (!_throwInRandomDirUponSpawn)
             return;
