@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: ToyGun
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: f4d0185fa9eefa640bef2b5d0bc6fa81, type: 3}
+  _weaponName: Toy Gun
+  _weaponStats:
+    _range: 7
+    _attackSpeed: 1
+    _damage: 10
+    _knockback: 5
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0.4
+  _damageIncrease: 1
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 3262447215499018242
+  _weaponAttacks:
+  - rid: 3262447215499018243
+  - rid: 3262447215499018244
+  - rid: 3262447215499018245
+  _attackConditions:
+  - rid: 3262447215499018246
+  - rid: 3262447215499018247
+  - rid: 3262447215499018248
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 61dce382c77b5c84094abf689b7034b1, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447215499018242
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: RubberAttack
+        _attackAnimation:
+          _animationName: RubberAttack
+          _frames:
+          - {fileID: -1696805574, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: -368092992, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: 173832928, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 02ab96265e206d543982c2613b09c703, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 8
+        _damageType: 1
+        _firePointPosition: {x: 11.5, y: 5.5}
+        _proyectileData:
+          _proyectileSpeed: 6
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 50ca4285c590af4419dfd28c0dfec741, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.3, y: 0.3}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262447215499018243
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: GlassAttack
+        _attackAnimation:
+          _animationName: GlassAttack
+          _frames:
+          - {fileID: -1696805574, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: -368092992, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: 173832928, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 02ab96265e206d543982c2613b09c703, type: 2}
+          - {fileID: 11400000, guid: 224d4efaf77e9ea40a33514bcc52b35c, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 65
+        _firePointPosition: {x: 11.5, y: 5.5}
+        _proyectileData:
+          _proyectileSpeed: 8
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 242d40a242027e14c903a4420e295859, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.3, y: 0.3}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262447215499018244
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: FriendlinessAttack
+        _attackAnimation:
+          _animationName: FriendlinessAttack
+          _frames:
+          - {fileID: -1696805574, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: -368092992, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: 173832928, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 02ab96265e206d543982c2613b09c703, type: 2}
+        _damageMultiplier: 2
+        _knockbackMultiplier: 0.3
+        _damageType: 1
+        _firePointPosition: {x: 11.5, y: 5.5}
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: -858312095, guid: df490b33774bea945a3407d98e20eedf, type: 3}
+            - {fileID: -1892755532, guid: df490b33774bea945a3407d98e20eedf, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.3, y: 0.3}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262447215499018245
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: CoffeeAttack
+        _attackAnimation:
+          _animationName: CoffeeAttack
+          _frames:
+          - {fileID: -1696805574, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: -368092992, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          - {fileID: 173832928, guid: ea404bcb881d6e7419f8fd61507aef2a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 02ab96265e206d543982c2613b09c703, type: 2}
+          - {fileID: 11400000, guid: ebe82126e9a528b4abc29fef8380e553, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 1
+        _firePointPosition: {x: 11.5, y: 5.5}
+        _proyectileData:
+          _proyectileSpeed: 10
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: b232a5af0fb492348b59d9c05879b4a7, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.3, y: 0.3}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262447215499018246
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 1
+        _triggeredAttackId: GlassAttack
+    - rid: 3262447215499018247
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 2
+        _triggeredAttackId: FriendlinessAttack
+    - rid: 3262447215499018248
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 3
+        _triggeredAttackId: CoffeeAttack
