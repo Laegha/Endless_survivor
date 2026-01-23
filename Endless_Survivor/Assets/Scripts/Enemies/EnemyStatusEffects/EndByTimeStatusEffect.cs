@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EndByTimeStatusEffect : EnemyStatusEffect
 {
-    new public static bool isUsable => false;
+    new public static bool isUsable => true;
     [SerializeField] float _effectDuration;
     float _timer;
 

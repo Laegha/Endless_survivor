@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageAfterTimeStatusEffect : EndByTimeStatusEffect
+public class DamageAfterTimeStatusEffect : EnemyStatusEffect
 {
     new public static bool isUsable => true;
     [SerializeField] DamageInfo _damage;

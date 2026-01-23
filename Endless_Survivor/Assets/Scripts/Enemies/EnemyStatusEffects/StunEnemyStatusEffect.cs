@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class StunEnemyStatusEffect : EndByTimeStatusEffect
+public class StunEnemyStatusEffect : EnemyStatusEffect
 {
     new public static bool isUsable => true;
     static Dictionary<EnemyControl, int> _stunAmmountPerEnemy = new();

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class WeaknessStatusEffect : EndByTimeStatusEffect
+public class WeaknessStatusEffect : EnemyStatusEffect
 {
     new public static bool isUsable => true;
     [SerializeField] float _damageMultiplierAddition = .25f;
