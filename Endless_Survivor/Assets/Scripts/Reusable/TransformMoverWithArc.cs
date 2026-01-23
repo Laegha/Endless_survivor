@@ -39,7 +39,7 @@ public class TransformMoverWithArc
         if(_movementEnded) 
             return;
         Vector2 xMovement = _horizontalDirection * _lapsedDistance;
-        Vector2 yMovement = _verticalDirection * _verticalMovementCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDistance));
+        Vector2 yMovement = _verticalDirection * _verticalMovementCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDistance)*_totalDistance);
         _movingObj.position = _initialPos + xMovement + yMovement;
 
         float distanceDelta = Time.deltaTime * _moveSpeed;
