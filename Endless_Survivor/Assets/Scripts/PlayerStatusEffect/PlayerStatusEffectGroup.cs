@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatusEffectGroup : MonoBehaviour
+public class PlayerStatusEffectGroup
 {
     public PlayerStatusEffectData effectData;
     List<PlayerStatusEffect> _groupEffects;
