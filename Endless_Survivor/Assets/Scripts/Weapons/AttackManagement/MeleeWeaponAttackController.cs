@@ -94,18 +94,21 @@ public class MeleeWeaponAttackController : WeaponAttackController
         //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
         _currHandMover = null;
         GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => WeaponControl == null);
-        GameManager.gm.RoutineRunner(StuckHandInAttackPos(_hand.position, attackAnimDuration));
+        Vector2 handEnemyOffset = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
+        GameManager.gm.RoutineRunner(StuckHandInAttackPos(() => WeaponControl.WeaponAim.CurrTrackingEnemyHit.point, attackAnimDuration));
     }
-    IEnumerator StuckHandInAttackPos(Vector2 attackPos, float attackDuration)
+    IEnumerator StuckHandInAttackPos(Func<Vector2 >attackPos, float attackDuration)
     {
+        GameObject originalTrackingEnemy = WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject;
         float lapsedTime = 0;
         while(lapsedTime < attackDuration)
         {
             yield return null;
-            if(_hand == null)
+            if(_hand == null || originalTrackingEnemy == null || WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject != originalTrackingEnemy)
                 yield break;
+            var hitDir = attackPos() - (Vector2)originalTrackingEnemy.transform.position;
             lapsedTime += Time.deltaTime;
-            _hand.position = attackPos;
+            _hand.position = attackPos() + hitDir.normalized * _handStopDistFactor;
         }
     }
     public override void Attack()
