@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MeleeAttack : Attack
@@ -58,8 +59,15 @@ public class MeleeAttack : Attack
     public void ApplyDamage()
     {
         var attackPos = (Vector2)transform.position + (Vector2)(transform.right * _attackData.AttackOffset.x + transform.up * _attackData.AttackOffset.y * (_vfxRenderer.flipY ? -1 : 1));
-        var affectedEnemies = _attackData.IsCircle ? Physics2D.OverlapCircleAll(attackPos, _attackData.CircleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(attackPos, _attackData.BoxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
-        foreach(var enemyCol in affectedEnemies)
+        var affectedCols = _attackData.IsCircle ? Physics2D.OverlapCircleAll(attackPos, _attackData.CircleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(attackPos, _attackData.BoxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
+        List<Transform> affectedEnemies = new();
+        foreach (var collider in affectedCols)
+        {
+            if (affectedEnemies.Contains(collider.transform.root))
+                continue;
+            affectedEnemies.Add(collider.transform.root);
+        }
+        foreach (var enemyCol in affectedEnemies)
         {
             var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(enemyCol.gameObject);
             if (enemyControl == null)
