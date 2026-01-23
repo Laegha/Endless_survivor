@@ -12,7 +12,7 @@ public class PlayerControl : MonoBehaviour
     }
     [SerializeField] CustomAnimator _playerAnimator;
     PlayerStats _playerStats;
-    AttackEffectsHolder _attackEffectsHolder;
+    AttackEffectsHolder _attackEffectsHolder = new();
     [SerializeField] Rigidbody2D _playerRb;
     [SerializeField] PlayerHPManager _playerHPManager;
     [SerializeField] PlayerWeaponManager _playerWeaponManager;
@@ -34,6 +34,5 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     {
         _playerStats = new PlayerStats(GameManager.gm.selectedCharacter.PlayerStats);
-        _attackEffectsHolder = new AttackEffectsHolder();
     }
 }
