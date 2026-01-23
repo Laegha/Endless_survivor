@@ -11,7 +11,7 @@ public class PickupData : ScriptableObject
         pickupControl.Pickup.PickupData = this;
         if(_pickupParticles != null)
         {
-            var particleConfig = new ParticleConfig(_pickupParticles, pickupControl.transform.position, Quaternion.identity, -1, pickupControl.transform, true, true);
+            var particleConfig = new ParticleConfig(_pickupParticles, Vector2.zero, Quaternion.identity, -1, pickupControl.transform, true, true);
             ParticleManager.pm.SpawnParticles(particleConfig);
 
         }
