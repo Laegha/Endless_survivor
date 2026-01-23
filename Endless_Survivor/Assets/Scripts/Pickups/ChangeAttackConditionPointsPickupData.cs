@@ -16,6 +16,7 @@ public class ChangeAttackConditionPointsPickupData : PickupData
         base.TransferData(pickupControl);
         pickupControl.Pickup.AddVariable<int>(_pointsId, _points);
         pickupControl.Animator.AddAnimations(new() { _pickupAnimation });
+        pickupControl.Animator.ChangeAnim(_pickupAnimation.AnimationName);
 
     }
     public override void PickUp(PickupControl pickupControl)
