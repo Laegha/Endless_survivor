@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: ColdStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 3262447238327304204
+  - rid: 3262447238327304205
+  _effectMaxStacks: 9
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447238327304204
+      type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: b73f994fac1180643be072fc4ac1ffd5, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: 658d88a8e06acf743a8ce6a3a81ca46a, type: 2}
+        _statusEffectParticles: {fileID: 0}
+        _particlesOffset: {x: 0, y: 0}
+    - rid: 3262447238327304205
+      type: {class: AddStatusWithEnoughStacksStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _neededStacksToTrigger: 3
+        _statusEffectAdded: {fileID: 11400000, guid: ffc62c2e795a58546bc7798b97b8e2d6, type: 2}
