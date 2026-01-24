@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: FoxFireCompanion
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 3262447238327304202
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 991560028, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
+    - {fileID: 1474298088, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
+    - {fileID: 1607369640, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
+    _framesPerSecond: 6
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447238327304202
+      type: {class: FollowPlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: 991560028, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
+          - {fileID: 1474298088, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
+          - {fileID: 1607369640, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _playerPosOffset: {x: -0.6, y: 0.6}
+        _speedLessThanPlayer: 0.5
+        _stopDist: 0.3
