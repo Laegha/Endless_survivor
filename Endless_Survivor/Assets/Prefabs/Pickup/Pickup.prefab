@@ -51,6 +51,7 @@ MonoBehaviour:
   _animator: {fileID: 8929391984769753380}
   _renderer: {fileID: 8092395713913227452}
   _pickup: {fileID: 5495909789129919652}
+  _collider: {fileID: 4544064862658322159}
 --- !u!114 &5495909789129919652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,8 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortedElements:
-  - {fileID: 8092395713913227452}
+  _sortedElements: []
   _offset: 0
 --- !u!1 &7635559595822149787
 GameObject:
