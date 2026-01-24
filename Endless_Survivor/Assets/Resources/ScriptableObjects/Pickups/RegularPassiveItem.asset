@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: RegularPassiveItem
   m_EditorClassIdentifier: 
   _pickupParticles: {fileID: 3854260980243891339, guid: b4d1270a86673844c80d19e794f8221b, type: 3}
+  _colliderSize: {x: 1, y: 1}
   _itemPools: 1

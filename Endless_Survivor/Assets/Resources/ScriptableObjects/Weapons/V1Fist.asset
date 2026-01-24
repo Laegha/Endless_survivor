@@ -28,6 +28,7 @@ MonoBehaviour:
     rid: 1204507400439857159
   _weaponAttacks: []
   _attackConditions: []
+  _spriteRenderOrderOffset: 0
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -59,6 +60,7 @@ MonoBehaviour:
           availableEffects:
           - {fileID: 11400000, guid: 9c761981b6170b14ba6d141cc4a10db1, type: 2}
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 1
         _meleeData:
           _isCircle: 1
@@ -66,7 +68,7 @@ MonoBehaviour:
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.15, y: 0}
           _attackVfxAnimation:
-            _animationName: 
+            _animationName: Vfx
             _frames:
             - {fileID: 0}
             - {fileID: 0}
@@ -79,6 +81,6 @@ MonoBehaviour:
             _framesPerSecond: 6
             _endAnimationOnEnd: 0
             _priority: 0
-          _damageFrame: 0
+          _dropVfxOnDamage: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0

@@ -23,7 +23,9 @@ MonoBehaviour:
   - rid: 2600434731462950912
   - rid: 2600434731462950913
   - rid: 3410740468448755712
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _element: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
+    _chance: 30
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -40,11 +42,13 @@ MonoBehaviour:
     - rid: 768305086805573633
       type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _overrideBehaviours: []
         _damage: 3
     - rid: 2600434731462950912
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _overrideBehaviours: []
         _enemySpeed: 1.7
         _chasingAnimation:
@@ -64,6 +68,7 @@ MonoBehaviour:
     - rid: 2600434731462950913
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _overrideBehaviours: []
         _colliderSize: {x: 0.4701658, y: 0.4701658}
         _colliderOffset: {x: 0, y: 0.25}
@@ -71,6 +76,7 @@ MonoBehaviour:
     - rid: 3410740468448755712
       type: {class: ChangeDefaultMaterialBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _overrideBehaviours: []
         _changeAllRenderers: 1
         _defaultMat: {fileID: 2100000, guid: a338a7a10ea40294983eb43000b93aa1, type: 2}

@@ -67,6 +67,7 @@ MonoBehaviour:
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 65
         _meleeData:
           _isCircle: 0
@@ -83,7 +84,7 @@ MonoBehaviour:
             - {fileID: 1860783838, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
             - {fileID: -1621053071, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
             - {fileID: 1848007537, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
-            _framesPerSecond: 5
+            _framesPerSecond: 7
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 2
+        _knockbackMultiplier: 1
         _damageType: 65
         _meleeData:
           _isCircle: 1
@@ -151,6 +153,7 @@ MonoBehaviour:
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 2
+        _knockbackMultiplier: 1
         _damageType: 65
         _meleeData:
           _isCircle: 1

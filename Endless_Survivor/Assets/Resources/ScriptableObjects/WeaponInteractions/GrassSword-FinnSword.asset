@@ -20,13 +20,26 @@ MonoBehaviour:
     neededCount: 1
     isDestroyed: 1
   _interactionsBehaviours:
-  - rid: 3262447163961769990
+  - rid: 3262447181289488384
   references:
     version: 2
     RefIds:
-    - rid: 3262447163961769990
-      type: {class: CreateSupportObjWeaponInteraction, ns: , asm: Assembly-CSharp}
+    - rid: 3262447181289488384
+      type: {class: CreateSupportObjAfterAnimWeaponInteraction, ns: , asm: Assembly-CSharp}
       data:
+        _animBeforeSpawning:
+          _animationName: SwordFusion
+          _frames:
+          - {fileID: -270086298, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          - {fileID: 1449833031, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          - {fileID: -274892624, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          - {fileID: -1238984327, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          - {fileID: -1557199290, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          - {fileID: 1485537423, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          - {fileID: 1485537423, guid: e9a18edba3a51004180e95c1a6bb0306, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
         _createdSupportObj: {fileID: 11400000, guid: 9340bb8a458c7fe4c966af69c8cbe4f5, type: 2}
         _offsetFromPlayer: {x: 3, y: 0}
         _rotation: 0

@@ -22,8 +22,8 @@ MonoBehaviour:
   _rangeIncrease: 0
   _attackSpeedIncrease: 0.5
   _damageIncrease: 1.2
-  _weaponTags: 
-  _weaponPools: 0
+  _weaponTags: 00000000
+  _weaponPools: 1
   _defaultAttack:
     rid: 3262447163961769986
   _weaponAttacks: []

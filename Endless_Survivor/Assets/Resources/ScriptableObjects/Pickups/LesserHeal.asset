@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ec4d7570681a74c8cf66d87e5cdfaf, type: 3}
   m_Name: LesserHeal
   m_EditorClassIdentifier: 
+  _pickupParticles: {fileID: 0}
+  _colliderSize: {x: 0.5, y: 0.5}
   _pickupAnimation:
     _animationName: Idle
     _frames:

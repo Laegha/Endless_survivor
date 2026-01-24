@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PilotChest
   m_EditorClassIdentifier: 
   _pickupParticles: {fileID: 0}
+  _colliderSize: {x: 1.2, y: 1}
   _pickupChances:
     rid: 1428375048990228484
   _generatedObjIfNullDrop: {fileID: 11400000, guid: ba1dff869f6a76e4c8396af732a16562, type: 2}
