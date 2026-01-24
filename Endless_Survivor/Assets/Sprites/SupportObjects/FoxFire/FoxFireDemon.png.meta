@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1bf75eed89fb704ab0b14f93193a80e
+guid: 1ea0e8f50cd95df4b99fd4e7081642b1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,85 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tailless_Attack_0
+      name: FoxFireDemon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 50
-        height: 44
-      alignment: 9
-      pivot: {x: 0.34, y: 0.2272727}
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d05972ee75a768a459484955645dc2ab
-      internalID: 1413691281
+      spriteID: c8b18c3e7df7d1a4b93fa1498117f6e5
+      internalID: 991560028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tailless_Attack_1
+      name: FoxFireDemon_1
       rect:
         serializedVersion: 2
-        x: 50
+        x: 28
         y: 0
-        width: 50
-        height: 44
-      alignment: 9
-      pivot: {x: 0.34, y: 0.2272727}
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 806e5177263fe6749bd87d5c3a47e3b0
-      internalID: -718445348
+      spriteID: 43b023d7e20fcac4f8920d9c14aa8434
+      internalID: 1474298088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tailless_Attack_2
+      name: FoxFireDemon_2
       rect:
         serializedVersion: 2
-        x: 100
+        x: 56
         y: 0
-        width: 50
-        height: 44
-      alignment: 9
-      pivot: {x: 0.34, y: 0.2272727}
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76caaef9f6fdaf649ba5267730a3a14a
-      internalID: -1672604198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tailless_Attack_3
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 44
-      alignment: 9
-      pivot: {x: 0.34, y: 0.2272727}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fe5f1f20c933cb408eb1d35b4f78445
-      internalID: -21594413
+      spriteID: af5c1fd07f448a041a7b1132887e0ae0
+      internalID: 1607369640
       vertices: []
       indices: 
       edges: []
@@ -217,10 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tailless_Attack_0: 1413691281
-      Tailless_Attack_1: -718445348
-      Tailless_Attack_2: -1672604198
-      Tailless_Attack_3: -21594413
+      FoxFireDemon_0: 991560028
+      FoxFireDemon_1: 1474298088
+      FoxFireDemon_2: 1607369640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
