@@ -30,7 +30,8 @@ public class Tile : MonoBehaviour
         _isWall = isWall;
         _collider.enabled = _isWall;
 
-        SetSpriteAndDir(adyacentTiles);
+        SetSprite(adyacentTiles);
+        SetMaterial(adyacentTiles);
     }
 
     Dictionary<Vector2, Tile> GetAdyacentTiles()
@@ -59,7 +60,7 @@ public class Tile : MonoBehaviour
         return adyacentTiles;
     }
 
-    void SetSpriteAndDir(Dictionary<Vector2, Tile> adyacentTiles)
+    void SetSprite(Dictionary<Vector2, Tile> adyacentTiles)
     {
         Dictionary<Vector2, Tile> airTiles = adyacentTiles.Where(tile => tile.Value == null || _airSprites.Contains(tile.Value.Renderer.sprite)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         if(airTiles.Count == 0)//is floor
@@ -81,6 +82,12 @@ public class Tile : MonoBehaviour
         }
 
         _renderer.sprite = GetWallSprite(airTiles.Keys.Where(dir => dir.magnitude == 1).ToArray()[0]);//the only air tile perpendicular to the wall
+    }
+    void SetMaterial(Dictionary<Vector2, Tile> adyacentTiles)
+    {
+        var tilesInPosMapManager = MapManager.mm.GenerationHandler.TileMatrix[transform.position];
+        
+        //MapManager.mm.GenerationConfig.
     }
     Sprite GetOpenCornerSprite(Vector2 direction)
     {
