@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Tailless
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 140b3840aee9a0048a2dee0fe0269ef0, type: 3}
+  _weaponName: Tailless
+  _weaponStats:
+    _range: 2
+    _attackSpeed: 1.2
+    _damage: 4
+    _knockback: 5
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0.7
+  _damageIncrease: 1
+  _weaponTags: 0000000004000000
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 3262447238327304196
+  _weaponAttacks:
+  - rid: 3262447238327304197
+  _attackConditions:
+  - rid: 3262447238327304199
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: fb300831279667f4cbc98975ba51cb22, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447238327304196
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 1413691281, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -718445348, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -1672604198, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -21594413, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -21594413, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -21594413, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -21594413, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -21594413, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: f38f9a25e6604724f9eb84fdeb873078, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 81
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 2
+          _attackBoxSize: {x: 0.5, y: 0.3}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 351453849, guid: c32e6f93b8cf5e84aabd4c5be1765643, type: 3}
+            - {fileID: 1141494933, guid: c32e6f93b8cf5e84aabd4c5be1765643, type: 3}
+            - {fileID: -23384548, guid: c32e6f93b8cf5e84aabd4c5be1765643, type: 3}
+            - {fileID: 823409912, guid: c32e6f93b8cf5e84aabd4c5be1765643, type: 3}
+            _framesPerSecond: 7
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 3262447238327304197
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: ProyectileAttack
+        _attackAnimation:
+          _animationName: ProyectileAttack
+          _frames:
+          - {fileID: 1413691281, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -718445348, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -1672604198, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          - {fileID: -21594413, guid: c1bf75eed89fb704ab0b14f93193a80e, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 32fb63b5c2554a94b97adcc1819fb126, type: 2}
+        _damageMultiplier: 1.5
+        _knockbackMultiplier: 1
+        _damageType: 81
+        _firePointPosition: {x: 10, y: 0}
+        _proyectileData:
+          _proyectileSpeed: 8.5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: d1ea869e39e53a444b652b77ab879bd2, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.75, y: 0.3}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3262447238327304199
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 3
+        _triggeredAttackId: ProyectileAttack
