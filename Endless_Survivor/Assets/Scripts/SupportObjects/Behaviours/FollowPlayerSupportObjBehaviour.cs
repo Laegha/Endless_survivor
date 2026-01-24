@@ -20,7 +20,7 @@ public class FollowPlayerSupportObjBehaviour : SupportObjectBehaviour
         _playerPosOffset = followPlayerOriginal._playerPosOffset;
         _speedLessThanPlayer = followPlayerOriginal._speedLessThanPlayer;
         _stopDist = followPlayerOriginal._stopDist;
-        _moveSpeed = () => PlayerControl.pc.PlayerRb.velocity.magnitude - _speedLessThanPlayer;
+        _moveSpeed = () => Mathf.Clamp(PlayerControl.pc.PlayerRb.velocity.magnitude - _speedLessThanPlayer, 0, Mathf.Infinity);
         OnUpdate += Update;
     }
     void Update()
@@ -42,7 +42,6 @@ public class FollowPlayerSupportObjBehaviour : SupportObjectBehaviour
         if(ObjControl.Animator.CurrAnim.AnimationName != _movingAnimation.AnimationName)
         {
             ObjControl.Animator.ChangeAnim(_movingAnimation.AnimationName);
-            return;
         }
         ObjControl.transform.Translate(movementVector.normalized * Time.deltaTime * _moveSpeed());
     }
