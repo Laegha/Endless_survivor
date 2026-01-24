@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: FreezeStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 3262447238327304193
+  - rid: 3262447238327304194
+  - rid: 3262447238327304195
+  - rid: 3262447238327304203
+  _effectMaxStacks: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447238327304193
+      type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: a25b926c8c2b24141a82e420891230ec, type: 3}
+        _statusEffectMaterial: {fileID: 2100000, guid: 61bda7e7c443cbb4f87675c08cabeb9d, type: 2}
+        _statusEffectParticles: {fileID: 0}
+        _particlesOffset: {x: 0, y: 0}
+    - rid: 3262447238327304194
+      type: {class: StunEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 3262447238327304195
+      type: {class: DamageAfterTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _damage:
+          _damageAmmount: 7.5
+          _damageType: 16
+    - rid: 3262447238327304203
+      type: {class: EndByTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 2
