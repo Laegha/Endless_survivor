@@ -13,8 +13,6 @@ public class ShootPlayerBehaviour : EnemyBehaviour
     [SerializeField] int _shootFrame = 0;
     [SerializeField] int _damage = 1;
     [SerializeField] float _atkSpeed = 2.5f;
-    [SerializeField] float _proyectileSpeed = 1.5f;
-    [SerializeField] float _proyectileSpread = 10;
     [SerializeField] float _proyectileLifetime = 3;
     [SerializeField] Vector2 _firePointPosition = Vector2.zero;
     [SerializeField] ProyectileData _proyectileData;
@@ -29,8 +27,6 @@ public class ShootPlayerBehaviour : EnemyBehaviour
         _shootFrame = Mathf.Clamp(originalShootPlayer._shootFrame, 0, _shootingAnimation.Frames.Length -1);
         _damage = originalShootPlayer._damage;
         _atkSpeed = originalShootPlayer._atkSpeed;
-        _proyectileSpeed = originalShootPlayer._proyectileSpeed;
-        _proyectileSpread = originalShootPlayer._proyectileSpread;
         _proyectileLifetime = originalShootPlayer._proyectileLifetime;
         _firePointPosition = originalShootPlayer._firePointPosition;
         _proyectileData = originalShootPlayer._proyectileData;
@@ -70,7 +66,7 @@ public class ShootPlayerBehaviour : EnemyBehaviour
         
         float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
         EnemyProyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyProyectile>();
-        proyectile.Initiate(_damage, _proyectileSpeed, _proyectileLifetime, _proyectileData, _proyectileSpread);
+        proyectile.Initiate(_damage, _proyectileLifetime, _proyectileData);
         
     }
 }
