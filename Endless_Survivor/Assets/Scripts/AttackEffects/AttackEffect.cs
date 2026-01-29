@@ -32,6 +32,8 @@ public class AttackEffect
     public virtual void Initiate(AttackEffect original, Attack affectedAttack)
     {
         _affectedAttack = affectedAttack;
+        if(affectedAttack.TriggersPassiveItemHit)
+            _onEnemyHit += (hitEnemyControl) => PlayerControl.pc.PassiveItemManager.EnemyHit(hitEnemyControl, affectedAttack);//THIS DEFINITELY SHOULDN'T BE HERE, BUT I DON'T KNOW HOW TO SOLVE THIS OTHERWISE :v
 
         //var types = Utility.GetSubclassesOf(typeof(AttackWithEffectSinergy<,>));
         //foreach (var type in types)
