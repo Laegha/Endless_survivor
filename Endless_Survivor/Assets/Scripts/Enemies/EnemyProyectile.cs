@@ -12,9 +12,9 @@ public class EnemyProyectile : MonoBehaviour
     float _lifeTime = 5;
     float _lapsedTime;
 
-    public void Initiate(int damage, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0)
+    public void Initiate(int damage, float lifeTime, ProyectileData proyectileData)
     {
-        _speed = speed;
+        _speed = proyectileData.ProyectileSpeed;
         _lifeTime = lifeTime;
         _animator.AddAnimations(new() { proyectileData.ProyectileAnim });
         _animator.ChangeAnim(proyectileData.ProyectileAnim.AnimationName);
@@ -29,7 +29,7 @@ public class EnemyProyectile : MonoBehaviour
         _collider.direction = proyectileData.ColliderDirection;
         _collider.size = proyectileData.ColliderSize;
 
-        transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
+        transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileData.ProyectileSpread, proyectileData.ProyectileSpread)));
 
 
         DamageSource[] damageSources = GetComponents<DamageSource>();
