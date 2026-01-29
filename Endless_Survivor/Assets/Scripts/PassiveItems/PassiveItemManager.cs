@@ -32,6 +32,10 @@ public class PassiveItemManager : MonoBehaviour
         _passiveItems.ForEach(item => item.BehaviourManager.onPlayerDamaged?.Invoke());
 
     }
+    public void EnemyHit(EnemyControl hitEnemy, Attack hitAttack)
+    {
+        _passiveItems.ForEach(item => item.BehaviourManager.onEnemyHit?.Invoke(hitEnemy, hitAttack));
+    }
     void EnemyKilled(EnemyControl killedEnemy)
     {
         _passiveItems.ForEach(item => item.BehaviourManager.onEnemyKilled?.Invoke(killedEnemy));
