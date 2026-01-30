@@ -26,5 +26,6 @@ public class MeleeAttackOnActivateItemBehaviour : PassiveItemBehaviour
         meleeAttack.transform.SetParent(PlayerControl.pc.transform, true);
         meleeAttack.StartAttack((int)_damage.CalculatedDamage, _knockBack, _meleeData);
         meleeAttack.ApplyDamage();
+        GameObject.Destroy(meleeAttack.gameObject, _meleeData.AttackVfxAnimation.AnimDuration);
     }
 }
