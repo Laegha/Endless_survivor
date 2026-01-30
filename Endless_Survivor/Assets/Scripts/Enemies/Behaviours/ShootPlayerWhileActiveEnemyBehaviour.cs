@@ -82,7 +82,7 @@ public class ShootPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         Vector2 distance = _player.position - EnemyControl.transform.position;
         Vector2 shootingOrientation = distance.normalized;
 
-        CustomAnimation currAnim = GetAnimationFromDirection(shootingOrientation);
+        CustomAnimation currAnim = Utility.GetAnimFromDirection(shootingOrientation, _shootingUpAnimation, _shootingRightAnimation, _shootingDownAnimation, _shootingLeftAnimation);
         _currAnim = currAnim;
         if (EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != currAnim.AnimationName)
         {
@@ -116,38 +116,6 @@ public class ShootPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         base.KillBehaviour();
         _shootCooldown = 0;
         EnemyControl.Animator.EndAnimation(_currAnim.AnimationName);
-    }
-
-    //made with chatGPT
-    CustomAnimation GetAnimationFromDirection(Vector2 shootDir)
-    {
-        float absX = Mathf.Abs(shootDir.x);
-        float absY = Mathf.Abs(shootDir.y);
-
-        // Primary axis: Horizontal
-        if (absX > absY)
-        {
-            CustomAnimation horizontal =
-                shootDir.x > 0 ? _shootingRightAnimation : _shootingLeftAnimation;
-
-            if (horizontal.Frames.Length > 0)
-                return horizontal;
-
-            // Fallback to vertical
-            return shootDir.y > 0 ? _shootingUpAnimation : _shootingDownAnimation;
-        }
-        // Primary axis: Vertical (includes absX == absY case)
-        else
-        {
-            CustomAnimation vertical =
-                shootDir.y > 0 ? _shootingUpAnimation : _shootingDownAnimation;
-
-            if (vertical.Frames.Length > 0)
-                return vertical;
-
-            // Fallback to horizontal
-            return shootDir.x > 0 ? _shootingRightAnimation : _shootingLeftAnimation;
-        }
     }
 
 }
