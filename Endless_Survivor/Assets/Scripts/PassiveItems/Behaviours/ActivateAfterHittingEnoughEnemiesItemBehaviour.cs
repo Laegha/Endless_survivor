@@ -27,6 +27,7 @@ public class ActivateAfterHittingEnoughEnemiesItemBehaviour : PassiveItemBehavio
             return;
 
         _currGoal = (int)_hitsNeeded.rand;
+        _hitEnemies = 0;
         foreach (string id in _activatedBehaviours)
         {
             var activatedBehaviour = BehaviourManager.ItemBehaviours.Find(x => x.BehaviourId == id);
