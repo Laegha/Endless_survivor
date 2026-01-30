@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.UI;
-using UnityEditor;
+using UnityEngine;
 
 public static class Utility
 {
@@ -235,5 +232,32 @@ public static class Utility
             shuffledList.Add(original[originalIndex]);
         }
         return shuffledList;
+    }
+
+    public static CustomAnimation GetAnimFromDirection(Vector2 direction, CustomAnimation upAnimation, CustomAnimation rightAnimation, CustomAnimation downAnimation, CustomAnimation leftAnimation)
+    {
+        CustomAnimation[] orderedAnims = new CustomAnimation[4];
+        float absX = Mathf.Abs(direction.x);
+        float absY = Mathf.Abs(direction.y);
+        if (absX > absY)
+        {
+            orderedAnims[0] = direction.x > 0 ? rightAnimation : leftAnimation;
+            orderedAnims[1] = direction.y > 0 ? upAnimation : downAnimation;
+            orderedAnims[2] = direction.y > 0 ? downAnimation : upAnimation;
+            orderedAnims[3] = direction.x > 0 ? leftAnimation : rightAnimation;
+        }
+        else
+        {
+            orderedAnims[0] = direction.y > 0 ? upAnimation : downAnimation;
+            orderedAnims[1] = direction.x > 0 ? rightAnimation : leftAnimation;
+            orderedAnims[2] = direction.x > 0 ? leftAnimation : rightAnimation;
+            orderedAnims[3] = direction.y > 0 ? downAnimation : upAnimation;
+        }
+        foreach (var anim in orderedAnims)
+        {
+            if (anim.Frames.Length > 0)
+                return anim;
+        }
+        return orderedAnims[0];//if there are no animations with frames, then it's the same
     }
 }
