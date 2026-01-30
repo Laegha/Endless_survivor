@@ -12,6 +12,7 @@ public class MeleeAttack : Attack
     }
     [SerializeField] CustomAnimator _vfxAnimator;
     [SerializeField] SpriteRenderer _vfxRenderer;
+    [SerializeField] RendererSortingByY _rendererSortingByY;
     MeleeData _attackData;
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
@@ -24,6 +25,7 @@ public class MeleeAttack : Attack
     }
     public void StartAttack(int damage, float knockbackForce, MeleeData attackData)
     {
+
         AttackDamage = damage;
         AttackKnockback = knockbackForce;
         _attackData = new(attackData);
@@ -31,6 +33,7 @@ public class MeleeAttack : Attack
         _attackAreaEnd = attackData.IsCircle ? (Vector2)transform.position + Vector2.one.normalized * attackData.CircleRadius : (Vector2)transform.position + attackData.BoxSize/2;
         
         EffectsHandler.TryEffects(this);
+        _rendererSortingByY.Offset = attackData.VfxRendererOffset;
         if(_attackData.AttackVfxAnimation.Frames.Length > 0)
         {
             var attackAnimation = new CustomAnimation(_vfxAnimator, _attackData.AttackVfxAnimation);
