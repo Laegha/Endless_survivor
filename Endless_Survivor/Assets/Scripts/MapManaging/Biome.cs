@@ -12,7 +12,6 @@ public class Biome
     Wave _lastWave;
 
     public BiomeData BiomeData {  get { return _biomeData; } }
-    public List<Tile> Walls { get { return _biomeTiles.Where(x => x.IsWall).ToList(); } }
 
     public void SetDirty() => _biomeTiles.RemoveAll(x => x == null);
 
