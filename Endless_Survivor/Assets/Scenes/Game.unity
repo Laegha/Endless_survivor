@@ -7611,6 +7611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - {fileID: 11400000, guid: b99520d505e787348a2d7077767df875, type: 2}
+  - {fileID: 11400000, guid: 5229f2755517903478d8496c8998663b, type: 2}
   _spawnBounds:
   - {fileID: 729069310}
   - {fileID: 2000632965}
