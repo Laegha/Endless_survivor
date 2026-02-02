@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Gnarpy
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 27c44daf5403cac4cb8ebc6598a626cc, type: 3}
+  _weaponName: Gnarpy
+  _weaponStats:
+    _range: 15
+    _attackSpeed: 1
+    _damage: 15
+    _knockback: 15
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0.1
+  _damageIncrease: 1
+  _weaponTags: 01000000
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 3262447408343154690
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 1b0843f65371b344ab2f9235ede0ef47, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447408343154690
+      type: {class: RayWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 545195635, guid: e6a3f44c5f3c3f94db0ec84c023c7865, type: 3}
+          - {fileID: -1442374570, guid: e6a3f44c5f3c3f94db0ec84c023c7865, type: 3}
+          - {fileID: 1329780016, guid: e6a3f44c5f3c3f94db0ec84c023c7865, type: 3}
+          - {fileID: -162058164, guid: e6a3f44c5f3c3f94db0ec84c023c7865, type: 3}
+          _framesPerSecond: 9
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 1
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 129
+        _firePointPosition: {x: 0.5, y: 2.5}
+        _rayData:
+          _rayMaterial: {fileID: 2100000, guid: 69cf486b930cb574cafd06a91b2c6612, type: 2}
+          _rayStartWidth: 0.125
+          _rayEndWidth: 0.25
+          _rayExitSpeed: 12
+          _rayStartSprite: {fileID: 21300000, guid: f63bdaec3b9dc844ab68d94efe9a7e3b, type: 3}
