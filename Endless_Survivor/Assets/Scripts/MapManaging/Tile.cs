@@ -86,8 +86,93 @@ public class Tile : MonoBehaviour
     void SetMaterial(Dictionary<Vector2, Tile> adyacentTiles)
     {
         var tilesInPosMapManager = MapManager.mm.GenerationHandler.TileMatrix[transform.position];
-        
-        //MapManager.mm.GenerationConfig.
+        int intersectionCount = tilesInPosMapManager.Count;
+        switch (intersectionCount)
+        {
+            case 1:
+                {
+                    _renderer.material = MapManager.mm.GenerationConfig.GetRegularMaterial();
+                    break;
+                }
+            case 2:
+                {
+                    _renderer.material = Get2BlendMaterial();
+                    break;
+                }
+            case 3:
+                {
+                    _renderer.material = Get3BlendMaterial();
+                    break;
+                }
+            case 4:
+                {
+                    _renderer.material = Get4BlendMaterial();
+                    break;
+                }
+        }
+
+
+    }
+    Material Get2BlendMaterial()
+    {
+        var tileMatrix = MapManager.mm.GenerationHandler.TileMatrix;
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                Vector2 dir = new Vector2(x, y);
+                Vector2 pos = (Vector2)transform.position + dir;
+                if (dir == Vector2.zero || dir.magnitude > 1 || !tileMatrix.ContainsKey(pos) || tileMatrix[pos].Count > 1 || tileMatrix[pos][0].TileBiome != _tileBiome)
+                    continue;
+                return MapManager.mm.GenerationConfig.Get2BlendMatrerial(dir);
+
+            }
+        }
+        return null;
+    }
+    Material Get3BlendMaterial()
+    {
+        var tileMatrix = MapManager.mm.GenerationHandler.TileMatrix;
+        Vector2 mainDir = Vector2.zero;
+        Vector2 secondaryDir = Vector2.zero;
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                Vector2 dir = new Vector2(x, y);
+                Vector2 pos = (Vector2)transform.position + dir;
+                if (dir == Vector2.zero || dir.magnitude > 1 || !tileMatrix.ContainsKey(pos) || tileMatrix[pos].Count > 1)
+                    continue;
+
+                if (tileMatrix[pos][0].TileBiome != _tileBiome)
+                    secondaryDir = -dir;
+                else
+                    mainDir = dir;
+
+            }
+        }
+        if (mainDir == Vector2.zero)
+            return Get4BlendMaterial();
+        else
+            return MapManager.mm.GenerationConfig.Get3BlendMatrerial(mainDir, secondaryDir);
+    }
+    Material Get4BlendMaterial()
+    {
+        var tileMatrix = MapManager.mm.GenerationHandler.TileMatrix;
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                Vector2 dir = new Vector2(x, y);
+                Vector2 pos = (Vector2)transform.position + dir;
+                if (dir == Vector2.zero || dir.magnitude <= 1 || !tileMatrix.ContainsKey(pos) || tileMatrix[pos].Count > 1 || tileMatrix[pos][0].TileBiome != _tileBiome)
+                    continue;
+                return MapManager.mm.GenerationConfig.Get4BlendMaterial(dir);
+
+            }
+        }
+        return null;
+
     }
     Sprite GetOpenCornerSprite(Vector2 direction)
     {
