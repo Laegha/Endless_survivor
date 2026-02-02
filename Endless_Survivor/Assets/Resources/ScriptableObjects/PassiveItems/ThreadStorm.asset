@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: ThreadStorm
+  m_EditorClassIdentifier: 
+  _itemName: Thread Storm
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 3262447345440391168
+  - rid: 3262447345440391169
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262447345440391168
+      type: {class: ActivateAfterHittingEnoughEnemiesItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: HitCounter
+        _hitsNeeded:
+          min: 3
+          max: 5
+        _activatedBehaviours:
+        - SilkAttack
+    - rid: 3262447345440391169
+      type: {class: MeleeAttackOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SilkAttack
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 3
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: Attack
+            _frames:
+            - {fileID: -345599327, guid: 17c790eeb896cdb409d49d3c10516f78, type: 3}
+            - {fileID: 901284426, guid: 17c790eeb896cdb409d49d3c10516f78, type: 3}
+            - {fileID: 1638801506, guid: 17c790eeb896cdb409d49d3c10516f78, type: 3}
+            - {fileID: -1511174034, guid: 17c790eeb896cdb409d49d3c10516f78, type: 3}
+            - {fileID: 1658342985, guid: 17c790eeb896cdb409d49d3c10516f78, type: 3}
+            - {fileID: 1072651938, guid: 17c790eeb896cdb409d49d3c10516f78, type: 3}
+            _framesPerSecond: 12
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 1
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+        _damage:
+          _damageAmmount: 20
+          _damageType: 1
+        _knockBack: 10
