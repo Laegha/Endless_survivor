@@ -38,33 +38,45 @@ MonoBehaviour:
     - rid: 1814238352843472896
       type: {class: MeleeAttackBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: Attack
         _overrideBehaviours:
-        - rid: 1814238352843472897
+        - 
         _damage: 5
         _attackRange: 1.5
         _attackRadius: 1.7
-        _enemyAttackAnimation:
-          _animationName: Attack
-          _frames:
-          - {fileID: 1635123377, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
-          - {fileID: 1700330575, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
-          - {fileID: 2123434058, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
-          - {fileID: -1930073393, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
-          - {fileID: -1888272115, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
-          - {fileID: 1146862445, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
-          _framesPerSecond: 12
-          _priority: 1
+        _attackUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
         _usesVfx: 0
         _attackVFXAnimation:
           _animationName: 
           _frames: []
           _framesPerSecond: 0
+          _endAnimationOnEnd: 0
           _priority: 0
-          _exitAnimationName: 
-        _triggerVFXEvent:
-          frameIndex: 0
-        _triggerDamageEvent:
-          frameIndex: 3
+        _triggerVFXFrame: 0
+        _triggerDamageFrame: 0
         _attackSfx:
           _sound: {fileID: 0}
           _volume: 1
@@ -73,14 +85,30 @@ MonoBehaviour:
     - rid: 1814238352843472897
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: Chase
         _overrideBehaviours: []
         _enemySpeed: 2.5
-        _chasingAnimation:
-          _animationName: Moving
-          _frames:
-          - {fileID: 250925177, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
-          - {fileID: -1562088344, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
-          - {fileID: 1691518381, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
-          - {fileID: -1894791370, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
-          _framesPerSecond: 7
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
           _priority: 0

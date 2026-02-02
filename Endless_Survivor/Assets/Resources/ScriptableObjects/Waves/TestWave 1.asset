@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a01bcfe059f96cb43b587a837c173c53, type: 3}
-  m_Name: TestWave
+  m_Name: TestWave 1
   m_EditorClassIdentifier: 
   _waveEnemies:
-  - enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
+  - enemyData: {fileID: 11400000, guid: 16f0bfedda4beb8409c49578e452bcc6, type: 2}
     _minSpawnCount: 0
     _enemyPoolWeight: 5
   _enemyCount:
-    min: 10
-    max: 15
+    min: 1
+    max: 1
   _enemiesPerSpawn:
-    min: 5
-    max: 8
+    min: 1
+    max: 1
   _timeBetweenSpawns:
-    min: 4
-    max: 6
+    min: 1
+    max: 1

@@ -82,7 +82,6 @@ MonoBehaviour:
           _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
-          _exitAnimationName: 
         _triggerVFXFrame: 0
         _triggerDamageFrame: 3
         _attackSfx:
@@ -135,8 +134,8 @@ MonoBehaviour:
         - Chase
         - MeleeAttack
         _timeBetweenTriggering:
-          min: 2
-          max: 3
+          min: 20
+          max: 40
         _triggeredBehaviours:
         - Invoking
     - rid: 3262446909440393216

@@ -39,15 +39,29 @@ MonoBehaviour:
     - rid: 768305086805573633
       type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: DamageOnContact
         _overrideBehaviours: []
         _damage: 2
     - rid: 2600434731462950912
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: Chase
         _overrideBehaviours: []
         _enemySpeed: 2
-        _chasingAnimation:
-          _animationName: Move
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: Chase
           _frames:
           - {fileID: 1684011115, guid: ea1e321c2790a0544a548baca2059522, type: 3}
           - {fileID: 1217646688, guid: ea1e321c2790a0544a548baca2059522, type: 3}
@@ -60,9 +74,16 @@ MonoBehaviour:
           _framesPerSecond: 16
           _endAnimationOnEnd: 0
           _priority: 0
+        _chasingLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
     - rid: 2600434731462950913
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: AdditionalHitbox
         _overrideBehaviours: []
         _colliderSize: {x: 0.4701658, y: 0.4701658}
         _colliderOffset: {x: 0, y: 0.25}

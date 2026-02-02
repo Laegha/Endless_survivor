@@ -58,6 +58,7 @@ MonoBehaviour:
           - {fileID: -419735621, guid: 9e905b88209cd744aaa52f60fde51cb0, type: 3}
           - {fileID: -419735621, guid: 9e905b88209cd744aaa52f60fde51cb0, type: 3}
           - {fileID: -419735621, guid: 9e905b88209cd744aaa52f60fde51cb0, type: 3}
+          - {fileID: -419735621, guid: 9e905b88209cd744aaa52f60fde51cb0, type: 3}
           _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 0
@@ -68,13 +69,14 @@ MonoBehaviour:
         _knockbackMultiplier: 1
         _damageType: 65
         _meleeData:
-          _isCircle: 0
-          _attackCircleRadius: 0
-          _attackBoxSize: {x: 1.3, y: 0.3}
-          _attackOffset: {x: 0.3, y: 0}
+          _isCircle: 1
+          _attackCircleRadius: 0.2
+          _attackBoxSize: {x: 1.6, y: 0.3}
+          _attackOffset: {x: 1, y: 0}
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
+            - {fileID: 0}
             - {fileID: 0}
             - {fileID: 0}
             - {fileID: 0}
@@ -88,5 +90,6 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 10
           _attackParticles: {fileID: 0}
           _particleDuration: 0

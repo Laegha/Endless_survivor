@@ -18,3 +18,20 @@ MonoBehaviour:
   _possibleBiomes:
   - {fileID: 11400000, guid: 7cb9607da77d6b84c8cb5ceeb384fd6b, type: 2}
   _wavesBetweenGenerations: 5
+  _regularTileMaterial: {fileID: 2100000, guid: b2f0203ed8872824fb72695009e40463, type: 2}
+  _2BlendUp: {fileID: 2100000, guid: 1d4b0d085e472f8408ddce7a9264c0d8, type: 2}
+  _2BlendRight: {fileID: 2100000, guid: b0e2374d728686346820d94eb190f016, type: 2}
+  _2BlendDown: {fileID: 2100000, guid: 0a7b7fdace49f0d4eb43255243edeaae, type: 2}
+  _2BlendLeft: {fileID: 2100000, guid: 37bb23f40c06b6a4aa5f5caf6903f80e, type: 2}
+  _3BlendUpLeft: {fileID: 2100000, guid: 75612a4a12da4184e845c349b07fe1ed, type: 2}
+  _3BlendUpRight: {fileID: 2100000, guid: e088cf8206c621e448bd67eb4f983060, type: 2}
+  _3BlendRightUp: {fileID: 2100000, guid: 222779cb9f51dee4caf9543407f9b1a5, type: 2}
+  _3BlendRightDown: {fileID: 2100000, guid: dd67f8546cdeddb468bd63410f5b4c98, type: 2}
+  _3BlendDownRight: {fileID: 2100000, guid: 57ffd6624ac5b0b4c8d77c241ae032a5, type: 2}
+  _3BlendDownLeft: {fileID: 2100000, guid: 974796c391091c546ab2c1e391e1a856, type: 2}
+  _3BlendLeftDown: {fileID: 2100000, guid: 454c08c4ed99b8f41bd3fe842aef8f61, type: 2}
+  _3BlendLeftUp: {fileID: 2100000, guid: a4d1db9d091ffcd49978f79a03b41a00, type: 2}
+  _4BlendUpRight: {fileID: 2100000, guid: ff48b1959d0265349a84fb99140ee3f4, type: 2}
+  _4BlendUpLeft: {fileID: 2100000, guid: 481437a3e012fef4db7864179da42bc8, type: 2}
+  _4BlendDownRight: {fileID: 2100000, guid: b33f43aa35494c7409f08632aa1b747c, type: 2}
+  _4BlendDownLeft: {fileID: 2100000, guid: a566e789095e756459c6d71afe5fb7ca, type: 2}

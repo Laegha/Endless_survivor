@@ -20,8 +20,10 @@ MonoBehaviour:
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 3262447387164803072
-  - rid: 3262447387164803073
   - rid: 3262447387164803074
+  - rid: 3262447408343154688
+  - rid: 3262447408343154689
+  - rid: 3262447387164803073
   _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
@@ -82,7 +84,7 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 1
         _damage: 3
-        _atkSpeed: 2
+        _atkSpeed: 3
         _proyectileLifetime: 3
         _firePointDist: 0.3
         _proyectileData:
@@ -107,11 +109,11 @@ MonoBehaviour:
     - rid: 3262447387164803073
       type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: TriggerShoot
+        _behaviourId: TriggerShootDistance
         _overrideBehaviours: []
         _behavioursToTrigger:
-        - ShootPlayer
-        _distanceToTrigger: 5
+        - TrigerShootBurst
+        _distanceToTrigger: 8
     - rid: 3262447387164803074
       type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -145,3 +147,23 @@ MonoBehaviour:
           _framesPerSecond: 1
           _endAnimationOnEnd: 0
           _priority: 0
+    - rid: 3262447408343154688
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerShootDuration
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - ShootPlayer
+        _duration:
+          min: 2
+          max: 2
+    - rid: 3262447408343154689
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TrigerShootBurst
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 5
+          max: 5
+        _triggeredBehaviours:
+        - TriggerShootDuration
