@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7796194884132283695}
   - component: {fileID: 8055096456535443754}
   - component: {fileID: 5879183837661484608}
+  - component: {fileID: 830547573835187165}
   m_Layer: 10
   m_Name: EnemyProyectile
   m_TagString: Untagged
@@ -111,8 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortedElements:
-  - {fileID: 3151343713363334763}
+  _sortedElements: []
   _offset: 0
 --- !u!114 &8055096456535443754
 MonoBehaviour:
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 8391877794971144347}
   _spriteRenderer: {fileID: 3151343713363334763}
+  _animator: {fileID: 830547573835187165}
   _collider: {fileID: 955477405036749331}
 --- !u!114 &5879183837661484608
 MonoBehaviour:
@@ -141,6 +142,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fd6a16258514a43a09a7d04d99e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &830547573835187165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542903177043885194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5ede9a5e70e684caebdf174d71fe3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3151343713363334763}
 --- !u!1 &7973834651790460834
 GameObject:
   m_ObjectHideFlags: 0

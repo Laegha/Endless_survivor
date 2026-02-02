@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7774442669067926258}
   - component: {fileID: 8711474813463983927}
   - component: {fileID: 4005513828873315568}
+  - component: {fileID: 8554176356500510192}
   m_Layer: 0
   m_Name: Melee
   m_TagString: Untagged
@@ -147,6 +148,7 @@ MonoBehaviour:
   _effectsHandler: {fileID: 4005513828873315568}
   _vfxAnimator: {fileID: 7774442669067926258}
   _vfxRenderer: {fileID: 8522875959575289250}
+  _rendererSortingByY: {fileID: 8554176356500510192}
 --- !u!114 &4005513828873315568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +161,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bc3fa11a12202448fb7f0e6f588785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8554176356500510192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868723263697389708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortedElements:
+  - {fileID: 8522875959575289250}
+  _offset: 0
