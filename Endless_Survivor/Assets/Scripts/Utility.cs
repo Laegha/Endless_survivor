@@ -255,7 +255,7 @@ public static class Utility
         }
         foreach (var anim in orderedAnims)
         {
-            if (anim.Frames.Length > 0)
+            if (anim != null && anim.Frames.Length > 0)
                 return anim;
         }
         return orderedAnims[0];//if there are no animations with frames, then it's the same
