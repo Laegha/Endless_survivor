@@ -21,14 +21,11 @@ public class BiomeData : ScriptableObject
     [SerializeField] Sprite _cornerLeftTopClosed;
     [SerializeField] Sprite _cornerLeftTopOpen;
 
-    //for no decoration chance, add element with no sprite
-    [SerializeField] List<RouletteElement<Sprite>> _floorDecorationTiles;
-    [SerializeField] List<RouletteElement<Sprite>> _topWallDecorationTiles;
-    [SerializeField] List<RouletteElement<Sprite>> _rightWallDecorationTiles;
-    [SerializeField] List<RouletteElement<Sprite>> _bottomWallDecorationTiles;
-    [SerializeField] List<RouletteElement<Sprite>> _leftWallDecorationTiles;
+    [SerializeField] float _decorationOnTileChance;
+    [SerializeField] List<RouletteElementChance<TileDecorationData>> _floorDecorationDatas;
 
-    [SerializeField] List<RouletteElementChance<TileSupportObj>> _tileGeneratableSupportObjs;
+    [SerializeField] float _supportObjOnTileChance;
+    [SerializeField] List<RouletteElementChance<TileSupportObjData>> _possibleSupportObjectsPerTile;
 
     [Tooltip("num is the wave number since which each wave can proc")]
     [SerializeField] List<GenericNumHolder<Wave>> _biomeEnemyWaves;
@@ -38,7 +35,6 @@ public class BiomeData : ScriptableObject
     [SerializeField] Sprite _championIndicator;
     [SerializeField] Sprite _bossIndicator;
 
-    [SerializeField] List<RouletteElement<TileSupportObj>> _possibleSupportObjectsPerTile;
 
     public Sprite FloorTile { get { return _floorTile; } }
     public Sprite TopWallTile { get { return _topWallTile; } }
@@ -54,4 +50,34 @@ public class BiomeData : ScriptableObject
     public Sprite CornerBotLeftOpen { get { return _cornerBotLeftOpen; } }
     public Sprite CornerLeftTopClosed { get { return _cornerLeftTopClosed; } }
     public Sprite CornerLeftTopOpen { get { return _cornerLeftTopOpen; } }
+
+    public float DecorationChance { get { return _decorationOnTileChance; } }
+    public List<RouletteElementChance<MapElementInfo<CustomAnimation>>> FloorDecorations { 
+        get
+        {
+            List<RouletteElementChance<MapElementInfo<CustomAnimation>>> result = new();
+            foreach (var dataChance in _floorDecorationDatas)
+            {
+                MapElementInfo<CustomAnimation> decorMapInfo = new(dataChance.Element.DecorationAnimation, dataChance.Element.DecorSize);
+                RouletteElementChance<MapElementInfo<CustomAnimation>> rouletteElement = new(decorMapInfo, dataChance.Chance);
+                result.Add(rouletteElement);
+            }
+            return result;
+        } 
+    }
+    public float SupportObjChance { get { return _supportObjOnTileChance; } }
+    public List<RouletteElementChance<MapElementInfo<SupportObjectData>>> SupportObjs
+    {
+        get
+        {
+            List<RouletteElementChance<MapElementInfo<SupportObjectData>>> result = new();
+            foreach (var dataChance in _possibleSupportObjectsPerTile)
+            {
+                MapElementInfo<SupportObjectData> objMapInfo = new(dataChance.Element.SupportObj, dataChance.Element.ObjSize);
+                RouletteElementChance<MapElementInfo<SupportObjectData>> rouletteElement = new(objMapInfo, dataChance.Chance);
+                result.Add(rouletteElement);
+            }
+            return result;
+        }
+    }
 }
