@@ -25,6 +25,8 @@ public class MapUpdatingHandler
             tile.SetTileGfx();
         }
         MapManager.mm.ActiveBiomes.Add(updateInstance.biome);
+        updateInstance.biome.GenerateDecorations();
+        updateInstance.biome.GenerateSupportObjs();
         _biomeUpdateInstances.RemoveAt(0);
     }
 
