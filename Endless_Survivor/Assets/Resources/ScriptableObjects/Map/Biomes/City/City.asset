@@ -25,7 +25,12 @@ MonoBehaviour:
   _cornerBotLeftOpen: {fileID: 21300000, guid: c6326c02a9904574ab8f8746f4e2547a, type: 3}
   _cornerLeftTopClosed: {fileID: 21300000, guid: d7372eace3a84fd4592c69dce1ad4666, type: 3}
   _cornerLeftTopOpen: {fileID: 21300000, guid: abe91c6ace17f1c49b7fc63a89789f44, type: 3}
-  _tileGeneratableSupportObjs: []
+  _decorationOnTileChance: 15
+  _floorDecorationDatas:
+  - _element: {fileID: 11400000, guid: 94acddbf2c9d8154ab7e59fc4ef15dea, type: 2}
+    _chance: 1
+  _supportObjOnTileChance: 0
+  _possibleSupportObjectsPerTile: []
   _biomeEnemyWaves: []
   _biomeChampions: []
   _biomeBosses: []
