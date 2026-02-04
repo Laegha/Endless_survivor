@@ -53,8 +53,6 @@ public class Biome
         {
             for (int x = 0; x <= generationInfo.biomeSize.x; x++)
             {
-                //if(intersectionTiles.Contains(tile => tile.transform.position == new Vector2(x, y))
-                //generate intersection tile with oposite direction to said tile
                 Tile generatedTile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Tile"].GetComponent<Tile>());
 
                 generatedTile.transform.position = startingPoint + new Vector2(x, y);
@@ -70,5 +68,63 @@ public class Biome
         return generatedTiles;
     }
 
+    public void GenerateDecorations()
+    {
+        foreach(var tile in _biomeTiles)
+        {
+            if (tile.IsWall || tile.TileDecor != null)
+                continue;
 
+            float rand = Random.Range(0, 100f);
+            if (rand > _biomeData.DecorationChance)
+                continue; 
+            GenerateDecor(tile.transform.position);
+        }
+    }
+
+    void GenerateDecor(Vector2 startPos)
+    {
+        var placingDecor = MapManager.mm.GetRandomPlaceableMapElement<CustomAnimation>(startPos, _biomeData.FloorDecorations, (Tile tile) => tile.TileDecor != null);
+        if (placingDecor == null)
+            return ;
+
+        GameObject decor = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], startPos, Quaternion.identity);
+        var decorAnimator = decor.GetComponent<CustomAnimator>();
+        decorAnimator.AddAnimations(new() { placingDecor.Element } );
+        decorAnimator.ChangeAnim(placingDecor.Element.AnimationName);
+
+        foreach(Vector2 offset in placingDecor.MapElementSize.ElementOccupyingPositions)
+        {
+            MapManager.mm.GenerationHandler.TileMatrix[startPos + offset][0].TileDecor = decor;
+        }
+    }
+
+    public void GenerateSupportObjs()
+    {
+        foreach (var tile in _biomeTiles)
+        {
+            if (tile.IsWall || tile.TileSupportObj != null)
+                continue;
+
+            float rand = Random.Range(0, 100f);
+            if (rand > _biomeData.SupportObjChance)
+                continue;
+            GenerateSupportObj(tile.transform.position);
+        }
+
+    }
+
+    void GenerateSupportObj(Vector2 startPos)
+    {
+        var placingSupportObj = MapManager.mm.GetRandomPlaceableMapElement(startPos, _biomeData.SupportObjs, (Tile tile) => tile.TileSupportObj != null);
+        if (placingSupportObj == null)
+            return;
+
+        SupportObjectControl generatedObjControl = Utility.GenerateSupportObj(placingSupportObj.Element, startPos, Quaternion.identity);
+
+        foreach (Vector2 offset in placingSupportObj.MapElementSize.ElementOccupyingPositions)
+        {
+            MapManager.mm.GenerationHandler.TileMatrix[startPos + offset][0].TileSupportObj = generatedObjControl;
+        }
+    }
 }
