@@ -8,13 +8,15 @@ public class Tile : MonoBehaviour
     [SerializeField] SpriteRenderer _renderer;
     [SerializeField] Collider2D _collider;
     [SerializeField] Sprite[] _airSprites;
+    GameObject _tileDecor;
     SupportObjectControl _tileSupportObj;
     bool _isWall;
     Biome _tileBiome;
 
     public SpriteRenderer Renderer { get { return _renderer; } }
     public bool IsWall {  get { return _isWall; } }
-    public SupportObjectControl TileSupportObj { get { return _tileSupportObj; } }
+    public GameObject TileDecor { get { return _tileDecor; } set { _tileDecor = value; } }
+    public SupportObjectControl TileSupportObj { get { return _tileSupportObj; } set { _tileSupportObj = value; } }
 
     public Biome TileBiome {  get { return _tileBiome; } set { _tileBiome = value; } }
 
