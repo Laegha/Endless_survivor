@@ -61,7 +61,7 @@ MonoBehaviour:
           availableEffects: []
         _damageMultiplier: 1
         _knockbackMultiplier: 1
-        _damageType: 129
+        _damageType: 128
         _firePointPosition: {x: 0.5, y: 2.5}
         _rayData:
           _rayMaterial: {fileID: 2100000, guid: 69cf486b930cb574cafd06a91b2c6612, type: 2}

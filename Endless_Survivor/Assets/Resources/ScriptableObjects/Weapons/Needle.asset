@@ -67,7 +67,7 @@ MonoBehaviour:
           availableEffects: []
         _damageMultiplier: 1
         _knockbackMultiplier: 1
-        _damageType: 65
+        _damageType: 64
         _meleeData:
           _isCircle: 1
           _attackCircleRadius: 0.2

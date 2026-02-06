@@ -63,7 +63,7 @@ MonoBehaviour:
           availableEffects: []
         _damageMultiplier: 1
         _knockbackMultiplier: 1
-        _damageType: 0
+        _damageType: 64
         _meleeData:
           _isCircle: 1
           _attackCircleRadius: 1.5
@@ -82,5 +82,6 @@ MonoBehaviour:
             _endAnimationOnEnd: 1
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0

@@ -68,7 +68,7 @@ MonoBehaviour:
           - {fileID: 11400000, guid: f38f9a25e6604724f9eb84fdeb873078, type: 2}
         _damageMultiplier: 1
         _knockbackMultiplier: 1
-        _damageType: 81
+        _damageType: 80
         _meleeData:
           _isCircle: 1
           _attackCircleRadius: 2
@@ -89,6 +89,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 3262447238327304197
