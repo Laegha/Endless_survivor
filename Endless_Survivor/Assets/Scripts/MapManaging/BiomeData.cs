@@ -28,7 +28,7 @@ public class BiomeData : ScriptableObject
     [SerializeField] List<RouletteElementChance<TileSupportObjData>> _possibleSupportObjectsPerTile;
 
     [Tooltip("num is the wave number since which each wave can proc")]
-    [SerializeField] List<GenericNumHolder<Wave>> _biomeEnemyWaves;
+    [SerializeField] List<RouletteElementChance<EnemySpawnInfo>> _biomeEnemies;
     [SerializeField] List<EnemyData> _biomeChampions;
     [SerializeField] List<EnemyData> _biomeBosses;
 
@@ -58,7 +58,7 @@ public class BiomeData : ScriptableObject
             List<RouletteElementChance<MapElementInfo<CustomAnimation>>> result = new();
             foreach (var dataChance in _floorDecorationDatas)
             {
-                MapElementInfo<CustomAnimation> decorMapInfo = new(dataChance.Element.DecorationAnimation, dataChance.Element.DecorSize);
+                MapElementInfo<CustomAnimation> decorMapInfo = new(dataChance.RouletteElement.DecorationAnimation, dataChance.RouletteElement.DecorSize);
                 RouletteElementChance<MapElementInfo<CustomAnimation>> rouletteElement = new(decorMapInfo, dataChance.Chance);
                 result.Add(rouletteElement);
             }
@@ -73,11 +73,13 @@ public class BiomeData : ScriptableObject
             List<RouletteElementChance<MapElementInfo<SupportObjectData>>> result = new();
             foreach (var dataChance in _possibleSupportObjectsPerTile)
             {
-                MapElementInfo<SupportObjectData> objMapInfo = new(dataChance.Element.SupportObj, dataChance.Element.ObjSize);
+                MapElementInfo<SupportObjectData> objMapInfo = new(dataChance.RouletteElement.SupportObj, dataChance.RouletteElement.ObjSize);
                 RouletteElementChance<MapElementInfo<SupportObjectData>> rouletteElement = new(objMapInfo, dataChance.Chance);
                 result.Add(rouletteElement);
             }
             return result;
         }
     }
+
+    public List<RouletteElementChance<EnemySpawnInfo>> BiomeEnemies { get { return _biomeEnemies; } }
 }

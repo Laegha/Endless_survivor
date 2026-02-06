@@ -6,14 +6,14 @@ using UnityEngine;
 [Serializable]
 public class RouletteElementChance<T>
 {
-    [SerializeField] T _element;
+    [SerializeField] T _rouletteElement;
     [SerializeField] int _chance;
-    public T Element {  get { return _element; } }
+    public T RouletteElement {  get { return _rouletteElement; } }
     public int Chance { get { return _chance; } set { _chance = value; } }
 
     public RouletteElementChance(T element, int chance)
     {
-        _element = element;
+        _rouletteElement = element;
         _chance = chance;
     }
 }

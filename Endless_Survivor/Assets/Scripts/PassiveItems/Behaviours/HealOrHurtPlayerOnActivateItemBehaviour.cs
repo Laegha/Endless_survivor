@@ -17,8 +17,8 @@ public class HealOrHurtPlayerOnActivateItemBehaviour : PassiveItemBehaviour
     {
         base.CopyValues(original, behaviourManager);
         var healOrHurtOriginal = original as HealOrHurtPlayerOnActivateItemBehaviour;
-        _heal = new(healOrHurtOriginal._heal.Element, healOrHurtOriginal._heal.Chance);
-        _hurt = new(healOrHurtOriginal._hurt.Element, healOrHurtOriginal._hurt.Chance);
+        _heal = new(healOrHurtOriginal._heal.RouletteElement, healOrHurtOriginal._heal.Chance);
+        _hurt = new(healOrHurtOriginal._hurt.RouletteElement, healOrHurtOriginal._hurt.Chance);
         _healParticles = healOrHurtOriginal._healParticles;
         _hurtParticles = healOrHurtOriginal._hurtParticles;
         _particlesOffsetFromPlayer = healOrHurtOriginal._particlesOffsetFromPlayer;
@@ -39,12 +39,12 @@ public class HealOrHurtPlayerOnActivateItemBehaviour : PassiveItemBehaviour
 
         if (healOrHurt == _heal)
         {
-            PlayerControl.pc.PlayerHPManager.Heal(_heal.Element);
+            PlayerControl.pc.PlayerHPManager.Heal(_heal.RouletteElement);
             GenerateParticles(_healParticles);
         }
         else
         {
-            PlayerControl.pc.PlayerHPManager.TakeDamage(_hurt.Element);
+            PlayerControl.pc.PlayerHPManager.TakeDamage(_hurt.RouletteElement);
             GenerateParticles(_hurtParticles);
         }
     }

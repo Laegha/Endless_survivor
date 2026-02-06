@@ -166,6 +166,7 @@ public static class Utility
         {
             //possiblePickups[nullPickupData] = Mathf.Clamp(possiblePickups[nullPickupData] - dropablePickupChance.Chance, 0, 100);
             rouletteElements.Add(new(element.Element), element.Chance);
+            rouletteElements.Add(new(element.RouletteElement), element.Chance);
         }
         Roulette<RouletteElementKey<T>> roulette = new Roulette<RouletteElementKey<T>>(rouletteElements);
         T resultElement = roulette.Spin().element;

@@ -93,6 +93,7 @@ public class MapManager : MonoBehaviour
             }
 
             List<RouletteElementChance<MapElementInfo<T>>> removedDecors = new(possibleElements.Where(x => x.Element.MapElementSize.ElementOccupyingPositions.Intersect(banningOffsets).Count() > 0));//all decors that need a tile that is unavailable
+            List<RouletteElementChance<MapElementInfo<T>>> removedDecors = new(possibleElements.Where(x => x.RouletteElement.MapElementSize.ElementOccupyingPositions.Intersect(banningOffsets).Count() > 0));//all decors that need a tile that is unavailable
             foreach (var removedDecor in removedDecors)
             {
                 possibleElements.Remove(removedDecor);

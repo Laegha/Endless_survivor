@@ -76,7 +76,7 @@ public class WeaponPickupMenu : MonoBehaviour
         _weaponImage.sprite = displayingWeapon.WeaponDisplaySprite;
 
         _currWeaponStats = new WeaponStats(_currDisplayingWeapon.WeaponStats);
-        _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, ScalingFunctions.CurrWaveLevel);
+        _currWeaponStats.SetTrueLevelStats(_currDisplayingWeapon.StatsIncreaseScale, ScalingFunctions.CurrScalingLevel);
 
         _weaponName.text = _currDisplayingWeapon.WeaponName;
         _weaponLevelDisplay.text = _currWeaponStats.TrueLevel + "";

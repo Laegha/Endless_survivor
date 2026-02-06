@@ -91,7 +91,7 @@ public class EnemyDataEditor : Editor
         {
             var pickupChance = enemyData.DropablePickupChances[i];
 
-            string pickupLabel = pickupChance.Element == null ? "Undefined pickup" : pickupChance.Element.name;
+            string pickupLabel = pickupChance.RouletteElement == null ? "Undefined pickup" : pickupChance.RouletteElement.name;
             GUILayout.Label(pickupLabel, EditorStyles.boldLabel);
 
             EditorGUI.indentLevel++;
