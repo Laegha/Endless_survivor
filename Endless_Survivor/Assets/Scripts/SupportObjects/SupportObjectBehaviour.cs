@@ -17,25 +17,7 @@ public class SupportObjectBehaviour
     Action _onCollidedWithOther;
     Action _onDestroyed;
     public SupportObjectControl ObjControl { get { return _supportObjControl; } }
-    public List<EnemyControl> closestEnemies => Utility.GetClosestTo(WaveManager.wm.Enemies, _supportObjControl.transform).ConvertAll(new Converter<GameObject, EnemyControl>((enemy) => enemy.GetComponent<EnemyControl>()));
-    public Vector2 MapMinBound
-    {
-        get
-        {
-            var bounds = WaveManager.wm.SpawnBounds;
-            Vector2 min = new Vector2(Mathf.Min(bounds[0].position.x, bounds[1].position.x), Mathf.Min(bounds[0].position.y, bounds[1].position.y));
-            return min;
-        }
-    }
-    public Vector2 MapMaxBound
-    {
-        get
-        {
-            var bounds = WaveManager.wm.SpawnBounds;
-            Vector2 max = new Vector2(Mathf.Max(bounds[0].position.x, bounds[1].position.x), Mathf.Max(bounds[0].position.y, bounds[1].position.y));
-            return max;
-        }
-    }
+    public List<EnemyControl> closestEnemies => Utility.GetClosestTo(EnemySpawnManager.esm.Enemies, _supportObjControl.transform).ConvertAll(new Converter<GameObject, EnemyControl>((enemy) => enemy.GetComponent<EnemyControl>()));
     public Action OnStart {  get { return _onStart; } set { _onStart = value; } }
     public Action OnUpdate { get { return _onLateUpdate; } set { _onLateUpdate = value; } }
     public Action OnLateUpdate { get { return _onUpdate; } set { _onUpdate = value; } }

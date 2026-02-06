@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
 {
@@ -44,13 +45,14 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
     {
         Vector2 randDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         Vector2 maxEndPoint = (Vector2)ObjControl.transform.position + randDirection * _movementDistance.max;
-        while(maxEndPoint.x < MapMinBound.x || maxEndPoint.y < MapMinBound.y || maxEndPoint.x > MapMaxBound.x || maxEndPoint.y > MapMaxBound.y)
+        maxEndPoint = new((int) maxEndPoint.x, (int) maxEndPoint.y);
+        while(!MapManager.mm.LoadedTiles.Any(tile => !tile.IsWall && (Vector2)tile.transform.position == maxEndPoint))
         {
             randDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
             maxEndPoint = (Vector2)ObjControl.transform.position + randDirection * _movementDistance.max;
         }
         _currMovingDirection = randDirection;
-        _currMovingDistance = _movementDistance.rand;
+        _currMovingDistance = Mathf.Clamp(_movementDistance.rand, 0, maxEndPoint.magnitude);
         _currMovingSpeed = _movementSpeed.rand;
         _currLapsedDistance = 0;
         _isMoving = true;
