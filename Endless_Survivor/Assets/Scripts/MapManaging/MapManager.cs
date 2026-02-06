@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField] MapGenerationConfig _generationConfig;
-    MapGenerationHandler _generationHandler = new();
+    MapGenerationConfig _generationConfig;
+    [SerializeField]MapGenerationHandler _generationHandler = new();
     [SerializeField]MapUpdatingHandler _updatingHandler;
 
     List<Biome> _activeBiomes = new();
@@ -92,7 +92,6 @@ public class MapManager : MonoBehaviour
 
             }
 
-            List<RouletteElementChance<MapElementInfo<T>>> removedDecors = new(possibleElements.Where(x => x.Element.MapElementSize.ElementOccupyingPositions.Intersect(banningOffsets).Count() > 0));//all decors that need a tile that is unavailable
             List<RouletteElementChance<MapElementInfo<T>>> removedDecors = new(possibleElements.Where(x => x.RouletteElement.MapElementSize.ElementOccupyingPositions.Intersect(banningOffsets).Count() > 0));//all decors that need a tile that is unavailable
             foreach (var removedDecor in removedDecors)
             {

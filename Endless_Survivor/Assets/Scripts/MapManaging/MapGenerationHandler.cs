@@ -5,17 +5,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[System.Serializable]
 public class MapGenerationHandler
 {
+    [SerializeField] Transform _tileHolder;
     Dictionary<Vector2, List<Tile>> _tileMatrix = new();
     List<Biome> _generatedBiomes = new();
     public Dictionary<Vector2, List<Tile>> TileMatrix { get { return _tileMatrix; } }
 
-    void WaveStarted()
-    {
-        if(WaveManager.wm.CurrWave % MapManager.mm.GenerationConfig.WavesBetweenGenerations == 0)
-            GenerateBiome();
-    }
     public BiomeUpdateInstance GenerateBiome()
     {
         int biomeSize = (int)MapManager.mm.GenerationConfig.BiomeSize.rand;
@@ -30,6 +27,7 @@ public class MapGenerationHandler
         List<Tile> newBiomeTiles = new(generatedBiome.GenerateBiomeTiles(biomeGenerationInfo));
         foreach(var tile in newBiomeTiles)
         {
+            tile.transform.parent = _tileHolder;
             Vector2 tilePos = tile.transform.position;
             if (_tileMatrix.ContainsKey(tilePos))
                 _tileMatrix[tilePos].Add(tile);
