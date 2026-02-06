@@ -165,7 +165,6 @@ public static class Utility
         foreach (var element in selectableElements)
         {
             //possiblePickups[nullPickupData] = Mathf.Clamp(possiblePickups[nullPickupData] - dropablePickupChance.Chance, 0, 100);
-            rouletteElements.Add(new(element.Element), element.Chance);
             rouletteElements.Add(new(element.RouletteElement), element.Chance);
         }
         Roulette<RouletteElementKey<T>> roulette = new Roulette<RouletteElementKey<T>>(rouletteElements);
@@ -201,20 +200,8 @@ public static class Utility
     }
     public static Vector2 GetRandomPosInMap()
     {
-        Transform[] spawnBounds = WaveManager.wm.SpawnBounds;
-        float xMax = Mathf.Max(spawnBounds[0].position.x, spawnBounds[1].position.x);
-        float xMin = Mathf.Min(spawnBounds[0].position.x, spawnBounds[1].position.x);
-        float yMax = Mathf.Max(spawnBounds[0].position.y, spawnBounds[1].position.y);
-        float yMin = Mathf.Min(spawnBounds[0].position.y, spawnBounds[1].position.y);
-
-        float xPos = UnityEngine.Random.Range(xMin, xMax);
-        float yPos = UnityEngine.Random.Range(yMin, yMax);
-
-        xPos = UnityEngine.Random.Range(xMin, xMax);
-
-        yPos = UnityEngine.Random.Range(yMin, yMax);
-
-        return new Vector2(xPos, yPos);
+        var loadedTiles = MapManager.mm.LoadedTiles;
+        return loadedTiles.Where(tile => !tile.IsWall).ToList()[UnityEngine.Random.Range(0, loadedTiles.Count)].transform.position;
     }
     public static Vector2 GetPerpendicularVector(Vector2 vector)
     {
