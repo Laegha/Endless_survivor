@@ -32,9 +32,13 @@ public class MapManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        _generationConfig = GameManager.gm.MapGenerationConfig;
+        for(int i = 0; i < _generationConfig.MaxBiomes; i++)
+        {
+            GenerateBiome();
+        }
+        UpdateBiome();
     }
-
     public void GenerateBiome()
     {
         var updateInstance = _generationHandler.GenerateBiome();

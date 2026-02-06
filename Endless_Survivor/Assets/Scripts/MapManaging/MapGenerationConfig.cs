@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New MapGenerationConfig", menuName = "ScriptableObjects/Map/Generation config", order = 0)]
 public class MapGenerationConfig : ScriptableObject
 {
+    [SerializeField] int _maxBiomes = 5;
     [SerializeField] RandomBetweenTwoConstants _biomeSize;
     [SerializeField] List<BiomeData> _possibleBiomes;
 
@@ -26,6 +27,7 @@ public class MapGenerationConfig : ScriptableObject
     [SerializeField] Material _4BlendDownRight;
     [SerializeField] Material _4BlendDownLeft;
 
+    public int MaxBiomes { get { return _maxBiomes; } }
     public RandomBetweenTwoConstants BiomeSize { get { return _biomeSize; } }
     public List<BiomeData> PossibleBiomes { get { return _possibleBiomes; }}
 
