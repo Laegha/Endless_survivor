@@ -20,11 +20,15 @@ public class Tile : MonoBehaviour
 
     public Biome TileBiome {  get { return _tileBiome; } set { _tileBiome = value; } }
 
+    bool IsAir(Tile tile)
+    {
+        return _airSprites.Contains(tile.Renderer.sprite) || tile.Renderer.sprite == null;
+    }
     public void SetTileGfx()
     {
         var adyacentTiles = GetAdyacentTiles();
         
-        bool isWall = adyacentTiles.Any(tile => tile.Value == null || _airSprites.Contains(tile.Value.Renderer.sprite));
+        bool isWall = adyacentTiles.Any(tile => tile.Value == null || IsAir(tile.Value));
         if(isWall != _isWall && _tileSupportObj != null)
         {
             Destroy(_tileSupportObj.gameObject);
@@ -64,7 +68,7 @@ public class Tile : MonoBehaviour
 
     void SetSprite(Dictionary<Vector2, Tile> adyacentTiles)
     {
-        Dictionary<Vector2, Tile> airTiles = adyacentTiles.Where(tile => tile.Value == null || _airSprites.Contains(tile.Value.Renderer.sprite)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        Dictionary<Vector2, Tile> airTiles = adyacentTiles.Where(tile => tile.Value == null || IsAir(tile.Value)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         if(airTiles.Count == 0)//is floor
         {
             _renderer.sprite = _tileBiome.BiomeData.FloorTile;
@@ -88,7 +92,7 @@ public class Tile : MonoBehaviour
     void SetMaterial(Dictionary<Vector2, Tile> adyacentTiles)
     {
         var tilesInPosMapManager = MapManager.mm.GenerationHandler.TileMatrix[transform.position];
-        int intersectionCount = tilesInPosMapManager.Count;
+        int intersectionCount = tilesInPosMapManager.Where(tile => !IsAir(tile)).Count();
         switch (intersectionCount)
         {
             case 1:
