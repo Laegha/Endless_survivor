@@ -23,7 +23,7 @@ public class InflictEnemiesWithStatusOnActivateItemBehaviour : PassiveItemBehavi
     public override void Activate()
     {
         base.Activate();
-        var enemies = WaveManager.wm.Enemies;
+        var enemies = EnemySpawnManager.esm.Enemies;
 
         foreach (var enemy in enemies)
         {

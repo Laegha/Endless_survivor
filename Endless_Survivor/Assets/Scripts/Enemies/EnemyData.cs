@@ -27,7 +27,7 @@ public class EnemyData : ScriptableObject
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         EnemyHP enemyHP = enemyControl.EnemyHP;
-        enemyHP.InitializeHP(_initialHP + ScalingFunctions.EnemyHPIncrease(ScalingFunctions.CurrWaveLevel));
+        enemyHP.InitializeHP(_initialHP + ScalingFunctions.EnemyHPIncrease(ScalingFunctions.CurrScalingLevel));
         enemyHP.SetSounds(_onHitSFX, _onDeathSFX);
         enemyHP.DropablePickupChances = new List<RouletteElementChance<PickupData>>(_dropablePickupChances);
         enemyHP.KnockbackResistance = _knockbackResistance;

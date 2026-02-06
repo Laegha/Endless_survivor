@@ -28,7 +28,7 @@ public class PlayerHPManager : HP
         InitializeHP(_playerControl.PlayerStats.InitialHP);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         _inmunityFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
-        WaveManager.wm.OnWaveStarted += IncreaseMaxHP;
+        EnemySpawnManager.esm.OnWaveStarted += IncreaseMaxHP;
         _onUpdateActions += HandleInmunity;
         _onUpdateActions += HandleRegeneration;
 
@@ -65,7 +65,7 @@ public class PlayerHPManager : HP
     {
         var previousMaxHP = MaxHP;
         var remainingHPPercentage = MaxHP / RemainingHP;
-        MaxHP = ScalingFunctions.PlayerHPIncrease(ScalingFunctions.CurrWaveLevel-1, PlayerControl.pc.PlayerStats.HPIncrement, PlayerControl.pc.PlayerStats.InitialHP);//the level is -1 so it starts at 0 instead of 1
+        MaxHP = ScalingFunctions.PlayerHPIncrease(ScalingFunctions.CurrScalingLevel-1, PlayerControl.pc.PlayerStats.HPIncrement, PlayerControl.pc.PlayerStats.InitialHP);//the level is -1 so it starts at 0 instead of 1
         if (MaxHP == previousMaxHP)
             return;
         RemainingHP = MaxHP / remainingHPPercentage;

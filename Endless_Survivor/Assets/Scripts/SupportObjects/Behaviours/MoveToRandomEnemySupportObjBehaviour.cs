@@ -64,7 +64,7 @@ public class MoveToRandomEnemySupportObjBehaviour : SupportObjectBehaviour
     }
     void StartMovingInRandomDirection()
     {
-        GameObject randEnemy = WaveManager.wm.Enemies[Random.Range(0, WaveManager.wm.Enemies.Count)];
+        GameObject randEnemy = EnemySpawnManager.esm.Enemies[Random.Range(0, EnemySpawnManager.esm.Enemies.Count)];
         if (randEnemy == null)
             return;
         Vector2 movement = randEnemy.transform.position - ObjControl.transform.position;

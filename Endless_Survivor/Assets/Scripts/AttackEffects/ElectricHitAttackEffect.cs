@@ -36,7 +36,7 @@ public class ElectricHitAttackEffect : AttackEffect
     }
     void ElectrifyNearbyEnemies(EnemyControl mainEnemy)
     {
-        var reachableEnemies = new List<GameObject>(WaveManager.wm.Enemies.Where(x => Vector2.Distance(x.transform.position, mainEnemy.transform.position) <= _maxDistBetweenEnemies));
+        var reachableEnemies = new List<GameObject>(EnemySpawnManager.esm.Enemies.Where(x => Vector2.Distance(x.transform.position, mainEnemy.transform.position) <= _maxDistBetweenEnemies));
         var orderedEnemies = Utility.GetClosestTo(reachableEnemies, mainEnemy.transform);
         if (reachableEnemies.Count == 0)
             return;

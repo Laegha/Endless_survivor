@@ -21,7 +21,7 @@ public class RunStatsManager : MonoBehaviour
 
     private void Start()
     {
-        WaveManager.wm.OnWaveStarted += IncreaseWaveCounter;
+        EnemySpawnManager.esm.OnWaveStarted += IncreaseWaveCounter;
     }
 
     public void DamageDealt(int damage)

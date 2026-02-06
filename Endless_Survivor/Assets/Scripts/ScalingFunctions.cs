@@ -10,12 +10,13 @@ public static class ScalingFunctions
 
     static float _enemyHPIncreaseRoot = 1.7f;
     static float _enemyHPIncreaseTraslation = -0.34f;//this makes it so the enemies start to get stronger faster than the weapons since wave 5
-    
-    public static int CurrWaveLevel
+
+    public static int CurrScalingLevel
     {
         get
         {
-            return WaveManager.wm != null ? WaveManager.wm.CurrWave / 2 + 1 : -1; ;
+            return (int)(IntensityManager.im.CurrIntensityLevel + IntensityManager.im.CurrIntensityLevelProgress / 1000);
+            //return WaveManager.wm != null ? WaveManager.wm.CurrWave / 2 + 1 : -1; ;
 
         }
     }
@@ -42,5 +43,10 @@ public static class ScalingFunctions
             return (1 / _weaponStatIncreaseInducedLevelReduction * level) * increaseScale;
         else
             return WeaponStatIncreaseTrueLevel(increaseScale, level - _weaponStatIncreaseInducedLevelReduction);
+    }
+
+    public static float EnemyKillIntensityProgress(float enemyHP)
+    {
+        return enemyHP;
     }
 }

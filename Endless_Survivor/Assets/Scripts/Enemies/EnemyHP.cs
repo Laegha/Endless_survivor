@@ -60,7 +60,6 @@ public class EnemyHP : HP
     public override void Die()
     {
         _enemyControl.StatusEffectManager.OnKilled();
-        WaveManager.wm.EnemyKilled(gameObject);
         _onDeath?.Invoke(_enemyControl);
         InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);

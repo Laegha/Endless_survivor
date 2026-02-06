@@ -22,7 +22,7 @@ public class WeaponAim : MonoBehaviour
         get
         {
             var result = new List<WeaponTarget>(_attackTargets);
-            foreach(var enemy in WaveManager.wm.Enemies)
+            foreach(var enemy in EnemySpawnManager.esm.Enemies)
             {
                 result.Add(new(enemy, 0));
             }

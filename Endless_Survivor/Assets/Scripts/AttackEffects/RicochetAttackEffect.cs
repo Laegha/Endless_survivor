@@ -19,7 +19,7 @@ public class RicochetAttackEffect : AttackEffect
         Vector2 attackDir = hitEnemy.transform.position - AffectedAttack.transform.position;
         Vector2 hitPoint = Physics2D.Raycast(AffectedAttack.transform.position, attackDir, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).point;
         
-        List<GameObject> enemies = WaveManager.wm.Enemies;
+        List<GameObject> enemies = EnemySpawnManager.esm.Enemies;
         GameObject ricochetTargetedEnemy = Utility.GetClosestTo(enemies, hitEnemy.transform)[1];
         Vector2 ricochetAttackDir = (Vector2)ricochetTargetedEnemy.transform.position - hitPoint;
         Debug.Log("Ricochet Dist " +  ricochetAttackDir);

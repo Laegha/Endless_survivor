@@ -39,7 +39,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     }
     void CalculateDirection()
     {
-        var closestEnemy = Utility.GetClosestTo(WaveManager.wm.Enemies, PlayerControl.pc.transform)[0];
+        var closestEnemy = Utility.GetClosestTo(EnemySpawnManager.esm.Enemies, PlayerControl.pc.transform)[0];
         var throwVector = closestEnemy.transform.position - ObjControl.transform.position;
         _throwDirection = throwVector.normalized;
         _totalDistance = throwVector.magnitude;

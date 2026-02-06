@@ -39,7 +39,7 @@ public class SplitOnCollidedWithObjAttackEffect : AttackEffect
     }
     void SplitAttack()
     {
-        List<GameObject> enemies = WaveManager.wm.Enemies;
+        List<GameObject> enemies = EnemySpawnManager.esm.Enemies;
         var closestEnemies = Utility.GetClosestTo(enemies, AffectedAttack.transform);
         Vector2 splitAttackPos = AffectedAttack.transform.position;
         for (int i = 0; i < _splitAmmount; i++)

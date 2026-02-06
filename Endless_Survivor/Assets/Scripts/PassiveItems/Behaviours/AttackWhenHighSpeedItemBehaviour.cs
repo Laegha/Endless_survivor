@@ -42,7 +42,7 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
         PlayerControl.pc.PlayerAnimator.AddAnimations(new(){ _rightAnimation, _leftAnimation });
         
         UpdateStats();
-        WaveManager.wm.OnWaveStarted += UpdateStats;
+        EnemySpawnManager.esm.OnWaveStarted += UpdateStats;
         behaviourManager.onUpdate += CheckSpeed;
     }
     void CheckSpeed()
@@ -72,7 +72,7 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
     void UpdateStats()
     {
         var weaponStats = new WeaponStats(_attackBaseStats);
-        weaponStats.SetTrueLevelStats(_statsScaling, ScalingFunctions.CurrWaveLevel);
+        weaponStats.SetTrueLevelStats(_statsScaling, ScalingFunctions.CurrScalingLevel);
         _attackStats = weaponStats;
     }
 }

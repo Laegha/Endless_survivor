@@ -7,7 +7,6 @@ public class MapGenerationConfig : ScriptableObject
 {
     [SerializeField] RandomBetweenTwoConstants _biomeSize;
     [SerializeField] List<BiomeData> _possibleBiomes;
-    [SerializeField] int _wavesBetweenGenerations;
 
     [SerializeField] Material _regularTileMaterial;
     [SerializeField] Material _2BlendUp;
@@ -29,7 +28,6 @@ public class MapGenerationConfig : ScriptableObject
 
     public RandomBetweenTwoConstants BiomeSize { get { return _biomeSize; } }
     public List<BiomeData> PossibleBiomes { get { return _possibleBiomes; }}
-    public int WavesBetweenGenerations { get { return _wavesBetweenGenerations; }}
 
     public Material GetRegularMaterial()
     {

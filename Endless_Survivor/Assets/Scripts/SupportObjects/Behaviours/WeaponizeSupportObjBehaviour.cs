@@ -17,7 +17,7 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         _setSupportObjAsDistCheck = weaponizeOriginal._setSupportObjAsDistCheck;
 
         OnStart += CreateWeapon;
-        WaveManager.wm.OnWaveStarted += UpdateWeaponStats;
+        EnemySpawnManager.esm.OnWaveStarted += UpdateWeaponStats;
         
     }
     void CreateWeapon()
@@ -31,7 +31,7 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         weaponObj.transform.rotation = Quaternion.identity;
 
         var weaponStats = new WeaponStats(_objWeapon.WeaponStats);
-        weaponStats.SetTrueLevelStats(_objWeapon.StatsIncreaseScale, ScalingFunctions.CurrWaveLevel);
+        weaponStats.SetTrueLevelStats(_objWeapon.StatsIncreaseScale, ScalingFunctions.CurrScalingLevel);
 
         var weaponControl = weaponObj.GetComponent<WeaponControl>();
         _weaponAttackManager = weaponControl.WeaponAttackManager;
@@ -52,7 +52,7 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
     void UpdateWeaponStats()
     {
         var weaponStats = new WeaponStats(_objWeapon.WeaponStats);
-        weaponStats.SetTrueLevelStats(_objWeapon.StatsIncreaseScale, ScalingFunctions.CurrWaveLevel);
+        weaponStats.SetTrueLevelStats(_objWeapon.StatsIncreaseScale, ScalingFunctions.CurrScalingLevel);
         _weaponAttackManager.WeaponStats = weaponStats;
     }
 }
