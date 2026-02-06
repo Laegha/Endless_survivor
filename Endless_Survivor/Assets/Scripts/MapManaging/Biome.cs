@@ -9,11 +9,8 @@ public class Biome
     List<Tile> _borderTiles = new();
     BiomeData _biomeData;
 
-    Wave _lastWave;
-
     public List<Tile> BiomeTiles {  get { return _biomeTiles; } }
     public BiomeData BiomeData {  get { return _biomeData; } }
-
     public void SetDirty() => _biomeTiles.RemoveAll(x => x == null);
 
     //Sides ONLY WORK if _biomeTiles[0] is the bottom left WHICH SHOULD ALWAYS BE THE CASE
@@ -127,5 +124,12 @@ public class Biome
         {
             MapManager.mm.GenerationHandler.TileMatrix[startPos + offset][0].TileSupportObj = generatedObjControl;
         }
+    }
+
+    public EnemyData GetRandomAvailableEnemy()
+    {
+        var possibleEnemies = _biomeData.BiomeEnemies.Where(x => x.RouletteElement.SpawnIntensity <= IntensityManager.im.CurrIntensityLevel).ToList();
+        EnemyData spawningEnemy = Utility.GetRouletteElement(possibleEnemies).EnemyData;
+        return spawningEnemy;
     }
 }
