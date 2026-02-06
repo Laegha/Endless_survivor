@@ -11,10 +11,13 @@ public class MapManager : MonoBehaviour
     [SerializeField]MapUpdatingHandler _updatingHandler;
 
     List<Biome> _activeBiomes = new();
+    List<Tile> _loadedTiles = new();
 
     public MapGenerationConfig GenerationConfig {  get { return _generationConfig; } }
     public MapGenerationHandler GenerationHandler {  get { return _generationHandler; } }
     public List<Biome> ActiveBiomes { get { return _activeBiomes; } }
+    public List<Tile> LoadedTiles {  get { return _loadedTiles; } }
+
     static MapManager instance;
     public static MapManager mm
     {
