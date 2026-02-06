@@ -10,7 +10,6 @@ public class DamageInfo
     public enum DamageType
     {
         None = 0,
-        Normal = 1 << 0,
         Explosive = 1 << 1,
         Fire = 1 << 2,
         Poison = 1 << 3,
