@@ -18,8 +18,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<CharacterData> unlockedCharacters;
     [HideInInspector] public List<WeaponData> unlockedWeapons;
     [SerializeField] AudioMixer _audioMixer;
+    [SerializeField] MapGenerationConfig _mapGenerationConfig;
 
-    [SerializeField] WeaponData _testWeapon;
+
+    public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
 
     public static GameManager gm
     {
@@ -36,10 +38,6 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-    private void Start()
-    {
-       _testWeapon = Resources.Load("ScriptableObjects/Weapons/Balance") as WeaponData;
     }
     public void SetVolume(string volumeGroup, float volume)
     {
