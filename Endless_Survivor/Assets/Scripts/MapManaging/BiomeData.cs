@@ -29,6 +29,7 @@ public class BiomeData : ScriptableObject
 
     [Tooltip("num is the wave number since which each wave can proc")]
     [SerializeField] List<RouletteElementChance<EnemySpawnInfo>> _biomeEnemies;
+    [SerializeField] CustomAnimation _bossInvokerAnimation;
     [SerializeField] List<EnemyData> _biomeChampions;
     [SerializeField] List<EnemyData> _biomeBosses;
 
@@ -82,4 +83,7 @@ public class BiomeData : ScriptableObject
     }
 
     public List<RouletteElementChance<EnemySpawnInfo>> BiomeEnemies { get { return _biomeEnemies; } }
+    public CustomAnimation BossInvokerAnimation {  get { return _bossInvokerAnimation; } }
+    public List<EnemyData> BiomeChampions { get {  return _biomeChampions; } }
+    public List<EnemyData> BiomeBosses {  get { return _biomeBosses; } }
 }
