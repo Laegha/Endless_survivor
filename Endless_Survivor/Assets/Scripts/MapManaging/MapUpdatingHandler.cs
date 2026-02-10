@@ -28,6 +28,8 @@ public class MapUpdatingHandler
         }
         MapManager.mm.ActiveBiomes.Add(updateInstance.biome);
         MapManager.mm.LoadedTiles.AddRange(updateInstance.biome.BiomeTiles);
+        if(MapManager.mm.ActiveBiomes.Count > MapManager.mm.GenerationConfig.MinBiomesToSpawnBosses)
+            updateInstance.biome.InitializeBossInvoker();
         updateInstance.biome.GenerateDecorations();
         updateInstance.biome.GenerateSupportObjs();
         _biomeUpdateInstances.RemoveAt(0);

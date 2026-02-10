@@ -9,6 +9,7 @@ public class MapGenerationConfig : ScriptableObject
     [SerializeField] RandomBetweenTwoConstants _biomeSize;
     [SerializeField] List<BiomeData> _possibleBiomes;
 
+    [SerializeField] int _minBiomesToSpawnBosses = 1;
     [SerializeField] EnemyInvoker _bossInvokerPrefab;
     [SerializeField] MapElementSize _bossInvokerSize;
 
@@ -33,6 +34,7 @@ public class MapGenerationConfig : ScriptableObject
     public int MaxBiomes { get { return _maxBiomes; } }
     public RandomBetweenTwoConstants BiomeSize { get { return _biomeSize; } }
     public List<BiomeData> PossibleBiomes { get { return _possibleBiomes; }}
+    public int MinBiomesToSpawnBosses { get { return _minBiomesToSpawnBosses; } }
     public EnemyInvoker BossInvokerPrefab { get { return _bossInvokerPrefab; } }
     public MapElementSize BossInvokerSize { get { return _bossInvokerSize; } }
 
