@@ -9,6 +9,9 @@ public class MapGenerationConfig : ScriptableObject
     [SerializeField] RandomBetweenTwoConstants _biomeSize;
     [SerializeField] List<BiomeData> _possibleBiomes;
 
+    [SerializeField] EnemyInvoker _bossInvokerPrefab;
+    [SerializeField] MapElementSize _bossInvokerSize;
+
     [SerializeField] Material _regularTileMaterial;
     [SerializeField] Material _2BlendUp;
     [SerializeField] Material _2BlendRight;
@@ -30,6 +33,8 @@ public class MapGenerationConfig : ScriptableObject
     public int MaxBiomes { get { return _maxBiomes; } }
     public RandomBetweenTwoConstants BiomeSize { get { return _biomeSize; } }
     public List<BiomeData> PossibleBiomes { get { return _possibleBiomes; }}
+    public EnemyInvoker BossInvokerPrefab { get { return _bossInvokerPrefab; } }
+    public MapElementSize BossInvokerSize { get { return _bossInvokerSize; } }
 
     public Material GetRegularMaterial()
     {
