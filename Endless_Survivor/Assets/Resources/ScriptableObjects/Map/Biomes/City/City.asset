@@ -40,7 +40,15 @@ MonoBehaviour:
       enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
       _spawnIntensity: 0
     _chance: 50
-  _biomeChampions: []
+  _bossInvokerAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 8145cf3c47bab5d4da0b4bd06d97a553, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _biomeChampions:
+  - {fileID: 11400000, guid: 16f0bfedda4beb8409c49578e452bcc6, type: 2}
   _biomeBosses: []
   _championIndicator: {fileID: 0}
   _bossIndicator: {fileID: 0}
