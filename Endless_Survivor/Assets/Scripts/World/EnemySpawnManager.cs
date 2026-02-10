@@ -56,12 +56,13 @@ public class EnemySpawnManager : MonoBehaviour
         for(int i = 0; i < spawnedEnemyCount; i++)
         {
             Tile spawingTile = GetEnemyPosition();
-            _enemies.Add(SpawnEnemy(spawingTile));
+            EnemyData spawningEnemy = spawingTile.TileBiome.GetRandomAvailableEnemy(); ;
+           SpawnEnemy(spawingTile, spawningEnemy);
         }
 
     }
 
-    Tile GetEnemyPosition()
+    public Tile GetEnemyPosition()
     {
         var tilesInSpawnRange = MapManager.mm.LoadedTiles.Where(tile => CheckTileInRange(tile)).ToList();
         Tile spawningPos = tilesInSpawnRange[Random.Range(0, tilesInSpawnRange.Count)];
@@ -76,14 +77,14 @@ public class EnemySpawnManager : MonoBehaviour
         return true;
     }
 
-    GameObject SpawnEnemy(Tile enemySpawnTile)
+    public GameObject SpawnEnemy(Tile enemySpawnTile, EnemyData enemyData)
     {
-        EnemyData enemyData = enemySpawnTile.TileBiome.GetRandomAvailableEnemy();
         GameObject enemy = Instantiate(GameManager.gm.prefabHolder.Prefabs["Enemy"], enemySpawnTile.transform.position, Quaternion.identity);
         enemyData.TransferEnemyData(enemy);
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         _onEnemySpawned?.Invoke(enemyControl);
-        enemyControl.EnemyHP.OnDeath += EnemyKilled;
+       enemyControl.EnemyHP.OnDeath += EnemyKilled;
+        _enemies.Add(enemy);
         return enemy;
     }
 
