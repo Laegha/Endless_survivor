@@ -1,6 +1,7 @@
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class Biome
@@ -131,5 +132,27 @@ public class Biome
         var possibleEnemies = _biomeData.BiomeEnemies.Where(x => x.RouletteElement.SpawnIntensity <= IntensityManager.im.CurrIntensityLevel).ToList();
         EnemyData spawningEnemy = Utility.GetRouletteElement(possibleEnemies).EnemyData;
         return spawningEnemy;
+    }
+
+    public void InitializeBossInvoker()
+    {
+        Vector2 bossInvokerPosition = _biomeTiles[_biomeTiles.Count / 2].transform.position;
+        EnemyInvoker bossInvoker = GameObject.Instantiate(MapManager.mm.GenerationConfig.BossInvokerPrefab, bossInvokerPosition, Quaternion.identity);
+        CustomAnimation invokerAnimation = _biomeData.BossInvokerAnimation;
+        bossInvoker.Animator.AddAnimations(new(){ invokerAnimation });
+        bossInvoker.Animator.ChangeAnim(invokerAnimation.AnimationName);
+        SupportObjectControl invokerSupportObjControl = bossInvoker.GetComponent<SupportObjectControl>();
+        foreach (Vector2 tileOffset in MapManager.mm.GenerationConfig.BossInvokerSize.ElementOccupyingPositions)
+        {
+            var tilesInPos = MapManager.mm.GenerationHandler.TileMatrix[bossInvokerPosition + tileOffset];
+            foreach (Tile tile in tilesInPos)
+                tile.TileSupportObj = invokerSupportObjControl;
+        }
+
+        foreach(var champion in _biomeData.BiomeChampions)
+            bossInvoker.AddInvokationEnemy(champion, 1);
+
+        foreach(var boss in _biomeData.BiomeBosses)
+            bossInvoker.AddInvokationEnemy(boss, 3);
     }
 }
