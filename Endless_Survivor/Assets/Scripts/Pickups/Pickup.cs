@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,16 @@ public class Pickup : MonoBehaviour
     List<PickupVariableBase> _variables = new List<PickupVariableBase>();
     PickupData _pickupData;
     [SerializeField] PickupControl _pickupControl;
+    bool _consideredInPickupLimit = true;
+    Action _onPickup;
+    
     public PickupData PickupData { set {  _pickupData = value; } }
+    public bool ConsideredInPickupLimit { set { _consideredInPickupLimit = value; } }
+    public Action OnPickup { get { return _onPickup; } set { _onPickup = value; } }
     private void Start()
     {
+        if (!_consideredInPickupLimit)
+            return;
         _instantiatedPickups.Add(this);
         if(_instantiatedPickups.Count > _maxInstantiatedPickups)
             DestroyOldestPickup();
@@ -38,11 +46,17 @@ public class Pickup : MonoBehaviour
     }
     public void PickUp() 
     {
-        _pickupData.PickUp(_pickupControl);
-        _instantiatedPickups.Remove(this);
+        if(_pickupData != null)
+            _pickupData.PickUp(_pickupControl);
+        if(_consideredInPickupLimit)
+            _instantiatedPickups.Remove(this);
+
+        _onPickup?.Invoke();
     }
     private void OnDestroy()
     {
+        if (!_consideredInPickupLimit)
+            return;
         if (_instantiatedPickups.Contains(this))
             _instantiatedPickups.Remove(this);
     }
