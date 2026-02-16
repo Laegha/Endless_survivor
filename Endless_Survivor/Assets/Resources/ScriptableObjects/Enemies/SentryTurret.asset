@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: SentryTurret
   m_EditorClassIdentifier: 
-  _initialHP: 10
+  _initialHP: 60
   _referenceSizeSprite: {fileID: 21300000, guid: 735c6cb534790c44db635e7629fa251c, type: 3}
   _knockbackResistance: 10000
   _colliderSize: {x: 0.6, y: 0.6}

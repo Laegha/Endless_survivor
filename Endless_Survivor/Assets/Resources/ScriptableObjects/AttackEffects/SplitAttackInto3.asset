@@ -26,3 +26,5 @@ MonoBehaviour:
         _separateChance: 50
         _splitAmmount: 3
         _distBetweenSplits: 0.35
+        _eachAttackTargetsClosest: 1
+        _directionAngleAmplitude: 0

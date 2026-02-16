@@ -13,37 +13,28 @@ MonoBehaviour:
   m_Name: PilotChest
   m_EditorClassIdentifier: 
   _pickupParticles: {fileID: 0}
-  _colliderSize: {x: 1.2, y: 1}
+  _colliderSize: {x: 0, y: 0}
   _pickupChances:
-    rid: 1428375048990228484
-  _generatedObjIfNullDrop: {fileID: 11400000, guid: ba1dff869f6a76e4c8396af732a16562, type: 2}
-  _dropOffset: {x: 0, y: -1}
+    rid: 9178415493235605504
+  _generatedObjIfNullDrop: {fileID: 0}
+  _dropOffset: {x: 0, y: 0}
   _idleAnimation:
-    _animationName: Idle
-    _frames:
-    - {fileID: 2062961767, guid: b4588545bb69d0e4a8d26b5491ca07f2, type: 3}
-    _framesPerSecond: 1
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
     _endAnimationOnEnd: 0
     _priority: 0
   _openAnimation:
-    _animationName: Open
-    _frames:
-    - {fileID: 2062961767, guid: b4588545bb69d0e4a8d26b5491ca07f2, type: 3}
-    - {fileID: -71475465, guid: b4588545bb69d0e4a8d26b5491ca07f2, type: 3}
-    _framesPerSecond: 4
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
     _endAnimationOnEnd: 0
     _priority: 0
-  _dropFrame: 1
+  _dropFrame: 0
   references:
     version: 2
     RefIds:
-    - rid: 1428375048990228484
+    - rid: 9178415493235605504
       type: {class: PickupChances, ns: , asm: Assembly-CSharp}
       data:
-        _dropablePickupChances:
-        - _element: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
-          _chance: 1
-        - _element: {fileID: 11400000, guid: b81cd9ee6d834c940924b0e437b666c7, type: 2}
-          _chance: 1
-        - _element: {fileID: 11400000, guid: e798a13a6a663cb4c87b99dac20e3bb6, type: 2}
-          _chance: 70
+        _dropablePickupChances: []
