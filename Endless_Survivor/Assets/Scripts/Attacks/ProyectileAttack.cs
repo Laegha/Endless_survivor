@@ -52,7 +52,6 @@ public class ProyectileAttack : Attack
         if(ignoreColliders == null)
             ignoreColliders = new List<Collider2D>();
 
-        Debug.Log("ATTACK ON THE PROYECTIELK " + AttackKnockback);
         _ignoreColliders = ignoreColliders;
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
 

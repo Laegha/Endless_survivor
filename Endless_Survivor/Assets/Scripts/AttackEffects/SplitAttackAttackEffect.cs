@@ -7,6 +7,8 @@ public class SplitAttackAttackEffect : AttackEffect
     new public static bool isUsable => true;
     [SerializeField] int _splitAmmount = 2;
     [SerializeField] float _distBetweenSplits;
+    [SerializeField] bool _eachAttackTargetsClosest = true;
+    [SerializeField] float _directionAngleAmplitude;
     public SplitAttackAttackEffect(AttackEffect original, Attack affectedAttack) : base(original, affectedAttack) { }
     public override void Initiate(AttackEffect original, Attack affectedAttack)
     {
@@ -14,6 +16,8 @@ public class SplitAttackAttackEffect : AttackEffect
         var splitOriginal = original as SplitAttackAttackEffect;
         _splitAmmount = splitOriginal._splitAmmount;
         _distBetweenSplits = splitOriginal._distBetweenSplits;
+        _eachAttackTargetsClosest = splitOriginal._eachAttackTargetsClosest;
+        _directionAngleAmplitude = splitOriginal._directionAngleAmplitude;
 
         OnAttack += SplitAttack;
     }
@@ -24,12 +28,23 @@ public class SplitAttackAttackEffect : AttackEffect
         Vector2 splitAttackPos = AffectedAttack.transform.position;
         for (int i = 0; i < _splitAmmount; i++)
         {
-            int targetEnemyIndex = i >= closestEnemies.Count ? Random.Range(0, closestEnemies.Count) : i;
-            GameObject splitTargetedEnemy = Utility.GetClosestTo(enemies, AffectedAttack.transform)[targetEnemyIndex];
-            Vector2 splitAttackDir = (splitTargetedEnemy.transform.position - AffectedAttack.transform.position).normalized;
-            AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true);
+            splitAttackPos = (Vector2)AffectedAttack.transform.position + (Vector2)AffectedAttack.transform.up * _distBetweenSplits * i * Mathf.Pow(-1, i + 1);
+            if(_eachAttackTargetsClosest)
+            {
+                int targetEnemyIndex = i >= closestEnemies.Count ? Random.Range(0, closestEnemies.Count) : i;
+                GameObject splitTargetedEnemy = Utility.GetClosestTo(enemies, AffectedAttack.transform)[targetEnemyIndex];
+                Vector2 splitAttackDir = (splitTargetedEnemy.transform.position - AffectedAttack.transform.position).normalized;
+                AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true);
 
-            splitAttackPos = (Vector2)AffectedAttack.transform.position + (Vector2)AffectedAttack.transform.up * _distBetweenSplits * (i + 1) * Mathf.Pow(-1, i + 1);
+            }
+            else
+            {
+                float originalRotation = AffectedAttack.transform.rotation.eulerAngles.z;
+                float splitAttackRotation = originalRotation + _directionAngleAmplitude / _splitAmmount * i * Mathf.Pow(-1, i + 1);
+                Vector2 splitAttackDir = new Vector2(Mathf.Cos(splitAttackRotation * Mathf.Deg2Rad), Mathf.Sin(splitAttackRotation * Mathf.Deg2Rad));
+                AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true);
+            }
+
         }
         GameObject.Destroy(AffectedAttack.gameObject);
     }
