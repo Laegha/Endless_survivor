@@ -57,6 +57,7 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _EnableExternalAlpha: 0
+    - _LightnessThreshold: 0.3
     - _SaturationThreshold: 0.25
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
