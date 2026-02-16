@@ -88,7 +88,11 @@ public class Biome
             return ;
 
         GameObject decor = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], startPos, Quaternion.identity);
+        Transform startTileTr = MapManager.mm.GenerationHandler.TileMatrix[startPos][0].transform;
+        decor.transform.SetParent(startTileTr);
+        
         var decorAnimator = decor.GetComponent<CustomAnimator>();
+        decor.GetComponent<RendererSortingByY>().Offset = -100;
         decorAnimator.AddAnimations(new() { placingDecor.Element } );
         decorAnimator.ChangeAnim(placingDecor.Element.AnimationName);
 
@@ -120,7 +124,7 @@ public class Biome
             return;
 
         SupportObjectControl generatedObjControl = Utility.GenerateSupportObj(placingSupportObj.Element, startPos, Quaternion.identity);
-
+        generatedObjControl.transform.SetParent(MapManager.mm.GenerationHandler.TileMatrix[startPos][0].transform);
         foreach (Vector2 offset in placingSupportObj.MapElementSize.ElementOccupyingPositions)
         {
             MapManager.mm.GenerationHandler.TileMatrix[startPos + offset][0].TileSupportObj = generatedObjControl;
