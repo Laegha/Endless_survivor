@@ -20,7 +20,9 @@ public class CustomFlags
         Regular = 1 << 0,
         Sea = 1 << 1,
         Cute = 1 << 2,
-        Cutes = 1 << 3
+        Cutes = 1 << 3,
+        Ledgehop = 1 << 4
+
 
     }
     [System.Flags]
