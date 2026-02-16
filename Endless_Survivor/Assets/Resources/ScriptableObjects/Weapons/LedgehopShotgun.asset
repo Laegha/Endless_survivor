@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: LedgehopShotgun
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: ff2d3bf79dfc63e48af17cba13f70b05, type: 3}
+  _weaponName: Ledgehop shotgun
+  _weaponStats:
+    _range: 4
+    _attackSpeed: 0.65
+    _damage: 10
+    _knockback: 10
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0.1
+  _damageIncrease: 2
+  _weaponTags: 
+  _weaponPools: 17
+  _defaultAttack:
+    rid: 9178415505152147461
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 1134183007, guid: 95eb366ea58bd734f85f8687535878da, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415505152147461
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: 1841732728, guid: 95eb366ea58bd734f85f8687535878da, type: 3}
+          - {fileID: 1727898971, guid: 95eb366ea58bd734f85f8687535878da, type: 3}
+          - {fileID: 1504091333, guid: 95eb366ea58bd734f85f8687535878da, type: 3}
+          - {fileID: 1134183007, guid: 95eb366ea58bd734f85f8687535878da, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: a7c0ddfe397e23640be5d9270ec15891, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 15, y: 3}
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 20
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 1c6e8af08d6d26b4b9702d6c124b02d4, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.13, y: 0.13}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0

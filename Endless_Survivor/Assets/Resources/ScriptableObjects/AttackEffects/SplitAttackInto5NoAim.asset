@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f4c500d1b3dee48885e1e8f3388601, type: 3}
+  m_Name: SplitAttackInto5NoAim
+  m_EditorClassIdentifier: 
+  _effectChance: 100
+  _usedBySecondaryAttacks: 0
+  _attackEffects:
+  - rid: 3262446918998425606
+  references:
+    version: 2
+    RefIds:
+    - rid: 3262446918998425606
+      type: {class: SplitAttackAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _separateChance: 50
+        _splitAmmount: 5
+        _distBetweenSplits: 0.1
