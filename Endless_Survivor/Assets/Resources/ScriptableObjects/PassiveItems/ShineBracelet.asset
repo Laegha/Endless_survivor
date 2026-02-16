@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: ShineBracelet
+  m_EditorClassIdentifier: 
+  _itemName: Shine Bracelet
+  _itemDescript: Allows to parry bullets with movement
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 9178415505152147458
+  - rid: 9178415505152147459
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415505152147458
+      type: {class: ParryProyectilesOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Parry
+        _parryRadius: 2
+        _parryAnimation:
+          _animationName: Parry
+          _frames:
+          - {fileID: -1207316343, guid: 0d3e5ec9e59faf247908a4e265754f24, type: 3}
+          - {fileID: -1056714427, guid: 0d3e5ec9e59faf247908a4e265754f24, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _parriedProyectileAnimation:
+          _animationName: ParriedBullet
+          _frames:
+          - {fileID: 21300000, guid: 8ad377b46667d354994d37e71ff2f900, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 9178415505152147459
+      type: {class: ActivateWhenHighSpeedItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateParry
+        _behavioursToTrigger:
+        - Parry
+        _speedThreshold: 5.5
+        _speedTop: 6
