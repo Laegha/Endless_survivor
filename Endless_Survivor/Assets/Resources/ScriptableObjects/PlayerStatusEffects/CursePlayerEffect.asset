@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a109152bd9bd4d4eb1eb2841b7963e0, type: 3}
+  m_Name: CursePlayerEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 9178415522412494852
+  - rid: 9178415522412494853
+  - rid: 9178415522412494854
+  _effectMaxStacks: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415522412494852
+      type: {class: CursedPlayerEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _timeBetweenMovements:
+          min: 4
+          max: 5
+        _movementDuration:
+          min: 1
+          max: 1.5
+    - rid: 9178415522412494853
+      type: {class: GraphicsPlayerStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: be89c5b874c6e604fbe642666dbabe4c, type: 3}
+        _statusEffectMaterial: {fileID: 0}
+        _statusEffectParticles: {fileID: 0}
+        _particlesOffset: {x: 0, y: 0}
+    - rid: 9178415522412494854
+      type: {class: EndByTimePlayerEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 12
