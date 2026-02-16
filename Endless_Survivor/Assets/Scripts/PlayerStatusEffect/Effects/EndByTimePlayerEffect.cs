@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class EndByTimePlayerEffect : PlayerStatusEffect
 {
-    new public static int maxStacks => 0;
+    new public static int maxStacks => 1;
     [SerializeField] float _effectDuration;
     float _timer;
 
