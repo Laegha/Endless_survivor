@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: NukeArea
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 9178415627967135751
+  - rid: 9178415627967135752
+  _idleAnimation:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415627967135751
+      type: {class: DealDamageOverTimeInAnAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _damage:
+          _damageAmmount: 5
+          _damageType: 10
+        _damageCooldown: 1.2
+        _damageAreaRadius: 2.1
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 192
+        _particles: {fileID: 2751937218881223315, guid: 8016291600aea764898f9059f8a86d71, type: 3}
+    - rid: 9178415627967135752
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 4
+          max: 6
