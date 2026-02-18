@@ -17,6 +17,7 @@ public class ShootPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
     [SerializeField] float _atkSpeed = 2.5f;
     [SerializeField] float _proyectileLifetime = 3;
     [SerializeField] float _firePointDist = 1.5f;
+    [SerializeField] float _proyectileRotationOffset;
 
     [SerializeField] ProyectileData _proyectileData;
 
@@ -60,6 +61,7 @@ public class ShootPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         _atkSpeed = originalShootPlayer._atkSpeed;
         _proyectileLifetime = originalShootPlayer._proyectileLifetime;
         _firePointDist = originalShootPlayer._firePointDist;
+        _proyectileRotationOffset = originalShootPlayer._proyectileRotationOffset;
 
 
         _proyectileData = originalShootPlayer._proyectileData;
@@ -107,6 +109,7 @@ public class ShootPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         _shootCooldown = 1 / _atkSpeed;
 
         float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
+        angle += _proyectileRotationOffset;
         EnemyProyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyProyectile>();
         proyectile.Initiate(_damage, _proyectileLifetime, _proyectileData);
 
