@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97cc974257d6e643a781cca03f7bef6, type: 3}
+  m_Name: CityTEST
+  m_EditorClassIdentifier: 
+  _floorTile: {fileID: 21300000, guid: 382ad0fa0446d30458cee5d87e358e97, type: 3}
+  _topWallTile: {fileID: 21300000, guid: 94f5a5f753726b241929a3527578256b, type: 3}
+  _rightWallTile: {fileID: 21300000, guid: 06a4dd0122a6f9e47aed55eff64ea28d, type: 3}
+  _bottomWallTile: {fileID: 21300000, guid: 2117d09848746b54d91912f847156701, type: 3}
+  _leftWallTile: {fileID: 21300000, guid: 3693534d003a3094fbce2915c8fa8323, type: 3}
+  _cornerTopRightClosed: {fileID: 21300000, guid: c821a96599be3e44ea477d7dda58b8e1, type: 3}
+  _cornerTopRightOpen: {fileID: 21300000, guid: c9b80778db85f5f4697c544985d92127, type: 3}
+  _cornerRightBotClosed: {fileID: 21300000, guid: 3db0d4b3f6746254b96b69248778a592, type: 3}
+  _cornerRightBotOpen: {fileID: 21300000, guid: 3b4eb51a34731d2468dbf555233ccb51, type: 3}
+  _cornerBotLeftClosed: {fileID: 21300000, guid: ea1f6caaa4b4b7f40871d1f09b1d27bc, type: 3}
+  _cornerBotLeftOpen: {fileID: 21300000, guid: 978c5696f700f704abae4b41cd808d06, type: 3}
+  _cornerLeftTopClosed: {fileID: 21300000, guid: 5c98dead0080e9d4a9dfa6fce8d22ca9, type: 3}
+  _cornerLeftTopOpen: {fileID: 21300000, guid: fcb9946205d53bd4a93b01c453015db9, type: 3}
+  _decorationOnTileChance: 5
+  _floorDecorationDatas:
+  - _rouletteElement: {fileID: 11400000, guid: 121cee5544bfcc243a75923e2ad7f156, type: 2}
+    _chance: 1
+  - _rouletteElement: {fileID: 11400000, guid: 850126c72d7e7d44e93a2ed7b0a90025, type: 2}
+    _chance: 1
+  - _rouletteElement: {fileID: 11400000, guid: 94acd9fec532bb4478bc42056af6dc4f, type: 2}
+    _chance: 1
+  _supportObjOnTileChance: 0
+  _possibleSupportObjectsPerTile: []
+  _biomeEnemies:
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: c665a3e4a3cafad428b13cb8bf9ac160, type: 2}
+      _spawnIntensity: 0
+    _chance: 1
+  _bossInvokerAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 8145cf3c47bab5d4da0b4bd06d97a553, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _biomeChampions:
+  - {fileID: 11400000, guid: 16f0bfedda4beb8409c49578e452bcc6, type: 2}
+  _biomeBosses: []
+  _championIndicator: {fileID: 0}
+  _bossIndicator: {fileID: 0}

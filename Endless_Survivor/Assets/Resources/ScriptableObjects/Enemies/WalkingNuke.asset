@@ -45,7 +45,10 @@ MonoBehaviour:
       data:
         _behaviourId: InvokeMiniNukes
         _overrideBehaviours: []
-        _invokedEnemies: []
+        _invokedEnemies:
+        - {fileID: 11400000, guid: 13b49ba7630c15a43ad7df6facbbc7c1, type: 2}
+        - {fileID: 11400000, guid: 13b49ba7630c15a43ad7df6facbbc7c1, type: 2}
+        - {fileID: 11400000, guid: 13b49ba7630c15a43ad7df6facbbc7c1, type: 2}
         _invokingAnim:
           _animationName: InvokePlaceholder
           _frames:
@@ -63,7 +66,7 @@ MonoBehaviour:
         _behaviourId: TimeTriggerInvokeAnimation
         _overrideBehaviours: []
         _possibleBehaviours:
-        - 
+        - AnimationTriggerInvoke
         _timeBetweenTriggers:
           min: 10
           max: 10
@@ -186,7 +189,8 @@ MonoBehaviour:
       data:
         _behaviourId: CreateExplosion
         _overrideBehaviours: []
-        _createdSupportObjs: []
+        _createdSupportObjs:
+        - {fileID: 11400000, guid: 3ac1f84133f39644e82c79ecc43e41cc, type: 2}
         _objsOffset: {x: 0, y: 0}
     - rid: 9178415619240099844
       type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
@@ -200,7 +204,7 @@ MonoBehaviour:
     - rid: 9178415627967135744
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:
-        _radius: 2.5
+        _radius: 1
         _startAngle: 0
         _fitCircle: 1
         _angleStep: 30
