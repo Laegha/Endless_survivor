@@ -1,0 +1,206 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: WalkingNuke
+  m_EditorClassIdentifier: 
+  _initialHP: 15
+  _referenceSizeSprite: {fileID: 1662495903, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+  _knockbackResistance: 0
+  _colliderSize: {x: 0.85, y: 0.85}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 9178415619240099843
+  - rid: 9178415619240099840
+  - rid: 9178415619240099844
+  - rid: 9178415611472510976
+  - rid: 9178415619240099841
+  - rid: 9178415611472510978
+  - rid: 9178415619240099842
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415611472510976
+      type: {class: InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: InvokeMiniNukes
+        _overrideBehaviours: []
+        _invokedEnemies: []
+        _invokingAnim:
+          _animationName: InvokePlaceholder
+          _frames:
+          - {fileID: 0}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _invokeFrame: 0
+        _hpMultiplier: 1
+        _invokationPattern:
+          rid: 9178415627967135744
+    - rid: 9178415611472510978
+      type: {class: TriggerRandomBehaviourAfterTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TimeTriggerInvokeAnimation
+        _overrideBehaviours: []
+        _possibleBehaviours:
+        - 
+        _timeBetweenTriggers:
+          min: 10
+          max: 10
+    - rid: 9178415619240099840
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 4
+        _chasingUpAnimation:
+          _animationName: UpMove
+          _frames:
+          - {fileID: 1662495903, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: -302775472, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: 508247688, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: -1986294872, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: 1882792682, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: -1170210154, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: -1758728313, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          - {fileID: -858324562, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+          _framesPerSecond: 16
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: RightMove
+          _frames:
+          - {fileID: 1047196878, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: 1056220295, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: 811968530, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: -1113438728, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: 1534673629, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: 773746406, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: 1974180984, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          - {fileID: -319369234, guid: 44effde4b36a01d46969b819d31e4c04, type: 3}
+          _framesPerSecond: 16
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: DownMove
+          _frames:
+          - {fileID: -2126583588, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: -1724069012, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: -1278336726, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: 1767102726, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: 1527469621, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: -1223757180, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: 1691536767, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          - {fileID: -940284941, guid: 971db6709d3d20e42868e77491663aee, type: 3}
+          _framesPerSecond: 16
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: LeftMove
+          _frames:
+          - {fileID: 960918544, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: 544752243, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: -1469700125, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: -1875530577, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: -1442480872, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: 1686249425, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: -1833278031, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          - {fileID: 508671595, guid: 0c58ea927086e9c4182654b4dcf01cff, type: 3}
+          _framesPerSecond: 16
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 9178415619240099841
+      type: {class: TriggerBehavioursAfterAnimationEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimationTriggerInvoke
+        _overrideBehaviours:
+        - ChasePlayer
+        _triggeredBehavioursIds:
+        - InvokeMiniNukes
+        - KillEnemy
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _downAnimation:
+          _animationName: InvokeMiniNukes
+          _frames:
+          - {fileID: 1705393834, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -1565822134, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 1591625938, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 1939977496, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 1624766888, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 1498835546, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 1141439126, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 1111562702, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -400323887, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -1217103426, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: 176257530, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -462878753, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -1259132517, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -1259132517, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _leftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 9178415619240099842
+      type: {class: KillEnemyOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: KillEnemy
+        _overrideBehaviours: []
+    - rid: 9178415619240099843
+      type: {class: CreateSupportObjsOnFirstActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: CreateExplosion
+        _overrideBehaviours: []
+        _createdSupportObjs: []
+        _objsOffset: {x: 0, y: 0}
+    - rid: 9178415619240099844
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerExplosion
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - CreateExplosion
+        - KillEnemy
+        _distanceToTrigger: 1
+    - rid: 9178415627967135744
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 2.5
+        _startAngle: 0
+        _fitCircle: 1
+        _angleStep: 30
