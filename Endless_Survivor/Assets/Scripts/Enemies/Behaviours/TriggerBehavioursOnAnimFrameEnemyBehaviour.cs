@@ -77,25 +77,27 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
     {
         base.ActiveUpdate();
 
-        if(_currAnim != null/* && _currAnim == EnemyControl.Animator.CurrAnim*/)
+        if (_currAnim != null/* && _currAnim == EnemyControl.Animator.CurrAnim*/)
         {
             return;
         }
         Vector2 distance = PlayerControl.pc.transform.position - EnemyControl.transform.position;
         Vector2 orientation = distance.normalized;
-        
+
         CustomAnimation currAnim = Utility.GetAnimFromDirection(orientation, _upAnimation, _rightAnimation, _downAnimation, _leftAnimation);
         if (_animations.Any(x => x.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
         _currAnim = currAnim;
-        GameManager.gm.DelayAction(currAnim.AnimDuration, () => _currAnim = null, null);
+        GameManager.gm.DelayAction(currAnim.AnimDuration, () =>
+        {
+            KillBehaviour();
+        }, null);
         EnemyControl.Animator.ChangeAnim(currAnim.AnimationName);
-        KillBehaviour();
     }
 
     public override void KillBehaviour()
     {
         base.KillBehaviour();
-        //_currAnim = null;
+        _currAnim = null;
     }
 }
