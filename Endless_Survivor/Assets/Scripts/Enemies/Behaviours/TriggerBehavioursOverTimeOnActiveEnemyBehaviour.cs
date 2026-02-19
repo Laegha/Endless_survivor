@@ -7,7 +7,6 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
     new public static int maxStacks => -1;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenTriggering;
     [SerializeField] string[] _triggeredBehaviours;
-    [SerializeField] bool _triggerInmediatelyOnActive;
     float _timer;
     bool _isActivated;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
@@ -16,8 +15,15 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
         var triggerOverTimeOriginal = original as TriggerBehavioursOverTimeOnActiveEnemyBehaviour;
         _timeBetweenTriggering = triggerOverTimeOriginal._timeBetweenTriggering;
         _triggeredBehaviours = triggerOverTimeOriginal._triggeredBehaviours;
-        _triggerInmediatelyOnActive = triggerOverTimeOriginal._triggerInmediatelyOnActive;
         _timer = _timeBetweenTriggering.rand;
+    }
+    public override void PassiveUpdate()
+    {
+        base.PassiveUpdate();
+        if(_timer > 0)
+        {  
+            _timer -= Time.deltaTime;
+        }
     }
     public override void ActiveUpdate()
     {
@@ -25,18 +31,8 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
         if(!_isActivated)
         {
             _isActivated = true;
-            _timer = _timeBetweenTriggering.rand;
-            if (_triggerInmediatelyOnActive)
-                TriggerBehaviours();
 
         }
-
-        //foreach (var behaviour in _triggeredBehaviours)
-        //{
-        //    if (EnemyControl.BehaviourManager.GetBehaviour(behaviour).IsActive)
-        //        return;
-        //}
-        _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
             _timer = _timeBetweenTriggering.rand;
