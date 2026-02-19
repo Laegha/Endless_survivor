@@ -7,6 +7,7 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
     new public static int maxStacks => -1;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenTriggering;
     [SerializeField] string[] _triggeredBehaviours;
+    [SerializeField] bool _triggerInmediatelyOnActive;
     float _timer;
     bool _isActivated;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
@@ -15,6 +16,7 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
         var triggerOverTimeOriginal = original as TriggerBehavioursOverTimeOnActiveEnemyBehaviour;
         _timeBetweenTriggering = triggerOverTimeOriginal._timeBetweenTriggering;
         _triggeredBehaviours = triggerOverTimeOriginal._triggeredBehaviours;
+        _triggerInmediatelyOnActive = triggerOverTimeOriginal._triggerInmediatelyOnActive;
         _timer = _timeBetweenTriggering.rand;
     }
     public override void ActiveUpdate()
@@ -24,6 +26,9 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
         {
             _isActivated = true;
             _timer = _timeBetweenTriggering.rand;
+            if (_triggerInmediatelyOnActive)
+                TriggerBehaviours();
+
         }
 
         //foreach (var behaviour in _triggeredBehaviours)
@@ -35,15 +40,20 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
         if (_timer <= 0)
         {
             _timer = _timeBetweenTriggering.rand;
-            //Activate behaviours
-            foreach (var behaviour in _triggeredBehaviours)
-                EnemyControl.BehaviourManager.ActivateBehaviour(behaviour);
+            //Activate behaviours+
+            TriggerBehaviours();
         }
     }
     public override void KillBehaviour()
     {
         base.KillBehaviour();
         _isActivated = false;
+    }
+
+    void TriggerBehaviours()
+    {
+        foreach (var behaviour in _triggeredBehaviours)
+            EnemyControl.BehaviourManager.ActivateBehaviour(behaviour);
     }
 
 }
