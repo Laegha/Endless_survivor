@@ -50,39 +50,9 @@ public class PlayIdleAnimFacingPlayerEnemyBehaviour : EnemyBehaviour
         base.PassiveUpdate();
         Vector2 playerDir = (PlayerControl.pc.transform.position - EnemyControl.transform.position).normalized;
 
-        var currAnim = GetAnimationFromDirection(playerDir);
+        var currAnim = Utility.GetAnimFromDirection(playerDir, _idleUpAnimation, _idleRightAnimation, _idleDownAnimation, _idleLeftAnimation);
 
         EnemyControl.Animator.ChangeAnim(currAnim.AnimationName); 
 
-    }
-    CustomAnimation GetAnimationFromDirection(Vector2 playerDir)
-    {
-        float absX = Mathf.Abs(playerDir.x);
-        float absY = Mathf.Abs(playerDir.y);
-
-        // Primary axis: Horizontal
-        if (absX > absY)
-        {
-            CustomAnimation horizontal =
-                playerDir.x > 0 ? _idleRightAnimation : _idleLeftAnimation;
-
-            if (horizontal.Frames.Length > 0)
-                return horizontal;
-
-            // Fallback to vertical
-            return playerDir.y > 0 ? _idleUpAnimation : _idleDownAnimation;
-        }
-        // Primary axis: Vertical (includes absX == absY case)
-        else
-        {
-            CustomAnimation vertical =
-                playerDir.y > 0 ? _idleUpAnimation : _idleDownAnimation;
-
-            if (vertical.Frames.Length > 0)
-                return vertical;
-
-            // Fallback to horizontal
-            return playerDir.x > 0 ? _idleRightAnimation : _idleLeftAnimation;
-        }
     }
 }
