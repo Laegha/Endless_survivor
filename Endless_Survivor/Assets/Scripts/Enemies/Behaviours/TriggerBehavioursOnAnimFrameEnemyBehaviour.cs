@@ -38,14 +38,12 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         {
             _upAnimation = new CustomAnimation(EnemyControl.Animator, triggerOnAnimFrameOriginal._upAnimation);
             _upAnimation.Events.Add(new(null, _sameFrameForAll ? _generalTriggerFrame : _upTriggerFrame, TriggerBehaviours));
-            _upAnimation.Events.Add(new(null, _upAnimation.Frames.Length - 1, () => _currAnim = null));
             _animations.Add(_upAnimation);
         }
         if (triggerOnAnimFrameOriginal._rightAnimation.Frames.Length > 0)
         {
             _rightAnimation = new CustomAnimation(EnemyControl.Animator, triggerOnAnimFrameOriginal._rightAnimation);
             _rightAnimation.Events.Add(new(null, _sameFrameForAll ? _generalTriggerFrame : _rightTriggerFrame, TriggerBehaviours));
-            _rightAnimation.Events.Add(new(null, _rightAnimation.Frames.Length - 1, () => _currAnim = null));
             _animations.Add(_rightAnimation);
 
         }
@@ -53,7 +51,6 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         {
             _downAnimation = new CustomAnimation(EnemyControl.Animator, triggerOnAnimFrameOriginal._downAnimation);
             _downAnimation.Events.Add(new(null, _sameFrameForAll ? _generalTriggerFrame : _downTriggerFrame, TriggerBehaviours));
-            _downAnimation.Events.Add(new(null, _downAnimation.Frames.Length - 1, () => _currAnim = null));
             _animations.Add(_downAnimation);
 
         }
@@ -61,7 +58,6 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         {
             _leftAnimation = new CustomAnimation(EnemyControl.Animator, triggerOnAnimFrameOriginal._leftAnimation);
             _leftAnimation.Events.Add(new(null, _sameFrameForAll ? _generalTriggerFrame : _leftTriggerFrame, TriggerBehaviours));
-            _leftAnimation.Events.Add(new(null, _leftAnimation.Frames.Length - 1, () => _currAnim = null));
             _animations.Add(_leftAnimation);
 
         }
@@ -80,8 +76,11 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
-        if(_currAnim != null && _currAnim == EnemyControl.Animator.CurrAnim)
+
+        if(_currAnim != null/* && _currAnim == EnemyControl.Animator.CurrAnim*/)
+        {
             return;
+        }
         Vector2 distance = PlayerControl.pc.transform.position - EnemyControl.transform.position;
         Vector2 orientation = distance.normalized;
         
@@ -89,12 +88,14 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         if (_animations.Any(x => x.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
         _currAnim = currAnim;
+        GameManager.gm.DelayAction(currAnim.AnimDuration, () => _currAnim = null, null);
         EnemyControl.Animator.ChangeAnim(currAnim.AnimationName);
+        KillBehaviour();
     }
 
     public override void KillBehaviour()
     {
         base.KillBehaviour();
-        _currAnim = null;
+        //_currAnim = null;
     }
 }
