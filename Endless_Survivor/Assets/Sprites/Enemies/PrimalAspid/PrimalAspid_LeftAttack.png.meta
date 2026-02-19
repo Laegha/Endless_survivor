@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 142beaf4f0a39e148845c2df638a877d
+guid: 0b967947e03502e45b2dc6b646c9bd8e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PrimalAspid_Movement_0
+      name: PrimalAspid_LeftAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc57ec706100fa438aa0bf9467497b2
-      internalID: 1152790718
+      spriteID: 4c280627c6d35be429086db0b2edac51
+      internalID: -546072055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PrimalAspid_Movement_1
+      name: PrimalAspid_LeftAttack_1
       rect:
         serializedVersion: 2
         x: 26
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 494c432552e476f4f9d8d49d18a9c532
-      internalID: -363464693
+      spriteID: 7b0e410eac9ff5942aa66cb64cebe997
+      internalID: 343325479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PrimalAspid_Movement_2
+      name: PrimalAspid_LeftAttack_2
       rect:
         serializedVersion: 2
         x: 52
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d92aebd80b5cb9b4ba1c50ec5f6a2584
-      internalID: 2094723699
+      spriteID: 9c1964cb9b167e74ab2ed5bf22ef415d
+      internalID: -1044686388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PrimalAspid_Movement_3
+      name: PrimalAspid_LeftAttack_3
       rect:
         serializedVersion: 2
         x: 78
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d71b38b565731f40a47081fdebdcfeb
-      internalID: 171020589
+      spriteID: 128861e8f3a3c26409e0ab8fb3323418
+      internalID: -662149111
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PrimalAspid_Movement_0: 1152790718
-      PrimalAspid_Movement_1: -363464693
-      PrimalAspid_Movement_2: 2094723699
-      PrimalAspid_Movement_3: 171020589
+      PrimalAspid_LeftAttack_0: -546072055
+      PrimalAspid_LeftAttack_1: 343325479
+      PrimalAspid_LeftAttack_2: -1044686388
+      PrimalAspid_LeftAttack_3: -662149111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

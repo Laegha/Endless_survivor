@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: PrimalAspid
+  m_EditorClassIdentifier: 
+  _initialHP: 35
+  _referenceSizeSprite: {fileID: 0}
+  _knockbackResistance: 0
+  _colliderSize: {x: 0, y: 0}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 9178415627967135753
+  - rid: 9178415627967135754
+  - rid: 9178415627967135755
+  - rid: 9178415627967135756
+  - rid: 9178415627967135757
+  - rid: 9178415627967135759
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415627967135753
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MainShoot
+        _overrideBehaviours: []
+        _damage: 1
+        _proyectileLifetime: 3
+        _firePointDist: 1.5
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 0
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0, y: 0}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 9178415627967135754
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: NegativeShoot
+        _overrideBehaviours: []
+        _damage: 1
+        _proyectileLifetime: 3
+        _firePointDist: 1.5
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 0
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0, y: 0}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 9178415627967135755
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: PositiveShoot
+        _overrideBehaviours: []
+        _damage: 1
+        _proyectileLifetime: 3
+        _firePointDist: 1.5
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 0
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0, y: 0}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 9178415627967135756
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimationTiggerShoot
+        _overrideBehaviours:
+        - ChasePlayer
+        _triggeredBehaviours:
+        - MainShoot
+        - NegativeShoot
+        - PositiveShoot
+        _sameFrameForAll: 1
+        _generalTriggerFrame: 0
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: RightShoot
+          _frames:
+          - {fileID: 2122698044, guid: 7a8cc16b772f5094890a874dc987b226, type: 3}
+          - {fileID: -386805488, guid: 7a8cc16b772f5094890a874dc987b226, type: 3}
+          - {fileID: 349876851, guid: 7a8cc16b772f5094890a874dc987b226, type: 3}
+          - {fileID: 1385552403, guid: 7a8cc16b772f5094890a874dc987b226, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _downTriggerFrame: 0
+        _leftAnimation:
+          _animationName: LeftShoot
+          _frames:
+          - {fileID: -546072055, guid: 0b967947e03502e45b2dc6b646c9bd8e, type: 3}
+          - {fileID: 343325479, guid: 0b967947e03502e45b2dc6b646c9bd8e, type: 3}
+          - {fileID: -1044686388, guid: 0b967947e03502e45b2dc6b646c9bd8e, type: 3}
+          - {fileID: -662149111, guid: 0b967947e03502e45b2dc6b646c9bd8e, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _leftTriggerFrame: 0
+    - rid: 9178415627967135757
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeTriggerAnimation
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 5
+          max: 5
+        _triggeredBehaviours:
+        - AnimationTiggerShoot
+    - rid: 9178415627967135759
+      type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DistanceTriggerAnim
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - OverTimeTriggerAnimation
+        _distanceToTrigger: 4.5
