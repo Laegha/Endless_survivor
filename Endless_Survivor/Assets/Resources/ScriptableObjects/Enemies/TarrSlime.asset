@@ -44,15 +44,28 @@ MonoBehaviour:
         _behaviourId: Chase
         _overrideBehaviours: []
         _enemySpeed: 2.5
-        _chasingAnimation:
-          _animationName: Jump
-          _frames:
-          - {fileID: -295313288, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
-          - {fileID: -323996784, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
-          - {fileID: 1160259967, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
-          - {fileID: 1703557622, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
-          - {fileID: 1851965226, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
-          _framesPerSecond: 7
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: Chase
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
     - rid: 3262446886444597252
@@ -64,17 +77,30 @@ MonoBehaviour:
         _damage: 5
         _attackRange: 1.3
         _attackRadius: 1
-        _enemyAttackAnimation:
-          _animationName: Attack
-          _frames:
-          - {fileID: 205653979, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
-          - {fileID: 1031381816, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
-          - {fileID: -759977124, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
-          - {fileID: -1731016049, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
-          - {fileID: -1731016049, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
-          _framesPerSecond: 6
-          _endAnimationOnEnd: 1
-          _priority: 1
+        _attackUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
         _usesVfx: 0
         _attackVFXAnimation:
           _animationName: 
@@ -83,6 +109,7 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _triggerVFXFrame: 0
+        _vfxRendererOffset: 0
         _triggerDamageFrame: 3
         _attackSfx:
           _sound: {fileID: 0}

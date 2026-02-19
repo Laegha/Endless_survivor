@@ -15,7 +15,7 @@ MonoBehaviour:
   _initialHP: 35
   _referenceSizeSprite: {fileID: 0}
   _knockbackResistance: 0
-  _colliderSize: {x: 0, y: 0}
+  _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
@@ -24,7 +24,10 @@ MonoBehaviour:
   - rid: 9178415627967135755
   - rid: 9178415627967135756
   - rid: 9178415627967135757
-  - rid: 9178415627967135759
+  - rid: 9178415641194921984
+  - rid: 9178415627967135761
+  - rid: 9178415627967135760
+  - rid: 9178415627967135762
   _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
@@ -44,23 +47,27 @@ MonoBehaviour:
       data:
         _behaviourId: MainShoot
         _overrideBehaviours: []
-        _damage: 1
+        _damage: 7
         _proyectileLifetime: 3
-        _firePointDist: 1.5
+        _firePointDist: 0
         _proyectileRotationOffset: 0
         _proyectileData:
-          _proyectileSpeed: 0
+          _proyectileSpeed: 5
           _proyectileSpread: 0
           _proyectileAnim:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
+            _animationName: Idle
+            _frames:
+            - {fileID: 1060518914, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -1290717122, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -797393333, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -1041218157, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
-          _colliderSize: {x: 0, y: 0}
+          _colliderSize: {x: 0.3, y: 0.3}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 0}
-          _particlesPrefab: {fileID: 0}
+          _particlesPrefab: {fileID: 8318381493907503586, guid: 37f15d508ad83a84aafc0bbffc6dba07, type: 3}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1
@@ -71,23 +78,27 @@ MonoBehaviour:
       data:
         _behaviourId: NegativeShoot
         _overrideBehaviours: []
-        _damage: 1
+        _damage: 7
         _proyectileLifetime: 3
-        _firePointDist: 1.5
-        _proyectileRotationOffset: 0
+        _firePointDist: 0
+        _proyectileRotationOffset: -45
         _proyectileData:
-          _proyectileSpeed: 0
+          _proyectileSpeed: 5
           _proyectileSpread: 0
           _proyectileAnim:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
+            _animationName: Idle
+            _frames:
+            - {fileID: 1060518914, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -1290717122, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -797393333, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -1041218157, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
-          _colliderSize: {x: 0, y: 0}
+          _colliderSize: {x: 0.3, y: 0.3}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 0}
-          _particlesPrefab: {fileID: 0}
+          _particlesPrefab: {fileID: 8318381493907503586, guid: 37f15d508ad83a84aafc0bbffc6dba07, type: 3}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1
@@ -98,23 +109,27 @@ MonoBehaviour:
       data:
         _behaviourId: PositiveShoot
         _overrideBehaviours: []
-        _damage: 1
+        _damage: 7
         _proyectileLifetime: 3
-        _firePointDist: 1.5
-        _proyectileRotationOffset: 0
+        _firePointDist: 0
+        _proyectileRotationOffset: 45
         _proyectileData:
-          _proyectileSpeed: 0
+          _proyectileSpeed: 5
           _proyectileSpread: 0
           _proyectileAnim:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
+            _animationName: Idle
+            _frames:
+            - {fileID: 1060518914, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -1290717122, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -797393333, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            - {fileID: -1041218157, guid: 1a2f47a96d3e99641bbbb759e66f4f04, type: 3}
+            _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
-          _colliderSize: {x: 0, y: 0}
+          _colliderSize: {x: 0.3, y: 0.3}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 0}
-          _particlesPrefab: {fileID: 0}
+          _particlesPrefab: {fileID: 8318381493907503586, guid: 37f15d508ad83a84aafc0bbffc6dba07, type: 3}
           _shootSFX:
             _sound: {fileID: 0}
             _volume: 1
@@ -126,12 +141,13 @@ MonoBehaviour:
         _behaviourId: AnimationTiggerShoot
         _overrideBehaviours:
         - ChasePlayer
+        - MoveRandomly
         _triggeredBehaviours:
         - MainShoot
         - NegativeShoot
         - PositiveShoot
         _sameFrameForAll: 1
-        _generalTriggerFrame: 0
+        _generalTriggerFrame: 2
         _upAnimation:
           _animationName: 
           _frames: []
@@ -148,7 +164,7 @@ MonoBehaviour:
           - {fileID: 1385552403, guid: 7a8cc16b772f5094890a874dc987b226, type: 3}
           _framesPerSecond: 6
           _endAnimationOnEnd: 1
-          _priority: 1
+          _priority: 2
         _rightTriggerFrame: 0
         _downAnimation:
           _animationName: 
@@ -166,7 +182,7 @@ MonoBehaviour:
           - {fileID: -662149111, guid: 0b967947e03502e45b2dc6b646c9bd8e, type: 3}
           _framesPerSecond: 6
           _endAnimationOnEnd: 1
-          _priority: 1
+          _priority: 2
         _leftTriggerFrame: 0
     - rid: 9178415627967135757
       type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
@@ -178,11 +194,103 @@ MonoBehaviour:
           max: 5
         _triggeredBehaviours:
         - AnimationTiggerShoot
-    - rid: 9178415627967135759
+        _triggerInmediatelyOnActive: 0
+    - rid: 9178415627967135760
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 3.5
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: ChaseRight
+          _frames:
+          - {fileID: -386998487, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          - {fileID: 303749157, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          - {fileID: 1384782978, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          - {fileID: 223363423, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: ChaseLeft
+          _frames:
+          - {fileID: -605199892, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          - {fileID: -1021378956, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          - {fileID: -440702671, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          - {fileID: -405384069, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 9178415627967135761
+      type: {class: MoveRandomlyWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveRandomly
+        _overrideBehaviours:
+        - ChasePlayer
+        _timeBetweenMovements:
+          min: 0.2
+          max: 0.3
+        _movementDistance:
+          min: 0.2
+          max: 0.3
+        _speed:
+          min: 1
+          max: 2
+    - rid: 9178415627967135762
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: IdleRight
+          _frames:
+          - {fileID: -386998487, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          - {fileID: 303749157, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          - {fileID: 1384782978, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          - {fileID: 223363423, guid: 0aae2e5657403174994421ef2b6b2f12, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _idleDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: IdleLeft
+          _frames:
+          - {fileID: -605199892, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          - {fileID: -1021378956, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          - {fileID: -440702671, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          - {fileID: -405384069, guid: 19180fed20afd284994a7e05baaffa8a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+    - rid: 9178415641194921984
       type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: DistanceTriggerAnim
         _overrideBehaviours: []
         _behavioursToTrigger:
+        - MoveRandomly
         - OverTimeTriggerAnimation
         _distanceToTrigger: 4.5

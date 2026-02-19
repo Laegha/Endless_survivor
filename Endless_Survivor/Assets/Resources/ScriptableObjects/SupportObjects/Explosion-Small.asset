@@ -15,7 +15,7 @@ MonoBehaviour:
   _supportObjBehaviours:
   - rid: 1204507964760915987
   _idleAnimation:
-    _animationName: Idlwe
+    _animationName: Idle
     _frames:
     - {fileID: 0}
     _framesPerSecond: 1
