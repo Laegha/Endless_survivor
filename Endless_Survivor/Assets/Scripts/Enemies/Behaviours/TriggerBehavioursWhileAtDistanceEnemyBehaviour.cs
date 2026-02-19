@@ -26,8 +26,6 @@ public class TriggerBehavioursWhileAtDistanceEnemyBehaviour : EnemyBehaviour
         float distance = Vector2.Distance(EnemyControl.transform.position, _player.position);
         if (distance <= _distanceToTrigger)
         {
-            foreach (var behaviour in _behavioursToTrigger)
-                EnemyControl.BehaviourManager.ActivateBehaviour(behaviour);
             EnemyControl.BehaviourManager.ActivateBehaviour(this);
             _isActivated = true;
         }
@@ -35,6 +33,10 @@ public class TriggerBehavioursWhileAtDistanceEnemyBehaviour : EnemyBehaviour
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
+        foreach (var behaviour in _behavioursToTrigger)
+            if(!EnemyControl.BehaviourManager.GetBehaviour(behaviour).IsActive)
+                EnemyControl.BehaviourManager.ActivateBehaviour(behaviour);
+        
         float distance = Vector2.Distance(EnemyControl.transform.position, _player.position);
         if (distance <= _distanceToTrigger || !_isActivated)
             return;
