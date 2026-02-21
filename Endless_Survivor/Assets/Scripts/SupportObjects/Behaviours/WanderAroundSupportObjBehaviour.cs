@@ -43,16 +43,16 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
     }
     void StartMovingInRandomDirection()
     {
-        Vector2 randDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        Vector2 maxEndPoint = (Vector2)ObjControl.transform.position + randDirection * _movementDistance.max;
-        maxEndPoint = new((int) maxEndPoint.x, (int) maxEndPoint.y);
-        while(!MapManager.mm.LoadedTiles.Any(tile => !tile.IsWall && (Vector2)tile.transform.position == maxEndPoint))
+        List<Tile> possibleDestinationTiles = MapManager.mm.LoadedTiles.Where((tile) =>
         {
-            randDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-            maxEndPoint = (Vector2)ObjControl.transform.position + randDirection * _movementDistance.max;
+            float tileDist = Vector2.Distance(tile.transform.position, ObjControl.transform.position);
+            return tileDist > _movementDistance.min && tileDist < _movementDistance.max && !tile.IsWall;
         }
-        _currMovingDirection = randDirection;
-        _currMovingDistance = Mathf.Clamp(_movementDistance.rand, 0, maxEndPoint.magnitude);
+        ).ToList();
+        Vector2 destination = possibleDestinationTiles[Random.Range(0, possibleDestinationTiles.Count)].transform.position;
+        Vector2 movement = destination - (Vector2)ObjControl.transform.position;
+        _currMovingDirection = movement.normalized;
+        _currMovingDistance = Mathf.Clamp(_movementDistance.rand, 0, movement.magnitude);
         _currMovingSpeed = _movementSpeed.rand;
         _currLapsedDistance = 0;
         _isMoving = true;
