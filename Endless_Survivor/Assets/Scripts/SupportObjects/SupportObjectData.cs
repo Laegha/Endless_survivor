@@ -31,7 +31,7 @@ public class SupportObjectData : ScriptableObject
             var colliderObj = new GameObject("Collider " + i);
             colliderObj.transform.SetParent(supportObjControl.ColliderHolder);
             colliderObj.AddComponent<SupportObjectCollisionDetector>().BehaviourManager = supportObjControl.BehaviourManager;
-
+            colliderObj.transform.localPosition = Vector2.zero;
             var colliderData = _supportObjColliders[i];
             if (colliderData.colType == ColliderData.ColliderType.Capusle)
             {
