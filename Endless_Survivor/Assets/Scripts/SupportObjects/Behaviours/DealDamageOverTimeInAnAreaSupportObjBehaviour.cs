@@ -35,7 +35,8 @@ public class DealDamageOverTimeInAnAreaSupportObjBehaviour : SupportObjectBehavi
 
     void ReduceCooldowns()
     {
-        foreach(var key in _damagedObjsCooldownTimers.Keys)
+        var damagedObjsCooldownTimersCopy = new Dictionary<GameObject, float>(_damagedObjsCooldownTimers);
+        foreach(var key in damagedObjsCooldownTimersCopy.Keys)
         {
             if (_damagedObjsCooldownTimers[key] > 0)
                 _damagedObjsCooldownTimers[key] -= Time.deltaTime;
