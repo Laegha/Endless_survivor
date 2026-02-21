@@ -17,10 +17,10 @@ MonoBehaviour:
   _characterHands:
   - {fileID: -177209489, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
   - {fileID: 520054154, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
-  _initialWeapons:
-  - {fileID: 11400000, guid: b0362473ad047e74b84fb9d83e5a98b1, type: 2}
+  _initialWeapons: []
   _initialMaxWeapons: 2
-  _initialPassives: []
+  _initialPassives:
+  - {fileID: 11400000, guid: 30c9d81fd9e959e4ab19b9141aacbcc2, type: 2}
   _playerStats:
     _initialHP: 12
     _hpIncrement: 2

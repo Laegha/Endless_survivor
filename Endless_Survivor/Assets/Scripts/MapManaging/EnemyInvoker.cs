@@ -10,7 +10,7 @@ public class EnemyInvoker : MonoBehaviour
     bool _fightingInvokedEnemy = false;
     List<EnemyInvokationPriority> _spawningEnemies = new();
     Action<EnemyControl> _onEnemyDeath;
-    const float _spawnTime = 3;
+    const float _spawnTime = .5f;
     float _timer;
     public CustomAnimator Animator { get { return _animator; } }
     public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath;} set { _onEnemyDeath = value; } }

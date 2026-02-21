@@ -28,5 +28,25 @@
     "fileName": "Red Queen",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "GrassSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LedgehopGun",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LedgehopShotgun",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LedgehopFlamethrower",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]

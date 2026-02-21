@@ -16,9 +16,10 @@ MonoBehaviour:
   - rid: 9178415627967135751
   - rid: 9178415627967135752
   _idleAnimation:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
@@ -32,7 +33,7 @@ MonoBehaviour:
           _damageAmmount: 5
           _damageType: 10
         _damageCooldown: 1.2
-        _damageAreaRadius: 2.1
+        _damageAreaRadius: 1
         _affectedLayers:
           serializedVersion: 2
           m_Bits: 192

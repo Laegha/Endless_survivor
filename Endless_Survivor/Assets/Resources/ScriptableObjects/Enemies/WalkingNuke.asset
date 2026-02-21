@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 9178415619240099841
   - rid: 9178415611472510978
   - rid: 9178415619240099842
+  - rid: 9178415662369865728
   _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
@@ -140,7 +141,7 @@ MonoBehaviour:
         - ChasePlayer
         _triggeredBehavioursIds:
         - InvokeMiniNukes
-        - KillEnemy
+        - ExplosionAnimTriggerKill
         _upAnimation:
           _animationName: 
           _frames: []
@@ -168,6 +169,7 @@ MonoBehaviour:
           - {fileID: -1217103426, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
           - {fileID: 176257530, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
           - {fileID: -462878753, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
+          - {fileID: -1259132517, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
           - {fileID: -1259132517, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
           - {fileID: -1259132517, guid: 9214c85c051ab5c4eacf8a55a25d5c0e, type: 3}
           _framesPerSecond: 8
@@ -199,7 +201,7 @@ MonoBehaviour:
         _overrideBehaviours: []
         _behavioursToTrigger:
         - CreateExplosion
-        - KillEnemy
+        - ExplosionAnimTriggerKill
         _distanceToTrigger: 1
     - rid: 9178415627967135744
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
@@ -208,3 +210,52 @@ MonoBehaviour:
         _startAngle: 0
         _fitCircle: 1
         _angleStep: 30
+    - rid: 9178415662369865728
+      type: {class: TriggerBehavioursAfterAnimationEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ExplosionAnimTriggerKill
+        _overrideBehaviours:
+        - ChasePlayer
+        _triggeredBehavioursIds:
+        - KillEnemy
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _downAnimation:
+          _animationName: ExplosionNuke
+          _frames:
+          - {fileID: 404559280, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -398091010, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 977965804, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -1072660819, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -1328941421, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -2089292481, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 1935988712, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 341921591, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -2068358539, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -1334086250, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 854316559, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 1671213943, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 272822917, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -1679100252, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: 1359943866, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -1239809094, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          - {fileID: -331924903, guid: 037b3162ac1235c47aea47238da268dc, type: 3}
+          _framesPerSecond: 27
+          _endAnimationOnEnd: 0
+          _priority: 10
+        _leftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
