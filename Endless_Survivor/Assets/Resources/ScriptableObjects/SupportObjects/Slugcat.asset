@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Slugcat
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 9178415658512416768
+  - rid: 9178415658512416769
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 1634877170, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -914557162, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -811650775, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -1540798162, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -983660829, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -615573423, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -655935680, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: 1941974695, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -851040554, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: -917368479, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: 36186081, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    - {fileID: 1293143699, guid: 0b6244669e4a5354886e339300008ebd, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415658512416768
+      type: {class: WanderAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movementSpeed:
+          min: 3
+          max: 5
+        _movementDistance:
+          min: 3
+          max: 8
+        _timeBetweenMovements:
+          min: 6
+          max: 12
+        _movingAnimation:
+          _animationName: Moving
+          _frames:
+          - {fileID: -1816723714, guid: 72494e9bfd8867f499a775dc42017b9d, type: 3}
+          - {fileID: 678425969, guid: 72494e9bfd8867f499a775dc42017b9d, type: 3}
+          - {fileID: -1925344752, guid: 72494e9bfd8867f499a775dc42017b9d, type: 3}
+          - {fileID: 980698957, guid: 72494e9bfd8867f499a775dc42017b9d, type: 3}
+          - {fileID: 603297875, guid: 72494e9bfd8867f499a775dc42017b9d, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 1
+    - rid: 9178415658512416769
+      type: {class: SlugCatSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _foodNeededToHibernate: 4
+        _foodFoundOnDig:
+          min: 1
+          max: 2
+        _digCooldown:
+          min: 7
+          max: 10
+        _hpRegenPerSecondOnHibernation: 1
+        _diggingAnimation:
+          _animationName: Dig
+          _frames:
+          - {fileID: -2086355275, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 1761431560, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -2031291708, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 1835852360, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 1556575493, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1943263981, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -277835823, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 651874796, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1676701560, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1323240896, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 622764756, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 694206710, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 672665630, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 153961057, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -122597386, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1118940723, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 494748592, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 1186823170, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -494466605, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -2002234234, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 1323778370, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1812990596, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 795362807, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 1449355071, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1130280426, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: 719568640, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          - {fileID: -1159150212, guid: ed4925ef28884d84c894e45225a625e7, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 2
+        _hibernationStartAnimation:
+          _animationName: HibertationStart
+          _frames:
+          - {fileID: -294870928, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          - {fileID: 1523610953, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          - {fileID: 521088873, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          - {fileID: 770679499, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          - {fileID: -67232282, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          - {fileID: -1490980292, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          - {fileID: 390996724, guid: b9597b5c514e5d543a7592ce93d50408, type: 3}
+          _framesPerSecond: 14
+          _endAnimationOnEnd: 0
+          _priority: 3
+        _hibernationAnimation:
+          _animationName: Hibernation
+          _frames:
+          - {fileID: -1998568051, guid: 85bc4e5d09365d34d88e5f6f2418567c, type: 3}
+          - {fileID: -1764366740, guid: 85bc4e5d09365d34d88e5f6f2418567c, type: 3}
+          - {fileID: 1530969760, guid: 85bc4e5d09365d34d88e5f6f2418567c, type: 3}
+          - {fileID: -115459206, guid: 85bc4e5d09365d34d88e5f6f2418567c, type: 3}
+          - {fileID: 77699496, guid: 85bc4e5d09365d34d88e5f6f2418567c, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 4
+        _diggingParticles: {fileID: 1402493518929240327, guid: 6f7b8db935dc46f4a9742c6d229ec7ac, type: 3}
+        _diggingParticlesRenderingOffset: -20
+        _dugFoodParticles: {fileID: 1402493518929240327, guid: bce12b943fd104648b4e5b2f1efc54ee, type: 3}
+        _dugFoodParticlesRenderingOffset: 30
