@@ -34,6 +34,7 @@ MonoBehaviour:
   _attackConditions:
   - rid: 1204507400439857153
   - rid: 1204507400439857154
+  _spriteRenderOrderOffset: 0
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -64,12 +65,19 @@ MonoBehaviour:
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 1
         _firePointPosition: {x: 16, y: 6}
         _proyectileData:
           _proyectileSpeed: 6
           _proyectileSpread: 5
-          _proyectileSprite: {fileID: 21300000, guid: 6b93a0b3c864a8949a374b8ab8385870, type: 3}
+          _proyectileAnim:
+            _animationName: DefaultBullet
+            _frames:
+            - {fileID: 21300000, guid: 6b93a0b3c864a8949a374b8ab8385870, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
           _colliderSize: {x: 0.25, y: 0.2}
           _colliderDirection: 1
           _proyectileMaterial: {fileID: 0}
@@ -107,12 +115,19 @@ MonoBehaviour:
           availableEffects:
           - {fileID: 11400000, guid: 6661100d5d34e7f4db3c568bac49dfd0, type: 2}
         _damageMultiplier: 2
+        _knockbackMultiplier: 1
         _damageType: 1
         _firePointPosition: {x: 16, y: 5}
         _proyectileData:
           _proyectileSpeed: 4
           _proyectileSpread: 0
-          _proyectileSprite: {fileID: 21300000, guid: fdd6bad579276cd49bd31aacd559e5a6, type: 3}
+          _proyectileAnim:
+            _animationName: PiercingBullet
+            _frames:
+            - {fileID: 21300000, guid: fdd6bad579276cd49bd31aacd559e5a6, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
           _colliderSize: {x: 0.5, y: 0.4}
           _colliderDirection: 1
           _proyectileMaterial: {fileID: 0}
@@ -140,12 +155,19 @@ MonoBehaviour:
           availableEffects:
           - {fileID: 11400000, guid: b2d06fb2e39ad3b45b187b683101db81, type: 2}
         _damageMultiplier: 3
+        _knockbackMultiplier: 1
         _damageType: 1
         _firePointPosition: {x: 16, y: 5}
         _proyectileData:
           _proyectileSpeed: 6
           _proyectileSpread: 0
-          _proyectileSprite: {fileID: 21300000, guid: 49b7f1de067e6714684719d435d31c98, type: 3}
+          _proyectileAnim:
+            _animationName: SplitBullet
+            _frames:
+            - {fileID: 21300000, guid: 49b7f1de067e6714684719d435d31c98, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
           _colliderSize: {x: 0.25, y: 0.2}
           _colliderDirection: 1
           _proyectileMaterial: {fileID: 0}
@@ -183,6 +205,7 @@ MonoBehaviour:
           availableEffects:
           - {fileID: 11400000, guid: fad7e18c7153b194292d75e6bb5eabfb, type: 2}
         _damageMultiplier: 2.5
+        _knockbackMultiplier: 1
         _damageType: 0
         _firePointPosition: {x: 16, y: 5}
         _rayData:
@@ -213,12 +236,19 @@ MonoBehaviour:
           availableEffects:
           - {fileID: 11400000, guid: 2ad8805079b78a447a302c87fe83ea22, type: 2}
         _damageMultiplier: 0.5
+        _knockbackMultiplier: 1
         _damageType: 1
         _firePointPosition: {x: 28, y: 5}
         _proyectileData:
           _proyectileSpeed: 1
           _proyectileSpread: 0
-          _proyectileSprite: {fileID: 21300000, guid: 42c0d068c6afea445b776cb684963a91, type: 3}
+          _proyectileAnim:
+            _animationName: SplitCoin
+            _frames:
+            - {fileID: 21300000, guid: 42c0d068c6afea445b776cb684963a91, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
           _colliderSize: {x: 0.2, y: 0.2}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 0}
@@ -239,9 +269,9 @@ MonoBehaviour:
       data:
         _changeChance: 25
         _idsWeights:
-        - _element: SplitAttackCoin
+        - _rouletteElement: 
           _chance: 1
-        - _element: PierceAttack
+        - _rouletteElement: 
           _chance: 1
-        - _element: RicochetAttack
+        - _rouletteElement: 
           _chance: 1

@@ -86,8 +86,9 @@ MonoBehaviour:
           _proyectileSpeed: 10
           _proyectileSpread: 0
           _proyectileAnim:
-            _animationName: 
-            _frames: []
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: 3f7f604541f75b64bae97596ab17ae96, type: 3}
             _framesPerSecond: 0
             _endAnimationOnEnd: 0
             _priority: 0

@@ -160,7 +160,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: 3cf564ec4fd580a4ba0670ae4bd01176, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -200,7 +200,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: 946295c1a3b198d4b98db4887d86b676, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -240,7 +240,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: d4dde16b2876ec04a9d3ce0fbd16b832, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -280,7 +280,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: 3209e21ad5764f940b5ed2b821d16034, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -320,7 +320,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: 34923f958942ec64cbbc0555ed6feff1, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -360,7 +360,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: 8b9b9af7ba2baab4683afbd8b80f9a4b, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -400,7 +400,7 @@ MonoBehaviour:
             _animationName: Idle
             _frames:
             - {fileID: 21300000, guid: 8634e3966ce7a6b46a47006b22b1a4e8, type: 3}
-            _framesPerSecond: 0
+            _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 0
           _colliderSize: {x: 0.4, y: 0.4}
@@ -417,19 +417,19 @@ MonoBehaviour:
       data:
         _changeChance: 100
         _idsWeights:
-        - _element: RockSlime
+        - _rouletteElement: 
           _chance: 3
-        - _element: BoomSlime
+        - _rouletteElement: 
           _chance: 3
-        - _element: RadSlime
+        - _rouletteElement: 
           _chance: 3
-        - _element: FireSlime
+        - _rouletteElement: 
           _chance: 3
-        - _element: TangleSlime
+        - _rouletteElement: 
           _chance: 3
-        - _element: QuantumSlime
+        - _rouletteElement: 
           _chance: 3
-        - _element: QuicksilverSlime
+        - _rouletteElement: 
           _chance: 1
-        - _element: LuckySlime
+        - _rouletteElement: 
           _chance: 1

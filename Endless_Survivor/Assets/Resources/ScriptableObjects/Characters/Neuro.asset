@@ -23,11 +23,12 @@ MonoBehaviour:
   _initialPassives:
   - {fileID: 11400000, guid: 06b7034d23d2c7f4ca01af62994dbc09, type: 2}
   _playerStats:
-    _initialHP: 6
-    _hpIncrement: 4
-    _hpRegeneration: 0
-    _speed: 6
-    _acceleration: 1
+    _initialHP: 14
+    _hpIncrement: 2
+    _hpRegeneration: 0.5
+    _maxSpeed: 4.5
+    _minSpeed: 4
+    _acceleration: 1.5
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
   _colliderDirection: 0

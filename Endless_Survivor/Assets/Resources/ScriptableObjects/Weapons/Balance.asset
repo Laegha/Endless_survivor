@@ -28,6 +28,7 @@ MonoBehaviour:
     rid: 1204507356210659344
   _weaponAttacks: []
   _attackConditions: []
+  _spriteRenderOrderOffset: 0
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -60,12 +61,19 @@ MonoBehaviour:
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 1
         _firePointPosition: {x: 22, y: 2.5}
         _proyectileData:
           _proyectileSpeed: 6
           _proyectileSpread: 20
-          _proyectileSprite: {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: 21300000, guid: d1d985e3cf0123f4e906c3a383b0297f, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
           _colliderSize: {x: 0.2, y: 0.2}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 0}

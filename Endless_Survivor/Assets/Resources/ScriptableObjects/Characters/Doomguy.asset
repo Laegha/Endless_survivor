@@ -22,10 +22,11 @@ MonoBehaviour:
   _initialMaxWeapons: 2
   _initialPassives: []
   _playerStats:
-    _initialHP: 15
+    _initialHP: 20
     _hpIncrement: 3
-    _hpRegeneration: 1
-    _speed: 3
+    _hpRegeneration: 0.1
+    _maxSpeed: 4.5
+    _minSpeed: 4
     _acceleration: 1
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}

@@ -22,10 +22,11 @@ MonoBehaviour:
   _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: d240be5112679254fa8fad720ead306f, type: 2}
+  - {fileID: 11400000, guid: a6c792945f5ef724e904e0b811bd1aa7, type: 2}
   _playerStats:
     _initialHP: 10
     _hpIncrement: 3
-    _hpRegeneration: 0.5
+    _hpRegeneration: 0.1
     _maxSpeed: 4
     _minSpeed: 5
     _acceleration: 1

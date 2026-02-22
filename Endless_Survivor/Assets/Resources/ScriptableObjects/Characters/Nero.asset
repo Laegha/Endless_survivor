@@ -25,9 +25,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08754e4a6537d2b42b9d89602253df4a, type: 2}
   _playerStats:
     _initialHP: 12
-    _hpIncrement: 5
-    _hpRegeneration: 0
-    _speed: 5
+    _hpIncrement: 2
+    _hpRegeneration: 0.7
+    _maxSpeed: 5.5
+    _minSpeed: 4
     _acceleration: 1
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
