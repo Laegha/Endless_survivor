@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: RottenBaby
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 9178415765742682112
+  - rid: 9178415765742682113
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -10707850, guid: 8712fb0bd8f4fd04aaf70b6a1263fbad, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415765742682112
+      type: {class: FollowPlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: -10707850, guid: 8712fb0bd8f4fd04aaf70b6a1263fbad, type: 3}
+          - {fileID: -1595007966, guid: 8712fb0bd8f4fd04aaf70b6a1263fbad, type: 3}
+          - {fileID: -714775655, guid: 8712fb0bd8f4fd04aaf70b6a1263fbad, type: 3}
+          - {fileID: 266448663, guid: 8712fb0bd8f4fd04aaf70b6a1263fbad, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _playerPosOffset: {x: -0.4, y: 0}
+        _speedLessThanPlayer: 1.5
+        _stopDist: 1
+    - rid: 9178415765742682113
+      type: {class: WeaponizeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _objWeapon: {fileID: 11400000, guid: 26520b832df424342b8acdf68c8040ba, type: 2}
+        _setSupportObjAsDistCheck: 1
