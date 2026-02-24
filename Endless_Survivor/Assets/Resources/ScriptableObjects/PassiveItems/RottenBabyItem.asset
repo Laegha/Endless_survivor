@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
   m_Name: RottenBabyItem
   m_EditorClassIdentifier: 
-  _itemName: Leg Hugger
-  _itemDescript: Wanders around and attacks enemies
-  _itemSprite: {fileID: 0}
+  _itemName: Rotten Baby
+  _itemDescript: Vomits friendly flies
+  _itemSprite: {fileID: -1047180320, guid: 0cfd582f617914141b27039bbc1cc08a, type: 3}
   _itemBehaviours:
   - rid: 1204507693099515904
   _itemPools: 1
@@ -24,6 +24,7 @@ MonoBehaviour:
     - rid: 1204507693099515904
       type: {class: SpawnSupportObjectsItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: SpawnObj
         _spawnedObjects:
-        - generic: {fileID: 11400000, guid: 1d88f0d950a33dc4e8ce724ae34d8164, type: 2}
-          ammount: 1
+        - generic: {fileID: 11400000, guid: 5a9a9b06b99206b43adf4add453b9689, type: 2}
+          num: 1
