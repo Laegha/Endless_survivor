@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: RottenBabyWeapon
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 0}
+  _weaponName: RottenBaby
+  _weaponStats:
+    _range: 8
+    _attackSpeed: 0.9
+    _damage: 7.5
+    _knockback: 0
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1.3
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 9178415765742682114
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: WeaponIdle
+    _frames:
+    - {fileID: -10707850, guid: 8712fb0bd8f4fd04aaf70b6a1263fbad, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415765742682114
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: DefaultAttack
+        _attackAnimation:
+          _animationName: DefaultAttack
+          _frames:
+          - {fileID: -1047180320, guid: 0cfd582f617914141b27039bbc1cc08a, type: 3}
+          - {fileID: 1347585359, guid: 0cfd582f617914141b27039bbc1cc08a, type: 3}
+          - {fileID: -579567426, guid: 0cfd582f617914141b27039bbc1cc08a, type: 3}
+          - {fileID: -1198315699, guid: 0cfd582f617914141b27039bbc1cc08a, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 0, y: 0}
+        _proyectileData:
+          _proyectileSpeed: 2.5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Fly
+            _frames:
+            - {fileID: 1580436763, guid: 00242e1348f55294eb6d2f459cf21467, type: 3}
+            - {fileID: 496621570, guid: 00242e1348f55294eb6d2f459cf21467, type: 3}
+            - {fileID: 1980624526, guid: 00242e1348f55294eb6d2f459cf21467, type: 3}
+            - {fileID: -1816772861, guid: 00242e1348f55294eb6d2f459cf21467, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.3, y: 0.3}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
