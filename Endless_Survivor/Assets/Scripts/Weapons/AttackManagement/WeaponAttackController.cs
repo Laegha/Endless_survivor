@@ -58,7 +58,6 @@ public class WeaponAttackController
 
         _damageMultiplier = original._damageMultiplier;
         _knockbackMultiplier = original._knockbackMultiplier;
-        Debug.Log("KNOCKBACK MULTIPLIER " + _knockbackMultiplier);
         _damageType = original._damageType;
         _initializeAttack += SetWeaponOnAttack;
         _initializeAttack += SetAttackMultipliers;

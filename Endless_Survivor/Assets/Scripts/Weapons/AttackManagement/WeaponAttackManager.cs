@@ -50,6 +50,7 @@ public class WeaponAttackManager : MonoBehaviour
         WeaponAttackController defaultAttackController = Activator.CreateInstance(data.DefaultAttack.GetType()) as WeaponAttackController;
         defaultAttackController.Initialize(_weaponControl, data.DefaultAttack);
         _defaultAttack = defaultAttackController;
+        _attackControllers.Add(defaultAttackController);
         foreach(var attackController in data.WeaponAttacks)
         {
             var instantiatedController = Activator.CreateInstance(attackController.GetType()) as WeaponAttackController;
