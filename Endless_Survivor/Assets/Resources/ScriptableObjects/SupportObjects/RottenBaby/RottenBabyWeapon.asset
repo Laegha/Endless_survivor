@@ -58,13 +58,14 @@ MonoBehaviour:
           _priority: 1
         _attackFrame: 3
         _weaponAttackEffects:
-          availableEffects: []
+          availableEffects:
+          - {fileID: 11400000, guid: aa8e47adc39310e4ab48a844285929cb, type: 2}
         _damageMultiplier: 1
         _knockbackMultiplier: 1
         _damageType: 0
         _firePointPosition: {x: 0, y: 0}
         _proyectileData:
-          _proyectileSpeed: 2.5
+          _proyectileSpeed: 3.5
           _proyectileSpread: 0
           _proyectileAnim:
             _animationName: Fly
