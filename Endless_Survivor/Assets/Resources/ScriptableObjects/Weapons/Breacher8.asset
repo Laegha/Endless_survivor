@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Breacher8
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 3d9c904cecf29e241b7a0e38ffb4c815, type: 3}
+  _weaponName: Breacher 8
+  _weaponStats:
+    _range: 2
+    _attackSpeed: 0.5
+    _damage: 7
+    _knockback: 10
+  _rangeIncrease: 0.1
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1.5
+  _weaponTags: 02000000
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 9178415765742682121
+  _weaponAttacks:
+  - rid: 9178415765742682118
+  - rid: 9178415765742682124
+  _attackConditions:
+  - rid: 9178415765742682119
+  - rid: 9178415765742682120
+  - rid: 9178415765742682122
+  - rid: 9178415765742682123
+  _spriteRenderOrderOffset: 0
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 8d299d9c841ee5f469d7210fbc6fca9c, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415765742682118
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Charge2Attack
+        _attackAnimation:
+          _animationName: Charge2Attack
+          _frames:
+          - {fileID: -228406539, guid: 1d78687c2a384444284918b0b4ffad74, type: 3}
+          - {fileID: -148315132, guid: 1d78687c2a384444284918b0b4ffad74, type: 3}
+          - {fileID: -814478365, guid: 1d78687c2a384444284918b0b4ffad74, type: 3}
+          - {fileID: 498941852, guid: 1d78687c2a384444284918b0b4ffad74, type: 3}
+          - {fileID: 569602336, guid: 1d78687c2a384444284918b0b4ffad74, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 2
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 4803c3c27e1168f429df7631547c3cc5, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1.5
+        _damageType: 0
+        _firePointPosition: {x: 22, y: 6}
+        _proyectileData:
+          _proyectileSpeed: 7
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 33f84279bc481ee42bc7f02ff747458f, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.2, y: 0.2}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 9178415765742682119
+      type: {class: AddPointsWithTimeAttackChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _timeToIncreasePoints: 3.5
+        _pointsAdded: 1
+        _pointLimit: 2
+    - rid: 9178415765742682120
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 0
+        _triggeredAttackId: Charge1Attack
+        _usesPointsOnTrigger: 1
+    - rid: 9178415765742682121
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Charge1Attack
+        _attackAnimation:
+          _animationName: Charge1Attack
+          _frames:
+          - {fileID: -550150834, guid: 90a21f56fe1c7ad42a7e3ab74e0b4696, type: 3}
+          - {fileID: -520453383, guid: 90a21f56fe1c7ad42a7e3ab74e0b4696, type: 3}
+          - {fileID: -1434837535, guid: 90a21f56fe1c7ad42a7e3ab74e0b4696, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 1
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 22, y: 6}
+        _proyectileData:
+          _proyectileSpeed: 7
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 33f84279bc481ee42bc7f02ff747458f, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.2, y: 0.2}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 9178415765742682122
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 1
+        _triggeredAttackId: Charge2Attack
+        _usesPointsOnTrigger: 1
+    - rid: 9178415765742682123
+      type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _neededPoints: 2
+        _triggeredAttackId: Charge3Attack
+        _usesPointsOnTrigger: 1
+    - rid: 9178415765742682124
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Charge3Attack
+        _attackAnimation:
+          _animationName: Charge3Attack
+          _frames:
+          - {fileID: -987497694, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: -568372385, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: -793386906, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: -1735491429, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: -1445601143, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: 1283497649, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: -960292441, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          - {fileID: 32356198, guid: e6836d0a6d79cc04eba8eb20139be354, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 057014e773a828e4eb4e80a0ffdfa316, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 3
+        _damageType: 0
+        _firePointPosition: {x: 22, y: 6}
+        _proyectileData:
+          _proyectileSpeed: 7
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 33f84279bc481ee42bc7f02ff747458f, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.2, y: 0.2}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
