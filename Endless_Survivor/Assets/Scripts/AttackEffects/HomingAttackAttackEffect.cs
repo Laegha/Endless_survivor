@@ -43,7 +43,6 @@ public class HomingAttackAttackEffect : AttackEffect
         float bestAngle = Mathf.Atan2(attackToEnemy.y, attackToEnemy.x);
         
         float maxRotation = bestAngle - currAngle;
-        Debug.Log("MAX ROT " + maxRotation);
         float frameRotation = maxRotation * _angleCorrectionPercentage / 100;
         float newAngle = currAngle + frameRotation;
         Vector2 newDir = new Vector2(Mathf.Cos(newAngle), Mathf.Sin(newAngle));

@@ -20,7 +20,7 @@ public class FollowPlayerSupportObjBehaviour : SupportObjectBehaviour
         _playerPosOffset = followPlayerOriginal._playerPosOffset;
         _speedLessThanPlayer = followPlayerOriginal._speedLessThanPlayer;
         _stopDist = followPlayerOriginal._stopDist;
-        _moveSpeed = () => Mathf.Clamp(PlayerControl.pc.PlayerRb.velocity.magnitude - _speedLessThanPlayer, 0, Mathf.Infinity);
+        _moveSpeed = () => PlayerControl.pc.PlayerRb.velocity.magnitude == 0 ? PlayerControl.pc.PlayerStats.MaxSpeed - _speedLessThanPlayer : Mathf.Clamp(PlayerControl.pc.PlayerRb.velocity.magnitude - _speedLessThanPlayer, 0, Mathf.Infinity);
         OnUpdate += Update;
     }
     void Update()

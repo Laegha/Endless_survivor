@@ -90,7 +90,6 @@ public class MapManager : MonoBehaviour
             {
                 placeableElement = elemInfo;
 
-                Debug.Log("ITEM FOUND: " + placeableElement.Element);
                 found = true;
                 break;
 
