@@ -60,7 +60,7 @@ MonoBehaviour:
           _frames:
           - {fileID: 2081530044, guid: c95a84ea29d7b8348a5c8c3984f574c7, type: 3}
           - {fileID: 2081530044, guid: c95a84ea29d7b8348a5c8c3984f574c7, type: 3}
-          _framesPerSecond: 10
+          _framesPerSecond: 1
           _endAnimationOnEnd: 0
           _priority: 1
     - rid: 9178415793942036486
