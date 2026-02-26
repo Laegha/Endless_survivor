@@ -79,10 +79,10 @@ public class Tile : MonoBehaviour
             _renderer.sprite = GetOpenCornerSprite(airTiles.First().Key);
             return;
         }
-        var nonAirTiles = adyacentTiles.Where(tile => tile.Value != null && !_airSprites.Contains(tile.Value.Renderer.sprite)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        var nonAirTiles = adyacentTiles.Where(tile => tile.Value != null && !IsAir(tile.Value)).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         if (airTiles.Count > nonAirTiles.Count)//is a closed corner
         {
-            var oppositeDirectionTile = adyacentTiles.Where(tile => tile.Value != null && !_airSprites.Contains(tile.Value.Renderer.sprite) && tile.Key.magnitude != 1).FirstOrDefault();
+            var oppositeDirectionTile = adyacentTiles.Where(tile => tile.Value != null && !IsAir(tile.Value) && tile.Key.magnitude != 1).FirstOrDefault();
             _renderer.sprite = GetClosedCornerSprite(oppositeDirectionTile.Key * -1);
             return;
         }
@@ -93,26 +93,48 @@ public class Tile : MonoBehaviour
     {
         var tilesInPosMapManager = MapManager.mm.GenerationHandler.TileMatrix[transform.position];
         int intersectionCount = tilesInPosMapManager.Where(tile => !IsAir(tile)).Count();
+        if (intersectionCount == 1)
+        {
+            _renderer.material = MapManager.mm.GenerationConfig.GetRegularMaterial();
+            return;
+        }
+        if (intersectionCount == 2)
+        {
+            _renderer.material = Get2BlendMaterial();
+            return;
+        }
+        if (intersectionCount == 3)
+        {
+            _renderer.material = Get3BlendMaterial();
+            return;
+        }
+        if (intersectionCount == 4)
+        {
+            _renderer.material = Get4BlendMaterial();
+            return;
+        }
+        return;
+        Debug.Log("Tiles in pos for material: " + intersectionCount);
         switch (intersectionCount)
         {
             case 1:
                 {
-                    _renderer.material = MapManager.mm.GenerationConfig.GetRegularMaterial();
+                    //_renderer.material = MapManager.mm.GenerationConfig.GetRegularMaterial();
                     break;
                 }
             case 2:
                 {
-                    _renderer.material = Get2BlendMaterial();
+                    //_renderer.material = Get2BlendMaterial();
                     break;
                 }
             case 3:
                 {
-                    _renderer.material = Get3BlendMaterial();
+                    //_renderer.material = Get3BlendMaterial();
                     break;
                 }
             case 4:
                 {
-                    _renderer.material = Get4BlendMaterial();
+                    //_renderer.material = Get4BlendMaterial();
                     break;
                 }
         }
@@ -128,7 +150,11 @@ public class Tile : MonoBehaviour
             {
                 Vector2 dir = new Vector2(x, y);
                 Vector2 pos = (Vector2)transform.position + dir;
-                if (dir == Vector2.zero || dir.magnitude > 1 || !tileMatrix.ContainsKey(pos) || tileMatrix[pos].Count > 1 || tileMatrix[pos][0].TileBiome != _tileBiome)
+                if (!tileMatrix.ContainsKey(pos))
+                    continue;
+                var tilesInPos = tileMatrix[pos];
+                var relevantTilesInPos = tilesInPos.Where(tile => !IsAir(tile)).ToList();
+                if (dir == Vector2.zero || dir.magnitude > 1 || relevantTilesInPos.Count != 1 || relevantTilesInPos[0].TileBiome != _tileBiome)
                     continue;
                 return MapManager.mm.GenerationConfig.Get2BlendMatrerial(dir);
 
