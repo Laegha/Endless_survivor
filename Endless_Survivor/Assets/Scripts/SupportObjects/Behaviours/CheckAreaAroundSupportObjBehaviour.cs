@@ -33,17 +33,18 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
         _areaOffset = checkAreaOriginal._areaOffset;
         _areaGfx = checkAreaOriginal._areaGfx;
         _areaGfxAlpha = checkAreaOriginal._areaGfxAlpha;
-        OnStart += CreateAreaGfx;
+        if(_areaGfx != null)
+            OnStart += CreateAreaGfx;
         OnUpdate += CheckArea;
     }
     void CreateAreaGfx()
     {
+        //make the area an animated obj and instead of changing sorting order change offset on the renderer sorter
         var areaGameObj = new GameObject("AreaGFX");
         var areaRenderer = areaGameObj.AddComponent<SpriteRenderer>();
         areaRenderer.sprite = _areaGfx;
         areaRenderer.sortingOrder = 10000;
         areaRenderer.color = new Color(areaRenderer.color.r, areaRenderer.color.g, areaRenderer.color.b, _areaGfxAlpha / 255);
-        Debug.Log(_areaGfx.bounds.extents);
         areaGameObj.transform.localScale = _areaSize / (_areaGfx.bounds.extents);
         areaGameObj.transform.SetParent(ObjControl.transform);
         areaGameObj.transform.localPosition = Vector2.zero;
