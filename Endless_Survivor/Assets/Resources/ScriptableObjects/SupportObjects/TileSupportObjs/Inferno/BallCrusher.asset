@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: BallCrusher
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 9178415793942036480
+  - rid: 9178415793942036481
+  - rid: 9178415793942036482
+  - rid: 9178415793942036485
+  - rid: 9178415793942036486
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 581376754, guid: c95a84ea29d7b8348a5c8c3984f574c7, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 9178415793942036480
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 192
+        _areaSize: {x: 0.8, y: 0.5}
+        _areaOffset: {x: 0, y: -0.17}
+        _areaGfx: {fileID: 0}
+        _areaGfxAlpha: 0
+    - rid: 9178415793942036481
+      type: {class: ChangeTimeScaleOnAreaEnterSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _timeScale: 0
+        _timeScaleDuration: 0.85
+    - rid: 9178415793942036482
+      type: {class: CreateUIObjOnAreaEnterSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _objPrefab: {fileID: 6652902361971990108, guid: 498a9b97130f9624888eaae1e5421005, type: 3}
+    - rid: 9178415793942036485
+      type: {class: PlayAnimOnAreaEnterSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _animation:
+          _animationName: BallCrush
+          _frames:
+          - {fileID: 2081530044, guid: c95a84ea29d7b8348a5c8c3984f574c7, type: 3}
+          - {fileID: 2081530044, guid: c95a84ea29d7b8348a5c8c3984f574c7, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+    - rid: 9178415793942036486
+      type: {class: CreateSupportObjOnAnimationFrameSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _animationName: BallCrush
+        _createFrame: 1
+        _createdSupportObj: {fileID: 11400000, guid: 8a1132e7b2f45a347ab448df73682f9c, type: 2}
+        _positionOffset: {x: 0, y: 0}
+        _loop: 0
+        _destroyOriginal: 1
