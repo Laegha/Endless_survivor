@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97cc974257d6e643a781cca03f7bef6, type: 3}
+  m_Name: Dumpster
+  m_EditorClassIdentifier: 
+  _floorTile: {fileID: 21300000, guid: 28aa1b021fafcf341803b14c7b2189fe, type: 3}
+  _topWallTile: {fileID: 21300000, guid: 911339b94e2ba7645bf51d7f9940980a, type: 3}
+  _rightWallTile: {fileID: 21300000, guid: 5d32ade77db40aa45b315d6b895247a2, type: 3}
+  _bottomWallTile: {fileID: 21300000, guid: 227d3f36725095d44b2d8b6c93807dc6, type: 3}
+  _leftWallTile: {fileID: 21300000, guid: 1ed7ea4cfe4da364db87de5ff0dee8f5, type: 3}
+  _cornerTopRightClosed: {fileID: 21300000, guid: 48242e7da64e4634eb18bd4cda2e6f00, type: 3}
+  _cornerTopRightOpen: {fileID: 21300000, guid: e2a551660c0234840bf38e503b853c53, type: 3}
+  _cornerRightBotClosed: {fileID: 21300000, guid: 8a7be77719b26ec49b90343cf87e34e0, type: 3}
+  _cornerRightBotOpen: {fileID: 21300000, guid: 40cc947925d1b9a428e383faff641d12, type: 3}
+  _cornerBotLeftClosed: {fileID: 21300000, guid: b2833b15f41a81942b939f50f001ea62, type: 3}
+  _cornerBotLeftOpen: {fileID: 21300000, guid: f489ab3bd21e211439bd24c5e5825cf6, type: 3}
+  _cornerLeftTopClosed: {fileID: 21300000, guid: 7a4b7e97d6314ea49839b80d1c4ab647, type: 3}
+  _cornerLeftTopOpen: {fileID: 21300000, guid: d6ddd4a610b1ed844812b97c8ca8f5fc, type: 3}
+  _decorationOnTileChance: 10
+  _floorDecorationDatas:
+  - _rouletteElement: {fileID: 11400000, guid: 46c7e75090dc00b4d8e28b9367beedc0, type: 2}
+    _chance: 5
+  - _rouletteElement: {fileID: 11400000, guid: 95fad62ba0453944f8154ef0cc80fe99, type: 2}
+    _chance: 15
+  _supportObjOnTileChance: 0
+  _possibleSupportObjectsPerTile: []
+  _biomeEnemies:
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
+      _spawnIntensity: 0
+    _chance: 1
+  _bossInvokerAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 8145cf3c47bab5d4da0b4bd06d97a553, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _biomeChampions: []
+  _biomeBosses: []
+  _championIndicator: {fileID: 0}
+  _bossIndicator: {fileID: 0}
