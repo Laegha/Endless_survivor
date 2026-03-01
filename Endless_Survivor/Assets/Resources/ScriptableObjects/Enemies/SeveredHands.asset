@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: SeveredHands
+  m_EditorClassIdentifier: 
+  _initialHP: 7
+  _referenceSizeSprite: {fileID: 0}
+  _knockbackResistance: 0
+  _colliderSize: {x: 0, y: 0}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 3599397576022949888
+  - rid: 3599397576022949890
+  - rid: 3599397576022949891
+  - rid: 3599397576022949889
+  - rid: 3599397576022949892
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3599397576022949888
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: PlayIdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: IdleUp
+          _frames:
+          - {fileID: -1611997608, guid: dd870a9d82b8124409302ca080cc4d8c, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: IdleRight
+          _frames:
+          - {fileID: 476092450, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: IdleDown
+          _frames:
+          - {fileID: 168084264, guid: 668dc4c6d703c014fb94dc7f5a893884, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: IdleLeft
+          _frames:
+          - {fileID: 1811344460, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 3599397576022949889
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DistTriggerDashAnim
+        _overrideBehaviours: []
+        _behavioursToTrigger: []
+        _distanceToTrigger: 1
+    - rid: 3599397576022949890
+      type: {class: DashTowardsPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Dash
+        _overrideBehaviours:
+        - AnimTriggerDash
+        - DistTriggerDashAnim
+        _dashSpeed: 4
+        _dashDistance: 3
+        _dashForcePriority: 5
+        _dashAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _dashParticles: {fileID: 0}
+        _particlesDuration: 0
+        _particlesFollowEnemy: 0
+    - rid: 3599397576022949891
+      type: {class: TriggerBehavioursAfterAnimationEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimTriggerDash
+        _overrideBehaviours: []
+        _triggeredBehavioursIds: []
+        _upAnimation:
+          _animationName: UpTriggerDash
+          _frames:
+          - {fileID: -1611997608, guid: dd870a9d82b8124409302ca080cc4d8c, type: 3}
+          - {fileID: 1006094384, guid: dd870a9d82b8124409302ca080cc4d8c, type: 3}
+          - {fileID: 263098077, guid: dd870a9d82b8124409302ca080cc4d8c, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _rightAnimation:
+          _animationName: RightTriggerCharge
+          _frames:
+          - {fileID: 476092450, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          - {fileID: 2000880777, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          - {fileID: -1087668919, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          - {fileID: -434586414, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          - {fileID: -229448588, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          - {fileID: 824369969, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _downAnimation:
+          _animationName: DownTriggerDash
+          _frames:
+          - {fileID: 168084264, guid: 668dc4c6d703c014fb94dc7f5a893884, type: 3}
+          - {fileID: -1719327323, guid: 668dc4c6d703c014fb94dc7f5a893884, type: 3}
+          - {fileID: 1106107010, guid: 668dc4c6d703c014fb94dc7f5a893884, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _leftAnimation:
+          _animationName: LeftTriggerCharge
+          _frames:
+          - {fileID: 1811344460, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          - {fileID: -1430353539, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          - {fileID: 1336221428, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          - {fileID: 707531488, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          - {fileID: -305489074, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          - {fileID: -972056720, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+    - rid: 3599397576022949892
+      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ContactDamage
+        _overrideBehaviours: []
+        _damage: 5
