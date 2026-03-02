@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
-  m_Name: SeveredHands
+  m_Name: SeveredHand
   m_EditorClassIdentifier: 
   _initialHP: 7
   _referenceSizeSprite: {fileID: 0}
