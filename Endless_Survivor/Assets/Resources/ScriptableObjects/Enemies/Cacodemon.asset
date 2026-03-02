@@ -19,9 +19,11 @@ MonoBehaviour:
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
-  - rid: 1428374725174231040
   - rid: 1428374728555626496
-  - rid: 1428374728555626497
+  - rid: 3599397592101814272
+  - rid: 3599397592101814273
+  - rid: 3599397592101814275
+  - rid: 3599397592101814274
   _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
@@ -36,47 +38,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1428374725174231040
-      type: {class: ShootPlayerBehaviour, ns: , asm: Assembly-CSharp}
-      data:
-        _behaviourId: Shoot
-        _overrideBehaviours:
-        - 
-        _shootingAnimation:
-          _animationName: Shoot
-          _frames:
-          - {fileID: 2084580250, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
-          - {fileID: 1517935097, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
-          - {fileID: 1690038886, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
-          - {fileID: -510179555, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
-          - {fileID: -971577367, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
-          - {fileID: 208733510, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
-          _framesPerSecond: 8
-          _endAnimationOnEnd: 0
-          _priority: 0
-        _shootFrame: 2
-        _damage: 3
-        _atkSpeed: 0.5
-        _proyectileLifetime: 3
-        _firePointPosition: {x: 0, y: -0.2}
-        _proyectileData:
-          _proyectileSpeed: 0
-          _proyectileSpread: 0
-          _proyectileAnim:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
-            _endAnimationOnEnd: 0
-            _priority: 0
-          _colliderSize: {x: 0.45, y: 0.45}
-          _colliderDirection: 0
-          _proyectileMaterial: {fileID: 0}
-          _particlesPrefab: {fileID: 0}
-          _shootSFX:
-            _sound: {fileID: 0}
-            _volume: 1
-            _minPitchVariation: 0
-            _maxPitchVariation: 0
     - rid: 1428374728555626496
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -107,11 +68,94 @@ MonoBehaviour:
           _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
-    - rid: 1428374728555626497
-      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+    - rid: 3599397592101814272
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: TriggerShoot
+        _behaviourId: Shoot
         _overrideBehaviours: []
+        _damage: 3
+        _proyectileLifetime: 3
+        _firePointDist: -0.2
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: f238d3701a853c243ba48f5f961fd8b7, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.45, y: 0.45}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 3599397592101814273
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimTriggerShoot
+        _overrideBehaviours:
+        - Chase
+        - OverTimeTriggerShootAnim
+        _triggeredBehaviours: []
+        _sameFrameForAll: 0
+        _generalTriggerFrame: 0
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: DownAttack
+          _frames:
+          - {fileID: 2084580250, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
+          - {fileID: 1517935097, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
+          - {fileID: 1690038886, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
+          - {fileID: -510179555, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
+          - {fileID: -971577367, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
+          - {fileID: 208733510, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _downTriggerFrame: 2
+        _leftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _leftTriggerFrame: 0
+    - rid: 3599397592101814274
+      type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DistTriggerShootOverTime
+        _overrideBehaviours:
+        - Chase
         _behavioursToTrigger:
-        - Shoot
+        - OverTimeTriggerShootAnim
         _distanceToTrigger: 6
+    - rid: 3599397592101814275
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeTriggerShootAnim
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 0.5
+          max: 0.5
+        _triggeredBehaviours:
+        - AnimTriggerShoot
