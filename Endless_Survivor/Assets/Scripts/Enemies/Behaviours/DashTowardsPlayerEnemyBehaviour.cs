@@ -8,7 +8,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     [SerializeField] float _dashSpeed;
     [SerializeField] float _dashDistance;
     [SerializeField] int _dashForcePriority = 5;
-    [SerializeField] CustomAnimation _dashAnimation;
+    [SerializeField] DirectionalCustomAnimation _dashAnimations;
     [SerializeField] ParticleSystem _dashParticles;
     [SerializeField] float _particlesDuration;
     [SerializeField] bool _particlesFollowEnemy;
@@ -24,8 +24,8 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
         _dashSpeed = dashOriginal._dashSpeed;
         _dashDistance = dashOriginal._dashDistance;
         _dashForcePriority = dashOriginal._dashForcePriority;
-        _dashAnimation = new(EnemyControl.Animator, dashOriginal._dashAnimation);
-        EnemyControl.Animator.AddAnimations(new (){ _dashAnimation });
+        _dashAnimations = new(EnemyControl.Animator, dashOriginal._dashAnimations);
+        EnemyControl.Animator.AddAnimations(_dashAnimations.NonNullAnimations);
         _dashParticles = dashOriginal._dashParticles;
         _particlesDuration = dashOriginal._particlesDuration;
         _particlesFollowEnemy = dashOriginal._particlesFollowEnemy;
@@ -44,8 +44,8 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
                 ParticleManager.pm.SpawnParticles(particleConfig);
             }
         }
-        if (_dashAnimation.Frames.Length > 0 && EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _dashAnimation.AnimationName)
-            EnemyControl.Animator.ChangeAnim(_dashAnimation.AnimationName);
+        if (_dashAnimations.GetAnim(_direction).Frames.Length > 0 && EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _dashAnimations.GetAnim(_direction).AnimationName)
+            EnemyControl.Animator.ChangeAnim(_dashAnimations.GetAnim(_direction).AnimationName);
 
         EnemyControl.RbForcesController.ChangeCurrForce(new(_direction.normalized, _dashSpeed, _dashForcePriority, ForceMode2D.Force));
         _lapsedDistance += Time.deltaTime * _dashSpeed;
