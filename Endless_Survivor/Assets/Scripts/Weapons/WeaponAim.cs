@@ -12,20 +12,19 @@ public class WeaponAim : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     Transform _directionBase;
     Func<Vector2> _distCheckPosition;
-    List<WeaponTarget> _attackTargets = new();
-
+    List<WeaponTarget> _exclusiveAttackTargets = new();
+    static List<WeaponTarget> _sharedTargets = new();
     RaycastHit2D _currTrackingEnemyHit;
+    
+    
+    public List<WeaponTarget> ExclusiveAttackTargets {  get { return _exclusiveAttackTargets; } }
+    public static List<WeaponTarget> SharedAttackTargets {  get { return _sharedTargets; } }
     public RaycastHit2D CurrTrackingEnemyHit { get {  return _currTrackingEnemyHit; } }
-    public List<WeaponTarget> AttackTargets {  get { return _attackTargets; } }
     List<WeaponTarget> TargetedObjs
     {
         get
         {
-            var result = new List<WeaponTarget>(_attackTargets);
-            foreach(var enemy in EnemySpawnManager.esm.Enemies)
-            {
-                result.Add(new(enemy, 0));
-            }
+            var result = new List<WeaponTarget>(_exclusiveAttackTargets).Concat(_sharedTargets).ToList();
             return result;
         }
     }
@@ -44,12 +43,12 @@ public class WeaponAim : MonoBehaviour
 
     void Update()
     {
-        var attackTargetsCopy = new List<WeaponTarget>(_attackTargets);
+        var attackTargetsCopy = new List<WeaponTarget>(_exclusiveAttackTargets);
         foreach(var attackTarget in attackTargetsCopy)
         { 
             if(attackTarget.obj == null)
             {
-                _attackTargets.Remove(attackTarget);
+                _exclusiveAttackTargets.Remove(attackTarget);
             }
         }
 
@@ -58,10 +57,10 @@ public class WeaponAim : MonoBehaviour
 
         var targets = TargetedObjs;
         targets.Sort(new WeaponTargetComparer(PlayerControl.pc.transform, _weapon.WeaponStats.Range));
-        if (AttackTargets.Count > 0)
+        if (ExclusiveAttackTargets.Count > 0)
         {
             print("Targeting " + targets[0].obj.transform.name);
-            print("Should target: " + AttackTargets[0].obj.transform.name + " with priopiryty of " + AttackTargets[0].priority);
+            print("Should target: " + ExclusiveAttackTargets[0].obj.transform.name + " with priopiryty of " + ExclusiveAttackTargets[0].priority);
         }
 
         Transform closestTarget = targets[0].obj.transform;

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
+    static readonly int _enemyTargetPriority = 0;
     [SerializeField] float _minSpawnDistFromPlayer;
     [SerializeField] float _maxSpawnDistFromPlayer;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenEnemySpawns;
@@ -57,7 +58,7 @@ public class EnemySpawnManager : MonoBehaviour
         {
             Tile spawingTile = GetEnemyPosition();
             EnemyData spawningEnemy = spawingTile.TileBiome.GetRandomAvailableEnemy(); ;
-           SpawnEnemy(spawingTile, spawningEnemy);
+            SpawnEnemy(spawingTile, spawningEnemy);
         }
 
     }
@@ -85,6 +86,7 @@ public class EnemySpawnManager : MonoBehaviour
         _onEnemySpawned?.Invoke(enemyControl);
        enemyControl.EnemyHP.OnDeath += EnemyKilled;
         _enemies.Add(enemy);
+        WeaponAim.SharedAttackTargets.Add(new(enemy, _enemyTargetPriority));
         return enemy;
     }
 

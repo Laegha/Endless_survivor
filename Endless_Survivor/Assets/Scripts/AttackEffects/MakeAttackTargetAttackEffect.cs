@@ -12,7 +12,7 @@ public class MakeAttackTargetAttackEffect : AttackEffect
         base.Initiate(original, affectedAttack);
         var makeTargetOriginal = original as MakeAttackTargetAttackEffect;
         _targetPriority = makeTargetOriginal._targetPriority;
-        AffectedAttack.ParentWeapon.WeaponControl.WeaponAim.AttackTargets.Add(new(affectedAttack.gameObject, _targetPriority));
+        AffectedAttack.ParentWeapon.WeaponControl.WeaponAim.ExclusiveAttackTargets.Add(new(affectedAttack.gameObject, _targetPriority));
 
     }
 }
