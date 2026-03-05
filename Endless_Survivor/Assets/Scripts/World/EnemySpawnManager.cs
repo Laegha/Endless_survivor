@@ -84,7 +84,7 @@ public class EnemySpawnManager : MonoBehaviour
         enemyData.TransferEnemyData(enemy);
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         _onEnemySpawned?.Invoke(enemyControl);
-       enemyControl.EnemyHP.OnDeath += EnemyKilled;
+        enemyControl.EnemyHP.OnDeath += EnemyKilled;
         _enemies.Add(enemy);
         WeaponAim.SharedAttackTargets.Add(new(enemy, _enemyTargetPriority));
         return enemy;
@@ -93,6 +93,7 @@ public class EnemySpawnManager : MonoBehaviour
     public void EnemyKilled(EnemyControl enemy)
     {
         _enemies.Remove(enemy.gameObject);
+        WeaponAim.SharedAttackTargets.Remove(WeaponAim.SharedAttackTargets.Find(x => x.obj == enemy.gameObject));
         float enemyMaxHP = enemy.EnemyHP.MaxHP;
         IntensityManager.im.IncreaseIntensityProgress(ScalingFunctions.EnemyKillIntensityProgress(enemyMaxHP));
 

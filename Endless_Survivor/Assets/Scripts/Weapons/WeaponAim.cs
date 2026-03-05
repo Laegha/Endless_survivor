@@ -57,11 +57,6 @@ public class WeaponAim : MonoBehaviour
 
         var targets = TargetedObjs;
         targets.Sort(new WeaponTargetComparer(PlayerControl.pc.transform, _weapon.WeaponStats.Range));
-        if (ExclusiveAttackTargets.Count > 0)
-        {
-            print("Targeting " + targets[0].obj.transform.name);
-            print("Should target: " + ExclusiveAttackTargets[0].obj.transform.name + " with priopiryty of " + ExclusiveAttackTargets[0].priority);
-        }
 
         Transform closestTarget = targets[0].obj.transform;
         Vector2 direction = closestTarget.position - _directionBase.position;
@@ -76,6 +71,7 @@ public class WeaponAim : MonoBehaviour
         Vector2 distDirection = (Vector2)closestTarget.position - _distCheckPosition();
         var closestTargetHit = Physics2D.Raycast(_distCheckPosition(), distDirection, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
         _currTrackingEnemyHit = closestTargetHit;
+        Debug.Log("TRAKING " +closestTargetHit.collider.transform.name);
         float distance = closestTargetHit.distance;
         //print("DISTANCE WITH CLOSEST ENEMY: " + distance + ". CLOSEST ENEMY: " + closestEnemyHit.collider);
         if (distance <= _weapon.WeaponStats.Range)
