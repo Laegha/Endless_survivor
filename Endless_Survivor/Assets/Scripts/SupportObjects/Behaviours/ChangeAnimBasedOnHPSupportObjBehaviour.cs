@@ -33,11 +33,14 @@ public class ChangeAnimBasedOnHPSupportObjBehaviour : UseHPSupportObjBehaviour
 
     void CheckCurrAnim()
     {
-        int currHP = HpBehaviour.SupportObjHP.RemainingHP;
+        int currHPPercent = HpBehaviour.SupportObjHP.RemainingHP * 100 / HpBehaviour.SupportObjHP.MaxHP;
         for(int i = 0; i < _animationsByHP.Count; i++)
         {
-            if(currHP < _animationsByHP[i].num)
+            if(currHPPercent < _animationsByHP[i].num)
             {
+                if (_animationsByHP.Any(x => x.generic.AnimationName == ObjControl.Animator.CurrAnim.AnimationName))
+                    ObjControl.Animator.EndAnimation(ObjControl.Animator.CurrAnim.AnimationName);
+
                 ObjControl.Animator.ChangeAnim(_animationsByHP[i].generic.AnimationName);
                 break;
             }
