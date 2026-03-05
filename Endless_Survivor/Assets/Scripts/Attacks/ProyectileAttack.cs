@@ -89,7 +89,19 @@ public class ProyectileAttack : Attack
             return;
         var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(collider.gameObject);
         if (enemyControl != null)
+        {
             EffectsHandler.EnemyHit(enemyControl);
+            Vector2 hitDirection = (enemyControl.transform.position - PlayerControl.pc.transform.position).normalized;
+            enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, AttackKnockback);
+
+        }
+        else
+        {
+            HP objHP = Utility.FindFirstComponentInParent<HP>(collider.gameObject);
+            if (objHP != null)
+                objHP.TakeDamage(AttackDamage);
+
+        } 
         if(AttackPiercing <= 0)
             Destroy(gameObject);
         AttackPiercing--;
