@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class MeleeAttack : Attack
@@ -63,21 +64,27 @@ public class MeleeAttack : Attack
     {
         var attackPos = (Vector2)transform.position + (Vector2)(transform.right * _attackData.AttackOffset.x + transform.up * _attackData.AttackOffset.y * (_vfxRenderer.flipY ? -1 : 1));
         var affectedCols = _attackData.IsCircle ? Physics2D.OverlapCircleAll(attackPos, _attackData.CircleRadius, Utility.GetCollidableLayers("PlayerAttack")) : Physics2D.OverlapBoxAll(attackPos, _attackData.BoxSize, transform.rotation.z, Utility.GetCollidableLayers("PlayerAttack"));
-        List<Transform> affectedEnemies = new();
+        List<Transform> affectedColliders = new();
         foreach (var collider in affectedCols)
         {
-            if (affectedEnemies.Contains(collider.transform.root))
+            if (affectedColliders.Contains(collider.transform.root))
                 continue;
-            affectedEnemies.Add(collider.transform.root);
+            affectedColliders.Add(collider.transform.root);
         }
-        foreach (var enemyCol in affectedEnemies)
+        foreach (var col in affectedColliders)
         {
-            var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(enemyCol.gameObject);
-            if (enemyControl == null)
+            var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(col.gameObject);
+            if (enemyControl != null)
+            {
+                EffectsHandler.EnemyHit(enemyControl);
+                Vector2 hitDirection = (col.transform.position - PlayerControl.pc.transform.position).normalized;
+                enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, AttackKnockback);
                 continue;
-            EffectsHandler.EnemyHit(enemyControl);
-            Vector2 hitDirection = (enemyCol.transform.position - PlayerControl.pc.transform.position).normalized;
-            enemyControl.EnemyHP.TakeDamage(AttackDamage, hitDirection, AttackKnockback);
+            }
+            HP objHP = Utility.FindFirstComponentInParent<HP>(col.gameObject);
+            if (objHP == null)
+                continue;
+            objHP.TakeDamage(AttackDamage);
         }
         if(ParentWeapon != null)
         {
