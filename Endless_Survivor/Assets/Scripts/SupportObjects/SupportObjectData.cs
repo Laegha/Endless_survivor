@@ -29,6 +29,7 @@ public class SupportObjectData : ScriptableObject
         for (int i = 0; i < _supportObjColliders.Length; i++)
         {
             var colliderObj = new GameObject("Collider " + i);
+            colliderObj.layer = LayerMask.NameToLayer("SupportObject");
             colliderObj.transform.SetParent(supportObjControl.ColliderHolder);
             colliderObj.AddComponent<SupportObjectCollisionDetector>().BehaviourManager = supportObjControl.BehaviourManager;
             colliderObj.transform.localPosition = Vector2.zero;
