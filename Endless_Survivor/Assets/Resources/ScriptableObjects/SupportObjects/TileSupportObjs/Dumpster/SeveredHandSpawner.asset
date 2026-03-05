@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: SeveredHandSpawner
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2454942391804624897
+  - rid: 2454942391804624898
+  _idleAnimation:
+    _animationName: 
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942391804624897
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 0
+          max: 0
+    - rid: 2454942391804624898
+      type: {class: CreateRandomEnemyOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _possibleEnemies:
+        - _rouletteElement: {fileID: 11400000, guid: a897d948f93ca654cbded0904e83496e, type: 2}
+          _chance: 1
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 2454942391804624899
+    - rid: 2454942391804624899
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 1
+        _angleStep: 0
