@@ -78,7 +78,11 @@ public class RayAttack : Attack
             {
                 enemyControl.EnemyHP.TakeDamage(AttackDamage, direction, AttackKnockback);
                 EffectsHandler.EnemyHit(enemyControl);
+                continue;
             }
+            HP objHP = Utility.FindFirstComponentInParent<HP>(hit.collider.gameObject);
+            if (objHP != null)
+                objHP.TakeDamage(AttackDamage);
 
         }
 
