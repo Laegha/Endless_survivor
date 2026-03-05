@@ -9,7 +9,7 @@ public class DestroySupportObjOnContactSupportObjBehaviour : UseAreaAroundSuppor
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
         base.Initiate(control, original);
-        OnObjEnterArea += (GameObject collided) => GameObject.Destroy(ObjControl.gameObject);
+        OnObjEnterArea += (GameObject collided) => ObjectDestroyingManager.odm.DestroyObj(ObjControl.BehaviourManager);
 
     }
 }

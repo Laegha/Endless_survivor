@@ -12,6 +12,6 @@ public class DestroyAfterTimeSupportObjBehaviour : SupportObjectBehaviour
         var destroyAfterTimeOriginal = original as DestroyAfterTimeSupportObjBehaviour;
         _destroyTime = destroyAfterTimeOriginal._destroyTime;
 
-        GameObject.Destroy(ObjControl.gameObject, _destroyTime.rand);
+        ObjectDestroyingManager.odm.DestroyObj(ObjControl.BehaviourManager, _destroyTime.rand);
     }
 }
