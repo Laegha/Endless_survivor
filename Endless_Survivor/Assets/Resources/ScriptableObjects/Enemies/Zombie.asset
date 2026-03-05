@@ -48,14 +48,28 @@ MonoBehaviour:
         _behaviourId: Chase
         _overrideBehaviours: []
         _enemySpeed: 1.5
-        _chasingAnimation:
-          _animationName: Move
-          _frames:
-          - {fileID: 1376658746, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
-          - {fileID: -1781448807, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
-          - {fileID: 193855474, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
-          - {fileID: 567535706, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
-          _framesPerSecond: 5
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
     - rid: 3262447073780826113
@@ -67,23 +81,30 @@ MonoBehaviour:
         _damage: 7
         _attackRange: 0
         _attackRadius: 1.6
-        _enemyAttackAnimation:
-          _animationName: Attack
-          _frames:
-          - {fileID: 1144823343, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 1436494471, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 1372170839, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: -867697643, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 132675825, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: -227664738, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 308626330, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 1323310165, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 224977976, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 224977976, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          - {fileID: 224977976, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
-          _framesPerSecond: 8
-          _endAnimationOnEnd: 1
-          _priority: 1
+        _attackUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
         _usesVfx: 1
         _attackVFXAnimation:
           _animationName: AttackVFX
@@ -95,6 +116,7 @@ MonoBehaviour:
           _endAnimationOnEnd: 1
           _priority: 0
         _triggerVFXFrame: 8
+        _vfxRendererOffset: 0
         _triggerDamageFrame: 0
         _attackSfx:
           _sound: {fileID: 0}
@@ -120,13 +142,32 @@ MonoBehaviour:
         _dashSpeed: 8
         _dashDistance: 5
         _dashForcePriority: 10
-        _dashAnimation:
-          _animationName: Dash
-          _frames:
-          - {fileID: 1376658746, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
-          _framesPerSecond: 1
-          _endAnimationOnEnd: 0
-          _priority: 0
+        _dashAnimations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: LeftDash
+            _frames:
+            - {fileID: 1376658746, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 2
         _dashParticles: {fileID: 0}
         _particlesDuration: 0
         _particlesFollowEnemy: 0

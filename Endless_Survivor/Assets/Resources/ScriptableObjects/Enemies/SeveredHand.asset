@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SeveredHand
   m_EditorClassIdentifier: 
   _initialHP: 7
-  _referenceSizeSprite: {fileID: 0}
-  _knockbackResistance: 0
-  _colliderSize: {x: 0, y: 0}
+  _referenceSizeSprite: {fileID: 21300000, guid: d3a02c7c7661a9145991ad9711fb467e, type: 3}
+  _knockbackResistance: 5
+  _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
   _enemyBehaviours:
@@ -76,7 +76,8 @@ MonoBehaviour:
       data:
         _behaviourId: DistTriggerDashAnim
         _overrideBehaviours: []
-        _behavioursToTrigger: []
+        _behavioursToTrigger:
+        - AnimTriggerDash
         _distanceToTrigger: 1
     - rid: 3599397576022949890
       type: {class: DashTowardsPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
@@ -88,12 +89,35 @@ MonoBehaviour:
         _dashSpeed: 4
         _dashDistance: 3
         _dashForcePriority: 5
-        _dashAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
-          _endAnimationOnEnd: 0
-          _priority: 0
+        _dashAnimations:
+          _upAnimation:
+            _animationName: UpDash
+            _frames:
+            - {fileID: -1611997608, guid: dd870a9d82b8124409302ca080cc4d8c, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _rightAnimation:
+            _animationName: RightDash
+            _frames:
+            - {fileID: 824369969, guid: 8e9c7a59ee5beba459d392e7fbe91fa6, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _downAnimation:
+            _animationName: DownDash
+            _frames:
+            - {fileID: 168084264, guid: 668dc4c6d703c014fb94dc7f5a893884, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: LeftDash
+            _frames:
+            - {fileID: -972056720, guid: efdcb4bfe7d1b744da0090d8c0190abd, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
         _dashParticles: {fileID: 0}
         _particlesDuration: 0
         _particlesFollowEnemy: 0
@@ -102,7 +126,8 @@ MonoBehaviour:
       data:
         _behaviourId: AnimTriggerDash
         _overrideBehaviours: []
-        _triggeredBehavioursIds: []
+        _triggeredBehavioursIds:
+        - Dash
         _upAnimation:
           _animationName: UpTriggerDash
           _frames:

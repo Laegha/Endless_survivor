@@ -31,8 +31,10 @@ MonoBehaviour:
     _chance: 5
   - _rouletteElement: {fileID: 11400000, guid: 95fad62ba0453944f8154ef0cc80fe99, type: 2}
     _chance: 15
-  _supportObjOnTileChance: 0
-  _possibleSupportObjectsPerTile: []
+  _supportObjOnTileChance: 3
+  _possibleSupportObjectsPerTile:
+  - _rouletteElement: {fileID: 11400000, guid: 0f86c914f0927944d88879656e7fa32f, type: 2}
+    _chance: 1
   _biomeEnemies:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
