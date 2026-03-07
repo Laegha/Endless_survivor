@@ -20,15 +20,16 @@ public class UseAreaAroundSupportObjBehaviour : SupportObjectBehaviour
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
         base.Initiate(control, original);
-        _checkAreaBehaviour = control.BehaviourManager.Behaviours
-            .Find(behaviour => 
-            behaviour.GetType() == typeof(CheckAreaAroundSupportObjBehaviour) 
-            && ((CheckAreaAroundSupportObjBehaviour)behaviour).AreaName == _areaName)
-            as CheckAreaAroundSupportObjBehaviour;
         OnStart += SubscribeActions;
     }
     void SubscribeActions()
     {
+        _checkAreaBehaviour = ObjControl.BehaviourManager.Behaviours
+            .Find(behaviour =>
+            behaviour.GetType() == typeof(CheckAreaAroundSupportObjBehaviour)
+            && ((CheckAreaAroundSupportObjBehaviour)behaviour).AreaName == _areaName)
+            as CheckAreaAroundSupportObjBehaviour;
+        Debug.Log(_checkAreaBehaviour + " CHECKAREA BEHAVIOUR");
         if (_checkAreaBehaviour == null)
             return;
 
