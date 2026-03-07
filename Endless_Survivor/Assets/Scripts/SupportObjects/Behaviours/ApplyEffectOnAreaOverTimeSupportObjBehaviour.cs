@@ -13,6 +13,12 @@ public class ApplyEffectOnAreaOverTimeSupportObjBehaviour : UseAreaAroundSupport
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
         base.Initiate(control, original);
+        var applyEffectsOriginal = original as ApplyEffectOnAreaOverTimeSupportObjBehaviour;
+        _effectCooldown = applyEffectsOriginal._effectCooldown;
+        _particles = applyEffectsOriginal._particles;
+        _playerStatusEffect = applyEffectsOriginal._playerStatusEffect;
+        _enemyStatusEffect = applyEffectsOriginal._enemyStatusEffect;
+        OnUpdate += ReduceCooldowns;
         OnObjUpdateArea += ApplyEffects;
     }
     void ReduceCooldowns()
@@ -37,10 +43,10 @@ public class ApplyEffectOnAreaOverTimeSupportObjBehaviour : UseAreaAroundSupport
         if (_affectedObjsCooldownTimers.ContainsKey(affectedObj))
             return;
 
-        //if (enemyControl != null)
-            //enemyControl.StatusEffectManager.AddEffects();
-        //if(playerControl != null) 
-            //playerControl.StatusEffectManager
+        if (enemyControl != null)
+            enemyControl.StatusEffectManager.AddEffects(_enemyStatusEffect.StatusEffects, _enemyStatusEffect);
+        if (playerControl != null)
+            playerControl.StatusEffectManager.AddEffects(_playerStatusEffect.StatusEffects, _playerStatusEffect);
 
         _affectedObjsCooldownTimers.Add(affectedObj, _effectCooldown);
     }
