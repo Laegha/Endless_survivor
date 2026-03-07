@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Fire_Small
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2454942415646621703
+  - rid: 2454942415646621715
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 2120220413, guid: 78c14b27135168a41b0cca3037b29728, type: 3}
+    - {fileID: 1231158509, guid: 78c14b27135168a41b0cca3037b29728, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942415646621703
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 192
+        _areaSize: {x: 1.1, y: 0.5}
+        _areaOffset: {x: 0, y: 0}
+        _areaGfx: {fileID: 0}
+        _areaGfxAlpha: 0
+    - rid: 2454942415646621715
+      type: {class: ApplyEffectOnAreaOverTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _effectCooldown: 0.8
+        _particles: {fileID: 0}
+        _playerStatusEffect: {fileID: 11400000, guid: 28ca258b4015ec541889eb558ac2409a, type: 2}
+        _enemyStatusEffect: {fileID: 11400000, guid: 684d96c6061f96c4e82799db4cfb2271, type: 2}

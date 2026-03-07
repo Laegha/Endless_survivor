@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Fire_Medium
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2454942415646621716
+  - rid: 2454942415646621717
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -408370221, guid: 4f05e2a2073c9c24dab35a60b221eb66, type: 3}
+    - {fileID: -1355274629, guid: 4f05e2a2073c9c24dab35a60b221eb66, type: 3}
+    - {fileID: -1728223190, guid: 4f05e2a2073c9c24dab35a60b221eb66, type: 3}
+    - {fileID: -1386078244, guid: 4f05e2a2073c9c24dab35a60b221eb66, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942415646621716
+      type: {class: ApplyEffectOnAreaOverTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _effectCooldown: 0.8
+        _particles: {fileID: 0}
+        _playerStatusEffect: {fileID: 11400000, guid: 28ca258b4015ec541889eb558ac2409a, type: 2}
+        _enemyStatusEffect: {fileID: 11400000, guid: 684d96c6061f96c4e82799db4cfb2271, type: 2}
+    - rid: 2454942415646621717
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 192
+        _areaSize: {x: 4.25, y: 1}
+        _areaOffset: {x: 1.625, y: 0}
+        _areaGfx: {fileID: 0}
+        _areaGfxAlpha: 0
