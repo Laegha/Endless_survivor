@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: CrabSergeant
+  m_EditorClassIdentifier: 
+  _initialHP: 500
+  _referenceSizeSprite: {fileID: 0}
+  _knockbackResistance: 0
+  _colliderSize: {x: 0, y: 0}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 2454942439853522947
+  - rid: 2454942439853522945
+  - rid: 2454942439853522946
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942439853522945
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DuringTimeTriggerMove
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - MoveSideways
+        _duration:
+          min: 3
+          max: 3
+    - rid: 2454942439853522946
+      type: {class: TriggerBehavioursOverTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeTriggerDuring
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 7
+          max: 7
+        _triggeredBehaviours:
+        - DuringTimeTriggerMove
+    - rid: 2454942439853522947
+      type: {class: MoveToRandomFixedDirWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveSideways
+        _overrideBehaviours: []
+        _possibleDirections:
+        - {x: 1, y: 0}
+        - {x: -1, y: 0}
+        _movingAnimation:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: RightMove
+            _frames:
+            - {fileID: -1389349972, guid: 56292bcee2e14494c8a169dc1f114168, type: 3}
+            - {fileID: 1789231079, guid: 56292bcee2e14494c8a169dc1f114168, type: 3}
+            - {fileID: -969481422, guid: 56292bcee2e14494c8a169dc1f114168, type: 3}
+            - {fileID: 1611655795, guid: 56292bcee2e14494c8a169dc1f114168, type: 3}
+            - {fileID: 1015469591, guid: 56292bcee2e14494c8a169dc1f114168, type: 3}
+            _framesPerSecond: 15
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: LeftMove
+            _frames:
+            - {fileID: -1789361882, guid: 89da1fba13a29bd42be8b5a25eb54cfe, type: 3}
+            - {fileID: -2089277684, guid: 89da1fba13a29bd42be8b5a25eb54cfe, type: 3}
+            - {fileID: 1522341431, guid: 89da1fba13a29bd42be8b5a25eb54cfe, type: 3}
+            - {fileID: -2075737688, guid: 89da1fba13a29bd42be8b5a25eb54cfe, type: 3}
+            - {fileID: 650534251, guid: 89da1fba13a29bd42be8b5a25eb54cfe, type: 3}
+            _framesPerSecond: 15
+            _endAnimationOnEnd: 0
+            _priority: 1
+        _timeBetweenMovements:
+          min: 5
+          max: 5
+        _movementDistance:
+          min: 8
+          max: 8
+        _speed:
+          min: 5
+          max: 5
