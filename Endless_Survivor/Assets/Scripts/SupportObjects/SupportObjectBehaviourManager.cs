@@ -20,8 +20,9 @@ public class SupportObjectBehaviourManager : MonoBehaviour
             var behaviourCopy = (SupportObjectBehaviour)Activator.CreateInstance(behaviour.GetType());
             _supportObjBehaviours.Add(behaviourCopy);
             behaviourCopy.Initiate(_objControl, behaviour);
-            behaviourCopy.OnStart?.Invoke();
         }
+        foreach(var behaviour in _supportObjBehaviours)
+            behaviour.OnStart?.Invoke();
     }
 
     private void Update()
