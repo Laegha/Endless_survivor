@@ -34,5 +34,10 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     {
         _playerStats = new PlayerStats(GameManager.gm.selectedCharacter.PlayerStats);
+        WeaponAim.SharedAttackTargets.Clear();
+    }
+    private void Update()
+    {
+        WeaponAim.SharedAttackTargets.RemoveAll(x => x.obj == null);
     }
 }

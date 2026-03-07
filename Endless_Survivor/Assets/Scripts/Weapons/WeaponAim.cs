@@ -71,9 +71,7 @@ public class WeaponAim : MonoBehaviour
         Vector2 distDirection = (Vector2)closestTarget.position - _distCheckPosition();
         var closestTargetHit = Physics2D.Raycast(_distCheckPosition(), distDirection, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
         _currTrackingEnemyHit = closestTargetHit;
-        Debug.Log("TRAKING " +closestTargetHit.collider.transform.name);
         float distance = closestTargetHit.distance;
-        //print("DISTANCE WITH CLOSEST ENEMY: " + distance + ". CLOSEST ENEMY: " + closestEnemyHit.collider);
         if (distance <= _weapon.WeaponStats.Range)
         {
             _weapon.InRange = true;
