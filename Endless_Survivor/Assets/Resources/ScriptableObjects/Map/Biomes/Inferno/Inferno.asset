@@ -27,8 +27,12 @@ MonoBehaviour:
   _cornerLeftTopOpen: {fileID: 21300000, guid: 0fe8105f957b3b34593e7d426ea4ecb9, type: 3}
   _decorationOnTileChance: 0
   _floorDecorationDatas: []
-  _supportObjOnTileChance: 0
-  _possibleSupportObjectsPerTile: []
+  _supportObjOnTileChance: 2.5
+  _possibleSupportObjectsPerTile:
+  - _rouletteElement: {fileID: 11400000, guid: 9055296a36d62be459796972b77618ab, type: 2}
+    _chance: 1
+  - _rouletteElement: {fileID: 11400000, guid: 8c3380d5c7d68b4479982e7abe5f6313, type: 2}
+    _chance: 5
   _biomeEnemies:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}

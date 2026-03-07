@@ -13,22 +13,28 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   _supportObjBehaviours:
-  - rid: 2454942391804624900
-  - rid: 2454942391804624901
+  - rid: 2454942415646621709
+  - rid: 2454942415646621710
   _idleAnimation:
     _animationName: Idle
     _frames:
     - {fileID: 982230298, guid: a4af242cb29465f4e813aeea8666325b, type: 3}
     - {fileID: 1601213442, guid: a4af242cb29465f4e813aeea8666325b, type: 3}
-    _framesPerSecond: 3
+    _framesPerSecond: 6
     _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
   references:
     version: 2
     RefIds:
-    - rid: 2454942391804624900
-      type: {class: CreateRandomSupportObjOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+    - rid: 2454942415646621709
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 2.5
+          max: 2.5
+    - rid: 2454942415646621710
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _possibleSupportObjs:
         - _rouletteElement: {fileID: 11400000, guid: b610497f449077e42bfad115910eb89c, type: 2}
@@ -37,14 +43,8 @@ MonoBehaviour:
           min: 1
           max: 1
         _creationPattern:
-          rid: 2454942391804624902
-    - rid: 2454942391804624901
-      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
-      data:
-        _destroyTime:
-          min: 2.5
-          max: 2.5
-    - rid: 2454942391804624902
+          rid: 2454942415646621711
+    - rid: 2454942415646621711
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:
         _radius: 0

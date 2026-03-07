@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: SeveredHandSpawner
   m_EditorClassIdentifier: 
   _supportObjBehaviours:
-  - rid: 2454942391804624897
-  - rid: 2454942391804624898
+  - rid: 2454942415646621712
+  - rid: 2454942415646621713
   _idleAnimation:
-    _animationName: 
+    _animationName: Idle
     _frames:
     - {fileID: 0}
-    _framesPerSecond: 0
+    _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
   references:
     version: 2
     RefIds:
-    - rid: 2454942391804624897
+    - rid: 2454942415646621712
       type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _destroyTime:
           min: 0
           max: 0
-    - rid: 2454942391804624898
-      type: {class: CreateRandomEnemyOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+    - rid: 2454942415646621713
+      type: {class: CreateRandomEnemiesOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _possibleEnemies:
         - _rouletteElement: {fileID: 11400000, guid: a897d948f93ca654cbded0904e83496e, type: 2}
@@ -42,8 +42,8 @@ MonoBehaviour:
           min: 1
           max: 1
         _creationPattern:
-          rid: 2454942391804624899
-    - rid: 2454942391804624899
+          rid: 2454942415646621714
+    - rid: 2454942415646621714
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:
         _radius: 0

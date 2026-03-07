@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: LootTrashbag
   m_EditorClassIdentifier: 
   _supportObjBehaviours:
-  - rid: 2454942376962555904
-  - rid: 2454942376962555905
-  - rid: 2454942376962555906
-  - rid: 2454942391804624896
+  - rid: 2454942415646621704
+  - rid: 2454942415646621705
+  - rid: 2454942415646621706
+  - rid: 2454942415646621707
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -26,22 +26,22 @@ MonoBehaviour:
     _priority: 0
   _supportObjColliders:
   - colType: 0
-    size: {x: 0.9, y: 0.9}
-    position: {x: 0, y: 0.1}
-    capsuleDirection: 0
+    size: {x: 0.7, y: 0.6}
+    position: {x: 0, y: 0}
+    capsuleDirection: 1
   references:
     version: 2
     RefIds:
-    - rid: 2454942376962555904
+    - rid: 2454942415646621704
       type: {class: GiveHPSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _objMaxHp: 60
-    - rid: 2454942376962555905
+    - rid: 2454942415646621705
       type: {class: ChangeAnimBasedOnHPSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _animationsByHP:
         - generic:
-            _animationName: Max
+            _animationName: HP0
             _frames:
             - {fileID: 198253290, guid: af3030ca1a5628c41aa739e777ffab44, type: 3}
             _framesPerSecond: 1
@@ -49,40 +49,39 @@ MonoBehaviour:
             _priority: 1
           num: 100
         - generic:
-            _animationName: Medium
+            _animationName: HP1
             _frames:
             - {fileID: 1538544021, guid: af3030ca1a5628c41aa739e777ffab44, type: 3}
             _framesPerSecond: 1
             _endAnimationOnEnd: 0
-            _priority: 0
+            _priority: 1
           num: 66
         - generic:
-            _animationName: Min
+            _animationName: HP2
             _frames:
-            - {fileID: 1538544021, guid: af3030ca1a5628c41aa739e777ffab44, type: 3}
             - {fileID: -1706142849, guid: af3030ca1a5628c41aa739e777ffab44, type: 3}
             _framesPerSecond: 1
             _endAnimationOnEnd: 0
             _priority: 1
           num: 33
-    - rid: 2454942376962555906
+    - rid: 2454942415646621706
       type: {class: MakeTargetSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _targetPriority: 0
-    - rid: 2454942391804624896
-      type: {class: CreateRandomSupportObjOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+    - rid: 2454942415646621707
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _possibleSupportObjs:
-        - _rouletteElement: {fileID: 11400000, guid: 9b89679effc510e4ca36b64102bb0999, type: 2}
-          _chance: 5
         - _rouletteElement: {fileID: 11400000, guid: 46caf28924c2c7443aada9a579a9dacf, type: 2}
-          _chance: 3
+          _chance: 5
+        - _rouletteElement: {fileID: 11400000, guid: 9b89679effc510e4ca36b64102bb0999, type: 2}
+          _chance: 6
         _ammount:
           min: 1
           max: 1
         _creationPattern:
-          rid: 2454942391804624903
-    - rid: 2454942391804624903
+          rid: 2454942415646621708
+    - rid: 2454942415646621708
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:
         _radius: 0

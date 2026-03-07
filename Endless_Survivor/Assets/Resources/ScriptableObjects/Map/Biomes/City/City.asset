@@ -33,21 +33,25 @@ MonoBehaviour:
     _chance: 1
   - _rouletteElement: {fileID: 11400000, guid: 94acd9fec532bb4478bc42056af6dc4f, type: 2}
     _chance: 1
-  _supportObjOnTileChance: 0
-  _possibleSupportObjectsPerTile: []
+  _supportObjOnTileChance: 0.5
+  _possibleSupportObjectsPerTile:
+  - _rouletteElement: {fileID: 11400000, guid: 0f6095cbe044b424db2b113dc9a9a757, type: 2}
+    _chance: 5
+  - _rouletteElement: {fileID: 11400000, guid: 8c89521a4a7cf8a4ea94bdeed8667c5c, type: 2}
+    _chance: 2
+  - _rouletteElement: {fileID: 11400000, guid: 107323d49becf294c9a7abd3be86827c, type: 2}
+    _chance: 8
+  - _rouletteElement: {fileID: 11400000, guid: 4332e8225757e774eba96d4d55694a5b, type: 2}
+    _chance: 1
   _biomeEnemies:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
       _spawnIntensity: 0
-    _chance: 2
+    _chance: 20
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 25f517c4ef759734d92bb3cce1899c64, type: 2}
-      _spawnIntensity: 0
-    _chance: 0
-  - _rouletteElement:
-      enemyData: {fileID: 11400000, guid: 4575dc8c44ad7084c909829fda47d39b, type: 2}
-      _spawnIntensity: 0
-    _chance: 0
+      _spawnIntensity: 1
+    _chance: 1
   _bossInvokerAnimation:
     _animationName: Idle
     _frames:
