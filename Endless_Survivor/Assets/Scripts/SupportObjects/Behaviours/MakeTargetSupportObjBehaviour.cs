@@ -13,6 +13,13 @@ public class MakeTargetSupportObjBehaviour : SupportObjectBehaviour
         var makeTargetOriginal = original as MakeTargetSupportObjBehaviour;
         _targetPriority = makeTargetOriginal._targetPriority;
         WeaponAim.SharedAttackTargets.Add(new(ObjControl.gameObject, _targetPriority));
-        OnDestroyed += () => WeaponAim.SharedAttackTargets.Remove(WeaponAim.SharedAttackTargets.Find(x => x.obj == ObjControl.gameObject));
+        OnDestroyed += RemoveTarget;
+    }
+
+    void RemoveTarget()
+    {
+        if (ObjControl == null)
+            return;
+        WeaponAim.SharedAttackTargets.Remove(WeaponAim.SharedAttackTargets.Find(x => x.obj == ObjControl.gameObject));
     }
 }
