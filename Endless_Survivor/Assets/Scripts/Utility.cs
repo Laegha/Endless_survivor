@@ -248,4 +248,9 @@ public static class Utility
         }
         return orderedAnims[0];//if there are no animations with frames, then it's the same
     }
+
+    public static bool IsTileUsable(Vector2 tilePos)
+    {
+        return !MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(tilePos) || !MapManager.mm.LoadedTiles.Any(x => (Vector2)x.transform.position == tilePos) || MapManager.mm.GenerationHandler.TileMatrix[tilePos][0].IsWall;
+    }
 }
