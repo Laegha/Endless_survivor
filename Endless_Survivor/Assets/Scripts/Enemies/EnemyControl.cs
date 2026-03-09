@@ -12,6 +12,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] RbForcesController _rbForcesController;
     [SerializeField] EnemyStatusEffectManager _statusEffectManager;
     [SerializeField] MaterialManager _materialManager;
+    EnemyData _enemyData;
 
     public EnemyHP EnemyHP { get { return _enemyHP; } }
     public CapsuleCollider2D CapsuleCollider { get { return _capsuleCollider; } }
@@ -21,6 +22,7 @@ public class EnemyControl : MonoBehaviour
     public RbForcesController RbForcesController { get { return _rbForcesController; } }
     public EnemyStatusEffectManager StatusEffectManager {  get { return _statusEffectManager; } }
     public MaterialManager MaterialManager { get { return _materialManager; } }
+    public EnemyData EnemyData {  get { return _enemyData; } set { _enemyData = value; } }
 
     void Update()
     {

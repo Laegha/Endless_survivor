@@ -26,6 +26,7 @@ public class EnemyData : ScriptableObject
     public void TransferEnemyData(GameObject enemy)
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
+        enemyControl.EnemyData = this;
         EnemyHP enemyHP = enemyControl.EnemyHP;
         enemyHP.InitializeHP(_initialHP + ScalingFunctions.EnemyHPIncrease(ScalingFunctions.CurrScalingLevel));
         enemyHP.SetSounds(_onHitSFX, _onDeathSFX);
