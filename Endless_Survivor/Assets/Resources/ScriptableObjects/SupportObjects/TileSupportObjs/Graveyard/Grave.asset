@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Grave
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2454942493511778304
+  - rid: 2454942493511778305
+  - rid: 2454942493511778306
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 1178670631, guid: e731be39c074e9e4486de9967869e936, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942493511778304
+      type: {class: ReviveEnemiesInAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _revivedHPPercent: 10
+        _spawnOffset: {x: 0, y: 0}
+        _revivedMaterial: {fileID: 2100000, guid: 52ca5cfbf3fab774697658b835a31f54, type: 2}
+        _revivingAnimation:
+          _animationName: Reviving
+          _frames:
+          - {fileID: 1178670631, guid: e731be39c074e9e4486de9967869e936, type: 3}
+          - {fileID: -1764428126, guid: e731be39c074e9e4486de9967869e936, type: 3}
+          - {fileID: 43984308, guid: e731be39c074e9e4486de9967869e936, type: 3}
+          - {fileID: -1131419943, guid: e731be39c074e9e4486de9967869e936, type: 3}
+          - {fileID: -536156770, guid: e731be39c074e9e4486de9967869e936, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _reviveFrame: 4
+        _destroyAfterRevive: 1
+    - rid: 2454942493511778305
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 128
+        _areaSize: {x: 2, y: 1.5}
+        _areaOffset: {x: 0, y: 0}
+        _areaGfx: {fileID: 0}
+        _areaGfxAlpha: 0
+    - rid: 2454942493511778306
+      type: {class: CreateGFXOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _createdAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: -536156770, guid: e731be39c074e9e4486de9967869e936, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _animationDuration: -1
+        _createdParticles: {fileID: 0}
+        _particlesDuration: 0
+        _creationOffset: {x: 0, y: 0}
