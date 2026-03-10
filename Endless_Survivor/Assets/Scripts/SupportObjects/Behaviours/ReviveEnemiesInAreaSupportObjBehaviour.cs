@@ -85,7 +85,7 @@ public class ReviveEnemiesInAreaSupportObjBehaviour : UseAreaAroundSupportObjBeh
             enemyControl.EnemyHP.InitializeHP((int)(enemyControl.EnemyHP.MaxHP * _revivedHPPercent / 100));
             if(_destroyAfterRevive)
                 ObjectDestroyingManager.odm.DestroyObj(ObjControl.BehaviourManager);
-        } , null);
+        } , () => ObjControl == null);
         
     }
 
