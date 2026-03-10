@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: 
   _initialHP: 25
-  _referenceSizeSprite: {fileID: 0}
+  _referenceSizeSprite: {fileID: 1505583216, guid: 3fb5d1f0f53df374c8d63676cd31faab, type: 3}
   _knockbackResistance: 10
   _colliderSize: {x: 0.8, y: 0.6}
   _colliderOffset: {x: 0, y: -0.45}

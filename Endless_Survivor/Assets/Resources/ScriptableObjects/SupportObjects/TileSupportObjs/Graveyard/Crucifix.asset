@@ -64,7 +64,7 @@ MonoBehaviour:
         _collidingLayers:
           serializedVersion: 2
           m_Bits: 64
-        _areaSize: {x: 2.5, y: 1.5}
+        _areaSize: {x: 2, y: 1}
         _areaOffset: {x: 0.5, y: -0.1}
         _areaGfx: {fileID: 0}
         _areaGfxAlpha: 0
