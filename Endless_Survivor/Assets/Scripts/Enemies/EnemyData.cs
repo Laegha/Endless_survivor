@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject
 {
     [SerializeField] int _initialHP;
     [SerializeField] Sprite _referenceSizeSprite;
+    [SerializeField] int _renderSortingOffset;
     [SerializeField] float _knockbackResistance;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] Vector2 _colliderOffset;
@@ -27,6 +28,8 @@ public class EnemyData : ScriptableObject
     {
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         enemyControl.EnemyData = this;
+        enemyControl.RendererSorter.Offset = _renderSortingOffset;
+        
         EnemyHP enemyHP = enemyControl.EnemyHP;
         enemyHP.InitializeHP(_initialHP + ScalingFunctions.EnemyHPIncrease(ScalingFunctions.CurrScalingLevel));
         enemyHP.SetSounds(_onHitSFX, _onDeathSFX);
