@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Crucifix
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2454942508581650434
+  - rid: 2454942508581650435
+  - rid: 2454942508581650446
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 538551672, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders:
+  - colType: 1
+    size: {x: 1.5, y: 0.8}
+    position: {x: 0.5, y: -0.1}
+    capsuleDirection: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942508581650434
+      type: {class: SpawnRandomEnemiesOnPlayerEnterAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _possibleEnemies:
+        - _rouletteElement: {fileID: 11400000, guid: 4f9a8a25b97ac2a44a63fb50be556f20, type: 2}
+          _chance: 1
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 2454942508581650444
+        _spawnAnimation:
+          _animationName: SpawnGhost
+          _frames:
+          - {fileID: 538551672, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+          - {fileID: -1412121943, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+          - {fileID: 726838626, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+          - {fileID: -312340835, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+          - {fileID: 184614993, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+          - {fileID: 1445907352, guid: b35c4dde71999174bad81635ddae2dcb, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _spawnFrame: 5
+        _destroyAfterSpawn: 1
+    - rid: 2454942508581650435
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 64
+        _areaSize: {x: 2.5, y: 1.5}
+        _areaOffset: {x: 0.5, y: -0.1}
+        _areaGfx: {fileID: 0}
+        _areaGfxAlpha: 0
+    - rid: 2454942508581650444
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 1
+        _startAngle: 30
+        _fitCircle: 0
+        _angleStep: 0
+    - rid: 2454942508581650446
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _possibleSupportObjs:
+        - _rouletteElement: {fileID: 11400000, guid: 477fcdd26e0a0d6419a77e9fba4a98c5, type: 2}
+          _chance: 1
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 2454942508581650447
+    - rid: 2454942508581650447
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 1
+        _angleStep: 0
