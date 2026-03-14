@@ -8,7 +8,6 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
     [SerializeField] RandomBetweenTwoConstants _timeBetweenTriggering;
     [SerializeField] string[] _triggeredBehaviours;
     float _timer;
-    bool _isActivated;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
         base.Initialize(original, enemyControl);
@@ -28,22 +27,12 @@ public class TriggerBehavioursOverTimeOnActiveEnemyBehaviour : EnemyBehaviour
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
-        if(!_isActivated)
-        {
-            _isActivated = true;
-
-        }
         if (_timer <= 0)
         {
             _timer = _timeBetweenTriggering.rand;
             //Activate behaviours+
             TriggerBehaviours();
         }
-    }
-    public override void KillBehaviour()
-    {
-        base.KillBehaviour();
-        _isActivated = false;
     }
 
     void TriggerBehaviours()
