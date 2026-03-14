@@ -68,13 +68,18 @@ public class AccelerateToPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
     public override void KillBehaviour()
     {
         base.KillBehaviour();
-        EnemyControl.RbForcesController.Stop();
         if (_instantStopOnUnactive)
         {
             _speed = _initialSpeed;
-            EnemyControl.Animator.EndAnimation(_movingAnimations.GetAnim(_lastDirection));
+            GameManager.gm.DelayActionAFrame(EnemyControl.RbForcesController.Stop, () => EnemyControl == null);//this one is to actually stop the enemy, delayed a frame to sort the frame delay with the last active update
+            if (_movingAnimations.NonNullAnimations.Any(anim => anim.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
+                EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
         }
         else
+        {
+            EnemyControl.RbForcesController.Stop();//this one is to override the movement force
             _isDeaccelerating = true;
+
+        }
     }
 }
