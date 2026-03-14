@@ -54,23 +54,26 @@ public class MoveToRandomFixedDirWhileActiveEnemyBehaviour : EnemyBehaviour
         float dist = _movementDistance.rand;
         Vector2 reachingTilePos = (Vector2)EnemyControl.transform.position + dir * dist;
         reachingTilePos = new Vector2((int)reachingTilePos.x, (int)reachingTilePos.y);
-        while(!MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(reachingTilePos) || !MapManager.mm.LoadedTiles.Any(x => (Vector2)x.transform.position == reachingTilePos) || MapManager.mm.GenerationHandler.TileMatrix[reachingTilePos][0].IsWall)
+        //if (!MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(reachingTilePos) || !MapManager.mm.LoadedTiles.Any(x => (Vector2)x.transform.position == reachingTilePos) || MapManager.mm.GenerationHandler.TileMatrix[reachingTilePos][0].IsWall)
+            //return;
+                
+        while (dist >= -1 && (!MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(reachingTilePos) || !MapManager.mm.LoadedTiles.Any(x => (Vector2)x.transform.position == reachingTilePos) || MapManager.mm.GenerationHandler.TileMatrix[reachingTilePos][0].IsWall))
         {
             dist--;
-            dist = _movementDistance.rand;
             reachingTilePos = (Vector2)EnemyControl.transform.position + dir * dist;
             reachingTilePos = new Vector2((int)reachingTilePos.x, (int)reachingTilePos.y);
         }
         float moveSpeed = _speed.rand;
         float moveTime = Mathf.Abs(dist / moveSpeed);
-        EnemyControl.RbForcesController.ChangeCurrForce(new(dir, moveSpeed, 5, ForceMode2D.Impulse, moveTime));
+        Vector2 moveDir = dist > 0 ? dir : -dir;//in case dist reaches -1, the movement should be inverted
+        EnemyControl.RbForcesController.ChangeCurrForce(new(moveDir, moveSpeed, 5, ForceMode2D.Impulse, moveTime));
         EnemyControl.Animator.ChangeAnim(_movingAnimation.GetAnim(dir));
-        GameManager.gm.DelayAction(moveTime, StopMoving, () => !_isMoving);
+        _timer = _timeBetweenMovements.rand;
+        GameManager.gm.DelayAction(moveTime, StopMoving, () => !_isMoving || EnemyControl == null);
     }
     void StopMoving()
     {
         _isMoving = false;
-        _timer = _timeBetweenMovements.rand;
         if(_movingAnimation.NonNullAnimations.Any(x => x.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName)) 
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
     }
