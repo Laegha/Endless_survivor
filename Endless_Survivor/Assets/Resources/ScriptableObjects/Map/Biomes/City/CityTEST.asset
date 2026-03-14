@@ -39,7 +39,7 @@ MonoBehaviour:
     _chance: 1
   _biomeEnemies:
   - _rouletteElement:
-      enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
+      enemyData: {fileID: 11400000, guid: 764a25dc39e4b494190e196375927d9b, type: 2}
       _spawnIntensity: 0
     _chance: 1
   _bossInvokerAnimation:
