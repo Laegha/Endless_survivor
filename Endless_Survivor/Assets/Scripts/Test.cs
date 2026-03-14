@@ -1,12 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] MaterialManager materialManager;
-    [SerializeField] MaterialOverride[] materials;
-    private void Start()
+    List<string> list = new List<string>();
+    private void Update()
     {
-        foreach (var mat in materials)
-            materialManager.SetMaterialOverride(mat);
+        list.Remove("tst");
     }
 }
