@@ -15,7 +15,7 @@ public class EnemyInvoker : MonoBehaviour
     public CustomAnimator Animator { get { return _animator; } }
     public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath;} set { _onEnemyDeath = value; } }
 
-    public void AddInvokationEnemy(EnemyData enemy, int priority) =>_spawningEnemies.Add(new(enemy, priority));
+    public void AddInvokationEnemy(EnemyInvokationInfo enemy, int priority) =>_spawningEnemies.Add(new(enemy, priority));
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -52,13 +52,15 @@ public class EnemyInvoker : MonoBehaviour
     void SpawnEnemy()
     {
         _spawningEnemies.Sort((a, b) => b.priority.CompareTo(a.priority));
-        EnemyData spawningEnemy = _spawningEnemies[0].enemy;
+        EnemyData spawningEnemy = _spawningEnemies[0].enemyInvokationInfo.InvokedEnemy;
         var spawnTile = EnemySpawnManager.esm.GetEnemyPosition();
         var spawnedEnemy = EnemySpawnManager.esm.SpawnEnemy(spawnTile, spawningEnemy);
 
         var enemyHP = spawnedEnemy.GetComponent<EnemyControl>().EnemyHP;
         enemyHP.OnDeath += (enemyControl) => _fightingInvokedEnemy = false;
         spawnedEnemy.GetComponent<EnemyControl>().EnemyHP.OnDeath += _onEnemyDeath;
+
+        GameUIManager.uiManager.PointerManager.AddPointer(spawnedEnemy.transform, _spawningEnemies[0].enemyInvokationInfo.PointerColor, _spawningEnemies[0].enemyInvokationInfo.PointerIcon);
 
         _spawningEnemies.RemoveAt(0);
         Time.timeScale += .5f;
@@ -69,12 +71,12 @@ public class EnemyInvoker : MonoBehaviour
 [Serializable]
 class EnemyInvokationPriority
 {
-    public EnemyData enemy;
+    public EnemyInvokationInfo enemyInvokationInfo;
     [Tooltip("The higher the number, the higher priority")]public int priority;
 
-    public EnemyInvokationPriority(EnemyData enemy, int priority)
+    public EnemyInvokationPriority(EnemyInvokationInfo enemyInvokationInfo, int priority)
     {
-        this.enemy = enemy;
+        this.enemyInvokationInfo = enemyInvokationInfo;
         this.priority = priority;
     }
 }
