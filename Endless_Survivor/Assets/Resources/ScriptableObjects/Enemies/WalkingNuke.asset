@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 15
   _referenceSizeSprite: {fileID: 1662495903, guid: 893d020124ce88c4fa32bbadf2038f60, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: 0
   _colliderSize: {x: 0.85, y: 0.85}
   _colliderOffset: {x: 0, y: 0}
@@ -46,10 +47,12 @@ MonoBehaviour:
       data:
         _behaviourId: InvokeMiniNukes
         _overrideBehaviours: []
-        _invokedEnemies:
+        _fixedInvokedEnemies:
         - {fileID: 11400000, guid: 13b49ba7630c15a43ad7df6facbbc7c1, type: 2}
         - {fileID: 11400000, guid: 13b49ba7630c15a43ad7df6facbbc7c1, type: 2}
         - {fileID: 11400000, guid: 13b49ba7630c15a43ad7df6facbbc7c1, type: 2}
+        _randomInvokedEnemies: []
+        _randomInvokePossibleAmmounts: []
         _invokingAnim:
           _animationName: InvokePlaceholder
           _frames:

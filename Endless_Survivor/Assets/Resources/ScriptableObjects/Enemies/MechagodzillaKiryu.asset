@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 300
   _referenceSizeSprite: {fileID: 0}
+  _renderSortingOffset: 0
   _knockbackResistance: 30
   _colliderSize: {x: 1.4, y: 1.4}
   _colliderOffset: {x: 0, y: -0.6}
@@ -23,6 +24,8 @@ MonoBehaviour:
   - rid: 3262447387164803076
   - rid: 3262447387164803079
   - rid: 3262447387164803080
+  - rid: 2454942648476368904
+  - rid: 2454942648476368903
   - rid: 3262447387164803082
   - rid: 3262447391761760257
   - rid: 3262447387164803083
@@ -40,6 +43,43 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 2454942648476368903
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeOnActiveTriggerShoot
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 0.6
+          max: 0.6
+        _triggeredBehaviours:
+        - ShootPlayer
+    - rid: 2454942648476368904
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootPlayer
+        _overrideBehaviours: []
+        _damage: 1
+        _proyectileLifetime: 3
+        _firePointDist: 1.5
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 0
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0, y: 0}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
     - rid: 3262447387164803075
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -207,9 +247,11 @@ MonoBehaviour:
       type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: TriggerShootWhileDuration
-        _overrideBehaviours: []
+        _overrideBehaviours:
+        - ChasePlayer
+        - MeleeAttack
         _behavioursToTrigger:
-        - ShootPlayer
+        - OverTimeOnActiveTriggerShoot
         _duration:
           min: 4
           max: 4
