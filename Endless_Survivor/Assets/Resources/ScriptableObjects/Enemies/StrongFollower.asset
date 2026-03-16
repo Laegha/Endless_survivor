@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: StrongFollower
   m_EditorClassIdentifier: 
-  _initialHP: 35
+  _initialHP: 20
   _referenceSizeSprite: {fileID: 1684011115, guid: ea1e321c2790a0544a548baca2059522, type: 3}
   _knockbackResistance: 0
   _colliderSize: {x: 0.5, y: 0.5}
@@ -22,10 +22,7 @@ MonoBehaviour:
   - rid: 768305086805573633
   - rid: 2600434731462950912
   - rid: 2600434731462950913
-  - rid: 3410740468448755712
-  _dropablePickupChances:
-  - _element: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
-    _chance: 30
+  _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -42,17 +39,29 @@ MonoBehaviour:
     - rid: 768305086805573633
       type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: 
+        _behaviourId: DamageOnContact
         _overrideBehaviours: []
-        _damage: 3
+        _damage: 2
     - rid: 2600434731462950912
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: 
+        _behaviourId: Chase
         _overrideBehaviours: []
-        _enemySpeed: 1.7
-        _chasingAnimation:
-          _animationName: Move
+        _enemySpeed: 2
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: Chase
           _frames:
           - {fileID: 1684011115, guid: ea1e321c2790a0544a548baca2059522, type: 3}
           - {fileID: 1217646688, guid: ea1e321c2790a0544a548baca2059522, type: 3}
@@ -65,18 +74,17 @@ MonoBehaviour:
           _framesPerSecond: 16
           _endAnimationOnEnd: 0
           _priority: 0
+        _chasingLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
     - rid: 2600434731462950913
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: 
+        _behaviourId: AdditionalHitbox
         _overrideBehaviours: []
         _colliderSize: {x: 0.4701658, y: 0.4701658}
         _colliderOffset: {x: 0, y: 0.25}
         _colliderDirection: 0
-    - rid: 3410740468448755712
-      type: {class: ChangeDefaultMaterialBehaviour, ns: , asm: Assembly-CSharp}
-      data:
-        _behaviourId: 
-        _overrideBehaviours: []
-        _changeAllRenderers: 1
-        _defaultMat: {fileID: 2100000, guid: a338a7a10ea40294983eb43000b93aa1, type: 2}
