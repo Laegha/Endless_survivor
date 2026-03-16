@@ -53,14 +53,31 @@ public class EnemyDataEditor : Editor
         EditorGUILayout.PropertyField(_onHitSFX);
         EditorGUILayout.PropertyField(_onDeathSFX);
 
-        EditorGUILayout.LabelField("Enemy Behaviours");
-        EditorGUILayout.PropertyField(_behaviours);
+        EnemyData enemyData = (EnemyData)target;
+        EditorGUILayout.LabelField("Enemy Behaviours", EditorStyles.boldLabel);
+        for (int i = 0; i < enemyData.EnemyBehaviours.Count; i++)
+        {
+            if (_behaviours.arraySize <= i)
+            {
+                break;
+            }
+            SerializedProperty effectProp = _behaviours.GetArrayElementAtIndex(i);
+            if (effectProp == null)
+                continue;
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(effectProp, new GUIContent(enemyData.EnemyBehaviours[i].GetType().Name), true);
+
+            if (GUILayout.Button("Remove " + enemyData.EnemyBehaviours[i].BehaviourId))
+            {
+                _behaviourTypes[enemyData.EnemyBehaviours[i].GetType()] --;
+                enemyData.EnemyBehaviours.RemoveAt(i);
+                EditorUtility.SetDirty(enemyData);
+            }
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Space(5);
+        }
         serializedObject.ApplyModifiedProperties();
         serializedObject.Update();
-
-        EnemyData enemyData = (EnemyData)target;
-
-        SyncBehaviourTypes(enemyData);
 
         if (GUILayout.Button("Add Behaviour"))
         {
@@ -126,21 +143,5 @@ public class EnemyDataEditor : Editor
             enemyData.DropablePickupChances.Add(new RouletteElementChance<PickupData>(null, 0));
         }
 
-    }
-
-    private void SyncBehaviourTypes(EnemyData enemyData)
-    {
-        // Reiniciar el diccionario antes de actualizar
-        foreach (var key in new List<Type>(_behaviourTypes.Keys))
-        {
-            _behaviourTypes[key] --;
-        }
-
-        // Marcar los tipos presentes en la lista actual
-        foreach (var behaviour in enemyData.EnemyBehaviours)
-        {
-            if (behaviour == null) continue;
-            _behaviourTypes[behaviour.GetType()] ++;
-        }
     }
 }
