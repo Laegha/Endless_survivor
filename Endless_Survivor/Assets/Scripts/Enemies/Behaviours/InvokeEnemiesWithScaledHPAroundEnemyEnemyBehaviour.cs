@@ -6,7 +6,9 @@ using UnityEngine;
 public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
 {
     new public static int maxStacks => -1;
-    [SerializeField] List<EnemyData>_invokedEnemies;
+    [Tooltip("Use this for enemies that are always invoked")][SerializeField] List<EnemyData>_fixedInvokedEnemies;
+    [Tooltip("N of these enemies will be invoked, leave empty if none")][SerializeField] List<RouletteElementChance<EnemyData>>_randomInvokedEnemies;
+    [Tooltip("The weighted ammounts if using random enemies, isn't necessary if all are fixed")][SerializeField] List<RouletteElementChance<int>> _randomInvokePossibleAmmounts;
     [SerializeField] CustomAnimation _invokingAnim;
     [SerializeField] int _invokeFrame;
     [SerializeField] float _hpMultiplier = 1.0f;
@@ -17,7 +19,9 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
     {
         base.Initialize(original, enemyControl);
         var invokeEnemiesOriginal = original as InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour;
-        _invokedEnemies = invokeEnemiesOriginal._invokedEnemies;
+        _fixedInvokedEnemies = invokeEnemiesOriginal._fixedInvokedEnemies;
+        _randomInvokedEnemies = invokeEnemiesOriginal._randomInvokedEnemies;
+        _randomInvokePossibleAmmounts = invokeEnemiesOriginal._randomInvokePossibleAmmounts;
         _invokingAnim = new(EnemyControl.Animator, invokeEnemiesOriginal._invokingAnim);
         _invokeFrame = invokeEnemiesOriginal._invokeFrame;
         _invokationPattern = invokeEnemiesOriginal._invokationPattern;
@@ -35,16 +39,37 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
 
     void InvokeEnemies()
     {
-        int enemyCount = _invokedEnemies.Count;
-        var invokingEnemies = Utility.ShuffleList(_invokedEnemies);
+        List<EnemyData> invokingEnemies = new();
+        if (_fixedInvokedEnemies.Count > 0)
+            invokingEnemies.AddRange(GetFixedInvokations());
+        if(_randomInvokedEnemies.Count > 0)
+            invokingEnemies.AddRange(GetRandomInvokations());
+
+        int enemyCount = invokingEnemies.Count;
+        invokingEnemies = Utility.ShuffleList(invokingEnemies);
         Vector2[] enemyPositions = _invokationPattern.GetPositions(EnemyControl.transform.position, enemyCount).ToArray();
-        for(int i = 0; i < enemyCount; i++) 
+        for (int i = 0; i < enemyCount; i++)
         {
             Vector2 enemyPos = enemyPositions[i];
             GameObject enemy = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Enemy"], enemyPos, Quaternion.identity);
             invokingEnemies[i].TransferEnemyData(enemy);
             enemy.GetComponent<EnemyControl>().EnemyHP.MaxHP = (int)(EnemyControl.EnemyHP.MaxHP * _hpMultiplier);
         }
+    }
 
+    List<EnemyData> GetFixedInvokations()
+    {
+        return _fixedInvokedEnemies;
+    }
+
+    List<EnemyData> GetRandomInvokations()
+    {
+        int randomEnemyCount = _randomInvokePossibleAmmounts.Count == 0 ? 1 : Utility.GetRouletteElement(_randomInvokePossibleAmmounts);
+        List<EnemyData> result = new();
+        for(int i = 0; i < randomEnemyCount; i++)
+        {
+            result.Add(Utility.GetRouletteElement(_randomInvokedEnemies));
+        }
+        return result;
     }
 }
