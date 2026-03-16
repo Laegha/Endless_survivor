@@ -12,6 +12,7 @@ public class PlayAnimFacingPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         base.Initialize(original, enemyControl);
         var playAnimOriginal = original as PlayAnimFacingPlayerWhileActiveEnemyBehaviour;
         _animations = new(EnemyControl.Animator, playAnimOriginal._animations);
+        EnemyControl.Animator.AddAnimations(_animations.NonNullAnimations);
     }
     public override void ActiveUpdate()
     {
