@@ -9,4 +9,9 @@ public class Test : MonoBehaviour
     {
         GameUIManager.uiManager.PointerManager.AddPointer(_target, Color.white, _sprite);
     }
+    private void Update()
+    {
+        Debug.Log(Camera.main.WorldToScreenPoint(_target.position));
+        
+    }
 }

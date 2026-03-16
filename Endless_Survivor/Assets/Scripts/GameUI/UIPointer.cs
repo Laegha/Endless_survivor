@@ -48,7 +48,8 @@ public class UIPointer : MonoBehaviour
 
     public void Update()
     {
-        Vector2 dir = (_targetTr.position - _playerTr.position).normalized;
+        Vector2 targetDist = _targetTr.position - _playerTr.position;
+        Vector2 dir = targetDist.normalized;
 
 
         Vector2 halfSize = _canvasSize * 0.5f;
@@ -64,5 +65,17 @@ public class UIPointer : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x);
         _pointerTr.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); 
         _iconTr.rotation = Quaternion.Euler(0, 0, 0);
+
+        if(Mathf.Abs(targetDist.x) > _showingLimits.x || Mathf.Abs(targetDist.y) > _showingLimits.y)
+        {
+            _bgImage.enabled = true;
+            _iconImage.enabled = true;
+        }
+        else
+        {
+            _bgImage.enabled = false;
+            _iconImage.enabled = false;
+
+        }
     }
 }
