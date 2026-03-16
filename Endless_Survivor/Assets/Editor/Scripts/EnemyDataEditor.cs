@@ -9,6 +9,7 @@ using UnityEngine;
 public class EnemyDataEditor : Editor
 {
     Dictionary<Type, int> _behaviourTypes = new Dictionary<Type, int>();
+    bool _showBehaviourTypes;
 
     SerializedProperty _initialHP;
     SerializedProperty _referenceSizeSprite;
@@ -54,30 +55,30 @@ public class EnemyDataEditor : Editor
         EditorGUILayout.PropertyField(_onDeathSFX);
 
         EnemyData enemyData = (EnemyData)target;
-        EditorGUILayout.LabelField("Enemy Behaviours", EditorStyles.boldLabel);
-        for (int i = 0; i < enemyData.EnemyBehaviours.Count; i++)
-        {
-            if (_behaviours.arraySize <= i)
-            {
-                break;
-            }
-            SerializedProperty effectProp = _behaviours.GetArrayElementAtIndex(i);
-            if (effectProp == null)
-                continue;
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PropertyField(effectProp, new GUIContent(enemyData.EnemyBehaviours[i].GetType().Name), true);
 
-            if (GUILayout.Button("Remove " + enemyData.EnemyBehaviours[i].BehaviourId))
+        _showBehaviourTypes = EditorGUILayout.ToggleLeft("Show behaviour types", _showBehaviourTypes);
+
+        EditorGUILayout.LabelField("Enemy Behaviours");
+
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PropertyField(_behaviours);
+        if (_showBehaviourTypes)
+        {
+            EditorGUILayout.BeginVertical();
+            EditorGUILayout.Space(25);
+            foreach (var behaviour in enemyData.EnemyBehaviours)
             {
-                _behaviourTypes[enemyData.EnemyBehaviours[i].GetType()] --;
-                enemyData.EnemyBehaviours.RemoveAt(i);
-                EditorUtility.SetDirty(enemyData);
+                EditorGUILayout.LabelField(behaviour.GetType().Name);
             }
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.Space(5);
+            EditorGUILayout.EndVertical();
+
         }
+        EditorGUILayout.EndHorizontal();
         serializedObject.ApplyModifiedProperties();
         serializedObject.Update();
+
+
+        SyncBehaviourTypes(enemyData);
 
         if (GUILayout.Button("Add Behaviour"))
         {
@@ -143,5 +144,21 @@ public class EnemyDataEditor : Editor
             enemyData.DropablePickupChances.Add(new RouletteElementChance<PickupData>(null, 0));
         }
 
+    }
+
+    private void SyncBehaviourTypes(EnemyData enemyData)
+    {
+        // Reiniciar el diccionario antes de actualizar
+        foreach (var key in new List<Type>(_behaviourTypes.Keys))
+        {
+            _behaviourTypes[key]--;
+        }
+
+        // Marcar los tipos presentes en la lista actual
+        foreach (var behaviour in enemyData.EnemyBehaviours)
+        {
+            if (behaviour == null) continue;
+            _behaviourTypes[behaviour.GetType()]++;
+        }
     }
 }
