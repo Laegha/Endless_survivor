@@ -30,6 +30,10 @@ public class BiomeData : ScriptableObject
     [Tooltip("num is the wave number since which each wave can proc")]
     [SerializeField] List<RouletteElementChance<EnemySpawnInfo>> _biomeEnemies;
     [SerializeField] CustomAnimation _bossInvokerAnimation;
+    [SerializeField] bool _usesBoxCollider;
+    [SerializeField] Vector2 _boxColliderSize;
+    [SerializeField] bool _usesCircleCollider;
+    [SerializeField] float _circleColliderRadius;
     [SerializeField] List<EnemyInvokationInfo> _biomeChampions;
     [SerializeField] List<EnemyInvokationInfo> _biomeBosses;
 
@@ -84,6 +88,10 @@ public class BiomeData : ScriptableObject
 
     public List<RouletteElementChance<EnemySpawnInfo>> BiomeEnemies { get { return _biomeEnemies; } }
     public CustomAnimation BossInvokerAnimation {  get { return _bossInvokerAnimation; } }
+    public bool UsesBoxCollider { get { return _usesBoxCollider; } }
+    public Vector2 BoxColliderSize { get { return _boxColliderSize; } }
+    public bool UsesCircleCollider { get { return _usesCircleCollider; } }
+    public float CircleColldierRadius { get { return _circleColliderRadius; } }
     public List<EnemyInvokationInfo> BiomeChampions { get {  return _biomeChampions; } }
     public List<EnemyInvokationInfo> BiomeBosses {  get { return _biomeBosses; } }
 }

@@ -1,6 +1,7 @@
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -142,6 +143,18 @@ public class Biome
     {
         Vector2 bossInvokerPosition = _biomeTiles[_biomeTiles.Count / 2].transform.position;
         EnemyInvoker bossInvoker = GameObject.Instantiate(MapManager.mm.GenerationConfig.BossInvokerPrefab, bossInvokerPosition, Quaternion.identity);
+        if(_biomeData.UsesBoxCollider)
+        {
+            BoxCollider2D boxCollider = bossInvoker.AddComponent<BoxCollider2D>();
+            boxCollider.size = _biomeData.BoxColliderSize;
+            boxCollider.gameObject.layer = LayerMask.NameToLayer("SupportObject");
+        }
+        if (_biomeData.UsesCircleCollider)
+        {
+            CircleCollider2D circleCollider = bossInvoker.AddComponent<CircleCollider2D>();
+            circleCollider.radius = _biomeData.CircleColldierRadius;
+            circleCollider.gameObject.layer = LayerMask.NameToLayer("SupportObject");
+        }
         CustomAnimation invokerAnimation = _biomeData.BossInvokerAnimation;
         bossInvoker.Animator.AddAnimations(new(){ invokerAnimation });
         bossInvoker.Animator.ChangeAnim(invokerAnimation.AnimationName);
