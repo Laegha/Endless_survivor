@@ -497,13 +497,14 @@ GameObject:
   - component: {fileID: 250987147}
   - component: {fileID: 250987146}
   - component: {fileID: 250987145}
+  - component: {fileID: 250987149}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &250987145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +588,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &250987149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250987144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f02c079e719444ea641ac3a460bd50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuBG: {fileID: 0}
+  _weaponPickupMenu: {fileID: 0}
+  _weaponOverrideMenu: {fileID: 0}
+  _passiveItemPickupMenu: {fileID: 0}
+  _playerHPBar: {fileID: 0}
+  _intensityUI: {fileID: 0}
+  _pointerManager: {fileID: 39088616}
 --- !u!1 &263999197
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 210
+  _sprite: {fileID: 21300000, guid: e38a2d83deb3cda448f4c58a79ad8a3c, type: 3}
+  _target: {fileID: 263999199}
 --- !u!1 &458908040
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,13 +851,14 @@ GameObject:
   m_Component:
   - component: {fileID: 876012360}
   - component: {fileID: 876012359}
+  - component: {fileID: 876012361}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &876012359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -904,6 +926,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876012361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876012358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6910a792476704ca0385fca995ca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 0}
+  _playerRb: {fileID: 0}
+  _playerHPManager: {fileID: 0}
+  _playerWeaponManager: {fileID: 0}
+  _passiveItemManager: {fileID: 0}
+  _statusEffectManager: {fileID: 0}
+  _playerMaterialManager: {fileID: 0}
+  _mainRenderer: {fileID: 0}
 --- !u!1 &1028153266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  _sprite: {fileID: 0}
+  _target: {fileID: 0}
 --- !u!114 &1087160456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,7 +1624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  _sprite: {fileID: 0}
+  _target: {fileID: 0}
 --- !u!212 &1487476283
 SpriteRenderer:
   m_ObjectHideFlags: 0

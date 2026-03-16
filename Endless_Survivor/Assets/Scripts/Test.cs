@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    List<string> list = new List<string>();
-    private void Update()
+    [SerializeField] Sprite _sprite;
+    [SerializeField] Transform _target;
+    private void Start()
     {
-        list.Remove("tst");
+        GameUIManager.uiManager.PointerManager.AddPointer(_target, Color.white, _sprite);
     }
 }

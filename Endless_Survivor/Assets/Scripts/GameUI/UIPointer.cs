@@ -63,6 +63,6 @@ public class UIPointer : MonoBehaviour
         _pointerTr.anchoredPosition = pointerPos;
         float angle = Mathf.Atan2(dir.y, dir.x);
         _pointerTr.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); 
-        _iconTr.rotation = Quaternion.Euler(0, 0, -angle * Mathf.Rad2Deg);
+        _iconTr.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
