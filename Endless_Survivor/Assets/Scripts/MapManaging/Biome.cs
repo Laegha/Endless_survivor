@@ -147,13 +147,13 @@ public class Biome
         {
             BoxCollider2D boxCollider = bossInvoker.AddComponent<BoxCollider2D>();
             boxCollider.size = _biomeData.BoxColliderSize;
-            boxCollider.gameObject.layer = LayerMask.NameToLayer("SupportObject");
+            boxCollider.offset = _biomeData.ColliderOffset;
         }
         if (_biomeData.UsesCircleCollider)
         {
             CircleCollider2D circleCollider = bossInvoker.AddComponent<CircleCollider2D>();
             circleCollider.radius = _biomeData.CircleColldierRadius;
-            circleCollider.gameObject.layer = LayerMask.NameToLayer("SupportObject");
+            circleCollider.offset = _biomeData.ColliderOffset;
         }
         CustomAnimation invokerAnimation = _biomeData.BossInvokerAnimation;
         bossInvoker.Animator.AddAnimations(new(){ invokerAnimation });
