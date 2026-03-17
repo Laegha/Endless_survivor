@@ -27,10 +27,12 @@ MonoBehaviour:
   _cornerLeftTopOpen: {fileID: 21300000, guid: e35489d488203ab4fa4a2d2d2e48a0b6, type: 3}
   _decorationOnTileChance: 0
   _floorDecorationDatas: []
-  _supportObjOnTileChance: 10
+  _supportObjOnTileChance: 7.5
   _possibleSupportObjectsPerTile:
-  - _rouletteElement: {fileID: 11400000, guid: e0fc83df5e0eae749b3a133888e78bd3, type: 2}
+  - _rouletteElement: {fileID: 11400000, guid: fe7a44e723043464b9ac4ceaab3fa8f6, type: 2}
     _chance: 7
+  - _rouletteElement: {fileID: 11400000, guid: e0fc83df5e0eae749b3a133888e78bd3, type: 2}
+    _chance: 1
   _biomeEnemies:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
@@ -39,11 +41,17 @@ MonoBehaviour:
   _bossInvokerAnimation:
     _animationName: Invoker
     _frames:
-    - {fileID: 21300000, guid: 8145cf3c47bab5d4da0b4bd06d97a553, type: 3}
+    - {fileID: 21300000, guid: de63e68f62d6d944c867fcd82ca44046, type: 3}
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
-  _biomeChampions: []
+  _usesBoxCollider: 1
+  _boxColliderSize: {x: 1.7, y: 1.1}
+  _usesCircleCollider: 0
+  _circleColliderRadius: 0
+  _colliderOffset: {x: 0, y: -0.4}
+  _biomeChampions:
+  - _invokedEnemy: {fileID: 11400000, guid: 058976ad9f138de4b8d6bb81a7d207c9, type: 2}
+    _pointerColor: {r: 0.10170454, g: 0.098736, b: 0.12100001, a: 1}
+    _pointerIcon: {fileID: 21300000, guid: e3eab97840e11de4fb9efae3994c44c5, type: 3}
   _biomeBosses: []
-  _championIndicator: {fileID: 0}
-  _bossIndicator: {fileID: 0}

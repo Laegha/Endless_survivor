@@ -20,6 +20,7 @@ MonoBehaviour:
   _colliderOffset: {x: 0, y: -0.5}
   _colliderDirection: 0
   _enemyBehaviours:
+  - rid: 2454942669175783424
   - rid: 2454942648476368896
   - rid: 2454942648476368899
   - rid: 2454942648476368897
@@ -210,7 +211,6 @@ MonoBehaviour:
         _behaviourId: RandomTrigger
         _overrideBehaviours: []
         _possibleBehaviours:
-        - DuringTimeTriggerMove
         - Invoking
         _timeBetweenTriggers:
           min: 4
@@ -258,3 +258,65 @@ MonoBehaviour:
         _startAngle: 270
         _fitCircle: 0
         _angleStep: 15
+    - rid: 2454942669175783424
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 2
+        _chasingUpAnimation:
+          _animationName: UpChase
+          _frames:
+          - {fileID: 161733571, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: -2038126704, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: -1399547660, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: 1017332665, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: 1014229792, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: -1502717008, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: 907634581, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          - {fileID: -1369373239, guid: fb0f43d9c0cb5bc43aabc499daad503a, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: RightChase
+          _frames:
+          - {fileID: -831793086, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: 211321285, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: 1475761135, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: 1739235630, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: -1959848463, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: -101836134, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: 16528548, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          - {fileID: 1391145659, guid: 272a5f89ddfe9974887c545c202ea557, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: DownChase
+          _frames:
+          - {fileID: 339959557, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: 1127568792, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: 1945037170, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: -1011538000, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: 1483609959, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: -1297068435, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: 1394428153, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          - {fileID: -84704590, guid: 25a8462c7204348409fcc09993a79e2b, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: LeftChase
+          _frames:
+          - {fileID: -2102411253, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: 363276691, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: 8754914, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: -1184609957, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: 1989962176, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: 1841084348, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: -471957914, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          - {fileID: -839193304, guid: c5afc8e2a79158a41a56ff24d8c80df2, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0

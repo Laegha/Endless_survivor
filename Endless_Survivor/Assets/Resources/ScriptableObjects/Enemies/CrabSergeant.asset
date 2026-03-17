@@ -238,20 +238,22 @@ MonoBehaviour:
       data:
         _behaviourId: ShootPlayer
         _overrideBehaviours: []
-        _damage: 1
+        _damage: 6
         _proyectileLifetime: 3
         _firePointDist: 1.5
         _proyectileRotationOffset: 0
         _proyectileData:
-          _proyectileSpeed: 0
+          _proyectileSpeed: 5
           _proyectileSpread: 0
           _proyectileAnim:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 782590056, guid: 447a5a0e84a7fb84fbd62aaaa9444c1f, type: 3}
+            - {fileID: 460408671, guid: 447a5a0e84a7fb84fbd62aaaa9444c1f, type: 3}
+            _framesPerSecond: 3
             _endAnimationOnEnd: 0
             _priority: 0
-          _colliderSize: {x: 0, y: 0}
+          _colliderSize: {x: 0.3, y: 0.3}
           _colliderDirection: 0
           _proyectileMaterial: {fileID: 0}
           _particlesPrefab: {fileID: 0}
