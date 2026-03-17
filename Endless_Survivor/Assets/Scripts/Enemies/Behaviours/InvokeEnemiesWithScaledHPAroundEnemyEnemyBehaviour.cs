@@ -72,4 +72,10 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
         }
         return result;
     }
+
+    public override void KillBehaviour()
+    {
+        base.KillBehaviour();
+        EnemyControl.Animator.EndAnimation(_invokingAnim.AnimationName);
+    }
 }
