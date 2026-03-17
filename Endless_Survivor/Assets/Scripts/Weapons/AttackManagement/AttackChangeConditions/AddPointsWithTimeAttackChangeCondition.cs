@@ -38,7 +38,6 @@ public class AddPointsWithTimeAttackChangeCondition : WeaponAttackChangeConditio
         PointBasedChangeCondition.OnPointsReset[WeaponAM] += () => _timer = 0;
         while(WeaponAM != null)
         {
-            Debug.Log("POINTS " + PointBasedChangeCondition.WeaponPoints[WeaponAM]);
             yield return null;
 
             if (PointBasedChangeCondition.WeaponPoints[WeaponAM] >= _pointLimit)

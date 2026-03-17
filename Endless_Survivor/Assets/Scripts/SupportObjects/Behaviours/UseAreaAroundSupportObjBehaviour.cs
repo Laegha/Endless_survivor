@@ -29,7 +29,6 @@ public class UseAreaAroundSupportObjBehaviour : SupportObjectBehaviour
             behaviour.GetType() == typeof(CheckAreaAroundSupportObjBehaviour)
             && ((CheckAreaAroundSupportObjBehaviour)behaviour).AreaName == _areaName)
             as CheckAreaAroundSupportObjBehaviour;
-        Debug.Log(_checkAreaBehaviour + " CHECKAREA BEHAVIOUR");
         if (_checkAreaBehaviour == null)
             return;
 

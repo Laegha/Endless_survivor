@@ -39,7 +39,6 @@ public class PointBasedChangeCondition : WeaponAttackChangeCondition
     }
     public override WeaponAttackController GetAttackController()
     {
-        Debug.Log("Needed points: " + _neededPoints + " triggering attack " +  _triggeredAttackId);
         return WeaponAM.AttackControllers.Find(x => x.AttackId == _triggeredAttackId);
     }
 }
