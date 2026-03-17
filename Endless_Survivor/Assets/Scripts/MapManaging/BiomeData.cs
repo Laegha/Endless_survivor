@@ -34,11 +34,9 @@ public class BiomeData : ScriptableObject
     [SerializeField] Vector2 _boxColliderSize;
     [SerializeField] bool _usesCircleCollider;
     [SerializeField] float _circleColliderRadius;
+    [SerializeField] Vector2 _colliderOffset;
     [SerializeField] List<EnemyInvokationInfo> _biomeChampions;
     [SerializeField] List<EnemyInvokationInfo> _biomeBosses;
-
-    [SerializeField] Sprite _championIndicator;
-    [SerializeField] Sprite _bossIndicator;
 
 
     public Sprite FloorTile { get { return _floorTile; } }
@@ -92,6 +90,7 @@ public class BiomeData : ScriptableObject
     public Vector2 BoxColliderSize { get { return _boxColliderSize; } }
     public bool UsesCircleCollider { get { return _usesCircleCollider; } }
     public float CircleColldierRadius { get { return _circleColliderRadius; } }
+    public Vector2 ColliderOffset { get { return _colliderOffset; } }
     public List<EnemyInvokationInfo> BiomeChampions { get {  return _biomeChampions; } }
     public List<EnemyInvokationInfo> BiomeBosses {  get { return _biomeBosses; } }
 }
