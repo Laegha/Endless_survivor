@@ -26,7 +26,8 @@ public class UIPointer : MonoBehaviour
         _bgImage.color = bgColor;
         _iconImage.sprite = icon;
         _iconTr = _iconImage.GetComponent<RectTransform>();
-        Utility.ScaleImageToFitTarget(_iconTr, icon, _iconImageTarget.sizeDelta);
+        if(icon != null ) 
+            Utility.ScaleImageToFitTarget(_iconTr, icon, _iconImageTarget.sizeDelta);
 
         float cameraSize = Camera.main.orthographicSize;
         float limitsY = 0;
@@ -63,9 +64,11 @@ public class UIPointer : MonoBehaviour
 
         _pointerTr.anchoredPosition = pointerPos;
         float angle = Mathf.Atan2(dir.y, dir.x);
-        _pointerTr.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); 
-        _iconTr.rotation = Quaternion.Euler(0, 0, 0);
+        _pointerTr.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
 
+        if (_iconImage.sprite == null)
+            return;
+        _iconTr.rotation = Quaternion.Euler(0, 0, 0);
         if(Mathf.Abs(targetDist.x) > _showingLimits.x || Mathf.Abs(targetDist.y) > _showingLimits.y)
         {
             _bgImage.enabled = true;
