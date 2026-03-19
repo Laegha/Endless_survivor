@@ -112,7 +112,8 @@ MonoBehaviour:
       type: {class: MeleeAttackBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: MeleeAttack
-        _overrideBehaviours: []
+        _overrideBehaviours:
+        - ChasePlayer
         _damage: 10
         _attackRange: 1.5
         _attackRadius: 0.75
@@ -222,6 +223,7 @@ MonoBehaviour:
         _overrideBehaviours:
         - MoveToPlayerOnActive
         - MeleeAttack
+        - ChasePlayer
         _fixedInvokedEnemies: []
         _randomInvokedEnemies:
         - _rouletteElement: {fileID: 11400000, guid: a1b50a57dbbf9e249a48b12fab3a2860, type: 2}

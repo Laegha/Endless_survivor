@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 25
   _referenceSizeSprite: {fileID: 1436494471, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: 5
   _colliderSize: {x: 0.3, y: 0.4}
   _colliderOffset: {x: 0, y: 0}
@@ -67,9 +68,13 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _chasingLeftAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: LeftChase
+          _frames:
+          - {fileID: 1376658746, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
+          - {fileID: -1781448807, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
+          - {fileID: 193855474, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
+          - {fileID: 567535706, guid: 98679f9be4dc10a4992b2323c4b8b623, type: 3}
+          _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 0
     - rid: 3262447073780826113
