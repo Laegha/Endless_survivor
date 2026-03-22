@@ -60,7 +60,6 @@ public class MapManager : MonoBehaviour
         {
             if (possibleElements.Count == 0)//there are no fitting elements (all possible need a tile that isn't available)
             {
-                Debug.Log("NO ITEM FOUNSD");
                 found = true; 
                 break;
 
