@@ -11,10 +11,12 @@ public class Tile : MonoBehaviour
     GameObject _tileDecor;
     SupportObjectControl _tileSupportObj;
     bool _isWall;
+    bool _isLoaded;
     Biome _tileBiome;
 
     public SpriteRenderer Renderer { get { return _renderer; } }
     public bool IsWall {  get { return _isWall; } }
+    public bool IsLoaded {  get { return _isLoaded; } set{ _isLoaded = value; } }
     public GameObject TileDecor { get { return _tileDecor; } set { _tileDecor = value; } }
     public SupportObjectControl TileSupportObj { get { return _tileSupportObj; } set { _tileSupportObj = value; } }
 

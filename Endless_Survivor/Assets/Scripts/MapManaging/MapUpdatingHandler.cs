@@ -24,6 +24,7 @@ public class MapUpdatingHandler
         var updateInstance = _biomeUpdateInstances[0];
         foreach (var tile in updateInstance.tilesToUpdate)
         {
+            tile.IsLoaded = true;
             tile.SetTileGfx();
         }
         MapManager.mm.ActiveBiomes.Add(updateInstance.biome);
