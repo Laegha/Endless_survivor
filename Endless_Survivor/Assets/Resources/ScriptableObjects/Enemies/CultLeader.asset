@@ -1,0 +1,607 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: CultLeader
+  m_EditorClassIdentifier: 
+  _initialHP: 700
+  _referenceSizeSprite: {fileID: 932479957, guid: ac5282558053614429bef0de70c78748, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 5
+  _colliderSize: {x: 0.9, y: 1.5}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 2454942783598231568
+  - rid: 2454942783598231565
+  - rid: 2454942783598231557
+  - rid: 2454942783598231574
+  - rid: 2454942783598231559
+  - rid: 2454942783598231560
+  - rid: 2454942783598231561
+  - rid: 2454942798190215169
+  - rid: 2454942783598231567
+  - rid: 2454942783598231566
+  - rid: 2454942798190215171
+  - rid: 2454942783598231572
+  - rid: 2454942783598231575
+  - rid: 2454942783598231569
+  - rid: 2454942783598231570
+  - rid: 2454942783598231576
+  - rid: 2454942783598231573
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942783598231557
+      type: {class: MoveRandomlyWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveRandomly
+        _overrideBehaviours: []
+        _timeBetweenMovements:
+          min: 3
+          max: 3
+        _movementDistance:
+          min: 5
+          max: 6
+        _speed:
+          min: 4
+          max: 5
+    - rid: 2454942783598231559
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DuringTimeTriggerMovementAbove20%HP
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - MoveRandomly
+        - MoveAnimAbove20%HP
+        _duration:
+          min: 2
+          max: 2
+    - rid: 2454942783598231560
+      type: {class: InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Invoke
+        _overrideBehaviours: []
+        _fixedInvokedEnemies: []
+        _randomInvokedEnemies:
+        - _rouletteElement: {fileID: 11400000, guid: 4f9a8a25b97ac2a44a63fb50be556f20, type: 2}
+          _chance: 1
+        _randomInvokePossibleAmmounts:
+        - _rouletteElement: 2
+          _chance: 3
+        - _rouletteElement: 3
+          _chance: 1
+        _invokingAnim:
+          _animationName: Invoke
+          _frames:
+          - {fileID: 864299119, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 1456967213, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 171455510, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 166403933, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 1065723973, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -591373308, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -1213777124, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -262612465, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -1906075216, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 1974608697, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -1807640184, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 1987324181, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 223922309, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -1041991932, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -557268773, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: -1557680153, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          - {fileID: 1635700614, guid: d41011768786a454bbf052cf7ddf754f, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _invokeFrame: 14
+        _hpMultiplier: 1
+        _invokationPattern:
+          rid: 2454942798190215168
+    - rid: 2454942783598231561
+      type: {class: CreateSupportObjsOnPlayerPositionOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: CreateLightning
+        _overrideBehaviours: []
+        _fixedSupportObjs: []
+        _randomSupportObjs:
+        - _rouletteElement: {fileID: 11400000, guid: cc55b24450311ff44a4d67459152df87, type: 2}
+          _chance: 1
+        _randomAmmount:
+          min: 4
+          max: 5
+        _distFromPlayerWithinCircle:
+          min: 0
+          max: 2.5
+    - rid: 2454942783598231565
+      type: {class: PlayAnimFacingPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnimAbove20%HP
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _downAnimation:
+            _animationName: IdleAbove20%HP
+            _frames:
+            - {fileID: 932479957, guid: ac5282558053614429bef0de70c78748, type: 3}
+            - {fileID: 313668809, guid: ac5282558053614429bef0de70c78748, type: 3}
+            - {fileID: -720984888, guid: ac5282558053614429bef0de70c78748, type: 3}
+            - {fileID: -1353400940, guid: ac5282558053614429bef0de70c78748, type: 3}
+            _framesPerSecond: 5
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+    - rid: 2454942783598231566
+      type: {class: TriggerBehavioursAtHPThresholdEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerBehavioursOnHPThreshold
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - TakeOffHoodAnimation
+        _hpThreshold: 20
+        _triggerConstantly: 0
+    - rid: 2454942783598231567
+      type: {class: TriggerRandomBehaviourOverTimeWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerRandomAbove20%HP
+        _overrideBehaviours: []
+        _possibleBehaviours:
+        - DuringTimeTriggerMovementAbove20%HP
+        - Invoke
+        - AnimTriggerLightning
+        _timeBetweenTriggers:
+          min: 5
+          max: 5
+    - rid: 2454942783598231568
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerStartingBehaviours
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - IdleAnimAbove20%HP
+        - TriggerRandomAbove20%HP
+        - TriggerBehavioursOnHPThreshold
+        _timeToTrigger: 0.1
+        _triggerOnStart: 1
+    - rid: 2454942783598231569
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerMovementDuringTimeBelow20%HP
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - MoveRandomly
+        - MoveAnimBelow20%HP
+        _duration:
+          min: 2
+          max: 2
+    - rid: 2454942783598231570
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootPlayer
+        _overrideBehaviours: []
+        _damage: 10
+        _proyectileLifetime: 5
+        _firePointDist: 1
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 7
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Idle
+            _frames:
+            - {fileID: -1516082939, guid: 47815c66a572fbe4db30c3b06d30ff7a, type: 3}
+            - {fileID: -2105658076, guid: 47815c66a572fbe4db30c3b06d30ff7a, type: 3}
+            - {fileID: -1508196685, guid: 47815c66a572fbe4db30c3b06d30ff7a, type: 3}
+            - {fileID: 201109247, guid: 47815c66a572fbe4db30c3b06d30ff7a, type: 3}
+            _framesPerSecond: 12
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.35, y: 0.35}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 2454942783598231572
+      type: {class: PlayAnimFacingPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnimBelow20%HP
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _downAnimation:
+            _animationName: IdleBelow20%HP
+            _frames:
+            - {fileID: 895744626, guid: c985f21ddd048de49b72cc54bcae1cd6, type: 3}
+            - {fileID: 1718128220, guid: c985f21ddd048de49b72cc54bcae1cd6, type: 3}
+            - {fileID: 1884593984, guid: c985f21ddd048de49b72cc54bcae1cd6, type: 3}
+            - {fileID: 981061903, guid: c985f21ddd048de49b72cc54bcae1cd6, type: 3}
+            _framesPerSecond: 5
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+    - rid: 2454942783598231573
+      type: {class: TriggerRandomBehaviourOverTimeWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerRandomBelow20%HP
+        _overrideBehaviours: []
+        _possibleBehaviours:
+        - TriggerMovementDuringTimeBelow20%HP
+        - TriggerMovementDuringTimeBelow20%HP
+        - AnimTriggerShoot
+        - AnimTriggerShoot
+        - AnimTriggerShoot
+        _timeBetweenTriggers:
+          min: 2
+          max: 2.5
+    - rid: 2454942783598231574
+      type: {class: PlayAnimByRbVelocityWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveAnimAbove20%HP
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: MoveUpAbove20%HP
+            _frames:
+            - {fileID: 439800574, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: -974714693, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: 713478215, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: 380524178, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: -1149437900, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: -1228591536, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: -889668786, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            - {fileID: -404788714, guid: 17fb472eac352a04ba9b4474a92b513a, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _rightAnimation:
+            _animationName: MoveRightAbove20%HP
+            _frames:
+            - {fileID: 1530024993, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: 1140916396, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: -1081399743, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: 1488105046, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: 710508119, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: 1409602302, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: -1492474247, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            - {fileID: 1430101624, guid: 3122c71b81facdb49b3f59dd95ed02c0, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: MoveDownAbove20%HP
+            _frames:
+            - {fileID: 1851831521, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: -753806651, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: -1619571977, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: 1656269569, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: -52459318, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: -1215675558, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: -1325257322, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            - {fileID: -1988813165, guid: 52aadcca6a61037458a5924a8c2b1638, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _leftAnimation:
+            _animationName: MoveLeftAbove20%HP
+            _frames:
+            - {fileID: -1394663371, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: 185143119, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: 370862837, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: -15865876, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: 153008040, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: 452671121, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: -78738449, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            - {fileID: -586394627, guid: a3a6c2c066ade0b4fbb74ecfa763e277, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+    - rid: 2454942783598231575
+      type: {class: PlayAnimByRbVelocityWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveAnimBelow20%HP
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: MoveUpBelow20%HP
+            _frames:
+            - {fileID: 279279873, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: 562750071, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: -104971993, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: -1046887121, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: 677168754, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: -2080897222, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: -1448009255, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            - {fileID: -308646590, guid: ad5df71cb15260b43ab8b18b7eee0453, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _rightAnimation:
+            _animationName: MoveRightBelow20%HP
+            _frames:
+            - {fileID: 1773699527, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: 1389613254, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: -1818231472, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: -1489147749, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: 1845532146, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: 113109334, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: 1520130203, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            - {fileID: 169860722, guid: 3aa4b3eee544f634c89e1462a97e69dd, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: MoveDownBelow20%HP
+            _frames:
+            - {fileID: 688192241, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: -751803476, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: -1298232858, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: -1399213021, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: -301724874, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: 1044495556, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: 2074503355, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            - {fileID: 1651468758, guid: 28995bb1c4276aa4485703a270c66914, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _leftAnimation:
+            _animationName: MoveLeftBelow20%HP
+            _frames:
+            - {fileID: 578262462, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: -1789260186, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: -2016400998, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: 1809278072, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: -1917162363, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: 925070041, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: -1709300623, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            - {fileID: -1346703080, guid: 333cdee58680102418d7e122558c752d, type: 3}
+            _framesPerSecond: 14
+            _endAnimationOnEnd: 0
+            _priority: 1
+    - rid: 2454942783598231576
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimTriggerShoot
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - ShootPlayer
+        _loopAnim: 0
+        _sameFrameForAll: 1
+        _generalTriggerFrame: 7
+        _upAnimation:
+          _animationName: ShootUp
+          _frames:
+          - {fileID: 2032588071, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: 169632968, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: 1500647189, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: 1095332421, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: -244242115, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: 731478771, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: -60155148, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: 331683717, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: -1377524364, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          - {fileID: 8582906, guid: 357ab98b77212d14397316a4cfe175f0, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: ShootRight
+          _frames:
+          - {fileID: -1595990933, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: -2095428668, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: -1768329989, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: 250017143, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: 191099520, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: -842779834, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: 1913501471, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: -1746668555, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: 784238906, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          - {fileID: -691945412, guid: ac7c373b1d9a3ac45bda9d0b4cb49ecc, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: ShootDown
+          _frames:
+          - {fileID: -1725648612, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: -97893490, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: 1203734996, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: -880835644, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: -541717475, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: -2002960967, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: -135873274, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: 1421441701, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: -1948892864, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          - {fileID: 1937916414, guid: a6b6fe7b126f6a640896c7fb11eca2bc, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _downTriggerFrame: 0
+        _leftAnimation:
+          _animationName: ShootLeft
+          _frames:
+          - {fileID: -2104538370, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 813578806, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 1949521688, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: -935259159, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 968080665, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 2117613091, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 1539542269, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 2051769448, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: 472539335, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          - {fileID: -169281004, guid: 1e127ebe8a8ba3f4db4df0fc94cdf0b8, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _leftTriggerFrame: 0
+    - rid: 2454942798190215168
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 2
+        _startAngle: 0
+        _fitCircle: 1
+        _angleStep: 30
+    - rid: 2454942798190215169
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimTriggerLightning
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - CreateLightning
+        _loopAnim: 0
+        _sameFrameForAll: 1
+        _generalTriggerFrame: 8
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: CastLightning
+          _frames:
+          - {fileID: 274743428, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -1226140052, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -1656209809, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -648704042, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -1190799150, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -393762285, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: 86315923, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -835670746, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: 677344374, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -118009129, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: 1542369783, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -46504286, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: 741895795, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -567080757, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: -431004807, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          - {fileID: 1153161726, guid: b43df27eb69532742903e91a47c17fec, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _downTriggerFrame: 0
+        _leftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _leftTriggerFrame: 0
+    - rid: 2454942798190215171
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TakeOffHoodAnimation
+        _overrideBehaviours:
+        - IdleAnimAbove20%HP
+        - TriggerRandomAbove20%HP
+        - Invoke
+        - DuringTimeTriggerMovementAbove20%HP
+        - AnimTriggerLightning
+        _triggeredBehaviours:
+        - IdleAnimBelow20%HP
+        - TriggerRandomBelow20%HP
+        _loopAnim: 0
+        _sameFrameForAll: 1
+        _generalTriggerFrame: 9
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: TakeOffHood
+          _frames:
+          - {fileID: -976880315, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: 972393865, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: -1979944421, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: 2142683368, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: -400318561, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: -315747187, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: -1781511755, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: 524328556, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: -453245318, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          - {fileID: -249265555, guid: 36604305cde9803459169a9f5d0a1693, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _downTriggerFrame: 0
+        _leftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _leftTriggerFrame: 0
