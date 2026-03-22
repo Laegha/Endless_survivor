@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: CultLeaderLightningAlert
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2454942783598231555
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2454942783598231555
+      type: {class: CreateSupportObjWithAnotherAsLinkSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _linkSupportObj: {fileID: 11400000, guid: 49c76860c93d48944b34ce42138407c9, type: 2}
+        _finalSupportObj: {fileID: 11400000, guid: c94325ea3118a2b439b9ff027323e47d, type: 2}
