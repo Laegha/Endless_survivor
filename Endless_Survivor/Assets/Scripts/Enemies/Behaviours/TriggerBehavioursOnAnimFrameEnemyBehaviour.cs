@@ -7,6 +7,7 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
 {
     new public static int maxStacks => -1;
     [SerializeField] string[] _triggeredBehaviours;
+    [SerializeField] bool _loopAnim;
     [Tooltip("If true, all animations use the general frame. Else, each one uses the specific")][SerializeField] bool _sameFrameForAll;
     [Tooltip("Use if sameForAll is true")][SerializeField] int _generalTriggerFrame;
     [SerializeField] CustomAnimation _upAnimation;
@@ -25,6 +26,8 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         base.Initialize(original, enemyControl);
         var triggerOnAnimFrameOriginal = original as TriggerBehavioursOnAnimFrameEnemyBehaviour;
         _triggeredBehaviours = triggerOnAnimFrameOriginal._triggeredBehaviours;
+
+        _loopAnim = triggerOnAnimFrameOriginal._loopAnim;
 
         _sameFrameForAll = triggerOnAnimFrameOriginal._sameFrameForAll;
         _generalTriggerFrame = triggerOnAnimFrameOriginal._generalTriggerFrame;
@@ -87,10 +90,14 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         if (_animations.Any(x => x.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
         _currAnim = currAnim;
-        GameManager.gm.DelayAction(currAnim.AnimDuration, () =>
+        if(!_loopAnim)
         {
-            KillBehaviour();
-        }, null);
+            GameManager.gm.DelayAction(currAnim.AnimDuration, () =>
+            {
+                KillBehaviour();
+            }, null);
+
+        }
         EnemyControl.Animator.ChangeAnim(currAnim.AnimationName);
     }
 
@@ -98,5 +105,7 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
     {
         base.KillBehaviour();
         _currAnim = null;
+        if (_animations.Any(x => x.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
+            EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
     }
 }
