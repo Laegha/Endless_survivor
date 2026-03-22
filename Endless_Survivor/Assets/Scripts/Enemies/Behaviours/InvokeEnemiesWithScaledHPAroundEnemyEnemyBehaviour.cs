@@ -50,10 +50,16 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
         Vector2[] enemyPositions = _invokationPattern.GetPositions(EnemyControl.transform.position, enemyCount).ToArray();
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector2 enemyPos = enemyPositions[i];
-            GameObject enemy = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Enemy"], enemyPos, Quaternion.identity);
-            invokingEnemies[i].TransferEnemyData(enemy);
-            enemy.GetComponent<EnemyControl>().EnemyHP.MaxHP = (int)(EnemyControl.EnemyHP.MaxHP * _hpMultiplier);
+            EnemyData generatedEnemy = invokingEnemies[i];
+            Vector2 tilePos = new((int)enemyPositions[i].x, (int)enemyPositions[i].y);
+            if (!MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(tilePos))
+                continue;
+            var tilesInPos = MapManager.mm.GenerationHandler.TileMatrix[tilePos];
+            if (tilesInPos[0].IsWall || !tilesInPos[0].IsLoaded)
+                continue;
+            var generatingTile = tilesInPos[0];
+            EnemySpawnManager.esm.SpawnEnemy(generatingTile, generatedEnemy);
+
         }
     }
 

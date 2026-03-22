@@ -53,7 +53,7 @@ public class SpawnRandomEnemiesOnPlayerEnterAreaSupportObjBehaviour : UseAreaAro
             if (!MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(tilePos))
                 continue;
             var tilesInPos = MapManager.mm.GenerationHandler.TileMatrix[tilePos];
-            if (tilesInPos[0].IsWall)
+            if (tilesInPos[0].IsWall || !tilesInPos[0].IsLoaded)
                 continue;
             var generatingTile = tilesInPos[0];
             EnemySpawnManager.esm.SpawnEnemy(generatingTile, generatedEnemy);
