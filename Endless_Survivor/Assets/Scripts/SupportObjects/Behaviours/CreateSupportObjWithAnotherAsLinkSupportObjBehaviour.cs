@@ -15,20 +15,19 @@ public class CreateSupportObjWithAnotherAsLinkSupportObjBehaviour : SupportObjec
         _linkSupportObj = createSupportObjOriginal._linkSupportObj;
         _finalSupportObj = createSupportObjOriginal._finalSupportObj;
         OnStart += CreateObj;
-        OnUpdate += CheckForObjDestroyed;
     }
 
     void CreateObj()
     {
         _createdObjControl = Utility.GenerateSupportObj(_linkSupportObj, ObjControl.transform.position, Quaternion.identity);
-        
+        OnUpdate += CheckForObjDestroyed;
     }
 
     void CheckForObjDestroyed()
     {
         if (_createdObjControl != null)
             return;
-        Utility.GenerateSupportObj(_linkSupportObj, ObjControl.transform.position, Quaternion.identity);
+        Utility.GenerateSupportObj(_finalSupportObj, ObjControl.transform.position, Quaternion.identity);
         GameObject.Destroy(ObjControl.gameObject);
     }
 }
