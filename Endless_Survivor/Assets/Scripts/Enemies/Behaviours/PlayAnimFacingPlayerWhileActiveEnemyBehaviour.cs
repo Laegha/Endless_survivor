@@ -19,7 +19,7 @@ public class PlayAnimFacingPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         base.ActiveUpdate();
         Vector2 direction = (PlayerControl.pc.transform.position - EnemyControl.transform.position).normalized;
         var currAnim = _animations.GetAnim(direction);
-        if (EnemyControl.Animator.CurrAnim.AnimationName != currAnim.AnimationName && _animations.NonNullAnimations.Any(anim => anim.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
+        if (EnemyControl.Animator.CurrAnim!= null && EnemyControl.Animator.CurrAnim.AnimationName != currAnim.AnimationName && _animations.NonNullAnimations.Any(anim => anim.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim);
         EnemyControl.Animator.ChangeAnim(currAnim.AnimationName);
 
