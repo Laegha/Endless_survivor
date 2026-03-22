@@ -34,7 +34,7 @@ public class MoveRandomlyWhileActiveEnemyBehaviour : EnemyBehaviour
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
-        if (_timer > 0)
+        if (_timer > 0 || _isMoving)
             return;
         StartMoving();
     }
