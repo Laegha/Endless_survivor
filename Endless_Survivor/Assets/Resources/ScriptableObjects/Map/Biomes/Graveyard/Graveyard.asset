@@ -54,4 +54,7 @@ MonoBehaviour:
   - _invokedEnemy: {fileID: 11400000, guid: 058976ad9f138de4b8d6bb81a7d207c9, type: 2}
     _pointerColor: {r: 0.10170454, g: 0.098736, b: 0.12100001, a: 1}
     _pointerIcon: {fileID: 21300000, guid: e3eab97840e11de4fb9efae3994c44c5, type: 3}
-  _biomeBosses: []
+  _biomeBosses:
+  - _invokedEnemy: {fileID: 11400000, guid: de55b23bf5df59747b65d48c9027fd36, type: 2}
+    _pointerColor: {r: 0.10646108, g: 0.049024004, b: 0.128, a: 1}
+    _pointerIcon: {fileID: 21300000, guid: 574234fe99a3eba47afb305f1972ce73, type: 3}
