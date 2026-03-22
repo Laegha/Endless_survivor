@@ -138,6 +138,7 @@ MonoBehaviour:
   _animator: {fileID: 8244521560054048790}
   _renderers:
   - {fileID: 505917091035434518}
+  _rendererSorter: {fileID: 6955435682142651145}
 --- !u!114 &679202256923073045
 MonoBehaviour:
   m_ObjectHideFlags: 0
