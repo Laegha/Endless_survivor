@@ -99,6 +99,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
     }
     IEnumerator StuckHandInAttackPos(Func<Vector2 >attackPos, float attackDuration)
     {
+
         GameObject originalTrackingEnemy = WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject;
         float lapsedTime = 0;
         while(lapsedTime < attackDuration)
@@ -108,7 +109,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
                 yield break;
             var hitDir = attackPos() - (Vector2)originalTrackingEnemy.transform.position;
             lapsedTime += Time.deltaTime;
-            _hand.position = attackPos() + hitDir.normalized * _handStopDistFactor;
+            _hand.position = (attackPos() + hitDir.normalized * _weaponStopDist);
         }
     }
     public override void Attack()
