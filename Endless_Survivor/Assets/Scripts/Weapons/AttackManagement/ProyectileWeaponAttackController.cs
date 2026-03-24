@@ -25,7 +25,8 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
 
         ProyectileAttack proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
         InitializeAttack?.Invoke(proyectile);
-        InitiateProyectile(proyectile, FirePoint.position, FirePoint.rotation);
+        Vector2 proyectilePos = ShootingPosition + (_proyectileData.ColliderSize.x / 2) * (Vector2)FirePoint.right.normalized;
+        InitiateProyectile(proyectile, proyectilePos, FirePoint.rotation);
     }
     public override void Attack(Vector2 attackPosOffset, float attackRotationOffset, bool isSecondaryAttack)
     {
@@ -45,7 +46,8 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
         
         proyectile.IsSecondaryAttack = isSecondaryAttack;
 
-        InitiateProyectile(proyectile,(Vector2)FirePoint.position + (offsetXDirection.x * offsetXDirection.y > 0 ? offsetMovement : -offsetMovement), FirePoint.rotation);// I only tested this with y movement, idk with x
+        Vector2 originalProyectilePos = ShootingPosition + (_proyectileData.ColliderSize.x / 2) * (Vector2)FirePoint.right.normalized;
+        InitiateProyectile(proyectile, originalProyectilePos + (offsetXDirection.x * offsetXDirection.y > 0 ? offsetMovement : -offsetMovement), FirePoint.rotation);// I only tested this with y movement, idk with x
 
     }
     public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders = null)

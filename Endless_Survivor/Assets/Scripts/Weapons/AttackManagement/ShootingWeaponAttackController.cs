@@ -14,6 +14,16 @@ public class ShootingWeaponAttackController : WeaponAttackController
     bool _isXFlipped = false;
     Vector2 _firePointPos;
     public Transform FirePoint { get { return _firePoint; } set { _firePoint = value; } }
+    public Vector2 ShootingPosition
+    {
+        get
+        {
+            var hitWallPoints = Physics2D.RaycastAll(_firePoint.position, _firePoint.right, 2, LayerMask.NameToLayer("Map"));//2 units should be more than enough to detect all map walls, which max distance should be sqrt(2) at the corner
+            if (hitWallPoints.Length == 0)
+                return _firePoint.position;
+            return hitWallPoints[hitWallPoints.Length-1].point;
+        }
+    }
 
     public override void Initialize(WeaponControl weaponControl, WeaponAttackController original)
     {

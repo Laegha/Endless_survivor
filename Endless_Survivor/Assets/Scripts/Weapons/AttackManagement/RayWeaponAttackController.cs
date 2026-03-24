@@ -45,7 +45,7 @@ public class RayWeaponAttackController : ShootingWeaponAttackController
     {
         var rayAttack = attack as RayAttack;
         Vector2 rayDir = FirePoint.right;
-        rayAttack.Attack((int)Damage, WeaponStats.Knockback, _rayData, FirePoint.position, rayDir);
+        rayAttack.Attack((int)Damage, WeaponStats.Knockback, _rayData, ShootingPosition, rayDir);
 
     }
 
