@@ -57,7 +57,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
         _skipAnimationCheckboxFill.SetActive(_skipAnimation);
     }
     public void TurnOnReturnButton() => _returnButton.interactable = true;
-    public async void InsertCoin()
+    public void InsertCoin()
     {
         UnlockmentsManager.GetGachaCoins((int coins) => _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost);
         if (!_enoughCoinsToGacha)
@@ -68,12 +68,12 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             return;
         }
         _returnButton.interactable = false;
-        var unlockedElement = await GachaUnlocker.UnlockRandomElement();
+        var unlockedElement = GachaUnlocker.UnlockRandomElement();
         if(unlockedElement == null)
         {
-            var characters = await UnlockmentsManager.UnlockedCharacters();
-            var weapons = await UnlockmentsManager.UnlockedWeapons();
-            var passiveItems = await UnlockmentsManager.UnlockedPassiveItems();
+            var characters = GameManager.gm.UnlockedElementHelper.UnlockedCharacters;
+            var weapons = GameManager.gm.UnlockedElementHelper.UnlockedWeapons;
+            var passiveItems = GameManager.gm.UnlockedElementHelper.UnlockedPassiveItems;
             List<ScriptableObject> elements = new List<ScriptableObject>();
             foreach (var character in characters)
                 elements.Add(character.element);

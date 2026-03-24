@@ -54,14 +54,14 @@ public class WeaponPickupMenu : MonoBehaviour
         _menuGfx.SetActive(false);
     }
 
-    public async void RerollWeapon()
+    public void RerollWeapon()
     {
         if (RerollManager.rm.RerollsLeft <= 0)
             return;
         RerollManager.rm.UseReroll();
-        var newWeapon = await RandomWeaponGetter.GetWeapon(true, _currDisplayingWeapon.WeaponPools);
+        var newWeapon = RandomWeaponGetter.GetWeapon(true, _currDisplayingWeapon.WeaponPools);
         while(newWeapon.element == _currDisplayingWeapon)
-            newWeapon = await RandomWeaponGetter.GetWeapon(true, _currDisplayingWeapon.WeaponPools);
+            newWeapon = RandomWeaponGetter.GetWeapon(true, _currDisplayingWeapon.WeaponPools);
 
         SetMenuWeapon(newWeapon.element, newWeapon.isNew);
     }

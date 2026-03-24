@@ -158,5 +158,6 @@ public static class UnlockmentsManager
         alteredElement.isNew = isNewState;
         string newJson = JsonConvert.SerializeObject(jsonDatas, Formatting.Indented);
         File.WriteAllText(jsonPath, newJson);
+        GameManager.gm.UnlockedElementHelper.UpdateAll();
     }
 }

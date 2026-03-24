@@ -24,12 +24,12 @@ public class CharSelectMenu : MonoBehaviour
         _menuObj.SetActive(true);
         DisplayCharacters();
     }
-    async void DisplayCharacters()
+    void DisplayCharacters()
     {
         var currentRow = Instantiate(_gridRowPrefab, _buttonGridTr);
         int gridRows = 1;
         float rowFilledSpace = 0;
-        var unlockedCharacters = await UnlockmentsManager.UnlockedCharacters();
+        var unlockedCharacters = GameManager.gm.UnlockedElementHelper.UnlockedCharacters;
         foreach (var character in unlockedCharacters)
         {
             var characterButton = Instantiate(_selectCharBtnPrefab, currentRow.transform);

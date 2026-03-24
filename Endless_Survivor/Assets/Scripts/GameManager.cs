@@ -14,14 +14,13 @@ public class GameManager : MonoBehaviour
     public CharacterData selectedCharacter;
 
     public PrefabHolder prefabHolder;
-
-    [HideInInspector] public List<CharacterData> unlockedCharacters;
-    [HideInInspector] public List<WeaponData> unlockedWeapons;
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] MapGenerationConfig _mapGenerationConfig;
+    UnlockedElementsHelper _unlockedElementsHelper = new();
 
 
     public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
+    public UnlockedElementsHelper UnlockedElementHelper {  get { return _unlockedElementsHelper; } }    
 
     public static GameManager gm
     {
@@ -38,6 +37,10 @@ public class GameManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
+        _unlockedElementsHelper.UpdateAll();
     }
     public void SetVolume(string volumeGroup, float volume)
     {

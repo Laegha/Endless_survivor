@@ -11,12 +11,12 @@ public static class GachaUnlocker
     static string[] _elementKeys = { _characterElement, _weaponElement, _passiveItemElement };
 
     public static int gachaCoinCost = 1;
-    public static async Task<ScriptableObject> UnlockRandomElement()
+    public static ScriptableObject UnlockRandomElement()
     {
         List<ScriptableObject> unlockableElements = new List<ScriptableObject>();
-        var characters = await UnlockmentsManager.LockedCharacters();
-        var weapons = await UnlockmentsManager.LockedWeapons();
-        var passiveItems = await UnlockmentsManager.LockedPassiveItems();
+        var characters = GameManager.gm.UnlockedElementHelper.LockedCharacters;
+        var weapons = GameManager.gm.UnlockedElementHelper.LockedWeapons;
+        var passiveItems = GameManager.gm.UnlockedElementHelper.LockedPassiveItems;
         unlockableElements.AddRange(characters);
         unlockableElements.AddRange(weapons);
         unlockableElements.AddRange(passiveItems);
@@ -30,14 +30,17 @@ public static class GachaUnlocker
         if(unlockedElement.GetType() == typeof(CharacterData))
         {
             UnlockmentsManager.UnlockCharacter(unlockedElement as CharacterData);
+            GameManager.gm.UnlockedElementHelper.UpdateCharacters();
         }
         else if(unlockedElement.GetType() == typeof(WeaponData))
         {
             UnlockmentsManager.UnlockWeapon(unlockedElement as WeaponData);
+            GameManager.gm.UnlockedElementHelper.UpdateWeapons();
         }
         else if(unlockedElement.GetType() == typeof(PassiveItemData))
         {
             UnlockmentsManager.UnlockPassiveItem(unlockedElement as PassiveItemData);
+            GameManager.gm.UnlockedElementHelper.UpdatePassives();
         }
         UnlockmentsManager.AddGachaCoins(-1);
         return unlockedElement;

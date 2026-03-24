@@ -41,13 +41,13 @@ public class PassiveItemPickupMenu : MonoBehaviour
         GameUIManager.uiManager.MenuHid();
         PlayerControl.pc.WeaponManager.LevelUpWeapons();
     }
-    public async void RerollItem()
+    public void RerollItem()
     {
         if (RerollManager.rm.RerollsLeft <= 0)
             return;
 
         RerollManager.rm.UseReroll();
-        var availableItems = await UnlockmentsManager.UnlockedPassiveItems();
+        var availableItems = GameManager.gm.UnlockedElementHelper.UnlockedPassiveItems;
         var newItem = availableItems[UnityEngine.Random.Range(0, availableItems.Count)];//get a random passive
         while(newItem.element == _currPickingItem)
             newItem = availableItems[UnityEngine.Random.Range(0, availableItems.Count)];//get a random passive

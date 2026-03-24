@@ -13,9 +13,9 @@ public class WeaponPickupData : PickupData
         base.TransferData(pickupControl);
         TransferAsync(pickupControl);
     }
-    async void TransferAsync(PickupControl pickupControl)
+    void TransferAsync(PickupControl pickupControl)
     {
-        var resultWeaponData = await RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
+        var resultWeaponData = RandomWeaponGetter.GetWeapon(true, _droppedWeaponPool);
         pickupControl.Pickup.AddVariable(_weaponVariableKey, resultWeaponData);
         CustomAnimation weponIdle = resultWeaponData.element.IdleAnim;
 

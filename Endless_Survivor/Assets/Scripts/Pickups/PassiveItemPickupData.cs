@@ -12,11 +12,7 @@ public class PassiveItemPickupData : PickupData
     public override void TransferData(PickupControl pickupControl)
     {
         base.TransferData(pickupControl);
-        TransferAsync(pickupControl);
-    }
-    async void TransferAsync(PickupControl pickupControl)
-    {
-        var availableItems = await UnlockmentsManager.UnlockedPassiveItems();
+        var availableItems = GameManager.gm.UnlockedElementHelper.UnlockedPassiveItems;
         //if (_itemPools != CustomFlags.IPassiveItemPool.None)
         //availableItems = availableItems.Where(x => (x.ItemPools & _itemPools) != CustomFlags.IPassiveItemPool.None).ToList();
         if (availableItems.Count == 0)

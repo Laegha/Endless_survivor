@@ -8,9 +8,9 @@ public class RandomWeaponGetter
 {
     static int _sharedTagChanceIncrementBase = 10;
     static int _sharedTagChanceIncrementPerTag = 1;
-    public static async Task<ElementIsNewInfo<WeaponData>>GetWeapon(bool useBuildTags = true, CustomFlags.IWeaponPool weaponPool = CustomFlags.IWeaponPool.None)
+    public static ElementIsNewInfo<WeaponData> GetWeapon(bool useBuildTags = true, CustomFlags.IWeaponPool weaponPool = CustomFlags.IWeaponPool.None)
     {
-        var availableWeapons = await UnlockmentsManager.UnlockedWeapons();
+        var availableWeapons = GameManager.gm.UnlockedElementHelper.UnlockedWeapons;
         if(weaponPool != CustomFlags.IWeaponPool.None)
         {
             availableWeapons = availableWeapons.Where(x => (x.element.WeaponPools & weaponPool) != CustomFlags.IWeaponPool.None).ToList();
