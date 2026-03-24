@@ -504,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &250987145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +686,7 @@ Transform:
   m_GameObject: {fileID: 263999197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -704,8 +704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: e38a2d83deb3cda448f4c58a79ad8a3c, type: 3}
-  _target: {fileID: 263999199}
 --- !u!1 &458908040
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,9 +819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedCharacter: {fileID: 11400000, guid: 7d6dcd7670b335a459c30b78b45731e7, type: 2}
   prefabHolder: {fileID: 11400000, guid: 080c889d4f67cd942abc52eb0118bd2e, type: 2}
-  unlockedCharacters: []
-  unlockedWeapons:
-  - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
   _audioMixer: {fileID: 24100000, guid: cd2588ac29cb5f842aa936deefcef760, type: 2}
   _mapGenerationConfig: {fileID: 0}
 --- !u!4 &751252661
@@ -926,26 +921,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &876012361
-MonoBehaviour:
+--- !u!61 &876012361
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876012358}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6910a792476704ca0385fca995ca2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 0}
-  _playerRb: {fileID: 0}
-  _playerHPManager: {fileID: 0}
-  _playerWeaponManager: {fileID: 0}
-  _passiveItemManager: {fileID: 0}
-  _statusEffectManager: {fileID: 0}
-  _playerMaterialManager: {fileID: 0}
-  _mainRenderer: {fileID: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1028153266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,8 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _target: {fileID: 0}
 --- !u!114 &1087160456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,8 +1642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _target: {fileID: 0}
 --- !u!212 &1487476283
 SpriteRenderer:
   m_ObjectHideFlags: 0
