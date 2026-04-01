@@ -13,7 +13,7 @@ public class IntensityManager : MonoBehaviour
         }
     }
     float _currIntensityLevelProgress = 0;
-    float _currProgressGoal = 5;
+    float _currProgressGoal;
     int _currIntensityLevel = 1;
     const float uiAnimIncreasePerLevel = 1;
 
@@ -23,20 +23,25 @@ public class IntensityManager : MonoBehaviour
     {
         instance = this;
     }
-
+    private void Start()
+    {
+        _currProgressGoal = GameManager.gm.WorldConfig.InitialInstensityGoal;
+    }
     public void IncreaseIntensityProgress(float progress)
     {
         _currIntensityLevelProgress += progress;
         if (_currIntensityLevelProgress < _currProgressGoal)
         {
-            //GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, 0);
+            GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, 0);
             return;
         }
         _currIntensityLevel++;
         _currIntensityLevelProgress = 0;
-        //_currProgressGoal = ??
-        //GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, uiAnimIncreasePerLevel);
-        MapManager.mm.UpdateBiome();
+        _currProgressGoal += GameManager.gm.WorldConfig.IntensityGoalIncrease;
+        GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, uiAnimIncreasePerLevel);
+        int levelsTillNewBiome = (_currIntensityLevel - 1) % GameManager.gm.WorldConfig.IntensityLevelsForNewBiome;
+        if(levelsTillNewBiome == 0)
+            MapManager.mm.UpdateBiome();
     }
 
 }
