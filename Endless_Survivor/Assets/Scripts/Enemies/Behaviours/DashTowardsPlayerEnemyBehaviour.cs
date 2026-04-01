@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
 {
@@ -15,6 +16,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
 
     Vector2 _direction;
     bool _isActivated;
+    bool _inDelayedFrame;
     float _lapsedDistance;
 
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
@@ -33,6 +35,11 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     public override void ActiveUpdate()
     {
         base.ActiveUpdate();
+        if (_inDelayedFrame)
+        {
+            _inDelayedFrame = false;
+            return;
+        }
         if(! _isActivated )
         {
             _isActivated = true;
@@ -51,7 +58,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
         _lapsedDistance += Time.deltaTime * _dashSpeed;
         if(_lapsedDistance > _dashDistance)
         {
-            _lapsedDistance -= _dashSpeed;//this is horrible, god forbid me. i set the distance back so it doesn't kill the behaviour again in the delay frame
+            _inDelayedFrame = true;
             KillBehaviour();
         }
     }
@@ -59,6 +66,9 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     public override void KillBehaviour()
     {
         base.KillBehaviour();
+        if (_dashAnimations.NonNullAnimations.Any(anim => anim.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
+            EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
+
         _isActivated = false;
         EnemyControl.RbForcesController.Stop();
 
