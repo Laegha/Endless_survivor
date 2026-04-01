@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour
     public PrefabHolder prefabHolder;
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] MapGenerationConfig _mapGenerationConfig;
+    [SerializeField] WorldConfigData _worldConfig;
     UnlockedElementsHelper _unlockedElementsHelper = new();
 
 
     public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
+    public WorldConfigData WorldConfig { get { return _worldConfig; } }
     public UnlockedElementsHelper UnlockedElementHelper {  get { return _unlockedElementsHelper; } }    
 
     public static GameManager gm
