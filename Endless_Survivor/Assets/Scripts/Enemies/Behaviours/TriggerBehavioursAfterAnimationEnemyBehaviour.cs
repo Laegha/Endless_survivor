@@ -76,4 +76,10 @@ public class TriggerBehavioursAfterAnimationEnemyBehaviour : EnemyBehaviour
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
         KillBehaviour();
     }
+
+    public override void KillBehaviour()
+    {
+        base.KillBehaviour();
+        _activated = false;
+    }
 }
