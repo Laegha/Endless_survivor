@@ -8,10 +8,6 @@ using UnityEngine;
 public class EnemySpawnManager : MonoBehaviour
 {
     static readonly int _enemyTargetPriority = 0;
-    [SerializeField] float _minSpawnDistFromPlayer;
-    [SerializeField] float _maxSpawnDistFromPlayer;
-    [SerializeField] RandomBetweenTwoConstants _timeBetweenEnemySpawns;
-    [SerializeField] RandomBetweenTwoConstants _enemiesPerSpawn;
     Transform _player;
     List<GameObject> _enemies = new List<GameObject>();
     float _enemySpawnTimer = 0.5f;
@@ -52,15 +48,14 @@ public class EnemySpawnManager : MonoBehaviour
         _enemySpawnTimer -= Time.deltaTime;
         if (_enemySpawnTimer > 0)
             return;
-        _enemySpawnTimer = _timeBetweenEnemySpawns.rand;
-        int spawnedEnemyCount = (int)_enemiesPerSpawn.rand;
+        _enemySpawnTimer = GameManager.gm.WorldConfig.TimeBetweenEnemySpawn.rand;
+        int spawnedEnemyCount = (int)GameManager.gm.WorldConfig.EnemiesPerSpawn.rand;
         for(int i = 0; i < spawnedEnemyCount; i++)
         {
             Tile spawingTile = GetEnemyPosition();
             EnemyData spawningEnemy = spawingTile.TileBiome.GetRandomAvailableEnemy(); ;
             SpawnEnemy(spawingTile, spawningEnemy);
         }
-
     }
 
     public Tile GetEnemyPosition()
@@ -73,7 +68,7 @@ public class EnemySpawnManager : MonoBehaviour
     bool CheckTileInRange(Tile tile)
     {
         Vector2 tileToPlayer = tile.transform.position - PlayerControl.pc.transform.position;
-        if(tile.IsWall || tileToPlayer.magnitude > _maxSpawnDistFromPlayer || tileToPlayer.magnitude < _minSpawnDistFromPlayer)
+        if(tile.IsWall || tileToPlayer.magnitude > GameManager.gm.WorldConfig.MaxEnemySpawnDist || tileToPlayer.magnitude < GameManager.gm.WorldConfig.MinEnemySpawnDist)
             return false;
         return true;
     }
