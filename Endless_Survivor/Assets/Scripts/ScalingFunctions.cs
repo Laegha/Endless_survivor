@@ -47,6 +47,6 @@ public static class ScalingFunctions
 
     public static float EnemyKillIntensityProgress(float enemyHP)
     {
-        return enemyHP;
+        return enemyHP *  GameManager.gm.WorldConfig.EnemyHPPercentToIntensityIncrease / 100;
     }
 }
