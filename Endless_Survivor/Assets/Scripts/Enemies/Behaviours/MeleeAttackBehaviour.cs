@@ -26,6 +26,8 @@ public class MeleeAttackBehaviour : EnemyBehaviour
     [SerializeField] CustomAnimation _attackVFXAnimation;
     [SerializeField] int _triggerVFXFrame;
     [SerializeField] int _vfxRendererOffset;
+    [SerializeField] bool _vfxUsesFixedAngle;
+    [SerializeField] float _vfxFixedAngle;
     [Tooltip("If there are multiple animations, make sure that this frame isn't out of range for any of them")][SerializeField] int _triggerDamageFrame;
     [SerializeField] SFXInfo _attackSfx;
     CustomAnimator _vfxAnimator;
@@ -84,6 +86,8 @@ public class MeleeAttackBehaviour : EnemyBehaviour
         {
             _triggerVFXFrame = originalMeleeAttack._triggerVFXFrame;
             _vfxRendererOffset = originalMeleeAttack._vfxRendererOffset;
+            _vfxUsesFixedAngle = originalMeleeAttack._vfxUsesFixedAngle;
+            _vfxFixedAngle = originalMeleeAttack._vfxFixedAngle;
         
             _vfxAnimator = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"], enemyControl.transform).GetComponent<CustomAnimator>();
             _vfxAnimator.GetComponent<RendererSortingByY>().Offset = _vfxRendererOffset;
@@ -142,10 +146,9 @@ public class MeleeAttackBehaviour : EnemyBehaviour
     }
     void TriggerAttackVFX()
     {
-        Debug.Log("TIGGE VFX EVENT");
         SoundFXManager.sm.PlaySfx(_attackSfx, EnemyControl.transform.position);
         _vfxAnimator.transform.localPosition = _attackDirection * _attackRange;
-        float angle = Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
+        float angle = _vfxUsesFixedAngle ? _vfxFixedAngle : Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
         _vfxAnimator.transform.rotation = Quaternion.Euler(0, 0, angle);
 
         _vfxAnimator.ChangeAnim(_attackVFXAnimation.AnimationName);
