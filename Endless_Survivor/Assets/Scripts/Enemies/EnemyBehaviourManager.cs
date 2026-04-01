@@ -44,6 +44,8 @@ public class EnemyBehaviourManager : MonoBehaviour
     }
     public bool ActivateBehaviour(EnemyBehaviour newBehaviour)
     {
+        if (_activeBehaviours.Contains(newBehaviour))
+            return true;
         foreach(var behaviour in _activeBehaviours)
         {
             bool isOverridenByActiveBehaviour = behaviour.OverrideBehaviours.Contains(newBehaviour.BehaviourId);
