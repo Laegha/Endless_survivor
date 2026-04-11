@@ -42,8 +42,10 @@ public class PlayerStatusEffectManager : MonoBehaviour
             Destroy(_activeGfx[statusEffect].statusParticles);
         _activeGfx.Remove(statusEffect);
     }
-    public void AddEffects(List<PlayerStatusEffect> originalEffects, PlayerStatusEffectData effectData)
+    public void AddEffects(List<PlayerStatusEffect> originalEffects, PlayerStatusEffectData effectData, bool byPassesInmunity = false)
     {
+        if (!byPassesInmunity && PlayerControl.pc.PlayerHPManager.IsInmune)
+            return;
         var currEffectStacks = _currentEffects.Where(x => x.effectData == effectData).Count();
         if (currEffectStacks >= effectData.EffectMaxStacks)
             return;

@@ -20,6 +20,7 @@ public class PlayerHPManager : HP
     float _regenerationTimer;
 
     Action _onUpdateActions;
+    public bool IsInmune {  get { return _isInmune; } }
     public SFXInfo OnHitSound { set { _onHitSound = value; } }
     public SFXInfo OnDeathSound { set { _onDeathSound = value; } }
 
