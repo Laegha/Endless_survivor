@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New WorldConfig", menuName = "ScriptableObjects/World config", order = 0)]
 public class WorldConfigData : ScriptableObject
 {
     [SerializeField] float _minEnemySpawnDist;
