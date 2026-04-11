@@ -11,8 +11,9 @@ public class EnemyProyectile : MonoBehaviour
     float _speed = 1;
     float _lifeTime = 5;
     float _lapsedTime;
+    System.Action<PlayerControl> _onPlayerHit;
 
-    public void Initiate(int damage, float lifeTime, ProyectileData proyectileData)
+    public void Initiate(int damage, float lifeTime, ProyectileData proyectileData, System.Action<PlayerControl> onPlayerHit = null)
     {
         _speed = proyectileData.ProyectileSpeed;
         _lifeTime = lifeTime;
@@ -31,7 +32,7 @@ public class EnemyProyectile : MonoBehaviour
 
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileData.ProyectileSpread, proyectileData.ProyectileSpread)));
 
-
+        _onPlayerHit += onPlayerHit;
         DamageSource[] damageSources = GetComponents<DamageSource>();
         foreach (DamageSource damageSource in damageSources)
         {
@@ -55,6 +56,11 @@ public class EnemyProyectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        PlayerControl hitPlayer = Utility.FindFirstComponentInParent<PlayerControl>(collider.gameObject);
+        if(hitPlayer != null)
+        {
+            _onPlayerHit?.Invoke(hitPlayer);
+        }
         Destroy(gameObject);
     }
 }
