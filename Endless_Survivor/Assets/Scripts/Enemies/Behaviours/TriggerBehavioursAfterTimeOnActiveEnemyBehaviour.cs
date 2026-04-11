@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerBehavioursAfterTimeOnActiveEnemyBehaviour : EnemyBehaviour
 {
-    new public static int maxStacks => 1;
+    new public static int maxStacks => -1;
     [SerializeField] List<string> _triggeredBehaviours;
     [SerializeField] float _timeToTrigger;
     [SerializeField] bool _triggerOnStart;
