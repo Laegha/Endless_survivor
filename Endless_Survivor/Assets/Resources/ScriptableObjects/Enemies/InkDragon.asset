@@ -1,0 +1,480 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: InkDragon
+  m_EditorClassIdentifier: 
+  _initialHP: 1000
+  _referenceSizeSprite: {fileID: 0}
+  _renderSortingOffset: 250
+  _knockbackResistance: 20
+  _colliderSize: {x: 0, y: 0}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 8047334641657446400
+  - rid: 8047334641657446402
+  - rid: 8047334641657446405
+  - rid: 8047334641657446403
+  - rid: 8047334641657446401
+  - rid: 8047334641657446407
+  - rid: 8047334641657446408
+  - rid: 8047334641657446410
+  - rid: 8047334641657446409
+  - rid: 8047334649052790784
+  - rid: 8047334649052790786
+  - rid: 8047334649052790785
+  - rid: 8047334649052790788
+  - rid: 8047334641657446411
+  - rid: 8047334641657446412
+  - rid: 8047334649052790789
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8047334641657446400
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: IdleRight
+          _frames:
+          - {fileID: 1346304340, guid: 27c280f9b7647ff41baf8f51aab63000, type: 3}
+          - {fileID: 2104037381, guid: 27c280f9b7647ff41baf8f51aab63000, type: 3}
+          - {fileID: -2073736814, guid: 27c280f9b7647ff41baf8f51aab63000, type: 3}
+          - {fileID: -1100303956, guid: 27c280f9b7647ff41baf8f51aab63000, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: IdleLeft
+          _frames:
+          - {fileID: -1992249951, guid: e1c918584c2bc5e4c856ce5c30cab35f, type: 3}
+          - {fileID: -1534281949, guid: e1c918584c2bc5e4c856ce5c30cab35f, type: 3}
+          - {fileID: 526647154, guid: e1c918584c2bc5e4c856ce5c30cab35f, type: 3}
+          - {fileID: 435654936, guid: e1c918584c2bc5e4c856ce5c30cab35f, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 8047334641657446401
+      type: {class: ShootInSprayerModeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootFire
+        _overrideBehaviours: []
+        _damage: 6
+        _proyectileLifetime: 3
+        _firePointDist: 3.5
+        _proyectileData:
+          _proyectileSpeed: 6
+          _proyectileSpread: 5
+          _proyectileAnim:
+            _animationName: FireProyectile
+            _frames:
+            - {fileID: 2120220413, guid: 78c14b27135168a41b0cca3037b29728, type: 3}
+            - {fileID: 1231158509, guid: 78c14b27135168a41b0cca3037b29728, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 1.1, y: 0.5}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _appliedPlayerStatusOnHit:
+        - {fileID: 11400000, guid: 28ca258b4015ec541889eb558ac2409a, type: 2}
+        _flipVerticallyIfPlayerIsLeft: 1
+        _flipHorizontallyIfPlayerIsDown: 0
+        _startAngle: 0
+        _angleChangeCycle:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 4
+            outSlope: 4
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.25
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5
+            value: 0
+            inSlope: -4
+            outSlope: -4
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.75
+            value: -1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 4
+            outSlope: 4
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _cycleHeightMultiplier: 15
+        _cycleSpeed: 0.06666667
+        _resetCycleIfNotShootForTime: 1
+    - rid: 8047334641657446402
+      type: {class: MoveRandomlyWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveRandomly
+        _overrideBehaviours: []
+        _timeBetweenMovements:
+          min: 0.5
+          max: 1
+        _movementDistance:
+          min: 4
+          max: 6
+        _speed:
+          min: 3
+          max: 3
+    - rid: 8047334641657446403
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DuringTimeTriggerMove
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - MoveRandomly
+        - MoveAnim
+        _duration:
+          min: 1.4
+          max: 1.8
+    - rid: 8047334641657446405
+      type: {class: PlayAnimByRbVelocityWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MoveAnim
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: MoveRight
+            _frames:
+            - {fileID: 1935665388, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: 78794748, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: -1320070974, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: -1956489357, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: 1272937713, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: -2079516436, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: 1525909441, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            - {fileID: 1663639222, guid: c68e16fdde61fc54d805060b37ceee78, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: MoveLeft
+            _frames:
+            - {fileID: -1448919474, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: -1482291841, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: 592238804, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: -3027570, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: -406296450, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: -1005621221, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: -165571964, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            - {fileID: 517796052, guid: af3fbf948d74ee64083b90341e381600, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 1
+    - rid: 8047334641657446407
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeActiveTriggerFire
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 0.2
+          max: 0.2
+        _triggeredBehaviours:
+        - ShootFire
+    - rid: 8047334641657446408
+      type: {class: PlayAnimFacingPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootFireAnim
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: SpitFireRight
+            _frames:
+            - {fileID: 400179031, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: 783786839, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: 1232544907, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: -772393916, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: 1971089281, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: -1968998153, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: -13274883, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: 1388523720, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: 553305076, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: -1901673983, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: 206832483, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            - {fileID: -1762906245, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 0
+            _priority: 2
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: SpitFireLeft
+            _frames:
+            - {fileID: 970130071, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: 1989467888, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: 1522376171, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -1045607647, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: 85819139, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -1100642314, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -1447733765, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -1421768528, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: 566684020, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -1530839049, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -373168078, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            - {fileID: -630444042, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 0
+            _priority: 2
+    - rid: 8047334641657446409
+      type: {class: TriggerBehavioursAfterAnimationEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AfterAnimTriggerFire
+        _overrideBehaviours: []
+        _triggeredBehavioursIds:
+        - DuringTimeTriggerFire
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightAnimation:
+          _animationName: StartFireRight
+          _frames:
+          - {fileID: -128766862, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+          - {fileID: 245769786, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+          - {fileID: 1294355403, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+          - {fileID: -186208145, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+          - {fileID: -1210697165, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+          - {fileID: -1225984548, guid: 1b0c24a71e827044b891a29ce4393a38, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _downAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _leftAnimation:
+          _animationName: StartFireLeft
+          _frames:
+          - {fileID: -124175666, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+          - {fileID: -217946412, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+          - {fileID: -218281158, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+          - {fileID: 1380580359, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+          - {fileID: -1385653869, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+          - {fileID: 926325961, guid: da995410ba8e4a545b679acd525b78fa, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 1
+    - rid: 8047334641657446410
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DuringTimeTriggerFire
+        _overrideBehaviours:
+        - DuringTimeTriggerMove
+        _behavioursToTrigger:
+        - OverTimeActiveTriggerFire
+        - ShootFireAnim
+        _duration:
+          min: 3
+          max: 6
+    - rid: 8047334641657446411
+      type: {class: TriggerRandomBehaviourOverTimeWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerRandom
+        _overrideBehaviours: []
+        _possibleBehaviours:
+        - AfterAnimTriggerFire
+        _timeBetweenTriggers:
+          min: 4
+          max: 7
+    - rid: 8047334641657446412
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: StartRandomCycle
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - TriggerRandom
+        _timeToTrigger: 0
+        _triggerOnStart: 1
+    - rid: 8047334649052790784
+      type: {class: ShootInSprayerModeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootInk
+        _overrideBehaviours: []
+        _damage: 1
+        _proyectileLifetime: 3
+        _firePointDist: 0
+        _proyectileData:
+          _proyectileSpeed: 0
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0, y: 0}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _appliedPlayerStatusOnHit: []
+        _flipVerticallyIfPlayerIsLeft: 0
+        _flipHorizontallyIfPlayerIsDown: 0
+        _startAngle: 0
+        _angleChangeCycle:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _cycleHeightMultiplier: 1
+        _cycleSpeed: 0
+        _resetCycleIfNotShootForTime: 0
+    - rid: 8047334649052790785
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DuringTimeTriggerInk
+        _overrideBehaviours: []
+        _behavioursToTrigger: []
+        _duration:
+          min: 0
+          max: 0
+    - rid: 8047334649052790786
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeTriggerInk
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 0
+          max: 0
+        _triggeredBehaviours: []
+    - rid: 8047334649052790788
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AfterTimeTriggerInkEndAnim
+        _overrideBehaviours: []
+        _triggeredBehaviours: []
+        _timeToTrigger: 0
+        _triggerOnStart: 0
+    - rid: 8047334649052790789
+      type: {class: TriggerBehavioursAfterAnimationEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AfterAnimTriggerInk
+        _overrideBehaviours: []
+        _triggeredBehavioursIds: []
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _rightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _downAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _leftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
