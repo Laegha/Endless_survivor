@@ -253,4 +253,37 @@ public static class Utility
     {
         return !MapManager.mm.GenerationHandler.TileMatrix.ContainsKey(tilePos) || !MapManager.mm.LoadedTiles.Any(x => (Vector2)x.transform.position == tilePos) || MapManager.mm.GenerationHandler.TileMatrix[tilePos][0].IsWall;
     }
+
+    public static float GetFlippedAngle(float angle, bool flipVertically, bool flipHorizontally)
+    {
+        float result = angle;
+        float originalAngleCos = Mathf.Cos(angle * Mathf.Deg2Rad);
+        float originalAngleSin = Mathf.Sin(angle * Mathf.Deg2Rad);
+        if(flipHorizontally && !flipVertically)
+        {
+            float flippedCandidate = Mathf.Asin(-originalAngleSin) * Mathf.Rad2Deg;
+            if (Mathf.Cos(flippedCandidate * Mathf.Deg2Rad) != originalAngleCos)
+                flippedCandidate = flippedCandidate * -1 + 180;
+            result = flippedCandidate;
+
+        }
+        if (!flipHorizontally && flipVertically)
+        {
+            float flippedCandidate = Mathf.Acos(-originalAngleCos) * Mathf.Rad2Deg;
+            float newCos = Mathf.Sin(flippedCandidate * Mathf.Deg2Rad);
+            if (Mathf.Sign(newCos) != Mathf.Sign(originalAngleSin))
+                flippedCandidate = flippedCandidate * -1;
+            result = flippedCandidate;
+        }
+        if (flipHorizontally && flipVertically)
+        {
+            float flippedCandidate = Mathf.Acos(-originalAngleCos) * Mathf.Rad2Deg;
+            if (Mathf.Sin(flippedCandidate * Mathf.Deg2Rad) == originalAngleSin)
+                flippedCandidate = flippedCandidate * -1;
+            result = flippedCandidate;
+
+        }
+
+        return result;
+    }
 }
