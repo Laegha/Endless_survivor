@@ -18,7 +18,8 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
     [SerializeField] float _startAngle;   
     [SerializeField] AnimationCurve _angleChangeCycle;// it would be AWESOME if you could put key rotations with a given value between 0 and 1 that represents the moment in the cycle and then, if the current time is between keys, interpolate
     [SerializeField] float _cycleHeightMultiplier = 1;
-    [Range(0, 1)][SerializeField] float _cycleSpeed;
+    [Range(0, 1)][SerializeField] float _cycleMinSpeed;
+    [Range(0, 1)][SerializeField] float _cycleMaxSpeed;
     [SerializeField] bool _resetCycleIfNotShootForTime;
 
     const int _curveLength = 1;
@@ -42,8 +43,9 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
         _startAngle = shootInSprayOriginal._startAngle;
         _angleChangeCycle = shootInSprayOriginal._angleChangeCycle;
         _cycleHeightMultiplier = shootInSprayOriginal._cycleHeightMultiplier;
-        _cycleSpeed = shootInSprayOriginal._cycleSpeed;
-        _resetCycleIfNotShootForTime = shootInSprayOriginal._resetCycleIfNotShootForTime;
+        _cycleMinSpeed = Mathf.Clamp(shootInSprayOriginal._cycleMinSpeed, 0, shootInSprayOriginal._cycleMaxSpeed);
+        _cycleMaxSpeed = Mathf.Clamp(shootInSprayOriginal._cycleMaxSpeed, shootInSprayOriginal._cycleMinSpeed, Mathf.Infinity);
+	_resetCycleIfNotShootForTime = shootInSprayOriginal._resetCycleIfNotShootForTime;
     }
 
     public override void PassiveUpdate()
@@ -68,7 +70,7 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
         float bulletAngle = _startAngle + _angleChangeCycle.Evaluate(_currCycleTime) * _cycleHeightMultiplier;
         Shoot(bulletAngle);
         //Advance rotation
-        _currCycleTime += _cycleSpeed;
+        _currCycleTime += Random.Range(_cycleMinSpeed, _cycleMaxSpeed);
         //if curve is finished start again
         if(_currCycleTime >= _curveLength)
             _currCycleTime = 0;
