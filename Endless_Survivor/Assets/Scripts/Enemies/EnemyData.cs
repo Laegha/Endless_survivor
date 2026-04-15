@@ -44,7 +44,7 @@ public class EnemyData : ScriptableObject
         {
             if (enemyBehaviour == null)
                 continue;
-            enemyControl.BehaviourManager.AddBehaviour(enemyBehaviour, enemyControl);
+            enemyControl.BehaviourManager.AddBehaviour(enemyBehaviour);
         }
         enemyControl.BehaviourManager.RewriteAllOverrides();//rewrite overrides so they are pointing to the BehaviourManager behaviours instead of EnemyData behaviours
 

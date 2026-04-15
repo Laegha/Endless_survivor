@@ -44,6 +44,8 @@ public class EnemyBehaviour
     public virtual void PassiveUpdate() { }//is called every frame, regardless the state of the behaviour
 
     public virtual void ActiveUpdate() { }//is called every frame only when the behaviour is executing
+    public virtual void OnDamaged() { }//is called when the enemy takes damage
+    public virtual void OnDeath() { }//is called when the enemy dies
 
     public virtual void KillBehaviour()//BEWARE: there is a frame of delay between the kill behaviour and the last ActiveUpdate, to be considered while developing precise behaviour on ActiveUpdate
     {

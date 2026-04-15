@@ -8,13 +8,21 @@ public class EnemyBehaviourManager : MonoBehaviour
 {
     List<EnemyBehaviour> _behaviours = new List<EnemyBehaviour>();
     List<EnemyBehaviour> _activeBehaviours = new List<EnemyBehaviour>();
+    EnemyControl _enemyControl;
     bool _isStunned;
     public List<EnemyBehaviour> Behaviours { get { return _behaviours; } }
     public bool IsStunned { get { return _isStunned; } set { _isStunned = value; } }
 
+    private void Awake()
+    {
+        _enemyControl = transform.root.GetComponentInChildren<EnemyControl>();
+        
+    }
     private void Start()
     {
         _behaviours.ForEach(behaviour => behaviour.Start());
+        _enemyControl.EnemyHP.OnDamageTaken += OnDamaged;
+        _enemyControl.EnemyHP.OnDeath += OnDeath;
     }
 
     void Update()
@@ -26,10 +34,19 @@ public class EnemyBehaviourManager : MonoBehaviour
         activeBehaviours.ForEach(behaviour => behaviour.ActiveUpdate());
     }
 
-    public void AddBehaviour(EnemyBehaviour newBehaviour, EnemyControl enemyControl)
+    void OnDamaged()
+    {
+        _behaviours.ForEach(behaviour => behaviour.OnDamaged());
+    }
+    void OnDeath(EnemyControl enemyControl)
+    {
+        _behaviours.ForEach(behaviour => behaviour.OnDeath());
+
+    }
+    public void AddBehaviour(EnemyBehaviour newBehaviour)
     {
         EnemyBehaviour addedBehaviour = (EnemyBehaviour)Activator.CreateInstance(newBehaviour.GetType());
-        addedBehaviour.Initialize(newBehaviour, enemyControl);
+        addedBehaviour.Initialize(newBehaviour, _enemyControl);
         _behaviours.Add(addedBehaviour);
     }
 
@@ -55,7 +72,7 @@ public class EnemyBehaviourManager : MonoBehaviour
         }
         _activeBehaviours.Add(newBehaviour);
         newBehaviour.IsActive = true;
-
+        //newBehaviour.OnActivated();
         CheckOverrides(newBehaviour);
         return true;
     }
@@ -77,4 +94,5 @@ public class EnemyBehaviourManager : MonoBehaviour
     {
         return Behaviours.Find(x => x.BehaviourId == behaviourId);
     }
+
 }
