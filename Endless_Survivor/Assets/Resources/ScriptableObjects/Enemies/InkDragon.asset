@@ -515,7 +515,8 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-        _appliedPlayerStatusOnHit: []
+        _appliedPlayerStatusOnHit:
+        - {fileID: 11400000, guid: a7a21b7845643d948a2baf6be6ad011a, type: 2}
         _flipVerticallyIfPlayerIsLeft: 0
         _flipHorizontallyIfPlayerIsDown: 0
         _startAngle: 30
