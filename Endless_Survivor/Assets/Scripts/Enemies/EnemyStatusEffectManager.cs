@@ -13,6 +13,12 @@ public class EnemyStatusEffectManager : MonoBehaviour
     List<EnemyStatusEffectGroup> _currentEffects = new();
     Dictionary<EnemyStatusEffect, StatusEffectGFX> _activeGfx = new();
 
+    private void Start()
+    {
+        _enemyControl.EnemyHP.OnDamageTaken += OnHit;
+        _enemyControl.EnemyHP.OnDeath += OnKilled;
+    }
+
     public List<EnemyStatusEffectGroup> CurrentEffects {  get { return _currentEffects; } }
 
     public void SetGridLocalPos(Vector2 pos) => _statusIndicatorsGrid.transform.localPosition = pos;    
@@ -77,7 +83,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
             effect.Update();
         }
     }
-    public void OnKilled()
+    public void OnKilled(EnemyControl placeholder)
     {
         foreach (EnemyStatusEffectGroup effect in _currentEffects) 
             effect.OnKilled();

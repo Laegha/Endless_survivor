@@ -25,7 +25,6 @@ public class EnemyHP : HP
     private void Start()
     {
         _damagedFlashing = new SpriteMaterialFlashing(_enemyControl.MaterialManager, _damagedFlashingRate, new MaterialOverride(_flashingMaterialAuthority, _damagedFlashingMaterial));
-        OnDamageTaken += _enemyControl.StatusEffectManager.OnHit;
     }
     public void SetSounds(SFXInfo onHitSound, SFXInfo onDeathSound)
     {
@@ -59,7 +58,6 @@ public class EnemyHP : HP
     }
     public override void Die()
     {
-        _enemyControl.StatusEffectManager.OnKilled();
         _onDeath?.Invoke(_enemyControl);
         InstantiatePickup(); 
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
