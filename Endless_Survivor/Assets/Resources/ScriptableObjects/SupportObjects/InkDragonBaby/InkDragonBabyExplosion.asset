@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _supportObjBehaviours:
   - rid: 8047334739468353536
+  - rid: 8047334741167046663
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -47,3 +48,7 @@ MonoBehaviour:
         _affectedLayers:
           serializedVersion: 2
           m_Bits: 192
+    - rid: 8047334741167046663
+      type: {class: FlipSpriteToFacePlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _originalFacingLeft: 0
