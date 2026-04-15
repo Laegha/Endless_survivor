@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: InkedPlayerEffectPuddle
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 8047334741167046656
+  - rid: 8047334741167046657
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8047334741167046656
+      type: {class: CreateGFXOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _createdAnimation:
+          _animationName: Puddle
+          _frames:
+          - {fileID: 21300000, guid: 2e8f40ee89f86974c8c303d5f2ed610e, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _animationDuration: 3
+        _createdParticles: {fileID: 0}
+        _particlesDuration: 0
+        _creationOffset: {x: 0, y: 0}
+    - rid: 8047334741167046657
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 0.1
+          max: 0.1
