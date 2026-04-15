@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 224
         width: 224
         height: 224
       alignment: 9
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 0
+        y: 224
         width: 224
         height: 224
       alignment: 9
@@ -168,7 +168,7 @@ TextureImporter:
       name: InkDragon_IdleRight_2
       rect:
         serializedVersion: 2
-        x: 448
+        x: 0
         y: 0
         width: 224
         height: 224
@@ -189,7 +189,7 @@ TextureImporter:
       name: InkDragon_IdleRight_3
       rect:
         serializedVersion: 2
-        x: 672
+        x: 224
         y: 0
         width: 224
         height: 224
