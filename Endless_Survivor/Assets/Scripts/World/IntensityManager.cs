@@ -15,7 +15,7 @@ public class IntensityManager : MonoBehaviour
     float _currIntensityLevelProgress = 0;
     float _currProgressGoal;
     int _currIntensityLevel = 1;
-    const float uiAnimIncreasePerLevel = 1;
+    const float uiAnimIncreasePerLevel = .5f;
 
     public float CurrIntensityLevelProgress { get { return _currIntensityLevelProgress; } }
     public int CurrIntensityLevel { get { return _currIntensityLevel; } }
@@ -26,6 +26,7 @@ public class IntensityManager : MonoBehaviour
     private void Start()
     {
         _currProgressGoal = GameManager.gm.WorldConfig.InitialInstensityGoal;
+        GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, 0);
     }
     public void IncreaseIntensityProgress(float progress)
     {
