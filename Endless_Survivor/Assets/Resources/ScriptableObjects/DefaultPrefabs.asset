@@ -38,3 +38,5 @@ MonoBehaviour:
       Value: {fileID: 6690923476748336467, guid: ae9b50d63bfc25946862a613b41031c0, type: 3}
     - Key: SupportObject
       Value: {fileID: 3165747705039378651, guid: 0e14a3e6659cd8b4ea43d208e3b9f2fc, type: 3}
+    - Key: UIMessage
+      Value: {fileID: 2649328339854856192, guid: 4b0009529ed97034081be0c1ce6de19a, type: 3}
