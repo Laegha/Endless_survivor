@@ -13,6 +13,7 @@ public class WorldConfigData : ScriptableObject
     [SerializeField] int _intensityGoalIncrease;
     [SerializeField] int _enemyHPPercentToIntensityIncrease;
     [SerializeField] int _intensityLevelsForNewBiome;
+    [SerializeField] UIMessageInfo _intensityIncreaseMessageInfo;
 
     public float MinEnemySpawnDist { get { return _minEnemySpawnDist; } }
     public float MaxEnemySpawnDist { get { return _maxEnemySpawnDist; } }
@@ -22,4 +23,5 @@ public class WorldConfigData : ScriptableObject
     public int IntensityGoalIncrease { get { return _intensityGoalIncrease; } }
     public int EnemyHPPercentToIntensityIncrease { get { return _enemyHPPercentToIntensityIncrease; } }
     public int IntensityLevelsForNewBiome { get { return _intensityLevelsForNewBiome; } }
+    public UIMessageInfo IntensityIncreaseMessageInfo {  get { return _intensityIncreaseMessageInfo; } }
 }
