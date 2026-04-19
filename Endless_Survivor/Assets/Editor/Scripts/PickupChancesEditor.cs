@@ -17,7 +17,7 @@ public class PickupChancesEditor : PropertyDrawer
             property.serializedObject.ApplyModifiedProperties();
         }
         PickupChances pickupChances = property.managedReferenceValue as PickupChances;
-        SerializedProperty _dropablePickupChances = property.FindPropertyRelative("_dropablePickupChances");
+        SerializedProperty dropablePickupChances = property.FindPropertyRelative("_dropablePickupChances");
         //var pickupChances = new PickupChances();
         //EditorGUILayout.PropertyField(_dropablePickupChances);
         RouletteElementChance<PickupData> removedDataChance = null;
@@ -29,8 +29,8 @@ public class PickupChancesEditor : PropertyDrawer
             GUILayout.Label(pickupLabel, EditorStyles.boldLabel);
 
             EditorGUI.indentLevel++;
-            SerializedProperty pickupProperty = _dropablePickupChances.GetArrayElementAtIndex(i);
-            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_element"));
+            SerializedProperty pickupProperty = dropablePickupChances.GetArrayElementAtIndex(i);
+            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_rouletteElement"));
             SerializedProperty chanceProperty = pickupProperty.FindPropertyRelative("_chance");
             EditorGUILayout.BeginHorizontal();
             int maxPercentage = 100;

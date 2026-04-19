@@ -117,7 +117,7 @@ public class EnemyDataEditor : Editor
 
             EditorGUI.indentLevel++;
             SerializedProperty pickupProperty = _dropablePickupChances.GetArrayElementAtIndex(i);
-            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_element"));
+            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_rouletteElement"));
             SerializedProperty chanceProperty = pickupProperty.FindPropertyRelative("_chance");
             EditorGUILayout.BeginHorizontal();
             int maxPercentage = 100;
