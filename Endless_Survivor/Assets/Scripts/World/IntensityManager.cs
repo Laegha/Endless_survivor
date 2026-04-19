@@ -40,6 +40,7 @@ public class IntensityManager : MonoBehaviour
         _currIntensityLevelProgress = 0;
         _currProgressGoal += GameManager.gm.WorldConfig.IntensityGoalIncrease;
         GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, uiAnimIncreasePerLevel);
+        GameUIManager.uiManager.DisplayUIMessage(GameManager.gm.WorldConfig.IntensityIncreaseMessageInfo);
         int levelsTillNewBiome = (_currIntensityLevel - 1) % GameManager.gm.WorldConfig.IntensityLevelsForNewBiome;
         if(levelsTillNewBiome == 0)
             MapManager.mm.UpdateBiome();
