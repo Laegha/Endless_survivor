@@ -11,6 +11,8 @@ public class Biome
     List<Tile> _borderTiles = new();
     BiomeData _biomeData;
 
+    const int floorDecorRenderOffset = -200;
+
     public List<Tile> BiomeTiles {  get { return _biomeTiles; } }
     public BiomeData BiomeData {  get { return _biomeData; } }
     public void SetDirty() => _biomeTiles.RemoveAll(x => x == null);
@@ -93,7 +95,7 @@ public class Biome
         decor.transform.SetParent(startTileTr);
         
         var decorAnimator = decor.GetComponent<CustomAnimator>();
-        decor.GetComponent<RendererSortingByY>().Offset = -100;
+        decor.GetComponent<RendererSortingByY>().Offset = floorDecorRenderOffset;
         decorAnimator.AddAnimations(new() { placingDecor.Element } );
         decorAnimator.ChangeAnim(placingDecor.Element.AnimationName);
 
