@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75d3ae9aff4c064ba01f59864e58071, type: 3}
+  m_Name: ItemChest
+  m_EditorClassIdentifier: 
+  _pickupParticles: {fileID: 3854260980243891339, guid: b4d1270a86673844c80d19e794f8221b, type: 3}
+  _colliderSize: {x: 1.5, y: 0.9}
+  _pickupChances:
+    rid: 8047334804060897281
+  _generatedObjIfNullDrop: {fileID: 0}
+  _dropOffset: {x: 0, y: 0}
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -766101287, guid: 867802e4bd5257f40827bd62825ae1b0, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _openAnimation:
+    _animationName: Open
+    _frames:
+    - {fileID: -766101287, guid: 867802e4bd5257f40827bd62825ae1b0, type: 3}
+    - {fileID: -1461620643, guid: 867802e4bd5257f40827bd62825ae1b0, type: 3}
+    - {fileID: 1380846685, guid: 867802e4bd5257f40827bd62825ae1b0, type: 3}
+    - {fileID: 1380846685, guid: 867802e4bd5257f40827bd62825ae1b0, type: 3}
+    - {fileID: 1380846685, guid: 867802e4bd5257f40827bd62825ae1b0, type: 3}
+    _framesPerSecond: 4
+    _endAnimationOnEnd: 0
+    _priority: 1
+  _dropFrame: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: 8047334804060897281
+      type: {class: PickupChances, ns: , asm: Assembly-CSharp}
+      data:
+        _dropablePickupChances:
+        - _rouletteElement: {fileID: 11400000, guid: b81cd9ee6d834c940924b0e437b666c7, type: 2}
+          _chance: 100
