@@ -15,12 +15,20 @@ MonoBehaviour:
   _minEnemySpawnDist: 5
   _maxEnemySpawnDist: 100
   _timeBetweenEnemySpawn:
-    min: 100
-    max: 100
+    min: 15
+    max: 25
   _enemiesPerSpawn:
-    min: 1
-    max: 1
-  _initialIntensityGoal: 10
-  _intensityGoalIncrease: 0
-  _enemyHPPercentToIntensityIncrease: 0
-  _intensityLevelsForNewBiome: 10
+    min: 10
+    max: 15
+  _initialIntensityGoal: 30
+  _intensityGoalIncrease: 10
+  _enemyHPPercentToIntensityIncrease: 10
+  _intensityLevelsForNewBiome: 1
+  _intensityIncreaseMessageInfo:
+    _message: The engine of chaos turns faster
+    _textSize: 24
+    _textFont: {fileID: 11400000, guid: caa87b0ad1ca1e24b82b2bb3448dbbfc, type: 2}
+    _textColor: {r: 1, g: 1, b: 1, a: 1}
+    _textAlignment: 514
+    _messageYPosition: 70
+    _messageAnimator: {fileID: 9100000, guid: d0bc87a95257f844892bbee217fc4131, type: 2}

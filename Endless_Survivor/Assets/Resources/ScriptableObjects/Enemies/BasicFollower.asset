@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 20
   _referenceSizeSprite: {fileID: 1684011115, guid: ea1e321c2790a0544a548baca2059522, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: 0
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.125}
@@ -22,7 +23,9 @@ MonoBehaviour:
   - rid: 768305086805573633
   - rid: 2600434731462950912
   - rid: 2600434731462950913
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 100
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1

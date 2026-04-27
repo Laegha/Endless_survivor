@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 25
   _referenceSizeSprite: {fileID: -1562088344, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: 30
   _colliderSize: {x: 0.6, y: 0.6}
   _colliderOffset: {x: 0, y: -0.3125}
@@ -21,7 +22,10 @@ MonoBehaviour:
   _enemyBehaviours:
   - rid: 1814238352843472897
   - rid: 1814238352843472896
-  _dropablePickupChances: []
+  - rid: 8047334981916688384
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 10
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -40,10 +44,10 @@ MonoBehaviour:
       data:
         _behaviourId: Attack
         _overrideBehaviours:
-        - 
+        - Chase
         _damage: 5
-        _attackRange: 1.5
-        _attackRadius: 1.7
+        _attackRange: 0
+        _attackRadius: 1.5
         _attackUpAnimation:
           _animationName: 
           _frames: []
@@ -57,11 +61,17 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackDownAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: AttackDown
+          _frames:
+          - {fileID: 1635123377, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: 1700330575, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: 2123434058, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: -1930073393, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: -1888272115, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          - {fileID: 1146862445, guid: 60065514ec376d44b8859221e8c20cae, type: 3}
+          _framesPerSecond: 4
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 1
         _attackLeftAnimation:
           _animationName: 
           _frames: []
@@ -76,7 +86,10 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _triggerVFXFrame: 0
-        _triggerDamageFrame: 0
+        _vfxRendererOffset: 0
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
+        _triggerDamageFrame: 3
         _attackSfx:
           _sound: {fileID: 0}
           _volume: 1
@@ -101,9 +114,13 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _chasingDownAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: ChaseDown
+          _frames:
+          - {fileID: 250925177, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          - {fileID: -1562088344, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          - {fileID: 1691518381, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          - {fileID: -1894791370, guid: 1e1ffeb1237b38e4d9571f5b7897d79a, type: 3}
+          _framesPerSecond: 6
           _endAnimationOnEnd: 0
           _priority: 0
         _chasingLeftAnimation:
@@ -112,3 +129,13 @@ MonoBehaviour:
           _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
+    - rid: 8047334981916688384
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DistTriggerAttack
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - Attack
+        _distanceToTrigger: 1.3
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []

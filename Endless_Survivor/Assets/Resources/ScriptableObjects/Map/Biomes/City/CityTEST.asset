@@ -37,7 +37,7 @@ MonoBehaviour:
   _possibleSupportObjectsPerTile: []
   _biomeEnemies:
   - _rouletteElement:
-      enemyData: {fileID: 11400000, guid: 2376b912ce880114c8ca106b8c353dbd, type: 2}
+      enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
       _spawnIntensity: 0
     _chance: 1
   _bossInvokerAnimation:

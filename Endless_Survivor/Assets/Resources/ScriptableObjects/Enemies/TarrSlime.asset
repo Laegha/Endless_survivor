@@ -58,9 +58,14 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _chasingDownAnimation:
-          _animationName: Chase
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: ChaseDown
+          _frames:
+          - {fileID: -295313288, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
+          - {fileID: -323996784, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
+          - {fileID: 1160259967, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
+          - {fileID: 1703557622, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
+          - {fileID: 1851965226, guid: 74ae5b1fef49e6743bfa927efcdfb897, type: 3}
+          _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 0
         _chasingLeftAnimation:
@@ -91,11 +96,15 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackDownAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: BiteDown
+          _frames:
+          - {fileID: 205653979, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
+          - {fileID: 1031381816, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
+          - {fileID: -759977124, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
+          - {fileID: -1731016049, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
+          _framesPerSecond: 2
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 1
         _attackLeftAnimation:
           _animationName: 
           _frames: []
@@ -111,6 +120,8 @@ MonoBehaviour:
           _priority: 0
         _triggerVFXFrame: 0
         _vfxRendererOffset: 0
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
         _triggerDamageFrame: 3
         _attackSfx:
           _sound: {fileID: 0}
@@ -125,6 +136,8 @@ MonoBehaviour:
         _behavioursToTrigger:
         - MeleeAttack
         _distanceToTrigger: 1.2
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
     - rid: 3262446886444597254
       type: {class: InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:

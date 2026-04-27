@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 60
   _referenceSizeSprite: {fileID: 21300000, guid: 735c6cb534790c44db635e7629fa251c, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: 10000
   _colliderSize: {x: 0.6, y: 0.6}
   _colliderOffset: {x: 0, y: -0.2}
@@ -21,7 +22,7 @@ MonoBehaviour:
   _enemyBehaviours:
   - rid: 3262447387164803074
   - rid: 3599397592101814276
-  - rid: 3599397592101814277
+  - rid: 8047334973427941376
   - rid: 3262447408343154688
   - rid: 3262447408343154689
   - rid: 3262447387164803073
@@ -45,8 +46,8 @@ MonoBehaviour:
         _behaviourId: TriggerShootDistance
         _overrideBehaviours: []
         _behavioursToTrigger:
-        - TrigerShootBurst
-        _distanceToTrigger: 8
+        - OverTimeTriggerShootBurst
+        _distanceToTrigger: 6
     - rid: 3262447387164803074
       type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -93,13 +94,13 @@ MonoBehaviour:
     - rid: 3262447408343154689
       type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: TrigerShootBurst
+        _behaviourId: OverTimeTriggerShootBurst
         _overrideBehaviours: []
         _timeBetweenTriggering:
           min: 5
           max: 5
         _triggeredBehaviours:
-        - TriggerShootDuration
+        - DuringTimeTriggerOver
     - rid: 3599397592101814276
       type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -128,8 +129,8 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
-    - rid: 3599397592101814277
-      type: {class: TriggerBehavioursOverTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+    - rid: 8047334973427941376
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: OverTimeTriggerShoot
         _overrideBehaviours: []

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 50
   _referenceSizeSprite: {fileID: -1755998120, guid: da2fa744755066c44bfd2644e693971a, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: 15
   _colliderSize: {x: 0.75, y: 0.75}
   _colliderOffset: {x: 0, y: -0.25}
@@ -81,7 +82,7 @@ MonoBehaviour:
         _behaviourId: MeleeAttack
         _overrideBehaviours: []
         _damage: 8
-        _attackRange: 1.3
+        _attackRange: 0.2
         _attackRadius: 0.5
         _attackUpAnimation:
           _animationName: 
@@ -129,6 +130,8 @@ MonoBehaviour:
           _priority: 0
         _triggerVFXFrame: 4
         _vfxRendererOffset: 50
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
         _triggerDamageFrame: 0
         _attackSfx:
           _sound: {fileID: 0}

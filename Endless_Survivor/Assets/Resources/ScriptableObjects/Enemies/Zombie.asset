@@ -105,9 +105,20 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackLeftAnimation:
-          _animationName: 
-          _frames: []
-          _framesPerSecond: 0
+          _animationName: LeftAttack
+          _frames:
+          - {fileID: 1144823343, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 1436494471, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 1372170839, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: -867697643, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 132675825, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: -227664738, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 308626330, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 1323310165, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 224977976, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 224977976, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          - {fileID: 224977976, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+          _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 0
         _usesVfx: 1
@@ -122,6 +133,8 @@ MonoBehaviour:
           _priority: 0
         _triggerVFXFrame: 8
         _vfxRendererOffset: 0
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
         _triggerDamageFrame: 0
         _attackSfx:
           _sound: {fileID: 0}
@@ -136,6 +149,8 @@ MonoBehaviour:
         _behavioursToTrigger:
         - MeleeAttack
         _distanceToTrigger: 0.8
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
     - rid: 3262447073780826115
       type: {class: DashTowardsPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:

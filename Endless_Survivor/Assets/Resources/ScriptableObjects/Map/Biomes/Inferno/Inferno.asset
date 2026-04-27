@@ -35,8 +35,16 @@ MonoBehaviour:
     _chance: 5
   _biomeEnemies:
   - _rouletteElement:
-      enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
+      enemyData: {fileID: 11400000, guid: 3a669a4d6a238bb4392827043fb7f076, type: 2}
       _spawnIntensity: 0
+    _chance: 30
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: b9661a80333da97418522382606fc175, type: 2}
+      _spawnIntensity: 0
+    _chance: 10
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: 002a2e262dc42604fab23c32cbd1f271, type: 2}
+      _spawnIntensity: 2
     _chance: 10
   _bossInvokerAnimation:
     _animationName: Idle
@@ -45,7 +53,10 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
+  _usesBoxCollider: 0
+  _boxColliderSize: {x: 0, y: 0}
+  _usesCircleCollider: 0
+  _circleColliderRadius: 0
+  _colliderOffset: {x: 0, y: 0}
   _biomeChampions: []
   _biomeBosses: []
-  _championIndicator: {fileID: 0}
-  _bossIndicator: {fileID: 0}

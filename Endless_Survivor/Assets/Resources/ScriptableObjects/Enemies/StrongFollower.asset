@@ -24,7 +24,9 @@ MonoBehaviour:
   - rid: 2600434731462950912
   - rid: 2600434731462950913
   - rid: 2454942646213541889
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: a5e58a51d85f42c439e36958899441ad, type: 2}
+    _chance: 10
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -47,9 +49,9 @@ MonoBehaviour:
     - rid: 2454942646213541889
       type: {class: ChangeDefaultMaterialBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: 
+        _behaviourId: PaletteSwap
         _overrideBehaviours: []
-        _changeAllRenderers: 0
+        _changeAllRenderers: 1
         _defaultMat: {fileID: 2100000, guid: a338a7a10ea40294983eb43000b93aa1, type: 2}
     - rid: 2600434731462950912
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}

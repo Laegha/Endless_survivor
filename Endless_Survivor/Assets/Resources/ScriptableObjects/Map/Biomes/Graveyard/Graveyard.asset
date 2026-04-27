@@ -35,9 +35,21 @@ MonoBehaviour:
     _chance: 1
   _biomeEnemies:
   - _rouletteElement:
-      enemyData: {fileID: 11400000, guid: 3ede9894cba545747ac3590764a4af7b, type: 2}
+      enemyData: {fileID: 11400000, guid: a1b50a57dbbf9e249a48b12fab3a2860, type: 2}
       _spawnIntensity: 0
+    _chance: 20
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: 4f9a8a25b97ac2a44a63fb50be556f20, type: 2}
+      _spawnIntensity: 0
+    _chance: 10
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: 4575dc8c44ad7084c909829fda47d39b, type: 2}
+      _spawnIntensity: 3
     _chance: 1
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: dbca33325c513854dba26774efae373a, type: 2}
+      _spawnIntensity: 1
+    _chance: 5
   _bossInvokerAnimation:
     _animationName: Invoker
     _frames:

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 35
   _referenceSizeSprite: {fileID: 0}
+  _renderSortingOffset: 0
   _knockbackResistance: 0
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: 0}
@@ -24,8 +25,8 @@ MonoBehaviour:
   - rid: 9178415627967135755
   - rid: 9178415627967135756
   - rid: 9178415627967135757
-  - rid: 9178415641194921984
   - rid: 9178415627967135761
+  - rid: 9178415641194921984
   - rid: 9178415627967135760
   - rid: 9178415627967135762
   _dropablePickupChances: []
@@ -146,6 +147,7 @@ MonoBehaviour:
         - MainShoot
         - NegativeShoot
         - PositiveShoot
+        _loopAnim: 0
         _sameFrameForAll: 1
         _generalTriggerFrame: 2
         _upAnimation:
@@ -194,7 +196,6 @@ MonoBehaviour:
           max: 5
         _triggeredBehaviours:
         - AnimationTiggerShoot
-        _triggerInmediatelyOnActive: 0
     - rid: 9178415627967135760
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
