@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,5 +34,15 @@ public class GameUIManager : MonoBehaviour
     {
         _menuBG.SetActive(false);
         Time.timeScale = 1;
+    }
+    public void DisplayUIMessage(UIMessageInfo messageInfo)
+    {
+        GameObject messageGO = Instantiate(GameManager.gm.prefabHolder.Prefabs["UIMessage"], transform.root);
+        var messageTr = messageGO.GetComponent<RectTransform>();
+        messageTr.anchoredPosition = new(0, messageInfo.MessageYPosition);
+        messageGO.GetComponent<Animator>().runtimeAnimatorController = messageInfo.MessageAnimator;
+        TextMeshProUGUI messageText = messageGO.GetComponentInChildren<TextMeshProUGUI>();
+        messageInfo.ApplyToText(messageText);
+
     }
 }
