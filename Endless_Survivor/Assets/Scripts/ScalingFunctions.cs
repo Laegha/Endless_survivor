@@ -15,7 +15,7 @@ public static class ScalingFunctions
     {
         get
         {
-            return (int)(IntensityManager.im.CurrIntensityLevel + IntensityManager.im.CurrIntensityLevelProgress / 1000);
+            return (int)(IntensityManager.im.CurrIntensityLevel + 1 + IntensityManager.im.CurrIntensityLevelProgress / 1000);
             //return WaveManager.wm != null ? WaveManager.wm.CurrWave / 2 + 1 : -1; ;
 
         }

@@ -14,7 +14,7 @@ public class IntensityManager : MonoBehaviour
     }
     float _currIntensityLevelProgress = 0;
     float _currProgressGoal;
-    int _currIntensityLevel = 1;
+    int _currIntensityLevel = 0;
     const float uiAnimIncreasePerLevel = .5f;
 
     public float CurrIntensityLevelProgress { get { return _currIntensityLevelProgress; } }
