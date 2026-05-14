@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rowPrefab: {fileID: 6578894146041284632, guid: 2f276f348c4103d48b0427e983626bef, type: 3}
   _cellPrefab: {fileID: 3245069914523690047, guid: 0502b0e33d4ab454b8b8eb006a9756f5, type: 3}
-  _cellSize: {x: 32, y: 32}
+  _cellSize: {x: 40, y: 40}
   _upLeftPanel: {fileID: 120627742, guid: 5a87a0294e769ac4b9d7b7f896861369, type: 3}
   _upPanel: {fileID: 1344186711, guid: 5a87a0294e769ac4b9d7b7f896861369, type: 3}
   _upRightPanel: {fileID: 521300799, guid: 5a87a0294e769ac4b9d7b7f896861369, type: 3}
