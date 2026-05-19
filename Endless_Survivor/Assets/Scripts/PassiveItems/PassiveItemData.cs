@@ -19,6 +19,7 @@ public class PassiveItemData : ScriptableObject
 
     public void TransferData(PassiveItem item)
     {
+        item.ItemData = this;
         item.ItemSprite = _itemSprite;
         item.BehaviourManager.CopyBehaviours(_itemBehaviours);
     }
