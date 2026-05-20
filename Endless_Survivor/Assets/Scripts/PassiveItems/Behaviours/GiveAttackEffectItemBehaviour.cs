@@ -23,4 +23,11 @@ public class GiveAttackEffectItemBehaviour : PassiveItemBehaviour
             PlayerControl.pc.EffectsHolder.AddEffect(effect);
         }
     }
+    public override void RemoveBehaviour()
+    {
+        foreach (var effect in _givenAttackEffects)
+        {
+            PlayerControl.pc.EffectsHolder.RemoveEffect(effect);
+        }
+    }
 }

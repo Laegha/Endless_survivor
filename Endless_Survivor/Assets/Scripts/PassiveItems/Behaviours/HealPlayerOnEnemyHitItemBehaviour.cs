@@ -28,5 +28,9 @@ public class HealPlayerOnEnemyHitItemBehaviour : PassiveItemBehaviour
             return;
         PlayerControl.pc.PlayerHPManager.Heal(_healAmmount);
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 
 }

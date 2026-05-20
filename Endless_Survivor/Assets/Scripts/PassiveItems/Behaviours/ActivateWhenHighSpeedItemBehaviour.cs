@@ -29,4 +29,8 @@ public class ActivateWhenHighSpeedItemBehaviour : PassiveItemBehaviour
         }
 
     }
+    public override void RemoveBehaviour()
+    {
+
+        }
 }

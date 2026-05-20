@@ -43,6 +43,10 @@ public class LockPlayerStatsItemBehaviour : PassiveItemBehaviour
             Mathf.Clamp(PlayerControl.pc.PlayerStats.MaxSpeed, min, max);
         }
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }
 
 [Serializable]

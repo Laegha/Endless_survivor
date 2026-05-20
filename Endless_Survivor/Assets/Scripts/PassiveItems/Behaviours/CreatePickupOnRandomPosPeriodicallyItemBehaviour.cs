@@ -35,4 +35,8 @@ public class CreatePickupOnRandomPosPeriodicallyItemBehaviour : PassiveItemBehav
         Vector2 itemPos = Utility.GetRandomPosInMap();
         Utility.GeneratePickup(_createdPickup, itemPos);
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

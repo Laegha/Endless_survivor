@@ -29,4 +29,9 @@ public class CreatePickupItemBehaviour : PassiveItemBehaviour
         Utility.GeneratePickup(dropedPickup, killedEnemy.transform.position);
         Debug.Log("Gwenerating " + dropedPickup);
     }
+
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

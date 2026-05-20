@@ -49,7 +49,10 @@ public class ParryProyectilesOnActivateItemBehaviour : PassiveItemBehaviour
             }
             proyectile.gameObject.layer = LayerMask.NameToLayer("PlayerAttack");
         }
-
-
+    }
+    public override void RemoveBehaviour()
+    {
+        if (_parryAnimator != null)
+            GameObject.Destroy(_parryAnimator.gameObject);
     }
 }

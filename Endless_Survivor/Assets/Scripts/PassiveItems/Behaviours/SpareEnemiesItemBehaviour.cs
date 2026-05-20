@@ -129,4 +129,9 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
 
     }
 
+    public override void RemoveBehaviour()
+    {
+        if (_currPickup != null)
+            GameObject.Destroy(_currPickup.gameObject);
+    }
 }

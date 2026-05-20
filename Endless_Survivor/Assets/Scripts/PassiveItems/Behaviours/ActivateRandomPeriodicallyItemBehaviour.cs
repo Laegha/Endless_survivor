@@ -49,4 +49,8 @@ public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
         ParticleConfig particleConfig = new(_particlesOnActivation,(Vector2)PlayerControl.pc.transform.position + _particlesOffsetFromPlayer, Quaternion.identity, _particlesDuration);
         ParticleManager.pm.SpawnParticles(particleConfig);
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

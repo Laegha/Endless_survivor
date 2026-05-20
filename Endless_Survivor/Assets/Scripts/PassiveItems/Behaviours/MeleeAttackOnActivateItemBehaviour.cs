@@ -28,4 +28,8 @@ public class MeleeAttackOnActivateItemBehaviour : PassiveItemBehaviour
         meleeAttack.ApplyDamage();
         GameObject.Destroy(meleeAttack.gameObject, _meleeData.AttackVfxAnimation.AnimDuration);
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

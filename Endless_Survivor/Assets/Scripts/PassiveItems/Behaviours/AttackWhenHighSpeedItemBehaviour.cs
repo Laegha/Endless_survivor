@@ -75,4 +75,8 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
         weaponStats.SetTrueLevelStats(_statsScaling, ScalingFunctions.CurrScalingLevel);
         _attackStats = weaponStats;
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

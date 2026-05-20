@@ -80,4 +80,12 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         if (_activeStacks <= 0)
             _gfxChanger.UnApplyGFX();
     }
+
+    public override void RemoveBehaviour()
+    {
+        for(int i = 0; i < _activeStacks; i++)
+        {
+            DecreaseStacks();
+        }
+    }
 }

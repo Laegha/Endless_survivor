@@ -38,4 +38,8 @@ public class InflictEnemiesWithStatusOnActivateItemBehaviour : PassiveItemBehavi
             ParticleManager.pm.SpawnParticles(particleConfig);
         }
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

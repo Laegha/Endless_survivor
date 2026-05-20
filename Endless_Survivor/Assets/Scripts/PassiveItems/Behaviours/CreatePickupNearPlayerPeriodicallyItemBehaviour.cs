@@ -39,5 +39,8 @@ public class CreatePickupNearPlayerPeriodicallyItemBehaviour : PassiveItemBehavi
         Vector2 itemPos = (Vector2)PlayerControl.pc.transform.position + itemPosOffset;
         Utility.GeneratePickup(_createdPickup, itemPos);
     }
+    public override void RemoveBehaviour()
+    {
 
+    }
 }

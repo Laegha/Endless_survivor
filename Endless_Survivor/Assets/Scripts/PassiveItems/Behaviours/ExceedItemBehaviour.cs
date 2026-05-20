@@ -72,9 +72,21 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
             if (_buffedWeapons[weapon] <= 0)
             {
                 //Decrease stats
-                weapon.WeaponStats.TemporalStatIncrease(_statBuffOnAttackCoordination, true);
-                _buffedWeapons.Remove(weapon);
+                RevertStatIncrease(weapon);
             }
+        }
+    }
+    void RevertStatIncrease(WeaponAttackManager weapon)
+    {
+
+        weapon.WeaponStats.TemporalStatIncrease(_statBuffOnAttackCoordination, true);
+        _buffedWeapons.Remove(weapon);
+    }
+    public override void RemoveBehaviour()
+    {
+        foreach(var weapon in _buffedWeapons.Keys)
+        {
+            RevertStatIncrease(weapon);
         }
     }
 }

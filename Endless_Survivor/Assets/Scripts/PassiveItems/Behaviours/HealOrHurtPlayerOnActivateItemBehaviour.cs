@@ -53,5 +53,9 @@ public class HealOrHurtPlayerOnActivateItemBehaviour : PassiveItemBehaviour
         ParticleConfig particleConfig = new(particles, _particlesOffsetFromPlayer, Quaternion.identity, _particlesDuration, PlayerControl.pc.transform, true, false);
         ParticleManager.pm.SpawnParticles(particleConfig);
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }
 

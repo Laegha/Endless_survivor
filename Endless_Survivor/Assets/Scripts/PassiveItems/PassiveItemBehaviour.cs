@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class PassiveItemBehaviour
+public abstract class PassiveItemBehaviour
 {
     public static int maxStacks => 0;
     [SerializeField] string _behaviourId;
@@ -20,4 +20,5 @@ public class PassiveItemBehaviour
     {
 
     }
+    public abstract void RemoveBehaviour();
 }

@@ -36,4 +36,12 @@ public class GiveRerollsOnMenuItemBehaviour : PassiveItemBehaviour
             RerollManager.rm.AddReroll(_reroll);
         }
     }
+    public override void RemoveBehaviour()
+    {
+
+        if (_onWeaponPickup)
+            GameUIManager.uiManager.WeaponPickupMenu.OnMenuOpen -= AddMissingRolls;
+        if (_onPassivePickup)
+            GameUIManager.uiManager.PassiveItemPickupMenu.OnMenuOpen -= AddMissingRolls;
+    }
 }

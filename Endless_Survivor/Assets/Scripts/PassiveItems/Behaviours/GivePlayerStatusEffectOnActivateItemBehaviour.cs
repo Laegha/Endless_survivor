@@ -18,4 +18,8 @@ public class GivePlayerStatusEffectOnActivateItemBehaviour : PassiveItemBehaviou
         PlayerControl.pc.StatusEffectManager.AddEffects(_givenEffectData.StatusEffects, _givenEffectData);
 
     }
+    public override void RemoveBehaviour()
+    {
+
+    }
 }

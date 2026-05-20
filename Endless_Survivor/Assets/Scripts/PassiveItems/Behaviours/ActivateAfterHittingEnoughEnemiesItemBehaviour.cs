@@ -35,4 +35,8 @@ public class ActivateAfterHittingEnoughEnemiesItemBehaviour : PassiveItemBehavio
         }
 
     }
+    public override void RemoveBehaviour()
+    {
+    
+    }
 }
