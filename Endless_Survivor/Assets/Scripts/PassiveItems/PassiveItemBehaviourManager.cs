@@ -25,4 +25,11 @@ public class PassiveItemBehaviourManager
             _itemBehaviours.Add(addedBehaviour);
         }
     }
+    public void RemoveBehaviours()
+    {
+        foreach(var behaviour in _itemBehaviours)
+        {
+            behaviour.RemoveBehaviour();
+        }
+    }
 }

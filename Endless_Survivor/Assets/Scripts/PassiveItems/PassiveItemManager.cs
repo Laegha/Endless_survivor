@@ -18,6 +18,11 @@ public class PassiveItemManager : MonoBehaviour
         addedItem.BehaviourManager.onPicked?.Invoke();
         _passiveItems.Add(addedItem);
     }
+    public void RemovePassiveItem(PassiveItem removedItem)
+    {
+        _passiveItems.Remove(removedItem);
+        removedItem.RemoveItem();
+    }
     private void Update()
     {
         _passiveItems.ForEach(item => item.BehaviourManager.onUpdate?.Invoke());

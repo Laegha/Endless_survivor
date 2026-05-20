@@ -14,4 +14,8 @@ public class PassiveItem
     {
         _behaviourManager = new();
     }
+    public void RemoveItem()
+    {
+        _behaviourManager.RemoveBehaviours();
+    }
 }
