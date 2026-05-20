@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine;
 public class PassiveItemManager : MonoBehaviour
 {
     List<PassiveItem> _passiveItems = new();
+    Action _onItemPickup;
+    Action _onItemRemoved;
+    public List<PassiveItem> PassiveItems { get { return _passiveItems; } }
+    public Action OnItemPickup {  get { return _onItemPickup; } set { _onItemPickup = value; } }
+    public Action OnItemRemoved { get { return _onItemRemoved; } set { _onItemRemoved = value; } }
 
     private void Start()
     {
