@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
   _initialMaxWeapons: 2
   _initialPassives:
-  - {fileID: 11400000, guid: a0f3aea58c682354aafca72e3fb1f503, type: 2}
+  - {fileID: 11400000, guid: fb94da2413cb440429c44959fa8f7ee0, type: 2}
   _playerStats:
     _initialHP: 12
     _hpIncrement: 2
