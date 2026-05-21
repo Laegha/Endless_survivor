@@ -11,16 +11,11 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
     //ADD GFX CHANGE TO THE PLAYER!!!!
     [SerializeField] PlayerGFXChanger _gfxChanger;
     int _activeStacks = 0;
-    enum BuffDurationType
-    {
-        ByWaves,
-        ByTime
-    }
-    [SerializeField] BuffDurationType _durationType;
+    [SerializeField] WeaponBuffHandler.BuffDurationType _durationType;
     [SerializeField] float _timeDuration = 5f;
-    [SerializeField] int _wavesDuration = 2;
+    [SerializeField] int _enemyKillsNeeded = 2;
+    List<WeaponBuffHandler> _activeBuffHandlers = new();
 
-    Dictionary<WeaponDebuffHandler, int> _debuffHandlersWaveCounter = new();
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
@@ -32,11 +27,9 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         
         _durationType = buffWeaponsOriginal._durationType;
         _timeDuration = buffWeaponsOriginal._timeDuration;
-        _wavesDuration = buffWeaponsOriginal._wavesDuration;
+        _enemyKillsNeeded = buffWeaponsOriginal._enemyKillsNeeded;
 
         behaviourManager.onPlayerDamaged += TryBuffStats;
-        if (_durationType == BuffDurationType.ByWaves)
-            behaviourManager.onWaveChanged += DebuffStatsOnWaveChanged;
     }
     void TryBuffStats()
     {
@@ -52,27 +45,9 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         foreach (var weapon in buffedWeapons)
             weapon.WeaponStats.TemporalStatIncrease(_statsBuffs, false);
         
-        WeaponDebuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs);
-
-        if (_durationType == BuffDurationType.ByTime)
-            GameManager.gm.DelayAction(_timeDuration,() => { weaponDebuffHandler.DebuffWeapons(); DecreaseStacks(); }, null);
-        else
-            _debuffHandlersWaveCounter.Add(weaponDebuffHandler, 0);
-    }
-    void DebuffStatsOnWaveChanged()
-    {
-        var debuffHandlersWaveCounterCopy = new Dictionary<WeaponDebuffHandler, int>(_debuffHandlersWaveCounter);
-        foreach(var debuffHandler in debuffHandlersWaveCounterCopy)
-        {
-            _debuffHandlersWaveCounter[debuffHandler.Key]++;
-            if (_debuffHandlersWaveCounter[debuffHandler.Key] >= _wavesDuration)
-            {
-                debuffHandler.Key.DebuffWeapons();
-                DecreaseStacks();
-                _debuffHandlersWaveCounter.Remove(debuffHandler.Key);
-            }
-        }
-
+        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs, _durationType, _enemyKillsNeeded, _timeDuration, DecreaseStacks);
+        _activeBuffHandlers.Add(weaponDebuffHandler);
+        weaponDebuffHandler.callbackOnEnd += () => _activeBuffHandlers.Remove(weaponDebuffHandler);
     }
     void DecreaseStacks()
     {
