@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: TetoEntrance
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 909968388919132161
+  _idleAnimation:
+    _animationName: Entrance
+    _frames:
+    - {fileID: -429012515, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: 1180927671, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -1913541698, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -1888577190, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -338961, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: 1756230284, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -767690890, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -132193841, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -632677697, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -1523562328, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: 165766227, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -47793037, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -395283184, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -1350563726, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: 844723366, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -1788949375, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    - {fileID: -770832739, guid: 0a8c542d049833047bc5d7d35d0942cf, type: 3}
+    _framesPerSecond: 6
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968388919132161
+      type: {class: CreateSupportObjOnAnimationFrameSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _animationName: Entrance
+        _createFrame: 16
+        _createdSupportObj: {fileID: 11400000, guid: a02a14b25d47ae544a74dcee26a68ecd, type: 2}
+        _positionOffset: {x: 0, y: 0}
+        _loop: 0
+        _destroyOriginal: 1
