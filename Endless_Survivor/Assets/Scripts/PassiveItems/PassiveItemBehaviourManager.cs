@@ -11,7 +11,6 @@ public class PassiveItemBehaviourManager
     public Action onDamageRecieved;
     public Action<EnemyControl, Attack> onEnemyHit;
     public Action<EnemyControl> onEnemyKilled;
-    public Action onWaveChanged;
     public Action onPlayerDamaged;
 
     List<PassiveItemBehaviour> _itemBehaviours = new();
