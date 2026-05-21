@@ -12,8 +12,9 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] LayerMask _collidingLayers;
     [SerializeField] Vector2 _areaSize;
     [SerializeField] Vector2 _areaOffset;
-    [SerializeField] Sprite _areaGfx;
-    [SerializeField] float _areaGfxAlpha;
+    [SerializeField] CustomAnimation _areaGfx;
+    [SerializeField] int _areaGfxSortingOffset; 
+    [Range(0,255)][SerializeField] float _areaGfxAlpha;
     List<GameObject> _objsInArea = new();
 
     Action<GameObject> _onObjEnterArea;
@@ -31,7 +32,8 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
         _collidingLayers = checkAreaOriginal._collidingLayers;
         _areaSize = checkAreaOriginal._areaSize;
         _areaOffset = checkAreaOriginal._areaOffset;
-        _areaGfx = checkAreaOriginal._areaGfx;
+        _areaGfx = new(null, checkAreaOriginal._areaGfx);
+        _areaGfxSortingOffset = checkAreaOriginal._areaGfxSortingOffset;
         _areaGfxAlpha = checkAreaOriginal._areaGfxAlpha;
         if(_areaGfx != null)
             OnStart += CreateAreaGfx;
@@ -40,14 +42,11 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
     void CreateAreaGfx()
     {
         //make the area an animated obj and instead of changing sorting order change offset on the renderer sorter
-        var areaGameObj = new GameObject("AreaGFX");
-        var areaRenderer = areaGameObj.AddComponent<SpriteRenderer>();
-        areaRenderer.sprite = _areaGfx;
-        areaRenderer.sortingOrder = 10000;
+        AnimatedObjConfig animatedObjConfig = new(_areaGfx, _areaOffset, Quaternion.identity, -1, ObjControl.transform, true, true);
+        var gfxAnimator = AnimatedObjsManager.aom.SpawnAnimatedObj(animatedObjConfig);
+        gfxAnimator.transform.root.GetComponentInChildren<RendererSortingByY>().Offset = _areaGfxSortingOffset;
+        var areaRenderer = gfxAnimator.Renderer;
         areaRenderer.color = new Color(areaRenderer.color.r, areaRenderer.color.g, areaRenderer.color.b, _areaGfxAlpha / 255);
-        areaGameObj.transform.localScale = _areaSize / (_areaGfx.bounds.extents);
-        areaGameObj.transform.SetParent(ObjControl.transform);
-        areaGameObj.transform.localPosition = Vector2.zero;
         ObjControl.Renderers.Add(areaRenderer);
     }
     void CheckArea()

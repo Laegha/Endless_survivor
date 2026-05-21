@@ -17,7 +17,7 @@ public class CustomAnimator : MonoBehaviour
     public CustomAnimation CurrAnim { get {  return _currAnim; } set { _currAnim = value; } }
     public int CurrFrameIndex { set { _currFrameIndex = value; } }
     public List<CustomAnimation> Animations{ get {  return _animations; } set { _animations = value; } }
-    public float AnimTimer { get { return _animTimer; } set { _animTimer = value; } }
+    public SpriteRenderer Renderer { get { return _spriteRenderer; } }
 
     public virtual void AddAnimations(List<CustomAnimation> newAnimations) 
     {
