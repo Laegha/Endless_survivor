@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: BreadDuoTeto
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 909968409856835584
+  - rid: 909968409856835590
+  _idleAnimation:
+    _animationName: Sing
+    _frames:
+    - {fileID: -1292578597, guid: ed5d17b13eb72dc4aa41370c66283216, type: 3}
+    - {fileID: 2084081353, guid: ed5d17b13eb72dc4aa41370c66283216, type: 3}
+    _framesPerSecond: 6
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968409856835584
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 64
+        _areaSize: {x: 2, y: 2}
+        _areaOffset: {x: 0, y: 0}
+        _areaGfx:
+          _animationName: Aura
+          _frames:
+          - {fileID: 151317990, guid: bd7b9b67b2abfbc48bd3de031e3b4286, type: 3}
+          - {fileID: -1456840082, guid: bd7b9b67b2abfbc48bd3de031e3b4286, type: 3}
+          - {fileID: -1059630754, guid: bd7b9b67b2abfbc48bd3de031e3b4286, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _areaGfxSortingOffset: -10
+        _areaGfxAlpha: 255
+    - rid: 909968409856835590
+      type: {class: BuffWeaponsAroundAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _statBuffOnEnter:
+          _range: 1
+          _attackSpeed: 1.5
+          _damage: 0
+          _knockback: 0
+        _buffDurationAfterLeavingArea: 5
