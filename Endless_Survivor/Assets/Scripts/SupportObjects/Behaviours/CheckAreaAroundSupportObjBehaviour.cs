@@ -44,7 +44,9 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
         //make the area an animated obj and instead of changing sorting order change offset on the renderer sorter
         AnimatedObjConfig animatedObjConfig = new(_areaGfx, _areaOffset, Quaternion.identity, -1, ObjControl.transform, true, true);
         var gfxAnimator = AnimatedObjsManager.aom.SpawnAnimatedObj(animatedObjConfig);
-        gfxAnimator.transform.root.GetComponentInChildren<RendererSortingByY>().Offset = _areaGfxSortingOffset;
+        var sortingByY = gfxAnimator.transform.root.GetComponentInChildren<RendererSortingByY>();
+        if(sortingByY != null)
+            sortingByY.Offset = _areaGfxSortingOffset;
         var areaRenderer = gfxAnimator.Renderer;
         areaRenderer.color = new Color(areaRenderer.color.r, areaRenderer.color.g, areaRenderer.color.b, _areaGfxAlpha / 255);
         ObjControl.Renderers.Add(areaRenderer);
