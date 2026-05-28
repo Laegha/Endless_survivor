@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreatePickupNearPlayerPeriodicallyItemBehaviour : PassiveItemBehaviour
 {
     new public static int maxStacks => -1;
-    [SerializeField] PickupData _createdPickup;
+    [SerializeField] List<RouletteElementChance<PickupDataWithSpawnAnim>> _possibleCreatedPickup;
     [SerializeField] float _timeBetweenSpawns;
     [Range(0, 100)][SerializeField] float _chanceOfSpawning;
     [SerializeField] float _distFromPlayer = 1f;
@@ -15,7 +15,7 @@ public class CreatePickupNearPlayerPeriodicallyItemBehaviour : PassiveItemBehavi
     {
         base.CopyValues(original, behaviourManager);
         var createPickupOriginal = original as CreatePickupNearPlayerPeriodicallyItemBehaviour;
-        _createdPickup = createPickupOriginal._createdPickup;
+        _possibleCreatedPickup = new(createPickupOriginal._possibleCreatedPickup);
         _timeBetweenSpawns = createPickupOriginal._timeBetweenSpawns;
         _chanceOfSpawning = createPickupOriginal._chanceOfSpawning;
         _distFromPlayer = createPickupOriginal._distFromPlayer;
@@ -37,7 +37,7 @@ public class CreatePickupNearPlayerPeriodicallyItemBehaviour : PassiveItemBehavi
         Vector2 itemPosOffset = new(Random.Range(0, 1f), Random.Range(0, 1f));
         itemPosOffset = itemPosOffset.normalized * _distFromPlayer;
         Vector2 itemPos = (Vector2)PlayerControl.pc.transform.position + itemPosOffset;
-        Utility.GeneratePickup(_createdPickup, itemPos);
+        Utility.GetRouletteElement(_possibleCreatedPickup).SpawnPickupAfterAnim(itemPos);
     }
     public override void RemoveBehaviour()
     {
