@@ -12,7 +12,7 @@ public class PassiveItem
     public PassiveItemBehaviourManager BehaviourManager { get { return _behaviourManager; } }
     public PassiveItem()
     {
-        _behaviourManager = new();
+        _behaviourManager = new(this);
     }
     public void RemoveItem()
     {
