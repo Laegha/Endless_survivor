@@ -88,7 +88,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
         foreach (EnemyStatusEffectGroup effect in _currentEffects) 
             effect.OnKilled();
     }
-    public void OnHit()
+    public void OnHit(int _)
     {
         foreach(EnemyStatusEffectGroup effect in _currentEffects) 
             effect.OnHit();

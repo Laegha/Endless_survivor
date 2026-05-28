@@ -34,7 +34,7 @@ public class EnemyBehaviourManager : MonoBehaviour
         activeBehaviours.ForEach(behaviour => behaviour.ActiveUpdate());
     }
 
-    void OnDamaged()
+    void OnDamaged(int _)
     {
         _behaviours.ForEach(behaviour => behaviour.OnDamaged());
     }

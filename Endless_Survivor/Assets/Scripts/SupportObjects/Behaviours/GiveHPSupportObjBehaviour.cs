@@ -9,11 +9,11 @@ public class GiveHPSupportObjBehaviour : SupportObjectBehaviour
     new public static int maxStacks => 1;
     [SerializeField] int _objMaxHp;
     HP _supportObjHP;
-    Action _onDamage;
+    Action<int> _onDamage;
     Action _onHeal;
     Action _onDeath;
     public HP SupportObjHP { get { return _supportObjHP; } }
-    public Action OnDamage { get {  return _onDamage; } set { _onDamage = value; } }
+    public Action<int> OnDamage { get {  return _onDamage; } set { _onDamage = value; } }
     public Action OnHeal { get {  return _onHeal; } set { _onHeal= value; } }
     public Action OnDeath {  get { return _onDeath; } set { _onDeath = value; } }
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
@@ -34,7 +34,7 @@ public class GiveHPSupportObjBehaviour : SupportObjectBehaviour
         
     }
 
-    void CheckDeath()
+    void CheckDeath(int _)
     {
         if (_supportObjHP.RemainingHP > 0)
             return;

@@ -8,11 +8,11 @@ public class HP : MonoBehaviour
     int _remainingHP;
     int _maxHP;
     float _incomingDamageMultiplier = 1;
-    Action _onDamageTaken;
+    Action<int> _onDamageTaken;
     Action _onHealed;
     public int RemainingHP {  get { return _remainingHP; } set { _remainingHP = value; } }
     public int MaxHP {  get { return _maxHP; } set { _maxHP = value; } }
-    public Action OnDamageTaken { get { return _onDamageTaken; } set { _onDamageTaken = value; } }
+    public Action<int> OnDamageTaken { get { return _onDamageTaken; } set { _onDamageTaken = value; } }
     public Action OnHealed { get { return _onHealed; } set { _onHealed  = value; } }
     public float IncomingDamageMultiplier 
     {
@@ -34,7 +34,7 @@ public class HP : MonoBehaviour
     }
     public virtual void TakeDamage(int incomingDamage) 
     {
-        _onDamageTaken?.Invoke();
+        _onDamageTaken?.Invoke(incomingDamage);
         if (_remainingHP <= 0)
             return;
         _remainingHP -= (int)(incomingDamage * _incomingDamageMultiplier);

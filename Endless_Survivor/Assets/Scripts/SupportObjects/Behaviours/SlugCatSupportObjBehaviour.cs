@@ -95,7 +95,7 @@ public class SlugCatSupportObjBehaviour : SupportObjectBehaviour
         ParticleManager.pm.SpawnParticles(dugFoodParticleConfig).GetComponent<ParticleSortingOrderByY>().Offset = _dugFoodParticlesRenderingOffset;
         ObjControl.Animator.EndAnimation(_diggingAnimation.AnimationName);
     }
-    void StartHibernating()
+    void StartHibernating(int _)
     {
         if (_gatheredFood < _foodNeededToHibernate)
             return;

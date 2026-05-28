@@ -7,12 +7,12 @@ public class UseHPSupportObjBehaviour : SupportObjectBehaviour
 {
     new public static int maxStacks => 0;
     GiveHPSupportObjBehaviour _hpBehaviour;
-    Action _onDamage;
+    Action<int> _onDamage;
     Action _onHeal;
     Action _onDeath;
 
     public GiveHPSupportObjBehaviour HpBehaviour { get { return _hpBehaviour; } }
-    public Action OnDamage {  get { return _onDamage; } set { _onDamage = value; } }
+    public Action<int> OnDamage {  get { return _onDamage; } set { _onDamage = value; } }
     public Action OnHeal { get { return _onHeal; } set { _onHeal = value; } }
     public Action OnDeath { get { return _onDeath; } set { _onDeath = value; } }
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)

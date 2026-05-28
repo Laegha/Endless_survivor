@@ -30,8 +30,12 @@ public class ChangeAnimBasedOnHPSupportObjBehaviour : UseHPSupportObjBehaviour
         OnDamage += CheckCurrAnim;
         OnHeal += CheckCurrAnim;
     }
-
     void CheckCurrAnim()
+    {
+        CheckCurrAnim(0);
+    }
+
+    void CheckCurrAnim(int _)
     {
         int currHPPercent = HpBehaviour.SupportObjHP.RemainingHP * 100 / HpBehaviour.SupportObjHP.MaxHP;
         for(int i = 0; i < _animationsByHP.Count; i++)

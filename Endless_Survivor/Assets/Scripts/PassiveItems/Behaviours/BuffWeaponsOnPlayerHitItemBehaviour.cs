@@ -31,7 +31,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
 
         behaviourManager.onPlayerDamaged += TryBuffStats;
     }
-    void TryBuffStats()
+    void TryBuffStats(int _)
     {
         if(_activeStacks >= _maxStacks)
             return; 
