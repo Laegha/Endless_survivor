@@ -49,4 +49,9 @@ public static class ScalingFunctions
     {
         return enemyHP *  GameManager.gm.WorldConfig.EnemyHPPercentToIntensityIncrease / 100;
     }
+
+    public static int PlayerDamageFormula(int incomingDamage)
+    {
+        return Mathf.CeilToInt(incomingDamage / PlayerControl.pc.PlayerStats.Defense);
+    }
 }

@@ -88,7 +88,7 @@ public class PlayerHPManager : HP
         _inmunityFlashing.Start();
         _isInmune = true;
         _inmunityTimer = _inmunityTime;
-        base.TakeDamage(incomingDamage);
+        base.TakeDamage(ScalingFunctions.PlayerDamageFormula(incomingDamage));
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
 
     }
