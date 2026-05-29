@@ -35,7 +35,7 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
         _areaGfx = new(null, checkAreaOriginal._areaGfx);
         _areaGfxSortingOffset = checkAreaOriginal._areaGfxSortingOffset;
         _areaGfxAlpha = checkAreaOriginal._areaGfxAlpha;
-        if(_areaGfx != null)
+        if(_areaGfx != null && _areaGfx.Frames.Length > 0)
             OnStart += CreateAreaGfx;
         OnUpdate += CheckArea;
     }
