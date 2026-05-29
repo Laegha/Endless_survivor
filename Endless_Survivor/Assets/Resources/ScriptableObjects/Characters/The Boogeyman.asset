@@ -21,11 +21,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
   _initialMaxWeapons: 2
   _initialPassives:
-  - {fileID: 11400000, guid: fb94da2413cb440429c44959fa8f7ee0, type: 2}
+  - {fileID: 11400000, guid: 82c8529bea8b9884bbb0e65c2bb3c7b1, type: 2}
   _playerStats:
     _initialHP: 12
     _hpIncrement: 2
     _hpRegeneration: 0.6
+    _defense: 1
     _maxSpeed: 5.5
     _minSpeed: 4.5
     _acceleration: 1
@@ -98,6 +99,7 @@ MonoBehaviour:
     _framesPerSecond: 9
     _endAnimationOnEnd: 0
     _priority: 0
+  _costumeSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
   _onHitSound:
     _sound: {fileID: 0}
     _volume: 1

@@ -25,6 +25,7 @@ MonoBehaviour:
     _initialHP: 6
     _hpIncrement: 2
     _hpRegeneration: 1
+    _defense: 0
     _maxSpeed: 4.5
     _minSpeed: 4
     _acceleration: 1
@@ -97,6 +98,7 @@ MonoBehaviour:
     _framesPerSecond: 9
     _endAnimationOnEnd: 0
     _priority: 0
+  _costumeSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
   _onHitSound:
     _sound: {fileID: 0}
     _volume: 1
