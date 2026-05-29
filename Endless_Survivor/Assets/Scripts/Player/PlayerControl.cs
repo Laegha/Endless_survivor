@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] PlayerStatusEffectManager _statusEffectManager;
     [SerializeField] MaterialManager _playerMaterialManager;
     [SerializeField] SpriteRenderer _mainRenderer;
+    [SerializeField] PlayerCostumeManager _costumeManager;
     public CustomAnimator PlayerAnimator { get { return _playerAnimator; } }
     public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
     public AttackEffectsHolder EffectsHolder {  get { return _attackEffectsHolder; } }
@@ -30,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     public PlayerWeaponManager WeaponManager { get { return _playerWeaponManager; } }
     public MaterialManager PlayerMaterialManager { get { return _playerMaterialManager; } }
     public SpriteRenderer MainRenderer { get { return _mainRenderer; } }
+    public PlayerCostumeManager CostumeManager {  get { return _costumeManager; } }
 
     private void Start()
     {

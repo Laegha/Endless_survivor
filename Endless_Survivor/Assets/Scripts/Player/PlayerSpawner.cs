@@ -11,6 +11,7 @@ public class PlayerSpawner : MonoBehaviour
         
         PlayerControl playerControl = player.GetComponent<PlayerControl>();
         playerControl.PlayerAnimator.AddAnimations(selectedChar.Animations);
+        playerControl.CostumeManager.CostumeSettings = selectedChar.CostumeSettings;
         playerControl.PlayerStats = new PlayerStats(selectedChar.PlayerStats);
         playerControl.PlayerHPManager.OnHitSound= selectedChar.OnHitSound;
         playerControl.PlayerHPManager.OnDeathSound = selectedChar.OnDeathSound;

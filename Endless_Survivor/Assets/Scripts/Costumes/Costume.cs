@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using CostumePosition = CharacterCostumeSettings.CostumePosition;
+
+[CreateAssetMenu(fileName = "New Costume", menuName = "ScriptableObjects/Costumes/Costume", order = 1)]
+public class Costume : ScriptableObject
+{
+    [SerializeField] CostumePosition _costumePosition;
+    [SerializeField] List<Vector2> _offsetFromPositionByStacks;
+    [SerializeField] CustomAnimation _idleAnimation;
+    [SerializeField] DirectionalCustomAnimation _movingAnimations;
+
+    public CostumePosition CostumePosition { get { return _costumePosition; } }
+    public List<Vector2> OffsetFromPositionByStacks { get { return _offsetFromPositionByStacks; } }
+    public int MaxStacks => _offsetFromPositionByStacks.Count;
+    public CustomAnimation IdleAnim { get { return _idleAnimation; } }
+    public DirectionalCustomAnimation MovingAnims { get { return _movingAnimations; } }
+    public List<CustomAnimation> NonNullAnimations 
+    { 
+        get 
+        {
+            var result = new List<CustomAnimation>(_movingAnimations.NonNullAnimations);
+            if (_idleAnimation.Frames.Length > 0)
+                result.Add(_idleAnimation);
+            return result; 
+    
+        } 
+    }
+}

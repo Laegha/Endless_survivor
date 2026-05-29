@@ -30,6 +30,9 @@ public class CharacterData : ScriptableObject
     [SerializeField] CustomAnimation _backMoving;
     [SerializeField] CustomAnimation _leftMoving;
 
+    [InspectorLabel("Costume Settings")]
+    [SerializeField] CharacterCostumeSettings _costumeSettings; 
+
     [InspectorLabel("Sounds")]
     [SerializeField] SFXInfo _onHitSound;
     [SerializeField] SFXInfo _onDeathSound;
@@ -53,8 +56,9 @@ public class CharacterData : ScriptableObject
                 _backMoving,
                 _leftMoving,
             };
+        }
     }
-    }
+    public CharacterCostumeSettings CostumeSettings { get { return _costumeSettings; } }
     public SFXInfo OnHitSound { get { return _onHitSound; } }
     public SFXInfo OnDeathSound { get { return _onDeathSound; } }
 }
