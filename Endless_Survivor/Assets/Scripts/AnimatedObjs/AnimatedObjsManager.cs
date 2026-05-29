@@ -13,9 +13,9 @@ public class AnimatedObjsManager : MonoBehaviour
             Destroy(gameObject);
         instance = this;
     }
-    public CustomAnimator SpawnAnimatedObj(AnimatedObjConfig config)
+    public CustomAnimator SpawnAnimatedObj(AnimatedObjConfig config, bool isBlank = false)
     {
-        if (config.animation == null || config.animation.Frames.Length == 0)
+        if ((config.animation == null || config.animation.Frames.Length == 0) && !isBlank)
             return null;
         var instantiatedObj = Instantiate(GameManager.gm.prefabHolder.Prefabs["AnimatedObject"]);
         if (config.animatedObjParentTransform != null)
@@ -28,7 +28,7 @@ public class AnimatedObjsManager : MonoBehaviour
         instantiatedObj.transform.position = objStartPos;
         instantiatedObj.transform.rotation = config.animatedObjRotation;
         var objAnimator = instantiatedObj.GetComponent<CustomAnimator>();
-        if(config.animation != null && config.animation.Frames.Length > 0)
+        if(config.animation != null && config.animation.Frames.Length > 0 && isBlank)
         {
             objAnimator.AddAnimations(new() { config.animation });
             objAnimator.ChangeAnim(config.animation.AnimationName);
