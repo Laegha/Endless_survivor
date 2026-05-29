@@ -20,7 +20,8 @@ public class Costume : ScriptableObject
     { 
         get 
         {
-            var result = new List<CustomAnimation>(_movingAnimations.NonNullAnimations);
+            DirectionalCustomAnimation movingAnimsInstance = new(null, _movingAnimations);
+            var result = new List<CustomAnimation>(movingAnimsInstance.NonNullAnimations);
             if (_idleAnimation.Frames.Length > 0)
                 result.Add(_idleAnimation);
             return result; 
