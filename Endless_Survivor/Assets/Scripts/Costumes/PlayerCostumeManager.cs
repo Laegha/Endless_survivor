@@ -53,13 +53,17 @@ public class PlayerCostumeManager : MonoBehaviour
             _activeCostumes.Add(costume, new ActiveCostumeInfo());
         ActiveCostumeInfo costumeActiveInfo = _activeCostumes[costume];
         _activeCostumes[costume].costumeStacks++;
-        if (_activeCostumes[costume].costumeStacks >= costume.MaxStacks)
+        if (_activeCostumes[costume].costumeStacks > costume.MaxStacks)
             return _activeCostumes[costume].costumeAnimators[_activeCostumes[costume].costumeStacks - costume.MaxStacks];
-        Vector2 costumePosition = GetCostumePosition(costume, costumeActiveInfo.costumeStacks - 1);
-        AnimatedObjConfig costumeConfig = new(null, costumePosition, Quaternion.identity, -1, null, false, false);
-        CustomAnimator costumeAN = AnimatedObjsManager.aom.SpawnAnimatedObj(costumeConfig);
+        
+        AnimatedObjConfig costumeConfig = new(null, PlayerControl.pc.transform.position, Quaternion.identity, -1, null, false, false);
+        CustomAnimator costumeAN = AnimatedObjsManager.aom.SpawnAnimatedObj(costumeConfig, true);
         costumeAN.transform.root.SetParent(_costumeHolder);
+
+        Vector2 costumePosition = GetCostumePosition(costume, costumeActiveInfo.costumeStacks - 1);
+        costumeAN.transform.localPosition = costumePosition;
         costumeAN.AddAnimations(costume.NonNullAnimations);
+        costumeAN.ChangeAnim(costume.IdleAnim.AnimationName);
         _activeCostumes[costume].costumeAnimators.Add(costumeAN);
         return costumeAN;
     }
@@ -87,7 +91,7 @@ public class PlayerCostumeManager : MonoBehaviour
     Vector2 GetCostumePosition(Costume costume, int offsetIndex)
     {
         var costumeActiveInfo = _activeCostumes[costume];
-        return (Vector2)PlayerControl.pc.transform.position + _costumeSettings.CostumeOffsets[costume.CostumePosition] + costume.OffsetFromPositionByStacks[offsetIndex]; ;
+        return _costumeSettings.CostumeOffsets[costume.CostumePosition] + costume.OffsetFromPositionByStacks[offsetIndex];
     }
 
 
@@ -95,6 +99,6 @@ public class PlayerCostumeManager : MonoBehaviour
 
 class ActiveCostumeInfo
 {
-    public List<CustomAnimator> costumeAnimators;
+    public List<CustomAnimator> costumeAnimators = new();
     public int costumeStacks;
 }
