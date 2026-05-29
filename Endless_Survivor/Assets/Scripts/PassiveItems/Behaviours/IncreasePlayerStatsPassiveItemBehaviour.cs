@@ -10,6 +10,8 @@ public class IncreasePlayerStatsPassiveItemBehaviour : PassiveItemBehaviour
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
+        var increaseStatsOriginal = original as IncreasePlayerStatsPassiveItemBehaviour;
+        _increasingStats = new(increaseStatsOriginal._increasingStats);
         _inversedIncreasingStats = new(_increasingStats);
         _inversedIncreasingStats.HPRegeneration *= -1;
         _inversedIncreasingStats.Defense *= -1;
