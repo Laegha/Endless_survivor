@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: FilthSwarm
+  m_EditorClassIdentifier: 
+  _initialHP: 1
+  _referenceSizeSprite: {fileID: 0}
+  _renderSortingOffset: 0
+  _knockbackResistance: 0
+  _colliderSize: {x: 0, y: 0}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 909968594120474630
+  - rid: 909968594120474631
+  - rid: 909968594120474632
+  - rid: 909968594120474634
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968594120474630
+      type: {class: KillEnemyOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: KillItself
+        _overrideBehaviours: []
+    - rid: 909968594120474631
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerKill
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - KillItself
+        _timeToTrigger: 0.1
+        _triggerOnStart: 1
+    - rid: 909968594120474632
+      type: {class: InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: InvokeFilths
+        _overrideBehaviours: []
+        _fixedInvokedEnemies: []
+        _randomInvokedEnemies:
+        - _rouletteElement: {fileID: 11400000, guid: 42b8981efc94c53498bb219b5fa7efdc, type: 2}
+          _chance: 1
+        _randomInvokePossibleAmmounts:
+        - _rouletteElement: 3
+          _chance: 10
+        - _rouletteElement: 4
+          _chance: 10
+        _invokingAnim:
+          _animationName: Invoke
+          _frames:
+          - {fileID: -83937556, guid: 8d9251d9445f77e48a4573b9dc5714c9, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _invokeFrame: 0
+        _hpMultiplier: 1
+        _invokationPattern:
+          rid: 909968594120474633
+    - rid: 909968594120474633
+      type: {class: IRandomInCirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _circleRadiusMin: 0
+        _circleRadiusMax: 6
+        _minDistBetweenElements: 0.5
+    - rid: 909968594120474634
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerInvoke
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - InvokeFilths
+        _timeToTrigger: 0
+        _triggerOnStart: 1

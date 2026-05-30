@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: Filth
+  m_EditorClassIdentifier: 
+  _initialHP: 60
+  _referenceSizeSprite: {fileID: 506383194, guid: be2107cce1bce5945bab0bd627f79676, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 20
+  _colliderSize: {x: 0.45, y: 0.7}
+  _colliderOffset: {x: 0, y: -0.35}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 909968594120474627
+  - rid: 909968594120474628
+  - rid: 909968594120474629
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968594120474627
+      type: {class: DashTowardsPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Dash
+        _overrideBehaviours: []
+        _dashSpeed: 8
+        _dashDistance: 5
+        _dashForcePriority: 5
+        _dashAnimations:
+          _upAnimation:
+            _animationName: DashUp
+            _frames:
+            - {fileID: -426046470, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: 1812805117, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: 207927788, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: 1324548995, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: -613558440, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: -431185606, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: -1038134468, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            - {fileID: 644680881, guid: 24df420232442d947bc5126e1b2838b7, type: 3}
+            _framesPerSecond: 20
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _rightAnimation:
+            _animationName: DashRight
+            _frames:
+            - {fileID: 62982152, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: -78462000, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: 432903774, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: -1900651661, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: 1795403253, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: 88278250, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: 841706354, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            - {fileID: -169413858, guid: b5c7c1422165fed4b981d40ff7d107cf, type: 3}
+            _framesPerSecond: 20
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: DashDown
+            _frames:
+            - {fileID: 1331740353, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: -2138715035, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: -445942471, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: -684379108, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: -1667280455, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: -631543869, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: 594590339, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            - {fileID: 2069196157, guid: 9b7aa2a52bb303d4ca3fae015c6de2dd, type: 3}
+            _framesPerSecond: 20
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _leftAnimation:
+            _animationName: DashLeft
+            _frames:
+            - {fileID: 2138079319, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: 239994191, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: 834991106, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: -1020617738, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: 1126303341, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: -606992760, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: 318521032, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            - {fileID: -1772524037, guid: 3e351e500aca3384c8e9c68b1f247838, type: 3}
+            _framesPerSecond: 20
+            _endAnimationOnEnd: 0
+            _priority: 1
+        _dashParticles: {fileID: 0}
+        _particlesDuration: 0
+        _particlesFollowEnemy: 0
+    - rid: 909968594120474628
+      type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerDash
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - Dash
+        _distanceToTrigger: 2
+    - rid: 909968594120474629
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: PlayIdle
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: 506383194, guid: be2107cce1bce5945bab0bd627f79676, type: 3}
+          - {fileID: 171125852, guid: be2107cce1bce5945bab0bd627f79676, type: 3}
+          - {fileID: 197624620, guid: be2107cce1bce5945bab0bd627f79676, type: 3}
+          - {fileID: 1500602292, guid: be2107cce1bce5945bab0bd627f79676, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
