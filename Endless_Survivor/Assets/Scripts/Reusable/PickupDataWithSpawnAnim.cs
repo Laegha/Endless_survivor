@@ -12,7 +12,8 @@ public class PickupDataWithSpawnAnim
     public void SpawnPickupAfterAnim(Vector2 spawnPos, float delayAfterAnimEnd = 0)
     {
         float animatedObjDuration = _spawnAnim.AnimDuration + delayAfterAnimEnd;
-        AnimatedObjConfig animationConfig = new(_spawnAnim, spawnPos, Quaternion.identity, animatedObjDuration);
+        AnimatedObjConfig animationConfig = new(_spawnAnim, spawnPos, Quaternion.identity, animatedObjDuration, null, false, false);
+        AnimatedObjsManager.aom.SpawnAnimatedObj(animationConfig);
         GameManager.gm.DelayAction(animatedObjDuration, () => Utility.GeneratePickup(_pickupData, spawnPos), null);
     }
 }
