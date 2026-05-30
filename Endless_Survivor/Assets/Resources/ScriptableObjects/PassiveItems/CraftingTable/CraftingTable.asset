@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: CraftingTable
+  m_EditorClassIdentifier: 
+  _itemName: Crafting Table
+  _itemDescript: Craftes equipment that gets better as the chaos level goes up
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 909968594120474625
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968594120474625
+      type: {class: CreatePickupNearPlayerPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: CraftItems
+        _possibleCreatedPickup:
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: -2133358791, guid: 0bf0424738912964aa634cc538a02ff4, type: 3}
+              - {fileID: -654817339, guid: 0bf0424738912964aa634cc538a02ff4, type: 3}
+              - {fileID: -2128487782, guid: 0bf0424738912964aa634cc538a02ff4, type: 3}
+              - {fileID: -1701559133, guid: 0bf0424738912964aa634cc538a02ff4, type: 3}
+              - {fileID: 826983939, guid: 0bf0424738912964aa634cc538a02ff4, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: b15a02fd4a1e83d4e9c0f09a10858896, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 163179032, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: -813627799, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: 919886620, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: -474735011, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: -1286407872, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: 759912530, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: -1784351081, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: 1535225048, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              - {fileID: -1342173601, guid: ca4c9ebd45c741f4bb25775fc7f736df, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 3685735774af11047bee1dd725e7c434, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 542646437, guid: 9fc4cae05b8414f4c8ea44b0a2eded13, type: 3}
+              - {fileID: -1364652411, guid: 9fc4cae05b8414f4c8ea44b0a2eded13, type: 3}
+              - {fileID: -1342808900, guid: 9fc4cae05b8414f4c8ea44b0a2eded13, type: 3}
+              - {fileID: 1611315250, guid: 9fc4cae05b8414f4c8ea44b0a2eded13, type: 3}
+              - {fileID: -67891906, guid: 9fc4cae05b8414f4c8ea44b0a2eded13, type: 3}
+              - {fileID: -1284767299, guid: 9fc4cae05b8414f4c8ea44b0a2eded13, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: b1919bb513e037543809df5cd6c4bcd8, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: -1960037477, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: -2021220654, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: -77838669, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: -1762845625, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: 1968518342, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: -2124372432, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: -1552468109, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              - {fileID: -751727784, guid: 0acc450683db3cd45a9d05b73ca5c295, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 14dea7824b928ce4b8fbaecb1d7d1a9b, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 472811633, guid: d6c3df61023223e4dab2ccaef3e3d4bd, type: 3}
+              - {fileID: -60458200, guid: d6c3df61023223e4dab2ccaef3e3d4bd, type: 3}
+              - {fileID: -1218570000, guid: d6c3df61023223e4dab2ccaef3e3d4bd, type: 3}
+              - {fileID: 702766334, guid: d6c3df61023223e4dab2ccaef3e3d4bd, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: b7aa7f9059f1d5d469c185cd32fa8fe0, type: 2}
+          _chance: 1
+        _timeBetweenSpawns: 5
+        _chanceOfSpawning: 100
+        _distFromPlayer: 1.5
