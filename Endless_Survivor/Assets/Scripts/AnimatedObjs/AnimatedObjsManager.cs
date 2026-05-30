@@ -28,7 +28,7 @@ public class AnimatedObjsManager : MonoBehaviour
         instantiatedObj.transform.position = objStartPos;
         instantiatedObj.transform.rotation = config.animatedObjRotation;
         var objAnimator = instantiatedObj.GetComponent<CustomAnimator>();
-        if(config.animation != null && config.animation.Frames.Length > 0 && isBlank)
+        if(config.animation != null && config.animation.Frames.Length > 0 && !isBlank)
         {
             objAnimator.AddAnimations(new() { config.animation });
             objAnimator.ChangeAnim(config.animation.AnimationName);
