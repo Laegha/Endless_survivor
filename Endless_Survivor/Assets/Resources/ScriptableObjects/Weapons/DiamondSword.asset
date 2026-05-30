@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: DiamondSword
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: f4b86c5cd0889f643aff6c5023d42444, type: 3}
+  _weaponName: Diamond sword
+  _weaponStats:
+    _range: 2
+    _attackSpeed: 1.7
+    _damage: 11
+    _knockback: 5
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0.1
+  _damageIncrease: 1
+  _weaponTags: 
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 909968594120474626
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: -10
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: c05a73585febb5144a38b78455269913, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968594120474626
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 1487878705, guid: 42f1033d0a6888c4f90e879710f470cc, type: 3}
+          - {fileID: 1354855505, guid: 42f1033d0a6888c4f90e879710f470cc, type: 3}
+          - {fileID: -462004825, guid: 42f1033d0a6888c4f90e879710f470cc, type: 3}
+          - {fileID: -314433254, guid: 42f1033d0a6888c4f90e879710f470cc, type: 3}
+          - {fileID: -314433254, guid: 42f1033d0a6888c4f90e879710f470cc, type: 3}
+          - {fileID: -314433254, guid: 42f1033d0a6888c4f90e879710f470cc, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 3
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 64
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.45
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.15, y: 0.2}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 1722417561, guid: e8d6313bdc8a14741952e490ff03ce73, type: 3}
+            - {fileID: 252362737, guid: e8d6313bdc8a14741952e490ff03ce73, type: 3}
+            - {fileID: 1645822761, guid: e8d6313bdc8a14741952e490ff03ce73, type: 3}
+            _framesPerSecond: 10
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: -20
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
