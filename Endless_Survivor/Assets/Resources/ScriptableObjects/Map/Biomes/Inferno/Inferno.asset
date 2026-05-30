@@ -37,15 +37,19 @@ MonoBehaviour:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 3a669a4d6a238bb4392827043fb7f076, type: 2}
       _spawnIntensity: 0
-    _chance: 30
+    _chance: 0
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: b9661a80333da97418522382606fc175, type: 2}
       _spawnIntensity: 0
-    _chance: 10
+    _chance: 0
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 002a2e262dc42604fab23c32cbd1f271, type: 2}
       _spawnIntensity: 2
-    _chance: 10
+    _chance: 0
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: e250d9b9e8ea040458ce8a08f79804b1, type: 2}
+      _spawnIntensity: 0
+    _chance: 1
   _bossInvokerAnimation:
     _animationName: Idle
     _frames:
