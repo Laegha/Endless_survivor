@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075e529c78c170042bfa746aee864741, type: 3}
-  m_Name: DiamondBoots
+  m_Name: DiamondBootsCostume
   m_EditorClassIdentifier: 
   _costumePosition: 1
   _offsetFromPositionByStacks:

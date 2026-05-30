@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075e529c78c170042bfa746aee864741, type: 3}
+  m_Name: IronHelmetCostume
+  m_EditorClassIdentifier: 
+  _costumePosition: 1
+  _offsetFromPositionByStacks:
+  - {x: 0, y: 0}
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 237807240, guid: b6b93b8b4b64e974995262a6f9453d09, type: 3}
+    - {fileID: 133745239, guid: b6b93b8b4b64e974995262a6f9453d09, type: 3}
+    - {fileID: -1963331384, guid: b6b93b8b4b64e974995262a6f9453d09, type: 3}
+    - {fileID: -904522372, guid: b6b93b8b4b64e974995262a6f9453d09, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _movingAnimations:
+    _upAnimation:
+      _animationName: MoveUp
+      _frames:
+      - {fileID: -34021871, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: -1815108639, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: 2057185406, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: -1683789196, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: -78838106, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: 744120273, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: 332587795, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      - {fileID: 838196644, guid: 672d278b0d3153d4bbc173c4755cbede, type: 3}
+      _framesPerSecond: 9
+      _endAnimationOnEnd: 0
+      _priority: 0
+    _rightAnimation:
+      _animationName: MoveRight
+      _frames:
+      - {fileID: 1465637764, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      - {fileID: 1675879591, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      - {fileID: 1931011436, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      - {fileID: 493830350, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      - {fileID: 1080656794, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      - {fileID: -298616197, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      - {fileID: -350993930, guid: c3ddf398987cfd9428e409e06a754bf1, type: 3}
+      _framesPerSecond: 8
+      _endAnimationOnEnd: 0
+      _priority: 0
+    _downAnimation:
+      _animationName: MoveDown
+      _frames:
+      - {fileID: -1142506038, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: -1134605982, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: 1334691154, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: -569932274, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: -295731255, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: 1934640751, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: -1271795903, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      - {fileID: -508276435, guid: ffde4768498ea04438e196844a6e4479, type: 3}
+      _framesPerSecond: 9
+      _endAnimationOnEnd: 0
+      _priority: 0
+    _leftAnimation:
+      _animationName: MoveLeft
+      _frames:
+      - {fileID: -585974472, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      - {fileID: 208018002, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      - {fileID: 2118642961, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      - {fileID: -2105203819, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      - {fileID: 1122507303, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      - {fileID: -2020159685, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      - {fileID: 1607984929, guid: ea0faf5ee6945f443aabef8f12244c7f, type: 3}
+      _framesPerSecond: 8
+      _endAnimationOnEnd: 0
+      _priority: 0

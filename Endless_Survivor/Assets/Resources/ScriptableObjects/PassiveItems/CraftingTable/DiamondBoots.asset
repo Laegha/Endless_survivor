@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DiamondBoots
   m_EditorClassIdentifier: 
   _itemName: Diamond Boots
-  _itemDescript: Increases defense, breaks after various hits
+  _itemDescript: Greatly increases defense, breaks after various hits
   _itemSprite: {fileID: 21300000, guid: 76853ef829d1a1a48b4ec51150bd22af, type: 3}
   _itemBehaviours:
   - rid: 909968580704993280

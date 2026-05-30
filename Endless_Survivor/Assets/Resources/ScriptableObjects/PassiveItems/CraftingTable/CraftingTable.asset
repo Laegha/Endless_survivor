@@ -103,6 +103,160 @@ MonoBehaviour:
               _priority: 0
             _pickupData: {fileID: 11400000, guid: b7aa7f9059f1d5d469c185cd32fa8fe0, type: 2}
           _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 286925061, guid: 3e7d3017bc0e9cb43952334731d09169, type: 3}
+              - {fileID: 159874617, guid: 3e7d3017bc0e9cb43952334731d09169, type: 3}
+              - {fileID: -597607291, guid: 3e7d3017bc0e9cb43952334731d09169, type: 3}
+              - {fileID: 1961820926, guid: 3e7d3017bc0e9cb43952334731d09169, type: 3}
+              - {fileID: 582999716, guid: 3e7d3017bc0e9cb43952334731d09169, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 8c93f66e22e9c5943a5b643c42413ecd, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: -185020549, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: -1367620030, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 374712575, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 1801157992, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 147440526, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 599828509, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 615966778, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 674926707, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              - {fileID: 2147463240, guid: eb1d1be082cbea04198fe284d9f6293d, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 2503f3a6e7ad88a45a83797160a0fdf7, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: -2019137150, guid: 96b3c3ee0d1555648be7c1e4944d1658, type: 3}
+              - {fileID: 660455840, guid: 96b3c3ee0d1555648be7c1e4944d1658, type: 3}
+              - {fileID: -999274200, guid: 96b3c3ee0d1555648be7c1e4944d1658, type: 3}
+              - {fileID: -2061751896, guid: 96b3c3ee0d1555648be7c1e4944d1658, type: 3}
+              - {fileID: -2009345669, guid: 96b3c3ee0d1555648be7c1e4944d1658, type: 3}
+              - {fileID: 1385488226, guid: 96b3c3ee0d1555648be7c1e4944d1658, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: ce2d8811d06f50e48931ef68533da666, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 1870834598, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: -91066476, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: 1424676799, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: 1222837029, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: -378431411, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: -1006053018, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: 1653327126, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              - {fileID: -1285113810, guid: 648e4dd1ef8e16a419b98ade4462c92d, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 4804ad1d279e0614f9b0f37ac9839350, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 1705190504, guid: fb901002bad37e849a28a1e92dfa23f0, type: 3}
+              - {fileID: -1452767319, guid: fb901002bad37e849a28a1e92dfa23f0, type: 3}
+              - {fileID: 955898495, guid: fb901002bad37e849a28a1e92dfa23f0, type: 3}
+              - {fileID: 1881603530, guid: fb901002bad37e849a28a1e92dfa23f0, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 8ad7edfe560447e4f8290708e5453209, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: -835710689, guid: 6f6651ce1bbf24b48b5ca956f48d69a4, type: 3}
+              - {fileID: -1972977027, guid: 6f6651ce1bbf24b48b5ca956f48d69a4, type: 3}
+              - {fileID: -1738130152, guid: 6f6651ce1bbf24b48b5ca956f48d69a4, type: 3}
+              - {fileID: -871572665, guid: 6f6651ce1bbf24b48b5ca956f48d69a4, type: 3}
+              - {fileID: -1006279323, guid: 6f6651ce1bbf24b48b5ca956f48d69a4, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 65209d89969ef96409d57dae4a0eb747, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 683328125, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: 2110186583, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: 250629981, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: -2017066783, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: -1997750048, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: 650793558, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: -2014303906, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: -307612096, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              - {fileID: -1075735576, guid: 418dfb2bb5670e84b8fcb0c8b50184e3, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: f51b15a3132c80c4293fca2d504068e7, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 1848743510, guid: 8f171c3db8c7eb640b22b14f373f7282, type: 3}
+              - {fileID: -503908798, guid: 8f171c3db8c7eb640b22b14f373f7282, type: 3}
+              - {fileID: -927500247, guid: 8f171c3db8c7eb640b22b14f373f7282, type: 3}
+              - {fileID: 556769937, guid: 8f171c3db8c7eb640b22b14f373f7282, type: 3}
+              - {fileID: 2063205635, guid: 8f171c3db8c7eb640b22b14f373f7282, type: 3}
+              - {fileID: -252334496, guid: 8f171c3db8c7eb640b22b14f373f7282, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 77efc2bf420ba5948b576f5ba8be9cbc, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: 656629978, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: -1120894789, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: 1632316398, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: -1851326214, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: -1592914873, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: 787130585, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: -91264370, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              - {fileID: -1168388541, guid: 1c8946a4721f64a4082e4c207a561c68, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: aa1cc0eb6cdaae4418694406b0b87dae, type: 2}
+          _chance: 1
+        - _rouletteElement:
+            _spawnAnim:
+              _animationName: Spawn
+              _frames:
+              - {fileID: -490010046, guid: 87fbb411d6682c24cab43bb1255fa4ee, type: 3}
+              - {fileID: 1254919730, guid: 87fbb411d6682c24cab43bb1255fa4ee, type: 3}
+              - {fileID: 633924762, guid: 87fbb411d6682c24cab43bb1255fa4ee, type: 3}
+              - {fileID: -1342240242, guid: 87fbb411d6682c24cab43bb1255fa4ee, type: 3}
+              _framesPerSecond: 4
+              _endAnimationOnEnd: 0
+              _priority: 0
+            _pickupData: {fileID: 11400000, guid: 4a3b6d9741ccbd84e9e5fea3bb56348c, type: 2}
+          _chance: 1
         _timeBetweenSpawns: 5
         _chanceOfSpawning: 100
         _distFromPlayer: 1.5
