@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9689f285212a44784a16df5210f180, type: 3}
+  m_Name: GraveyardBg
+  m_EditorClassIdentifier: 
+  _layers:
+  - _layerTileSprite: {fileID: 21300000, guid: 5fcfe364c3570d44381afbfce82e1851, type: 3}
+    _layerSpeed: 2
+    _layerDepth: 10
+  - _layerTileSprite: {fileID: 21300000, guid: be64537f3e8b4ae4d9e79996697a2473, type: 3}
+    _layerSpeed: 3
+    _layerDepth: 9
+  - _layerTileSprite: {fileID: 21300000, guid: 8ceb97b9c0f9b0d46a7583a83c69922e, type: 3}
+    _layerSpeed: 5
+    _layerDepth: 8
+  - _layerTileSprite: {fileID: 21300000, guid: 3ea5dd1428819294ebaa1679109f8d35, type: 3}
+    _layerSpeed: 5.2
+    _layerDepth: 7
+  - _layerTileSprite: {fileID: 21300000, guid: 023f33764f714dd4293e9d6e916ca1d7, type: 3}
+    _layerSpeed: 7
+    _layerDepth: 6
+  - _layerTileSprite: {fileID: 21300000, guid: 6ae6360a0f6963c42a7f77008e3633f0, type: 3}
+    _layerSpeed: 8
+    _layerDepth: 5
+  _tileSize: {x: 2, y: 2}
