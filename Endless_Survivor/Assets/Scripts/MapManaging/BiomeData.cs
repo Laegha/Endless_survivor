@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New BiomeData", menuName = "ScriptableObjects/Map/Biome Data", order = 1)]
 public class BiomeData : ScriptableObject
 {
+    [SerializeField] BiomeBackgroundData _backgroundData;
     [SerializeField] Sprite _floorTile;
     [Header("Walls")]
     [SerializeField] Sprite _topWallTile;
@@ -39,6 +40,7 @@ public class BiomeData : ScriptableObject
     [SerializeField] List<EnemyInvokationInfo> _biomeBosses;
 
 
+    public BiomeBackgroundData BackgroundData{ get { return _backgroundData; } }
     public Sprite FloorTile { get { return _floorTile; } }
     public Sprite TopWallTile { get { return _topWallTile; } }
     public Sprite RightWallTile { get { return _rightWallTile; } }
