@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: FunnyBones
+  m_EditorClassIdentifier: 
+  _initialHP: 40
+  _referenceSizeSprite: {fileID: -1237133870, guid: c470339051e48e04baabe5949a698961, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 12
+  _colliderSize: {x: 0.6, y: 0.6}
+  _colliderOffset: {x: 0, y: -0.4}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 8472846607437529090
+  - rid: 8472846607437529091
+  - rid: 8472846607437529092
+  - rid: 8472846607437529093
+  - rid: 8472846611716767744
+  - rid: 8472846611716767745
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846607437529090
+      type: {class: AccelerateToPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AccelerateToPlayer
+        _overrideBehaviours: []
+        _acceleration: 1
+        _initialSpeed: 3
+        _maxSpeed: 3
+        _instantStopOnUnactive: 1
+        _deacceleration: 0
+        _movingAnimations:
+          _upAnimation:
+            _animationName: MoveUp
+            _frames:
+            - {fileID: -1341057053, guid: 271e05a75887d88469b5c1121690ef0b, type: 3}
+            - {fileID: 15234112, guid: 271e05a75887d88469b5c1121690ef0b, type: 3}
+            - {fileID: 1741432062, guid: 271e05a75887d88469b5c1121690ef0b, type: 3}
+            - {fileID: 1937520750, guid: 271e05a75887d88469b5c1121690ef0b, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _rightAnimation:
+            _animationName: MoveRight
+            _frames:
+            - {fileID: 1149113557, guid: 6d4408bce46b15544b66ba76821b11b4, type: 3}
+            - {fileID: 1398883384, guid: 6d4408bce46b15544b66ba76821b11b4, type: 3}
+            - {fileID: -379451238, guid: 6d4408bce46b15544b66ba76821b11b4, type: 3}
+            - {fileID: -1411310179, guid: 6d4408bce46b15544b66ba76821b11b4, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: MoveDown
+            _frames:
+            - {fileID: 870662726, guid: ec4c1dad333cb0d4a8366f4cc94f64fe, type: 3}
+            - {fileID: 636752048, guid: ec4c1dad333cb0d4a8366f4cc94f64fe, type: 3}
+            - {fileID: -655787182, guid: ec4c1dad333cb0d4a8366f4cc94f64fe, type: 3}
+            - {fileID: 1221740948, guid: ec4c1dad333cb0d4a8366f4cc94f64fe, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _leftAnimation:
+            _animationName: MoveLeft
+            _frames:
+            - {fileID: 1488341241, guid: 1d1ef183ea9699c42bc9611d6838913b, type: 3}
+            - {fileID: -1016509566, guid: 1d1ef183ea9699c42bc9611d6838913b, type: 3}
+            - {fileID: -666145992, guid: 1d1ef183ea9699c42bc9611d6838913b, type: 3}
+            - {fileID: -816613509, guid: 1d1ef183ea9699c42bc9611d6838913b, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 0
+            _priority: 1
+    - rid: 8472846607437529091
+      type: {class: MeleeAttackBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MeleeAttack
+        _overrideBehaviours:
+        - AccelerateToPlayer
+        - Parry
+        _damage: 10
+        _attackRange: 0.3
+        _attackRadius: 0.7
+        _attackUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackRightAnimation:
+          _animationName: AttackRight
+          _frames:
+          - {fileID: -1914417340, guid: c488e39b8c706524a985a9a4db0ec7d3, type: 3}
+          - {fileID: 1667763384, guid: c488e39b8c706524a985a9a4db0ec7d3, type: 3}
+          - {fileID: 981439255, guid: c488e39b8c706524a985a9a4db0ec7d3, type: 3}
+          - {fileID: 981439255, guid: c488e39b8c706524a985a9a4db0ec7d3, type: 3}
+          - {fileID: 981439255, guid: c488e39b8c706524a985a9a4db0ec7d3, type: 3}
+          - {fileID: 981439255, guid: c488e39b8c706524a985a9a4db0ec7d3, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 2
+        _attackDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackLeftAnimation:
+          _animationName: AttackLeft
+          _frames:
+          - {fileID: -1654390752, guid: b84f1ee036df46b408049e982b3efb9f, type: 3}
+          - {fileID: -782902292, guid: b84f1ee036df46b408049e982b3efb9f, type: 3}
+          - {fileID: 492455530, guid: b84f1ee036df46b408049e982b3efb9f, type: 3}
+          - {fileID: 492455530, guid: b84f1ee036df46b408049e982b3efb9f, type: 3}
+          - {fileID: 492455530, guid: b84f1ee036df46b408049e982b3efb9f, type: 3}
+          - {fileID: 492455530, guid: b84f1ee036df46b408049e982b3efb9f, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 2
+        _usesVfx: 1
+        _attackVFXAnimation:
+          _animationName: Vfx
+          _frames:
+          - {fileID: 179732446, guid: c490d1965e94a7544bb78b1a17085d9f, type: 3}
+          - {fileID: -987127445, guid: c490d1965e94a7544bb78b1a17085d9f, type: 3}
+          - {fileID: 650502966, guid: c490d1965e94a7544bb78b1a17085d9f, type: 3}
+          - {fileID: 1161719859, guid: c490d1965e94a7544bb78b1a17085d9f, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _triggerVFXFrame: 2
+        _vfxRendererOffset: -10
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
+        _triggerDamageFrame: 0
+        _attackSfx:
+          _sound: {fileID: 0}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 8472846607437529092
+      type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: WhileAtDistTriggerAccel
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - AccelerateToPlayer
+        _distanceToTrigger: 8
+    - rid: 8472846607437529093
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerMelee
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - MeleeAttack
+        _distanceToTrigger: 0.9
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
+    - rid: 8472846611716767744
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: -1237133870, guid: c470339051e48e04baabe5949a698961, type: 3}
+          - {fileID: -349275573, guid: c470339051e48e04baabe5949a698961, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 8472846611716767745
+      type: {class: ParryDamageEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Parry
+        _overrideBehaviours:
+        - AccelerateToPlayer
+        - MeleeAttack
+        _maxParryChance: 51
+        _parryChanceIncreasePerFailedParry: 50
+        _parryChanceDecreasePerSuccesfullParry: 100
+        _parryAreaSize: {x: 0.7, y: 0.7}
+        _parryAreaOffset: {x: 0, y: -0.4}
+        _areaDirection: 0
+        _parryLayer:
+          serializedVersion: 2
+          m_Bits: 512
+        _parryAnimations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: ParryRight
+            _frames:
+            - {fileID: -1076745097, guid: 4356321007fb9b1499df06136112c6af, type: 3}
+            - {fileID: 1799358629, guid: 4356321007fb9b1499df06136112c6af, type: 3}
+            - {fileID: 42245668, guid: 4356321007fb9b1499df06136112c6af, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 2
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: ParryLeft
+            _frames:
+            - {fileID: 978353314, guid: adaee6fe6f83ece429cdaaa7746bd268, type: 3}
+            - {fileID: 1840495201, guid: adaee6fe6f83ece429cdaaa7746bd268, type: 3}
+            - {fileID: -1049891130, guid: adaee6fe6f83ece429cdaaa7746bd268, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 2
+        _parryDuration: 0.5
