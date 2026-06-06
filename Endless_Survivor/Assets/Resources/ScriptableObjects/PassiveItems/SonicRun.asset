@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: SonicRun
+  m_EditorClassIdentifier: 
+  _itemName: 
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 1204507796050018304
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507796050018304
+      type: {class: AttackWhenHighSpeedItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: 
+        _speedThreshold: 6
+        _speedTop: 8
+        _triggerType: 0
+        _attackCooldown: 0
+        _rightAnimation:
+          _animationName: RightRun
+          _frames:
+          - {fileID: -934383588, guid: 24d61c6abaee6004b910cf7e32b43978, type: 3}
+          - {fileID: -1528854800, guid: 24d61c6abaee6004b910cf7e32b43978, type: 3}
+          - {fileID: -2051894555, guid: 24d61c6abaee6004b910cf7e32b43978, type: 3}
+          - {fileID: -919407604, guid: 24d61c6abaee6004b910cf7e32b43978, type: 3}
+          _framesPerSecond: 20
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _leftAnimation:
+          _animationName: LeftRun
+          _frames:
+          - {fileID: -981932223, guid: 483e5b0b0e6a42341a5405ae8d258447, type: 3}
+          - {fileID: 348487557, guid: 483e5b0b0e6a42341a5405ae8d258447, type: 3}
+          - {fileID: -1793490847, guid: 483e5b0b0e6a42341a5405ae8d258447, type: 3}
+          - {fileID: -739489768, guid: 483e5b0b0e6a42341a5405ae8d258447, type: 3}
+          _framesPerSecond: 20
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackFrame: 0
+        _attackOffset: {x: 0, y: 0}
+        _attackBaseStats:
+          _range: 0
+          _attackSpeed: 0
+          _damage: 0
+          _knockback: 0
+        _statsScaling:
+          _range: 0
+          _attackSpeed: 0
+          _damage: 0
+          _knockback: 0
+        _damageType: 1
+        _attackData:
+          _isCircle: 1
+          _attackCircleRadius: 0
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: SonicSpinAttack
+  m_EditorClassIdentifier: 
+  _itemName: 
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 1204507796050018304
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507796050018304
+      type: {class: AttackWhenHighSpeedItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: 
+        _speedThreshold: 8
+        _speedTop: 1000
+        _triggerType: 0
+        _attackCooldown: 0.1
+        _rightAnimation:
+          _animationName: SpinRight
+          _frames:
+          - {fileID: -1949891784, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: -1705647176, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: -303087945, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: -669856347, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: 1723830833, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: 838098106, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: 1292576312, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          - {fileID: -1035862983, guid: 3cc0446aad74ce3449f5e1cc6d599369, type: 3}
+          _framesPerSecond: 16
+          _endAnimationOnEnd: 0
+          _priority: 2
+        _leftAnimation:
+          _animationName: SpinLeft
+          _frames:
+          - {fileID: 628681962, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: -96764105, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: 36001884, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: 1263449102, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: -104621553, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: 1334976254, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: 403281480, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          - {fileID: 177602082, guid: 79e47f3bdae84d141bf60e2680220006, type: 3}
+          _framesPerSecond: 16
+          _endAnimationOnEnd: 0
+          _priority: 2
+        _attackFrame: 1
+        _attackOffset: {x: 0, y: 0}
+        _attackBaseStats:
+          _range: 1
+          _attackSpeed: 1
+          _damage: 30
+          _knockback: 30
+        _statsScaling:
+          _range: 0
+          _attackSpeed: 0
+          _damage: 2
+          _knockback: 0
+        _damageType: 1
+        _attackData:
+          _isCircle: 1
+          _attackCircleRadius: 1.2
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
