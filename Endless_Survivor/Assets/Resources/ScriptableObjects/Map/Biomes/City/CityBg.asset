@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9689f285212a44784a16df5210f180, type: 3}
+  m_Name: CityBg
+  m_EditorClassIdentifier: 
+  _layers:
+  - _layerTileSprite: {fileID: 21300000, guid: af0803854a9122e4d845160bc0241c07, type: 3}
+    _layerSpeed: 0
+    _layerDepth: 10
+  - _layerTileSprite: {fileID: 21300000, guid: f645983f3af3b0746bbd0ad5afbf4ee7, type: 3}
+    _layerSpeed: 2
+    _layerDepth: 9
+  - _layerTileSprite: {fileID: 21300000, guid: 97a836d41b31e2845892d093ef0be9c0, type: 3}
+    _layerSpeed: 2
+    _layerDepth: 8
+  - _layerTileSprite: {fileID: 21300000, guid: 538ba7fd89939de49bc1d867e385d68b, type: 3}
+    _layerSpeed: 4
+    _layerDepth: 7
+  - _layerTileSprite: {fileID: 21300000, guid: d0de7309e22bac142b76c9c7230fd474, type: 3}
+    _layerSpeed: 6
+    _layerDepth: 6
+  _tileSize: {x: 2, y: 2}
