@@ -6,9 +6,16 @@ using UnityEngine;
 
 public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
 {
+    enum SpeedAtkTypes
+    {
+        CooldownTimer,
+        AnimationFrame
+    }
     new public static int maxStacks => -1;
     [SerializeField] float _speedThreshold;
     [SerializeField] float _speedTop;
+    [SerializeField] SpeedAtkTypes _triggerType;
+    [SerializeField] float _attackCooldown;
     [SerializeField] CustomAnimation _rightAnimation;
     [SerializeField] CustomAnimation _leftAnimation;
     [SerializeField] int _attackFrame;
@@ -19,15 +26,19 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
     [SerializeField] MeleeData _attackData;
 
     WeaponStats _attackStats;
+    float _cooldownTimer;
     float _playerSpeed => PlayerControl.pc.PlayerRb.velocity.magnitude;
     DamageInfo DamageInfo => new DamageInfo(_attackStats.Damage, _damageType);
     float Damage => DamageInfo.CalculatedDamage;
+
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
         var attackWhenHighSpeedOriginal = original as AttackWhenHighSpeedItemBehaviour;
         _speedThreshold = attackWhenHighSpeedOriginal._speedThreshold;
         _speedTop = attackWhenHighSpeedOriginal._speedTop;
+        _triggerType = attackWhenHighSpeedOriginal._triggerType;
+        _attackCooldown = attackWhenHighSpeedOriginal._attackCooldown;
         _rightAnimation = new(PlayerControl.pc.PlayerAnimator, attackWhenHighSpeedOriginal._rightAnimation);
         _leftAnimation = new(PlayerControl.pc.PlayerAnimator,  attackWhenHighSpeedOriginal._leftAnimation);
         _attackOffset = attackWhenHighSpeedOriginal._attackOffset;
@@ -36,14 +47,28 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
         _damageType = attackWhenHighSpeedOriginal._damageType;
         _attackData = attackWhenHighSpeedOriginal._attackData;
 
-        _rightAnimation.Events.Add(new(null, _attackFrame, Attack));
-        _leftAnimation.Events.Add(new(null, _attackFrame, Attack));
+        if(_triggerType == SpeedAtkTypes.AnimationFrame)
+        {
+            _rightAnimation.Events.Add(new(null, _attackFrame, Attack));
+            _leftAnimation.Events.Add(new(null, _attackFrame, Attack));
+
+        }
 
         PlayerControl.pc.PlayerAnimator.AddAnimations(new(){ _rightAnimation, _leftAnimation });
         
         UpdateStats();
         EnemySpawnManager.esm.OnWaveStarted += UpdateStats;
         behaviourManager.onUpdate += CheckSpeed;
+        if (_triggerType == SpeedAtkTypes.CooldownTimer)
+        {
+            _cooldownTimer = _attackCooldown;
+            behaviourManager.onUpdate += DecreaseCooldownTimer;
+        }
+    }
+    void DecreaseCooldownTimer()
+    {
+        if(_cooldownTimer > 0)
+            _cooldownTimer-= Time.deltaTime;
     }
     void CheckSpeed()
     {
@@ -55,8 +80,15 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
                 PlayerControl.pc.PlayerAnimator.EndAnimation(currAnimName);
             return;
         }
+        if (_triggerType == SpeedAtkTypes.CooldownTimer && _cooldownTimer > 0)
+            return;
         var xDir = PlayerControl.pc.PlayerRb.velocity.x;
-        //Attack();
+        if(_triggerType == SpeedAtkTypes.CooldownTimer && _cooldownTimer <= 0)
+        {
+            _cooldownTimer = _attackCooldown;
+
+        }
+        Attack();
         PlayerControl.pc.PlayerAnimator.ChangeAnim(xDir > 0 ? _rightAnimation.AnimationName : _leftAnimation.AnimationName);
     }
     void Attack()
