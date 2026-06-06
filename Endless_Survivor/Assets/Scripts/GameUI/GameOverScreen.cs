@@ -19,7 +19,7 @@ public class GameOverScreen : MonoBehaviour
     int _maxWaveCoins = 3;
     int _earnedWaveCoins = 0;
 
-    float _damageCoinRelation = 1000;
+    float _damageCoinRelation = 10000;
     int _maxDamageCoins = 3;
     int _earnedDamageCoins = 0;
 
@@ -27,6 +27,7 @@ public class GameOverScreen : MonoBehaviour
     int _maxKillCoins = 2;
     int _earnedKillCoins = 0;
 
+    int _totalEarnedCoins = 0;
     private void Start()
     {
         CalculateEarnedCoins();
@@ -39,8 +40,8 @@ public class GameOverScreen : MonoBehaviour
         _killedEnemiesDisplay.text = RunStatsManager.runStatsManager.regularEnemiesKilled + "";
         _wavesSurvivedDisplay.text = RunStatsManager.runStatsManager.wavesSurvived + "";
 
-        _totalEarnedCoinDisplay.text = "x" + _totalEarnedCoinDisplay;
-        _wavesSurvivedDisplay.text = "x" + _earnedWaveCoins;
+        _totalEarnedCoinDisplay.text = "x" + _totalEarnedCoins;
+        _wavesSurvivedCoinDisplay.text = "x" + _earnedWaveCoins;
         _damageDealtCoinDisplay.text = "x" + _earnedDamageCoins;
         _killedEnemiesCoinDisplay.text = "x" + _earnedKillCoins;
     }
@@ -61,5 +62,7 @@ public class GameOverScreen : MonoBehaviour
 
         var totalEarnedCoins = _earnedDamageCoins + _earnedKillCoins + _earnedWaveCoins;
         UnlockmentsManager.AddGachaCoins(totalEarnedCoins);
+        _totalEarnedCoins = totalEarnedCoins;
+
     }
 }

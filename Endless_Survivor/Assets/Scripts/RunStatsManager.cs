@@ -14,6 +14,7 @@ public class RunStatsManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (instance != null)
             Destroy(instance.gameObject);
         instance = this;
