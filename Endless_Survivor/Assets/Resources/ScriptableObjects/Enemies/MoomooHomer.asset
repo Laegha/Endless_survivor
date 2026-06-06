@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: MoomooHomer
+  m_EditorClassIdentifier: 
+  _initialHP: 130
+  _referenceSizeSprite: {fileID: 1052312167, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 20
+  _colliderSize: {x: 1.8, y: 1.8}
+  _colliderOffset: {x: 0, y: -0.3}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 8472846629437440000
+  - rid: 8472846629437440001
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846629437440000
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 1
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: ChasingRight
+          _frames:
+          - {fileID: 1052312167, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+          - {fileID: 1037457868, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+          - {fileID: -1973776808, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+          - {fileID: -611148599, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+          - {fileID: 1976177862, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+          - {fileID: -565619489, guid: 5659bba0ee4c5b04ba353b6df2b4a2ee, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: ChasingLeft
+          _frames:
+          - {fileID: -495123648, guid: 244ddd21c9641164993b7248ae12da52, type: 3}
+          - {fileID: -340397202, guid: 244ddd21c9641164993b7248ae12da52, type: 3}
+          - {fileID: -721585473, guid: 244ddd21c9641164993b7248ae12da52, type: 3}
+          - {fileID: 196006601, guid: 244ddd21c9641164993b7248ae12da52, type: 3}
+          - {fileID: -726101998, guid: 244ddd21c9641164993b7248ae12da52, type: 3}
+          - {fileID: 275967535, guid: 244ddd21c9641164993b7248ae12da52, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 8472846629437440001
+      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DamageOnContact
+        _overrideBehaviours: []
+        _damage: 7
