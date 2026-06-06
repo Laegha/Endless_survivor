@@ -103,46 +103,47 @@ public class EnemyDataEditor : Editor
             menu.ShowAsContext();
         }
 
-        serializedObject.ApplyModifiedProperties();
 
         //EditorGUILayout.PropertyField(_dropablePickupChances);
         EditorGUILayout.LabelField("Pickups dropped on death");
-        RouletteElementChance<PickupData> removedDataChance = null;
-        for (int i = 0; i < enemyData.DropablePickupChances.Count; i++)
-        {
-            var pickupChance = enemyData.DropablePickupChances[i];
+        EditorGUILayout.PropertyField(_dropablePickupChances);
+        serializedObject.ApplyModifiedProperties();
+        //RouletteElementChance<PickupData> removedDataChance = null;
+        //for (int i = 0; i < enemyData.DropablePickupChances.Count; i++)
+        //{
+        //    var pickupChance = enemyData.DropablePickupChances[i];
 
-            string pickupLabel = pickupChance.RouletteElement == null ? "Undefined pickup" : pickupChance.RouletteElement.name;
-            GUILayout.Label(pickupLabel, EditorStyles.boldLabel);
+        //    string pickupLabel = pickupChance.RouletteElement == null ? "Undefined pickup" : pickupChance.RouletteElement.name;
+        //    GUILayout.Label(pickupLabel, EditorStyles.boldLabel);
 
-            EditorGUI.indentLevel++;
-            SerializedProperty pickupProperty = _dropablePickupChances.GetArrayElementAtIndex(i);
-            EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_rouletteElement"));
-            SerializedProperty chanceProperty = pickupProperty.FindPropertyRelative("_chance");
-            EditorGUILayout.BeginHorizontal();
-            int maxPercentage = 100;
-            foreach (var otherPickupChance in enemyData.DropablePickupChances)
-            {
-                if (otherPickupChance == pickupChance)
-                    continue;
-                maxPercentage -= otherPickupChance.Chance;
-            }
-            chanceProperty.intValue = Mathf.Clamp(EditorGUILayout.IntSlider("Chance", chanceProperty.intValue, 0, 100), 0, maxPercentage);
-            //pickupChance.Chance = (int)Mathf.Clamp(EditorGUILayout.Slider(pickupChance.Chance, 0, 100), 0, maxPercentage);
-            if (GUILayout.Button("Remove dropable pickup"))
-            {
-                removedDataChance = pickupChance;
-            }
-            EditorGUILayout.EndHorizontal();
-            EditorGUI.indentLevel--;
-            serializedObject.ApplyModifiedProperties();
-        }
-        if (removedDataChance != null)
-            enemyData.DropablePickupChances.Remove(removedDataChance);
-        if (GUILayout.Button("Add dropable pickup"))
-        {
-            enemyData.DropablePickupChances.Add(new RouletteElementChance<PickupData>(null, 0));
-        }
+        //    EditorGUI.indentLevel++;
+        //    SerializedProperty pickupProperty = _dropablePickupChances.GetArrayElementAtIndex(i);
+        //    EditorGUILayout.PropertyField(pickupProperty.FindPropertyRelative("_rouletteElement"));
+        //    SerializedProperty chanceProperty = pickupProperty.FindPropertyRelative("_chance");
+        //    EditorGUILayout.BeginHorizontal();
+        //    int maxPercentage = 100;
+        //    foreach (var otherPickupChance in enemyData.DropablePickupChances)
+        //    {
+        //        if (otherPickupChance == pickupChance)
+        //            continue;
+        //        maxPercentage -= otherPickupChance.Chance;
+        //    }
+        //    chanceProperty.intValue = Mathf.Clamp(EditorGUILayout.IntSlider("Chance", chanceProperty.intValue, 0, 100), 0, maxPercentage);
+        //    //pickupChance.Chance = (int)Mathf.Clamp(EditorGUILayout.Slider(pickupChance.Chance, 0, 100), 0, maxPercentage);
+        //    if (GUILayout.Button("Remove dropable pickup"))
+        //    {
+        //        removedDataChance = pickupChance;
+        //    }
+        //    EditorGUILayout.EndHorizontal();
+        //    EditorGUI.indentLevel--;
+        //    serializedObject.ApplyModifiedProperties();
+        //}
+        //if (removedDataChance != null)
+        //    enemyData.DropablePickupChances.Remove(removedDataChance);
+        //if (GUILayout.Button("Add dropable pickup"))
+        //{
+        //    enemyData.DropablePickupChances.Add(new RouletteElementChance<PickupData>(null, 0));
+        //}
 
     }
 
