@@ -98,5 +98,10 @@
     "fileName": "Steve",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Sonic",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]

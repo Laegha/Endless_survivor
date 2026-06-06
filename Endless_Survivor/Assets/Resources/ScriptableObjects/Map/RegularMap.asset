@@ -17,7 +17,7 @@ MonoBehaviour:
     min: 20
     max: 20
   _possibleBiomes:
-  - {fileID: 11400000, guid: 7b38084fc12c08c4b908bccd9e737184, type: 2}
+  - {fileID: 11400000, guid: 9f89918add5e7794aaa3727f3996f700, type: 2}
   _minBiomesToSpawnBosses: 1
   _bossInvokerPrefab: {fileID: 7222939410031201396, guid: c471c3fb619045a4c8e26e19b41b1d74, type: 3}
   _bossInvokerSize:

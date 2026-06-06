@@ -23,9 +23,7 @@ MonoBehaviour:
   - rid: 768305086805573633
   - rid: 2600434731462950912
   - rid: 2600434731462950913
-  _dropablePickupChances:
-  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
-    _chance: 100
+  _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
