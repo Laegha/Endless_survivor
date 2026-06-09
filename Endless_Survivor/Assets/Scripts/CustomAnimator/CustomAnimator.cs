@@ -23,6 +23,11 @@ public class CustomAnimator : MonoBehaviour
     {
         foreach (var anim in newAnimations)
         {
+            if (_animations.Any(x => x.AnimationName == anim.AnimationName))
+            {
+                Debug.LogError("ANIMATOR ERROR: trying to add an animation with the name " + anim.AnimationName + " but there already is one");
+                continue;
+            }
             var newAnim = Activator.CreateInstance(anim.GetType(),this, anim) as CustomAnimation;
             _animations.Add(newAnim);
         }
@@ -69,6 +74,21 @@ public class CustomAnimator : MonoBehaviour
         _currAnimPriority = newAnimation.Priority;
         _currFrameIndex = -1;
         NextFrame();
+    }
+    public virtual void ChangeAnimButKeepFrame(string animName, bool overridePriority = false, bool resetSameAnim = false)
+    {
+        CustomAnimation newAnimation = _animations.Find(anim => anim.AnimationName == animName);
+        if (newAnimation == null)
+        {
+            Debug.LogError("ERROR: Animation not found: " + animName + " on animator " + gameObject.name);
+            return;
+        }
+        if (_currAnim != null && _currAnimPriority > newAnimation.Priority && !overridePriority || _currAnim == newAnimation && !resetSameAnim)
+            return;
+        _currAnim = newAnimation;
+        _currAnimPriority = newAnimation.Priority;
+        if(_currFrameIndex > newAnimation.Frames.Length-1)
+            _currFrameIndex = newAnimation.Frames.Length-1;
     }
     public void EndAnimation(CustomAnimation endingAnimation) => EndAnimation(endingAnimation.AnimationName);
     public void EndAnimation(string animationName)

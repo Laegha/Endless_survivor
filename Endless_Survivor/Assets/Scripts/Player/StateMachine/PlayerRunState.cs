@@ -25,16 +25,16 @@ public class PlayerRunState : PlayerBaseState
         if(Mathf.Abs(animMovement.y) >= Mathf.Abs(animMovement.x))
         {
             if(animMovement.y < 0)
-                context.PlayerControl.PlayerAnimator.ChangeAnim("FrontMove");
+                context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("FrontMove");
             else
-                context.PlayerControl.PlayerAnimator.ChangeAnim("BackMove");
+                context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("BackMove");
         }
         else
         {
             if(animMovement.x > 0)
-                context.PlayerControl.PlayerAnimator.ChangeAnim("RightMove");
+                context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("RightMove");
             else
-            context.PlayerControl.PlayerAnimator.ChangeAnim("LeftMove");
+            context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("LeftMove");
         }
         context.PlayerControl.PlayerRb.velocity = movement;
 

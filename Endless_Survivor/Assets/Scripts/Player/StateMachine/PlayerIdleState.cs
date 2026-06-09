@@ -12,7 +12,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void UpdateState() 
     {
         CheckSwitchStates();
-        context.PlayerControl.PlayerAnimator.ChangeAnim("Idle");
+        context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("Idle");
     }
 
     public override void OnCollisionEnter(Collision collision) { }
