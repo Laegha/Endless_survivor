@@ -17,12 +17,13 @@ public class PassiveItemManager : MonoBehaviour
         PlayerControl.pc.PlayerHPManager.OnDamageTaken += PlayerDamaged;
         EnemySpawnManager.esm.OnEnemySpawned += (enemyControl) => enemyControl.EnemyHP.OnDeath += EnemyKilled;
     }
-    public void AddPassiveItem(PassiveItemData itemData)
+    public PassiveItem AddPassiveItem(PassiveItemData itemData)
     {
         PassiveItem addedItem = new PassiveItem();
         itemData.TransferData(addedItem);
         addedItem.BehaviourManager.onPicked?.Invoke();
         _passiveItems.Add(addedItem);
+        return addedItem;
     }
     public void RemovePassiveItem(PassiveItem removedItem)
     {
