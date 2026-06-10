@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreateSupportObjOnRandomEnemiesOnActivateItemBehaviour : PassiveItemBehaviour
 {
+    new public static int maxStacks => -1;
     [SerializeField] SupportObjectData _createdSupportObj;
     [SerializeField] RandomBetweenTwoConstants _createdAmmount;
     [SerializeField] bool _objsLockIntoEnemies;

@@ -52,6 +52,6 @@ public static class ScalingFunctions
 
     public static int PlayerDamageFormula(int incomingDamage)
     {
-        return Mathf.CeilToInt(incomingDamage / PlayerControl.pc.PlayerStats.Defense);
+        return Mathf.CeilToInt(incomingDamage / Mathf.Clamp(PlayerControl.pc.PlayerStats.Defense, 0.1f, Mathf.Infinity));
     }
 }
