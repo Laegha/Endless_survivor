@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: SlimeyBody
+  m_EditorClassIdentifier: 
+  _itemName: Slimey body
+  _itemDescript: Use your slime body to attack nearby enemies
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 8472846725585043456
+  - rid: 8472846725585043457
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846725585043456
+      type: {class: ActivateRandomPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateMelee
+        _possibleActivatedIds:
+        - _rouletteElement: Melee
+          _chance: 1
+        _timeBetweenActivations:
+          min: 0.5
+          max: 0.5
+        _particlesOnActivation: {fileID: 0}
+        _particlesOffsetFromPlayer: {x: 0, y: 0}
+        _particlesDuration: 0
+    - rid: 8472846725585043457
+      type: {class: MeleeAttackOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Melee
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 2
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: -1666137673, guid: 25750ac07ddb9244a9190787e8e593e9, type: 3}
+            - {fileID: 682156786, guid: 25750ac07ddb9244a9190787e8e593e9, type: 3}
+            - {fileID: 776446182, guid: 25750ac07ddb9244a9190787e8e593e9, type: 3}
+            _framesPerSecond: 12
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: -20
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+        _damage:
+          _damageAmmount: 5
+          _damageType: 8
+        _knockBack: 20
