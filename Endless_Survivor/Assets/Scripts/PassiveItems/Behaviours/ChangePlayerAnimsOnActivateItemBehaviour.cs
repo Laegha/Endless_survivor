@@ -8,6 +8,17 @@ public class ChangePlayerAnimsOnActivateItemBehaviour : PassiveItemBehaviour
     [Tooltip("WARNING: The names must be the same as the animations the they override, or else they won't change")]
     [SerializeField] List<CustomAnimation> _overridingAnimations;
 
+    public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
+    {
+        base.CopyValues(original, behaviourManager);
+        var changeAnimsOriginal = original as ChangePlayerAnimsOnActivateItemBehaviour;
+        _overridingAnimations = new();
+        foreach(var anim in changeAnimsOriginal._overridingAnimations)
+        {
+            _overridingAnimations.Add(new(PlayerControl.pc.PlayerAnimator, anim));
+        }
+    }
+
     public override void Activate()
     {
         base.Activate();
