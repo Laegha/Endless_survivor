@@ -60,6 +60,6 @@ public class SpawnRandomEnemiesOnPlayerEnterAreaSupportObjBehaviour : UseAreaAro
 
         }
         if (_destroyAfterSpawn)
-            ObjectDestroyingManager.odm.DestroyObj(ObjControl.BehaviourManager);
+            DestroyObj();
     }
 }

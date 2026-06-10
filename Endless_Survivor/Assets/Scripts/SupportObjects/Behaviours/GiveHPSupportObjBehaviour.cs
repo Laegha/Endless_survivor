@@ -39,6 +39,6 @@ public class GiveHPSupportObjBehaviour : SupportObjectBehaviour
         if (_supportObjHP.RemainingHP > 0)
             return;
         _onDeath?.Invoke();
-        ObjectDestroyingManager.odm.DestroyObj(ObjControl.BehaviourManager);
+        DestroyObj();
     }
 }

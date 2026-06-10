@@ -29,4 +29,8 @@ public class SupportObjectBehaviour
     {
         _supportObjControl = control;
     }
+    public void DestroyObj(float delay = 0)
+    {
+        ObjectDestroyingManager.odm.DestroyObj(_supportObjControl.gameObject, _supportObjControl.BehaviourManager.Destroyed, delay);
+    }
 }
