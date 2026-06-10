@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: Rimuru
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: 99521eb802890a84f8a20fbd048fe58c, type: 3}
+  _characterName: Rimuru
+  _characterHands:
+  - {fileID: 783998021, guid: 34fe97aa71a027245984128298611f29, type: 3}
+  - {fileID: 1838055666, guid: 34fe97aa71a027245984128298611f29, type: 3}
+  _initialWeapons: []
+  _initialMaxWeapons: 0
+  _initialPassives:
+  - {fileID: 11400000, guid: b7a149ef7b29e154c93ce5cf91850ec0, type: 2}
+  _playerStats:
+    _initialHP: 15
+    _hpIncrement: 4
+    _hpRegeneration: 1.5
+    _defense: 1
+    _maxSpeed: 6
+    _minSpeed: 5.5
+    _acceleration: 1
+  _colliderSize: {x: 0.6, y: 0.2}
+  _colliderOffset: {x: 0, y: -0.1}
+  _colliderDirection: 1
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: 366698948, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: -1682310736, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: -2035875568, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: 874401895, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: 1007792129, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    _framesPerSecond: 10
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: 366698948, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: -1682310736, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: -2035875568, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: 874401895, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    - {fileID: 1007792129, guid: 5725bafb9add22e4e9d85677ec8e522f, type: 3}
+    _framesPerSecond: 10
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: -1721642351, guid: d33643e115539714491315d3e57f1462, type: 3}
+    - {fileID: -1688102463, guid: d33643e115539714491315d3e57f1462, type: 3}
+    - {fileID: -497162253, guid: d33643e115539714491315d3e57f1462, type: 3}
+    - {fileID: 1707036198, guid: d33643e115539714491315d3e57f1462, type: 3}
+    - {fileID: -717615235, guid: d33643e115539714491315d3e57f1462, type: 3}
+    _framesPerSecond: 10
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: 635797810, guid: 7d5c479093ad8db478642ff0d32ddfcd, type: 3}
+    - {fileID: 916782731, guid: 7d5c479093ad8db478642ff0d32ddfcd, type: 3}
+    - {fileID: 234517649, guid: 7d5c479093ad8db478642ff0d32ddfcd, type: 3}
+    - {fileID: -1500248685, guid: 7d5c479093ad8db478642ff0d32ddfcd, type: 3}
+    - {fileID: 1282373224, guid: 7d5c479093ad8db478642ff0d32ddfcd, type: 3}
+    _framesPerSecond: 10
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: -1699462445, guid: d97dd76674c563846a9440ad19cdbbdb, type: 3}
+    - {fileID: -538086300, guid: d97dd76674c563846a9440ad19cdbbdb, type: 3}
+    - {fileID: 586985785, guid: d97dd76674c563846a9440ad19cdbbdb, type: 3}
+    - {fileID: 1051313622, guid: d97dd76674c563846a9440ad19cdbbdb, type: 3}
+    - {fileID: 925299664, guid: d97dd76674c563846a9440ad19cdbbdb, type: 3}
+    _framesPerSecond: 10
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _costumeSettings: {fileID: 0}
+  _onHitSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSound:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
