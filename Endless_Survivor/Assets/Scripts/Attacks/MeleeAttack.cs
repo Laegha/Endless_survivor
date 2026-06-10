@@ -56,8 +56,8 @@ public class MeleeAttack : Attack
         var weaponAnimDuration = ParentWeapon.WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == ParentWeapon.AnimationName).AnimDuration;
         var vfxAnimDuration = _attackData.AttackVfxAnimation.Frames.Length > 0 ? _attackData.AttackVfxAnimation.AnimDuration : 0;
         if(_attackData.DropVfxOnAttack)
-            Destroy(_vfxAnimator.gameObject, Mathf.Max(vfxAnimDuration, weaponAnimDuration));
-        Destroy(gameObject, Mathf.Max(vfxAnimDuration, weaponAnimDuration));
+            ObjectDestroyingManager.odm.DestroyObj(_vfxAnimator.gameObject, null, Mathf.Max(vfxAnimDuration, weaponAnimDuration));
+        ObjectDestroyingManager.odm.DestroyObj(gameObject, AttackDestroyed, Mathf.Max(vfxAnimDuration, weaponAnimDuration));
 
     }
     public void ApplyDamage()
@@ -99,7 +99,7 @@ public class MeleeAttack : Attack
         var animationInterface = gfxInterface as AnimationChangeAttackGfxInterface;
         animationInterface.ChangeAttackGfx(_vfxAnimator, new SpriteRenderer[] { _vfxRenderer });
     }
-    private void OnDestroy()
+    private void AttackDestroyed()
     {
         if (ParentWeapon != null)
         {
