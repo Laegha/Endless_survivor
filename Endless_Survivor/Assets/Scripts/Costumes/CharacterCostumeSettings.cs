@@ -8,12 +8,14 @@ public class CharacterCostumeSettings : ScriptableObject
     public enum CostumePosition
     {
         head,
+        face,
         chest,
         waist,
         rightShoulder,
         leftShoulder
     }
     [SerializeField] Vector2 _headOffset;
+    [SerializeField] Vector2 _faceOffset;
     [SerializeField] Vector2 _chestOffset;
     [SerializeField] Vector2 _waistOffset;
     [SerializeField] Vector2 _rightShoulderOffset;
@@ -26,6 +28,7 @@ public class CharacterCostumeSettings : ScriptableObject
             Dictionary<CostumePosition,Vector2> result = new()
             {
                 {CostumePosition.head, _headOffset},
+                {CostumePosition.face, _faceOffset},
                 {CostumePosition.chest, _chestOffset},
                 {CostumePosition.waist, _waistOffset},
                 {CostumePosition.rightShoulder, _rightShoulderOffset},
