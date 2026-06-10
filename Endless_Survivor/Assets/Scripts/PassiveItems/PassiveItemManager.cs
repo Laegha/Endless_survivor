@@ -32,25 +32,30 @@ public class PassiveItemManager : MonoBehaviour
     }
     private void Update()
     {
-        _passiveItems.ForEach(item => item.BehaviourManager.onUpdate?.Invoke());
+        var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
+        passiveItemsCopy.ForEach(item => item.BehaviourManager.onUpdate?.Invoke());
     }
     public void WeaponAttack(WeaponAttackManager weapon)
     {
-        _passiveItems.ForEach(item => item.BehaviourManager.onAttack?.Invoke(weapon));
+        var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
+        passiveItemsCopy.ForEach(item => item.BehaviourManager.onAttack?.Invoke(weapon));
 
     }
     void PlayerDamaged(int damage)
     {
-        _passiveItems.ForEach(item => item.BehaviourManager.onPlayerDamaged?.Invoke(damage));
+        var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
+        passiveItemsCopy.ForEach(item => item.BehaviourManager.onPlayerDamaged?.Invoke(damage));
 
     }
     public void EnemyHit(EnemyControl hitEnemy, Attack hitAttack)
     {
-        _passiveItems.ForEach(item => item.BehaviourManager.onEnemyHit?.Invoke(hitEnemy, hitAttack));
+        var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
+        passiveItemsCopy.ForEach(item => item.BehaviourManager.onEnemyHit?.Invoke(hitEnemy, hitAttack));
     }
     void EnemyKilled(EnemyControl killedEnemy)
     {
-        _passiveItems.ForEach(item => item.BehaviourManager.onEnemyKilled?.Invoke(killedEnemy));
+        var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
+        passiveItemsCopy.ForEach(item => item.BehaviourManager.onEnemyKilled?.Invoke(killedEnemy));
     }
 
 }
