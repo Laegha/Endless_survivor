@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: RimuruSlimeEvolution
+  m_EditorClassIdentifier: 
+  _itemName: 
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 8472846725585043458
+  - rid: 8472846725585043459
+  - rid: 8472846725585043460
+  - rid: 8472846725585043462
+  - rid: 8472846729055567872
+  - rid: 8472846729055567874
+  - rid: 8472846729055567875
+  - rid: 8472846729055567884
+  - rid: 8472846729055567885
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846725585043458
+      type: {class: ActivateAfterKillingEnoughEnemiesItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AfterKillsActivator
+        _activatedBehavioursIds:
+        - ChangeAnims
+        - ChangeCostumeSettings
+        - ChangeCollider
+        - GiveTrueDragonItem
+        - GiveElpisWeapon
+        - RemoveItem
+        _killingAmount: 5
+        _loop: 0
+        _waitTimeToResetCount: 0
+    - rid: 8472846725585043459
+      type: {class: ChangePlayerAnimsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChangeAnims
+        _overridingAnimations:
+        - _animationName: Idle
+          _frames:
+          - {fileID: -1738723694, guid: d87e6003d2cf7aa4ca56cee721abdf6e, type: 3}
+          - {fileID: -107312987, guid: d87e6003d2cf7aa4ca56cee721abdf6e, type: 3}
+          - {fileID: 530718480, guid: d87e6003d2cf7aa4ca56cee721abdf6e, type: 3}
+          - {fileID: 1136334368, guid: d87e6003d2cf7aa4ca56cee721abdf6e, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        - _animationName: FrontMove
+          _frames:
+          - {fileID: 1398589403, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: 16111332, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: 501114429, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: -809850625, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: 1286963298, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: 306031939, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: 1944462688, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          - {fileID: 263288485, guid: e2867f491d696ea4b8b6d2790315ab36, type: 3}
+          _framesPerSecond: 9
+          _endAnimationOnEnd: 0
+          _priority: 0
+        - _animationName: RightMove
+          _frames:
+          - {fileID: -1002788514, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          - {fileID: -621721376, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          - {fileID: 532596787, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          - {fileID: 1070915990, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          - {fileID: -2062448226, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          - {fileID: -1890282052, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          - {fileID: -1103119050, guid: 3821a83d1d19ca84892abe714c4eb1b3, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        - _animationName: BackMove
+          _frames:
+          - {fileID: -2093631530, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: -1938347252, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: -1013345538, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: 752190271, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: 989687761, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: 280616000, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: -1993896428, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          - {fileID: -959471295, guid: aab900f077566c645a4a50a963bb1433, type: 3}
+          _framesPerSecond: 9
+          _endAnimationOnEnd: 0
+          _priority: 0
+        - _animationName: LeftMove
+          _frames:
+          - {fileID: 1515354270, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          - {fileID: -912123707, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          - {fileID: -2005127497, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          - {fileID: -491210843, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          - {fileID: 1296182416, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          - {fileID: 626096742, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          - {fileID: 1596945232, guid: c42b8462a64076a46ab6081ea821f21e, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 8472846725585043460
+      type: {class: ChangeCostumeSettingsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChangeCostumeSettings
+        _newSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
+    - rid: 8472846725585043462
+      type: {class: GiveItemsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveTrueDragonItem
+        _addingItems:
+        - {fileID: 11400000, guid: 95b8705b2c858fa43bbb8a13eef22e8d, type: 2}
+        - {fileID: 11400000, guid: 72e88812221205c46ac570e7b93b40ac, type: 2}
+        _removeItemsAfterTime: 0
+        _removeItemsIfThisIsRemoved: 0
+        _timeToRemoveItems: 0
+    - rid: 8472846729055567872
+      type: {class: GiveWeaponsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveElpisWeapon
+        _addingWeapons:
+        - {fileID: 11400000, guid: bb7316ff114f685498e1e37380faeba6, type: 2}
+    - rid: 8472846729055567874
+      type: {class: RemoveOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: RemoveItem
+    - rid: 8472846729055567875
+      type: {class: ChangePlayerColliderItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChangeCollider
+        _newColliderDirection: 0
+        _newColliderSize: {x: 0.5, y: 0.5}
+        _newColliderOffset: {x: 0, y: -0.41}
+    - rid: 8472846729055567884
+      type: {class: GiveItemsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveSlimeyBody
+        _addingItems:
+        - {fileID: 11400000, guid: c25d60d5aca85c84db7ea1a20a4d6063, type: 2}
+        _removeItemsAfterTime: 0
+        _removeItemsIfThisIsRemoved: 1
+        _timeToRemoveItems: 0
+    - rid: 8472846729055567885
+      type: {class: ActivateOnStartItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OnStartActivateGiveSlimey
+        _activatingIds:
+        - GiveSlimeyBody
