@@ -7,9 +7,10 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
     new public static int maxStacks => -1;
     [SerializeField] WeaponStats _statsBuffs;
     [SerializeField] int _maxBuffStacks = 1;
-    [SerializeField] WeaponBuffHandler.BuffDurationType _durationType;
+    [Tooltip("Here, wait for external means it will be debuffed when this item is removed")][SerializeField] WeaponBuffHandler.BuffDurationType _durationType;
     [SerializeField] float _timeDuration = 5f;
     [SerializeField] int _enemyKillsNeeded = 2;
+    [SerializeField] ParticleSystem _buffParticles;
     int _activeStacks = 0;
     List<WeaponBuffHandler> _activeBuffHandlers = new();
 
@@ -24,6 +25,7 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
         _durationType = buffWeaponsOriginal._durationType;
         _timeDuration = buffWeaponsOriginal._timeDuration;
         _enemyKillsNeeded = buffWeaponsOriginal._enemyKillsNeeded;
+        _buffParticles = buffWeaponsOriginal._buffParticles;
     }
 
     public override void Activate()
@@ -32,6 +34,7 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
         //if too many buffs, don't buff again
         if (_activeStacks >= _maxBuffStacks)
             return;
+        BuffWeapons();
     }
 
     void BuffWeapons()
@@ -41,7 +44,7 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
         foreach (var weapon in buffedWeapons)
             weapon.WeaponStats.TemporalStatIncrease(_statsBuffs, false);
 
-        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs, _durationType, _enemyKillsNeeded, _timeDuration, DecreaseStacks);
+        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs, _durationType, _enemyKillsNeeded, _timeDuration, DecreaseStacks, _buffParticles);
         _activeBuffHandlers.Add(weaponDebuffHandler);
         weaponDebuffHandler.callbackOnEnd += () => _activeBuffHandlers.Remove(weaponDebuffHandler);
     }
@@ -53,9 +56,10 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
 
     public override void RemoveBehaviour()
     {
-        for (int i = 0; i < _activeStacks; i++)
+        List<WeaponBuffHandler> activeBuffHandlersCopy = new(_activeBuffHandlers);
+        foreach (var buffHandler in activeBuffHandlersCopy)
         {
-            DecreaseStacks();
+            buffHandler.DebuffWeapons();
         }
     }
 }
