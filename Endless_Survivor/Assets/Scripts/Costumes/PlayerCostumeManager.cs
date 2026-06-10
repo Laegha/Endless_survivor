@@ -95,7 +95,20 @@ public class PlayerCostumeManager : MonoBehaviour
         return _costumeSettings.CostumeOffsets[costume.CostumePosition] + costume.OffsetFromPositionByStacks[offsetIndex];
     }
 
+    public void ChangeCostumeSettings(CharacterCostumeSettings newSettings)
+    {
+        _costumeSettings = newSettings;
+        foreach(var costumeInfo in _activeCostumes)
+        {
+            for(int i = 0; i < costumeInfo.Value.costumeStacks; i++)
+            {
+                var costumeAN = costumeInfo.Value.costumeAnimators[i];
+                Vector2 costumePosition = GetCostumePosition(costumeInfo.Key, i);
+                costumeAN.transform.localPosition = costumePosition;
 
+            }
+        }
+    }
 }
 
 class ActiveCostumeInfo
