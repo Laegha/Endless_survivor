@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: TrueDragonFormActive
+  m_EditorClassIdentifier: 
+  _itemName: 
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 8472846729055567879
+  - rid: 8472846729055567880
+  - rid: 8472846729055567881
+  - rid: 8472846729055567886
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846729055567879
+      type: {class: ActivateRandomPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateTargetedAttacks
+        _possibleActivatedIds:
+        - _rouletteElement: CreateTargetedAttacks
+          _chance: 1
+        _timeBetweenActivations:
+          min: 4
+          max: 5
+        _particlesOnActivation: {fileID: 0}
+        _particlesOffsetFromPlayer: {x: 0, y: 0}
+        _particlesDuration: 0
+    - rid: 8472846729055567880
+      type: {class: CreateSupportObjOnRandomEnemiesOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: CreateTargetedAttacks
+        _createdSupportObj: {fileID: 11400000, guid: b610497f449077e42bfad115910eb89c, type: 2}
+        _createdAmmount:
+          min: 3
+          max: 5
+        _objsLockIntoEnemies: 1
+        _lockedObjsOffset: {x: 0, y: 0}
+    - rid: 8472846729055567881
+      type: {class: BuffWeaponsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: BuffWeapons
+        _statsBuffs:
+          _range: 0
+          _attackSpeed: 0
+          _damage: 0
+          _knockback: 0
+        _maxBuffStacks: 1
+        _durationType: 2
+        _timeDuration: 5
+        _enemyKillsNeeded: 2
+        _buffParticles: {fileID: 7855993902200982012, guid: f31e49ef00cb9074a8852df6d61c83a3, type: 3}
+    - rid: 8472846729055567886
+      type: {class: ActivateOnStartItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OnStartTriggerBuff
+        _activatingIds:
+        - BuffWeapons

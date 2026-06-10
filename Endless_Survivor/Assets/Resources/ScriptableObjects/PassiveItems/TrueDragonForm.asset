@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: TrueDragonForm
+  m_EditorClassIdentifier: 
+  _itemName: True dragon form
+  _itemDescript: Killing enemies triggers your true dragon form, for a period of
+    time
+  _itemSprite: {fileID: 0}
+  _itemBehaviours:
+  - rid: 8472846729055567876
+  - rid: 8472846729055567877
+  - rid: 8472846729055567878
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846729055567876
+      type: {class: ActivateAfterKillingEnoughEnemiesItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AfterKillingActivator
+        _activatedBehavioursIds:
+        - AddCostumes
+        - GiveActive
+        _killingAmount: 5
+        _loop: 1
+        _waitTimeToResetCount: 20
+    - rid: 8472846729055567877
+      type: {class: AddCostumesOnActivatePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AddCostumes
+        _addingCostumes:
+        - {fileID: 11400000, guid: 2c3caa78c49b19c47841b5fb0e20db10, type: 2}
+        - {fileID: 11400000, guid: 605d776a98b4fe04b885011d2f3d2390, type: 2}
+        _removeCostumesAfterTime: 1
+        _timeToRemoveCostumes: 20
+    - rid: 8472846729055567878
+      type: {class: GiveItemsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveActive
+        _addingItems:
+        - {fileID: 11400000, guid: 1e5c51e0ec745284c9c94e20cd93c674, type: 2}
+        _removeItemsAfterTime: 1
+        _removeItemsIfThisIsRemoved: 0
+        _timeToRemoveItems: 20
