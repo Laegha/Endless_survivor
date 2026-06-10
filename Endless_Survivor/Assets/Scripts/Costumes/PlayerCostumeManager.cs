@@ -59,6 +59,7 @@ public class PlayerCostumeManager : MonoBehaviour
         AnimatedObjConfig costumeConfig = new(null, PlayerControl.pc.transform.position, Quaternion.identity, -1, null, false, false);
         CustomAnimator costumeAN = AnimatedObjsManager.aom.SpawnAnimatedObj(costumeConfig, true);
         costumeAN.transform.root.SetParent(_costumeHolder);
+        costumeAN.GetComponent<RendererSortingByY>().Offset = costume.RenderOffset;
 
         Vector2 costumePosition = GetCostumePosition(costume, costumeActiveInfo.costumeStacks - 1);
         costumeAN.transform.localPosition = costumePosition;
@@ -77,7 +78,7 @@ public class PlayerCostumeManager : MonoBehaviour
         for(int i = 0; i < extraAnimators; i++)
         {
             int destroyedId = _activeCostumes[removedCostume].costumeAnimators.Count -1;
-            Destroy(_activeCostumes[removedCostume].costumeAnimators[destroyedId]);
+            Destroy(_activeCostumes[removedCostume].costumeAnimators[destroyedId].gameObject);
             _activeCostumes[removedCostume].costumeAnimators.RemoveAt(destroyedId);//by removing the last time we ensure the next iteration of this for removes th next one
         }
 
