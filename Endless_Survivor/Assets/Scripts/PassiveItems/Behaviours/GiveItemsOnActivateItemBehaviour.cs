@@ -10,7 +10,7 @@ public class GiveItemsOnActivateItemBehaviour : PassiveItemBehaviour
     [SerializeField] bool _removeItemsIfThisIsRemoved;
     [SerializeField] float _timeToRemoveItems;
 
-    List<PassiveItem> _addedItems;
+    List<PassiveItem> _addedItems = new();
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
@@ -35,7 +35,7 @@ public class GiveItemsOnActivateItemBehaviour : PassiveItemBehaviour
             _addedItems.Add(addedItem);
         }
         if (_removeItemsAfterTime)
-            GameManager.gm.DelayAction(_timeToRemoveItems, RemoveAnIterationOfItems, () => BehaviourManager == null);
+            GameManager.gm.DelayAction(_timeToRemoveItems, RemoveAnIterationOfItems, () => this == null);
     }
     void RemoveAnIterationOfItems()
     {
