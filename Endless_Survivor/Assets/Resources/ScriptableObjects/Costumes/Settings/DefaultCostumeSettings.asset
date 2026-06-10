@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultCostumeSettings
   m_EditorClassIdentifier: 
   _headOffset: {x: 0, y: 0.40625}
+  _faceOffset: {x: 0, y: 0.28125}
   _chestOffset: {x: 0, y: 0}
   _waistOffset: {x: 0, y: -0.1875}
   _rightShoulderOffset: {x: 0.25, y: 0.0625}

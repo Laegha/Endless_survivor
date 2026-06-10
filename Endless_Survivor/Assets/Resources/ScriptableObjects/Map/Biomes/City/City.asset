@@ -67,7 +67,7 @@ MonoBehaviour:
     _chance: 10
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: a2248c0332762d14abbb05e6a045fd95, type: 2}
-      _spawnIntensity: 0
+      _spawnIntensity: 1
     _chance: 10
   _bossInvokerAnimation:
     _animationName: Idle
