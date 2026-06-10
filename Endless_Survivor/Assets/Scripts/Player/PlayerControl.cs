@@ -41,4 +41,16 @@ public class PlayerControl : MonoBehaviour
     {
         WeaponAim.SharedAttackTargets.RemoveAll(x => x.obj == null);
     }
+    public void ChangeCollider(CapsuleDirection2D newDirection, Vector2 newSize, Vector2 newOffset)
+    {
+        CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
+        collider.direction = newDirection;
+        collider.size = newSize;
+        foreach (Transform child in transform.GetComponentInChildren<Transform>())
+        {
+            if (child == collider.transform || child == transform)
+                continue;
+            child.localPosition -= new Vector3(newOffset.x, newOffset.y, 0);
+        }
+    }
 }
