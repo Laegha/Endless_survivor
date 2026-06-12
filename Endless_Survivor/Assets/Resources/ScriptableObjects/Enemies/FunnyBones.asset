@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 8472846607437529093
   - rid: 8472846611716767744
   - rid: 8472846611716767745
+  - rid: 8472846793285304320
   _dropablePickupChances: []
   _onHitSFX:
     _sound: {fileID: 0}
@@ -255,3 +256,11 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 2
         _parryDuration: 0.5
+    - rid: 8472846793285304320
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 0, y: 0.2}
+        _colliderOffset: {x: 0.6, y: 0.9}
+        _colliderDirection: 0
