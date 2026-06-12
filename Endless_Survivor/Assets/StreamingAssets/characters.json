@@ -103,5 +103,15 @@
     "fileName": "Sonic",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Rimuru",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Zero",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]

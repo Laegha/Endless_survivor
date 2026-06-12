@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f4c500d1b3dee48885e1e8f3388601, type: 3}
+  m_Name: MeleeParry1.3x.1.3
+  m_EditorClassIdentifier: 
+  _effectChance: 100
+  _usedBySecondaryAttacks: 1
+  _attackEffects:
+  - rid: 8472846762221240324
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846762221240324
+      type: {class: ParryEnemyProyectilesAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _separateChance: 50
+        _checkTime: 0
+        _ifUpdateTimeBetweenChecks: 0
+        _checkForm: 0
+        _areaSize: {x: 1.3, y: 1.3}
+        _areaDirection: 0
+        _raycastRange: 0
+        _parryingLayers:
+          serializedVersion: 2
+          m_Bits: 1024
+        _parriedProyectileAnim:
+          _animationName: Parried
+          _frames:
+          - {fileID: 1348221457, guid: d08264151b2d86042b2ee62c4906e457, type: 3}
+          - {fileID: 1050229308, guid: d08264151b2d86042b2ee62c4906e457, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 0
