@@ -46,15 +46,15 @@ public class MeleeWeaponAttackController : WeaponAttackController
             return;
         if (_currHandMover.id != "Return")
         {
-            if(!WeaponControl.WeaponAttackManager.InRange)
-            {
-                ReturnToOriginalPos();
+            //if(!WeaponControl.WeaponAttackManager.InRange)
+            //{
+                //ReturnToOriginalPos();
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 UpdateMoverDist();
-            }
+            //}
         }
         _currHandMover.Update();
     }
@@ -132,8 +132,14 @@ public class MeleeWeaponAttackController : WeaponAttackController
     }
     void UpdateMoverDist()
     {
+        if (_currHandMover.destinationTarget == null)
+        {
+            ReturnToOriginalPos();
+            return;
+        }
+
         var newDir = (_currHandMover.destinationTarget.position - _hand.position).normalized;
-        var objsInDir = Physics2D.RaycastAll(WeaponControl.transform.position, newDir, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack")).ToList();
+        var objsInDir = Physics2D.RaycastAll(WeaponControl.transform.position, newDir, Mathf.Infinity, Utility.GetCollidableLayers("WeaponTargets")).ToList();
         var newPoint = objsInDir.Find(x => x.collider.transform == _currHandMover.destinationTarget).point;
         var newDist = (newPoint - (Vector2)_hand.position).magnitude + _currHandMover.lapsedDistance;
         _currHandMover.distance = newDist - _weaponStopDist;

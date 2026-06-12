@@ -69,7 +69,14 @@ public class WeaponAim : MonoBehaviour
             _spriteRenderer.flipY = false;
 
         Vector2 distDirection = (Vector2)closestTarget.position - _distCheckPosition();
-        var closestTargetHit = Physics2D.Raycast(_distCheckPosition(), distDirection, Mathf.Infinity, Utility.GetCollidableLayers("PlayerAttack"));
+        var targetCol = closestTarget.GetComponent<Collider2D>();
+        var allHitsInDir = Physics2D.RaycastAll(_distCheckPosition(), distDirection, Mathf.Infinity).ToList();
+        var closestTargetHit = allHitsInDir.Find(hit => hit.collider.transform.root == closestTarget);
+        if(!closestTargetHit)
+        {
+            Debug.LogError("The weapon " + transform.name + " targeted " + closestTarget.name + " but failed at casting a raycast");
+            return;
+        }
         _currTrackingEnemyHit = closestTargetHit;
         float distance = closestTargetHit.distance;
         if (distance <= _weapon.WeaponStats.Range)
