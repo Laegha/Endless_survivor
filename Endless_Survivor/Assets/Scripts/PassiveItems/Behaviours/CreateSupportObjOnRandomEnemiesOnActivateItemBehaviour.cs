@@ -32,6 +32,8 @@ public class CreateSupportObjOnRandomEnemiesOnActivateItemBehaviour : PassiveIte
 
     void CreateSupportObjs()
     {
+        if (EnemySpawnManager.esm.Enemies.Count == 0)
+            return;
         int creatingAmmount = (int)_createdAmmount.rand;
         for (int i = 0; i < creatingAmmount; i++)
         {
@@ -50,7 +52,7 @@ public class CreateSupportObjOnRandomEnemiesOnActivateItemBehaviour : PassiveIte
         var lockedObjsHandlersCopy = new List<TransformFollowHandler>(_lockedObjsHandlers);
         foreach (var lockedObj in lockedObjsHandlersCopy)
         {
-            if (lockedObj.parent || lockedObj.child == null)
+            if (lockedObj.parent == null || lockedObj.child == null)
             {
                 _lockedObjsHandlers.Remove(lockedObj);
                 continue;
