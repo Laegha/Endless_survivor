@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: ScatterBlaster
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: eafa6f5f929cb074d978b68346017ca2, type: 3}
+  _weaponName: Scatter Blaster
+  _weaponStats:
+    _range: 10
+    _attackSpeed: 0.2
+    _damage: 15
+    _knockback: 5
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0
+  _damageIncrease: 0.4
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 8472846776516739072
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: eafa6f5f929cb074d978b68346017ca2, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846776516739072
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 1439355480, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 1489052509, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 1841231209, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 187537846, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 907099389, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -266071032, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1653303968, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -246569440, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -830522452, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1569167765, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1701490616, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1645909164, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1154921933, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 198966036, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 1357109834, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1565746903, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -807770747, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 487131442, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1145672889, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -463281221, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -848685357, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 446472025, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: -1166626425, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          - {fileID: 132003473, guid: d4abec12c34aa124c9654b69f75ea894, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 20
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 961f5e08e79a6d5498cc4a7b0cea79bc, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 16.5, y: 7.5}
+        _proyectileData:
+          _proyectileSpeed: 10
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: f707bc5aa65951d44aa5390510e11569, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.4}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 6190399809972044555, guid: 7cb2eb2e7c3904a4a8b63ec4ef83ea1f, type: 3}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
