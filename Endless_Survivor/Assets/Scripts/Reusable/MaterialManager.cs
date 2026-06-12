@@ -20,7 +20,7 @@ public class MaterialManager : MonoBehaviour
             _spritesCurrent.Add(renderer, null);
         }
     }
-    private void Update()
+    private void LateUpdate()
     {
         UpdateMaterials(false);
     }
@@ -44,6 +44,7 @@ public class MaterialManager : MonoBehaviour
         {
             if (_spritesCurrent[renderer] == renderer.sprite && !forceMaterialUpdate || renderer == null)
                 continue;
+
             if (_spritesCurrent[renderer] == null || renderer.sprite != null && _spritesCurrent[renderer].name != renderer.sprite.name)
                 _spritesCurrent[renderer] = renderer.sprite;
             
@@ -79,6 +80,7 @@ public class MaterialManager : MonoBehaviour
             Sprite newSprite = Sprite.Create(outputTex, textureRect, new Vector2(pivot.x / textureRect.width, pivot.y / textureRect.height), renderer.sprite.pixelsPerUnit);
             newSprite.name = renderer.sprite.name;
             renderer.sprite = newSprite;
+            _spritesCurrent[renderer] = newSprite;
 
         }
     }
