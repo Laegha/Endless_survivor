@@ -130,7 +130,7 @@
                 "m_Node": {
                     "m_Id": "a3b5143df91a4b32b578bf7cdbe29e1c"
                 },
-                "m_SlotId": 7
+                "m_SlotId": 0
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -159,8 +159,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 200.0
+            "x": 54.00004196166992,
+            "y": 193.00003051757813
         },
         "m_Blocks": [
             {
@@ -222,10 +222,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1024.9998779296875,
-            "y": 634.0,
-            "width": 132.99993896484376,
-            "height": 34.0
+            "x": -1083.0,
+            "y": 636.0,
+            "width": 133.0,
+            "height": 33.99993896484375
         }
     },
     "m_Slots": [
@@ -847,10 +847,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -833.9999389648438,
-            "y": 634.0,
-            "width": 208.0,
-            "height": 435.0
+            "x": -918.0,
+            "y": 669.9999389648438,
+            "width": 207.99993896484376,
+            "height": 435.00006103515627
         }
     },
     "m_Slots": [
@@ -939,7 +939,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Alpha",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 0.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -1095,7 +1095,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"a6eaca1f780dc3348b55eaeb58ed54e0\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"382ad0fa0446d30458cee5d87e358e97\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -1306,7 +1306,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"22fa9fecbe7535e47b33d83428f4e03e\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
