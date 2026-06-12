@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b6fa4d11e531d4c819fcf4e964fed8, type: 3}
+  m_Name: AllZeroCostumeSettings
+  m_EditorClassIdentifier: 
+  _headOffset: {x: 0, y: 0}
+  _faceOffset: {x: 0, y: 0}
+  _chestOffset: {x: 0, y: 0}
+  _waistOffset: {x: 0, y: 0}
+  _rightShoulderOffset: {x: 0, y: 0}
+  _leftShoulderOffset: {x: 0, y: 0}
