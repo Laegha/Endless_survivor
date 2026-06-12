@@ -286,4 +286,8 @@ public static class Utility
 
         return result;
     }
+    public static float GetAngleBetweenTwoVectors(Vector2 vector1, Vector2 vector2)
+    {
+        return Mathf.Acos(Vector2.Dot(vector1, vector2) / vector1.magnitude * vector2.magnitude);
+    }
 }
