@@ -35,19 +35,7 @@ public class ParryProyectilesOnActivateItemBehaviour : PassiveItemBehaviour
 
         foreach(var proyectile in parriedProyectiles)
         {
-            if (proyectile.GetComponent<EnemyDamageSource>() != null)
-                continue;
-            proyectile.GetComponent<Rigidbody2D>().velocity *= -1;
-            int proyectileDamage = proyectile.GetComponent<PlayerDamageSource>().Damage;
-            proyectile.AddComponent<EnemyDamageSource>().Damage = proyectileDamage;
-            //add animated obj in proyectile
-            if(_parriedProyectileAnimation != null && _parriedProyectileAnimation.Frames.Length > 0)
-            {
-                AnimatedObjConfig proyectileAnimConfig = new(_parriedProyectileAnimation, Vector2.zero, Quaternion.identity, -1, proyectile.transform);
-                var animatedObj = AnimatedObjsManager.aom.SpawnAnimatedObj(proyectileAnimConfig);
-                animatedObj.GetComponent<RendererSortingByY>().Offset = 5;
-            }
-            proyectile.gameObject.layer = LayerMask.NameToLayer("PlayerAttack");
+            proyectile.GetParried(_parriedProyectileAnimation);
         }
     }
     public override void RemoveBehaviour()

@@ -63,4 +63,22 @@ public class EnemyProyectile : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    public void GetParried(CustomAnimation parriedAnimation)
+    {
+        if (GetComponent<EnemyDamageSource>() != null)
+            return;
+        GetComponent<Rigidbody2D>().velocity *= -1;
+        int proyectileDamage = GetComponent<PlayerDamageSource>().Damage;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 180);
+        gameObject.AddComponent<EnemyDamageSource>().Damage = proyectileDamage;
+        //add animated obj in proyectile
+        if (parriedAnimation != null && parriedAnimation.Frames.Length > 0)
+        {
+            AnimatedObjConfig proyectileAnimConfig = new(parriedAnimation, Vector2.zero, Quaternion.identity, -1, transform);
+            var animatedObj = AnimatedObjsManager.aom.SpawnAnimatedObj(proyectileAnimConfig);
+            animatedObj.GetComponent<RendererSortingByY>().Offset = 10;
+        }
+        gameObject.layer = LayerMask.NameToLayer("PlayerAttack");
+    }
 }
