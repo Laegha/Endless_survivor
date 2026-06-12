@@ -46,7 +46,6 @@ public class EnemyInvoker : MonoBehaviour
             return;
         _invokingBar.gameObject.SetActive(false);
         Time.timeScale += .5f;
-        
     }
 
     void SpawnEnemy()

@@ -90,8 +90,8 @@ public class ParryEnemyProyectilesAttackEffect : AttackEffect
     void CheckRaycast()
     {
         Vector2 rayDir = new(Mathf.Cos(AffectedAttack.transform.rotation.z), Mathf.Sin(AffectedAttack.transform.rotation.z));
-        var hitslsInRay = Physics2D.RaycastAll(AffectedAttack.transform.position, rayDir, _raycastRange, _parryingLayers).ToList();
-        var enemyProyectilesInArea = hitslsInRay.Where(x => x.collider.GetComponent<EnemyProyectile>() != null).Select(x => x.collider.GetComponent<EnemyProyectile>());
+        var hitsInRay = Physics2D.RaycastAll(AffectedAttack.transform.position, rayDir, _raycastRange, _parryingLayers).ToList();
+        var enemyProyectilesInArea = hitsInRay.Where(x => x.collider.GetComponent<EnemyProyectile>() != null).Select(x => x.collider.GetComponent<EnemyProyectile>());
         foreach (var proyectile in enemyProyectilesInArea)
         {
             proyectile.GetParried(_parriedProyectileAnim);
