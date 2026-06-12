@@ -32,9 +32,10 @@ public class BiomeBackgroundManager : MonoBehaviour
         if (_currBiome != null && newBiome.BiomeData == _currBiome.BiomeData)
             return;
 
+        List<BiomeBgTile> currentBiomeBgTilesCopy = new(_currentBiomeBgTiles);
         _currBiome = newBiome;
         _biomeBgStartPosition = Camera.main.transform.position;
-        foreach (var tile in _currentBiomeBgTiles)
+        foreach (var tile in currentBiomeBgTilesCopy)
         {
             _currentBiomeBgTiles.Remove(tile);
             Destroy(tile.gameObject);//change this for a transition if possible
@@ -68,7 +69,8 @@ public class BiomeBackgroundManager : MonoBehaviour
         Vector2 cameraDisplacement = camPos - _biomeBgStartPosition;
         //_bgTileHolder.transform.position = new Vector2(camPos.x, camPos.y);
         //Update tiles directions with player's rb velocity
-        foreach (var tile in _currentBiomeBgTiles)
+        List<BiomeBgTile> currentBiomeBgTilesCopy = new(_currentBiomeBgTiles);
+        foreach (var tile in currentBiomeBgTilesCopy)
         {
             tile.ChangeMovingDirection(cameraDisplacement);
         }
