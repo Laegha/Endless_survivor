@@ -41,7 +41,7 @@ MonoBehaviour:
       type: {class: CreateSupportObjOnRandomEnemiesOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: CreateTargetedAttacks
-        _createdSupportObj: {fileID: 11400000, guid: b610497f449077e42bfad115910eb89c, type: 2}
+        _createdSupportObj: {fileID: 11400000, guid: 122ac7f9506a8944c803b37414a66746, type: 2}
         _createdAmmount:
           min: 3
           max: 5

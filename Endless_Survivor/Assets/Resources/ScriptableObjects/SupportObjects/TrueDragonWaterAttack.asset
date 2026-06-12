@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: TrueDragonWaterAttack
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 8472846762221240321
+  - rid: 8472846762221240322
+  - rid: 8472846762221240323
+  _idleAnimation:
+    _animationName: ExplodeStart
+    _frames:
+    - {fileID: 1917211304, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: 1046617780, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: 1419836724, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: -216427199, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: 1824382183, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: 83189402, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: -478324171, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: -792916273, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: 612132340, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    - {fileID: 1622037863, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+    _framesPerSecond: 15
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846762221240321
+      type: {class: CreateGFXOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _createdAnimation:
+          _animationName: ExplodeEnd
+          _frames:
+          - {fileID: 1622037863, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+          - {fileID: 1380568158, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+          - {fileID: 1990821319, guid: ac1cf3f192364cb4984204ed6244fee0, type: 3}
+          _framesPerSecond: 15
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _animationDuration: 0.6
+        _createdParticles: {fileID: 0}
+        _particlesDuration: 0
+        _creationOffset: {x: 0, y: 0}
+    - rid: 8472846762221240322
+      type: {class: ExplodeOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _explosionDamage:
+          _damageAmmount: 30
+          _damageType: 8
+        _explosionRadius: 0.1
+        _explosionParticles: {fileID: 0}
+        _particlesDuration: 0
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 128
+    - rid: 8472846762221240323
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 0.6
+          max: 0.6
