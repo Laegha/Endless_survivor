@@ -15,7 +15,7 @@ public class CustomAnimator : MonoBehaviour
     int _currAnimPriority;
 
     public CustomAnimation CurrAnim { get {  return _currAnim; } set { _currAnim = value; } }
-    public int CurrFrameIndex { set { _currFrameIndex = value; } }
+    public int CurrFrameIndex { get { return _currFrameIndex; } set { _currFrameIndex = value; } }
     public List<CustomAnimation> Animations{ get {  return _animations; } set { _animations = value; } }
     public SpriteRenderer Renderer { get { return _spriteRenderer; } }
 

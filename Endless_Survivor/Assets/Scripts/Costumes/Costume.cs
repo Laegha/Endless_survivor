@@ -10,6 +10,7 @@ public class Costume : ScriptableObject
     [SerializeField] List<Vector2> _offsetFromPositionByStacks;
     [SerializeField] CustomAnimation _idleAnimation;
     [SerializeField] DirectionalCustomAnimation _movingAnimations;
+    [SerializeField] bool _syncronizeWithPlayerAnim;
     [SerializeField] int _renderOffset = 0;
 
 
@@ -30,5 +31,6 @@ public class Costume : ScriptableObject
     
         } 
     }
+    public bool SynchronizeWithPlayerAnim { get { return _syncronizeWithPlayerAnim;} }
     public int RenderOffset { get { return _renderOffset; } }
 }

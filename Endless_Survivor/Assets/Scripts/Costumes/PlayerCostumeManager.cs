@@ -9,9 +9,15 @@ public class PlayerCostumeManager : MonoBehaviour
     CharacterCostumeSettings _costumeSettings;
     Dictionary<Costume, ActiveCostumeInfo> _activeCostumes = new();
     Vector2 _rbLastDir = Vector2.zero;
+    List<CustomAnimator> _syncronizedAnimators = new();
     public CharacterCostumeSettings CostumeSettings { set { _costumeSettings = value; } }
-
     private void Update()
+    {
+        UpdateAnimations();
+        UpdateFrames();
+    }
+
+    void UpdateAnimations()
     {
         //get player rb direction
         Vector2 playerRbDirection = PlayerControl.pc.PlayerRb.velocity.normalized;
@@ -23,11 +29,11 @@ public class PlayerCostumeManager : MonoBehaviour
         //if direction hasn't changed since last update, return
         if (prevOrientation == currOrientation)
             return;
-        var activeCostumesCopy = new Dictionary<Costume, ActiveCostumeInfo> (_activeCostumes);
-        foreach(var activeCostume in activeCostumesCopy)
+        var activeCostumesCopy = new Dictionary<Costume, ActiveCostumeInfo>(_activeCostumes);
+        foreach (var activeCostume in activeCostumesCopy)
         {
             //if there's no animation, continue
-            if(currOrientation == Vector2.zero)
+            if (currOrientation == Vector2.zero)
             {
                 if (activeCostume.Key.IdleAnim.Frames.Length == 0)
                     continue;
@@ -38,12 +44,28 @@ public class PlayerCostumeManager : MonoBehaviour
                 }
                 continue;
             }
-            foreach(var animator in activeCostume.Value.costumeAnimators)
+            foreach (var animator in activeCostume.Value.costumeAnimators)
             {
                 CustomAnimation costumeAnim = activeCostume.Key.MovingAnims.GetAnim(playerRbDirection);
                 animator.EndAnimation(animator.CurrAnim.AnimationName);
                 animator.ChangeAnim(costumeAnim);
             }
+        }
+    }
+
+    void UpdateFrames()
+    {
+        int playerFrame = PlayerControl.pc.PlayerAnimator.CurrFrameIndex;
+        List<CustomAnimator> synchronizedAnimatorsCopy = new(_syncronizedAnimators);
+        foreach(var animator in synchronizedAnimatorsCopy)
+        {
+            int extraLoops = (int)Mathf.Floor(playerFrame / animator.CurrAnim.Frames.Length);
+            int costumeFrame = playerFrame - animator.CurrAnim.Frames.Length * extraLoops;
+            Debug.Log("Player frame " +  playerFrame);
+            Debug.Log("Costume frame " +  costumeFrame);
+            animator.CurrFrameIndex = costumeFrame -1;
+            animator.NextFrame();//I'm so sorry for this. since this executes every frame, the sprite is always changing to itself and the timer is always resetting
+            
         }
     }
 
@@ -66,6 +88,9 @@ public class PlayerCostumeManager : MonoBehaviour
         costumeAN.AddAnimations(costume.NonNullAnimations);
         costumeAN.ChangeAnim(costume.IdleAnim.AnimationName);
         _activeCostumes[costume].costumeAnimators.Add(costumeAN);
+
+        if(costume.SynchronizeWithPlayerAnim)
+            _syncronizedAnimators.Add(costumeAN);
         return costumeAN;
     }
 
@@ -78,7 +103,9 @@ public class PlayerCostumeManager : MonoBehaviour
         for(int i = 0; i < extraAnimators; i++)
         {
             int destroyedId = _activeCostumes[removedCostume].costumeAnimators.Count -1;
-            Destroy(_activeCostumes[removedCostume].costumeAnimators[destroyedId].gameObject);
+            var removedAN = _activeCostumes[removedCostume].costumeAnimators[destroyedId];
+            _syncronizedAnimators.Remove(removedAN);
+            Destroy(removedAN.gameObject);
             _activeCostumes[removedCostume].costumeAnimators.RemoveAt(destroyedId);//by removing the last time we ensure the next iteration of this for removes th next one
         }
 
