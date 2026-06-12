@@ -73,4 +73,5 @@ MonoBehaviour:
       _framesPerSecond: 8
       _endAnimationOnEnd: 0
       _priority: 1
+  _syncronizeWithPlayerAnim: 1
   _renderOffset: 100
