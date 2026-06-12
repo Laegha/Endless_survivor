@@ -47,7 +47,7 @@ public class SplitOnCollidedWithObjAttackEffect : AttackEffect
             int targetEnemyIndex = i > closestEnemies.Count ? Random.Range(0, closestEnemies.Count) : i;
             GameObject splitTargetedEnemy = Utility.GetClosestTo(enemies, AffectedAttack.transform)[targetEnemyIndex];
             Vector2 splitAttackDir =( splitTargetedEnemy.transform.position - AffectedAttack.transform.position).normalized;
-            AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true);
+            AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true, out _);//could actually use the new attack
 
             splitAttackPos = (Vector2)AffectedAttack.transform.position + (Vector2)AffectedAttack.transform.up * _distBetweenSplits * (i + 1) * Mathf.Pow(-1, i+1);
         }

@@ -50,10 +50,11 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
         InitiateProyectile(proyectile, originalProyectilePos + (offsetXDirection.x * offsetXDirection.y > 0 ? offsetMovement : -offsetMovement), FirePoint.rotation);// I only tested this with y movement, idk with x
 
     }
-    public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders = null)
+    public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, out Attack createdAttack, List<Collider2D> ignoreColliders = null)
     {
-        base.Attack(attackPos, attackDirection, isSecondaryAttack, ignoreColliders);
+        base.Attack(attackPos, attackDirection, isSecondaryAttack, out createdAttack, ignoreColliders);
         ProyectileAttack proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Proyectile"]).GetComponent<ProyectileAttack>();
+        createdAttack = proyectile;
         proyectile.IsSecondaryAttack = isSecondaryAttack;
         InitializeAttack?.Invoke(proyectile);
         float proyectileRotation = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
@@ -67,6 +68,6 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
         float proyectileSpeed = _proyectileData.ProyectileSpeed;
         float proyectileLifeTime = WeaponStats.Range;
         int proyectileDamage = (int)Damage;
-        proyectile.Initiate(proyectileDamage, WeaponStats.Knockback, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileData.ProyectileSpread);
+        proyectile.Initiate(proyectileDamage, WeaponStats.Knockback, proyectileSpeed, proyectileLifeTime, _proyectileData, _proyectileData.ProyectileSpread, ignoreColliders);
     }
 }

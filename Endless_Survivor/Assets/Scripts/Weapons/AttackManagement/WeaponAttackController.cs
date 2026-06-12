@@ -83,9 +83,9 @@ public class WeaponAttackController
     {
 
     }
-    public virtual void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders = null)
+    public virtual void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, out Attack createdAttack, List<Collider2D> ignoreColliders = null)
     {
-
+        createdAttack = null;
     }
 
     public virtual void Attack()

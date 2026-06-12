@@ -31,11 +31,12 @@ public class RayWeaponAttackController : ShootingWeaponAttackController
         InitializeAttack(rayAttack);
         InitiateLaser(rayAttack);
     }
-    public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, List<Collider2D> ignoreColliders)
+    public override void Attack(Vector2 attackPos, Vector2 attackDirection, bool isSecondaryAttack, out Attack createdAttack, List<Collider2D> ignoreColliders)
     {
-        base.Attack(attackPos, attackDirection, isSecondaryAttack);
+        base.Attack(attackPos, attackDirection, isSecondaryAttack, out createdAttack, ignoreColliders);
         RayAttack rayAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
         rayAttack.IsSecondaryAttack = isSecondaryAttack;
+        createdAttack = rayAttack;
         InitializeAttack(rayAttack);
         rayAttack.Attack((int)Damage, WeaponStats.Knockback, _rayData, attackPos, attackDirection, ignoreColliders);
 

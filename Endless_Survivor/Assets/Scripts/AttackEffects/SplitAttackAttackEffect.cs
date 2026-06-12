@@ -34,7 +34,7 @@ public class SplitAttackAttackEffect : AttackEffect
                 int targetEnemyIndex = i >= closestEnemies.Count ? Random.Range(0, closestEnemies.Count) : i;
                 GameObject splitTargetedEnemy = Utility.GetClosestTo(enemies, AffectedAttack.transform)[targetEnemyIndex];
                 Vector2 splitAttackDir = (splitTargetedEnemy.transform.position - AffectedAttack.transform.position).normalized;
-                AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true);
+                AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true, out _);//could actually use the new attack
 
             }
             else
@@ -42,7 +42,7 @@ public class SplitAttackAttackEffect : AttackEffect
                 float originalRotation = AffectedAttack.transform.rotation.eulerAngles.z;
                 float splitAttackRotation = originalRotation + _directionAngleAmplitude / _splitAmmount * i * Mathf.Pow(-1, i + 1);
                 Vector2 splitAttackDir = new Vector2(Mathf.Cos(splitAttackRotation * Mathf.Deg2Rad), Mathf.Sin(splitAttackRotation * Mathf.Deg2Rad));
-                AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true);
+                AffectedAttack.ParentWeapon.Attack(splitAttackPos, splitAttackDir, true, out _);//could actually use the new attack
             }
 
         }
