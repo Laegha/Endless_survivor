@@ -15,18 +15,27 @@ public class RicochetAttackEffect : AttackEffect
         var ricochetOriginal = original as RicochetAttackEffect;
         _ricochetAmmount = ricochetOriginal._ricochetAmmount;
 
-        _myChain = _activeRicochets.Find(chain => chain.currAttack == affectedAttack);
-        if(_myChain == null)
-        {
-            _myChain = new RicochetChain(affectedAttack, _ricochetAmmount);
-            _activeRicochets.Add(_myChain);
-        }
 
+        OnAttack += GetChain;
         OnEnemyHit += GenerateRicochetAttack;
+    }
+
+    void GetChain()
+    {
+        GameManager.gm.DelayActionAFrame(() =>
+        {
+            _myChain = _activeRicochets.Find(chain => chain.currAttack == AffectedAttack);
+            if (_myChain == null)
+            {
+                _myChain = new RicochetChain(AffectedAttack, _ricochetAmmount);
+                _activeRicochets.Add(_myChain);
+            }
+
+        }, null);
     }
     void GenerateRicochetAttack(EnemyControl hitEnemy)
     {
-        if (_myChain.ricochetsLeft == 0)
+        if (_myChain.ricochetsLeft <= 0)
         {
             _activeRicochets.Remove(_myChain);
             return;
