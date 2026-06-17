@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: MurderDroneClaw
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 993910120, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+  _weaponName: Murder Drone Claw
+  _weaponStats:
+    _range: 1.5
+    _attackSpeed: 0.8
+    _damage: 15
+    _knockback: 0
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0.2
+  _damageIncrease: 1.2
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 8472846884174823430
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: aaff8503e875eaa42965750c5b45218e, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846884174823430
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 993910120, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: 2146297994, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: 1227543237, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: -894259241, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: -31088780, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: 1834129161, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: 1834129161, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          - {fileID: 1834129161, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 5
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 64
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.7
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.2, y: 0.2}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 1606062149, guid: bcc9909e32d27174eac7a47a8ebcdfd7, type: 3}
+            - {fileID: 2080288684, guid: bcc9909e32d27174eac7a47a8ebcdfd7, type: 3}
+            - {fileID: -108072372, guid: bcc9909e32d27174eac7a47a8ebcdfd7, type: 3}
+            - {fileID: 1795753146, guid: bcc9909e32d27174eac7a47a8ebcdfd7, type: 3}
+            _framesPerSecond: 8
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: 5
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0

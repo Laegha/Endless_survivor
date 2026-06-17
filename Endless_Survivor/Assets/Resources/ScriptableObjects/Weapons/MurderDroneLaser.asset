@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: MurderDroneLaser
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: b57adb1130e867047a2213c87a324f71, type: 3}
+  _weaponName: Murder Drone Laser
+  _weaponStats:
+    _range: 10
+    _attackSpeed: 0.75
+    _damage: 12
+    _knockback: 0
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0.7
+  _damageIncrease: 0.9
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 8472846884174823429
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: 5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: b57adb1130e867047a2213c87a324f71, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846884174823429
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: -1280289756, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -688023650, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -1755785396, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 356455156, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 1598151590, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -802407293, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -1738633169, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 506634619, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 1764355784, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -1981546812, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 168661510, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 683594095, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 228329087, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -1699590796, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 826293114, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          _framesPerSecond: 12
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 12
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 128
+        _firePointPosition: {x: 5, y: 1}
+        _proyectileData:
+          _proyectileSpeed: 10
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 9a72a61de11093741b2a0c07615ee244, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.9, y: 0.6}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
