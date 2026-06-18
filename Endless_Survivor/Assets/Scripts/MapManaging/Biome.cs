@@ -169,9 +169,9 @@ public class Biome
         }
 
         foreach(var champion in _biomeData.BiomeChampions)
-            bossInvoker.AddInvokationEnemy(champion, 1);
+            bossInvoker.AddInvokationEnemy(new(champion.InvokedEnemy, champion.PointerColor, champion.PointerIcon, false), 1);
 
         foreach(var boss in _biomeData.BiomeBosses)
-            bossInvoker.AddInvokationEnemy(boss, 3);
+            bossInvoker.AddInvokationEnemy(new(boss.InvokedEnemy, boss.PointerColor, boss.PointerIcon, true), 3);
     }
 }

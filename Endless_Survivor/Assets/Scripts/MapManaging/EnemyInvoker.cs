@@ -9,6 +9,7 @@ public class EnemyInvoker : MonoBehaviour
     [SerializeField] FilledBarRenderer _invokingBar;
     bool _fightingInvokedEnemy = false;
     List<EnemyInvokationPriority> _spawningEnemies = new();
+    Dictionary<EnemyControl, EnemyInvokationInfo> _spawnedEnemies = new(); 
     Action<EnemyControl> _onEnemyDeath;
     const float _spawnTime = .5f;
     float _timer;
@@ -55,8 +56,10 @@ public class EnemyInvoker : MonoBehaviour
         var spawnTile = EnemySpawnManager.esm.GetEnemyPosition();
         var spawnedEnemy = EnemySpawnManager.esm.SpawnEnemy(spawnTile, spawningEnemy);
 
-        var enemyHP = spawnedEnemy.GetComponent<EnemyControl>().EnemyHP;
-        enemyHP.OnDeath += (enemyControl) => _fightingInvokedEnemy = false;
+        var spawnedEnemyControl = spawnedEnemy.GetComponent<EnemyControl>();
+        _spawnedEnemies.Add(spawnedEnemyControl, _spawningEnemies[0].enemyInvokationInfo);
+        var enemyHP = spawnedEnemyControl.EnemyHP;
+        enemyHP.OnDeath += InvokedEnemyKilled;
         spawnedEnemy.GetComponent<EnemyControl>().EnemyHP.OnDeath += _onEnemyDeath;
 
         GameUIManager.uiManager.PointerManager.AddPointer(spawnedEnemy.transform, _spawningEnemies[0].enemyInvokationInfo.PointerColor, _spawningEnemies[0].enemyInvokationInfo.PointerIcon);
@@ -64,6 +67,12 @@ public class EnemyInvoker : MonoBehaviour
         _spawningEnemies.RemoveAt(0);
         Time.timeScale += .5f;
         _fightingInvokedEnemy = true;
+    }
+    void InvokedEnemyKilled(EnemyControl killedEnemy)
+    {
+        _fightingInvokedEnemy = false;
+        if (_spawnedEnemies[killedEnemy].IsBoss)
+            GameProgressionManager.gpm.BossKilled();
     }
 }
 
