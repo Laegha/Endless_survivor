@@ -15,7 +15,7 @@ MonoBehaviour:
   _weaponDisplaySprite: {fileID: 993910120, guid: f1b4320813f1c544eb374cc4e023561a, type: 3}
   _weaponName: Murder Drone Claw
   _weaponStats:
-    _range: 1.5
+    _range: 3
     _attackSpeed: 0.8
     _damage: 15
     _knockback: 0

@@ -39,12 +39,12 @@ MonoBehaviour:
         _behaviourId: BuffWeapons
         _statsBuffs:
           _range: 0
-          _attackSpeed: 0.05
+          _attackSpeed: 0
           _damage: 1.5
           _knockback: 0
         _maxBuffStacks: 10
         _durationType: 1
-        _timeDuration: 15
+        _timeDuration: 5
         _enemyKillsNeeded: 2
         _buffParticles: {fileID: 0}
     - rid: 8472846884174823427

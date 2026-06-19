@@ -16,12 +16,12 @@ MonoBehaviour:
   _weaponName: Murder Drone Laser
   _weaponStats:
     _range: 10
-    _attackSpeed: 0.75
-    _damage: 12
+    _attackSpeed: 0.2
+    _damage: 20
     _knockback: 0
   _rangeIncrease: 1
-  _attackSpeedIncrease: 0.7
-  _damageIncrease: 0.9
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1
   _weaponTags: 
   _weaponPools: 0
   _defaultAttack:
@@ -53,17 +53,17 @@ MonoBehaviour:
           - {fileID: -688023650, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
           - {fileID: -1755785396, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
           - {fileID: 356455156, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 1598151590, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: -802407293, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: -1738633169, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 506634619, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 1764355784, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: -1981546812, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 168661510, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 683594095, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 228329087, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: -1699590796, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
-          - {fileID: 826293114, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -11275287, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 1045538101, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 185295736, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -1579539724, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 1691549712, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 698727776, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 1776350975, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -92480819, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -1110829562, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: -85110838, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
+          - {fileID: 1576706170, guid: 1af9e51b64999e1459b9138e5f42df21, type: 3}
           _framesPerSecond: 12
           _endAnimationOnEnd: 0
           _priority: 0
