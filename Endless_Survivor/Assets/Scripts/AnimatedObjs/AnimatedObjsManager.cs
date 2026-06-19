@@ -30,8 +30,9 @@ public class AnimatedObjsManager : MonoBehaviour
         var objAnimator = instantiatedObj.GetComponent<CustomAnimator>();
         if(config.animation != null && config.animation.Frames.Length > 0 && !isBlank)
         {
-            objAnimator.AddAnimations(new() { config.animation });
-            objAnimator.ChangeAnim(config.animation.AnimationName);
+            CustomAnimation animationCopy = new(objAnimator, config.animation);
+            objAnimator.AddAnimations(new() { animationCopy});
+            objAnimator.ChangeAnim(animationCopy.AnimationName);
 
         }
         return objAnimator;
