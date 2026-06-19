@@ -31,8 +31,7 @@ public class EnemyInvoker : MonoBehaviour
     {
         if (_fightingInvokedEnemy || _spawningEnemies.Count == 0)
             return;
-        Debug.Log(1 - (_timer / _spawnTime));
-        _timer -= Time.deltaTime;
+        _timer -= Time.unscaledDeltaTime;
         _invokingBar.SetFillValue(1 - (_timer / _spawnTime), 1);
         if (_timer > 0)
             return;
@@ -51,7 +50,7 @@ public class EnemyInvoker : MonoBehaviour
 
     void SpawnEnemy()
     {
-        _spawningEnemies.Sort((a, b) => b.priority.CompareTo(a.priority));
+        _spawningEnemies.Sort((a, b) => a.priority.CompareTo(b.priority));
         EnemyData spawningEnemy = _spawningEnemies[0].enemyInvokationInfo.InvokedEnemy;
         var spawnTile = EnemySpawnManager.esm.GetEnemyPosition();
         var spawnedEnemy = EnemySpawnManager.esm.SpawnEnemy(spawnTile, spawningEnemy);
@@ -62,10 +61,12 @@ public class EnemyInvoker : MonoBehaviour
         enemyHP.OnDeath += InvokedEnemyKilled;
         spawnedEnemy.GetComponent<EnemyControl>().EnemyHP.OnDeath += _onEnemyDeath;
 
-        GameUIManager.uiManager.PointerManager.AddPointer(spawnedEnemy.transform, _spawningEnemies[0].enemyInvokationInfo.PointerColor, _spawningEnemies[0].enemyInvokationInfo.PointerIcon);
+        var pointer = GameUIManager.uiManager.PointerManager.AddPointer(spawnedEnemy.transform, _spawningEnemies[0].enemyInvokationInfo.PointerColor, _spawningEnemies[0].enemyInvokationInfo.PointerIcon);
+        enemyHP.OnDeath += (placeholder) => GameUIManager.uiManager.PointerManager.RemovePointer(pointer);
 
         _spawningEnemies.RemoveAt(0);
         Time.timeScale += .5f;
+        _invokingBar.gameObject.SetActive(false);
         _fightingInvokedEnemy = true;
     }
     void InvokedEnemyKilled(EnemyControl killedEnemy)
