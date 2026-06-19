@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] CustomAnimator _playerAnimator;
     PlayerStats _playerStats;
     AttackEffectsHolder _attackEffectsHolder = new();
+    CharacterData _characterData;
     [SerializeField] Rigidbody2D _playerRb;
     [SerializeField] PlayerHPManager _playerHPManager;
     [SerializeField] PlayerWeaponManager _playerWeaponManager;
@@ -23,6 +24,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] PlayerCostumeManager _costumeManager;
     public CustomAnimator PlayerAnimator { get { return _playerAnimator; } }
     public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
+    public CharacterData CharacterData { get { return _characterData; } set { _characterData = value; } }
     public AttackEffectsHolder EffectsHolder {  get { return _attackEffectsHolder; } }
     public Rigidbody2D PlayerRb { get { return _playerRb; } }
     public PlayerHPManager PlayerHPManager { get { return _playerHPManager; } }

@@ -10,6 +10,7 @@ public class PlayerSpawner : MonoBehaviour
         GameObject player = Instantiate(GameManager.gm.prefabHolder.Prefabs["Character"], transform.position, Quaternion.identity);
         
         PlayerControl playerControl = player.GetComponent<PlayerControl>();
+        playerControl.CharacterData = selectedChar;
         playerControl.PlayerAnimator.AddAnimations(selectedChar.Animations);
         playerControl.CostumeManager.CostumeSettings = selectedChar.CostumeSettings;
         playerControl.PlayerStats = new PlayerStats(selectedChar.PlayerStats);
