@@ -23,4 +23,8 @@ public class SceneLoadingFunctions : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
+    public void Win()
+    {
+        SceneManager.LoadScene("Win", LoadSceneMode.Single);
+    }
 }
