@@ -13,11 +13,19 @@ public class AddPointerEnemyBehaviour : EnemyBehaviour
         var addPointerOriginal = original as AddPointerEnemyBehaviour;
         _pointerColor = addPointerOriginal._pointerColor;
         _pointerIcon = addPointerOriginal._pointerIcon;
-        EnemyControl.EnemyHP.OnDeath += (placeholder) => GameUIManager.uiManager.PointerManager.RemovePointer(_pointer);
     }
     public override void Start()
     {
         base.Start();
-        GameUIManager.uiManager.PointerManager.AddPointer(EnemyControl.transform, _pointerColor, _pointerIcon);
+        _pointer = GameUIManager.uiManager.PointerManager.AddPointer(EnemyControl.transform, _pointerColor, _pointerIcon);
+    }
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        RemovePointer(null);
+    }
+    void RemovePointer(EnemyControl placeholder)
+    {
+        GameUIManager.uiManager.PointerManager.RemovePointer(_pointer);
     }
 }
