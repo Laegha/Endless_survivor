@@ -35,6 +35,8 @@ public class RicochetAttackEffect : AttackEffect
     }
     void GenerateRicochetAttack(EnemyControl hitEnemy)
     {
+        if (_myChain == null)
+            return; 
         if (_myChain.ricochetsLeft <= 0)
         {
             _activeRicochets.Remove(_myChain);
