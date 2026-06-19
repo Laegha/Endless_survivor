@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: BananaBot
+  m_EditorClassIdentifier: 
+  _initialHP: 30
+  _referenceSizeSprite: {fileID: 0}
+  _renderSortingOffset: 0
+  _knockbackResistance: 5
+  _colliderSize: {x: 0.7, y: 0.7}
+  _colliderOffset: {x: 0, y: -0.25}
+  _colliderDirection: 0
+  _enemyBehaviours:
+  - rid: 8472846924352585733
+  - rid: 8472846924352585730
+  - rid: 8472846924352585731
+  - rid: 8472846924352585732
+  - rid: 8472846924352585728
+  _dropablePickupChances: []
+  _onHitSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _sound: {fileID: 0}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472846924352585728
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootPlayer
+        _overrideBehaviours: []
+        _damage: 5
+        _proyectileLifetime: 3
+        _firePointDist: 0.4
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 93c4ede6303a3ee45b51980be5d10235, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.6, y: 0.3}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _sound: {fileID: 0}
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 8472846924352585730
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 2
+        _chasingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: MoveRight
+          _frames:
+          - {fileID: 194581916, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: 1828011832, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: -1914228927, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: 197613098, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: -19144415, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: MoveLeft
+          _frames:
+          - {fileID: 1213131162, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: 1653229749, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: -1886334548, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: 1807617939, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: 1301141726, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 8472846924352585731
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerShootAnim
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - AnimTriggerShoot
+        _distanceToTrigger: 6
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain:
+        - AnimTriggerShoot
+    - rid: 8472846924352585732
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimTriggerShoot
+        _overrideBehaviours:
+        - ChasePlayer
+        _triggeredBehaviours:
+        - ShootPlayer
+        _loopAnim: 0
+        _sameFrameForAll: 1
+        _generalTriggerFrame: 3
+        _upAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: ShootRight
+          _frames:
+          - {fileID: 2048995772, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
+          - {fileID: -1661175504, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
+          - {fileID: -1621759189, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
+          - {fileID: -812099165, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
+          - {fileID: -164379695, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
+          - {fileID: -596331484, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _downTriggerFrame: 0
+        _leftAnimation:
+          _animationName: ShootLeft
+          _frames:
+          - {fileID: 1494744206, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
+          - {fileID: 1912922809, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
+          - {fileID: -1008906408, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
+          - {fileID: -13200906, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
+          - {fileID: -778101316, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
+          - {fileID: 1463417656, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _leftTriggerFrame: 0
+    - rid: 8472846924352585733
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 1, y: 1}
+        _colliderOffset: {x: 0, y: 0.5}
+        _colliderDirection: 0
