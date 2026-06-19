@@ -16,7 +16,12 @@ public class EnemyInvoker : MonoBehaviour
     public CustomAnimator Animator { get { return _animator; } }
     public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath;} set { _onEnemyDeath = value; } }
 
-    public void AddInvokationEnemy(EnemyInvokationInfo enemy, int priority) =>_spawningEnemies.Add(new(enemy, priority));
+    public void AddInvokationEnemy(EnemyInvokationInfo enemy, int priority)
+    {
+        if(enemy.IsBoss)
+            GameProgressionManager.gpm.AddBoss();
+        _spawningEnemies.Add(new(enemy, priority));
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

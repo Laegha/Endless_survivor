@@ -42,7 +42,6 @@ public class MapManager : MonoBehaviour
     public void GenerateBiome()
     {
         var updateInstance = _generationHandler.GenerateBiome();
-        //GameProgressionManager.gpm.BiomeGenerated(updateInstance.biome.BiomeData.BiomeBosses.Count);
         _updatingHandler.AddUpdateInstance(updateInstance);
     }
     public void UpdateBiome()
