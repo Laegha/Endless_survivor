@@ -16,8 +16,8 @@ MonoBehaviour:
   _referenceSizeSprite: {fileID: 0}
   _renderSortingOffset: 0
   _knockbackResistance: 0
-  _colliderSize: {x: 0, y: 0}
-  _colliderOffset: {x: 0, y: 0}
+  _colliderSize: {x: 1.5, y: 1}
+  _colliderOffset: {x: 0, y: -0.4}
   _colliderDirection: 0
   _enemyBehaviours:
   - rid: 2454942537982672900

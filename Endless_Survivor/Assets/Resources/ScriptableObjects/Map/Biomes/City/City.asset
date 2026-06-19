@@ -89,4 +89,7 @@ MonoBehaviour:
   - _invokedEnemy: {fileID: 11400000, guid: 764a25dc39e4b494190e196375927d9b, type: 2}
     _pointerColor: {r: 0.6666667, g: 0, b: 0, a: 1}
     _pointerIcon: {fileID: 21300000, guid: b9e034a15b5fb1448b2af782d0197600, type: 3}
-  _biomeBosses: []
+  _biomeBosses:
+  - _invokedEnemy: {fileID: 11400000, guid: 16f0bfedda4beb8409c49578e452bcc6, type: 2}
+    _pointerColor: {r: 0.572948, g: 0.6300325, b: 0.631, a: 1}
+    _pointerIcon: {fileID: 21300000, guid: 27a51ea14373ec440af65e62f94b1367, type: 3}

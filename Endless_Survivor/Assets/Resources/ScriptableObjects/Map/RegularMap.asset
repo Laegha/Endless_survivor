@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30e80d4d93c19440a127411168a4c3a, type: 3}
   m_Name: RegularMap
   m_EditorClassIdentifier: 
-  _maxBiomes: 5
+  _maxBiomes: 2
   _biomeSize:
     min: 20
     max: 20
