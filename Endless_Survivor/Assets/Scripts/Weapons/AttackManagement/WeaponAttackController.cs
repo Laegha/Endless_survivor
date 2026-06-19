@@ -49,7 +49,7 @@ public class WeaponAttackController
         _attackAnimation = new(weaponControl.WeaponAnimator, original._attackAnimation);
         _attackFrame = original._attackFrame;
         _attackAnimation.Events.Add(new(null, _attackFrame, Attack));
-        _attackAnimation.Events.Add(new(null, _attackAnimation.Frames.Length - 1, () => WeaponControl.WeaponAnimator.ChangeAnim("Idle", true)));
+        _attackAnimation.Events.Add(new(null, _attackAnimation.Frames.Length - 1, ReturnToIdleAnim));
         weaponControl.WeaponAnimator.AddAnimations(new() { _attackAnimation });
 
         AttackEffectsHolder attackEffectsHolder = new();
@@ -61,6 +61,11 @@ public class WeaponAttackController
         _damageType = original._damageType;
         _initializeAttack += SetWeaponOnAttack;
         _initializeAttack += SetAttackMultipliers;
+    }
+    void ReturnToIdleAnim()
+    {
+        //Debug.Log("Weapon " + WeaponControl.WeaponAttackManager.WeaponData.name + " should play idle anim");
+        WeaponControl.WeaponAnimator.ChangeAnim(WeaponControl.WeaponAttackManager.WeaponData.IdleAnim.AnimationName, true, true);
     }
     public virtual void Update()
     {
