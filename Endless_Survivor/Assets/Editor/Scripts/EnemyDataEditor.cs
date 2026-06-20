@@ -18,6 +18,7 @@ public class EnemyDataEditor : Editor
     SerializedProperty _colliderSize;
     SerializedProperty _colliderOffset;
     SerializedProperty _colliderDirection;
+    SerializedProperty _rigidbodyType;
     SerializedProperty _behaviours;
     SerializedProperty _dropablePickupChances;
     SerializedProperty _onHitSFX;
@@ -31,6 +32,7 @@ public class EnemyDataEditor : Editor
         _colliderSize = serializedObject.FindProperty("_colliderSize");
         _colliderOffset = serializedObject.FindProperty("_colliderOffset");
         _colliderDirection = serializedObject.FindProperty("_colliderDirection");
+        _rigidbodyType = serializedObject.FindProperty("_rigidbodyType");
         _behaviours = serializedObject.FindProperty("_enemyBehaviours");
         _dropablePickupChances = serializedObject.FindProperty("_dropablePickupChances");
         _onHitSFX = serializedObject.FindProperty("_onHitSFX");
@@ -51,6 +53,7 @@ public class EnemyDataEditor : Editor
         EditorGUILayout.PropertyField(_colliderSize);
         EditorGUILayout.PropertyField(_colliderOffset);
         EditorGUILayout.PropertyField(_colliderDirection);
+        EditorGUILayout.PropertyField(_rigidbodyType);
         EditorGUILayout.PropertyField(_onHitSFX);
         EditorGUILayout.PropertyField(_onDeathSFX);
 

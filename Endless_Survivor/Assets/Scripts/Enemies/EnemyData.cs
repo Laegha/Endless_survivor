@@ -12,6 +12,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] Vector2 _colliderOffset;
     [SerializeField] CapsuleDirection2D _colliderDirection;
+    [SerializeField] RigidbodyType2D _rigidbodyType;
     [SerializeReference] List<EnemyBehaviour> _enemyBehaviours = new List<EnemyBehaviour>();
     [SerializeField] List<RouletteElementChance<PickupData>> _dropablePickupChances = new List<RouletteElementChance<PickupData>>();
 
@@ -36,9 +37,10 @@ public class EnemyData : ScriptableObject
         enemyHP.DropablePickupChances = new List<RouletteElementChance<PickupData>>(_dropablePickupChances);
         enemyHP.KnockbackResistance = _knockbackResistance;
 
-        enemyControl.CapsuleCollider.direction = _colliderDirection;
         enemyControl.CapsuleCollider.size = _colliderSize;
         enemyControl.CapsuleCollider.offset = _colliderOffset;
+        enemyControl.CapsuleCollider.direction = _colliderDirection;
+        enemyControl.RbForcesController.Rb.bodyType = _rigidbodyType;
 
         foreach(var enemyBehaviour in _enemyBehaviours)
         {
