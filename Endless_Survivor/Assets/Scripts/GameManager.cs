@@ -61,6 +61,10 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(CallDelayedAFrameAction(action, abortCondition));
     }
+    public void DelayActionRealtime(float delay, Action action, Func<bool> abortCondition)
+    {
+        StartCoroutine(CallDelayedActionRealtime(delay, action, abortCondition));
+    }
     IEnumerator CallDelayedAction(float delay, Action action, Func<bool> abortCondition)
     {
         yield return new WaitForSeconds(delay);
@@ -71,6 +75,13 @@ public class GameManager : MonoBehaviour
     IEnumerator CallDelayedAFrameAction(Action action, Func<bool> abortCondition)
     {
         yield return new WaitForEndOfFrame();
+        if (abortCondition != null && abortCondition())
+            yield break;
+        action?.Invoke();
+    }
+    IEnumerator CallDelayedActionRealtime(float delay, Action action, Func<bool> abortCondition)
+    {
+        yield return new WaitForSecondsRealtime(delay);
         if (abortCondition != null && abortCondition())
             yield break;
         action?.Invoke();
