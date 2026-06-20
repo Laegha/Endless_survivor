@@ -87,6 +87,8 @@ public class TriggerBehavioursOnAnimFrameEnemyBehaviour : EnemyBehaviour
         Vector2 orientation = distance.normalized;
 
         CustomAnimation currAnim = Utility.GetAnimFromDirection(orientation, _upAnimation, _rightAnimation, _downAnimation, _leftAnimation);
+        if (EnemyControl.Animator == null)
+            Debug.LogError("Error while grabbing animations on " + EnemyData.name);
         if (_animations.Any(x => x.AnimationName == EnemyControl.Animator.CurrAnim.AnimationName))
             EnemyControl.Animator.EndAnimation(EnemyControl.Animator.CurrAnim.AnimationName);
         _currAnim = currAnim;
