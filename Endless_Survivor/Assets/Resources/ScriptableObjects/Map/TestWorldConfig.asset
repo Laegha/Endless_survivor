@@ -32,3 +32,14 @@ MonoBehaviour:
     _textAlignment: 514
     _messageYPosition: 70
     _messageAnimator: {fileID: 9100000, guid: d0bc87a95257f844892bbee217fc4131, type: 2}
+  _runExitPrefab: {fileID: 7753741616326789000, guid: f7f2c3310cda60b43a8d18c5016f4b45, type: 3}
+  _onExitCreatedMessageInfo:
+    _message: The exit from the chaos realm is open
+    _textSize: 30
+    _textFont: {fileID: 11400000, guid: fe5e9ebd604cf874d81dbce0b726522d, type: 2}
+    _textColor: {r: 1, g: 1, b: 1, a: 1}
+    _textAlignment: 514
+    _messageYPosition: 70
+    _messageAnimator: {fileID: 9100000, guid: d0bc87a95257f844892bbee217fc4131, type: 2}
+  _exitPointerColor: {r: 0.058072258, g: 0.29136345, b: 0.8207547, a: 1}
+  _exitPointerIcon: {fileID: 21300000, guid: f4e4c9d352e7fad43a7b8ecaba2ad4f5, type: 3}
