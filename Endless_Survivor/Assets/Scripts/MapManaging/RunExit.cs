@@ -10,6 +10,6 @@ public class RunExit : MonoBehaviour
         if (collision.transform.root != PlayerControl.pc.transform)
             return;
 
-        GameProgressionManager.gpm.EndRun(PlayerControl.pc.CharacterData.ExitRunAnimation, GameProgressionManager.RunEndType.Win);
+        GameProgressionManager.gpm.EndRun(PlayerControl.pc.CharacterData.ExitRunAnimation, PlayerControl.pc.CharacterData.ExitRunParticles, GameProgressionManager.RunEndType.Win);
     }
 }
