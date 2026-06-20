@@ -29,8 +29,6 @@ public class CharacterData : ScriptableObject
     [SerializeField] CustomAnimation _rightMoving;
     [SerializeField] CustomAnimation _backMoving;
     [SerializeField] CustomAnimation _leftMoving;
-    [SerializeField] CustomAnimation _death;
-    [SerializeField] CustomAnimation _exitRun;
 
     [InspectorLabel("Costume Settings")]
     [SerializeField] CharacterCostumeSettings _costumeSettings; 
@@ -38,6 +36,12 @@ public class CharacterData : ScriptableObject
     [InspectorLabel("Sounds")]
     [SerializeField] SFXInfo _onHitSound;
     [SerializeField] SFXInfo _onDeathSound;
+
+    [InspectorLabel("Run end visuals")]
+    [SerializeField] CustomAnimation _deathAnim;
+    [SerializeField] CustomAnimation _exitRunAnim;
+    [SerializeField] ParticleSystem _deathParticles;
+    [SerializeField] ParticleSystem _exitRunParticles;
 
     public Sprite MenuImage {  get { return _menuImage; } }
     public string CharacterName { get { return _characterName; } }
@@ -60,9 +64,11 @@ public class CharacterData : ScriptableObject
             };
         }
     }
-    public CustomAnimation DeathAnimation { get { return _death; } }
-    public CustomAnimation ExitRunAnimation { get { return _exitRun; } }
     public CharacterCostumeSettings CostumeSettings { get { return _costumeSettings; } }
     public SFXInfo OnHitSound { get { return _onHitSound; } }
     public SFXInfo OnDeathSound { get { return _onDeathSound; } }
+    public CustomAnimation DeathAnimation { get { return _deathAnim; } }
+    public CustomAnimation ExitRunAnimation { get { return _exitRunAnim; } }
+    public ParticleSystem DeathParticles { get { return _deathParticles; } }
+    public ParticleSystem ExitRunParticles { get { return _exitRunParticles; } }
 }
