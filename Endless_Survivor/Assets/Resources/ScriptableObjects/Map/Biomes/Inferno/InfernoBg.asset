@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9689f285212a44784a16df5210f180, type: 3}
+  m_Name: InfernoBg
+  m_EditorClassIdentifier: 
+  _layers:
+  - _layerTileSprite: {fileID: 21300000, guid: c832a41e7491d7e419e269d7a4fd0be7, type: 3}
+    _layerSpeed: 0
+    _layerDepth: 10
+  - _layerTileSprite: {fileID: 21300000, guid: c15e7a0d944985741a9e830989f30b36, type: 3}
+    _layerSpeed: 2
+    _layerDepth: 9
+  - _layerTileSprite: {fileID: 21300000, guid: 39299a575a0d5d54b877fe1ffec6702f, type: 3}
+    _layerSpeed: 5
+    _layerDepth: 8
+  - _layerTileSprite: {fileID: 21300000, guid: 6767b02807afaa84bb917ab407e49602, type: 3}
+    _layerSpeed: 6
+    _layerDepth: 7
+  _tileSize: {x: 2, y: 2}
