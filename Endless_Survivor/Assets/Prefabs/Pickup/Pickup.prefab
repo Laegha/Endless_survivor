@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 8929391984769753380}
   _renderer: {fileID: 8092395713913227452}
+  _rendererSorting: {fileID: -5460048035613773478}
   _pickup: {fileID: 5495909789129919652}
   _collider: {fileID: 4544064862658322159}
 --- !u!114 &5495909789129919652
