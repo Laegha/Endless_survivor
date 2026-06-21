@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Souls
   m_EditorClassIdentifier: 
   _decorAnimation:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
+    _animationName: Souls
+    _frames:
+    - {fileID: 1744981424, guid: 3044695b435ecd94d965f47912fbade5, type: 3}
+    - {fileID: 2054239579, guid: 3044695b435ecd94d965f47912fbade5, type: 3}
+    _framesPerSecond: 3
     _endAnimationOnEnd: 0
     _priority: 0
   _decorSize:
-    _elementSquareSize: {x: 0, y: 0}
-    _elementOccupyingPositions: []
+    _elementSquareSize: {x: 1, y: 0}
+    _elementOccupyingPositions:
+    - {x: 0, y: 0}
+    - {x: -1, y: 0}

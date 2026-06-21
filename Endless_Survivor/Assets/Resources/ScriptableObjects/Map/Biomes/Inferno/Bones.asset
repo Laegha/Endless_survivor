@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Bones
   m_EditorClassIdentifier: 
   _decorAnimation:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
+    _animationName: Bones
+    _frames:
+    - {fileID: 21300000, guid: 2159b72fef798a448b236ccb8369fb50, type: 3}
+    _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
   _decorSize:
