@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97cc974257d6e643a781cca03f7bef6, type: 3}
   m_Name: Inferno
   m_EditorClassIdentifier: 
+  _backgroundData: {fileID: 11400000, guid: 4c4337dac47d27e4d9906eca17747ab7, type: 2}
   _floorTile: {fileID: 21300000, guid: c2225a79ea3a62c4dbd777c5229ba39a, type: 3}
   _topWallTile: {fileID: 21300000, guid: 65f5d3681aa40794db673615f9240b01, type: 3}
   _rightWallTile: {fileID: 21300000, guid: 7c83cbe3672d09448be0eaf3a29f367b, type: 3}
@@ -25,8 +26,14 @@ MonoBehaviour:
   _cornerBotLeftOpen: {fileID: 21300000, guid: 8c8216525b555834a97537cfbdf8da65, type: 3}
   _cornerLeftTopClosed: {fileID: 21300000, guid: 0127b03b278fde044a9f7b98cb9272c0, type: 3}
   _cornerLeftTopOpen: {fileID: 21300000, guid: 0fe8105f957b3b34593e7d426ea4ecb9, type: 3}
-  _decorationOnTileChance: 0
-  _floorDecorationDatas: []
+  _decorationOnTileChance: 8
+  _floorDecorationDatas:
+  - _rouletteElement: {fileID: 11400000, guid: 4fcfb80f6d0940c4c8b4342d8102ffee, type: 2}
+    _chance: 5
+  - _rouletteElement: {fileID: 11400000, guid: 5efd48757f462204e92b208a5cf086d0, type: 2}
+    _chance: 5
+  - _rouletteElement: {fileID: 11400000, guid: 245470ad14357b94cb126b55c05d7a85, type: 2}
+    _chance: 1
   _supportObjOnTileChance: 2.5
   _possibleSupportObjectsPerTile:
   - _rouletteElement: {fileID: 11400000, guid: 9055296a36d62be459796972b77618ab, type: 2}
@@ -37,19 +44,23 @@ MonoBehaviour:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 3a669a4d6a238bb4392827043fb7f076, type: 2}
       _spawnIntensity: 0
-    _chance: 0
+    _chance: 20
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: b9661a80333da97418522382606fc175, type: 2}
       _spawnIntensity: 0
-    _chance: 0
+    _chance: 20
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 002a2e262dc42604fab23c32cbd1f271, type: 2}
       _spawnIntensity: 2
-    _chance: 0
+    _chance: 5
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: e250d9b9e8ea040458ce8a08f79804b1, type: 2}
+      _spawnIntensity: 1
+    _chance: 5
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: 42b8981efc94c53498bb219b5fa7efdc, type: 2}
       _spawnIntensity: 0
-    _chance: 1
+    _chance: 30
   _bossInvokerAnimation:
     _animationName: Idle
     _frames:
@@ -62,5 +73,11 @@ MonoBehaviour:
   _usesCircleCollider: 0
   _circleColliderRadius: 0
   _colliderOffset: {x: 0, y: 0}
-  _biomeChampions: []
-  _biomeBosses: []
+  _biomeChampions:
+  - _invokedEnemy: {fileID: 11400000, guid: 6771a3e210e6ba34b8a2e679a8e8fdb7, type: 2}
+    _pointerColor: {r: 0.61960787, g: 0.7411765, b: 0.7960785, a: 1}
+    _pointerIcon: {fileID: 21300000, guid: 399b91acae5239942b41839e8dd83d74, type: 3}
+  _biomeBosses:
+  - _invokedEnemy: {fileID: 11400000, guid: 2376b912ce880114c8ca106b8c353dbd, type: 2}
+    _pointerColor: {r: 0.1137255, g: 0.121568635, b: 0.13725491, a: 1}
+    _pointerIcon: {fileID: 21300000, guid: 4257e15f04515664eb5831296cfb92bb, type: 3}
