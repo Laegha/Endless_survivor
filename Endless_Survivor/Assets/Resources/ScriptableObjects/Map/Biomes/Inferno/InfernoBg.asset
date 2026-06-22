@@ -17,12 +17,12 @@ MonoBehaviour:
     _layerSpeed: 0
     _layerDepth: 10
   - _layerTileSprite: {fileID: 21300000, guid: c15e7a0d944985741a9e830989f30b36, type: 3}
-    _layerSpeed: 2
+    _layerSpeed: 3
     _layerDepth: 9
-  - _layerTileSprite: {fileID: 21300000, guid: 39299a575a0d5d54b877fe1ffec6702f, type: 3}
-    _layerSpeed: 5
-    _layerDepth: 8
   - _layerTileSprite: {fileID: 21300000, guid: 6767b02807afaa84bb917ab407e49602, type: 3}
-    _layerSpeed: 6
+    _layerSpeed: 3.5
+    _layerDepth: 8
+  - _layerTileSprite: {fileID: 21300000, guid: 39299a575a0d5d54b877fe1ffec6702f, type: 3}
+    _layerSpeed: 4
     _layerDepth: 7
   _tileSize: {x: 2, y: 2}

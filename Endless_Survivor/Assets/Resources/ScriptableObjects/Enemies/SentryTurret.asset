@@ -19,6 +19,7 @@ MonoBehaviour:
   _colliderSize: {x: 0.6, y: 0.6}
   _colliderOffset: {x: 0, y: -0.2}
   _colliderDirection: 0
+  _rigidbodyType: 2
   _enemyBehaviours:
   - rid: 3262447387164803074
   - rid: 3599397592101814276
