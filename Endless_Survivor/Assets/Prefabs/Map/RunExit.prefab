@@ -100,6 +100,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c605448b7838484c90937c8c64eb64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _exitAnimator: {fileID: 4549877511360579870}
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 1057339456, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _openingAnimation:
+    _animationName: Opening
+    _frames:
+    - {fileID: 1057339456, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: -2143235717, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: 572188545, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: -1894958073, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    _framesPerSecond: 5
+    _endAnimationOnEnd: 0
+    _priority: 1
+  _openAnimation:
+    _animationName: Open
+    _frames:
+    - {fileID: 1057339456, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: -2143235717, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: 572188545, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: -1894958073, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    - {fileID: 1057339456, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 2
 --- !u!114 &4549877511360579870
 MonoBehaviour:
   m_ObjectHideFlags: 0
