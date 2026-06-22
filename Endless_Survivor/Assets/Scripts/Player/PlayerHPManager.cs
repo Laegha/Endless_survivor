@@ -96,6 +96,6 @@ public class PlayerHPManager : HP
     public override void Die()
     {
         SoundFXManager.sm.PlaySfx(_onDeathSound, transform.position);
-        GameProgressionManager.gpm.EndRun(PlayerControl.pc.CharacterData.DeathAnimation, PlayerControl.pc.CharacterData.ExitRunParticles, GameProgressionManager.RunEndType.Lose);
+        GameProgressionManager.gpm.EndRun(PlayerControl.pc.CharacterData.DeathAnimation, PlayerControl.pc.CharacterData.DeathParticles, GameProgressionManager.RunEndType.Lose);
     }
 }
