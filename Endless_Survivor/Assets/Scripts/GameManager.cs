@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] MapGenerationConfig _mapGenerationConfig;
     [SerializeField] WorldConfigData _worldConfig;
+    [SerializeField] WeaponStatsSpritesData _weaponStatsSprites;
     UnlockedElementsHelper _unlockedElementsHelper = new();
 
 
     public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
     public WorldConfigData WorldConfig { get { return _worldConfig; } }
+    public WeaponStatsSpritesData WeaponStatsSprites { get { return _weaponStatsSprites; } }
     public UnlockedElementsHelper UnlockedElementHelper {  get { return _unlockedElementsHelper; } }    
 
     public static GameManager gm

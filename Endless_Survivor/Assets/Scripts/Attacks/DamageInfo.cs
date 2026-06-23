@@ -12,7 +12,7 @@ public class DamageInfo
         None = 0,
         Explosive = 1 << 1,
         Fire = 1 << 2,
-        Poison = 1 << 3,
+        Chemical = 1 << 3,
         Ice = 1 << 4,
         Electric = 1 << 5,
         Cutting = 1 << 6,

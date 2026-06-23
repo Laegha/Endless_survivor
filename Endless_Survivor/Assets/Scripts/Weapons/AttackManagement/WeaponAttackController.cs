@@ -32,6 +32,7 @@ public class WeaponAttackController
             return DamageInfo.CalculatedDamage;
         }
     }
+    public DamageInfo.DamageType DamageType { get { return _damageType; } }
     public string AttackId {  get { return _attackId; } }
     public string AnimationName { get { return _attackAnimation.AnimationName; } }
     public WeaponStats WeaponStats {  get { return _weaponStats; } set { _weaponStats = value; } }
