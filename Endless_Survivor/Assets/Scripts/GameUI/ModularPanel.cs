@@ -23,7 +23,7 @@ public class ModularPanel : MonoBehaviour
     }
     void Update()
     {
-        if (_panelData == null || !_panelData.IsUsable())
+        if (_panelData == null /*|| !_panelData.IsUsable()*/)
             return;
         var prevSize = _currSize;
         _currSize = _panelTransform.sizeDelta;
@@ -59,6 +59,8 @@ public class ModularPanel : MonoBehaviour
                 var cellImage = cell.GetComponentInChildren<Image>();
                 cellImage.sprite = cellSprite;
                 cell.GetComponent<RectTransform>().sizeDelta = new(_panelData.CellSize.x, _panelData.CellSize.y);
+                if (cellSprite == null)
+                    cellImage.color = new(255, 255, 255, 0);
             }
         }
     }
