@@ -704,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageType: 36
 --- !u!1 &458908040
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +822,7 @@ MonoBehaviour:
   prefabHolder: {fileID: 11400000, guid: 080c889d4f67cd942abc52eb0118bd2e, type: 2}
   _audioMixer: {fileID: 24100000, guid: cd2588ac29cb5f842aa936deefcef760, type: 2}
   _mapGenerationConfig: {fileID: 0}
+  _worldConfig: {fileID: 0}
 --- !u!4 &751252661
 Transform:
   m_ObjectHideFlags: 0
@@ -1330,6 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageType: 0
 --- !u!114 &1087160456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,6 +1645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7d20a8b4dd0148b96725ae390b3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageType: 0
 --- !u!212 &1487476283
 SpriteRenderer:
   m_ObjectHideFlags: 0
