@@ -1,14 +1,21 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    private void Update()
+    [SerializeField] DamageInfo.DamageType DamageType;
+    private void Start()
     {
-        var hit = Physics2D.Raycast(transform.position, Vector2.right);
-        if (hit.collider == null)
-            return;
-        Debug.Log("HIT");
-        
+        DamageInfo.DamageType[] damageTypes = (DamageInfo.DamageType[])Enum.GetValues(typeof(DamageInfo.DamageType));
+        foreach (var damageType in damageTypes)
+        {
+            if (!DamageType.HasFlag(damageType))
+                continue;
+            Debug.Log(damageType.ToString());
+
+        }
+
     }
 }

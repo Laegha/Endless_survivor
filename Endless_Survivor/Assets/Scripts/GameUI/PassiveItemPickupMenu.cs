@@ -12,6 +12,7 @@ public class PassiveItemPickupMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _itemName;
     [SerializeField] TextMeshProUGUI _itemDescript;
     [SerializeField] TextMeshProUGUI _rerollsLeftDisplay;
+    [SerializeField] InformationButton _itemInfoButton;
     PassiveItemData _currPickingItem;
     GameObject _currNewIndicator;
     Action _onMenuOpen;
@@ -57,6 +58,7 @@ public class PassiveItemPickupMenu : MonoBehaviour
     void SetItemMenu(PassiveItemData pickingItem, bool isNew)
     {
         _currPickingItem = pickingItem;
+        _itemInfoButton.SetValues(null, null, pickingItem);
         _itemImage.sprite = pickingItem.ItemSprite;
         Utility.ScaleImageToFitTarget(_itemImage.rectTransform, pickingItem.ItemSprite, _itemImageTargetSize.sizeDelta);
         if (isNew)

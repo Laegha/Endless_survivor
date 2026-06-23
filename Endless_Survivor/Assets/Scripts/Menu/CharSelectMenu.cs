@@ -33,6 +33,7 @@ public class CharSelectMenu : MonoBehaviour
         foreach (var character in unlockedCharacters)
         {
             var characterButton = Instantiate(_selectCharBtnPrefab, currentRow.transform);
+            characterButton.GetComponentInChildren<InformationButton>().SetValues(character.element, null, null);
             //characterButton.buttonImage.sprite = character.MenuImage;
             characterButton.characterData = character.element;
             characterButton.charSelectMenu = this;

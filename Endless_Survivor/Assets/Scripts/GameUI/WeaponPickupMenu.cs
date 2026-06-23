@@ -17,6 +17,7 @@ public class WeaponPickupMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _weaponAtkSpdDisplay;
     [SerializeField] TextMeshProUGUI _weaponRangeDisplay;
     [SerializeField] TextMeshProUGUI _rerollsLeftDisplay;
+    [SerializeField] InformationButton _weaponInfoButton;
     WeaponData _currDisplayingWeapon;
     WeaponStats _currWeaponStats;
     GameObject _currNewIndicator;
@@ -68,6 +69,7 @@ public class WeaponPickupMenu : MonoBehaviour
     void SetMenuWeapon(WeaponData displayingWeapon, bool isNew)
     {
         _currDisplayingWeapon = displayingWeapon;
+        _weaponInfoButton.SetValues(null, displayingWeapon, null);
 
         Utility.ScaleImageToFitTarget(_weaponImage.rectTransform, displayingWeapon.WeaponDisplaySprite, _weaponImageTargetSize.sizeDelta);
         if (isNew)

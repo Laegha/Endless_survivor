@@ -1,7 +1,5 @@
-using Cinemachine.Utility;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameUIManager : MonoBehaviour
@@ -13,6 +11,12 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] PlayerHPBar _playerHPBar;
     [SerializeField] IntensityUI _intensityUI;
     [SerializeField] UIPointerManager _pointerManager;
+
+    [InspectorLabel("Information menus")]
+    [SerializeField] CharacterInfoMenu _charInfoMenu;
+    [SerializeField] WeaponInfoMenu _weaponInfoMenu;
+    [SerializeField] PassiveItemInfoMenu _itemInfoMenu;
+
     public static GameUIManager instance;
     public static GameUIManager uiManager {  get { return instance; }}
     public WeaponPickupMenu WeaponPickupMenu { get { return _weaponPickupMenu; }}
@@ -44,5 +48,20 @@ public class GameUIManager : MonoBehaviour
         TextMeshProUGUI messageText = messageGO.GetComponentInChildren<TextMeshProUGUI>();
         messageInfo.ApplyToText(messageText);
 
+    }
+    public void DisplayCharacterInfo(CharacterData displayingChar)
+    {
+        _charInfoMenu.gameObject.SetActive(true);
+        _charInfoMenu.UpdateInfo(displayingChar);
+    }
+    public void DisplayWeaponInfo(WeaponData displayingWeapon)
+    {
+        _weaponInfoMenu.gameObject.SetActive(true);
+        _weaponInfoMenu.UpdateInfo(displayingWeapon);
+    }
+    public void DisplayItemInfo(PassiveItemData displayingItem)
+    {
+        _itemInfoMenu.gameObject.SetActive(true);
+        _itemInfoMenu.UpdateInfo(displayingItem);
     }
 }

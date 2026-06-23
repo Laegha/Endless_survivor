@@ -10,8 +10,8 @@ public class PlayerStats
     [SerializeField] int _hpIncrement = 10;
     [SerializeField] float _hpRegeneration = 1f;
     [SerializeField] float _defense = 1;
-    [SerializeField] float _maxSpeed = 1;
     [SerializeField] float _minSpeed = 1;
+    [SerializeField] float _maxSpeed = 1;
     [SerializeField] float _acceleration = 1f;
 
     //public float DamageMultiplier
