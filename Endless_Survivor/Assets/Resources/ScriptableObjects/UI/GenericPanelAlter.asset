@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103e06c373d8cb545af9fd2af513ca0c, type: 3}
+  m_Name: GenericPanelAlter
+  m_EditorClassIdentifier: 
+  _rowPrefab: {fileID: 6578894146041284632, guid: 2f276f348c4103d48b0427e983626bef, type: 3}
+  _cellPrefab: {fileID: 3245069914523690047, guid: 0502b0e33d4ab454b8b8eb006a9756f5, type: 3}
+  _cellSize: {x: 40, y: 40}
+  _upLeftPanel: {fileID: 695962840, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _upPanel: {fileID: -2134504362, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _upRightPanel: {fileID: -1028240935, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _leftPanel: {fileID: 701319858, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _middlePanel: {fileID: -1009840144, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _rightPanel: {fileID: 1822435324, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _downLeftPanel: {fileID: 1935739331, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _downPanel: {fileID: -1047048720, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}
+  _downRightPanel: {fileID: 4973236, guid: f37cc8fdd0369df478c292336ca9c7fc, type: 3}

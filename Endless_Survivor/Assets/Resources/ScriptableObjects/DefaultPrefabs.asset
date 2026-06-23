@@ -40,3 +40,7 @@ MonoBehaviour:
       Value: {fileID: 3165747705039378651, guid: 0e14a3e6659cd8b4ea43d208e3b9f2fc, type: 3}
     - Key: UIMessage
       Value: {fileID: 2649328339854856192, guid: 4b0009529ed97034081be0c1ce6de19a, type: 3}
+  _damageTypesIcons:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 0}
