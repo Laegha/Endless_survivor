@@ -35,7 +35,7 @@ public class TimescaleManager : MonoBehaviour
             return;
         }
 
-        foreach (var change in fullStopChanges)
+        foreach (var change in pendingChangesCopy)
         {
             if (!change.HasEnded())
                 continue;
