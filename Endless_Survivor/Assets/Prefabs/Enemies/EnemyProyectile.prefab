@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sortedElements: []
-  _offset: 0
+  _sortedElements:
+  - {fileID: 3151343713363334763}
+  _offset: -5
 --- !u!114 &8055096456535443754
 MonoBehaviour:
   m_ObjectHideFlags: 0
