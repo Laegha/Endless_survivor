@@ -54,6 +54,7 @@ public class ProyectileAttack : Attack
 
         _ignoreColliders = ignoreColliders;
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
+        _spriteRenderer.flipY = transform.right.x < 0;
 
         EffectsHandler.TryEffects(this);
 
