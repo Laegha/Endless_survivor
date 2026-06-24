@@ -32,6 +32,8 @@ public class EnemyProyectile : MonoBehaviour
 
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileData.ProyectileSpread, proyectileData.ProyectileSpread)));
 
+        _spriteRenderer.flipY = transform.right.x < 0;
+
         _onPlayerHit += onPlayerHit;
         DamageSource[] damageSources = GetComponents<DamageSource>();
         foreach (DamageSource damageSource in damageSources)
@@ -71,6 +73,7 @@ public class EnemyProyectile : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity *= -1;
         int proyectileDamage = GetComponent<PlayerDamageSource>().Damage;
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 180);
+        _spriteRenderer.flipY = !_spriteRenderer.flipY;
         gameObject.AddComponent<EnemyDamageSource>().Damage = proyectileDamage;
         //add animated obj in proyectile
         if (parriedAnimation != null && parriedAnimation.Frames.Length > 0)
