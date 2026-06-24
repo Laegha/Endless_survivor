@@ -17,6 +17,8 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] WeaponInfoMenu _weaponInfoMenu;
     [SerializeField] PassiveItemInfoMenu _itemInfoMenu;
 
+    TimescaleChangeInfo _currPauseTimescaleChange;
+
     public static GameUIManager instance;
     public static GameUIManager uiManager {  get { return instance; }}
     public WeaponPickupMenu WeaponPickupMenu { get { return _weaponPickupMenu; }}
@@ -32,12 +34,12 @@ public class GameUIManager : MonoBehaviour
     public void MenuDisplayed()
     {
         _menuBG.SetActive(true);
-        Time.timeScale = 0;
+        _currPauseTimescaleChange = TimescaleManager.tm.AddTimescaleChange(new(0, false, 0));
     }
     public void MenuHid()
     {
         _menuBG.SetActive(false);
-        Time.timeScale = 1;
+        TimescaleManager.tm.RemoveTimescaleChange(_currPauseTimescaleChange);
     }
     public void DisplayUIMessage(UIMessageInfo messageInfo)
     {

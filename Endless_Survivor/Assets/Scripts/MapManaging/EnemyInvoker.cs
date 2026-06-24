@@ -11,8 +11,11 @@ public class EnemyInvoker : MonoBehaviour
     List<EnemyInvokationPriority> _spawningEnemies = new();
     Dictionary<EnemyControl, EnemyInvokationInfo> _spawnedEnemies = new(); 
     Action<EnemyControl> _onEnemyDeath;
-    const float _spawnTime = .5f;
+    const float _spawnTime = 2f;
+    const float _timescaleWhileInvoking = .5f;
     float _timer;
+    TimescaleChangeInfo _currTimescaleChange;
+
     public CustomAnimator Animator { get { return _animator; } }
     public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath;} set { _onEnemyDeath = value; } }
 
@@ -28,7 +31,7 @@ public class EnemyInvoker : MonoBehaviour
         if (_fightingInvokedEnemy || _spawningEnemies.Count == 0) 
             return;
         _invokingBar.gameObject.SetActive(true);
-        Time.timeScale -= .5f;
+        _currTimescaleChange = TimescaleManager.tm.AddTimescaleChange(new(_timescaleWhileInvoking, false, 0));
         _timer = _spawnTime;
     }
 
@@ -50,7 +53,7 @@ public class EnemyInvoker : MonoBehaviour
         if (_fightingInvokedEnemy || _spawningEnemies.Count == 0)
             return;
         _invokingBar.gameObject.SetActive(false);
-        Time.timeScale += .5f;
+        TimescaleManager.tm.RemoveTimescaleChange(_currTimescaleChange);
     }
 
     void SpawnEnemy()
@@ -70,7 +73,7 @@ public class EnemyInvoker : MonoBehaviour
         enemyHP.OnDeath += (placeholder) => GameUIManager.uiManager.PointerManager.RemovePointer(pointer);
 
         _spawningEnemies.RemoveAt(0);
-        Time.timeScale += .5f;
+        TimescaleManager.tm.RemoveTimescaleChange(_currTimescaleChange);
         _invokingBar.gameObject.SetActive(false);
         _fightingInvokedEnemy = true;
     }

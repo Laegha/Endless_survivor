@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehaviour
 {
     new public static int maxStacks => -1;
-    [SerializeField] float _timeScaleDecreaseOnBulletTime; // this should be changed once the time scale management system is complete
+    [SerializeField] float _timeScaleDecreaseOnBulletTime;
     [SerializeField] float _bulletTimeDuration;
     [SerializeField] int _parryingProyectileTargetPriority;
     [SerializeField] float _bulletDetectionDist;
@@ -17,9 +17,9 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
 
     List<EnemyProyectile> _nonThreatProyectiles = new();
     bool _inBulletTime;
-    float _bulletTimeTimer;
     GameObject _activeUiBulletTimeIndicator;
     GameObject _activeThreatProyectileIndicator;
+    TimescaleChangeInfo _activeTimescaleChange;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
@@ -40,21 +40,11 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
         _activeUiBulletTimeIndicator.transform.SetAsFirstSibling();
         _activeUiBulletTimeIndicator.SetActive(false);
 
-        behaviourManager.onUpdate += DecreaseBulletTimeTimer;
         behaviourManager.onUpdate += CheckProyectiles;
-    }
-    void DecreaseBulletTimeTimer()
-    {
-        if (_bulletTimeTimer <= 0)
-            return;
-        _bulletTimeTimer -= Time.unscaledDeltaTime;
-        if (_bulletTimeTimer <= 0)
-            EndBulletTime();
-
     }
     void CheckProyectiles()
     {
-        if (_bulletTimeTimer > 0)
+        if (_inBulletTime)
             return;
         EnemyProyectile[] allProyectiles = GameObject.FindObjectsOfType<EnemyProyectile>();
         foreach(var proyectile in allProyectiles)
@@ -91,6 +81,7 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
 
     void StartBulletTime(EnemyProyectile parryingProyectile)
     {
+        _inBulletTime = true;
         WeaponAim.SharedAttackTargets.Add(new(parryingProyectile.gameObject, _parryingProyectileTargetPriority));
         
         if(_threatProyectileIndicator.Frames.Length > 0)
@@ -110,12 +101,11 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
             PlayerControl.pc.PlayerMaterialManager.SetMaterialOverride(_bulletTimePlayerMaterial);
         }
 
-        Time.timeScale -= _timeScaleDecreaseOnBulletTime;
-        _bulletTimeTimer = _bulletTimeDuration;
+        _activeTimescaleChange = TimescaleManager.tm.AddTimescaleChange(new(_timeScaleDecreaseOnBulletTime, true, _bulletTimeDuration, EndBulletTime));
     }
     void EndBulletTime()
     {
-        Time.timeScale += _timeScaleDecreaseOnBulletTime;
+        _inBulletTime = false;
         _activeUiBulletTimeIndicator.SetActive(false);
         GameObject.Destroy(_activeThreatProyectileIndicator);
         if (_bulletTimePlayerMaterial.material != null)
@@ -126,9 +116,9 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
     }
     public override void RemoveBehaviour()
     {
-        if (_bulletTimeTimer <= 0)
+        if (!_inBulletTime)
             return;
-        EndBulletTime();
+        TimescaleManager.tm.RemoveTimescaleChange(_activeTimescaleChange);
         if (_activeUiBulletTimeIndicator != null)
             GameObject.Destroy(_activeUiBulletTimeIndicator);
     }
