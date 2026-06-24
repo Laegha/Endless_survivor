@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Slugcat
   _itemDescript: Gathers food to heal you
-  _itemSprite: {fileID: -839934344, guid: 9348cc9f6dd8b654287639c4e597a1d4, type: 3}
+  _itemSprite: {fileID: 0}
   _itemBehaviours:
   - rid: 575471762015256577
   _itemPools: 1
