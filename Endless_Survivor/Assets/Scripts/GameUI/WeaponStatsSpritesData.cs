@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using DamageType = DamageInfo.DamageType;
 
@@ -31,7 +32,13 @@ public class WeaponStatsSpritesData : ScriptableObject
         {
             Dictionary<DamageType, Sprite> result = new()
             {
-                {DamageType.Explosive, _explosiveSprite }
+                {DamageType.Explosive, _explosiveSprite },
+                {DamageType.Fire, _fireSprite},
+                {DamageType.Chemical, _chemicalSprite},
+                {DamageType.Ice, _iceSprite},
+                {DamageType.Electric, _electricSprite},
+                {DamageType.Cutting, _cuttingSprite},
+                {DamageType.Laser, _laserSprite},
             };
             return result;
         } }

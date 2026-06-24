@@ -63,7 +63,7 @@ MonoBehaviour:
           - {fileID: 11400000, guid: 7863b939900a2c94f8b6f63851c14859, type: 2}
         _damageMultiplier: 1
         _knockbackMultiplier: 1
-        _damageType: 33
+        _damageType: 32
         _firePointPosition: {x: 29.5, y: 1.5}
         _proyectileData:
           _proyectileSpeed: 10

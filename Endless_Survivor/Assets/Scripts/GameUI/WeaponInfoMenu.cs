@@ -46,11 +46,11 @@ public class WeaponInfoMenu : MonoBehaviour
         {
             if (!newShowingWeapon.DefaultAttack.DamageType.HasFlag(damageType) || !GameManager.gm.WeaponStatsSprites.DamageTypesSprites.ContainsKey(damageType))
                 continue;
-
             var damageTypeDisplay = Instantiate(_damageTypeImagePrefab);
             Sprite damageTypeSprite = GameManager.gm.WeaponStatsSprites.DamageTypesSprites[damageType];
             damageTypeDisplay.ChangeImageSprite(damageTypeSprite);
             damageTypeDisplay.GetComponent<RectTransform>().SetParent(_damageTypesRow);
+            damageTypeDisplay.GetComponent<RectTransform>().localScale = Vector3.one;
             _displayingDamageTypes.Add(damageTypeDisplay.gameObject);
         }
 }

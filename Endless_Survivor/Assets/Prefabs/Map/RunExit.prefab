@@ -121,11 +121,7 @@ MonoBehaviour:
   _openAnimation:
     _animationName: Open
     _frames:
-    - {fileID: 1057339456, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
-    - {fileID: -2143235717, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
-    - {fileID: 572188545, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
     - {fileID: -1894958073, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
-    - {fileID: 1057339456, guid: 12cc2e1b418b88248a7fd05e455769fd, type: 3}
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 2
