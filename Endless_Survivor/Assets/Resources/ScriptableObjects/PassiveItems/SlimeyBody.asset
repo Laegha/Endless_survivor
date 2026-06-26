@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Slimey body
   _itemDescript: Use your slime body to attack nearby enemies
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 86c5792f2302b984397e4683afd335f6, type: 3}
   _itemBehaviours:
   - rid: 8472846725585043456
   - rid: 8472846725585043457

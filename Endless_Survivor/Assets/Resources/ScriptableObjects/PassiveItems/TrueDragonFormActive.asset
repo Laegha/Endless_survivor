@@ -52,9 +52,9 @@ MonoBehaviour:
       data:
         _behaviourId: BuffWeapons
         _statsBuffs:
-          _range: 0
-          _attackSpeed: 0
-          _damage: 0
+          _range: 1
+          _attackSpeed: 1
+          _damage: 20
           _knockback: 0
         _maxBuffStacks: 1
         _durationType: 2

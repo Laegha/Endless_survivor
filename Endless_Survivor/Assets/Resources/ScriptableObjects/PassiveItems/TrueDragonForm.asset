@@ -15,7 +15,7 @@ MonoBehaviour:
   _itemName: True dragon form
   _itemDescript: Killing enemies triggers your true dragon form, for a period of
     time
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 1592ef19e3dc3314d906463d88c9eb7b, type: 3}
   _itemBehaviours:
   - rid: 8472846729055567876
   - rid: 8472846729055567877

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Serenade
   _itemDescript: Follows you and attacks enemies
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 7ba68506ca88bd642b933bc23b788d75, type: 3}
   _itemBehaviours:
   - rid: 1204507652299161601
   _itemPools: 1
@@ -24,6 +24,7 @@ MonoBehaviour:
     - rid: 1204507652299161601
       type: {class: SpawnSupportObjectsItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _spawnedObjects:
         - generic: {fileID: 11400000, guid: f00a7c5969996634d8b23c95b7ff9146, type: 2}
-          ammount: 1
+          num: 1

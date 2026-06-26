@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AbsoluteSolver
   m_EditorClassIdentifier: 
   _itemName: Absolute Solver
-  _itemDescript: 
-  _itemSprite: {fileID: 0}
+  _itemDescript: Grants the healing and power of a murder drone by killing enemies
+  _itemSprite: {fileID: 21300000, guid: a0bf59492f74a8c4d953c7f2a75a3024, type: 3}
   _itemBehaviours:
   - rid: 8472846884174823424
   - rid: 8472846884174823425

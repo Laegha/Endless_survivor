@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Picklock
   _itemDescript: Enemies have a chance to drop chests on death
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 5f9504b2d1f049a48b93adbd489e7e04, type: 3}
   _itemBehaviours:
   - rid: 1428375083982782467
   _itemPools: 1
@@ -24,8 +24,9 @@ MonoBehaviour:
     - rid: 1428375083982782467
       type: {class: CreatePickupItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _dropChance: 35
         _possiblePickups:
-        - _element: {fileID: 11400000, guid: 86f4007f28d2a554abc0e1c14a1e8b66, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: 86f4007f28d2a554abc0e1c14a1e8b66, type: 2}
           _chance: 1
         _createOnEnemyKill: 1

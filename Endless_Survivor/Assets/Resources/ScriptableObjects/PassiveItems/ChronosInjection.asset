@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Chronos Injection
   _itemDescript: This drug slows time when in danger
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 989f7f87def9b8f43821a26b701dec17, type: 3}
   _itemBehaviours:
   - rid: 8472846757472239616
   _itemPools: 0

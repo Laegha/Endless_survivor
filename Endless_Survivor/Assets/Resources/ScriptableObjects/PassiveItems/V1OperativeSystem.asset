@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: V1 Operative System
   _itemDescript: Prevents health regen, heal with melee attacks instead
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 07dbfe3f4dc23874e920078dc0e798a1, type: 3}
   _itemBehaviours:
   - rid: 1204507400439857156
   - rid: 1204507400439857158
@@ -25,11 +25,13 @@ MonoBehaviour:
     - rid: 1204507400439857156
       type: {class: HealPlayerOnEnemyHitItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _weaponsThatHeal: 02000000
         _healAmmount: 2
     - rid: 1204507400439857158
       type: {class: LockPlayerStatsItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _maxHpLock:
           isLocked: 0
           min: 0
@@ -42,7 +44,7 @@ MonoBehaviour:
           minInfinity: 0
           max: 0
           maxInfinity: 0
-        _speedLock:
+        _maxSpeedLock:
           isLocked: 0
           min: 0
           minInfinity: 0

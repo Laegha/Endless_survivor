@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
-  m_Name: DevilsChaos
+  m_Name: WorldRevolving
   m_EditorClassIdentifier: 
-  _itemName: Devil's Chaos
+  _itemName: World Revolving
   _itemDescript: Random events happen every five seconds
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 84d772ad49870574a978c3b7c8439020, type: 3}
   _itemBehaviours:
   - rid: 1204507964760915980
   - rid: 1204507964760915981
@@ -32,17 +32,17 @@ MonoBehaviour:
       data:
         _behaviourId: RandomActivator
         _possibleActivatedIds:
-        - _element: SpawnClubs
+        - _rouletteElement: 
           _chance: 1
-        - _element: SpawnSpades
+        - _rouletteElement: 
           _chance: 1
-        - _element: HeartHealOrHurt
+        - _rouletteElement: 
           _chance: 1
-        - _element: DiamondInflictEffects
+        - _rouletteElement: 
           _chance: 1
-        - _element: GiveWeakness
+        - _rouletteElement: 
           _chance: 1
-        - _element: GiveRegeneration
+        - _rouletteElement: 
           _chance: 1
         _timeBetweenActivations:
           min: 5
@@ -55,7 +55,7 @@ MonoBehaviour:
       data:
         _behaviourId: SpawnClubs
         _possibleSupportObjs:
-        - _element: {fileID: 11400000, guid: 39f675b251f9110478b33e257709e88f, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: 39f675b251f9110478b33e257709e88f, type: 2}
           _chance: 1
         _ammountPerSpawn:
           min: 10
@@ -65,7 +65,7 @@ MonoBehaviour:
       data:
         _behaviourId: SpawnSpades
         _possibleSupportObjs:
-        - _element: {fileID: 11400000, guid: 1d1e848b898774248b99b3e1af9c1403, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: 1d1e848b898774248b99b3e1af9c1403, type: 2}
           _chance: 1
         _ammountPerSpawn:
           min: 10
@@ -75,11 +75,11 @@ MonoBehaviour:
       data:
         _behaviourId: HeartHealOrHurt
         _heal:
-          _element: 10
+          _rouletteElement: 10
           _chance: 1
         _healParticles: {fileID: 4490651413473257475, guid: 89c207324d59a3548a530ce500f3eb5f, type: 3}
         _hurt:
-          _element: 5
+          _rouletteElement: 5
           _chance: 1
         _hurtParticles: {fileID: 4490651413473257475, guid: ace26aae3f52aa9478b0e0176cda4479, type: 3}
         _particlesOffsetFromPlayer: {x: 1, y: 0.75}
@@ -89,21 +89,23 @@ MonoBehaviour:
       data:
         _behaviourId: DiamondInflictEffects
         _inflictedStatusEffects:
-        - _element: {fileID: 11400000, guid: 684d96c6061f96c4e82799db4cfb2271, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: bce3bad343c4b6e408c2ec87a773e9b4, type: 2}
           _chance: 1
-        - _element: {fileID: 11400000, guid: 811a886b1a991f143afa6d7ce4cfa3f8, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: f203fcb01ef409e48b084b1b743bf4a8, type: 2}
           _chance: 1
-        - _element: {fileID: 11400000, guid: c8c81f0ada93c95488579b69918dd584, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: ffc62c2e795a58546bc7798b97b8e2d6, type: 2}
           _chance: 1
-        - _element: {fileID: 11400000, guid: c4127b1cf5358834588b1e6b847c9424, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: 811a886b1a991f143afa6d7ce4cfa3f8, type: 2}
           _chance: 1
-        - _element: {fileID: 11400000, guid: f5c2f56506ccd0145b269f9151111682, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: c8c81f0ada93c95488579b69918dd584, type: 2}
           _chance: 1
-        - _element: {fileID: 11400000, guid: f203fcb01ef409e48b084b1b743bf4a8, type: 2}
+        - _rouletteElement: {fileID: 11400000, guid: f5c2f56506ccd0145b269f9151111682, type: 2}
+          _chance: 1
+        - _rouletteElement: {fileID: 11400000, guid: c4127b1cf5358834588b1e6b847c9424, type: 2}
           _chance: 1
         _effectsPerEnemy:
           min: 1
-          max: 1
+          max: 2
         _particlesOnEnemyInflicted: {fileID: 4490651413473257475, guid: 8061e046f22d6ee47b0614673cc22213, type: 3}
         _particlesDuration: 5
         _particlesOffset: {x: 0, y: 0}

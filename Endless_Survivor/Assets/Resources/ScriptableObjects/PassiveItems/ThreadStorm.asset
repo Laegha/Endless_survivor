@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ThreadStorm
   m_EditorClassIdentifier: 
   _itemName: Thread Storm
-  _itemDescript: 
-  _itemSprite: {fileID: 0}
+  _itemDescript: Hit enemies, gain silk, use it to throw a huge attack
+  _itemSprite: {fileID: 21300000, guid: 10b8a52f5c1594a4491cf1b2810410b5, type: 3}
   _itemBehaviours:
   - rid: 3262447345440391168
   - rid: 3262447345440391169
@@ -53,6 +53,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 1
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
         _damage:

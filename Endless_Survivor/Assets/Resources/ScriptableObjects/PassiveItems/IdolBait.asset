@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IdolBait
   m_EditorClassIdentifier: 
   _itemName: Idol Bait
-  _itemDescript: 
+  _itemDescript: She will increase your power if you listen to her song
   _itemSprite: {fileID: 21300000, guid: c684f79b2b00eb24ea976072e4031c68, type: 3}
   _itemBehaviours:
   - rid: 909968409856835588

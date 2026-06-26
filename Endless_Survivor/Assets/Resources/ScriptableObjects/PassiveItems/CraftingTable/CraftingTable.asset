@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Crafting Table
   _itemDescript: Craftes equipment that gets better as the chaos level goes up
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 701d8ff7891405844931acfc96da6e81, type: 3}
   _itemBehaviours:
   - rid: 909968594120474625
   _itemPools: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Shine Bracelet
   _itemDescript: Allows to parry bullets with movement
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: 2f54b25ee8651804aa1f2e6202874e65, type: 3}
   _itemBehaviours:
   - rid: 9178415505152147458
   - rid: 9178415505152147459

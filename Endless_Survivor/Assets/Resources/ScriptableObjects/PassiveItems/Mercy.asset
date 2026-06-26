@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Mercy
   _itemDescript: The capacity to act and spare
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: cfcc8c98db8b73a41a1fd064821443d4, type: 3}
   _itemBehaviours:
   - rid: 9178415460274667521
   _itemPools: 0
