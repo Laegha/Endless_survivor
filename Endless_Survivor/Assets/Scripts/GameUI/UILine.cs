@@ -11,6 +11,15 @@ public class UILine : Graphic
     [SerializeField] float _startingSquareSizeMultiplier = 1.5f;
 
     List<Vector2> _lineVertices = new List<Vector2>();
+    public float LineLength { get
+        {
+            float result = 0;
+            for(int i = 0; i < _lineVertices.Count -1; i++)
+            {
+                result += Vector2.Distance(_lineVertices[i], _lineVertices[i+1]);
+            }
+            return result;
+        } }
     public List<Vector2> LineVertices { get { return _lineVertices; } }
     protected override void OnEnable()
     {

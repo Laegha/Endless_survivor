@@ -7,7 +7,8 @@ using UnityEngine;
 public class UILineDissapearAnimator : MonoBehaviour
 {
     [SerializeField] UILine _line;
-    [SerializeField] float _vertexMoveSpeed;
+    [SerializeField] float _lineDisappearTime;
+    float _vertexMoveSpeed;
 
     float _currVertexTargetDist = -1;
     float _currVertexLapsedDist = 0;
@@ -29,6 +30,8 @@ public class UILineDissapearAnimator : MonoBehaviour
                 _startDelayTimer -= Time.deltaTime;
                 return;
             }
+            _vertexMoveSpeed = _line.LineLength / _lineDisappearTime;
+            _vertexMoveSpeed = Mathf.Clamp(_vertexMoveSpeed, 1000, _vertexMoveSpeed);
             Vector2 lineMovement = vertices[1] - vertices[0];
             if(_currVertexTargetDist == -1)
                 _currVertexTargetDist = lineMovement.magnitude;

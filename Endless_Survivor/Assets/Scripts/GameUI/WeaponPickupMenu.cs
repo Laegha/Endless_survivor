@@ -82,8 +82,8 @@ public class WeaponPickupMenu : MonoBehaviour
 
         _weaponName.text = _currDisplayingWeapon.WeaponName;
         _weaponLevelDisplay.text = _currWeaponStats.TrueLevel + "";
-        _weaponDmgDisplay.text = _currWeaponStats.Damage + "";
-        _weaponAtkSpdDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.AttackSpeed, 2) + "";
+        _weaponDmgDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.Damage, 1) + "";
+        _weaponAtkSpdDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.AttackSpeed, 1) + "";
         _weaponRangeDisplay.text = _currWeaponStats.Range + "";
         _rerollsLeftDisplay.text = ""+RerollManager.rm.RerollsLeft;
     }

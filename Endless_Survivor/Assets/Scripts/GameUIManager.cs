@@ -11,6 +11,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] PlayerHPBar _playerHPBar;
     [SerializeField] IntensityUI _intensityUI;
     [SerializeField] UIPointerManager _pointerManager;
+    [SerializeField] GameObject _messageHolder;
 
     [InspectorLabel("Information menus")]
     [SerializeField] CharacterInfoMenu _charInfoMenu;
@@ -43,7 +44,7 @@ public class GameUIManager : MonoBehaviour
     }
     public void DisplayUIMessage(UIMessageInfo messageInfo)
     {
-        GameObject messageGO = Instantiate(GameManager.gm.prefabHolder.Prefabs["UIMessage"], transform.root);
+        GameObject messageGO = Instantiate(GameManager.gm.prefabHolder.Prefabs["UIMessage"], _messageHolder.transform);
         var messageTr = messageGO.GetComponent<RectTransform>();
         messageTr.anchoredPosition = new(0, messageInfo.MessageYPosition);
         messageGO.GetComponent<Animator>().runtimeAnimatorController = messageInfo.MessageAnimator;
