@@ -38,7 +38,7 @@ public class GameOverScreen : MonoBehaviour
         _menuObject.SetActive(true);
         _damageDealtDisplay.text = RunStatsManager.runStatsManager.totalDamageDealt + "";
         _killedEnemiesDisplay.text = RunStatsManager.runStatsManager.regularEnemiesKilled + "";
-        _wavesSurvivedDisplay.text = RunStatsManager.runStatsManager.wavesSurvived + "";
+        _wavesSurvivedDisplay.text = RunStatsManager.runStatsManager.intensityLevelsSurvived + "";
 
         _totalEarnedCoinDisplay.text = "x" + _totalEarnedCoins;
         _wavesSurvivedCoinDisplay.text = "x" + _earnedWaveCoins;
@@ -48,7 +48,7 @@ public class GameOverScreen : MonoBehaviour
 
     void CalculateEarnedCoins()
     {
-        var wavesSurvived = RunStatsManager.runStatsManager.wavesSurvived;
+        var wavesSurvived = RunStatsManager.runStatsManager.intensityLevelsSurvived;
         _earnedWaveCoins = (int)Mathf.Floor(wavesSurvived / _waveCoinRelation);
         _earnedWaveCoins = Mathf.Clamp(_earnedWaveCoins, 0, _maxWaveCoins);
 

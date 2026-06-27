@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,9 +17,11 @@ public class IntensityManager : MonoBehaviour
     float _currProgressGoal;
     int _currIntensityLevel = 0;
     const float uiAnimIncreasePerLevel = .5f;
+    Action _onLevelIncrease;
 
     public float CurrIntensityLevelProgress { get { return _currIntensityLevelProgress; } }
     public int CurrIntensityLevel { get { return _currIntensityLevel; } }
+    public Action OnLevelIncrease {  get { return _onLevelIncrease; } set { _onLevelIncrease = value; } }
     private void Awake()
     {
         instance = this;
@@ -41,7 +44,7 @@ public class IntensityManager : MonoBehaviour
         _currProgressGoal += GameManager.gm.WorldConfig.IntensityGoalIncrease;
         GameUIManager.uiManager.IntensityUI.ChangeUI(_currIntensityLevelProgress, _currProgressGoal, uiAnimIncreasePerLevel);
         GameUIManager.uiManager.DisplayUIMessage(GameManager.gm.WorldConfig.IntensityIncreaseMessageInfo);
-        int levelsTillNewBiome = (_currIntensityLevel - 1) % GameManager.gm.WorldConfig.IntensityLevelsForNewBiome;
+        int levelsTillNewBiome = _currIntensityLevel % GameManager.gm.WorldConfig.IntensityLevelsForNewBiome;
         if(levelsTillNewBiome == 0)
             MapManager.mm.UpdateBiome();
     }

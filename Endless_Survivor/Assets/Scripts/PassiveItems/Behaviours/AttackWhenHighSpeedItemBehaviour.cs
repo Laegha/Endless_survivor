@@ -57,7 +57,7 @@ public class AttackWhenHighSpeedItemBehaviour : PassiveItemBehaviour
         PlayerControl.pc.PlayerAnimator.AddAnimations(new(){ _rightAnimation, _leftAnimation });
         
         UpdateStats();
-        EnemySpawnManager.esm.OnWaveStarted += UpdateStats;
+        IntensityManager.im.OnLevelIncrease += UpdateStats;
         behaviourManager.onUpdate += CheckSpeed;
         if (_triggerType == SpeedAtkTypes.CooldownTimer)
         {

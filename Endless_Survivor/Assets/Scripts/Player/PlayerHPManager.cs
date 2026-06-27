@@ -29,7 +29,7 @@ public class PlayerHPManager : HP
         InitializeHP(_playerControl.PlayerStats.InitialHP);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         _inmunityFlashing = new SpriteMaterialFlashing(_playerControl.PlayerMaterialManager, _inmunityFlashingTime,new MaterialOverride(_flashingAuthority, _inmunityFlashingMaterial));
-        EnemySpawnManager.esm.OnWaveStarted += IncreaseMaxHP;
+        IntensityManager.im.OnLevelIncrease += IncreaseMaxHP;
         _onUpdateActions += HandleInmunity;
         _onUpdateActions += HandleRegeneration;
 

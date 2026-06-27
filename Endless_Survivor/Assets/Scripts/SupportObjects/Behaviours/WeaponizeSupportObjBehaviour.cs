@@ -17,7 +17,7 @@ public class WeaponizeSupportObjBehaviour : SupportObjectBehaviour
         _setSupportObjAsDistCheck = weaponizeOriginal._setSupportObjAsDistCheck;
 
         OnStart += CreateWeapon;
-        EnemySpawnManager.esm.OnWaveStarted += UpdateWeaponStats;
+        IntensityManager.im.OnLevelIncrease += UpdateWeaponStats;
         
     }
     void CreateWeapon()

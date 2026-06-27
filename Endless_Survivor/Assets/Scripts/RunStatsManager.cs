@@ -7,7 +7,7 @@ public class RunStatsManager : MonoBehaviour
     public static RunStatsManager instance;
     public static RunStatsManager runStatsManager {  get { return instance; } }
 
-    [HideInInspector]public int wavesSurvived;
+    [HideInInspector]public int intensityLevelsSurvived;
     [HideInInspector]public int totalDamageDealt;
     [HideInInspector]public int regularEnemiesKilled;
     [HideInInspector]public int minibossesKilled;
@@ -22,7 +22,7 @@ public class RunStatsManager : MonoBehaviour
 
     private void Start()
     {
-        EnemySpawnManager.esm.OnWaveStarted += IncreaseWaveCounter;
+        IntensityManager.im.OnLevelIncrease += IncreaseLevelCounter;
     }
 
     public void DamageDealt(int damage)
@@ -33,8 +33,8 @@ public class RunStatsManager : MonoBehaviour
     {
         regularEnemiesKilled++;
     }
-    void IncreaseWaveCounter()
+    void IncreaseLevelCounter()
     {
-        wavesSurvived++;
+        intensityLevelsSurvived++;
     }
 }

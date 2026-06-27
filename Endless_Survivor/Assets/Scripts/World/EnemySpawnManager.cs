@@ -13,7 +13,6 @@ public class EnemySpawnManager : MonoBehaviour
     float _enemySpawnTimer = 0.5f;
     
     System.Action<EnemyControl> _onEnemySpawned;
-    System.Action _onWaveStarted;
 
 
     static EnemySpawnManager instance;
@@ -22,7 +21,6 @@ public class EnemySpawnManager : MonoBehaviour
 
     public List<GameObject> Enemies {  get { return _enemies; } }
     public System.Action<EnemyControl> OnEnemySpawned { get { return _onEnemySpawned; } set { _onEnemySpawned = value; } }
-    public System.Action OnWaveStarted { get { return _onWaveStarted; } set { _onWaveStarted = value; } }
 
     private void Awake()
     {
