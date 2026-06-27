@@ -6,8 +6,8 @@ using UnityEngine;
 public class WeaponStats
 {
     static readonly float _rangeStatVariation = 1f;
-    static readonly float _atkSpeedStatVariation = .15f;
-    static readonly float _damageStatVariation = 1f;
+    static readonly float _atkSpeedStatVariation = .05f;
+    static readonly float _damageStatVariation = 2f;
 
     [SerializeField] float _range;
     [SerializeField] float _attackSpeed;
@@ -48,16 +48,22 @@ public class WeaponStats
     public void SetTrueLevelStats(WeaponStats statsScaling, int level)
     {
         _trueLevel = level;
-        _range += GetTrueStatIncrease(statsScaling.Range, level, _range, _rangeStatVariation);
-        _attackSpeed += GetTrueStatIncrease(statsScaling.AttackSpeed, level, _attackSpeed, _atkSpeedStatVariation);
-        _damage += GetTrueStatIncrease(statsScaling.Damage, level, _damage, _damageStatVariation);
+        _range += ScalingFunctions.WeaponRangeIncreaseTrueLevel(statsScaling.Range, level) + GetStatVariation(statsScaling.Range, level, _range, _rangeStatVariation);
+        _attackSpeed += ScalingFunctions.WeaponAtkSpdIncreaseTrueLevel(statsScaling.AttackSpeed, level) + GetStatVariation(statsScaling.AttackSpeed, level, _attackSpeed, _atkSpeedStatVariation); ;
+        _damage += ScalingFunctions.WeaponDamageIncreaseTrueLevel(statsScaling.Damage, level) + GetStatVariation(statsScaling.Damage, level, _damage, _damageStatVariation); ;
     }
     public void InducedLevelUp(WeaponStats statsScaling)
     {
         _inducedLevel++;
-        var rangeIncrease = GetInducedStatIncrease(statsScaling.Range, _trueLevel + _inducedLevel, _range, _rangeStatVariation);
-        var attackSpeedIncrease = GetInducedStatIncrease(statsScaling.AttackSpeed, _trueLevel + _inducedLevel, _attackSpeed, _atkSpeedStatVariation);
-        var damageIncrease = GetInducedStatIncrease(statsScaling.Damage, _trueLevel + _inducedLevel, _damage, _damageStatVariation);
+        int practicalLevel = _trueLevel + _inducedLevel;
+        float rangeIncrease = ScalingFunctions.WeaponRangeIncreaseTrueLevel(statsScaling.Range, practicalLevel) - ScalingFunctions.WeaponRangeIncreaseInducedLevel(statsScaling.Range, practicalLevel);
+        rangeIncrease = GetStatVariation(statsScaling.Range, practicalLevel, _range, _rangeStatVariation);
+        
+        float attackSpeedIncrease = ScalingFunctions.WeaponAtkSpdIncreaseTrueLevel(statsScaling.AttackSpeed, practicalLevel) - ScalingFunctions.WeaponAtkSpdIncreaseInducedLevel(statsScaling.AttackSpeed, practicalLevel);
+        attackSpeedIncrease = GetStatVariation(statsScaling.AttackSpeed, practicalLevel, _attackSpeed, _atkSpeedStatVariation);
+        
+        float damageIncrease = ScalingFunctions.WeaponDamageIncreaseTrueLevel(statsScaling.Damage, practicalLevel) - ScalingFunctions.WeaponDamageIncreaseInducedLevel(statsScaling.Damage, practicalLevel);
+        damageIncrease = GetStatVariation(statsScaling.Damage, practicalLevel, _damage, _damageStatVariation);
         StatIncrease(rangeIncrease, attackSpeedIncrease, damageIncrease, 0);
     }
     public void StatIncrease(float range, float attackSpeed, float damage, float knockback)
@@ -75,12 +81,8 @@ public class WeaponStats
         else
             StatIncrease(-statIncrease.Range, -statIncrease.AttackSpeed, -statIncrease.Damage, -statIncrease.Knockback);
     }
-    float GetTrueStatIncrease(float increaseScale, int level, float baseStat, float variation)
+    float GetStatVariation(float increaseScale, int level, float baseStat, float variation)
     {
-        return ScalingFunctions.WeaponStatIncreaseTrueLevel(increaseScale, level) + Random.Range(baseStat > variation ? -variation : 0, variation) * increaseScale;
-    }
-    float GetInducedStatIncrease(float increaseScale, int level, float baseStat, float variation)
-    {
-        return ScalingFunctions.WeaponStatIncreaseInducedLevel(increaseScale, level) + Random.Range(baseStat > variation ? -variation : 0, variation);
+        return Random.Range(baseStat > variation ? -variation : 0, variation) * increaseScale;
     }
 }
