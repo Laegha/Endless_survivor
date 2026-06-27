@@ -19,15 +19,18 @@ MonoBehaviour:
   _colliderSize: {x: 0.6, y: 0.6}
   _colliderOffset: {x: 0, y: -0.4}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
+  - rid: 8472846793285304320
   - rid: 8472846607437529090
   - rid: 8472846607437529091
   - rid: 8472846607437529092
   - rid: 8472846607437529093
   - rid: 8472846611716767744
   - rid: 8472846611716767745
-  - rid: 8472846793285304320
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 5
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -46,7 +49,7 @@ MonoBehaviour:
       data:
         _behaviourId: AccelerateToPlayer
         _overrideBehaviours: []
-        _acceleration: 1
+        _acceleration: 3
         _initialSpeed: 3
         _maxSpeed: 3
         _instantStopOnUnactive: 1
@@ -261,6 +264,6 @@ MonoBehaviour:
       data:
         _behaviourId: AdditionalCollider
         _overrideBehaviours: []
-        _colliderSize: {x: 0, y: 0.2}
-        _colliderOffset: {x: 0.6, y: 0.9}
+        _colliderSize: {x: 0.6, y: 0.9}
+        _colliderOffset: {x: 0, y: 0.2}
         _colliderDirection: 0

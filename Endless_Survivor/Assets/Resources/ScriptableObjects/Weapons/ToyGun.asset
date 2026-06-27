@@ -23,7 +23,7 @@ MonoBehaviour:
   _attackSpeedIncrease: 0.4
   _damageIncrease: 1
   _weaponTags: 
-  _weaponPools: 0
+  _weaponPools: 1
   _defaultAttack:
     rid: 3262447215499018242
   _weaponAttacks:
@@ -216,13 +216,16 @@ MonoBehaviour:
       data:
         _neededPoints: 1
         _triggeredAttackId: GlassAttack
+        _usesPointsOnTrigger: 0
     - rid: 3262447215499018247
       type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
       data:
         _neededPoints: 2
         _triggeredAttackId: FriendlinessAttack
+        _usesPointsOnTrigger: 0
     - rid: 3262447215499018248
       type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
       data:
         _neededPoints: 3
         _triggeredAttackId: CoffeeAttack
+        _usesPointsOnTrigger: 0

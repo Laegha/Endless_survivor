@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: DamagingBubbles
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 8472847103768657924
+  - rid: 8472847103768657925
+  - rid: 8472847103768657926
+  - rid: 8472847103768657928
+  - rid: 8472847103768657929
+  _idleAnimation:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8472847103768657924
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 128
+        _areaSize: {x: 0.6, y: 0.6}
+        _areaOffset: {x: 0, y: 0}
+        _areaGfx:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _areaGfxSortingOffset: 0
+        _areaGfxAlpha: 0
+    - rid: 8472847103768657925
+      type: {class: DestroySupportObjOnContactSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+    - rid: 8472847103768657926
+      type: {class: ExplodeOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _explosionDamage:
+          _damageAmmount: 10
+          _damageType: 8
+        _explosionRadius: 0.8
+        _explosionParticles: {fileID: 0}
+        _particlesDuration: 0
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 128
+    - rid: 8472847103768657928
+      type: {class: CreateParticlesSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _particlesOffset: {x: 0, y: 0}
+        _particles: {fileID: 3397813898922079721, guid: d3227c8b9eafaeb4bbc4707cf7d754dc, type: 3}
+        _particlesDuration: -1
+        _isChildOfSupportObj: 1
+    - rid: 8472847103768657929
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 3
+          max: 5

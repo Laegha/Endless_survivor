@@ -19,6 +19,7 @@ MonoBehaviour:
   _colliderSize: {x: 1.4, y: 1.4}
   _colliderOffset: {x: 0, y: -0.6}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 3262447387164803075
   - rid: 3262447387164803076
@@ -29,7 +30,11 @@ MonoBehaviour:
   - rid: 3262447387164803082
   - rid: 3262447391761760257
   - rid: 3262447387164803083
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 100
+  - _rouletteElement: {fileID: 11400000, guid: a5e58a51d85f42c439e36958899441ad, type: 2}
+    _chance: 100
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -229,6 +234,8 @@ MonoBehaviour:
           _priority: 1
         _triggerVFXFrame: 4
         _vfxRendererOffset: -50
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
         _triggerDamageFrame: 1
         _attackSfx:
           _sound: {fileID: 0}
@@ -243,6 +250,8 @@ MonoBehaviour:
         _behavioursToTrigger:
         - MeleeAttack
         _distanceToTrigger: 1.4
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
     - rid: 3262447387164803082
       type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:

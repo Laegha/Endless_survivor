@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
   m_Name: RimuruSlimeEvolution
   m_EditorClassIdentifier: 
-  _itemName: 
-  _itemDescript: 
-  _itemSprite: {fileID: 0}
+  _itemName: Rimuru's body
+  _itemDescript: Start as a slime, but kill enemies to become stronger
+  _itemSprite: {fileID: 21300000, guid: 86c5792f2302b984397e4683afd335f6, type: 3}
   _itemBehaviours:
   - rid: 8472846725585043458
   - rid: 8472846725585043459

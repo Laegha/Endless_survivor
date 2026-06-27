@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _line: {fileID: 1575254892736945126}
-  _vertexMoveSpeed: 400
+  _lineDisappearTime: 0.4
   _startDelay: 0.2

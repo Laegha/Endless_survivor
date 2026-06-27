@@ -25,10 +25,10 @@ MonoBehaviour:
   _playerStats:
     _initialHP: 10
     _hpIncrement: 1
-    _hpRegeneration: 0
-    _defense: 0
-    _maxSpeed: 6
+    _hpRegeneration: 0.1
+    _defense: 1
     _minSpeed: 5.5
+    _maxSpeed: 6
     _acceleration: 1
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}

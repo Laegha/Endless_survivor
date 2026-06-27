@@ -19,6 +19,7 @@ MonoBehaviour:
   _colliderSize: {x: 0.85, y: 0.85}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 9178415619240099843
   - rid: 9178415619240099840
@@ -28,7 +29,9 @@ MonoBehaviour:
   - rid: 9178415611472510978
   - rid: 9178415619240099842
   - rid: 9178415662369865728
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 60
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1
@@ -206,6 +209,8 @@ MonoBehaviour:
         - CreateExplosion
         - ExplosionAnimTriggerKill
         _distanceToTrigger: 1
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
     - rid: 9178415627967135744
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:

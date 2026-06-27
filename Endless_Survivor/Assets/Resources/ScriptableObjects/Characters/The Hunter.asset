@@ -18,16 +18,16 @@ MonoBehaviour:
   - {fileID: -169117831, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
   - {fileID: 885243135, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
   _initialWeapons:
-  - {fileID: 11400000, guid: 0c66f01383ac1904fa95e17c1f10a935, type: 2}
+  - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
   _initialMaxWeapons: 2
   _initialPassives: []
   _playerStats:
     _initialHP: 6
     _hpIncrement: 2
     _hpRegeneration: 1
-    _defense: 0
-    _maxSpeed: 4.5
+    _defense: 1
     _minSpeed: 4
+    _maxSpeed: 4.5
     _acceleration: 1
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}

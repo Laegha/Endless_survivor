@@ -15,15 +15,15 @@ MonoBehaviour:
   _minEnemySpawnDist: 5
   _maxEnemySpawnDist: 100
   _timeBetweenEnemySpawn:
-    min: 15
-    max: 25
+    min: 6
+    max: 10
   _enemiesPerSpawn:
-    min: 10
-    max: 15
-  _initialIntensityGoal: 30
-  _intensityGoalIncrease: 10
-  _enemyHPPercentToIntensityIncrease: 10
-  _intensityLevelsForNewBiome: 1
+    min: 5
+    max: 8
+  _initialIntensityGoal: 300
+  _intensityGoalIncrease: 200
+  _enemyHPPercentToIntensityIncrease: 100
+  _intensityLevelsForNewBiome: 5
   _intensityIncreaseMessageInfo:
     _message: The engine of chaos turns faster
     _textSize: 24

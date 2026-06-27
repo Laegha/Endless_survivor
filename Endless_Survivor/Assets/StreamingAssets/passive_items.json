@@ -1,6 +1,26 @@
 [
   {
-    "fileName": "WeaknessVirus",
+    "fileName": "CraftingTable",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "AbsoluteSolver",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Bearserker",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ChronosInjection",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "EasyRagebait",
     "isUnlocked": true,
     "isNew": false
   },
@@ -10,7 +30,97 @@
     "isNew": false
   },
   {
+    "fileName": "FoxFire",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "IdolBait",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "IsaacsDice",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Jarate",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LegHuggerItem",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "MafiaBait",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Mercy",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Lockpicks",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "RottenBabyItem",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "SerenadeItem",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ShineBracelet",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "SlimeyBody",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Slugcat",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ThreadStorm",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "TrueDragonForm",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "V1OperativeSystem",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "Vedal",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "WeaknessVirus",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "WorldRevolving",
     "isUnlocked": true,
     "isNew": false
   }

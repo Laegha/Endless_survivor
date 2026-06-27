@@ -1,21 +1,7 @@
 [
-  {
-    "fileName": "Purple Bullseye",
-    "isUnlocked": true,
-    "isNew": false
-  },
+
   {
     "fileName": "Balance",
-    "isUnlocked": true,
-    "isNew": false
-  },
-  {
-    "fileName": "Fish Revolver",
-    "isUnlocked": true,
-    "isNew": false
-  },
-  {
-    "fileName": "Tesla Winchester",
     "isUnlocked": true,
     "isNew": false
   },
@@ -25,12 +11,82 @@
     "isNew": false
   },
   {
-    "fileName": "Red Queen",
+    "fileName": "Breacher8",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Broadsword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "CombatKnife",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Cookie",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Crucible",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "DesertEagle",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "DevilsKnife",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "DiamondSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Elpis",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "FinnSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Fish Revolver",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Gnarpy",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "GoldSword",
     "isUnlocked": true,
     "isNew": false
   },
   {
     "fileName": "GrassSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "IronSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LedgehopFlamethrower",
     "isUnlocked": true,
     "isNew": false
   },
@@ -45,7 +101,92 @@
     "isNew": false
   },
   {
-    "fileName": "LedgehopFlamethrower",
+    "fileName": "MomsKnife",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "MurderDroneClaw",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "MurderDroneLaser",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Needle",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "NoiseBombs",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "NullKatana",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Purple Bullseye",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Red Queen",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "RogueSpecial",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ScatterBlaster",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Shovel",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "SniperRifle",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Tailless",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Tesla Winchester",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ToyGun",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "UltraRevolver",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "V1Fist",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Vacpack",
     "isUnlocked": true,
     "isNew": false
   }

@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialHP: 8
   _referenceSizeSprite: {fileID: 2124403353, guid: eac5266aaaf2fd444a0040166efe8485, type: 3}
+  _renderSortingOffset: 0
   _knockbackResistance: -5
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 9178415619240099843
   - rid: 9178415619240099840
@@ -117,3 +119,5 @@ MonoBehaviour:
         - CreateExplosion
         - KillEnemy
         _distanceToTrigger: 1
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []

@@ -19,7 +19,9 @@ MonoBehaviour:
   _colliderSize: {x: 0.45, y: 0.7}
   _colliderOffset: {x: 0, y: -0.35}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
+  - rid: 8472847112956542977
   - rid: 909968594120474627
   - rid: 909968594120474628
   - rid: 909968594120474629
@@ -146,3 +148,11 @@ MonoBehaviour:
           _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
+    - rid: 8472847112956542977
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.3, y: 1.2}
+        _colliderOffset: {x: 0, y: 0.5}
+        _colliderDirection: 0

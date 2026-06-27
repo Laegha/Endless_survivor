@@ -27,9 +27,9 @@ MonoBehaviour:
     _initialHP: 16
     _hpIncrement: 2
     _hpRegeneration: 1
-    _defense: 0
-    _maxSpeed: 8
+    _defense: 1
     _minSpeed: 5
+    _maxSpeed: 8
     _acceleration: 0.5
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}

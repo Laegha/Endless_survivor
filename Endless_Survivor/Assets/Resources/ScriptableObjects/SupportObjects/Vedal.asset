@@ -24,6 +24,7 @@ MonoBehaviour:
     - {fileID: 476860934, guid: 9348cc9f6dd8b654287639c4e597a1d4, type: 3}
     - {fileID: -975730637, guid: 9348cc9f6dd8b654287639c4e597a1d4, type: 3}
     _framesPerSecond: 4
+    _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
   references:
@@ -50,14 +51,25 @@ MonoBehaviour:
           - {fileID: -609192743, guid: d74cf9421ac615649a6ad1df7dbbf84c, type: 3}
           - {fileID: -2103138207, guid: d74cf9421ac615649a6ad1df7dbbf84c, type: 3}
           _framesPerSecond: 10
+          _endAnimationOnEnd: 0
           _priority: 1
     - rid: 575471773757210632
       type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 0
         _areaSize: {x: 1.125, y: 1.125}
         _areaOffset: {x: 0, y: 0}
-        _areaGfx: {fileID: 21300000, guid: a22a18610ad32ee42b2f11a3f1daa4d7, type: 3}
+        _areaGfx:
+          _animationName: 
+          _frames:
+          - {fileID: 21300000, guid: a22a18610ad32ee42b2f11a3f1daa4d7, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _areaGfxSortingOffset: 0
         _areaGfxAlpha: 60
     - rid: 575471773757210633
       type: {class: BuffAttacksAroundAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}

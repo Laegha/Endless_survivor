@@ -23,11 +23,12 @@ MonoBehaviour:
   _attackSpeedIncrease: 0.05
   _damageIncrease: 5
   _weaponTags: 
-  _weaponPools: 0
+  _weaponPools: 1
   _defaultAttack:
     rid: 7757969577072656391
   _weaponAttacks: []
   _attackConditions: []
+  _spriteRenderOrderOffset: 0
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -70,6 +71,7 @@ MonoBehaviour:
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 129
         _firePointPosition: {x: 28.5, y: 4}
         _rayData:

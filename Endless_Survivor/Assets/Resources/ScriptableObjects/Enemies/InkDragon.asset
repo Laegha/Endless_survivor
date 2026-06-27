@@ -19,6 +19,7 @@ MonoBehaviour:
   _colliderSize: {x: 0, y: 0}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 8047334641657446400
   - rid: 8047334641657446402
@@ -39,7 +40,13 @@ MonoBehaviour:
   - rid: 8047334641657446411
   - rid: 8047334641657446412
   - rid: 5501333032104099843
-  _dropablePickupChances: []
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 100
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 100
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 50
   _onHitSFX:
     _sound: {fileID: 0}
     _volume: 1

@@ -417,19 +417,19 @@ MonoBehaviour:
       data:
         _changeChance: 100
         _idsWeights:
-        - _rouletteElement: 
+        - _rouletteElement: RockSlime
           _chance: 3
-        - _rouletteElement: 
+        - _rouletteElement: BoomSlime
           _chance: 3
-        - _rouletteElement: 
+        - _rouletteElement: RadSlime
           _chance: 3
-        - _rouletteElement: 
+        - _rouletteElement: FireSlime
           _chance: 3
-        - _rouletteElement: 
+        - _rouletteElement: TangleSlime
           _chance: 3
-        - _rouletteElement: 
+        - _rouletteElement: QuantumSlime
           _chance: 3
-        - _rouletteElement: 
+        - _rouletteElement: QuicksilverSlime
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: LuckySlime
           _chance: 1

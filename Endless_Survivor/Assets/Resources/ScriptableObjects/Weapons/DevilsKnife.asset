@@ -23,7 +23,7 @@ MonoBehaviour:
   _attackSpeedIncrease: 0.5
   _damageIncrease: 2
   _weaponTags: 
-  _weaponPools: 0
+  _weaponPools: 1
   _defaultAttack:
     rid: 1204507904635305984
   _weaponAttacks: []
@@ -65,6 +65,7 @@ MonoBehaviour:
           availableEffects:
           - {fileID: 11400000, guid: c96188e77eefcff43b0c9eae0a3eddfe, type: 2}
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 64
         _firePointPosition: {x: 0, y: 0}
         _proyectileData:
