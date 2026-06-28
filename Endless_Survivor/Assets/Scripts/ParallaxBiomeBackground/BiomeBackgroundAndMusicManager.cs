@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class BiomeBackgroundManager : MonoBehaviour
+public class BiomeBackgroundAndMusicManager : MonoBehaviour
 {
     //[SerializeField] float _maxDistToTarget;
     //[SerializeField] SpriteRenderer _tilePrefab;
