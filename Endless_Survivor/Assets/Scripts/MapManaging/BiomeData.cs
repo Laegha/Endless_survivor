@@ -6,6 +6,8 @@ using UnityEngine;
 public class BiomeData : ScriptableObject
 {
     [SerializeField] BiomeBackgroundData _backgroundData;
+    [SerializeField] AudioClip _biomeMusic;
+    [SerializeField] float _musicVolume;
     [SerializeField] Sprite _floorTile;
     [Header("Walls")]
     [SerializeField] Sprite _topWallTile;
@@ -41,6 +43,8 @@ public class BiomeData : ScriptableObject
 
 
     public BiomeBackgroundData BackgroundData{ get { return _backgroundData; } }
+    public AudioClip BiomeMusic { get { return _biomeMusic; } }
+    public float MusicVolume { get { return _musicVolume; } }
     public Sprite FloorTile { get { return _floorTile; } }
     public Sprite TopWallTile { get { return _topWallTile; } }
     public Sprite RightWallTile { get { return _rightWallTile; } }
