@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Graveyard
   m_EditorClassIdentifier: 
   _backgroundData: {fileID: 11400000, guid: ffdd3acb8d1b23f42a077a37ccc4b191, type: 2}
+  _biomeMusic: {fileID: 8300000, guid: d007b07d533344a47851e17dde1cfd8b, type: 3}
+  _musicVolume: 1
   _floorTile: {fileID: 21300000, guid: 780a869eea8a8a949b60b68dda8af6a1, type: 3}
   _topWallTile: {fileID: 21300000, guid: 06141be3bd71c8b44ab0df14ef2985ed, type: 3}
   _rightWallTile: {fileID: 21300000, guid: 39a87bb24335d9a48a91e68cca236b2e, type: 3}

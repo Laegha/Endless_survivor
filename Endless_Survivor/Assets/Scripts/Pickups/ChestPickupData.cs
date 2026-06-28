@@ -33,7 +33,6 @@ public class ChestPickupData : PickupData
         if (dropedPickup != null)
         {
             Utility.GeneratePickup(dropedPickup, position);
-            Debug.Log("Generationg " + dropedPickup);
             return;
         }
         if(_generatedObjIfNullDrop == null)

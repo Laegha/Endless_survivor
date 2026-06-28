@@ -41,7 +41,6 @@ public class InflictPlayerStatusInAreaEnemyBehaviour : EnemyBehaviour
         _cooldownTimer -= Time.deltaTime;
         if (_cooldownTimer > 0)
             return;
-        Debug.Log("INFLICTING FUCNIN EFEFECTS");
         var objsInArea = Physics2D.OverlapCircleAll((Vector2)EnemyControl.transform.position + _areaOffset, _areaRadius, Utility.GetCollidableLayers("PlayerDetector"));
         if (objsInArea.Length == 0)
             return;

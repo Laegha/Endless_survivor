@@ -71,7 +71,6 @@ public class ParryDamageEnemyBehaviour : EnemyBehaviour
                 _currParryChance = Mathf.Clamp(_currParryChance + _parryChanceIncreasePerFailedParry, 0, _maxParryChance);
             return;
         }
-        Debug.Log("PARRY!");
         _currParryChance = Mathf.Clamp(_currParryChance - _parryChanceDecreasePerSuccesfullParry, 0, _maxParryChance);
         //activate parry state
         EnemyControl.BehaviourManager.ActivateBehaviour(this);

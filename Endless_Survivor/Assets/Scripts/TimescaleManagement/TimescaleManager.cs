@@ -15,7 +15,7 @@ public class TimescaleManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += ResetTimescale();
+        SceneManager.sceneLoaded += ResetTimescale;
     }
 
     void Update()
@@ -71,10 +71,9 @@ public class TimescaleManager : MonoBehaviour
         Time.timeScale = _pendingChanges[0].NewTimescale;
         
     }
-    UnityAction<Scene, LoadSceneMode> ResetTimescale()
+    void ResetTimescale(Scene placeholderscene, LoadSceneMode placeholdermode)
     {
         Time.timeScale = 1;
         _pendingChanges = new();
-        return null;
     }
 }

@@ -52,8 +52,6 @@ public class ReviveEnemiesInAreaSupportObjBehaviour : UseAreaAroundSupportObjBeh
     }
     void AddReviveEnemy(GameObject obj)
     {
-        Debug.Log("Adding action");
-
         EnemyControl enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(obj);
         if (enemyControl == null || _possibleRevivingEnemies.Contains(enemyControl))
             return;

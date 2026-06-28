@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: City
   m_EditorClassIdentifier: 
   _backgroundData: {fileID: 11400000, guid: 877ff040a729bc3408b10be1fb9ea31d, type: 2}
+  _biomeMusic: {fileID: 8300000, guid: cbc1d4093faee064c945143119eee64c, type: 3}
+  _musicVolume: 1
   _floorTile: {fileID: 21300000, guid: 382ad0fa0446d30458cee5d87e358e97, type: 3}
   _topWallTile: {fileID: 21300000, guid: 94f5a5f753726b241929a3527578256b, type: 3}
   _rightWallTile: {fileID: 21300000, guid: 06a4dd0122a6f9e47aed55eff64ea28d, type: 3}

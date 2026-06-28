@@ -33,7 +33,6 @@ public class FlipWhenAtRotationThresholdSupportObjBehaviour : SupportObjectBehav
     }
     void CheckRotation()
     {
-        Debug.Log(_rotationCheckTr.rotation.z);
         var currThreshold = _flipThresholds.Find(threshold => threshold.IsInThreshold(_rotationCheckTr.rotation.eulerAngles.z));
         if (currThreshold == null)
             return;

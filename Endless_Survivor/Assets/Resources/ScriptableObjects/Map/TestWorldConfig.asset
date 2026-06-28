@@ -20,9 +20,9 @@ MonoBehaviour:
   _enemiesPerSpawn:
     min: 5
     max: 8
-  _initialIntensityGoal: 300
-  _intensityGoalIncrease: 200
-  _enemyHPPercentToIntensityIncrease: 100
+  _initialIntensityGoal: 100
+  _intensityGoalIncrease: 50
+  _enemyHPPercentToIntensityIncrease: 50
   _intensityLevelsForNewBiome: 5
   _intensityIncreaseMessageInfo:
     _message: The engine of chaos turns faster
