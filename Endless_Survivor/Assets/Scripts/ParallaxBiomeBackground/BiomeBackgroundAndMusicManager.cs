@@ -40,7 +40,8 @@ public class BiomeBackgroundAndMusicManager : MonoBehaviour
             _currentBiomeBgTiles.Remove(tile);
             Destroy(tile.gameObject);//change this for a transition if possible
         }
-        
+
+        MusicManager.mm.ChangeMusic(_currBiome.BiomeData.BiomeMusic, _currBiome.BiomeData.MusicVolume);
         CreateNewBiomeBgTiles();
 
 
