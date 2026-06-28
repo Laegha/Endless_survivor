@@ -13,6 +13,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     [SerializeField] ParticleSystem _dashParticles;
     [SerializeField] float _particlesDuration;
     [SerializeField] bool _particlesFollowEnemy;
+    [SerializeField] SFXInfo _onDashSFX;
 
     Vector2 _direction;
     bool _isActivated;
@@ -31,6 +32,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
         _dashParticles = dashOriginal._dashParticles;
         _particlesDuration = dashOriginal._particlesDuration;
         _particlesFollowEnemy = dashOriginal._particlesFollowEnemy;
+        _onDashSFX = dashOriginal._onDashSFX;
     }
     public override void ActiveUpdate()
     {
@@ -50,6 +52,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
                 ParticleConfig particleConfig = new(_dashParticles, EnemyControl.transform.position, Quaternion.identity, _particlesDuration, _particlesFollowEnemy ? EnemyControl.transform : null, _particlesFollowEnemy, _particlesFollowEnemy);
                 ParticleManager.pm.SpawnParticles(particleConfig);
             }
+            SoundFXManager.sm.PlaySfx(_onDashSFX, EnemyControl.transform.position);
         }
         if (_dashAnimations.GetAnim(_direction).Frames.Length > 0 && EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _dashAnimations.GetAnim(_direction).AnimationName)
             EnemyControl.Animator.ChangeAnim(_dashAnimations.GetAnim(_direction).AnimationName);

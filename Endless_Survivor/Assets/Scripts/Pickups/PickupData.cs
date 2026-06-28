@@ -7,6 +7,7 @@ public class PickupData : ScriptableObject
     [SerializeField] ParticleSystem _pickupParticles;
     [SerializeField] Vector2 _colliderSize;
     [SerializeField] int _renderingOffset;
+    [SerializeField] SFXInfo _onPickupSFX;
     public virtual void TransferData(PickupControl pickupControl)
     {
         pickupControl.Pickup.PickupData = this;
@@ -16,6 +17,7 @@ public class PickupData : ScriptableObject
             ParticleManager.pm.SpawnParticles(particleConfig);
 
         }
+        pickupControl.Pickup.OnPickupSFX = _onPickupSFX;
         pickupControl.RendererSorting.Offset = _renderingOffset;
         pickupControl.Collider.size = _colliderSize;
     }

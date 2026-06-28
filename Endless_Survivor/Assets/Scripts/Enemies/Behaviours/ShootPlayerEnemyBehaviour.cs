@@ -15,6 +15,8 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
 
     [SerializeField] ProyectileData _proyectileData;
 
+    [SerializeField] SFXInfo _onShootSFX;
+
     Transform _player;
     Transform _enemy;
 
@@ -30,6 +32,8 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
 
 
         _proyectileData = originalShootPlayer._proyectileData;
+
+        _onShootSFX = originalShootPlayer._onShootSFX;
 
         _player = PlayerControl.pc.transform;
         _enemy = enemyControl.transform;
@@ -54,6 +58,8 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
         angle += _proyectileRotationOffset;
         EnemyProyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyProyectile>();
         proyectile.Initiate(_damage, _proyectileLifetime, _proyectileData);
+
+        SoundFXManager.sm.PlaySfx(_onShootSFX, EnemyControl.transform.position);
 
     }
 

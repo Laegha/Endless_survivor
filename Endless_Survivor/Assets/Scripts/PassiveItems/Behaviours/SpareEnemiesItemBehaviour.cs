@@ -16,6 +16,9 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
     [SerializeField] Vector2 _pickupColliderSize;
     [SerializeField] ParticleSystem _actParticles;
     [SerializeField] ParticleSystem _spareParticles;
+    [SerializeField] SFXInfo _actSFX;
+    [SerializeField] SFXInfo _spareSFX;
+
     EnemyControl _sparingEnemy;
     int _neededActs;
     int _currActs;
@@ -37,6 +40,8 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
         _pickupColliderSize = spareEnemiesOriginal._pickupColliderSize;
         _actParticles = spareEnemiesOriginal._actParticles;
         _spareParticles = spareEnemiesOriginal._spareParticles;
+        _actSFX = spareEnemiesOriginal._actSFX;
+        _spareSFX = spareEnemiesOriginal._spareSFX;
 
         behaviourManager.onUpdate += CheckEnemyDeath;
         behaviourManager.onUpdate += CheckNearbyEnemies;
@@ -111,6 +116,7 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
         //generate act particles on enemy
         ParticleConfig actParticles = new(_actParticles, Vector2.zero, Quaternion.identity, _actParticles.main.duration, _sparingEnemy.transform, true, true);
         ParticleManager.pm.SpawnParticles(actParticles);
+        SoundFXManager.sm.PlaySfx(_actSFX, PlayerControl.pc.transform.position);
     }
 
     void SpareEnemy()
@@ -126,6 +132,8 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
         _sparingEnemy = null;
         if(_currPickup != null)
             GameObject.Destroy(_currPickup.gameObject);
+
+        SoundFXManager.sm.PlaySfx(_spareSFX, PlayerControl.pc.transform.position);
 
     }
 

@@ -20,6 +20,7 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
     [Range(0, 1)][SerializeField] float _cycleMinSpeed;
     [Range(0, 1)][SerializeField] float _cycleMaxSpeed;
     [SerializeField] bool _resetCycleIfNotShootForTime;
+    [SerializeField] SFXInfo _startShootingSFX;
 
     const int _curveLength = 1;
     float _currCycleTime;
@@ -44,7 +45,8 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
         _cycleHeightMultiplier = shootInSprayOriginal._cycleHeightMultiplier;
         _cycleMinSpeed = Mathf.Clamp(shootInSprayOriginal._cycleMinSpeed, 0, shootInSprayOriginal._cycleMaxSpeed);
         _cycleMaxSpeed = Mathf.Clamp(shootInSprayOriginal._cycleMaxSpeed, shootInSprayOriginal._cycleMinSpeed, Mathf.Infinity);
-	_resetCycleIfNotShootForTime = shootInSprayOriginal._resetCycleIfNotShootForTime;
+	    _resetCycleIfNotShootForTime = shootInSprayOriginal._resetCycleIfNotShootForTime;
+        _startShootingSFX = shootInSprayOriginal._startShootingSFX;
     }
 
     public override void PassiveUpdate()
@@ -62,6 +64,7 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
         _bufferTimer = 0;
         if(_currCycleTime == 0)
         {
+            SoundFXManager.sm.PlaySfx(_startShootingSFX, EnemyControl.transform.position);
             //calculate player direction
             _playerDirectionOnCurrCycle = PlayerControl.pc.transform.position - EnemyControl.transform.position;
         }

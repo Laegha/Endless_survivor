@@ -15,11 +15,14 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] CustomAnimation _areaGfx;
     [SerializeField] int _areaGfxSortingOffset; 
     [Range(0,255)][SerializeField] float _areaGfxAlpha;
+    [SerializeField] SFXInfo _areaSFX;
+    [SerializeField] float _sfxPlayingIntervals;
     List<GameObject> _objsInArea = new();
 
     Action<GameObject> _onObjEnterArea;
     Action<GameObject> _onObjUpdateArea;
     Action<GameObject> _onObjExitArea;
+    float _sfxTimer;
     public string AreaName { get { return _areaName; } }
     public Action<GameObject> OnObjEnterArea { get { return _onObjEnterArea; } set { _onObjEnterArea = value; } }
     public Action<GameObject> OnObjUpdateArea { get { return _onObjUpdateArea; } set { _onObjUpdateArea = value; } }
@@ -35,9 +38,20 @@ public class CheckAreaAroundSupportObjBehaviour : SupportObjectBehaviour
         _areaGfx = new(null, checkAreaOriginal._areaGfx);
         _areaGfxSortingOffset = checkAreaOriginal._areaGfxSortingOffset;
         _areaGfxAlpha = checkAreaOriginal._areaGfxAlpha;
+        _areaSFX = checkAreaOriginal._areaSFX;
+        _sfxPlayingIntervals = checkAreaOriginal._sfxPlayingIntervals;
         if(_areaGfx != null && _areaGfx.Frames.Length > 0)
             OnStart += CreateAreaGfx;
         OnUpdate += CheckArea;
+        OnUpdate += PlaySFX;
+    }
+    void PlaySFX()
+    {
+        _sfxTimer -= Time.unscaledDeltaTime;
+        if (_sfxTimer > 0)
+            return;
+        _sfxTimer = _sfxPlayingIntervals;
+        SoundFXManager.sm.PlaySfx(_areaSFX, ObjControl.transform.position);
     }
     void CreateAreaGfx()
     {

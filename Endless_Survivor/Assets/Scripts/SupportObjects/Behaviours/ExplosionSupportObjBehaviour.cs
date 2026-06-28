@@ -10,6 +10,7 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] ParticleSystem _explosionParticles;
     [SerializeField] float _particlesDuration;
     [SerializeField] CustomAnimation _explosionAnimation;
+    [SerializeField] SFXInfo _explosionSFX;
     [SerializeField] LayerMask _affectedLayers;
 
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
@@ -21,6 +22,7 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
         _explosionParticles = explosionOriginal._explosionParticles;
         _particlesDuration = explosionOriginal._particlesDuration;
         _explosionAnimation = explosionOriginal._explosionAnimation;
+        _explosionSFX = explosionOriginal._explosionSFX;
         _affectedLayers = explosionOriginal._affectedLayers;
 
         if (_explosionAnimation.Frames.Length > 0)
@@ -45,6 +47,7 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
             GameObject.Destroy(ObjControl.gameObject, _explosionAnimation.AnimDuration);
             return;
         }
+        SoundFXManager.sm.PlaySfx(_explosionSFX, ObjControl.transform.position);
         GameObject.Destroy(ObjControl.gameObject);
     }
 }

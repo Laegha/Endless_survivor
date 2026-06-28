@@ -14,6 +14,7 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
     [SerializeField] float _hpMultiplier = 1.0f;
 
     [SerializeReference] IPattern _invokationPattern;
+    [SerializeField] SFXInfo _invokingSFX;
 
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
@@ -25,6 +26,7 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
         _invokingAnim = new(EnemyControl.Animator, invokeEnemiesOriginal._invokingAnim);
         _invokeFrame = invokeEnemiesOriginal._invokeFrame;
         _invokationPattern = invokeEnemiesOriginal._invokationPattern;
+        _invokingSFX = invokeEnemiesOriginal._invokingSFX;
 
         _invokingAnim.Events.Add(new(null, _invokeFrame, InvokeEnemies));
         _invokingAnim.Events.Add(new(null, _invokingAnim.Frames.Length -1, KillBehaviour));
@@ -61,6 +63,7 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
             EnemySpawnManager.esm.SpawnEnemy(generatingTile, generatedEnemy);
 
         }
+        SoundFXManager.sm.PlaySfx(_invokingSFX, EnemyControl.transform.position);
     }
 
     List<EnemyData> GetFixedInvokations()

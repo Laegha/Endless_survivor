@@ -10,6 +10,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
     [SerializeField] WeaponStats _statBuffOnAttackCoordination;
     [SerializeField] ParticleSystem _onAttackCoordinationParticles;
     [SerializeField] float _particlesDuration = 1;
+    [SerializeField] SFXInfo _onCoordinationSFX;
     Dictionary<WeaponAttackManager, float> _weaponsInBuffLapse = new();
     readonly float _buffLapseDuration = 0.05f;
     readonly float _buffTimeDuration = 2f;
@@ -21,6 +22,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
         _statBuffOnAttackCoordination = new WeaponStats(exceedOriginal._statBuffOnAttackCoordination);
         _onAttackCoordinationParticles = exceedOriginal._onAttackCoordinationParticles;
         _particlesDuration = exceedOriginal._particlesDuration;
+        _onCoordinationSFX = exceedOriginal._onCoordinationSFX;
         behaviourManager.onAttack += PutWeaponInBuffLapse;
         behaviourManager.onUpdate += CheckForCoordinatedWeapons;
         behaviourManager.onUpdate += DecreaseBuffLapseTime;
@@ -41,7 +43,9 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
             //generate particles
             ParticleConfig exceedParticleConfig = new(_onAttackCoordinationParticles, weapon.transform.position, Quaternion.identity, _particlesDuration, weapon.transform, true, false);
             ParticleManager.pm.SpawnParticles(exceedParticleConfig);
+
         }
+        SoundFXManager.sm.PlaySfx(_onCoordinationSFX, PlayerControl.pc.transform.position);
     }
     void PutWeaponInBuffLapse(WeaponAttackManager weapon)
     {

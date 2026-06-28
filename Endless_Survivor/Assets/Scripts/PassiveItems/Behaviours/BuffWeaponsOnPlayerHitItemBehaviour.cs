@@ -10,6 +10,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
     [SerializeField] int _maxStacks = 1;
     //ADD GFX CHANGE TO THE PLAYER!!!!
     [SerializeField] PlayerGFXChanger _gfxChanger;
+    [SerializeField] SFXInfo _onBuffSFX;
     int _activeStacks = 0;
     [SerializeField] WeaponBuffHandler.BuffDurationType _durationType;
     [SerializeField] float _timeDuration = 5f;
@@ -24,7 +25,8 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         _chanceOfHappenning = buffWeaponsOriginal._chanceOfHappenning;
         _maxStacks = buffWeaponsOriginal._maxStacks;
         _gfxChanger = buffWeaponsOriginal._gfxChanger;
-        
+        _onBuffSFX = buffWeaponsOriginal._onBuffSFX;
+
         _durationType = buffWeaponsOriginal._durationType;
         _timeDuration = buffWeaponsOriginal._timeDuration;
         _enemyKillsNeeded = buffWeaponsOriginal._enemyKillsNeeded;
@@ -41,6 +43,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
 
         _activeStacks++;
         _gfxChanger.ApplyGFX();
+        SoundFXManager.sm.PlaySfx(_onBuffSFX, PlayerControl.pc.transform.position);
         var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
         foreach (var weapon in buffedWeapons)
             weapon.WeaponStats.TemporalStatIncrease(_statsBuffs, false);

@@ -9,6 +9,7 @@ public class TriggerBehaviourAfterMaterialFlashingEnemyBehaviour : EnemyBehaviou
     [SerializeField] MaterialOverride _flashingOverride;
     [SerializeField] float _flashingRate;
     [SerializeField] float _flashingDuration;
+    [SerializeField] SFXInfo _onFlashingStartSFX;
 
     SpriteMaterialFlashing _materialFlashing;
 
@@ -23,6 +24,7 @@ public class TriggerBehaviourAfterMaterialFlashingEnemyBehaviour : EnemyBehaviou
         _flashingOverride = triggerAfterFlashingOriginal._flashingOverride;
         _flashingRate = triggerAfterFlashingOriginal._flashingRate;
         _flashingDuration = triggerAfterFlashingOriginal._flashingDuration;
+        _onFlashingStartSFX = triggerAfterFlashingOriginal._onFlashingStartSFX;
 
         _materialFlashing = new(EnemyControl.MaterialManager, _flashingRate, new(_flashingOverride.authority, _flashingOverride.material));
 
@@ -33,6 +35,7 @@ public class TriggerBehaviourAfterMaterialFlashingEnemyBehaviour : EnemyBehaviou
         if(!_isFlashing)
         {
             _isFlashing = true;
+            SoundFXManager.sm.PlaySfx(_onFlashingStartSFX, EnemyControl.transform.position);
             _timer = 0;
             _materialFlashing.Start();
         }

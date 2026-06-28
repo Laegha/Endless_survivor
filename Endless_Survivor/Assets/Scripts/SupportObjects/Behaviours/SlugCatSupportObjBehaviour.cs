@@ -12,6 +12,8 @@ public class SlugCatSupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] CustomAnimation _diggingAnimation;
     [SerializeField] CustomAnimation _hibernationStartAnimation;
     [SerializeField] CustomAnimation _hibernationAnimation;
+    [SerializeField] SFXInfo _diggingSFX;
+    [SerializeField] SFXInfo _startHibernatingSFX;
     [SerializeField] ParticleSystem _diggingParticles;
     [SerializeField] int _diggingParticlesRenderingOffset;
     [SerializeField] ParticleSystem _dugFoodParticles;
@@ -35,6 +37,8 @@ public class SlugCatSupportObjBehaviour : SupportObjectBehaviour
         _diggingAnimation = new(ObjControl.Animator, slugCatOriginal._diggingAnimation);
         _hibernationStartAnimation = new(ObjControl.Animator, slugCatOriginal._hibernationStartAnimation);
         _hibernationAnimation = new(ObjControl.Animator, slugCatOriginal._hibernationAnimation);
+        _diggingSFX = slugCatOriginal._diggingSFX;
+        _startHibernatingSFX = slugCatOriginal._startHibernatingSFX;
 
         ObjControl.Animator.AddAnimations(new() { _diggingAnimation, _hibernationStartAnimation, _hibernationAnimation });
 
@@ -63,6 +67,7 @@ public class SlugCatSupportObjBehaviour : SupportObjectBehaviour
         if (ObjControl.Animator.CurrAnim.AnimationName != _diggingAnimation.AnimationName)
         {
             ObjControl.Animator.ChangeAnim(_diggingAnimation.AnimationName);
+            SoundFXManager.sm.PlaySfx(_diggingSFX, ObjControl.transform.position);
             return;
         }
         _digging = true;
@@ -100,8 +105,9 @@ public class SlugCatSupportObjBehaviour : SupportObjectBehaviour
         if (_gatheredFood < _foodNeededToHibernate)
             return;
 
+        SoundFXManager.sm.PlaySfx(_startHibernatingSFX, ObjControl.transform.position);
         ObjControl.Animator.ChangeAnim(_hibernationStartAnimation.AnimationName);
-        
+
         GameManager.gm.DelayAction(_hibernationStartAnimation.AnimDuration, SetHibernatingValues, null);
     }
     void SetHibernatingValues()

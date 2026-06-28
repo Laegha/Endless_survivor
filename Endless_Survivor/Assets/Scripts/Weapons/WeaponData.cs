@@ -28,6 +28,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] List<RandomIdleAnimation>_randomIdleAnimations = new List<RandomIdleAnimation>();
     [SerializeField] float _randomIdleAnimChance;
     [SerializeField] float _randomIdleAnimTime;
+
     
     public Sprite WeaponDisplaySprite { get { return _weaponDisplaySprite; } }
     public string WeaponName { get { return _weaponName; } }

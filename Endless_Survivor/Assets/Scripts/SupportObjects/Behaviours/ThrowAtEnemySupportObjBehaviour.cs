@@ -12,6 +12,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] float _throwSpeed = 10;
     [SerializeField] float _collisionCheckRadius = .2f;
     [SerializeField] LayerMask _collidedLayers;
+    [SerializeField] SFXInfo _onCollisionSFX; 
     //[SerializeField CustomAnimation _windupAnimation;
     [SerializeField] AnimationCurve _verticalMovementCurve;
     Vector2 _initialPos;
@@ -29,6 +30,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
         _throwSpeed = throwOriginal._throwSpeed;
         _collisionCheckRadius = throwOriginal._collisionCheckRadius;
         _collidedLayers = throwOriginal._collidedLayers;
+        _onCollisionSFX = throwOriginal._onCollisionSFX;
         _verticalMovementCurve = throwOriginal._verticalMovementCurve;
 
         ObjControl.Animator.AddAnimations(new(){_thrownAnimation});
@@ -58,6 +60,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
         var collidingObjs = Physics2D.OverlapCircleAll(ObjControl.transform.position, _collisionCheckRadius, _collidedLayers);
         if(collidingObjs.Length > 0)
         {
+            SoundFXManager.sm.PlaySfx(_onCollisionSFX, ObjControl.transform.position);
             GameObject.Destroy(ObjControl.gameObject);
             return;
         }

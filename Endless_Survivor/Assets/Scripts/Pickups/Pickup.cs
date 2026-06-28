@@ -12,10 +12,12 @@ public class Pickup : MonoBehaviour
     [SerializeField] PickupControl _pickupControl;
     bool _consideredInPickupLimit = true;
     Action _onPickup;
+    SFXInfo _onPickupSFX;
     
     public PickupData PickupData { set {  _pickupData = value; } }
     public bool ConsideredInPickupLimit { set { _consideredInPickupLimit = value; } }
     public Action OnPickup { get { return _onPickup; } set { _onPickup = value; } }
+    public SFXInfo OnPickupSFX { set { _onPickupSFX = value; } }
     private void Start()
     {
         if (!_consideredInPickupLimit)
@@ -51,6 +53,7 @@ public class Pickup : MonoBehaviour
         if(_consideredInPickupLimit)
             _instantiatedPickups.Remove(this);
 
+        SoundFXManager.sm.PlaySfx(_onPickupSFX, transform.position);
         _onPickup?.Invoke();
     }
     private void OnDestroy()

@@ -8,6 +8,7 @@ public class MeleeAttackOnActivateItemBehaviour : PassiveItemBehaviour
     [SerializeField] MeleeData _meleeData;
     [SerializeField] DamageInfo _damage;
     [SerializeField] float _knockBack;
+    [SerializeField] SFXInfo _onAttackSFX;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
@@ -15,6 +16,7 @@ public class MeleeAttackOnActivateItemBehaviour : PassiveItemBehaviour
         _meleeData = meleeAttackOriginal._meleeData;
         _damage = meleeAttackOriginal._damage;
         _knockBack = meleeAttackOriginal._knockBack;
+        _onAttackSFX = meleeAttackOriginal._onAttackSFX;
     }
 
     public override void Activate()
@@ -27,6 +29,7 @@ public class MeleeAttackOnActivateItemBehaviour : PassiveItemBehaviour
         meleeAttack.StartAttack((int)_damage.CalculatedDamage, _knockBack, _meleeData);
         meleeAttack.ApplyDamage();
         GameObject.Destroy(meleeAttack.gameObject, _meleeData.AttackVfxAnimation.AnimDuration);
+        SoundFXManager.sm.PlaySfx(_onAttackSFX, PlayerControl.pc.transform.position);
     }
     public override void RemoveBehaviour()
     {

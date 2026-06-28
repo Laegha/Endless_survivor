@@ -9,6 +9,7 @@ public class CreateSupportObjsOnPlayerPositionOnActiveEnemyBehaviour : EnemyBeha
     [SerializeField] List<RouletteElementChance<SupportObjectData>> _randomSupportObjs;
     [Tooltip("Ammount of objects spawned from the random list")][SerializeField] RandomBetweenTwoConstants _randomAmmount;
     [SerializeField] RandomBetweenTwoConstants _distFromPlayerWithinCircle;
+    [SerializeField] SFXInfo _onObjsCreatedSFX;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
         base.Initialize(original, enemyControl);
@@ -17,6 +18,7 @@ public class CreateSupportObjsOnPlayerPositionOnActiveEnemyBehaviour : EnemyBeha
         _randomSupportObjs = createSupportObjOnPlayerOriginal._randomSupportObjs;
         _randomAmmount = createSupportObjOnPlayerOriginal._randomAmmount;
         _distFromPlayerWithinCircle = createSupportObjOnPlayerOriginal._distFromPlayerWithinCircle;
+        _onObjsCreatedSFX = createSupportObjOnPlayerOriginal._onObjsCreatedSFX;
     }
     public override void ActiveUpdate()
     {
@@ -32,6 +34,7 @@ public class CreateSupportObjsOnPlayerPositionOnActiveEnemyBehaviour : EnemyBeha
             {
                 CreateSupportObj(Utility.GetRouletteElement(_randomSupportObjs));
             }
+            SoundFXManager.sm.PlaySfx(_onObjsCreatedSFX, EnemyControl.transform.position);
         }
 
         KillBehaviour();

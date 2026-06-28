@@ -10,6 +10,7 @@ public class ParryProyectilesOnActivateItemBehaviour : PassiveItemBehaviour
     [SerializeField] float _parryRadius;
     [SerializeField] CustomAnimation _parryAnimation;
     [SerializeField] CustomAnimation _parriedProyectileAnimation;
+    [SerializeField] SFXInfo _onParrySFX;
     CustomAnimator _parryAnimator;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
@@ -18,6 +19,7 @@ public class ParryProyectilesOnActivateItemBehaviour : PassiveItemBehaviour
         _parryRadius = parryOnActivateOriginal._parryRadius;
         _parryAnimation = parryOnActivateOriginal._parryAnimation;
         _parriedProyectileAnimation = parryOnActivateOriginal._parriedProyectileAnimation;
+        _onParrySFX = parryOnActivateOriginal._onParrySFX;
     }
     public override void Activate()
     {
@@ -37,6 +39,7 @@ public class ParryProyectilesOnActivateItemBehaviour : PassiveItemBehaviour
         {
             proyectile.GetParried(_parriedProyectileAnimation);
         }
+        SoundFXManager.sm.PlaySfx(_onParrySFX, PlayerControl.pc.transform.position);
     }
     public override void RemoveBehaviour()
     {

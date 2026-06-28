@@ -15,6 +15,7 @@ public class ParryDamageEnemyBehaviour : EnemyBehaviour
     [SerializeField] LayerMask _parryLayer;
     [SerializeField] DirectionalCustomAnimation _parryAnimations;
     [SerializeField] float _parryDuration;
+    [SerializeField] SFXInfo _parrySFX;
     float _currParryChance;
 
     List<Attack> _failedParryAttacks = new List<Attack>();
@@ -32,6 +33,7 @@ public class ParryDamageEnemyBehaviour : EnemyBehaviour
         _parryAnimations = new(EnemyControl.Animator, parryOriginal._parryAnimations);
         EnemyControl.Animator.AddAnimations(_parryAnimations.NonNullAnimations);
         _parryDuration = parryOriginal._parryDuration;
+        _parrySFX = parryOriginal._parrySFX;
     }
 
     public override void PassiveUpdate()
@@ -77,6 +79,7 @@ public class ParryDamageEnemyBehaviour : EnemyBehaviour
         Vector2 parryDirection = (parryingAttack.transform.position - EnemyControl.transform.position).normalized;
         CustomAnimation parryingAnim = _parryAnimations.GetAnim(parryDirection);
         EnemyControl.Animator.ChangeAnim(parryingAnim);
+        SoundFXManager.sm.PlaySfx(_parrySFX, EnemyControl.transform.position);
         GameManager.gm.DelayAction(_parryDuration, EndParry, () => !IsActive);
     }
 
