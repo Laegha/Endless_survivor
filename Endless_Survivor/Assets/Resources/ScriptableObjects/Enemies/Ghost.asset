@@ -60,7 +60,7 @@ MonoBehaviour:
         _overrideBehaviours: []
         _acceleration: 2
         _initialSpeed: 0
-        _maxSpeed: 6
+        _maxSpeed: 5
         _instantStopOnUnactive: 0
         _deacceleration: 0
         _movingAnimations:
@@ -97,7 +97,7 @@ MonoBehaviour:
       data:
         _behaviourId: ContactDamage
         _overrideBehaviours: []
-        _damage: 5
+        _damage: 3
     - rid: 2454942508581650441
       type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
       data:

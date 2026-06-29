@@ -99,12 +99,16 @@ MonoBehaviour:
     _priority: 0
   _costumeSettings: {fileID: 0}
   _onHitSound:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 14cb6c95c71f85b40b5f858b21dc9aed, type: 3}
+    - {fileID: 8300000, guid: 72b15886485a820429260ab9f674fd8c, type: 3}
+    - {fileID: 8300000, guid: 52df01c46ef81bb489e977c8a626604f, type: 3}
     _volume: 1
     _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _maxPitchVariation: 0.2
   _onDeathSound:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 46606efadebd28c4e89693e95fc22764, type: 3}
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0

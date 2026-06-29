@@ -27,8 +27,8 @@ MonoBehaviour:
     _hpIncrement: 5
     _hpRegeneration: 0.05
     _defense: 1
-    _maxSpeed: 4.5
     _minSpeed: 4
+    _maxSpeed: 4.5
     _acceleration: 0.75
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}
@@ -99,12 +99,16 @@ MonoBehaviour:
     _priority: 0
   _costumeSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
   _onHitSound:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: bf86e81c79e4d8a48ae27b195784b4d9, type: 3}
+    - {fileID: 8300000, guid: 618f1bcdfc3bd474096a2bbd9371425c, type: 3}
+    - {fileID: 8300000, guid: c88116a7945d37d4997824bf15e8335d, type: 3}
     _volume: 1
-    _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _minPitchVariation: -0.1
+    _maxPitchVariation: 0.1
   _onDeathSound:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 9f7a2ddccc59a4e4e9ab1ea84093f4eb, type: 3}
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
