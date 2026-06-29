@@ -27,15 +27,19 @@ MonoBehaviour:
   - rid: 909968594120474629
   _dropablePickupChances: []
   _onHitSFX:
-    _sound: {fileID: 0}
+    _possibleSounds: []
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _onDeathSFX:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
     _volume: 1
-    _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _minPitchVariation: 0.1
+    _maxPitchVariation: 0.2
   references:
     version: 2
     RefIds:
@@ -107,6 +111,11 @@ MonoBehaviour:
         _dashParticles: {fileID: 0}
         _particlesDuration: 0
         _particlesFollowEnemy: 0
+        _onDashSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
     - rid: 909968594120474628
       type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:

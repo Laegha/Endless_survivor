@@ -37,6 +37,13 @@ MonoBehaviour:
             authority: 3
             material: {fileID: 2100000, guid: f20cfc567dfbc814fa7c61f699dd0d0c, type: 2}
           addedParticles: {fileID: 0}
+        _onBuffSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: a82d7d97c86862040b1edec001cd56fa, type: 3}
+          - {fileID: 8300000, guid: 0701c2d3cb209594fb8e9c721dfcd5ad, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.3
+          _maxPitchVariation: 0
         _durationType: 1
         _timeDuration: 10
         _enemyKillsNeeded: 2

@@ -56,6 +56,14 @@ MonoBehaviour:
           _endAnimationOnEnd: 1
           _priority: 0
         _attackFrame: 1
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 33ca74a1d55bde1429653b2b4c50aab1, type: 3}
+          - {fileID: 8300000, guid: 044f64e3f7536b44c9d82f64a8ea0003, type: 3}
+          - {fileID: 8300000, guid: 070585ab571ae554ba32f9c5c72a3a6b, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.2
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
@@ -76,5 +84,6 @@ MonoBehaviour:
             _endAnimationOnEnd: 1
             _priority: 0
           _dropVfxOnDamage: 1
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0

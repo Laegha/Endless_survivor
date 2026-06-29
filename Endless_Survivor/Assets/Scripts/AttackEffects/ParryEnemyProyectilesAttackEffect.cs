@@ -26,7 +26,8 @@ public class ParryEnemyProyectilesAttackEffect : AttackEffect
     [SerializeField][Tooltip("Negative for Infinity")]float _raycastRange;
     [SerializeField]LayerMask _parryingLayers;
 
-    [SerializeField] CustomAnimation _parriedProyectileAnim; 
+    [SerializeField] CustomAnimation _parriedProyectileAnim;
+    [SerializeField] SFXInfo _parrySFX;
 
     Action _checkParriedProyectiles;
     float _updateTimer;
@@ -46,6 +47,7 @@ public class ParryEnemyProyectilesAttackEffect : AttackEffect
         _parryingLayers = parryOriginal._parryingLayers;
 
         _parriedProyectileAnim = new(null, parryOriginal._parriedProyectileAnim);
+        _parrySFX = parryOriginal._parrySFX;
 
         switch(_checkForm)
         {
@@ -84,6 +86,7 @@ public class ParryEnemyProyectilesAttackEffect : AttackEffect
         var enemyProyectilesInArea = colsInArea.Where(x => x.GetComponent<EnemyProyectile>() != null).Select(x => x.GetComponent<EnemyProyectile>());
         foreach(var proyectile in  enemyProyectilesInArea)
         {
+            SoundFXManager.sm.PlaySfx(_parrySFX, proyectile.transform.position);
             proyectile.GetParried(_parriedProyectileAnim);
         }
     }
@@ -94,6 +97,7 @@ public class ParryEnemyProyectilesAttackEffect : AttackEffect
         var enemyProyectilesInArea = hitsInRay.Where(x => x.collider.GetComponent<EnemyProyectile>() != null).Select(x => x.collider.GetComponent<EnemyProyectile>());
         foreach (var proyectile in enemyProyectilesInArea)
         {
+            SoundFXManager.sm.PlaySfx(_parrySFX, proyectile.transform.position);
             proyectile.GetParried(_parriedProyectileAnim);
         }
     }

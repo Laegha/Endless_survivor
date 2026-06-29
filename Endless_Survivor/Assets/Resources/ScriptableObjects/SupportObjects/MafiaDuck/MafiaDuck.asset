@@ -59,6 +59,16 @@ MonoBehaviour:
           _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 1
+        _randomlyPlayedSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 18313e7540e05a6448829043d7ba62c4, type: 3}
+          - {fileID: 8300000, guid: f28e048729dc1d9439d9421d337e089f, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.2
+        _sfxPlayingIntervals:
+          min: 5
+          max: 8
     - rid: 909968345064013827
       type: {class: CreateSupportObjAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:

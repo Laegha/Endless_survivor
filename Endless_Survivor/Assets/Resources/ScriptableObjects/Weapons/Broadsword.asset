@@ -64,6 +64,12 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackFrame: 5
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: b110b2aadc6d4de4ca474f63b3b1715b, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.3
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
@@ -88,6 +94,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507682168897537
@@ -108,6 +115,12 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackFrame: 4
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 6f5ec8bbc18e9f14bab96fbe4472347b, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.1
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 2
@@ -132,6 +145,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507682168897538
@@ -150,6 +164,12 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackFrame: 4
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 6f5ec8bbc18e9f14bab96fbe4472347b, type: 3}
+          _volume: 1
+          _minPitchVariation: 0.1
+          _maxPitchVariation: 0.2
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 2
@@ -174,6 +194,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507698414485504

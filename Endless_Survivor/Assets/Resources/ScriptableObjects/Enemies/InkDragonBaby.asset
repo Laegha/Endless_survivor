@@ -19,6 +19,7 @@ MonoBehaviour:
   _colliderSize: {x: 1.1, y: 1.1}
   _colliderOffset: {x: 0, y: -0.9}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 8047334722410643467
   - rid: 8047334722410643459
@@ -28,15 +29,19 @@ MonoBehaviour:
   - rid: 8047334739468353541
   _dropablePickupChances: []
   _onHitSFX:
-    _sound: {fileID: 0}
+    _possibleSounds: []
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _onDeathSFX:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
     _volume: 1
-    _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _minPitchVariation: 0.1
+    _maxPitchVariation: 0.2
   references:
     version: 2
     RefIds:
@@ -111,10 +116,17 @@ MonoBehaviour:
           _proyectileMaterial: {fileID: 0}
           _particlesPrefab: {fileID: 0}
           _shootSFX:
-            _sound: {fileID: 0}
+            _possibleSounds: []
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
+        _onShootSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 9467f91661e48804cafa4f7e3a95555d, type: 3}
+          - {fileID: 8300000, guid: beb24c10ee902a1478d06c54d8a05672, type: 3}
+          _volume: 1
+          _minPitchVariation: 0.1
+          _maxPitchVariation: 0.2
     - rid: 8047334722410643466
       type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:

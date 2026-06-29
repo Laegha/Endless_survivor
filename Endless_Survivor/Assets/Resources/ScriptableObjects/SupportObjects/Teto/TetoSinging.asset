@@ -49,6 +49,15 @@ MonoBehaviour:
           _priority: 0
         _areaGfxSortingOffset: -10
         _areaGfxAlpha: 255
+        _areaSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: e71fa3c6a34c41e4692b41be5f58f469, type: 3}
+          - {fileID: 8300000, guid: 4781bcc5a71910b4399036d0821b2fc4, type: 3}
+          - {fileID: 8300000, guid: 3058f536455f00541b85e99dc48b5f9b, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals: 0
     - rid: 909968409856835586
       type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:

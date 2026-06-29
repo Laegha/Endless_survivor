@@ -50,6 +50,14 @@ MonoBehaviour:
         _particlesOnActivation: {fileID: 4490651413473257475, guid: 94f9bbef1776c8345a003fad82a2fa49, type: 3}
         _particlesOffsetFromPlayer: {x: 0, y: 1}
         _particlesDuration: 4
+        _onActivateSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 39dbf6cda7454394f99adc3d159fbc7f, type: 3}
+          - {fileID: 8300000, guid: 98a7b607cb55e024ab59414c42b9edf8, type: 3}
+          - {fileID: 8300000, guid: b3178c2b832675443a97411d24317886, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
     - rid: 1204507964760915981
       type: {class: CreateSupportObjsOnRandomPositionsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:

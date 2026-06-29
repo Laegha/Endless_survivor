@@ -57,6 +57,12 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 1
         _attackFrame: 3
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 6f5ec8bbc18e9f14bab96fbe4472347b, type: 3}
+          _volume: 1
+          _minPitchVariation: 0.1
+          _maxPitchVariation: 0.3
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1

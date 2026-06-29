@@ -61,3 +61,9 @@ MonoBehaviour:
           _damageAmmount: 5
           _damageType: 8
         _knockBack: 20
+        _onAttackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 2d55e6b52231d774c8bfeb1d5d1e51d1, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.1
+          _maxPitchVariation: 0.1

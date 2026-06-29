@@ -48,6 +48,12 @@ MonoBehaviour:
         _collidedLayers:
           serializedVersion: 2
           m_Bits: 128
+        _onCollisionSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: b7ed65ec0ca59b44caae73025ed4519f, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.1
+          _maxPitchVariation: 0.1
         _verticalMovementCurve:
           serializedVersion: 2
           m_Curve:

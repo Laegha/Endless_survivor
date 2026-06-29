@@ -46,3 +46,15 @@ MonoBehaviour:
         _pickupColliderSize: {x: 0.8, y: 0.3}
         _actParticles: {fileID: 5120547514193535341, guid: e6b3f4f432ebb824792ed7cf83e7c2af, type: 3}
         _spareParticles: {fileID: 1538788712714102726, guid: 14180d91bdc145d4d80d8f2459ec4f35, type: 3}
+        _actSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: f3c11a75919dbef4e8a18da383d10b6d, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _spareSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 99fe8f409d9a96b439764691a4df1871, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0

@@ -9,7 +9,11 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] RandomBetweenTwoConstants _movementDistance;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenMovements;
     [SerializeField] CustomAnimation _movingAnimation;
+    [SerializeField] SFXInfo _randomlyPlayedSFX;
+    [SerializeField] RandomBetweenTwoConstants _sfxPlayingIntervals;
+
     float _timer;
+    float _sfxTimer;
     Vector2 _currMovingDirection;
     float _currMovingSpeed;
     float _currMovingDistance;
@@ -26,9 +30,20 @@ public class WanderAroundSupportObjBehaviour : SupportObjectBehaviour
         _timeBetweenMovements = wanderAroundOriginal._timeBetweenMovements;
         _timer = _timeBetweenMovements.rand;
         _movingAnimation = wanderAroundOriginal._movingAnimation;
+        _randomlyPlayedSFX = wanderAroundOriginal._randomlyPlayedSFX;
+        _sfxPlayingIntervals = wanderAroundOriginal._sfxPlayingIntervals;
         ObjControl.Animator.AddAnimations(new List<CustomAnimation> { _movingAnimation });
         OnUpdate += DecreaseMovementTimer;
         OnUpdate += Move;
+        OnUpdate += PlaySFX;
+    }
+    void PlaySFX()
+    {
+        _sfxTimer -= Time.unscaledDeltaTime;
+        if (_sfxTimer > 0)
+            return;
+        _sfxTimer = _sfxPlayingIntervals.rand;
+        SoundFXManager.sm.PlaySfx(_randomlyPlayedSFX, ObjControl.transform.position);
     }
     void DecreaseMovementTimer()
     {

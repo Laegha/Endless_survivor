@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pickupParticles: {fileID: 3854260980243891339, guid: b4d1270a86673844c80d19e794f8221b, type: 3}
   _colliderSize: {x: 1.5, y: 0.9}
+  _renderingOffset: 0
+  _onPickupSFX:
+    _possibleSounds:
+    - {fileID: 8300000, guid: 187c14b5929089747b006a04718edfb7, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.3
+    _maxPitchVariation: 0.3
   _pickupChances:
     rid: 8047334804060897281
   _generatedObjIfNullDrop: {fileID: 0}

@@ -34,15 +34,19 @@ MonoBehaviour:
   - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
     _chance: 30
   _onHitSFX:
-    _sound: {fileID: 0}
+    _possibleSounds: []
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _onDeathSFX:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
     _volume: 1
-    _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _minPitchVariation: -0.2
+    _maxPitchVariation: -0.1
   references:
     version: 2
     RefIds:
@@ -191,10 +195,11 @@ MonoBehaviour:
         _vfxFixedAngle: 0
         _triggerDamageFrame: 0
         _attackSfx:
-          _sound: {fileID: 0}
+          _possibleSounds:
+          - {fileID: 8300000, guid: c1cf190ed5a58844eb067678c8dcebd6, type: 3}
           _volume: 1
-          _minPitchVariation: 0
-          _maxPitchVariation: 0
+          _minPitchVariation: -0.4
+          _maxPitchVariation: -0.3
     - rid: 2454942648476368898
       type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
       data:
@@ -262,6 +267,11 @@ MonoBehaviour:
         _hpMultiplier: 0.6
         _invokationPattern:
           rid: 2454942648476368902
+        _invokingSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
     - rid: 2454942648476368902
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:

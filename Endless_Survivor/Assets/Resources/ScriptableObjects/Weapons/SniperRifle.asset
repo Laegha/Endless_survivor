@@ -28,6 +28,7 @@ MonoBehaviour:
     rid: 7757969562384465926
   _weaponAttacks: []
   _attackConditions: []
+  _spriteRenderOrderOffset: 0
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -56,10 +57,17 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _attackFrame: 0
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 7221bfb8e43ecde4084da327edaff940, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.1
         _weaponAttackEffects:
           availableEffects:
           - {fileID: 11400000, guid: 15d71717d8d0f4447919e7b66634e27b, type: 2}
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 1
         _firePointPosition: {x: 30, y: 3.5}
         _rayData:

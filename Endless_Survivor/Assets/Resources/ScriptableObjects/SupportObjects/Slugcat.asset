@@ -60,6 +60,14 @@ MonoBehaviour:
           _framesPerSecond: 8
           _endAnimationOnEnd: 0
           _priority: 1
+        _randomlyPlayedSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals:
+          min: 0
+          max: 0
     - rid: 9178415658512416769
       type: {class: SlugCatSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -128,6 +136,18 @@ MonoBehaviour:
           _framesPerSecond: 10
           _endAnimationOnEnd: 0
           _priority: 4
+        _diggingSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: bffea4df523f57745b71d35b101c9b66, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.1
+        _startHibernatingSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 6e9395894644b0c4aa714dc14819986f, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
         _diggingParticles: {fileID: 1402493518929240327, guid: 6f7b8db935dc46f4a9742c6d229ec7ac, type: 3}
         _diggingParticlesRenderingOffset: -20
         _dugFoodParticles: {fileID: 1402493518929240327, guid: bce12b943fd104648b4e5b2f1efc54ee, type: 3}

@@ -16,6 +16,7 @@ MonoBehaviour:
   - rid: 8472846762221240321
   - rid: 8472846762221240322
   - rid: 8472846762221240323
+  - rid: 8472847155045335044
   _idleAnimation:
     _animationName: ExplodeStart
     _frames:
@@ -70,3 +71,14 @@ MonoBehaviour:
         _destroyTime:
           min: 0.6
           max: 0.6
+    - rid: 8472847155045335044
+      type: {class: PlaySfxOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _playedSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 8dae0d00898343a4188d8d2e788e8471, type: 3}
+          - {fileID: 8300000, guid: fe0fe98d9f119e0459cc76ad58d828fe, type: 3}
+          - {fileID: 8300000, guid: 86e16053fedbbb243b65919af48a9cae, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.5
+          _maxPitchVariation: -0.3

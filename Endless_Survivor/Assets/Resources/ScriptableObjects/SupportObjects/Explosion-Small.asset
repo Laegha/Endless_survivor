@@ -40,6 +40,13 @@ MonoBehaviour:
           _framesPerSecond: 0
           _endAnimationOnEnd: 0
           _priority: 0
+        _explosionSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: ccecf2ff8bf3a4d41a6fe25cb9f1d816, type: 3}
+          - {fileID: 8300000, guid: e3c9a19c383a63547ba80d9620f31837, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0.2
         _affectedLayers:
           serializedVersion: 2
           m_Bits: 192

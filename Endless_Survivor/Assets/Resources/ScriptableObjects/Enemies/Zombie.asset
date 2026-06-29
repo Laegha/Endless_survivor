@@ -19,6 +19,7 @@ MonoBehaviour:
   _colliderSize: {x: 0.3, y: 0.4}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 3262447073780826112
   - rid: 3262447073780826113
@@ -31,15 +32,19 @@ MonoBehaviour:
   - rid: 3262447073780826120
   _dropablePickupChances: []
   _onHitSFX:
-    _sound: {fileID: 0}
+    _possibleSounds: []
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _onDeathSFX:
-    _sound: {fileID: 0}
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
     _volume: 1
-    _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _minPitchVariation: -0.2
+    _maxPitchVariation: -0.1
   references:
     version: 2
     RefIds:
@@ -137,9 +142,11 @@ MonoBehaviour:
         _vfxFixedAngle: 0
         _triggerDamageFrame: 0
         _attackSfx:
-          _sound: {fileID: 0}
+          _possibleSounds:
+          - {fileID: 8300000, guid: e4edb2fb83730bb42a5c0bb33e108824, type: 3}
+          - {fileID: 8300000, guid: 47f223d860a6cf44d8660652aaace6c9, type: 3}
           _volume: 1
-          _minPitchVariation: 0
+          _minPitchVariation: -0.2
           _maxPitchVariation: 0
     - rid: 3262447073780826114
       type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
@@ -191,6 +198,12 @@ MonoBehaviour:
         _dashParticles: {fileID: 0}
         _particlesDuration: 0
         _particlesFollowEnemy: 0
+        _onDashSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 2efc9294b95a81340a7e72ba197215d1, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.3
+          _maxPitchVariation: -0.2
     - rid: 3262447073780826116
       type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -215,7 +228,13 @@ MonoBehaviour:
           authority: 5
           material: {fileID: 2100000, guid: 0f114318c7108f54a9c87670f18baf5c, type: 2}
         _flashingRate: 0.1
-        _flashingDuration: 0.5
+        _flashingDuration: 1.2
+        _onFlashingStartSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 79ec400cfdcbedc4cbdad220b2478881, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
     - rid: 3262447073780826118
       type: {class: TriggerBehavioursWhileAtDistanceEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:

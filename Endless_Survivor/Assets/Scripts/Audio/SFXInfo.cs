@@ -11,7 +11,7 @@ public class SFXInfo
     [SerializeField] float _minPitchVariation = 0;
     [SerializeField] float _maxPitchVariation = 0;
 
-    public AudioClip Sound { get { return _possibleSounds[UnityEngine.Random.Range(0, _possibleSounds.Length)]; } }
+    public AudioClip Sound { get { return _possibleSounds != null && _possibleSounds.Length > 0 ? _possibleSounds[UnityEngine.Random.Range(0, _possibleSounds.Length)] : null; } }
     public float Volume {  get { return _volume; } }
     public float MinPitchVariation {  get { return _minPitchVariation; } }
     public float MaxPitchVariation {  get { return _maxPitchVariation; } }

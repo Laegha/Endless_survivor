@@ -11,6 +11,7 @@ public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
     [SerializeField] ParticleSystem _particlesOnActivation;
     [SerializeField] Vector2 _particlesOffsetFromPlayer;
     [SerializeField] float _particlesDuration;
+    [SerializeField] SFXInfo _onActivateSFX;
     float _activationTimer;
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
@@ -22,6 +23,7 @@ public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
         _particlesOnActivation = activateRandOriginal._particlesOnActivation;
         _particlesOffsetFromPlayer = activateRandOriginal._particlesOffsetFromPlayer;
         _particlesDuration = activateRandOriginal._particlesDuration;
+        _onActivateSFX = activateRandOriginal._onActivateSFX;
 
         ResetTimer();
         behaviourManager.onUpdate += ReduceActivationTimer;
@@ -44,6 +46,7 @@ public class ActivateRandomPeriodicallyItemBehaviour : PassiveItemBehaviour
         string activatedId = Utility.GetRouletteElement(_possibleActivatedIds);
         var activatedBehaviour = BehaviourManager.ItemBehaviours.Find(x => x.BehaviourId == activatedId);
         activatedBehaviour.Activate();
+        SoundFXManager.sm.PlaySfx(_onActivateSFX, PlayerControl.pc.transform.position);
         if (_particlesOnActivation == null)
             return;
         ParticleConfig particleConfig = new(_particlesOnActivation,(Vector2)PlayerControl.pc.transform.position + _particlesOffsetFromPlayer, Quaternion.identity, _particlesDuration);

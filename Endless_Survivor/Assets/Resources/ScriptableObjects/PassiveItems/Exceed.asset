@@ -24,6 +24,7 @@ MonoBehaviour:
     - rid: 575471513600524288
       type: {class: ExceedItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _statBuffOnAttackCoordination:
           _range: 0
           _attackSpeed: 2
@@ -31,3 +32,11 @@ MonoBehaviour:
           _knockback: 0
         _onAttackCoordinationParticles: {fileID: 6362051271741657217, guid: fdb28ab5114be26458bee797ece2cf02, type: 3}
         _particlesDuration: 2
+        _onCoordinationSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: c3d0a3b7b22a31c4cbe7ba19ee16a20a, type: 3}
+          - {fileID: 8300000, guid: c59e2199c98867e4ebbe27c1955bb9f0, type: 3}
+          - {fileID: 8300000, guid: 31d6ae2978d4c184a8e75a3c2a752ea5, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.1
+          _maxPitchVariation: 0.1

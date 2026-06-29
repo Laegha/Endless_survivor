@@ -15,6 +15,7 @@ MonoBehaviour:
   _supportObjBehaviours:
   - rid: 2454942783598231554
   - rid: 2454942798190215170
+  - rid: 8472847155045335042
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -37,3 +38,12 @@ MonoBehaviour:
       type: {class: SetRenderOffsetSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _renderOffset: -300
+    - rid: 8472847155045335042
+      type: {class: PlaySfxOnStartSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _playedSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 6ed6e778451e1d54383800b090fcacb2, type: 3}
+          _volume: 1
+          _minPitchVariation: 0.1
+          _maxPitchVariation: 0.3
