@@ -21,8 +21,6 @@ public class EnemyInvoker : MonoBehaviour
 
     public void AddInvokationEnemy(EnemyInvokationInfo enemy, int priority)
     {
-        if(enemy.IsBoss)
-            GameProgressionManager.gpm.AddBoss();
         _spawningEnemies.Add(new(enemy, priority));
     }
 

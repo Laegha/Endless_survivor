@@ -26,9 +26,9 @@ public class GameProgressionManager : MonoBehaviour
     {
         instance = this;
     }
-    public void AddBoss()
+    public void AddBosses(int addedBosses)
     {
-        _totalBosses ++;
+        _totalBosses += addedBosses;
     }
     public void BossKilled()
     {

@@ -41,6 +41,7 @@ public class MapGenerationHandler
         //generate random obstacles in the biome tiles (maybe with support objs?)
         //store the biome
         _generatedBiomes.Add(generatedBiome);
+        GameProgressionManager.gpm.AddBosses(generatedBiomeData.BiomeBosses.Count);
 
         BiomeUpdateInstance biomeUpdateInstance = new BiomeUpdateInstance(updatedTiles, generatedBiome);
 
