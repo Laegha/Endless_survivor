@@ -110,6 +110,7 @@ public class PlayerWeaponManager : MonoBehaviour
             float angle = angleStart - angleStep * angleMultiplier;
             Vector2 newHolderPosition = Utility.GetPointInCircle(_weaponDistFromPlayer, angle);
             weaponHolder.handTransform.localPosition = newHolderPosition;
+            weaponHolder.holdingWeapon.UpdatedPosition(newHolderPosition);
             x++;
         }
     }

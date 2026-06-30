@@ -113,4 +113,9 @@ public class WeaponAttackController
         attack.AttackDamageMultiplier = _damageMultiplier; 
         attack.AttackKnockbackMultiplier = _knockbackMultiplier; 
     }
+
+    public virtual void UpdatedPosition(Vector2 newPosition)
+    {
+
+    }
 }

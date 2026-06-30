@@ -123,4 +123,11 @@ public class WeaponAttackManager : MonoBehaviour
         _reduceCooldown = true;
     }
     public void FinishAttack() => _prevAttackFinished = true;
+    public void UpdatedPosition(Vector2 newPosition)
+    {
+        foreach(var attackController in _attackControllers)
+        {
+            attackController.UpdatedPosition(newPosition);
+        }
+    }
 }
