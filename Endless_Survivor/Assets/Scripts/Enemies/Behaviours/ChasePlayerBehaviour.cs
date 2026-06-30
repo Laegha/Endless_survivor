@@ -14,7 +14,6 @@ public class ChasePlayerBehaviour : EnemyBehaviour
     [SerializeField] CustomAnimation _chasingLeftAnimation;
     
     List<CustomAnimation> _chasingAnimations = new List<CustomAnimation>();
-    Transform _player;
 
     bool _stopped;
 
@@ -51,7 +50,6 @@ public class ChasePlayerBehaviour : EnemyBehaviour
 
         EnemyControl.Animator.AddAnimations(_chasingAnimations);
 
-        _player = GameObject.FindObjectOfType<PlayerControl>().transform;
     }
 
     public override void PassiveUpdate()
@@ -66,7 +64,7 @@ public class ChasePlayerBehaviour : EnemyBehaviour
         base.ActiveUpdate();
         if (_stopped)
             return;
-        Vector2 direction = (_player.position - EnemyControl.transform.position).normalized;
+        Vector2 direction = (PlayerControl.pc.transform.position - EnemyControl.transform.position).normalized;
 
         CustomAnimation currAnim = Utility.GetAnimFromDirection(direction, _chasingUpAnimation, _chasingRightAnimation, _chasingDownAnimation, _chasingLeftAnimation);
         if (EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != currAnim.AnimationName)
