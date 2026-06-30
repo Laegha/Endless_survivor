@@ -77,10 +77,10 @@ public class BiomeBackgroundAndMusicManager : MonoBehaviour
         }
     }
 
-    async void CreateNewBiomeBgTiles()
+    void CreateNewBiomeBgTiles()
     {
         Vector2 cameraHalfSize = CameraWorldSize.GetCameraHalfExtents(Camera.main);
-        List<Vector2> tilesLocalPositions = await Task.Run(() => GetTilesPositions(cameraHalfSize, _currBiome.BiomeData.BackgroundData.TileSize));
+        List<Vector2> tilesLocalPositions = GetTilesPositions(cameraHalfSize, _currBiome.BiomeData.BackgroundData.TileSize);
         foreach(var tilePos in tilesLocalPositions)
         {
             BiomeBgTile newTile = Instantiate(_tilePrefab);
@@ -100,7 +100,7 @@ public class BiomeBackgroundAndMusicManager : MonoBehaviour
         float remainingVerticalSpace = cameraHalfSize.y - tileSize.y / 2;
         int horizontalTiles = (int)Mathf.Ceil(remainingHorizontalSpace / tileSize.x);
         int verticalTiles = (int)Mathf.Ceil(remainingVerticalSpace / tileSize.y);
-        horizontalTiles++;
+        horizontalTiles+= 2;
         verticalTiles+=2;//I don't know why, but if I don't add here, not enough tiles are generated
 
         for(int x = -horizontalTiles; x <= horizontalTiles; x++)
