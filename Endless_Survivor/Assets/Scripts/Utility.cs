@@ -201,7 +201,8 @@ public static class Utility
     public static Vector2 GetRandomPosInMap()
     {
         var loadedTiles = MapManager.mm.LoadedTiles;
-        return loadedTiles.Where(tile => !tile.IsWall).ToList()[UnityEngine.Random.Range(0, loadedTiles.Count)].transform.position;
+        var availableTiles = loadedTiles.Where(tile => !tile.IsWall).ToList();
+        return availableTiles[UnityEngine.Random.Range(0, availableTiles.Count)].transform.position;
     }
     public static Vector2 GetPerpendicularVector(Vector2 vector)
     {
