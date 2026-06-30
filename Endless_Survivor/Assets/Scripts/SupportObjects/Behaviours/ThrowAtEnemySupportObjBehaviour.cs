@@ -61,12 +61,13 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
         if(collidingObjs.Length > 0)
         {
             SoundFXManager.sm.PlaySfx(_onCollisionSFX, ObjControl.transform.position);
-            GameObject.Destroy(ObjControl.gameObject);
+            DestroyObj();
             return;
         }
         if(_lapsedDistance < _totalDistance)
             return;
         ObjControl.transform.position = _initialPos + _throwDirection * _totalDistance;
-        GameObject.Destroy(ObjControl.gameObject);
+        SoundFXManager.sm.PlaySfx(_onCollisionSFX, ObjControl.transform.position);
+        DestroyObj();
     }
 }
