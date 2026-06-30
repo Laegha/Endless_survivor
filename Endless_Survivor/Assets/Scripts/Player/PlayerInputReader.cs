@@ -18,6 +18,26 @@ using UnityEngine;
 //        _playerStateMachine.Movement = movement.normalized;
 //    }
 //}
+
+//public class PlayerInputReader : MonoBehaviour
+//{
+//    [SerializeField] PlayerStateMachine _playerStateMachine;
+
+//    private void Update()
+//    {
+//        Vector2 input = Vector2.zero;
+//        if (Input.GetKey(KeyCode.W))
+//            input += Vector2.up;
+//        if (Input.GetKey(KeyCode.D))
+//            input += Vector2.right;
+//        if (Input.GetKey(KeyCode.S))
+//            input += Vector2.down;
+//        if (Input.GetKey(KeyCode.A))
+//            input += Vector2.left;
+//        _playerStateMachine.Movement = input.normalized;
+//    }
+//}
+
 public class PlayerInputReader : MonoBehaviour
 {
     [SerializeField] PlayerStateMachine _playerStateMachine;
