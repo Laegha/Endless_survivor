@@ -18,9 +18,14 @@ public class PlayerGFXChanger
         if (_isApplied)
             return;
         _isApplied = true;
-        PlayerControl.pc.PlayerMaterialManager.SetMaterialOverride(materialOverride);
-        ParticleConfig addingParticles = new(addedParticles, PlayerControl.pc.transform.position, Quaternion.identity, -1, PlayerControl.pc.transform);
-        _instantiatedParticles = ParticleManager.pm.SpawnParticles(addingParticles);
+        if(materialOverride != null)
+            PlayerControl.pc.PlayerMaterialManager.SetMaterialOverride(materialOverride);
+        if(addedParticles != null)
+        {
+            ParticleConfig addingParticles = new(addedParticles, PlayerControl.pc.transform.position, Quaternion.identity, -1, PlayerControl.pc.transform);
+            _instantiatedParticles = ParticleManager.pm.SpawnParticles(addingParticles);
+
+        }
     }
     public void ApplyGFX(float gfxDuration)
     {
