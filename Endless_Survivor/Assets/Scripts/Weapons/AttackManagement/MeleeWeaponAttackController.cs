@@ -35,9 +35,9 @@ public class MeleeWeaponAttackController : WeaponAttackController
         _meleeData = meleeWeaponOriginal._meleeData;
 
         _hand = WeaponControl.transform.parent;
-        _originalHandLocalPos = _hand.localPosition;
-        WeaponControl.WeaponAim.ChangeDistCheckPos(() => { return (Vector2)PlayerControl.pc.transform.position;/* + _originalHandLocalPos;*/ });
+        WeaponControl.WeaponAim.ChangeDistCheckPos(() => { return (Vector2)PlayerControl.pc.transform.position /*+ _originalHandLocalPos*/; });
         InitializeAttack += InitiateMelee;
+        _originalHandLocalPos = _hand.localPosition;
     }
     public override void Update()
     {
@@ -67,11 +67,13 @@ public class MeleeWeaponAttackController : WeaponAttackController
             return;
         }
 
-        Vector2 enemyPos = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
-        Vector2 handMovement = enemyPos - (Vector2)_hand.position;
+        Transform enemy = WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform;
+        Vector2 hitPoint = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
+        Vector2 hitRelativePoint = (Vector2)enemy.position - hitPoint;
+        Vector2 handMovement = hitPoint - (Vector2)_hand.position;
         WeaponControl.WeaponAttackManager.PauseAttackCooldown();
         float dist = handMovement.magnitude - _weaponStopDist;
-        TransformMover attackTrMover = new("Attack", handMovement.normalized, dist, _handSpeed, _hand, WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform, PlayAttackAnimation);
+        TransformMover attackTrMover = new("Attack", handMovement.normalized, dist, _handSpeed, _hand, WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform,() => PlayAttackAnimation(enemy, hitRelativePoint));
         _currHandMover = attackTrMover;
     }
     public override void End()
@@ -80,8 +82,9 @@ public class MeleeWeaponAttackController : WeaponAttackController
         EndReturnMovement();
     }
 
-    void PlayAttackAnimation()
+    void PlayAttackAnimation(Transform enemy, Vector2 handPosRelatedToEnemy)
     {
+        _hand.position = (Vector2)enemy.transform.position + handPosRelatedToEnemy;
         var attackAnimDuration = WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == AnimationName).AnimDuration;
         WeaponControl.WeaponAnimator.ChangeAnim(AnimationName);
         WeaponControl.WeaponAttackManager.UnPauseAttackCooldown();
@@ -90,7 +93,6 @@ public class MeleeWeaponAttackController : WeaponAttackController
         meleeAttack.transform.SetParent(WeaponControl.transform, true);
 
         InitializeAttack(meleeAttack);
-
         //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
         _currHandMover = null;
         GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => WeaponControl == null);
@@ -151,6 +153,12 @@ public class MeleeWeaponAttackController : WeaponAttackController
         _currHandMover = null;
 
         WeaponControl.WeaponAttackManager.FinishAttack();
+    }
+
+    public override void UpdatedPosition(Vector2 newPosition)
+    {
+        base.UpdatedPosition(newPosition);
+        _originalHandLocalPos = newPosition;
     }
 }
 
