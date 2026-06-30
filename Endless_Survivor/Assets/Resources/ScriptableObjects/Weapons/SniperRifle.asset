@@ -16,8 +16,8 @@ MonoBehaviour:
   _weaponName: Sniper Rifle
   _weaponStats:
     _range: 20
-    _attackSpeed: 0.3
-    _damage: 20
+    _attackSpeed: 0.5
+    _damage: 18
     _knockback: 10
   _rangeIncrease: 1.5
   _attackSpeedIncrease: 1

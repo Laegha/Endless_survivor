@@ -27,7 +27,7 @@ MonoBehaviour:
       type: {class: AddCostumesPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: AddCostume
-        _addingCostume:
+        _addingCostumes:
         - {fileID: 11400000, guid: d1cd781477774f34c979659a3d72f4d0, type: 2}
     - rid: 909968580704993281
       type: {class: IncreasePlayerStatsPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
@@ -38,8 +38,8 @@ MonoBehaviour:
           _hpIncrement: 0
           _hpRegeneration: 0
           _defense: 0.5
-          _maxSpeed: 0
           _minSpeed: 0
+          _maxSpeed: 0
           _acceleration: 0
     - rid: 909968594120474624
       type: {class: RemoveAfterHPLostPassiveItemBehaviour, ns: , asm: Assembly-CSharp}

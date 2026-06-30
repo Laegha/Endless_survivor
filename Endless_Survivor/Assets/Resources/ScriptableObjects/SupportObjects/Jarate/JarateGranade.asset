@@ -44,7 +44,7 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 1
         _throwSpeed: 5
-        _collisionCheckRadius: 0.3
+        _collisionCheckRadius: 0.5
         _collidedLayers:
           serializedVersion: 2
           m_Bits: 128
@@ -92,6 +92,6 @@ MonoBehaviour:
       data:
         _appliedStatusEffects:
         - {fileID: 11400000, guid: 811a886b1a991f143afa6d7ce4cfa3f8, type: 2}
-        _applicationRadius: 2.5
+        _applicationRadius: 4
         _applicationParticles: {fileID: 2751937218881223315, guid: 0dba83e094165e54192419c27032d0e0, type: 3}
         _particlesDuration: 3

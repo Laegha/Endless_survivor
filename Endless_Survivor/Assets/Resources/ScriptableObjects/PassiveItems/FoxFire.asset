@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Foxfire
   _itemDescript: Makes your attacks apply cold
-  _itemSprite: {fileID: 21300000, guid: 2f67abc6acb388e47aaac5e7de2daab0, type: 3}
+  _itemSprite: {fileID: 991560028, guid: 1ea0e8f50cd95df4b99fd4e7081642b1, type: 3}
   _itemBehaviours:
   - rid: 3262447238327304200
   - rid: 3262447238327304201

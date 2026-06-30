@@ -22,7 +22,7 @@ MonoBehaviour:
   _initialMaxWeapons: 2
   _initialPassives: []
   _playerStats:
-    _initialHP: 6
+    _initialHP: 10
     _hpIncrement: 2
     _hpRegeneration: 1
     _defense: 1

@@ -23,7 +23,7 @@ MonoBehaviour:
   _initialPassives:
   - {fileID: 11400000, guid: 24287957401a2db42be6062570523b16, type: 2}
   _playerStats:
-    _initialHP: 8
+    _initialHP: 14
     _hpIncrement: 1
     _hpRegeneration: 0.5
     _defense: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: CultLeader
   m_EditorClassIdentifier: 
-  _initialHP: 700
+  _initialHP: 1000
   _referenceSizeSprite: {fileID: 932479957, guid: ac5282558053614429bef0de70c78748, type: 3}
   _renderSortingOffset: 0
   _knockbackResistance: 5
@@ -79,7 +79,7 @@ MonoBehaviour:
     - rid: 2454942783598231559
       type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: DuringTimeTriggerMovementAbove20%HP
+        _behaviourId: DuringTimeTriggerMovementAbove30%HP
         _overrideBehaviours: []
         _behavioursToTrigger:
         - MoveRandomly
@@ -157,7 +157,7 @@ MonoBehaviour:
     - rid: 2454942783598231565
       type: {class: PlayAnimFacingPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: IdleAnimAbove20%HP
+        _behaviourId: IdleAnimAbove30%HP
         _overrideBehaviours: []
         _animations:
           _upAnimation:
@@ -195,12 +195,12 @@ MonoBehaviour:
         _overrideBehaviours: []
         _triggeredBehaviours:
         - TakeOffHoodAnimation
-        _hpThreshold: 20
+        _hpThreshold: 30
         _triggerConstantly: 0
     - rid: 2454942783598231567
       type: {class: TriggerRandomBehaviourOverTimeWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: TriggerRandomAbove20%HP
+        _behaviourId: TriggerRandomAbove30%HP
         _overrideBehaviours: []
         _possibleBehaviours:
         - DuringTimeTriggerMovementAbove20%HP
@@ -223,7 +223,7 @@ MonoBehaviour:
     - rid: 2454942783598231569
       type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: TriggerMovementDuringTimeBelow20%HP
+        _behaviourId: TriggerMovementDuringTimeBelow30%HP
         _overrideBehaviours: []
         _behavioursToTrigger:
         - MoveRandomly
@@ -272,7 +272,7 @@ MonoBehaviour:
     - rid: 2454942783598231572
       type: {class: PlayAnimFacingPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: IdleAnimBelow20%HP
+        _behaviourId: IdleAnimBelow30%HP
         _overrideBehaviours: []
         _animations:
           _upAnimation:
@@ -306,7 +306,7 @@ MonoBehaviour:
     - rid: 2454942783598231573
       type: {class: TriggerRandomBehaviourOverTimeWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: TriggerRandomBelow20%HP
+        _behaviourId: TriggerRandomBelow30%HP
         _overrideBehaviours: []
         _possibleBehaviours:
         - TriggerMovementDuringTimeBelow20%HP
@@ -320,7 +320,7 @@ MonoBehaviour:
     - rid: 2454942783598231574
       type: {class: PlayAnimByRbVelocityWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: MoveAnimAbove20%HP
+        _behaviourId: MoveAnimAbove30%HP
         _overrideBehaviours: []
         _animations:
           _upAnimation:
@@ -382,7 +382,7 @@ MonoBehaviour:
     - rid: 2454942783598231575
       type: {class: PlayAnimByRbVelocityWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _behaviourId: MoveAnimBelow20%HP
+        _behaviourId: MoveAnimBelow30%HP
         _overrideBehaviours: []
         _animations:
           _upAnimation:

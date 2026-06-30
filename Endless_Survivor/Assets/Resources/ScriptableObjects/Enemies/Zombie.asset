@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   _initialHP: 25
-  _referenceSizeSprite: {fileID: 1436494471, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
+  _referenceSizeSprite: {fileID: 1144823343, guid: 7ff429c137c282547bd890fd28ebff7a, type: 3}
   _renderSortingOffset: 0
   _knockbackResistance: 5
   _colliderSize: {x: 0.3, y: 0.4}

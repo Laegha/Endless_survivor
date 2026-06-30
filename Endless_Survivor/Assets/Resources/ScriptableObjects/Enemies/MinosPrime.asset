@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: MinosPrime
   m_EditorClassIdentifier: 
-  _initialHP: 250
+  _initialHP: 500
   _referenceSizeSprite: {fileID: 1146675831, guid: 589499806ef75a749820317a43e60ebc, type: 3}
   _renderSortingOffset: 0
   _knockbackResistance: 5

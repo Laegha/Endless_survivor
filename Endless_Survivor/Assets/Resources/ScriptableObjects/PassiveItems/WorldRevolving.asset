@@ -32,17 +32,17 @@ MonoBehaviour:
       data:
         _behaviourId: RandomActivator
         _possibleActivatedIds:
-        - _rouletteElement: 
+        - _rouletteElement: SpawnClubs
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: SpawnSpades
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: HeartHealOrHurt
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: DiamondInflictEffects
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: GiveWeakness
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: GiveRegeneration
           _chance: 1
         _timeBetweenActivations:
           min: 5

@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: CreateJaratePickup
   m_EditorClassIdentifier: 
   _pickupParticles: {fileID: 0}
+  _colliderSize: {x: 0.7, y: 0.7}
+  _renderingOffset: 0
+  _onPickupSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
   _pickupAnim:
     _animationName: Idlent
     _frames:

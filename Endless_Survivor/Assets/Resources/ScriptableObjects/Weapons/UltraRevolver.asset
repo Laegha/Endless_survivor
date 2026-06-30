@@ -16,8 +16,8 @@ MonoBehaviour:
   _weaponName: Ultra Revolver
   _weaponStats:
     _range: 8
-    _attackSpeed: 1
-    _damage: 7
+    _attackSpeed: 2
+    _damage: 12
     _knockback: 8
   _rangeIncrease: 0.9
   _attackSpeedIncrease: 0.8
@@ -299,9 +299,11 @@ MonoBehaviour:
       data:
         _changeChance: 25
         _idsWeights:
-        - _rouletteElement: 
+        - _rouletteElement: DefaultAttack
+          _chance: 3
+        - _rouletteElement: PierceAttack
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: SplitAttackCoin
           _chance: 1
-        - _rouletteElement: 
+        - _rouletteElement: RicochetAttack
           _chance: 1

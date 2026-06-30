@@ -29,7 +29,8 @@ MonoBehaviour:
         - _rouletteElement:
             _spawnAnim:
               _animationName: 
-              _frames: []
+              _frames:
+              - {fileID: 0}
               _framesPerSecond: 0
               _endAnimationOnEnd: 0
               _priority: 0

@@ -53,6 +53,7 @@ MonoBehaviour:
           - {fileID: 1348826584, guid: c792c65491eb8544b96099f1136aef84, type: 3}
           - {fileID: 899221377, guid: c792c65491eb8544b96099f1136aef84, type: 3}
           - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
+          - {fileID: 1872986194, guid: c792c65491eb8544b96099f1136aef84, type: 3}
           _framesPerSecond: 6
           _endAnimationOnEnd: 0
           _priority: 0
