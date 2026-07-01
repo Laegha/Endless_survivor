@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 273366ca436bdad4898310bd5797499a, type: 3}
   _characterName: Frisk
-  _characterHands:
-  - {fileID: -2030266238, guid: 746ea5beacccb954d9c44c91175fdb23, type: 3}
-  - {fileID: 429632675, guid: 746ea5beacccb954d9c44c91175fdb23, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -2030266238, guid: 746ea5beacccb954d9c44c91175fdb23, type: 3}
+    - {fileID: 429632675, guid: 746ea5beacccb954d9c44c91175fdb23, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -2030266238, guid: 746ea5beacccb954d9c44c91175fdb23, type: 3}
+    - {fileID: 429632675, guid: 746ea5beacccb954d9c44c91175fdb23, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: da77e37e7c457a74b95e4495581ccfb6, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: 0312905c4600c77478c6195456b78dec, type: 2}
   _playerStats:

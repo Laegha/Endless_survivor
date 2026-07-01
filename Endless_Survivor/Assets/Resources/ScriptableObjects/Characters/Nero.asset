@@ -14,13 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 17b52f9349e33884c9a48e5f50c76ac0, type: 3}
   _characterName: Nero
-  _characterHands:
-  - {fileID: -219140048, guid: 0fa3d42b1f7d73b4da398bd069ce9e22, type: 3}
-  - {fileID: 1562051414, guid: 0fa3d42b1f7d73b4da398bd069ce9e22, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -219140048, guid: 0fa3d42b1f7d73b4da398bd069ce9e22, type: 3}
+    - {fileID: 1562051414, guid: 0fa3d42b1f7d73b4da398bd069ce9e22, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -219140048, guid: 0fa3d42b1f7d73b4da398bd069ce9e22, type: 3}
+    - {fileID: 1562051414, guid: 0fa3d42b1f7d73b4da398bd069ce9e22, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: 717231bc947f22142a8906db3f413669, type: 2}
   - {fileID: 11400000, guid: b839697a130227f4fa5e33b13532821c, type: 2}
-  _initialMaxWeapons: 4
   _initialPassives:
   - {fileID: 11400000, guid: 08754e4a6537d2b42b9d89602253df4a, type: 2}
   _playerStats:

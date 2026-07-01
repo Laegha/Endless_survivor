@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 669c391af3a678a4e9afc894329e829e, type: 3}
   _characterName: Sonic
-  _characterHands:
-  - {fileID: 247299013, guid: 0be900bfabea0294c83b0533f456a42e, type: 3}
-  - {fileID: 741897666, guid: 0be900bfabea0294c83b0533f456a42e, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 247299013, guid: 0be900bfabea0294c83b0533f456a42e, type: 3}
+    - {fileID: 741897666, guid: 0be900bfabea0294c83b0533f456a42e, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons: []
-  _initialMaxWeapons: 1
   _initialPassives:
   - {fileID: 11400000, guid: 9d92ffd20492b8e4cba09deb49881525, type: 2}
   - {fileID: 11400000, guid: 92a254012c58d1f42affec0fb3323eda, type: 2}

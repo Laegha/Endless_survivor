@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 502751c5b02d6a547b2f8990dda22707, type: 3}
   _characterName: Neuro-sama
-  _characterHands:
-  - {fileID: 292284469, guid: ecf705abe9be6d349b34a590eae7ca23, type: 3}
-  - {fileID: 482718107, guid: ecf705abe9be6d349b34a590eae7ca23, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 292284469, guid: ecf705abe9be6d349b34a590eae7ca23, type: 3}
+    - {fileID: 482718107, guid: ecf705abe9be6d349b34a590eae7ca23, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 292284469, guid: ecf705abe9be6d349b34a590eae7ca23, type: 3}
+    - {fileID: 482718107, guid: ecf705abe9be6d349b34a590eae7ca23, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: a33a18804829b4d42ae5f3081b19f9e2, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: 06b7034d23d2c7f4ca01af62994dbc09, type: 2}
   _playerStats:

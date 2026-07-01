@@ -14,13 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: a16e23d1b5e329f44ba0ad88b1d904a1, type: 3}
   _characterName: V1
-  _characterHands:
-  - {fileID: 1585558140, guid: 89684a519f91cae4d9d624460cc75c01, type: 3}
-  - {fileID: 1616027924, guid: 89684a519f91cae4d9d624460cc75c01, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 1585558140, guid: 89684a519f91cae4d9d624460cc75c01, type: 3}
+    - {fileID: 1616027924, guid: 89684a519f91cae4d9d624460cc75c01, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 1585558140, guid: 89684a519f91cae4d9d624460cc75c01, type: 3}
+    - {fileID: 1616027924, guid: 89684a519f91cae4d9d624460cc75c01, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: af62693d9c01ac64280854582866ec61, type: 2}
   - {fileID: 11400000, guid: 0b917560825046b4e9af1cdb56aa8bb8, type: 2}
-  _initialMaxWeapons: 3
   _initialPassives:
   - {fileID: 11400000, guid: 0ca0a01689e44ed4091b68ec2b5710f6, type: 2}
   _playerStats:

@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 460612b8ed62fc342994d7071b3d7d38, type: 3}
   _characterName: Beheaded
-  _characterHands:
-  - {fileID: -790108890, guid: 89a78d84421d5f04394d31e342aff53f, type: 3}
-  - {fileID: -2086981060, guid: 89a78d84421d5f04394d31e342aff53f, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -790108890, guid: 89a78d84421d5f04394d31e342aff53f, type: 3}
+    - {fileID: -2086981060, guid: 89a78d84421d5f04394d31e342aff53f, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -790108890, guid: 89a78d84421d5f04394d31e342aff53f, type: 3}
+    - {fileID: -2086981060, guid: 89a78d84421d5f04394d31e342aff53f, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: ca2b7fae122b94346bfe447f6a8ff963, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: d240be5112679254fa8fad720ead306f, type: 2}
   - {fileID: 11400000, guid: a6c792945f5ef724e904e0b811bd1aa7, type: 2}

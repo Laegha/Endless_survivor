@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 751f6e487bac6474a82f4ea89b9ac1ca, type: 3}
   _characterName: Pilot
-  _characterHands:
-  - {fileID: 679349108, guid: f9b6152640a5d9246858eaac9f07c278, type: 3}
-  - {fileID: -328204395, guid: f9b6152640a5d9246858eaac9f07c278, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 679349108, guid: f9b6152640a5d9246858eaac9f07c278, type: 3}
+    - {fileID: -328204395, guid: f9b6152640a5d9246858eaac9f07c278, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 679349108, guid: f9b6152640a5d9246858eaac9f07c278, type: 3}
+    - {fileID: -328204395, guid: f9b6152640a5d9246858eaac9f07c278, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: f7325dc18c33ecd418ba686cb111444e, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: 2d374b7e6b74f944a9355371cccf71d4, type: 2}
   _playerStats:

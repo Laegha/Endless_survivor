@@ -14,13 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 1ac205b35e849ad4fb0dba9cf4fc9ad7, type: 3}
   _characterName: PostalDude
-  _characterHands:
-  - {fileID: -491835768, guid: 78c2b7afec9c78e42a5bec1cb71cbd63, type: 3}
-  - {fileID: -1662472709, guid: 78c2b7afec9c78e42a5bec1cb71cbd63, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -491835768, guid: 78c2b7afec9c78e42a5bec1cb71cbd63, type: 3}
+    - {fileID: -1662472709, guid: 78c2b7afec9c78e42a5bec1cb71cbd63, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -491835768, guid: 78c2b7afec9c78e42a5bec1cb71cbd63, type: 3}
+    - {fileID: -1662472709, guid: 78c2b7afec9c78e42a5bec1cb71cbd63, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: ef4ba99e57b1f3341a676d0198267b3e, type: 2}
   - {fileID: 11400000, guid: b28fae1a20322f842bdb89505b36221f, type: 2}
-  _initialMaxWeapons: 3
   _initialPassives: []
   _playerStats:
     _initialHP: 20

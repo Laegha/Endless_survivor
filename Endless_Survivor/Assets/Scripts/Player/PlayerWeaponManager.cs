@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PlayerWeaponManager : MonoBehaviour
 {
@@ -11,19 +12,18 @@ public class PlayerWeaponManager : MonoBehaviour
     //Dictionary<Weapon, Transform> _heldWeapons = new Dictionary<Weapon, Transform>();
     System.Action _onWeaponPickup;
     System.Action _onWeaponRemoved;
-    List<WeaponHolder> _heldWeapons = new List<WeaponHolder>();
-    int _maxWeapons;
+    List<WeaponHolder> _weaponHolders = new List<WeaponHolder>();
+    List<WeaponHolderInfo> _totalHoldersInfos = new();
 
     public List<WeaponAttackManager> HeldWeapons
     {
         get
         {
             List<WeaponAttackManager> list = new List<WeaponAttackManager>();
-            _heldWeapons.ForEach(weaponHolder => list.Add(weaponHolder.holdingWeapon));
+            _weaponHolders.ForEach(weaponHolder => list.Add(weaponHolder.holdingWeapon));
             return list;
         }
     }
-    public int MaxWeapons { set { _maxWeapons = value; } }
     public System.Action OnWeaponPickup { get  { return _onWeaponPickup; } set { _onWeaponPickup = value; } }
     public System.Action OnWeaponRemoved {  get { return _onWeaponRemoved; } set { _onWeaponRemoved = value; } }
     public Dictionary<CustomFlags.IWeaponTag, int> HeldWeaponTags
@@ -31,7 +31,7 @@ public class PlayerWeaponManager : MonoBehaviour
         get
         {
             Dictionary<CustomFlags.IWeaponTag, int> heldTags= new();
-            foreach(var heldWeapon in _heldWeapons)
+            foreach(var heldWeapon in _weaponHolders)
             {
                 foreach(var tag in heldWeapon.holdingWeapon.WeaponData.WeaponTags)
                 {
@@ -49,10 +49,10 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        if(_heldWeapons.Count >= _maxWeapons)
+        if(_weaponHolders.Count >= _totalHoldersInfos.Count)
         {
             List<WeaponAttackManager> weapons = new List<WeaponAttackManager>();
-            _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));
+            _weaponHolders.ForEach(x => weapons.Add(x.holdingWeapon));
             GameUIManager.uiManager.WeaponOverrideMenu.DisplayMenu(weapons, weaponData, weaponStats, SwitchWeapon);
             return;
         }
@@ -66,25 +66,18 @@ public class PlayerWeaponManager : MonoBehaviour
         WeaponAttackManager weaponAttackManager = newWeapon.GetComponent<WeaponAttackManager>();
 
         //check for empty holders
-        WeaponHolder emptyHolder = _heldWeapons.Where(x => x.holdingWeapon == null).FirstOrDefault();
+        WeaponHolder emptyHolder = _weaponHolders.Where(x => x.holdingWeapon == null).FirstOrDefault();
         if(emptyHolder != null)
         {
             newWeapon.transform.SetParent(emptyHolder.handTransform);
             newWeapon.transform.localPosition = Vector2.zero;
             return;
         }
-        emptyHolder = new WeaponHolder();
-        _heldWeapons.Add(emptyHolder);
-        emptyHolder.destructible = true;
+        List<WeaponHolderInfo> pendingHolderInfos = _totalHoldersInfos.Where(x => !_weaponHolders.Any(y => y.holderInfo == x)).ToList();
+        emptyHolder = GenerateWeaponHolder(pendingHolderInfos[Random.Range(0, pendingHolderInfos.Count)]);
 
-        GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], _gunsHolder);
-        var handRenderer = hand.GetComponent<SpriteRenderer>();
-        handRenderer.sprite = GameManager.gm.selectedCharacter.CharacterHands[Random.Range(0, GameManager.gm.selectedCharacter.CharacterHands.Length)];
-        PlayerControl.pc.PlayerMaterialManager.AddRenderer(handRenderer);
-        newWeapon.transform.SetParent(hand.transform);
+        newWeapon.transform.SetParent(emptyHolder.handTransform);
         newWeapon.transform.localPosition = Vector2.zero;
-        emptyHolder.handTransform = hand.transform;
-        emptyHolder.positionStays = false;
         emptyHolder.holdingWeapon = weaponAttackManager;
 
         UpdateWeaponPositions();
@@ -93,7 +86,7 @@ public class PlayerWeaponManager : MonoBehaviour
     }
     void UpdateWeaponPositions()
     {
-        List<WeaponHolder> updatingHolders = _heldWeapons.Where(x => !x.positionStays).ToList();
+        List<WeaponHolder> updatingHolders = _weaponHolders.Where(x => !x.holderInfo.UseFixedPosition).ToList();
         int nonStaticHoldersCount = updatingHolders.Count;
         //float angleStep = 15 /** Mathf.Floor((nonStaticHoldersCount + 1) / 2) -15*/;
         float significantWeapons = Mathf.Floor((nonStaticHoldersCount - 1) / 2);
@@ -118,18 +111,17 @@ public class PlayerWeaponManager : MonoBehaviour
     void SwitchWeapon(WeaponAttackManager removedWeapon)
     {
         RemoveWeapon(removedWeapon);
-        PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
         GenerateWeapon(GameUIManager.uiManager.WeaponPickupMenu.CurrDisplayingWeapon, GameUIManager.uiManager.WeaponPickupMenu.CurrWeaponStats);
     }
     public void RemoveWeapon(WeaponAttackManager removedWeapon)
     {
-        var weaponHolder = _heldWeapons.Find(x => x.holdingWeapon == removedWeapon);
+        var weaponHolder = _weaponHolders.Find(x => x.holdingWeapon == removedWeapon);
         Destroy(removedWeapon.gameObject);
-        if (weaponHolder != null && weaponHolder.destructible)
+        if (weaponHolder != null && !weaponHolder.holderInfo.Permanent)
         {
+            _weaponHolders.Remove(weaponHolder);
             DestroyImmediate(weaponHolder.handTransform.gameObject);
             PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
-            _heldWeapons.Remove(weaponHolder);
         }
         _onWeaponRemoved?.Invoke();
     }
@@ -139,15 +131,33 @@ public class PlayerWeaponManager : MonoBehaviour
         if(weapons == null || weapons.Count == 0 )
         {
             weapons = new();
-            _heldWeapons.ForEach(x => weapons.Add(x.holdingWeapon));
+            _weaponHolders.ForEach(x => weapons.Add(x.holdingWeapon));
         }
 
         weapons.ForEach(x => x.InducedLevelUp());
     }
     //List<WeaponHolderInfo> addedWeaponHolders --> should know sprite (random from character, or fixed), position (part of the circle or fixed) and visibility (always visible or only if it has weapon)
-    public void AddMaxWeapons(int addedMaxWeapons)
+    public void AddWeaponHolder(WeaponHolderInfo addedMaxWeapon)
     {
-        _maxWeapons += addedMaxWeapons;
+        _totalHoldersInfos.Add(addedMaxWeapon);
+        if (addedMaxWeapon.Permanent)
+            GenerateWeaponHolder(addedMaxWeapon);
     }
+    WeaponHolder GenerateWeaponHolder(WeaponHolderInfo generatingHolder)
+    {
+        GameObject hand = Instantiate(GameManager.gm.prefabHolder.Prefabs["Hand"], _gunsHolder);
+        var handRenderer = hand.GetComponent<SpriteRenderer>();
+        handRenderer.sprite = generatingHolder.RandomHandSprite;
+        PlayerControl.pc.PlayerMaterialManager.AddRenderer(handRenderer);
 
+        Transform handTr = hand.transform;
+        handTr.SetParent(_gunsHolder);
+        if(generatingHolder.UseFixedPosition)
+            handTr.localPosition = generatingHolder.FixedPosition;
+
+        WeaponHolder generatedHolder = new(generatingHolder, hand.transform);
+        _weaponHolders.Add(generatedHolder);
+        return generatedHolder;
+    }
+    
 }

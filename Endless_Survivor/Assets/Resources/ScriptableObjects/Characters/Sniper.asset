@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: a349122498eed9f46a804edbf1918df7, type: 3}
   _characterName: Sniper
-  _characterHands:
-  - {fileID: 317693150, guid: 5c6a9df4d93f255458fc334b1c6e58db, type: 3}
-  - {fileID: -1617707682, guid: 5c6a9df4d93f255458fc334b1c6e58db, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 317693150, guid: 5c6a9df4d93f255458fc334b1c6e58db, type: 3}
+    - {fileID: -1617707682, guid: 5c6a9df4d93f255458fc334b1c6e58db, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 317693150, guid: 5c6a9df4d93f255458fc334b1c6e58db, type: 3}
+    - {fileID: -1617707682, guid: 5c6a9df4d93f255458fc334b1c6e58db, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: 8f284a194a921c54ca43cce7fe01df67, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: a08d8e31b21b9204cbc86d6c0ef2a93f, type: 2}
   _playerStats:

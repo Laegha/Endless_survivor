@@ -16,7 +16,11 @@ public class PlayerSpawner : MonoBehaviour
         playerControl.PlayerStats = new PlayerStats(selectedChar.PlayerStats);
         playerControl.PlayerHPManager.OnHitSound= selectedChar.OnHitSound;
         playerControl.PlayerHPManager.OnDeathSound = selectedChar.OnDeathSound;
-        playerControl.WeaponManager.MaxWeapons = selectedChar.InitialMaxWeapons;
+        foreach(var weaponHolderInfo in selectedChar.InitialWeaponHolders)
+        {
+            playerControl.WeaponManager.AddWeaponHolder(weaponHolderInfo);
+
+        }
         CapsuleCollider2D playerCollider = player.GetComponent<CapsuleCollider2D>();
         playerCollider.offset = Vector2.zero;
         //playerCollider.offset = selectedChar.ColliderOffset;

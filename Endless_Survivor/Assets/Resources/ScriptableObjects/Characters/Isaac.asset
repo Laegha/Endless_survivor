@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: ce78d56d285942b46bd89ddbc1633bc5, type: 3}
   _characterName: Isaac
-  _characterHands:
-  - {fileID: 299159617, guid: 4dbdfb6125a69b04cb62c0adc1f295f5, type: 3}
-  - {fileID: 1966441354, guid: 4dbdfb6125a69b04cb62c0adc1f295f5, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 299159617, guid: 4dbdfb6125a69b04cb62c0adc1f295f5, type: 3}
+    - {fileID: 1966441354, guid: 4dbdfb6125a69b04cb62c0adc1f295f5, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 299159617, guid: 4dbdfb6125a69b04cb62c0adc1f295f5, type: 3}
+    - {fileID: 1966441354, guid: 4dbdfb6125a69b04cb62c0adc1f295f5, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: da77e37e7c457a74b95e4495581ccfb6, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: efd7eba6475df454dadd662931095031, type: 2}
   _playerStats:

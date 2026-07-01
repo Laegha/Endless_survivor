@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 8bc7ea4d03248fa44ba900514f5c282a, type: 3}
   _characterName: Miyabi
-  _characterHands:
-  - {fileID: -1530858466, guid: dc07e9b5d09086e47bf0b094dec4d635, type: 3}
-  - {fileID: 501287727, guid: dc07e9b5d09086e47bf0b094dec4d635, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -1530858466, guid: dc07e9b5d09086e47bf0b094dec4d635, type: 3}
+    - {fileID: 501287727, guid: dc07e9b5d09086e47bf0b094dec4d635, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -1530858466, guid: dc07e9b5d09086e47bf0b094dec4d635, type: 3}
+    - {fileID: 501287727, guid: dc07e9b5d09086e47bf0b094dec4d635, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: aaabc74b67409bf43bda10991dc65241, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: 24287957401a2db42be6062570523b16, type: 2}
   _playerStats:

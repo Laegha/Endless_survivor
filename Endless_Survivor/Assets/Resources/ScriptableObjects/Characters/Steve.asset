@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 1280c862dff675144b5088e3ad23f26b, type: 3}
   _characterName: Steve
-  _characterHands:
-  - {fileID: -2025370196, guid: b37caf1e5041f4e48b302b7fb689879a, type: 3}
-  - {fileID: 1319353978, guid: b37caf1e5041f4e48b302b7fb689879a, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -2025370196, guid: b37caf1e5041f4e48b302b7fb689879a, type: 3}
+    - {fileID: 1319353978, guid: b37caf1e5041f4e48b302b7fb689879a, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -2025370196, guid: b37caf1e5041f4e48b302b7fb689879a, type: 3}
+    - {fileID: 1319353978, guid: b37caf1e5041f4e48b302b7fb689879a, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: 788b16509c19fab4f8f368ec0033ca1d, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives:
   - {fileID: 11400000, guid: 5fa8501bb39b91e46b874af7b6894cf9, type: 2}
   _playerStats:

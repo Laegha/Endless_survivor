@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class WeaponHolder
 {
-    public bool positionStays;
-    public bool destructible;
-    public WeaponAttackManager holdingWeapon;
+    public WeaponHolderInfo holderInfo;
     public Transform handTransform;
+    public WeaponAttackManager holdingWeapon;
+
+    public WeaponHolder(WeaponHolderInfo holderInfo, Transform handTransform)
+    {
+        this.holderInfo = holderInfo;
+        this.handTransform = handTransform;
+    }
 }

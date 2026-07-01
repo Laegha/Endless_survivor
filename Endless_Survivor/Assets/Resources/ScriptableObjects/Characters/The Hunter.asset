@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 2023260274ec9664c9c2ff7b6bb2eed9, type: 3}
   _characterName: The Hunter
-  _characterHands:
-  - {fileID: -169117831, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
-  - {fileID: 885243135, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -169117831, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
+    - {fileID: 885243135, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -169117831, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
+    - {fileID: 885243135, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
-  _initialMaxWeapons: 2
   _initialPassives: []
   _playerStats:
     _initialHP: 10
