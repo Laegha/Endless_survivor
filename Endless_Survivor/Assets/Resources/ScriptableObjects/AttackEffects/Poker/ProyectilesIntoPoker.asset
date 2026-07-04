@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f4c500d1b3dee48885e1e8f3388601, type: 3}
+  m_Name: ProyectilesIntoPoker
+  m_EditorClassIdentifier: 
+  _effectChance: 100
+  _usedBySecondaryAttacks: 0
+  _attackEffects:
+  - rid: 5726233540978016256
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233540978016256
+      type: {class: PokerDeckAttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _usesSeparateChance: 0
+        _separateChance: 50
+        _effects:
+        - _triggeringPattern: 0
+          _triggeredEffects: []
+          _patternParticles: {fileID: 4490651413473257475, guid: 89c207324d59a3548a530ce500f3eb5f, type: 3}
+        - _triggeringPattern: 1
+          _triggeredEffects:
+          - {fileID: 11400000, guid: 49704f581bd4cbb4bb64e93b61eafca7, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: 2429f9eb43103c04a991a3d4cd0fffe4, type: 3}
+        - _triggeringPattern: 2
+          _triggeredEffects:
+          - {fileID: 11400000, guid: 273ed3989ac6d7e49af97f43fa3386e9, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: 4a4d05299757e6c48b155abb157e065e, type: 3}
+        - _triggeringPattern: 3
+          _triggeredEffects:
+          - {fileID: 11400000, guid: 273ed3989ac6d7e49af97f43fa3386e9, type: 2}
+          - {fileID: 11400000, guid: 224d4efaf77e9ea40a33514bcc52b35c, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: d65736df6d129334288b2d54e54721b3, type: 3}
+        - _triggeringPattern: 4
+          _triggeredEffects:
+          - {fileID: 11400000, guid: 6661100d5d34e7f4db3c568bac49dfd0, type: 2}
+          - {fileID: 11400000, guid: 49704f581bd4cbb4bb64e93b61eafca7, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: 762be6ab3a14b79438f6a2981d5b70ae, type: 3}
+        - _triggeringPattern: 5
+          _triggeredEffects:
+          - {fileID: 11400000, guid: 95b3b00590bc730489f407ce45b21922, type: 2}
+          - {fileID: 11400000, guid: db13bc1ab38dd664eac2cd796e63411f, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: 0b682dc2b6288834e9de61d658d7b09e, type: 3}
+        - _triggeringPattern: 6
+          _triggeredEffects:
+          - {fileID: 11400000, guid: cd751c8105392674284a1e5c0818f79d, type: 2}
+          - {fileID: 11400000, guid: 7863b939900a2c94f8b6f63851c14859, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: bcc71347fc3aba64fa0c7671e266fda3, type: 3}
+        - _triggeringPattern: 7
+          _triggeredEffects:
+          - {fileID: 11400000, guid: 49704f581bd4cbb4bb64e93b61eafca7, type: 2}
+          - {fileID: 11400000, guid: f1a93b2e99b16fb41b719c210468218e, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: e8f3be480a97cde4c9a7d60c3485af36, type: 3}
+        - _triggeringPattern: 8
+          _triggeredEffects:
+          - {fileID: 11400000, guid: b656a8b331d8dca4bb6bfdbb6ede2943, type: 2}
+          - {fileID: 11400000, guid: db13bc1ab38dd664eac2cd796e63411f, type: 2}
+          - {fileID: 11400000, guid: 6661100d5d34e7f4db3c568bac49dfd0, type: 2}
+          - {fileID: 11400000, guid: 273ed3989ac6d7e49af97f43fa3386e9, type: 2}
+          _patternParticles: {fileID: 4490651413473257475, guid: 344be092641491749a037d9356bc7858, type: 3}
+        _suitsAnimations:
+        - suit: 0
+          suitAnimation:
+            _animationName: Spades
+            _frames:
+            - {fileID: -894407712, guid: baa66c5b37391374eba9106fee0452e0, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+        - suit: 1
+          suitAnimation:
+            _animationName: Clubs
+            _frames:
+            - {fileID: -1224466028, guid: baa66c5b37391374eba9106fee0452e0, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+        - suit: 2
+          suitAnimation:
+            _animationName: Diamonds
+            _frames:
+            - {fileID: -1032491023, guid: baa66c5b37391374eba9106fee0452e0, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+        - suit: 3
+          suitAnimation:
+            _animationName: Hearts
+            _frames:
+            - {fileID: 2125321198, guid: baa66c5b37391374eba9106fee0452e0, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+        _distBetweenCards: 0.1
+        _cardsDirectionAngleAmplitude: 40
