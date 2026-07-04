@@ -18,6 +18,7 @@ public class MeleeAttack : Attack
     Vector2 _attackAreaStart;
     Vector2 _attackAreaEnd;
 
+    public SpriteRenderer VfxRenderer {  get { return _vfxRenderer; } }
     new public AnimationChangeAttackGfxInterface AttackGfxInterface => new AnimationChangeAttackGfxInterface();
     private void Update()
     {
