@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: PercyJackson
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: a322ea8dd3c441f4580b86078a9b93dc, type: 3}
+  _characterName: Percy Jackson
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -1726163388, guid: 812b54f524c1f6846b6259412ba8355b, type: 3}
+    - {fileID: -2140552644, guid: 812b54f524c1f6846b6259412ba8355b, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: -1726163388, guid: 812b54f524c1f6846b6259412ba8355b, type: 3}
+    - {fileID: -2140552644, guid: 812b54f524c1f6846b6259412ba8355b, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  _initialWeapons:
+  - {fileID: 11400000, guid: 7d574d744258f584fbe4782e33efcced, type: 2}
+  _initialPassives:
+  - {fileID: 11400000, guid: 5b8fc277a6b1ea04aa0aeeb9925161ef, type: 2}
+  _playerStats:
+    _initialHP: 12
+    _hpIncrement: 5
+    _hpRegeneration: 1.5
+    _defense: 1
+    _minSpeed: 5
+    _maxSpeed: 5.5
+    _acceleration: 1.5
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: -337514897, guid: 1799663668274904ab9c7817e072c4fd, type: 3}
+    - {fileID: 228785639, guid: 1799663668274904ab9c7817e072c4fd, type: 3}
+    - {fileID: 242283857, guid: 1799663668274904ab9c7817e072c4fd, type: 3}
+    - {fileID: 490935037, guid: 1799663668274904ab9c7817e072c4fd, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: 1859511133, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: 792602605, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: 1916221106, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: 100952246, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: 1900768689, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: -2069794400, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: 343401658, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    - {fileID: -895845731, guid: 6dca56480b0b63f43b51c773a0437ebc, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: -1993644997, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    - {fileID: 1963062193, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    - {fileID: -639009564, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    - {fileID: 707542637, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    - {fileID: -576463156, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    - {fileID: -1795429925, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    - {fileID: -2096310383, guid: 72d06c9d2d7cfeb488d2d0105b604e61, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: 415997513, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: 624568375, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: 746312604, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: -174598561, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: -1540553218, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: -1544274951, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: 1837048082, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    - {fileID: 471517106, guid: bf827054c9818eb4da99e6b45f4fceda, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: -2132354938, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    - {fileID: -1033330097, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    - {fileID: 1981667507, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    - {fileID: -300911403, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    - {fileID: 1383607211, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    - {fileID: 2004576015, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    - {fileID: 1675251678, guid: a5d3ca31612498742991b72633c901d7, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _costumeSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
+  _onHitSound:
+    _possibleSounds:
+    - {fileID: 8300000, guid: bf86e81c79e4d8a48ae27b195784b4d9, type: 3}
+    - {fileID: 8300000, guid: 618f1bcdfc3bd474096a2bbd9371425c, type: 3}
+    - {fileID: 8300000, guid: c88116a7945d37d4997824bf15e8335d, type: 3}
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0.2
+  _onDeathSound:
+    _possibleSounds:
+    - {fileID: 8300000, guid: 9f7a2ddccc59a4e4e9ab1ea84093f4eb, type: 3}
+    _volume: 1
+    _minPitchVariation: 0.2
+    _maxPitchVariation: 0.2
+  _deathAnim:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _exitRunAnim:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _deathParticles: {fileID: 2393940968961475062, guid: 7a2b04604eaee984f923f5a9a0e7ef37, type: 3}
+  _exitRunParticles: {fileID: 8148643168460566524, guid: 08d695c870fb1d34ea1e131452500cd8, type: 3}
