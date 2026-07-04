@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: PoseidonsTrident
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 03d108e62f957d24491951b12367f108, type: 3}
+  _weaponName: Poseidon's Trident
+  _weaponStats:
+    _range: 4
+    _attackSpeed: 0.5
+    _damage: 30
+    _knockback: 5
+  _rangeIncrease: 0.3
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1.5
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 5726233562132774914
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 03d108e62f957d24491951b12367f108, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233562132774914
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: -2124434799, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: -1707641050, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: -600984077, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: 626709196, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: 1866861847, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: -129117741, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: -129117741, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          - {fileID: -129117741, guid: 06fbea572155b604f8df484159d1e0fc, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 5
+        _attackSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 6b1fc27a2ab979e4b8a2ae5d8a9d3dbf, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 64
+        _meleeData:
+          _isCircle: 0
+          _attackCircleRadius: 0
+          _attackBoxSize: {x: 1.3, y: 0.5}
+          _attackOffset: {x: 0.6, y: 0}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: -26780001, guid: 4499b5bf28a37534b815928291ceb7fb, type: 3}
+            - {fileID: 1360945772, guid: 4499b5bf28a37534b815928291ceb7fb, type: 3}
+            - {fileID: -197594593, guid: 4499b5bf28a37534b815928291ceb7fb, type: 3}
+            _framesPerSecond: 8
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
