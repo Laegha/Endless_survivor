@@ -17,7 +17,7 @@ MonoBehaviour:
   _weaponStats:
     _range: 6
     _attackSpeed: 0.8
-    _damage: 5
+    _damage: 12
     _knockback: 0
   _rangeIncrease: 1
   _attackSpeedIncrease: 0.4
