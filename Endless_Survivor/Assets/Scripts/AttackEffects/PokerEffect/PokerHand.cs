@@ -37,31 +37,31 @@ public class PokerHand
 
 
         }
-        if (repeatedCards.Count == _cards.Count)
-            return PokerHandPattern.HighCard;
-
-        if (repeatedCards.Values.Any(x => x == 2))
-            return PokerHandPattern.Pair;
+        if(IsStraightFlush())
+            return PokerHandPattern.StraightFlush;
         
-        if (repeatedCards.Values.Where(x => x == 2).Count() == 2)
-            return PokerHandPattern.TwoPair;
+        if (repeatedCards.Values.Any(x => x == 4))
+            return PokerHandPattern.Poker;
         
-        if (repeatedCards.Values.Any(x => x == 3))
-            return PokerHandPattern.ThreeOfAKind;
-        
-        if (IsStraight())
-            return PokerHandPattern.Straight;
+        if (repeatedCards.Values.Any(x => x == 3) && repeatedCards.Values.Any(x => x == 2))
+            return PokerHandPattern.FullHouse;
         
         if (IsFlush())
             return PokerHandPattern.Flush;
         
-        if (repeatedCards.Keys.Any(x => x == 3) && repeatedCards.Keys.Any(x => x == 2))
-            return PokerHandPattern.FullHouse;
+        if (IsStraight())
+            return PokerHandPattern.Straight;
         
-        if (repeatedCards.Values.Any(x => x == 4))
-            return PokerHandPattern.Poker;
+        if (repeatedCards.Values.Any(x => x == 3))
+            return PokerHandPattern.ThreeOfAKind;
+        
+        if (repeatedCards.Values.Where(x => x == 2).Count() == 2)
+            return PokerHandPattern.TwoPair;
 
-        return PokerHandPattern.StraightFlush;
+        if (repeatedCards.Values.Any(x => x == 2))
+            return PokerHandPattern.Pair;
+
+        return PokerHandPattern.HighCard;
     }
     bool IsStraight()
     {
@@ -76,8 +76,10 @@ public class PokerHand
     bool IsFlush()
     {
         int sameSuitCards = _cards.Where(x => x.CardSuit == _cards[0].CardSuit).Count();
+        
         if(sameSuitCards != _cards.Count) 
             return false;
         return true;
     }
+    bool IsStraightFlush() => IsFlush() && IsStraight();
 }
