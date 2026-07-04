@@ -1,4 +1,3 @@
-using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,16 +45,18 @@ public class PokerDeckAttackEffect : AttackEffect
         int reducedSuitsAmmount = (int)Mathf.Floor(_weaponsBadHands[AffectedAttack.ParentWeapon] / 3);
         List<int> increasedSuits = new() { 0, 1, 2, 3 };
         increasedSuits = Utility.ShuffleList(increasedSuits);
-        increasedSuits = increasedSuits.GetRange(0, Mathf.Clamp(3 - reducedSuitsAmmount, 0, 5));
+        increasedSuits = increasedSuits.GetRange(0, Mathf.Clamp(3 - reducedSuitsAmmount, 1, 5));
         for(int rank = 1; rank <= 13; rank++)
         {
             int cardCopies = rank > duplicateCardsRankThreshold ? duplicateCardsAmmount + 1 : 1;
+            cardCopies = Mathf.Clamp(cardCopies, 0, 5);
             for (int i = 0; i < cardCopies; i++)
             {
                 for(int suit = 0; suit <= 3; suit++)
                 {
                     int suitCopies = increasedSuits.Contains(suit) ? duplicateCardsAmmount + 1 : 1;
-                    for(int j = 0 ; j < suitCopies; j++)
+                    suitCopies = Mathf.Clamp(suitCopies, 0, 5);
+                    for (int j = 0 ; j < suitCopies; j++)
                     {
                         deck.Add(new(rank, (PokerSuit)suit));
                     }
@@ -67,7 +68,15 @@ public class PokerDeckAttackEffect : AttackEffect
 
     void CreateHand()
     {
-        var hand = _myDeck.DrawHand();
+        var hand = _myDeck.DrawHand(); 
+        
+        //string handDebug = "Hand: ";
+        //foreach (var card in hand.Cards)
+        //{
+        //    handDebug += card.CardRank + " of " + card.CardSuit + ", ";
+        //}
+        //Debug.Log(handDebug);
+        
         var pattern = hand.GetHandPattern();
         var handEffectsInfo = _effects.Find(x => x.TriggeringPattern == pattern);
         List <AttackEffectData> handAttackEffects = null;
@@ -78,15 +87,10 @@ public class PokerDeckAttackEffect : AttackEffect
             handPatternParticles = handEffectsInfo.PatternParticles;
 
         }
-        List<ProyectileAttack> cardAttacks = CreateAttacks(hand);
-        string handDebug = "Hand: ";
-        foreach(var card in hand.Cards)
-        {
-            handDebug += card.CardRank + " of " + card.CardSuit + ", ";
-        }
-        //Debug.Log(handDebug);
+        List<ProyectileAttack> cardAttacks = CreateAttacks();
         
-        for(int i = 0; i < 4; i++)
+
+        for (int i = 0; i < 5; i++)
         {
             ProyectileAttack proyectile = cardAttacks[i];
             if(handAttackEffects != null)
@@ -103,13 +107,13 @@ public class PokerDeckAttackEffect : AttackEffect
         }
         if(handPatternParticles != null)
             ParticleManager.pm.SpawnParticles(new(handPatternParticles, AffectedAttack.ParentWeapon.WeaponControl.transform.position, Quaternion.identity, handPatternParticles.main.duration, null, false, false));
-        if (pattern > PokerHand.PokerHandPattern.ThreeOfAKind)
+        if (pattern > PokerHand.PokerHandPattern.Straight)
             _weaponsBadHands[AffectedAttack.ParentWeapon] = 0;
         else
             _weaponsBadHands[AffectedAttack.ParentWeapon]++;
     }
 
-    List<ProyectileAttack> CreateAttacks(PokerHand hand)
+    List<ProyectileAttack> CreateAttacks()
     {
         List<ProyectileAttack> createdAttacks = new List<ProyectileAttack>();
         Vector2 splitAttackPos = AffectedAttack.transform.position;
