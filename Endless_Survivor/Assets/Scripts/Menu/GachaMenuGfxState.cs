@@ -56,10 +56,12 @@ public class GachaMenuGfxState
         {
             anim.Key.Play(anim.Value);
         }
-        foreach(var chainAnim in chainAnimations)
+        float duration = 0;
+        foreach (var chainAnim in chainAnimations)
         {
-            var duration = Utility.GetClipFromAnimator(chainAnim.headAnim.animator, chainAnim.headAnim.animName).length + chainAnim.delay;
-            GameManager.gm.RoutineRunner(PlayChainAnimation(duration, chainAnim.tailAnim));
+            duration += Utility.GetClipFromAnimator(chainAnim.headAnim.animator, chainAnim.headAnim.animName).length + chainAnim.delay;
+            //GameManager.gm.RoutineRunner(PlayChainAnimation(duration, chainAnim.tailAnim));
+            GameManager.gm.DelayAction(duration,() => chainAnim.tailAnim.animator.Play(chainAnim.tailAnim.animName), () => _wasSkiped);
         }
         startEvents?.Invoke();
     }
