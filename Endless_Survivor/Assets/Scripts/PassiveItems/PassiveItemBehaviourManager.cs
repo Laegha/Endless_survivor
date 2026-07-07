@@ -12,6 +12,7 @@ public class PassiveItemBehaviourManager
     public Action<EnemyControl, Attack> onEnemyHit;
     public Action<EnemyControl> onEnemyKilled;
     public Action<int> onPlayerDamaged;
+    public Action onIntensityIncrease;
 
     public PassiveItem PassiveItem { get { return _passiveItem; } }
     List<PassiveItemBehaviour> _itemBehaviours = new();
