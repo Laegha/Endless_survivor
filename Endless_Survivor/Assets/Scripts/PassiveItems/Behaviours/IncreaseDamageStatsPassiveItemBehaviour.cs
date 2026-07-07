@@ -14,6 +14,8 @@ public class IncreaseDamageStatsPassiveItemBehaviour : PassiveItemBehaviour
         var increaseDamageOriginal = original as IncreaseDamageStatsPassiveItemBehaviour;
         _normalMultiplierIncrease = increaseDamageOriginal._normalMultiplierIncrease;
         _typesMultipliersIncrease = increaseDamageOriginal._typesMultipliersIncrease;
+
+        behaviourManager.onPicked += IncreaseStats;
     }
     void IncreaseStats()
     {
