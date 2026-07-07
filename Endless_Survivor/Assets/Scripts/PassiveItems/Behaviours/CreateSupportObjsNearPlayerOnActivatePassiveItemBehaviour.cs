@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ public class CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour : Passive
 {
     new public static int maxStacks => -1;
     [SerializeField] List<SupportObjectData> _createdSupportObjs;
-    [SerializeField] IPattern _createdObjsPattern;
+    [SerializeReference] IPattern _createdObjsPattern;
     [SerializeField] RandomBetweenTwoConstants _distanceToPlayer;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
@@ -21,10 +22,11 @@ public class CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour : Passive
     {
         base.Activate();
         float creatingDist = _distanceToPlayer.rand;
-        var tilesInDist = MapManager.mm.LoadedTiles.Where(tile => Vector2.Distance(tile.transform.position, PlayerControl.pc.transform.position) < creatingDist).ToList();
-        if (tilesInDist.Count == 0)
+        var tilesInDist = MapManager.mm.LoadedTiles.Where(tile => !tile.IsWall && Vector2.Distance(tile.transform.position, PlayerControl.pc.transform.position) < creatingDist).ToList();
+        if (tilesInDist.Count == 0 && creatingDist >= 1)
             return;
-        Vector2 creatingPos = tilesInDist[Random.Range(0, tilesInDist.Count)].transform.position;
+
+        Vector2 creatingPos = creatingDist >= 1 ? tilesInDist[UnityEngine.Random.Range(0, tilesInDist.Count)].transform.position : (Vector2)PlayerControl.pc.transform.position + UnityEngine.Random.insideUnitCircle * creatingDist;
         CreateSupportObjs(creatingPos);
 
     }
