@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 public class PassiveItemManager : MonoBehaviour
@@ -8,6 +10,7 @@ public class PassiveItemManager : MonoBehaviour
     List<PassiveItem> _passiveItems = new();
     Action _onItemPickup;
     Action _onItemRemoved;
+    List<PassiveItem> _overridenPassiveItems = new();
     public List<PassiveItem> PassiveItems { get { return _passiveItems; } }
     public Action OnItemPickup {  get { return _onItemPickup; } set { _onItemPickup = value; } }
     public Action OnItemRemoved { get { return _onItemRemoved; } set { _onItemRemoved = value; } }
@@ -16,6 +19,7 @@ public class PassiveItemManager : MonoBehaviour
     {
         PlayerControl.pc.PlayerHPManager.OnDamageTaken += PlayerDamaged;
         EnemySpawnManager.esm.OnEnemySpawned += (enemyControl) => enemyControl.EnemyHP.OnDeath += EnemyKilled;
+        IntensityManager.im.OnLevelIncrease += LevelIncrease;
     }
     public PassiveItem AddPassiveItem(PassiveItemData itemData)
     {
@@ -23,39 +27,115 @@ public class PassiveItemManager : MonoBehaviour
         itemData.TransferData(addedItem);
         addedItem.BehaviourManager.onPicked?.Invoke();
         _passiveItems.Add(addedItem);
+
+
+        if (_passiveItems.Any(item => item.ItemData.ItemOverrides.Any(over => over.OverridenItem == itemData)))
+        {
+            _overridenPassiveItems.Add(addedItem);
+            addedItem.RemoveItem();
+        }
+
+        else
+        {
+            foreach (var itemOverride in itemData.ItemOverrides)
+            {
+                PassiveItem overridenItem = _passiveItems.Find(x => x.ItemData == itemOverride.OverridenItem);
+                if (overridenItem == null)
+                    continue;
+                if (itemOverride.IsItemRemovedPerm)
+                {
+                    RemovePassiveItem(overridenItem);
+                    continue;
+                }
+                if (_overridenPassiveItems.Contains(overridenItem))
+                    continue;
+                addedItem.RemoveItem();
+                _overridenPassiveItems.Add(overridenItem);
+            }
+
+        }
+
         return addedItem;
     }
     public void RemovePassiveItem(PassiveItem removedItem)
     {
         _passiveItems.Remove(removedItem);
+        foreach(var itemOverride in removedItem.ItemData.ItemOverrides)
+        {
+            PassiveItem overridingItem = _passiveItems.Find(x => x.ItemData == itemOverride.OverridenItem);
+            if(overridingItem == null)
+                continue;
+            if (_passiveItems.Any(item => item.ItemData.ItemOverrides.Any(over => over.OverridenItem == overridingItem.ItemData)))
+                continue;
+            _overridenPassiveItems.Remove(overridingItem);
+            overridingItem.BehaviourManager.onPicked?.Invoke();
+        }
+
         removedItem.RemoveItem();
     }
     private void Update()
     {
         var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
-        passiveItemsCopy.ForEach(item => item.BehaviourManager.onUpdate?.Invoke());
+        foreach (var item in passiveItemsCopy)
+        {
+            if(_overridenPassiveItems.Contains(item))
+                continue;
+            item.BehaviourManager.onUpdate?.Invoke();
+        }
+
     }
     public void WeaponAttack(WeaponAttackManager weapon)
     {
         var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
-        passiveItemsCopy.ForEach(item => item.BehaviourManager.onAttack?.Invoke(weapon));
+        foreach (var item in passiveItemsCopy)
+        {
+            if (_overridenPassiveItems.Contains(item))
+                continue;
+            item.BehaviourManager.onAttack?.Invoke(weapon);
+        }
 
     }
     void PlayerDamaged(int damage)
     {
         var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
-        passiveItemsCopy.ForEach(item => item.BehaviourManager.onPlayerDamaged?.Invoke(damage));
+        foreach (var item in passiveItemsCopy)
+        {
+            if (_overridenPassiveItems.Contains(item))
+                continue;
+            item.BehaviourManager.onPlayerDamaged?.Invoke(damage);
+        }
 
     }
     public void EnemyHit(EnemyControl hitEnemy, Attack hitAttack)
     {
         var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
-        passiveItemsCopy.ForEach(item => item.BehaviourManager.onEnemyHit?.Invoke(hitEnemy, hitAttack));
+        foreach (var item in passiveItemsCopy)
+        {
+            if (_overridenPassiveItems.Contains(item))
+                continue;
+            item.BehaviourManager.onEnemyHit?.Invoke(hitEnemy, hitAttack);
+        }
     }
     void EnemyKilled(EnemyControl killedEnemy)
     {
         var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
-        passiveItemsCopy.ForEach(item => item.BehaviourManager.onEnemyKilled?.Invoke(killedEnemy));
+        foreach (var item in passiveItemsCopy)
+        {
+            if (_overridenPassiveItems.Contains(item))
+                continue;
+            item.BehaviourManager.onEnemyKilled?.Invoke(killedEnemy);
+        }
+    }
+
+    void LevelIncrease()
+    {
+        var passiveItemsCopy = new List<PassiveItem>(_passiveItems);
+        foreach (var item in passiveItemsCopy)
+        {
+            if (_overridenPassiveItems.Contains(item))
+                continue;
+            item.BehaviourManager.onIntensityIncrease?.Invoke();
+        }
     }
 
 }
