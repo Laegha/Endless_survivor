@@ -8,7 +8,7 @@ public class PassiveItemData : ScriptableObject
     [SerializeField] string _itemName;
     [SerializeField] string _itemDescript;
     [SerializeField] Sprite _itemSprite;
-    [SerializeField] List<PassiveItemOverride> _itemOverrides;
+    [SerializeField] List<PassiveItemOverride> _itemOverrides = new();
     [SerializeReference] List<PassiveItemBehaviour> _itemBehaviours = new List<PassiveItemBehaviour>();
     [SerializeField] CustomFlags.IPassiveItemPool _itemPools;
 
