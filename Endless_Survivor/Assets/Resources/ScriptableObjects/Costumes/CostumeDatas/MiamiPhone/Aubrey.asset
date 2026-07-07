@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _costumePosition: 1
   _offsetFromPositionByStacks:
-  - {x: 0, y: 0.1249999}
+  - {x: 0, y: 0.1562499}
   _idleAnimation:
     _animationName: Idle
     _frames:
