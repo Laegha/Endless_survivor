@@ -16,7 +16,8 @@ public class DamageInfo
         Ice = 1 << 4,
         Electric = 1 << 5,
         Cutting = 1 << 6,
-        Laser = 1 << 7
+        Laser = 1 << 7,
+        Blunt = 1 << 8
 
     }
     [SerializeField] float _damageAmmount;
