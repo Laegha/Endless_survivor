@@ -41,4 +41,19 @@ public class DamageTypesMultipliersManager : MonoBehaviour
         }
         return resultMultiplier;
     }
+
+    public void IncreaseNormalMultiplier(float multiplierIncrease)
+    {
+        _normalDamageMultiplier += multiplierIncrease;
+    }
+    public void IncreaseTypeMultipliers(DamageInfo.DamageType type, float increase)
+    {
+        foreach (var typeMultiplier in _typesMultipliers)
+        {
+            if (!type.HasFlag(typeMultiplier.Key))
+                continue;
+            _typesMultipliers[typeMultiplier.Key] += increase;
+
+        }
+    }
 }
