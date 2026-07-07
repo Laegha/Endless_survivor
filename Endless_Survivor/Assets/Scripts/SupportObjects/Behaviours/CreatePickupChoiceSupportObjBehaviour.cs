@@ -10,11 +10,11 @@ public class CreatePickupChoiceSupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] List<RouletteElementChance<PickupData>> _options;
     [SerializeField] int _optionsAmmount;
     [SerializeField] bool _allowRepetitions;
-    [SerializeField] IPattern _pickupsSpawnPattern;
+    [SerializeReference] IPattern _pickupsSpawnPattern;
     [SerializeField] Vector2 _patternCenterOffset;
     [SerializeField] ParticleSystem _unchosenPickupsParticles;
 
-    List<GameObject> _createdPickups;
+    List<GameObject> _createdPickups = new();
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
         base.Initiate(control, original);
