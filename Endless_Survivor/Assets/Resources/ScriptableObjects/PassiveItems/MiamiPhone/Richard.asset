@@ -43,7 +43,7 @@ MonoBehaviour:
       data:
         _behaviourId: GiveCostume
         _addingCostumes:
-        - {fileID: 11400000, guid: 9a1cf9307fc8031468af801dc7858936, type: 2}
+        - {fileID: 11400000, guid: efd1009d32a93de46901c5124cbdcb9b, type: 2}
     - rid: 5726233630126374913
       type: {class: RemoveOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:

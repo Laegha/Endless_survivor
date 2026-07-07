@@ -15,9 +15,10 @@ MonoBehaviour:
   _supportObjBehaviours:
   - rid: 5726233626997948419
   _idleAnimation:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
@@ -27,8 +28,28 @@ MonoBehaviour:
     - rid: 5726233626997948419
       type: {class: CreatePickupChoiceSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _options: []
+        _options:
+        - _rouletteElement: {fileID: 11400000, guid: 78ddf961665acb846af052959933cc1e, type: 2}
+          _chance: 1
+        - _rouletteElement: {fileID: 11400000, guid: 623b0aa694b24ad458c3efde6749c813, type: 2}
+          _chance: 1
+        - _rouletteElement: {fileID: 11400000, guid: d79cf485f9563844b9062b566b9d7b1d, type: 2}
+          _chance: 1
+        - _rouletteElement: {fileID: 11400000, guid: f11febb037aff2d428c72b2a5d1ec1ca, type: 2}
+          _chance: 0
+        - _rouletteElement: {fileID: 11400000, guid: e7bbd94fbaafbef45bf027b48454a73a, type: 2}
+          _chance: 0
+        - _rouletteElement: {fileID: 11400000, guid: adea001ea21596740a7fcaeb21cebefe, type: 2}
+          _chance: 0
         _optionsAmmount: 3
         _allowRepetitions: 0
-        _patternCenterOffset: {x: 0, y: -3}
-        _unChosenPickupsParticles: {fileID: 0}
+        _pickupsSpawnPattern:
+          rid: 5726233630126374924
+        _patternCenterOffset: {x: 0, y: -1.5}
+        _unchosenPickupsParticles: {fileID: 1368059510288749267, guid: 03af29a7faa407148a0df52e1e030772, type: 3}
+    - rid: 5726233630126374924
+      type: {class: ILinePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _spacing: {x: 1.5, y: 0}
+        _hAlignment: 1
+        _vAlignment: 1

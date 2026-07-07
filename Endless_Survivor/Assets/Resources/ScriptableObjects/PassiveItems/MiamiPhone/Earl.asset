@@ -15,7 +15,19 @@ MonoBehaviour:
   _itemName: Earl
   _itemDescript: +2 defense
   _itemSprite: {fileID: 22118046, guid: 0ab310285f90da44e98d52e4ad651425, type: 3}
-  _itemOverrides: []
+  _itemOverrides:
+  - _overridenItem: {fileID: 11400000, guid: 19f7430f67457844d9d4c66f27ecb33d, type: 2}
+    _isItemRemovedPerm: 0
+  - _overridenItem: {fileID: 11400000, guid: c3c1b224200ba0c4190536ca9914222c, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: a670b085686a8ff4ba614d68738e6e83, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: ef393bb9c83ccfe42b36c506b6fb5dac, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 6a17d5c7d58482f4da039f2fdbd80af8, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: aa953e96af4e2624db7c67c8b087cc0e, type: 2}
+    _isItemRemovedPerm: 1
   _itemBehaviours:
   - rid: 5726233630126374912
   - rid: 5726233630126374913
@@ -30,7 +42,7 @@ MonoBehaviour:
       data:
         _behaviourId: GiveCostume
         _addingCostumes:
-        - {fileID: 11400000, guid: 9a1cf9307fc8031468af801dc7858936, type: 2}
+        - {fileID: 11400000, guid: b11dc994b5535b64fa346044c61f293c, type: 2}
     - rid: 5726233630126374913
       type: {class: RemoveOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:

@@ -15,9 +15,11 @@ MonoBehaviour:
   _itemName: Miami's Phone
   _itemDescript: Get a call every chaos level and choose a mask
   _itemSprite: {fileID: 0}
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 5726233626997948417
   - rid: 5726233626997948418
+  - rid: 5726233630126374923
   _itemPools: 0
   references:
     version: 2
@@ -27,7 +29,9 @@ MonoBehaviour:
       data:
         _behaviourId: CreateMasksChoice
         _createdSupportObjs:
-        - {fileID: 0}
+        - {fileID: 11400000, guid: fe3409ecf997c714db0ae95fda47c97e, type: 2}
+        _createdObjsPattern:
+          rid: 5726233630126374926
         _distanceToPlayer:
           min: 0
           max: 0
@@ -36,7 +40,20 @@ MonoBehaviour:
       data:
         _behaviourId: ActivateEveryIntensity
         _levelsToActivate:
-          min: 1
-          max: 1
+          min: 0
+          max: 0
         _activatedBehaviours:
         - CreateMasksChoice
+    - rid: 5726233630126374923
+      type: {class: ActivateOnStartItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateOnStart
+        _activatingIds:
+        - CreateMasksChoice
+    - rid: 5726233630126374926
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0

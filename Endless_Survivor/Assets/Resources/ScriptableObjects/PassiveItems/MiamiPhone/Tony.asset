@@ -42,7 +42,7 @@ MonoBehaviour:
       data:
         _behaviourId: GiveCostume
         _addingCostumes:
-        - {fileID: 11400000, guid: 9a1cf9307fc8031468af801dc7858936, type: 2}
+        - {fileID: 11400000, guid: 98694782f8ad688419d4e400c23c356e, type: 2}
     - rid: 5726233630126374913
       type: {class: RemoveOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -64,4 +64,4 @@ MonoBehaviour:
         _typesMultipliersIncrease:
           _serializedList:
           - Key: 320
-            Value: 2
+            Value: 200
