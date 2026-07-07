@@ -26,34 +26,36 @@ public class PassiveItemManager : MonoBehaviour
         PassiveItem addedItem = new PassiveItem();
         itemData.TransferData(addedItem);
         addedItem.BehaviourManager.onPicked?.Invoke();
+
         _passiveItems.Add(addedItem);
 
-
-        if (_passiveItems.Any(item => item.ItemData.ItemOverrides.Any(over => over.OverridenItem == itemData)))
+        foreach (var itemOverride in itemData.ItemOverrides)
         {
-            _overridenPassiveItems.Add(addedItem);
-            addedItem.RemoveItem();
-        }
-
-        else
-        {
-            foreach (var itemOverride in itemData.ItemOverrides)
+            PassiveItem overridenItem = _passiveItems.Find(x => x.ItemData == itemOverride.OverridenItem);
+            if (overridenItem == null)
+                continue;
+            if (itemOverride.IsItemRemovedPerm)
             {
-                PassiveItem overridenItem = _passiveItems.Find(x => x.ItemData == itemOverride.OverridenItem);
-                if (overridenItem == null)
-                    continue;
-                if (itemOverride.IsItemRemovedPerm)
-                {
-                    RemovePassiveItem(overridenItem);
-                    continue;
-                }
-                if (_overridenPassiveItems.Contains(overridenItem))
-                    continue;
-                addedItem.RemoveItem();
-                _overridenPassiveItems.Add(overridenItem);
+                RemovePassiveItem(overridenItem);
+                continue;
             }
-
+            if (_overridenPassiveItems.Contains(overridenItem))
+                continue;
+            overridenItem.RemoveItem();
+            _overridenPassiveItems.Add(overridenItem);
         }
+
+
+        //if (!_passiveItems.Any(item => item.ItemData.ItemOverrides.Any(over => over.OverridenItem == itemData)))
+        //{
+            
+        //}
+
+        //else
+        //{
+            //_overridenPassiveItems.Add(addedItem);
+            //addedItem.RemoveItem();
+        //}
 
         return addedItem;
     }
@@ -62,10 +64,11 @@ public class PassiveItemManager : MonoBehaviour
         _passiveItems.Remove(removedItem);
         foreach(var itemOverride in removedItem.ItemData.ItemOverrides)
         {
-            PassiveItem overridingItem = _passiveItems.Find(x => x.ItemData == itemOverride.OverridenItem);
+            PassiveItem overridingItem = _overridenPassiveItems.Find(x => x.ItemData == itemOverride.OverridenItem);
             if(overridingItem == null)
                 continue;
-            if (_passiveItems.Any(item => item.ItemData.ItemOverrides.Any(over => over.OverridenItem == overridingItem.ItemData)))
+            //checking if it is on the list is a failsafe in case the new item and the existing one override each other
+            if (_overridenPassiveItems.Contains(overridingItem) && _passiveItems.Any(item => item.ItemData.ItemOverrides.Any(over => over.OverridenItem == overridingItem.ItemData)))
                 continue;
             _overridenPassiveItems.Remove(overridingItem);
             overridingItem.BehaviourManager.onPicked?.Invoke();
