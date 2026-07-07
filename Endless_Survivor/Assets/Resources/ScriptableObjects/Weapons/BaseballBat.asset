@@ -62,7 +62,8 @@ MonoBehaviour:
           _priority: 0
         _attackFrame: 4
         _attackSFX:
-          _possibleSounds: []
+          _possibleSounds:
+          - {fileID: 0}
           _volume: 1
           _minPitchVariation: 0
           _maxPitchVariation: 0
@@ -70,7 +71,7 @@ MonoBehaviour:
           availableEffects: []
         _damageMultiplier: 1
         _knockbackMultiplier: 1
-        _damageType: 0
+        _damageType: 256
         _meleeData:
           _isCircle: 1
           _attackCircleRadius: 0.5

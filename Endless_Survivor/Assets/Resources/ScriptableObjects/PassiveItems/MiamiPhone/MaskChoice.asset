@@ -36,11 +36,11 @@ MonoBehaviour:
         - _rouletteElement: {fileID: 11400000, guid: d79cf485f9563844b9062b566b9d7b1d, type: 2}
           _chance: 1
         - _rouletteElement: {fileID: 11400000, guid: f11febb037aff2d428c72b2a5d1ec1ca, type: 2}
-          _chance: 0
+          _chance: 1
         - _rouletteElement: {fileID: 11400000, guid: e7bbd94fbaafbef45bf027b48454a73a, type: 2}
-          _chance: 0
+          _chance: 1
         - _rouletteElement: {fileID: 11400000, guid: adea001ea21596740a7fcaeb21cebefe, type: 2}
-          _chance: 0
+          _chance: 1
         _optionsAmmount: 3
         _allowRepetitions: 0
         _pickupsSpawnPattern:
