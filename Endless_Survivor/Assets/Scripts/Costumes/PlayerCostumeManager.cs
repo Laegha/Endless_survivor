@@ -61,8 +61,6 @@ public class PlayerCostumeManager : MonoBehaviour
         {
             int extraLoops = (int)Mathf.Floor(playerFrame / animator.CurrAnim.Frames.Length);
             int costumeFrame = playerFrame - animator.CurrAnim.Frames.Length * extraLoops;
-            Debug.Log("Player frame " +  playerFrame);
-            Debug.Log("Costume frame " +  costumeFrame);
             animator.CurrFrameIndex = costumeFrame -1;
             animator.NextFrame();//I'm so sorry for this. since this executes every frame, the sprite is always changing to itself and the timer is always resetting
             
@@ -89,6 +87,8 @@ public class PlayerCostumeManager : MonoBehaviour
         costumeAN.ChangeAnim(costume.IdleAnim.AnimationName);
         _activeCostumes[costume].costumeAnimators.Add(costumeAN);
 
+        PlayerControl.pc.PlayerMaterialManager.AddRenderer(costumeAN.Renderer);
+
         if(costume.SynchronizeWithPlayerAnim)
             _syncronizedAnimators.Add(costumeAN);
         return costumeAN;
@@ -105,7 +105,8 @@ public class PlayerCostumeManager : MonoBehaviour
             int destroyedId = _activeCostumes[removedCostume].costumeAnimators.Count -1;
             var removedAN = _activeCostumes[removedCostume].costumeAnimators[destroyedId];
             _syncronizedAnimators.Remove(removedAN);
-            Destroy(removedAN.gameObject);
+            DestroyImmediate(removedAN.gameObject);
+            PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
             _activeCostumes[removedCostume].costumeAnimators.RemoveAt(destroyedId);//by removing the last time we ensure the next iteration of this for removes th next one
         }
 
