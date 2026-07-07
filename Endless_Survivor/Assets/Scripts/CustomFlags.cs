@@ -35,4 +35,16 @@ public class CustomFlags
         Cutes = 1 << 3
 
     }
+    public enum HorizontalAlignment
+    {
+        Right,
+        Center,
+        Left
+    }
+    public enum VerticalAlignment
+    {
+        Top,
+        Center,
+        Bottom
+    }
 }
