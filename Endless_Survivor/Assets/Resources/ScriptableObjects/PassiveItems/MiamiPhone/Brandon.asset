@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: Brandon
+  m_EditorClassIdentifier: 
+  _itemName: Brandon
+  _itemDescript: +2 speed
+  _itemSprite: {fileID: -1739996978, guid: 9c0ab11545de0bc44a1da94f0dcc81a2, type: 3}
+  _itemOverrides:
+  - _overridenItem: {fileID: 11400000, guid: 19f7430f67457844d9d4c66f27ecb33d, type: 2}
+    _isItemRemovedPerm: 0
+  - _overridenItem: {fileID: 11400000, guid: c3c1b224200ba0c4190536ca9914222c, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 16aee204feaef8c4a82d35a83b70fb4f, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: ef393bb9c83ccfe42b36c506b6fb5dac, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 6a17d5c7d58482f4da039f2fdbd80af8, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: aa953e96af4e2624db7c67c8b087cc0e, type: 2}
+    _isItemRemovedPerm: 1
+  _itemBehaviours:
+  - rid: 5726233630126374912
+  - rid: 5726233630126374913
+  - rid: 5726233630126374914
+  - rid: 5726233630126374917
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233630126374912
+      type: {class: AddCostumesPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveCostume
+        _addingCostumes:
+        - {fileID: 11400000, guid: 839d7c1ce8d3aa64ca03a5bb9b16c094, type: 2}
+    - rid: 5726233630126374913
+      type: {class: RemoveOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: RemoveItem
+    - rid: 5726233630126374914
+      type: {class: ActivateOnLevelIncreasePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateRemove
+        _levelsToActivate:
+          min: 3
+          max: 3
+        _activatedBehaviours:
+        - RemoveItem
+    - rid: 5726233630126374917
+      type: {class: IncreasePlayerStatsPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IncreaseStats
+        _increasingStats:
+          _initialHP: 0
+          _hpIncrement: 0
+          _hpRegeneration: 0
+          _defense: 0
+          _minSpeed: 2
+          _maxSpeed: 2
+          _acceleration: 0

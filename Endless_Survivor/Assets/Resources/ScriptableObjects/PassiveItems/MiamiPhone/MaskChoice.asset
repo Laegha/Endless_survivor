@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: MaskChoice
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 5726233626997948419
+  _idleAnimation:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233626997948419
+      type: {class: CreatePickupChoiceSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _options: []
+        _optionsAmmount: 3
+        _allowRepetitions: 0
+        _patternCenterOffset: {x: 0, y: -3}
+        _unChosenPickupsParticles: {fileID: 0}

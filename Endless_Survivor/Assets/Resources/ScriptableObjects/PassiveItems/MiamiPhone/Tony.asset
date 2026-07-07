@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: Tony
+  m_EditorClassIdentifier: 
+  _itemName: Tony
+  _itemDescript: x2 cutting and blunt damage
+  _itemSprite: {fileID: 226037043, guid: 8c88cc8fada02fa4f837444f4c31b504, type: 3}
+  _itemOverrides:
+  - _overridenItem: {fileID: 11400000, guid: 19f7430f67457844d9d4c66f27ecb33d, type: 2}
+    _isItemRemovedPerm: 0
+  - _overridenItem: {fileID: 11400000, guid: c3c1b224200ba0c4190536ca9914222c, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: a670b085686a8ff4ba614d68738e6e83, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 16aee204feaef8c4a82d35a83b70fb4f, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: ef393bb9c83ccfe42b36c506b6fb5dac, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 6a17d5c7d58482f4da039f2fdbd80af8, type: 2}
+    _isItemRemovedPerm: 1
+  _itemBehaviours:
+  - rid: 5726233630126374912
+  - rid: 5726233630126374913
+  - rid: 5726233630126374914
+  - rid: 5726233630126374921
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233630126374912
+      type: {class: AddCostumesPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveCostume
+        _addingCostumes:
+        - {fileID: 11400000, guid: 9a1cf9307fc8031468af801dc7858936, type: 2}
+    - rid: 5726233630126374913
+      type: {class: RemoveOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: RemoveItem
+    - rid: 5726233630126374914
+      type: {class: ActivateOnLevelIncreasePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateRemove
+        _levelsToActivate:
+          min: 3
+          max: 3
+        _activatedBehaviours:
+        - RemoveItem
+    - rid: 5726233630126374921
+      type: {class: IncreaseDamageStatsPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IncreaseDmg
+        _normalMultiplierIncrease: 0
+        _typesMultipliersIncrease:
+          _serializedList:
+          - Key: 320
+            Value: 2
