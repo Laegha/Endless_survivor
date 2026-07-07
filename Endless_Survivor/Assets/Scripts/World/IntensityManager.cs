@@ -47,6 +47,7 @@ public class IntensityManager : MonoBehaviour
         int levelsTillNewBiome = _currIntensityLevel % GameManager.gm.WorldConfig.IntensityLevelsForNewBiome;
         if(levelsTillNewBiome == 0)
             MapManager.mm.UpdateBiome();
+        _onLevelIncrease?.Invoke();
     }
 
 }
