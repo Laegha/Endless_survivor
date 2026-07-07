@@ -48,11 +48,12 @@ public class DamageTypesMultipliersManager : MonoBehaviour
     }
     public void IncreaseTypeMultipliers(DamageInfo.DamageType type, float increase)
     {
-        foreach (var typeMultiplier in _typesMultipliers)
+        List<DamageInfo.DamageType> keys = new(_typesMultipliers.Keys);
+        foreach (var typeKey in keys)
         {
-            if (!type.HasFlag(typeMultiplier.Key))
+            if (!type.HasFlag(typeKey))
                 continue;
-            _typesMultipliers[typeMultiplier.Key] += increase;
+            _typesMultipliers[typeKey] += increase;
 
         }
     }
