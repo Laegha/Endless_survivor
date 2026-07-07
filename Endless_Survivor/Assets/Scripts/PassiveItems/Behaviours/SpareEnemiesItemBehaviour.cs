@@ -108,7 +108,7 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
         pickupControl.Collider.size = _pickupColliderSize;
     }
 
-    void Act()
+    void Act(Pickup pickup)
     {
         _currActs++;
         if(_currActs == _neededActs -1)
@@ -119,7 +119,7 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
         SoundFXManager.sm.PlaySfx(_actSFX, PlayerControl.pc.transform.position);
     }
 
-    void SpareEnemy()
+    void SpareEnemy(Pickup pickup)
     {
         //deal damage equal to the enemy health
         EnemyHP enemyHp = _sparingEnemy.EnemyHP;
