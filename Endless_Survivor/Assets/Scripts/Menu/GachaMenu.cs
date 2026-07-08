@@ -13,6 +13,10 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     [SerializeField] TextMeshProUGUI _availableCoinsDisplay;
     [SerializeField] GameObject _skipAnimationCheckboxFill;
     [SerializeField] Button _returnButton;
+    [SerializeField] Animator _catAnimator;
+    [SerializeField] List<RouletteElementChance<RuntimeAnimatorController>> _catAnimatorControllers;
+    [SerializeField] Image[] _gachaBallRenderers;
+    [SerializeField] List<RouletteElementChance<Color>> _gachaBallColors;
     [SerializeField] Image _prizeImage;
     [SerializeField] RectTransform _prizeImageTarget;
     [SerializeField] TextMeshProUGUI _prizeTypeDisplay;
@@ -31,6 +35,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     float _stateTimer = 0;
 
     bool _enoughCoinsToGacha = false;
+    bool _isUsing;
     private void Start()
     {
         _leverRotator.OnLimitReached += NextState;
@@ -48,7 +53,9 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     public void DisplayMenu()
     {
         _menuObj.SetActive(true);
-
+        if(_catAnimator != null)
+            _catAnimator.runtimeAnimatorController = Utility.GetRouletteElement(_catAnimatorControllers);
+        
         UnlockmentsManager.GetGachaCoins((int coins) => _availableCoinsDisplay.text = "x " +  coins);
     }
     public void ToggleSkipAnimation()
@@ -59,6 +66,8 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     public void TurnOnReturnButton() => _returnButton.interactable = true;
     public void InsertCoin()
     {
+        if (_isUsing)
+            return;
         UnlockmentsManager.GetGachaCoins((int coins) => _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost);
         if (!_enoughCoinsToGacha)
         {
@@ -67,6 +76,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             print("NOT ENOUGH COINS");
             return;
         }
+        _isUsing = true;
         _returnButton.interactable = false;
         var unlockedElement = GachaUnlocker.UnlockRandomElement();
         if(unlockedElement == null)
@@ -110,7 +120,12 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost;
             _availableCoinsDisplay.text = "x" + coins;
         });
-        if(_skipAnimation)
+        Color ballColor = Utility.GetRouletteElement(_gachaBallColors);
+        foreach (var ballRenderer in _gachaBallRenderers)
+        {
+            ballRenderer.color = ballColor;
+        }
+        if (_skipAnimation)
         {
             SkipStateUntil("OpeningPrize");
             return;
@@ -129,7 +144,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-            print("Pointer detected");
+            print("CURRENT STATE " + _gfxStates[_currStateIndex].stateName + " IS SKIPABLE " + _gfxStates[_currStateIndex].isSkipable);
         if(_gfxStates[_currStateIndex].isSkipable)
         {
             print("Should skip state");
@@ -170,4 +185,5 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             SkipCurrentState();
         }
     }
+    public void StopUsingGacha() => _isUsing = false;
 }
