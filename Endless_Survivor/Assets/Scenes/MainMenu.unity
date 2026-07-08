@@ -20120,6 +20120,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1370204802}
   - component: {fileID: 1370204803}
+  - component: {fileID: 1370204805}
+  - component: {fileID: 1370204804}
   m_Layer: 5
   m_Name: GachaMenu
   m_TagString: Untagged
@@ -20163,6 +20165,34 @@ MonoBehaviour:
   _availableCoinsDisplay: {fileID: 932047815}
   _skipAnimationCheckboxFill: {fileID: 658351324}
   _returnButton: {fileID: 882829256}
+  _catAnimator: {fileID: 0}
+  _catAnimatorControllers: []
+  _gachaBallRenderers:
+  - {fileID: 127568008}
+  - {fileID: 1445701525}
+  - {fileID: 1420770521}
+  - {fileID: 1544072294}
+  _gachaBallColors:
+  - _rouletteElement: {r: 0.764151, g: 0.0036044943, b: 0.0036044943, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.8156863, g: 0.11372549, b: 0.74509805, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.9339623, g: 0.9189251, b: 0.19824673, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.3504811, g: 0.8113208, b: 0.16456035, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.08050018, g: 0.21183763, b: 0.6320754, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.20287468, g: 0.9150943, b: 0.88856715, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.50647634, g: 0.18845676, b: 0.7264151, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.8962264, g: 0.5907642, b: 0, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.8113208, g: 0.13394445, b: 0.49123472, a: 1}
+    _chance: 1
+  - _rouletteElement: {r: 0.21462265, g: 0.8584906, b: 0.5978441, a: 1}
+    _chance: 1
   _prizeImage: {fileID: 1144329349}
   _prizeImageTarget: {fileID: 365003759}
   _prizeTypeDisplay: {fileID: 1172474103}
@@ -20199,6 +20229,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1370204803}
           m_TargetAssemblyTypeName: GachaMenu, Assembly-CSharp
           m_MethodName: TurnOnReturnButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1370204803}
+          m_TargetAssemblyTypeName: GachaMenu, Assembly-CSharp
+          m_MethodName: StopUsingGacha
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20307,6 +20349,8 @@ MonoBehaviour:
       _serializedList:
       - Key: {fileID: 1058425877}
         Value: Idle
+      - Key: {fileID: 1537272988}
+        Value: ContainedBallDrop
       - Key: {fileID: 1445701524}
         Value: BallFall
     startEvents:
@@ -20433,6 +20477,46 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     chainAnimations: []
+--- !u!114 &1370204804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370204801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!223 &1370204805
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370204801}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1386019757
 GameObject:
   m_ObjectHideFlags: 0
