@@ -53,6 +53,9 @@ public class ObjectRotatorByDrag : MonoBehaviour, IDragHandler
         _draggedDistance += dragDeltaFixed;
         _previousDraggingAngle = draggingAngle;
         if (_draggedDistance >= _rotationLimit)
+        {
+            _rotatedObject.rotation = Quaternion.Euler(_rotatedObject.eulerAngles.x, _rotatedObject.eulerAngles.y, _rotationLimit);
             _onLimitReached?.Invoke();
+        }
     }
 }
