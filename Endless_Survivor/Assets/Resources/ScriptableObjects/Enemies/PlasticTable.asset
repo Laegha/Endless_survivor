@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: PlasticTable
+  m_EditorClassIdentifier: 
+  _initialHP: 45
+  _referenceSizeSprite: {fileID: 0}
+  _renderSortingOffset: 0
+  _knockbackResistance: 10
+  _colliderSize: {x: 1.2, y: 0.6}
+  _colliderOffset: {x: 0, y: 0}
+  _colliderDirection: 1
+  _rigidbodyType: 0
+  _enemyBehaviours:
+  - rid: 5726233663889473540
+  - rid: 5726233663889473536
+  - rid: 5726233663889473537
+  - rid: 5726233663889473538
+  - rid: 5726233663889473539
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: c4a8997ea723f3c45a6298c38afa5d5b, type: 2}
+    _chance: 10
+  - _rouletteElement: {fileID: 11400000, guid: a5e58a51d85f42c439e36958899441ad, type: 2}
+    _chance: 10
+  _onHitSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233663889473536
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 3
+        _chasingUpAnimation:
+          _animationName: MoveUp
+          _frames:
+          - {fileID: 633385384, guid: 91e445b824fb45848913bbaa6afbe786, type: 3}
+          - {fileID: -913855084, guid: 91e445b824fb45848913bbaa6afbe786, type: 3}
+          - {fileID: -1842418178, guid: 91e445b824fb45848913bbaa6afbe786, type: 3}
+          - {fileID: -676445235, guid: 91e445b824fb45848913bbaa6afbe786, type: 3}
+          _framesPerSecond: 4
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: MoveRight
+          _frames:
+          - {fileID: -977864368, guid: 06b0bc64d566d3845b81b29e1f577dbf, type: 3}
+          - {fileID: -1726091241, guid: 06b0bc64d566d3845b81b29e1f577dbf, type: 3}
+          - {fileID: 528172157, guid: 06b0bc64d566d3845b81b29e1f577dbf, type: 3}
+          - {fileID: 1691263063, guid: 06b0bc64d566d3845b81b29e1f577dbf, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: MoveDown
+          _frames:
+          - {fileID: -604187497, guid: 8a7f9379c1367334ca601f6ab42ae373, type: 3}
+          - {fileID: -1549012596, guid: 8a7f9379c1367334ca601f6ab42ae373, type: 3}
+          - {fileID: 1799587413, guid: 8a7f9379c1367334ca601f6ab42ae373, type: 3}
+          - {fileID: 1999631117, guid: 8a7f9379c1367334ca601f6ab42ae373, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: MoveLeft
+          _frames:
+          - {fileID: 1260960288, guid: 6fb005af8fd57eb4d9d3bf6167e8c7cd, type: 3}
+          - {fileID: 1012431198, guid: 6fb005af8fd57eb4d9d3bf6167e8c7cd, type: 3}
+          - {fileID: -1119968516, guid: 6fb005af8fd57eb4d9d3bf6167e8c7cd, type: 3}
+          - {fileID: -464978232, guid: 6fb005af8fd57eb4d9d3bf6167e8c7cd, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 5726233663889473537
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerShootAnim
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - AnimTriggerShoot
+        _distanceToTrigger: 7
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain:
+        - AnimTriggerShoot
+    - rid: 5726233663889473538
+      type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AnimTriggerShoot
+        _overrideBehaviours:
+        - ChasePlayer
+        _triggeredBehaviours:
+        - ShootPlayer
+        _loopAnim: 0
+        _sameFrameForAll: 1
+        _generalTriggerFrame: 6
+        _upAnimation:
+          _animationName: ShootUp
+          _frames:
+          - {fileID: -82985889, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: -633396194, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: 536052242, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: 1561623404, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: -343367470, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: -260869617, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: -1828556848, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: 202948262, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: -1203023282, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: 1290132335, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          - {fileID: 259510379, guid: 70fef290782b7a448a008ad7dc0788eb, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _upTriggerFrame: 0
+        _rightAnimation:
+          _animationName: ShootRight
+          _frames:
+          - {fileID: 892591291, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: -1460964825, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: 1747005276, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: -458180074, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: 1123749315, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: 266415163, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: -143725890, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: 283754727, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: -1245041116, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: -1538357387, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          - {fileID: 1336140248, guid: b6ad69ae4de51b84f857471c75831179, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _rightTriggerFrame: 0
+        _downAnimation:
+          _animationName: ShootDown
+          _frames:
+          - {fileID: -2107044737, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: 1475397054, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: 167792639, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: 951510510, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: -118647381, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: -843054967, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: 116337360, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: -2034823162, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: 1768569092, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: -1359357956, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          - {fileID: 247403884, guid: c75608a4906f9a94aa61771b8d7ef4e5, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _downTriggerFrame: 0
+        _leftAnimation:
+          _animationName: ShootLeft
+          _frames:
+          - {fileID: 1020072242, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: 957036769, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: -1741284186, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: 1148310730, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: -1984990469, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: -1997772229, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: 940521910, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: 931030991, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: 1418260669, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: -1669058511, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          - {fileID: 209628468, guid: b4d36b5ef1ff7254793977aa468a3c28, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _leftTriggerFrame: 0
+    - rid: 5726233663889473539
+      type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ShootPlayer
+        _overrideBehaviours: []
+        _damage: 5
+        _proyectileLifetime: 4
+        _firePointDist: 0.35
+        _proyectileRotationOffset: 0
+        _proyectileData:
+          _proyectileSpeed: 8
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: 
+            _frames:
+            - {fileID: 1796886154, guid: e40df1d65c081e2488ee8249bbd89ec1, type: 3}
+            - {fileID: -45163456, guid: e40df1d65c081e2488ee8249bbd89ec1, type: 3}
+            - {fileID: -1035710909, guid: e40df1d65c081e2488ee8249bbd89ec1, type: 3}
+            _framesPerSecond: 9
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.9, y: 0.2}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 4949355765179559218, guid: a0deebfebb2c0e640b41f32b85e58091, type: 3}
+          _shootSFX:
+            _possibleSounds: []
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _onShootSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 5726233663889473540
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 1.2, y: 0.3}
+        _colliderOffset: {x: 0, y: 0.3}
+        _colliderDirection: 1
