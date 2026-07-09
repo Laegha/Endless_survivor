@@ -74,7 +74,7 @@ public class PlayerCostumeManager : MonoBehaviour
         ActiveCostumeInfo costumeActiveInfo = _activeCostumes[costume];
         _activeCostumes[costume].costumeStacks++;
         if (_activeCostumes[costume].costumeStacks > costume.MaxStacks)
-            return _activeCostumes[costume].costumeAnimators[_activeCostumes[costume].costumeStacks - costume.MaxStacks];
+            return _activeCostumes[costume].costumeAnimators[_activeCostumes[costume].costumeStacks % costume.MaxStacks];//the final -1 is because MaxStacks referes to count, while here we need an index
         
         AnimatedObjConfig costumeConfig = new(null, PlayerControl.pc.transform.position, Quaternion.identity, -1, null, false, false);
         CustomAnimator costumeAN = AnimatedObjsManager.aom.SpawnAnimatedObj(costumeConfig, true);
