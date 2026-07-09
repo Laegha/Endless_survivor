@@ -84,7 +84,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
 
     void PlayAttackAnimation(Transform enemy, Vector2 handPosRelatedToEnemy)
     {
-        _hand.position = (Vector2)enemy.transform.position + handPosRelatedToEnemy;
+        _hand.position = (Vector2)enemy.transform.position - handPosRelatedToEnemy;
         var attackAnimDuration = WeaponControl.WeaponAnimator.Animations.Find(x => x.AnimationName == AnimationName).AnimDuration;
         WeaponControl.WeaponAnimator.ChangeAnim(AnimationName);
         WeaponControl.WeaponAttackManager.UnPauseAttackCooldown();
@@ -96,22 +96,18 @@ public class MeleeWeaponAttackController : WeaponAttackController
         //OverrideAttackCooldown(Mathf.Clamp(AttackCooldown, attackAnimDuration, AttackCooldown));//ensuring that the attack can't  be faster than the animation to avoid visual glitches
         _currHandMover = null;
         GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => WeaponControl == null);
-        Vector2 handEnemyOffset = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
-        GameManager.gm.RoutineRunner(StuckHandInAttackPos(() => WeaponControl.WeaponAim.CurrTrackingEnemyHit.point, attackAnimDuration));
+        GameManager.gm.RoutineRunner(StuckHandInAttackPos(() => (Vector2)enemy.position - handPosRelatedToEnemy - handPosRelatedToEnemy.normalized * _weaponStopDist, attackAnimDuration, enemy));
     }
-    IEnumerator StuckHandInAttackPos(Func<Vector2 >attackPos, float attackDuration)
+    IEnumerator StuckHandInAttackPos(Func<Vector2 >attackPos, float attackDuration, Transform enemy)
     {
-
-        GameObject originalTrackingEnemy = WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject;
         float lapsedTime = 0;
         while(lapsedTime < attackDuration)
         {
             yield return null;
-            if(_hand == null || originalTrackingEnemy == null || WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject != originalTrackingEnemy)
+            if(_hand == null || enemy == null /*|| WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject != originalTrackingEnemy*/)
                 yield break;
-            var hitDir = attackPos() - (Vector2)originalTrackingEnemy.transform.position;
             lapsedTime += Time.deltaTime;
-            _hand.position = (attackPos() + hitDir.normalized * _weaponStopDist);
+            _hand.position = (attackPos());
         }
     }
     public override void Attack()
