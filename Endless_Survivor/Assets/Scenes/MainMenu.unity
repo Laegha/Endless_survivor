@@ -14866,7 +14866,7 @@ Animator:
   m_GameObject: {fileID: 1058425876}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69757d82b88bff040b816c18da981cf7, type: 2}
+  m_Controller: {fileID: 9100000, guid: ebf47542e3305c34b8a650edf487a7fc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19490,8 +19490,14 @@ MonoBehaviour:
   _availableCoinsDisplay: {fileID: 932047815}
   _skipAnimationCheckboxFill: {fileID: 658351324}
   _returnButton: {fileID: 882829256}
-  _catAnimator: {fileID: 0}
-  _catAnimatorControllers: []
+  _catAnimator: {fileID: 1058425877}
+  _catAnimatorControllers:
+  - _rouletteElement: {fileID: 9100000, guid: ebf47542e3305c34b8a650edf487a7fc, type: 2}
+    _chance: 1
+  - _rouletteElement: {fileID: 9100000, guid: e4aeb46dcc022b34c9b6662e18a3e08e, type: 2}
+    _chance: 1
+  - _rouletteElement: {fileID: 9100000, guid: 69757d82b88bff040b816c18da981cf7, type: 2}
+    _chance: 1
   _gachaBallRenderers:
   - {fileID: 127568008}
   - {fileID: 1445701525}
@@ -19837,7 +19843,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
