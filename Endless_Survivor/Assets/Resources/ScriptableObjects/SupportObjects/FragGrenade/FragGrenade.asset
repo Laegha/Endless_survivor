@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: FragGrenade
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 7757969562384465920
+  - rid: 5726233762704130048
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233762704130048
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _possibleSupportObjs:
+        - _rouletteElement: {fileID: 11400000, guid: b610497f449077e42bfad115910eb89c, type: 2}
+          _chance: 1
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 5726233762704130049
+    - rid: 5726233762704130049
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0
+    - rid: 7757969562384465920
+      type: {class: ThrowAtEnemySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _thrownAnimation:
+          _animationName: Throw
+          _frames:
+          - {fileID: 704467391, guid: 8929b2fbbcef7a545bfd6046756c8cce, type: 3}
+          - {fileID: -1743313776, guid: 8929b2fbbcef7a545bfd6046756c8cce, type: 3}
+          - {fileID: -92664187, guid: 8929b2fbbcef7a545bfd6046756c8cce, type: 3}
+          - {fileID: 1715554383, guid: 8929b2fbbcef7a545bfd6046756c8cce, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _throwSpeed: 4
+        _collisionCheckRadius: 0.5
+        _collidedLayers:
+          serializedVersion: 2
+          m_Bits: 128
+        _onCollisionSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: -0.1
+          _maxPitchVariation: 0.1
+        _verticalMovementCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 1.1856768
+            outSlope: 1.1856768
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.5119983
+            value: 1.6070645
+            inSlope: -0.029151738
+            outSlope: -0.029151738
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: -1.2439803
+            outSlope: -1.2439803
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
