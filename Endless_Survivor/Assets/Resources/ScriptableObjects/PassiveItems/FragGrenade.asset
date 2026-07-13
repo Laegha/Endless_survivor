@@ -35,7 +35,7 @@ MonoBehaviour:
               _framesPerSecond: 0
               _endAnimationOnEnd: 0
               _priority: 0
-            _pickupData: {fileID: 11400000, guid: 67822cba6dbea0f42902e515cb38a58f, type: 2}
+            _pickupData: {fileID: 11400000, guid: 8c68d2be0c623f042a1f96ac61e0e840, type: 2}
           _chance: 1
         _timeBetweenSpawns: 5
         _chanceOfSpawning: 70

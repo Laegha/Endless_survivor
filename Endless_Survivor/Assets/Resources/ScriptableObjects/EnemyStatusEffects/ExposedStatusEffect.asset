@@ -16,6 +16,7 @@ MonoBehaviour:
   - rid: 5726233767519977478
   - rid: 5726233767519977479
   - rid: 5726233767519977482
+  - rid: 5726233767519977483
   _effectMaxStacks: 1
   references:
     version: 2
@@ -44,3 +45,7 @@ MonoBehaviour:
         _statusEffectMaterial: {fileID: 0}
         _statusEffectParticles: {fileID: 0}
         _particlesOffset: {x: 0, y: 0}
+    - rid: 5726233767519977483
+      type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _damageMultiplierAddition: 2.5

@@ -21,7 +21,7 @@ MonoBehaviour:
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _pickupAnim:
-    _animationName: Idlent
+    _animationName: Idle
     _frames:
     - {fileID: 21300000, guid: ba323e03719e3d74f854b6d3dc5b508d, type: 3}
     _framesPerSecond: 1
