@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: ExposedStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 5726233767519977478
+  - rid: 5726233767519977479
+  - rid: 5726233767519977482
+  _effectMaxStacks: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233767519977478
+      type: {class: BuffWeaponsOnHitEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statsBuffs:
+          _range: 0
+          _attackSpeed: 0.3
+          _damage: 5
+          _knockback: 0
+        _maxBuffStacks: 3
+        _durationType: 1
+        _timeDuration: 2
+        _enemyKillsNeeded: 2
+        _buffParticles: {fileID: 0}
+    - rid: 5726233767519977479
+      type: {class: EndWhenHitStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _hitsToEnd: 1
+    - rid: 5726233767519977482
+      type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: 41555cb071e66bd42a6a7fc82fb6e13b, type: 3}
+        _statusEffectMaterial: {fileID: 0}
+        _statusEffectParticles: {fileID: 0}
+        _particlesOffset: {x: 0, y: 0}
