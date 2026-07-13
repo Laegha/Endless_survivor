@@ -21,6 +21,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     float _totalDistance;
     float _lapsedDistance;
 
+    bool _endedThrow = false;
 
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
@@ -50,6 +51,8 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     }
     void MoveTowardsEnemy()
     {
+        if (_endedThrow)
+            return;
         Vector2 xMovement = _throwDirection * _lapsedDistance;
         Vector2 yMovement = _verticalDirection * _verticalMovementCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDistance));
         ObjControl.transform.position = _initialPos + xMovement + yMovement;
@@ -58,14 +61,17 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
         _lapsedDistance += distanceDelta;
 
         var collidingObjs = Physics2D.OverlapCircleAll(ObjControl.transform.position, _collisionCheckRadius, _collidedLayers);
-        if(collidingObjs.Length > 0)
+        if (collidingObjs.Length > 0)
         {
+            _endedThrow = true;
             SoundFXManager.sm.PlaySfx(_onCollisionSFX, ObjControl.transform.position);
             DestroyObj();
             return;
         }
-        if(_lapsedDistance < _totalDistance)
+        if (_lapsedDistance < _totalDistance)
             return;
+        _endedThrow = true;
+        Debug.Log("DESTROYYNG FROM THOR");
         ObjControl.transform.position = _initialPos + _throwDirection * _totalDistance;
         SoundFXManager.sm.PlaySfx(_onCollisionSFX, ObjControl.transform.position);
         DestroyObj();
