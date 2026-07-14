@@ -24,7 +24,7 @@ public class WeaponAttackManager : MonoBehaviour
     public bool InRange { get { return _inRange; } set { _inRange = value; } }
     public WeaponData WeaponData { get { return _weaponData; } }
     public WeaponStats WeaponStats { get { return _weaponStats; } set { _weaponStats = value; } }
-    public List<WeaponAttackController> AttackControllers { get { return _attackControllers; } }
+    public List<WeaponAttackController> AttackControllers { get { return new(_attackControllers) { _defaultAttack}; } }
     public WeaponAttackController CurrAttackController { get { return _currAttackController; } }
 
     public void Initiate(List<WeaponAttackChangeCondition> attackConditions, WeaponStats stats, WeaponData data)
