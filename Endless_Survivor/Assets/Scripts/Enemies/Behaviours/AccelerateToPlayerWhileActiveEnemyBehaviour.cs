@@ -61,8 +61,7 @@ public class AccelerateToPlayerWhileActiveEnemyBehaviour : EnemyBehaviour
         EnemyControl.Animator.ChangeAnim(currAnim.AnimationName);
 
         EnemyControl.RbForcesController.ChangeCurrForce(new(direction, _speed, 0, ForceMode2D.Force));
-        if(_speed < _maxSpeed)
-            _speed += _acceleration * Time.deltaTime;
+        _speed = Mathf.Clamp(_speed, _initialSpeed, _maxSpeed);
     }
     public override void KillBehaviour()
     {
