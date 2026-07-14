@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa103b41b272034a93058125126c28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagedFlashingTime: 1.5
+  _damagedFlashingTime: 0.5
   _enemyControl: {fileID: 213285716166281174}
   _damagedFlashingRate: 0.1
   _damagedFlashingMaterial: {fileID: 2100000, guid: bb385dcae8033084689f99287c4be26c, type: 2}
