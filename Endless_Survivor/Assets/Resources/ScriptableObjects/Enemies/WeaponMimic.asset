@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: WeaponMimic
+  m_EditorClassIdentifier: 
+  _initialHP: 65
+  _referenceSizeSprite: {fileID: 1776210549, guid: eddd4dfedf7ca95429a325d6098f10c3, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 10
+  _colliderSize: {x: 0.8, y: 0.4}
+  _colliderOffset: {x: -0.1, y: 0}
+  _colliderDirection: 1
+  _rigidbodyType: 0
+  _enemyBehaviours:
+  - rid: 5726233805548158982
+  - rid: 5726233805548158981
+  - rid: 5726233805548158979
+  - rid: 5726233805548158977
+  - rid: 5726233805548158978
+  - rid: 5726233805548158976
+  - rid: 5726233805548158980
+  - rid: 5726233805548158983
+  _dropablePickupChances:
+  - _rouletteElement: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}
+    _chance: 100
+  _onHitSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726233805548158976
+      type: {class: AccelerateToPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AccelerateToPlayer
+        _overrideBehaviours:
+        - OnHitTriggerAccel
+        - AtDistTriggerAccel
+        - PlayIdle
+        _acceleration: 1
+        _initialSpeed: 4
+        _maxSpeed: 4
+        _instantStopOnUnactive: 0
+        _deacceleration: 0
+        _movingAnimations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: MoveRight
+            _frames:
+            - {fileID: 356178745, guid: 9eff10c6cfab77a4490478cf9e588f60, type: 3}
+            - {fileID: 510265038, guid: 9eff10c6cfab77a4490478cf9e588f60, type: 3}
+            - {fileID: 2671572, guid: 9eff10c6cfab77a4490478cf9e588f60, type: 3}
+            - {fileID: -497576871, guid: 9eff10c6cfab77a4490478cf9e588f60, type: 3}
+            - {fileID: -633620003, guid: 9eff10c6cfab77a4490478cf9e588f60, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+    - rid: 5726233805548158977
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerAccelerate
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - AccelerateToPlayer
+        _distanceToTrigger: 3
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain:
+        - AccelerateToPlayer
+    - rid: 5726233805548158978
+      type: {class: TriggerBehavioursOnHitEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OnHitTriggerAccel
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - AccelerateToPlayer
+        _hitsToTrigger: 1
+        _onlyCountWhileActive: 1
+    - rid: 5726233805548158979
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: StartTiggerOnHit
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - OnHitTriggerAccel
+        _timeToTrigger: 0
+        _triggerOnStart: 1
+    - rid: 5726233805548158980
+      type: {class: FlipRendererByMoveDirEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: FlipToMatchMoveDir
+        _overrideBehaviours: []
+        _spriteFacingRight: 1
+    - rid: 5726233805548158981
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 1, y: 0.4}
+        _colliderOffset: {x: -0.1, y: 0.4}
+        _colliderDirection: 1
+    - rid: 5726233805548158982
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: PlayIdle
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: 21300000, guid: 1ba2d42b57dccf648af7af19d0dcf977, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 5726233805548158983
+      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DamagePlayer
+        _overrideBehaviours: []
+        _damage: 8
