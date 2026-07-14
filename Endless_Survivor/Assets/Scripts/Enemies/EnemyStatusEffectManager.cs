@@ -54,20 +54,25 @@ public class EnemyStatusEffectManager : MonoBehaviour
     }
     public void AddEffects(List<EnemyStatusEffect> originalEffects, EnemyStatusEffectData effectData)
     {
-        var currEffectStacks = _currentEffects.Where(x => x.effectData == effectData).Count();
-        if (currEffectStacks >= effectData.EffectMaxStacks)
-            return;
-
-        List<EnemyStatusEffect> newEffects = new();
-        foreach (EnemyStatusEffect originalEffect in originalEffects)
+        GameManager.gm.DelayActionAFrame(() =>
         {
-            EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(originalEffect.GetType());
-            newEffect.Initialize(_enemyControl, originalEffect);
-            newEffects.Add(newEffect);
-        }
-        EnemyStatusEffectGroup newEffectGroup = new(effectData, newEffects);
-        newEffectGroup.Start();
-        _currentEffects.Add(newEffectGroup);
+            var currEffectStacks = _currentEffects.Where(x => x.effectData == effectData).Count();
+            if (currEffectStacks >= effectData.EffectMaxStacks)
+                return;
+
+            List<EnemyStatusEffect> newEffects = new();
+            foreach (EnemyStatusEffect originalEffect in originalEffects)
+            {
+                EnemyStatusEffect newEffect = (EnemyStatusEffect)Activator.CreateInstance(originalEffect.GetType());
+                newEffect.Initialize(_enemyControl, originalEffect);
+                newEffects.Add(newEffect);
+            }
+            EnemyStatusEffectGroup newEffectGroup = new(effectData, newEffects);
+            newEffectGroup.Start();
+            _currentEffects.Add(newEffectGroup);
+
+        }, () => _enemyControl == null);
+        
     }
     public void RemoveEffect(EnemyStatusEffect effect)
     {
