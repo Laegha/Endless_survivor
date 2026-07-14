@@ -24,16 +24,7 @@ MonoBehaviour:
     - rid: 5726233767519977478
       type: {class: BuffWeaponsOnHitEnemyStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _statsBuffs:
-          _range: 0
-          _attackSpeed: 0.3
-          _damage: 5
-          _knockback: 0
-        _maxBuffStacks: 3
-        _durationType: 1
-        _timeDuration: 2
-        _enemyKillsNeeded: 2
-        _buffParticles: {fileID: 0}
+        _buffData: {fileID: 11400000, guid: 963a60693c697b944b2a1c12f45120a9, type: 2}
     - rid: 5726233767519977479
       type: {class: EndWhenHitStatusEffect, ns: , asm: Assembly-CSharp}
       data:

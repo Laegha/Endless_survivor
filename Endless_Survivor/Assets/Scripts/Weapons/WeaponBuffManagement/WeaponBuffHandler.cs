@@ -7,7 +7,7 @@ public class WeaponBuffHandler
     public List<WeaponAttackManager> buffedWeapons;
     public Action callbackOnEnd;
     WeaponBuffData _buffData;
-    static Dictionary<WeaponBuffData, int> _buffStacks;
+    static Dictionary<WeaponBuffData, int> _buffStacks = new();
     List<GameObject> _activeParticles = new();
     //Add particles to buffed weapons. multiple buffs of the same type shouldn't stack particles?
 
@@ -40,8 +40,8 @@ public class WeaponBuffHandler
         if (!_buffStacks.ContainsKey(_buffData))
             _buffStacks.Add(_buffData, 0);
         if (_buffStacks[_buffData] > _buffData.BuffMaxStacks)
-
-            BuffWeapons();
+            return;
+        BuffWeapons();
         if (_buffData.DurationType == BuffDurationType.WaitForExternal)
             return;
         if (_buffData.DurationType == BuffDurationType.ByEnemyKills)

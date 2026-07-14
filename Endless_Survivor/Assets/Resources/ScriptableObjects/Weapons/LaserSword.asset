@@ -16,12 +16,12 @@ MonoBehaviour:
   _weaponName: Laser Sword
   _weaponStats:
     _range: 4
-    _attackSpeed: 0.8
-    _damage: 25
+    _attackSpeed: 5
+    _damage: 1
     _knockback: 0
   _rangeIncrease: 0.2
   _attackSpeedIncrease: 0
-  _damageIncrease: 2
+  _damageIncrease: 0
   _weaponTags: 
   _weaponPools: 1
   _defaultAttack:
@@ -30,8 +30,8 @@ MonoBehaviour:
   - rid: 5726233767519977474
   - rid: 5726233767519977477
   _attackConditions:
-  - rid: 5726233767519977475
-  - rid: 5726233767519977476
+  - rid: 5726233786469056512
+  - rid: 5726233786469056513
   _spriteRenderOrderOffset: 5
   _idleAnimation:
     _animationName: Idle
@@ -150,18 +150,6 @@ MonoBehaviour:
           _vfxRendererOffset: -5
           _attackParticles: {fileID: 0}
           _particleDuration: 0
-    - rid: 5726233767519977475
-      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
-      data:
-        _conditionAttacksIds:
-        - Attack0
-        _triggeredAttackId: Attack1
-    - rid: 5726233767519977476
-      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
-      data:
-        _conditionAttacksIds:
-        - Attack1
-        _triggeredAttackId: Attack2
     - rid: 5726233767519977477
       type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
       data:
@@ -218,3 +206,15 @@ MonoBehaviour:
           _vfxRendererOffset: -5
           _attackParticles: {fileID: 0}
           _particleDuration: 0
+    - rid: 5726233786469056512
+      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _conditionAttacksIds:
+        - Attack0
+        _triggeredAttackId: Attack1
+    - rid: 5726233786469056513
+      type: {class: AfterCertainAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _conditionAttacksIds:
+        - Attack1
+        _triggeredAttackId: Attack2

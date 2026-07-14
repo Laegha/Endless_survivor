@@ -60,6 +60,6 @@ MonoBehaviour:
       type: {class: IncreaseDamageStatsPassiveItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: IncreaseDmg
-        _normalMultiplierIncrease: 0.2
+        _normalMultiplierIncrease: 0.5
         _typesMultipliersIncrease:
           _serializedList: []

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b92d4f674608140b1e4e2d25f95909, type: 3}
+  m_Name: AbsoluteSolverBuff
+  m_EditorClassIdentifier: 
+  _buffMaxStacks: 10
+  _statsBuff:
+    _range: 0
+    _attackSpeed: 0.1
+    _damage: 2
+    _knockback: 0
+  _durationType: 1
+  _enemyKillsNeeded: 10
+  _timeDuration: 5
+  _buffParticleSystem: {fileID: 0}

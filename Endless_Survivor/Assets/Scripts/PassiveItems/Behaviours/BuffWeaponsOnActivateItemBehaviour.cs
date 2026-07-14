@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
 {
     new public static int maxStacks => -1;
-    [Tooltip("Here, wait for external means it will be debuffed when this item is removed")] WeaponBuffData _buffData;
+    [Tooltip("Here, wait for external means it will be debuffed when this item is removed")][SerializeField] WeaponBuffData _buffData;
     List<WeaponBuffHandler> _activeBuffHandlers = new();
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)

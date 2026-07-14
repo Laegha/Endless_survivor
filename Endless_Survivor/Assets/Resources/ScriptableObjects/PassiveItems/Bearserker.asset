@@ -15,6 +15,7 @@ MonoBehaviour:
   _itemName: Bearserker
   _itemDescript: When hit, chance to become berserk
   _itemSprite: {fileID: 21300000, guid: d30e5ff8ee1d91b41940df9d32b45cb2, type: 3}
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 1814238555663499265
   _itemPools: 1
@@ -25,13 +26,8 @@ MonoBehaviour:
       type: {class: BuffWeaponsOnPlayerHitItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: 
-        _statsBuffs:
-          _range: 0
-          _attackSpeed: 4
-          _damage: 10
-          _knockback: 0
+        _buffData: {fileID: 11400000, guid: 5d01f40f911baf5438ecd4e33c3bcd3e, type: 2}
         _chanceOfHappenning: 100
-        _maxStacks: 1
         _gfxChanger:
           materialOverride:
             authority: 3
@@ -44,6 +40,3 @@ MonoBehaviour:
           _volume: 1
           _minPitchVariation: -0.3
           _maxPitchVariation: 0
-        _durationType: 1
-        _timeDuration: 10
-        _enemyKillsNeeded: 2

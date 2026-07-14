@@ -15,6 +15,7 @@ MonoBehaviour:
   _itemName: 
   _itemDescript: 
   _itemSprite: {fileID: 0}
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 8472846729055567879
   - rid: 8472846729055567880
@@ -37,6 +38,11 @@ MonoBehaviour:
         _particlesOnActivation: {fileID: 0}
         _particlesOffsetFromPlayer: {x: 0, y: 0}
         _particlesDuration: 0
+        _onActivateSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
     - rid: 8472846729055567880
       type: {class: CreateSupportObjOnRandomEnemiesOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -51,16 +57,7 @@ MonoBehaviour:
       type: {class: BuffWeaponsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: BuffWeapons
-        _statsBuffs:
-          _range: 1
-          _attackSpeed: 1
-          _damage: 20
-          _knockback: 0
-        _maxBuffStacks: 1
-        _durationType: 2
-        _timeDuration: 5
-        _enemyKillsNeeded: 2
-        _buffParticles: {fileID: 7855993902200982012, guid: f31e49ef00cb9074a8852df6d61c83a3, type: 3}
+        _buffData: {fileID: 11400000, guid: 43ee9d4463f4889469404b26b9d1ab16, type: 2}
     - rid: 8472846729055567886
       type: {class: ActivateOnStartItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
