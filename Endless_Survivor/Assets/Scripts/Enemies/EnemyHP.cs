@@ -35,7 +35,8 @@ public class EnemyHP : HP
     {
         base.TakeDamage(incomingDamage);
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
-        _damagedFlashing?.Start();
+        if(_damagedFlashingTimer <= 0)
+            _damagedFlashing?.Start();
         _damagedFlashingTimer = _damagedFlashingTime;
         RunStatsManager.runStatsManager.DamageDealt(incomingDamage);
     }
