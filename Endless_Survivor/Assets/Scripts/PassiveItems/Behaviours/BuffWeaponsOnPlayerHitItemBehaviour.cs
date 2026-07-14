@@ -5,65 +5,51 @@ using UnityEngine;
 public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
 {
     new public static int maxStacks => 1;
-    [SerializeField] WeaponStats _statsBuffs;
+    [Tooltip("Here, wait for external means it will be debuffed when this item is removed")][SerializeField] WeaponBuffData _buffData;
     [SerializeField] float _chanceOfHappenning = 100f;
-    [SerializeField] int _maxStacks = 1;
     //ADD GFX CHANGE TO THE PLAYER!!!!
     [SerializeField] PlayerGFXChanger _gfxChanger;
     [SerializeField] SFXInfo _onBuffSFX;
-    int _activeStacks = 0;
-    [SerializeField] WeaponBuffHandler.BuffDurationType _durationType;
-    [SerializeField] float _timeDuration = 5f;
-    [SerializeField] int _enemyKillsNeeded = 2;
     List<WeaponBuffHandler> _activeBuffHandlers = new();
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
         var buffWeaponsOriginal = original as BuffWeaponsOnPlayerHitItemBehaviour;
-        _statsBuffs = new WeaponStats(buffWeaponsOriginal._statsBuffs);
+        _buffData = buffWeaponsOriginal._buffData;
         _chanceOfHappenning = buffWeaponsOriginal._chanceOfHappenning;
-        _maxStacks = buffWeaponsOriginal._maxStacks;
         _gfxChanger = buffWeaponsOriginal._gfxChanger;
         _onBuffSFX = buffWeaponsOriginal._onBuffSFX;
-
-        _durationType = buffWeaponsOriginal._durationType;
-        _timeDuration = buffWeaponsOriginal._timeDuration;
-        _enemyKillsNeeded = buffWeaponsOriginal._enemyKillsNeeded;
 
         behaviourManager.onPlayerDamaged += TryBuffStats;
     }
     void TryBuffStats(int _)
     {
-        if(_activeStacks >= _maxStacks)
-            return; 
         float rand = Random.Range(0, 100f);
         if (rand > _chanceOfHappenning)
             return;
 
-        _activeStacks++;
         _gfxChanger.ApplyGFX();
         SoundFXManager.sm.PlaySfx(_onBuffSFX, PlayerControl.pc.transform.position);
         var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
-        foreach (var weapon in buffedWeapons)
-            weapon.WeaponStats.TemporalStatIncrease(_statsBuffs, false);
         
-        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _statsBuffs, _durationType, _enemyKillsNeeded, _timeDuration, DecreaseStacks);
+        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _buffData, DecreaseStacks);
         _activeBuffHandlers.Add(weaponDebuffHandler);
         weaponDebuffHandler.callbackOnEnd += () => _activeBuffHandlers.Remove(weaponDebuffHandler);
     }
     void DecreaseStacks()
     {
-        _activeStacks--;
-        if (_activeStacks <= 0)
+        if (_activeBuffHandlers.Count == 0 || _activeBuffHandlers[0].BuffCurrentStacks == 0)
             _gfxChanger.UnApplyGFX();
     }
 
     public override void RemoveBehaviour()
     {
-        for(int i = 0; i < _activeStacks; i++)
+        if (_buffData.DurationType == WeaponBuffHandler.BuffDurationType.WaitForExternal)
         {
-            DecreaseStacks();
+            foreach (var buffHandler in _activeBuffHandlers)
+                buffHandler.DebuffWeapons();
+
         }
     }
 }

@@ -2,14 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-class WeaponBuffHandler
+public class WeaponBuffHandler
 {
     public List<WeaponAttackManager> buffedWeapons;
-    public WeaponStats statsBuff;
-    int _enemyKillsNeeded;
-    float _timeDuration;
     public Action callbackOnEnd;
-    ParticleSystem _buffParticleSystem;
+    WeaponBuffData _buffData;
+    static Dictionary<WeaponBuffData, int> _buffStacks;
     List<GameObject> _activeParticles = new();
     //Add particles to buffed weapons. multiple buffs of the same type shouldn't stack particles?
 
@@ -25,6 +23,7 @@ class WeaponBuffHandler
     /// </summary>
 
     float _enemyKillCounter = 0;
+    public int BuffCurrentStacks { get { return _buffStacks.ContainsKey(_buffData) ? _buffStacks[_buffData] : 0; } }
     public enum BuffDurationType
     {
         ByEnemyKills,
@@ -32,25 +31,27 @@ class WeaponBuffHandler
         WaitForExternal
     }
 
-    public WeaponBuffHandler(List<WeaponAttackManager> buffedWeapons, WeaponStats statsBuff, BuffDurationType durationType, int enemyKillsNeeded, float timeDuration, Action callbackOnEnd = null, ParticleSystem buffParticleSystem = null)
+    public WeaponBuffHandler(List<WeaponAttackManager> buffedWeapons, WeaponBuffData buffData, Action callbackOnEnd = null)
     {
         this.buffedWeapons = buffedWeapons;
-        this.statsBuff = statsBuff;
-        _enemyKillsNeeded = enemyKillsNeeded;
-        _timeDuration = timeDuration;
+        _buffData = buffData;
         this.callbackOnEnd = callbackOnEnd;
-        _buffParticleSystem = buffParticleSystem;
-        BuffWeapons();
-        if (durationType == BuffDurationType.WaitForExternal)
+
+        if (!_buffStacks.ContainsKey(_buffData))
+            _buffStacks.Add(_buffData, 0);
+        if (_buffStacks[_buffData] > _buffData.BuffMaxStacks)
+
+            BuffWeapons();
+        if (_buffData.DurationType == BuffDurationType.WaitForExternal)
             return;
-        if(durationType == BuffDurationType.ByEnemyKills)
+        if (_buffData.DurationType == BuffDurationType.ByEnemyKills)
         {
             EnemySpawnManager.esm.OnEnemySpawned += AddDeathCallbackToEnemy;
             return;
         }
-        if(durationType == BuffDurationType.ByTime)
+        if (_buffData.DurationType == BuffDurationType.ByTime)
         {
-            GameManager.gm.DelayAction(_timeDuration, DebuffWeapons, null);
+            GameManager.gm.DelayAction(_buffData.TimeDuration, DebuffWeapons, null);
             return;
         }
 
@@ -60,9 +61,9 @@ class WeaponBuffHandler
         foreach (var weapon in buffedWeapons)
         {
             if (weapon == null) continue;
-            weapon.WeaponStats.TemporalStatIncrease(statsBuff, false);
-            if (_buffParticleSystem == null) continue;
-            ParticleConfig particlesConfig = new(_buffParticleSystem, Vector2.zero, Quaternion.identity, -1, weapon.transform, true, false);
+            weapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, false);
+            if (_buffData.BuffParticleSystem == null) continue;
+            ParticleConfig particlesConfig = new(_buffData.BuffParticleSystem, Vector2.zero, Quaternion.identity, -1, weapon.transform, true, false);
             var createdParticles = ParticleManager.pm.SpawnParticles(particlesConfig);
             _activeParticles.Add(createdParticles.gameObject);
         }
@@ -73,12 +74,15 @@ class WeaponBuffHandler
         foreach (var weapon in buffedWeapons)
         {
             if (weapon == null) continue;
-            weapon.WeaponStats.TemporalStatIncrease(statsBuff, true);
+            weapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, true);
         }
-        foreach(var particle in _activeParticles)
+        foreach (var particle in _activeParticles)
         {
             GameObject.DestroyImmediate(particle);
         }
+        _buffStacks[_buffData]--;
+        if(_buffStacks[_buffData] == 0)
+            _buffStacks.Remove(_buffData);
         callbackOnEnd?.Invoke();
     }
 
@@ -90,7 +94,7 @@ class WeaponBuffHandler
     void IncreaseEnemyKillCounter(EnemyControl placeholder)
     {
         _enemyKillCounter++;
-        if(_enemyKillCounter >= _enemyKillsNeeded)
+        if (_enemyKillCounter >= _buffData.EnemyKillsNeeded)
         {
             _enemyKillCounter = 0;
             DebuffWeapons();

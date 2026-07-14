@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 [Serializable]
 public class BuffWeaponsAroundAreaSupportObjBehaviour : UseAreaAroundSupportObjBehaviour
 {
     new public static int maxStacks => -1;
-    [SerializeField]WeaponStats _statBuffOnEnter;
+    [Tooltip("Here, wait for external means it will be debuffed at a given time after the player leaves the area")][SerializeField] WeaponBuffData _buffData;
     [SerializeField] float _buffDurationAfterLeavingArea;
     List<WeaponBuffHandler> _activeBuffs = new();
     List<GameObject> _weaponsInArea = new List<GameObject>();
@@ -15,11 +16,12 @@ public class BuffWeaponsAroundAreaSupportObjBehaviour : UseAreaAroundSupportObjB
     {
         base.Initiate(control, original);
         var buffWeaponsOriginal = original as BuffWeaponsAroundAreaSupportObjBehaviour;
-        _statBuffOnEnter = buffWeaponsOriginal._statBuffOnEnter;
+        _buffData = buffWeaponsOriginal._buffData;
         _buffDurationAfterLeavingArea = buffWeaponsOriginal._buffDurationAfterLeavingArea;
         OnObjEnterArea += CheckIncomingObject;
-        OnObjExitArea += DebuffExitingWeapon;
         OnObjExitArea += UnregisterExitingWeapon;
+        if(_buffData.DurationType == WeaponBuffHandler.BuffDurationType.WaitForExternal)
+            OnObjExitArea += DebuffExitingWeapon;
 
     }
 
@@ -42,7 +44,7 @@ public class BuffWeaponsAroundAreaSupportObjBehaviour : UseAreaAroundSupportObjB
     {
         if (GetRelatedBuff(weaponAttackManager) != null)
             return;
-        WeaponBuffHandler buffHandler = new WeaponBuffHandler(new List<WeaponAttackManager> { weaponAttackManager }, _statBuffOnEnter, WeaponBuffHandler.BuffDurationType.WaitForExternal, 0, 0);
+        WeaponBuffHandler buffHandler = new WeaponBuffHandler(new List<WeaponAttackManager> { weaponAttackManager }, _buffData);
         _activeBuffs.Add(buffHandler);
     }
 
