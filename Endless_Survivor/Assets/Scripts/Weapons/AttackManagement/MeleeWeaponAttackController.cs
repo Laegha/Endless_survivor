@@ -35,7 +35,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
         _meleeData = meleeWeaponOriginal._meleeData;
 
         _hand = WeaponControl.transform.parent;
-        WeaponControl.WeaponAim.ChangeDistCheckPos(() => { return (Vector2)PlayerControl.pc.transform.position /*+ _originalHandLocalPos*/; });
+        WeaponControl.WeaponAim.ChangeDistCheckPos(WeaponDistCheck);
         InitializeAttack += InitiateMelee;
         _originalHandLocalPos = _hand.localPosition;
     }
@@ -67,7 +67,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
             return;
         }
 
-        Transform enemy = WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform;
+        Transform enemy = WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider.transform.root;
         Vector2 hitPoint = WeaponControl.WeaponAim.CurrTrackingEnemyHit.point;
         Vector2 hitRelativePoint = (Vector2)enemy.position - hitPoint;
         Vector2 handMovement = hitPoint - (Vector2)_hand.position;
@@ -79,7 +79,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
     public override void End()
     {
         base.End();
-        EndReturnMovement();
+        //EndReturnMovement();
     }
 
     void PlayAttackAnimation(Transform enemy, Vector2 handPosRelatedToEnemy)
@@ -147,7 +147,6 @@ public class MeleeWeaponAttackController : WeaponAttackController
     {
         _hand.localPosition = _originalHandLocalPos; 
         _currHandMover = null;
-
         WeaponControl.WeaponAttackManager.FinishAttack();
     }
 
@@ -156,5 +155,6 @@ public class MeleeWeaponAttackController : WeaponAttackController
         base.UpdatedPosition(newPosition);
         _originalHandLocalPos = newPosition;
     }
+    Vector2 WeaponDistCheck() => (Vector2)PlayerControl.pc.transform.position /*+ _originalHandLocalPos*/;
 }
 
