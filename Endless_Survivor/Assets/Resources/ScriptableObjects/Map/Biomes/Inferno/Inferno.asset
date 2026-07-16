@@ -36,7 +36,7 @@ MonoBehaviour:
     _chance: 5
   - _rouletteElement: {fileID: 11400000, guid: 245470ad14357b94cb126b55c05d7a85, type: 2}
     _chance: 1
-  _supportObjOnTileChance: 2.5
+  _supportObjOnTileChance: 1.5
   _possibleSupportObjectsPerTile:
   - _rouletteElement: {fileID: 11400000, guid: 9055296a36d62be459796972b77618ab, type: 2}
     _chance: 1

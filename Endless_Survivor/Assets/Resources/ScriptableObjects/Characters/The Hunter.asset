@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Hunter
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: 2023260274ec9664c9c2ff7b6bb2eed9, type: 3}
-  _characterName: The Hunter
+  _characterName: Gustavo Martinez Santos
   _initialWeaponHolders:
   - _possibleHandSprites:
     - {fileID: -169117831, guid: 6fe0ef8d16f8b0647a0081d17fd9ca21, type: 3}
@@ -31,12 +31,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e53e94919e3fd1419a1e5c14118680f, type: 2}
   _initialPassives: []
   _playerStats:
-    _initialHP: 10
-    _hpIncrement: 2
+    _initialHP: 12
+    _hpIncrement: 3
     _hpRegeneration: 1
     _defense: 1
-    _minSpeed: 4
-    _maxSpeed: 4.5
+    _minSpeed: 4.5
+    _maxSpeed: 5
     _acceleration: 1
   _colliderSize: {x: 0.5, y: 0.5}
   _colliderOffset: {x: 0, y: -0.41}

@@ -24,8 +24,10 @@ MonoBehaviour:
   - rid: 8472846924352585733
   - rid: 8472846924352585730
   - rid: 8472846924352585731
+  - rid: 5726233834862673920
   - rid: 8472846924352585732
   - rid: 8472846924352585728
+  - rid: 5726233834862673923
   _dropablePickupChances:
   - _rouletteElement: {fileID: 11400000, guid: a5e58a51d85f42c439e36958899441ad, type: 2}
     _chance: 5
@@ -46,6 +48,55 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 5726233834862673920
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeActiveTriggerAnim
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 1.6
+          max: 1.6
+        _triggeredBehaviours:
+        - AnimTriggerShoot
+    - rid: 5726233834862673923
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Idle
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: IdleRight
+          _frames:
+          - {fileID: 194581916, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: 1828011832, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: -1914228927, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: 197613098, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          - {fileID: -19144415, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: IdleLeft
+          _frames:
+          - {fileID: 1213131162, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: 1653229749, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: -1886334548, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: 1807617939, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          - {fileID: 1301141726, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
     - rid: 8472846924352585728
       type: {class: ShootPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -105,7 +156,7 @@ MonoBehaviour:
           - {fileID: -19144415, guid: bd6d75390a431904fb7a4c5a1d1a04dc, type: 3}
           _framesPerSecond: 6
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 1
         _chasingDownAnimation:
           _animationName: 
           _frames: []
@@ -122,14 +173,15 @@ MonoBehaviour:
           - {fileID: 1301141726, guid: 165eeb92cf7865d438005952400eb47f, type: 3}
           _framesPerSecond: 6
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 1
     - rid: 8472846924352585731
       type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: AtDistTriggerShootAnim
-        _overrideBehaviours: []
+        _overrideBehaviours:
+        - ChasePlayer
         _behavioursToTrigger:
-        - AnimTriggerShoot
+        - OverTimeActiveTriggerAnim
         _distanceToTrigger: 6
         _triggerWhenFar: 0
         _behavioursToWaitBeforeTriggeringAgain:
@@ -138,8 +190,7 @@ MonoBehaviour:
       type: {class: TriggerBehavioursOnAnimFrameEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: AnimTriggerShoot
-        _overrideBehaviours:
-        - ChasePlayer
+        _overrideBehaviours: []
         _triggeredBehaviours:
         - ShootPlayer
         _loopAnim: 0
@@ -163,7 +214,7 @@ MonoBehaviour:
           - {fileID: -596331484, guid: ed2fb309fbff92340a02b1cc0c3a24df, type: 3}
           _framesPerSecond: 7
           _endAnimationOnEnd: 0
-          _priority: 1
+          _priority: 2
         _rightTriggerFrame: 0
         _downAnimation:
           _animationName: 
@@ -183,7 +234,7 @@ MonoBehaviour:
           - {fileID: 1463417656, guid: 8332bdce0624d094ca9d39e8f8fcea1f, type: 3}
           _framesPerSecond: 7
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 2
         _leftTriggerFrame: 0
     - rid: 8472846924352585733
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}

@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 3599397592101814273
   - rid: 3599397592101814275
   - rid: 3599397592101814274
+  - rid: 5726233834862673922
   _dropablePickupChances: []
   _onHitSFX:
     _possibleSounds: []
@@ -68,7 +69,7 @@ MonoBehaviour:
           - {fileID: 21300000, guid: db8c463a2c96b7f45b5969ba2a1f2ba6, type: 3}
           _framesPerSecond: 1
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 1
         _chasingLeftAnimation:
           _animationName: 
           _frames: []
@@ -148,7 +149,7 @@ MonoBehaviour:
           - {fileID: 208733510, guid: ff4ea4fe5d1697e4880c5221eef92978, type: 3}
           _framesPerSecond: 8
           _endAnimationOnEnd: 0
-          _priority: 0
+          _priority: 2
         _downTriggerFrame: 2
         _leftAnimation:
           _animationName: 
@@ -172,7 +173,37 @@ MonoBehaviour:
         _behaviourId: OverTimeTriggerShootAnim
         _overrideBehaviours: []
         _timeBetweenTriggering:
-          min: 0.5
-          max: 0.5
+          min: 1.8
+          max: 1.8
         _triggeredBehaviours:
         - AnimTriggerShoot
+    - rid: 5726233834862673922
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: 21300000, guid: db8c463a2c96b7f45b5969ba2a1f2ba6, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
