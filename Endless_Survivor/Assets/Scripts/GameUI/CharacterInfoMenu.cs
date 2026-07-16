@@ -29,7 +29,7 @@ public class CharacterInfoMenu : MonoBehaviour
 
     public void UpdateInfo(CharacterData newShowingChar)
     {
-        _charName.text = newShowingChar.name;
+        _charName.text = newShowingChar.CharacterName;
         _charDisplayImage.ChangeImageSprite(newShowingChar.MenuImage);
 
         _maxHPDisplay.text = newShowingChar.PlayerStats.InitialHP + "";
