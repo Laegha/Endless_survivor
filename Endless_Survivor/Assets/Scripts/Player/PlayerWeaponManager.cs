@@ -33,6 +33,8 @@ public class PlayerWeaponManager : MonoBehaviour
             Dictionary<CustomFlags.IWeaponTag, int> heldTags= new();
             foreach(var heldWeapon in _weaponHolders)
             {
+                if (heldWeapon.holdingWeapon == null)
+                    continue;
                 foreach(var tag in heldWeapon.holdingWeapon.WeaponData.WeaponTags)
                 {
                     if(!heldTags.ContainsKey(tag))
@@ -71,13 +73,16 @@ public class PlayerWeaponManager : MonoBehaviour
         {
             newWeapon.transform.SetParent(emptyHolder.handTransform);
             newWeapon.transform.localPosition = Vector2.zero;
-            return;
         }
-        List<WeaponHolderInfo> pendingHolderInfos = _totalHoldersInfos.Where(x => !_weaponHolders.Any(y => y.holderInfo == x)).ToList();
-        emptyHolder = GenerateWeaponHolder(pendingHolderInfos[Random.Range(0, pendingHolderInfos.Count)]);
+        else
+        {
+            List<WeaponHolderInfo> pendingHolderInfos = _totalHoldersInfos.Where(x => !_weaponHolders.Any(y => y.holderInfo == x)).ToList();
+            emptyHolder = GenerateWeaponHolder(pendingHolderInfos[Random.Range(0, pendingHolderInfos.Count)]);
 
-        newWeapon.transform.SetParent(emptyHolder.handTransform);
-        newWeapon.transform.localPosition = Vector2.zero;
+            newWeapon.transform.SetParent(emptyHolder.handTransform);
+            newWeapon.transform.localPosition = Vector2.zero;
+
+        }
         emptyHolder.holdingWeapon = weaponAttackManager;
 
         UpdateWeaponPositions();
@@ -116,7 +121,7 @@ public class PlayerWeaponManager : MonoBehaviour
     public void RemoveWeapon(WeaponAttackManager removedWeapon)
     {
         var weaponHolder = _weaponHolders.Find(x => x.holdingWeapon == removedWeapon);
-        Destroy(removedWeapon.gameObject);
+        DestroyImmediate(removedWeapon.gameObject);
         if (weaponHolder != null && !weaponHolder.holderInfo.Permanent)
         {
             _weaponHolders.Remove(weaponHolder);
