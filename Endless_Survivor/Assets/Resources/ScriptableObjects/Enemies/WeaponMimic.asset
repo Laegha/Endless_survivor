@@ -38,10 +38,14 @@ MonoBehaviour:
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _onDeathSFX:
-    _possibleSounds: []
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
     _volume: 1
-    _minPitchVariation: 0
-    _maxPitchVariation: 0
+    _minPitchVariation: -0.2
+    _maxPitchVariation: 0.1
   references:
     version: 2
     RefIds:

@@ -57,6 +57,14 @@ MonoBehaviour:
       enemyData: {fileID: 11400000, guid: 3413c36c972b8184598171c94cab1116, type: 2}
       _spawnIntensity: 1
     _chance: 5
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: bb614aae2815fa9409f328ec98270430, type: 2}
+      _spawnIntensity: 1
+    _chance: 1
+  - _rouletteElement:
+      enemyData: {fileID: 11400000, guid: feace311989fb8a438a394faa883a111, type: 2}
+      _spawnIntensity: 1
+    _chance: 1
   _bossInvokerAnimation:
     _animationName: Invoker
     _frames:
