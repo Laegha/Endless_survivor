@@ -87,9 +87,10 @@ public class SpareEnemiesItemBehaviour : PassiveItemBehaviour
 
     void GeneratePickup()
     {
-        if(_sparingEnemy == null || _currPickup != null) 
+        if (_sparingEnemy == null || _currPickup != null)
             return;
-        Vector2 actPosition = (Vector2)PlayerControl.pc.transform.position + Random.insideUnitCircle * _actPickupMaxDist;
+        var tilesInRange = MapManager.mm.LoadedTiles.Where(tile => Vector3.Distance(tile.transform.position, PlayerControl.pc.transform.position) <= _actPickupMaxDist).ToList();
+        Vector2 actPosition = tilesInRange.Count == 0 ? PlayerControl.pc.transform.position : tilesInRange[Random.Range(0, tilesInRange.Count)].transform.position;
         PickupControl pickupControl = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Pickup"], actPosition, Quaternion.identity).GetComponent<PickupControl>();
         _currPickup = pickupControl;
         CustomAnimation pickupAnim;
