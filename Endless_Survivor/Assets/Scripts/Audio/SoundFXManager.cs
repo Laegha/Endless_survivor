@@ -26,6 +26,7 @@ public class SoundFXManager : MonoBehaviour
     }
     public GameObject PlaySfx(SFXInfo soundInfo, Vector2 position)
     {
+        if(soundInfo == null) return null;
         return PlaySfx(soundInfo.Sound, soundInfo.Volume, soundInfo.MinPitchVariation, soundInfo.MaxPitchVariation, position);
     }
 }
