@@ -961,6 +961,21 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 45
+    m_Metrics:
+      m_Width: 39.375
+      m_Height: 67.5
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 61.875
+      m_HorizontalAdvance: 45
+    m_GlyphRect:
+      m_X: 211
+      m_Y: 650
+      m_Width: 40
+      m_Height: 68
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1193,6 +1208,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 122
     m_GlyphIndex: 93
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 74
+    m_GlyphIndex: 45
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -7970602430251690092}
@@ -1428,6 +1447,10 @@ MonoBehaviour:
     m_Y: 733
     m_Width: 59
     m_Height: 87
+  - m_X: 201
+    m_Y: 640
+    m_Width: 59
+    m_Height: 87
   m_FreeGlyphRects:
   - m_X: 59
     m_Y: 31
@@ -1453,14 +1476,6 @@ MonoBehaviour:
     m_Y: 348
     m_Width: 58
     m_Height: 31
-  - m_X: 253
-    m_Y: 348
-    m_Width: 770
-    m_Height: 675
-  - m_X: 254
-    m_Y: 261
-    m_Width: 769
-    m_Height: 762
   - m_X: 272
     m_Y: 174
     m_Width: 751
@@ -1489,18 +1504,6 @@ MonoBehaviour:
     m_Y: 733
     m_Width: 54
     m_Height: 81
-  - m_X: 237
-    m_Y: 522
-    m_Width: 786
-    m_Height: 211
-  - m_X: 243
-    m_Y: 522
-    m_Width: 780
-    m_Height: 501
-  - m_X: 201
-    m_Y: 640
-    m_Width: 822
-    m_Height: 93
   - m_X: 226
     m_Y: 820
     m_Width: 797
@@ -1509,6 +1512,30 @@ MonoBehaviour:
     m_Y: 820
     m_Width: 839
     m_Height: 81
+  - m_X: 253
+    m_Y: 348
+    m_Width: 770
+    m_Height: 292
+  - m_X: 254
+    m_Y: 261
+    m_Width: 769
+    m_Height: 379
+  - m_X: 260
+    m_Y: 261
+    m_Width: 763
+    m_Height: 762
+  - m_X: 237
+    m_Y: 522
+    m_Width: 786
+    m_Height: 118
+  - m_X: 243
+    m_Y: 727
+    m_Width: 780
+    m_Height: 296
+  - m_X: 201
+    m_Y: 727
+    m_Width: 822
+    m_Height: 6
   m_fontInfo:
     Name: 
     PointSize: 0

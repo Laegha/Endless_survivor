@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Boogeyman
   m_EditorClassIdentifier: 
   _menuImage: {fileID: 21300000, guid: ee15a4173288afd448f25f8034437ac2, type: 3}
-  _characterName: The Boogeyman
+  _characterName: Rat
   _initialWeaponHolders:
   - _possibleHandSprites:
     - {fileID: -177209489, guid: 6c3dfb9c3d328254f807144dfe8cc418, type: 3}
