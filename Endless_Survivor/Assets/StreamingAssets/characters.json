@@ -133,5 +133,15 @@
     "fileName": "Jacket",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Demoman",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Mercenary",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]
