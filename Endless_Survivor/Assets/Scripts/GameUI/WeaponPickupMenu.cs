@@ -18,6 +18,7 @@ public class WeaponPickupMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _weaponRangeDisplay;
     [SerializeField] TextMeshProUGUI _rerollsLeftDisplay;
     [SerializeField] InformationButton _weaponInfoButton;
+    [SerializeField] GameObject _cantPickWeaponButton;
     WeaponData _currDisplayingWeapon;
     WeaponStats _currWeaponStats;
     GameObject _currNewIndicator;
@@ -86,5 +87,6 @@ public class WeaponPickupMenu : MonoBehaviour
         _weaponAtkSpdDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.AttackSpeed, 1) + "";
         _weaponRangeDisplay.text = Utility.ChangeFloatDecimals(_currWeaponStats.Range, 1) + "";
         _rerollsLeftDisplay.text = ""+RerollManager.rm.RerollsLeft;
+        _cantPickWeaponButton.SetActive(!PlayerControl.pc.WeaponManager.CanPickWeapon);
     }
 }

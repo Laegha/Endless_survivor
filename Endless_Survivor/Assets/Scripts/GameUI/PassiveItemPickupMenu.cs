@@ -13,6 +13,7 @@ public class PassiveItemPickupMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _itemDescript;
     [SerializeField] TextMeshProUGUI _rerollsLeftDisplay;
     [SerializeField] InformationButton _itemInfoButton;
+    [SerializeField] GameObject _cantPickWeaponButton;
     PassiveItemData _currPickingItem;
     GameObject _currNewIndicator;
     Action _onMenuOpen;
@@ -67,5 +68,6 @@ public class PassiveItemPickupMenu : MonoBehaviour
         _itemName.text = pickingItem.ItemName;
         _itemDescript.text = pickingItem.ItemDescript;
         _rerollsLeftDisplay.text = "" + RerollManager.rm.RerollsLeft;
+        _cantPickWeaponButton.SetActive(PlayerControl.pc.PassiveItemManager.GetItemCopies(pickingItem) < pickingItem.ItemMaxCopies);
     }
 }

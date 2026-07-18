@@ -48,6 +48,13 @@ public class PlayerWeaponManager : MonoBehaviour
             return heldTags;
         }
     }
+    public bool CanPickWeapon
+    {
+        get
+        {
+            return _totalHoldersInfos.Count > 0;
+        }
+    }
 
     public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
