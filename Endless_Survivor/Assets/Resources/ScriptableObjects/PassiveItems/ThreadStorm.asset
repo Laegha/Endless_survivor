@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Thread Storm
   _itemDescript: Hit enemies, gain silk, use it to throw a huge attack
   _itemSprite: {fileID: 21300000, guid: 10b8a52f5c1594a4491cf1b2810410b5, type: 3}
+  _itemMaxCopies: 1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 3262447345440391168
   - rid: 3262447345440391169
@@ -60,3 +62,8 @@ MonoBehaviour:
           _damageAmmount: 20
           _damageType: 1
         _knockBack: 10
+        _onAttackSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0

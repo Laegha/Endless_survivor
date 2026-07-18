@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: BreadDuoBait
   _itemDescript: Attracts both ducks and idols
   _itemSprite: {fileID: 0}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 909968432372908034
   _itemPools: 0

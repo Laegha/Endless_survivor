@@ -15,6 +15,7 @@ MonoBehaviour:
   _itemName: Extra Hand
   _itemDescript: Gives a metallic hand to hold an extra weapon
   _itemSprite: {fileID: 21300000, guid: 1c1eeead08d9be9468276831d31dc236, type: 3}
+  _itemMaxCopies: 3
   _itemOverrides: []
   _itemBehaviours:
   - rid: 5726233851171700736

@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Slugcat
   _itemDescript: Gathers food to heal you
   _itemSprite: {fileID: 21300000, guid: e5a357c01bcbd3348ba8434e2de100af, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 575471762015256577
   _itemPools: 1

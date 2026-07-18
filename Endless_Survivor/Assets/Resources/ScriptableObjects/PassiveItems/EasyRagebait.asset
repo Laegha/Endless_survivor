@@ -15,6 +15,7 @@ MonoBehaviour:
   _itemName: Easy Ragebait
   _itemDescript: Buffs your weapons when hit
   _itemSprite: {fileID: 21300000, guid: 8d4a53dea4bc6334392a91899ab43e38, type: 3}
+  _itemMaxCopies: -1
   _itemOverrides: []
   _itemBehaviours:
   - rid: 1814238555663499264

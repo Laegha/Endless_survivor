@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: MafiaBait
   _itemDescript: Summons the mafia duck to fight for you
   _itemSprite: {fileID: 21300000, guid: 94f41b7d761944945ad7f5d89b717b91, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 1204507652299161601
   _itemPools: 1

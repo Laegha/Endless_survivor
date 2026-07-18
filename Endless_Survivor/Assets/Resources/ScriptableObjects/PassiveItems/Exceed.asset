@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Exceed
   _itemDescript: Temporarily buffs weapons when they shoot at the same time
   _itemSprite: {fileID: 21300000, guid: f092e95ae2fe2884fa7ac39a1d5079f0, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 575471513600524288
   _itemPools: 1

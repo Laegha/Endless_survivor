@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Vedal
   _itemDescript: He kind of just sits around... maybe you should shoot him
   _itemSprite: {fileID: -839934344, guid: 9348cc9f6dd8b654287639c4e597a1d4, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 575471762015256577
   _itemPools: 5
@@ -24,6 +26,7 @@ MonoBehaviour:
     - rid: 575471762015256577
       type: {class: SpawnSupportObjectsItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _spawnedObjects:
         - generic: {fileID: 11400000, guid: 5588e56434073af489052bb936e7a178, type: 2}
-          ammount: 1
+          num: 1

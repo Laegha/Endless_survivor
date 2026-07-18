@@ -21,8 +21,12 @@ public class PassiveItemManager : MonoBehaviour
         EnemySpawnManager.esm.OnEnemySpawned += (enemyControl) => enemyControl.EnemyHP.OnDeath += EnemyKilled;
         IntensityManager.im.OnLevelIncrease += LevelIncrease;
     }
+    public int GetItemCopies(PassiveItemData itemData) => _passiveItems.Where(item => item.ItemData == itemData).Count();
     public PassiveItem AddPassiveItem(PassiveItemData itemData)
     {
+        int itemCopies = GetItemCopies(itemData);
+        if(itemCopies >= itemData.ItemMaxCopies && itemData.ItemMaxCopies >= 0)
+            return null;
         PassiveItem addedItem = new PassiveItem();
         itemData.TransferData(addedItem);
         addedItem.BehaviourManager.onPicked?.Invoke();

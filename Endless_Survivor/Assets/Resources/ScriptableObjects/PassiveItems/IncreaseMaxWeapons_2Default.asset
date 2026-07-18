@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: 
   _itemDescript: 
   _itemSprite: {fileID: 0}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 8472846729055567873
   _itemPools: 0
@@ -25,4 +27,4 @@ MonoBehaviour:
       type: {class: IncreaseMaxWeaponsItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: IncreaseMaxWeapons
-        _addedMaxWeapons: 2
+        _addedWeaponHolder: []

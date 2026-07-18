@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Leg Hugger
   _itemDescript: Wanders around and attacks enemies
   _itemSprite: {fileID: 21300000, guid: bbd90b67c7dba8f4e8585e57c785783d, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 1204507693099515904
   _itemPools: 1

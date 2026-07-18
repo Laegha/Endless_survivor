@@ -11,6 +11,7 @@ public class PassiveItemDataEditor : Editor
     SerializedProperty _itemName;
     SerializedProperty _itemDescript;
     SerializedProperty _itemSprite;
+    SerializedProperty _itemMaxCopies;
     SerializedProperty _itemOverrides;
     SerializedProperty _itemPools;
     Dictionary<Type, int> _behaviourTypes = new();
@@ -20,6 +21,7 @@ public class PassiveItemDataEditor : Editor
         _itemName = serializedObject.FindProperty("_itemName");
         _itemDescript = serializedObject.FindProperty("_itemDescript");
         _itemSprite = serializedObject.FindProperty("_itemSprite");
+        _itemMaxCopies = serializedObject.FindProperty("_itemMaxCopies");
         _itemOverrides = serializedObject.FindProperty("_itemOverrides");
         _itemPools = serializedObject.FindProperty("_itemPools");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(PassiveItemBehaviour));
@@ -32,6 +34,7 @@ public class PassiveItemDataEditor : Editor
         EditorGUILayout.PropertyField(_itemName);
         EditorGUILayout.PropertyField(_itemDescript);
         EditorGUILayout.PropertyField(_itemSprite);
+        EditorGUILayout.PropertyField(_itemMaxCopies);
         EditorGUILayout.PropertyField(_itemOverrides);
         EditorGUILayout.PropertyField(_itemPools);
         serializedObject.ApplyModifiedProperties();

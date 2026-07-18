@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Isaac's D6
   _itemDescript: +3 rerolls for everything
   _itemSprite: {fileID: 21300000, guid: 0c230cd01a6bc0c44bf39f28e1832161, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 1428374836774436865
   _itemPools: 1
@@ -24,6 +26,7 @@ MonoBehaviour:
     - rid: 1428374836774436865
       type: {class: GiveRerollsOnMenuItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _usePriority: 1
         _rerollAmmount: 3
         _onWeaponPickup: 1

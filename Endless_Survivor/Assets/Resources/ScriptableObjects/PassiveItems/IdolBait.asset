@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Idol Bait
   _itemDescript: She will increase your power if you listen to her song
   _itemSprite: {fileID: 21300000, guid: c684f79b2b00eb24ea976072e4031c68, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 909968409856835588
   - rid: 909968409856835589
@@ -45,3 +47,8 @@ MonoBehaviour:
         _particlesOnActivation: {fileID: 0}
         _particlesOffsetFromPlayer: {x: 0, y: 0}
         _particlesDuration: 0
+        _onActivateSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0

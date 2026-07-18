@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: 
   _itemDescript: 
   _itemSprite: {fileID: 0}
+  _itemMaxCopies: 1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 1204507796050018304
   _itemPools: 0
@@ -24,8 +26,11 @@ MonoBehaviour:
     - rid: 1204507796050018304
       type: {class: AttackWhenHighSpeedItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
+        _behaviourId: 
         _speedThreshold: 6
         _speedTop: 7
+        _triggerType: 0
+        _attackCooldown: 0
         _rightAnimation:
           _animationName: RightAttack
           _frames:
@@ -67,5 +72,6 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0

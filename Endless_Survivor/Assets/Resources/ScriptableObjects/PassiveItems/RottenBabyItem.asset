@@ -15,6 +15,8 @@ MonoBehaviour:
   _itemName: Rotten Baby
   _itemDescript: Vomits friendly flies
   _itemSprite: {fileID: -1047180320, guid: 0cfd582f617914141b27039bbc1cc08a, type: 3}
+  _itemMaxCopies: -1
+  _itemOverrides: []
   _itemBehaviours:
   - rid: 1204507693099515904
   _itemPools: 1
