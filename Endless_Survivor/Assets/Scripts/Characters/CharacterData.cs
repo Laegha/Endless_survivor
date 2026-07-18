@@ -9,6 +9,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] Sprite _menuImage;
     [SerializeField] string _characterName;
     [SerializeField] WeaponHolderInfo[] _initialWeaponHolders;
+    [SerializeField] WeaponHolderInfo[] _defaultWeaponHolders;
 
     [InspectorLabel("Initial weapons and passive items")]
     [SerializeField] WeaponData[] _initialWeapons;
@@ -46,6 +47,7 @@ public class CharacterData : ScriptableObject
     public string CharacterName { get { return _characterName; } }
     public WeaponData[] InitialWeapons { get { return _initialWeapons; } }
     public WeaponHolderInfo[] InitialWeaponHolders { get { return _initialWeaponHolders;} }
+    public WeaponHolderInfo[] DefaultWeaponHolders { get { return _defaultWeaponHolders;} }
     public PassiveItemData[] InitialPassives { get { return _initialPassives; } }
     public PlayerStats PlayerStats{ get { return _playerStats; } }
     public Vector2 ColliderSize {  get { return _colliderSize; } }
