@@ -27,6 +27,13 @@ MonoBehaviour:
     _permanent: 0
     _useFixedPosition: 0
     _fixedPosition: {x: 0, y: 0}
+  _defaultWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: -1638838411, guid: c2d06e20131399840a6e1ee5969d3c9c, type: 3}
+    - {fileID: 706243865, guid: c2d06e20131399840a6e1ee5969d3c9c, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: f44ad696397b728458090559f2128aa2, type: 2}
   _initialPassives:

@@ -28,3 +28,4 @@ MonoBehaviour:
       data:
         _behaviourId: IncreaseMaxWeapons
         _addedWeaponHolder: []
+        _addedCharacterDefaultHolders: 2

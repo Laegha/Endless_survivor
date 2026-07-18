@@ -17,10 +17,19 @@ MonoBehaviour:
   _initialWeaponHolders:
   - _possibleHandSprites:
     - {fileID: 785741408, guid: 96c5e5d53d8a3d0478142f82e23b043c, type: 3}
+    - {fileID: 1957949258, guid: 96c5e5d53d8a3d0478142f82e23b043c, type: 3}
     _permanent: 0
     _useFixedPosition: 0
     _fixedPosition: {x: 0, y: 0}
   - _possibleHandSprites:
+    - {fileID: 785741408, guid: 96c5e5d53d8a3d0478142f82e23b043c, type: 3}
+    - {fileID: 1957949258, guid: 96c5e5d53d8a3d0478142f82e23b043c, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  _defaultWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 785741408, guid: 96c5e5d53d8a3d0478142f82e23b043c, type: 3}
     - {fileID: 1957949258, guid: 96c5e5d53d8a3d0478142f82e23b043c, type: 3}
     _permanent: 0
     _useFixedPosition: 0
