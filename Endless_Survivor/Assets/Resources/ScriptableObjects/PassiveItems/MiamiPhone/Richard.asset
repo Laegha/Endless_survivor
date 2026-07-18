@@ -15,6 +15,7 @@ MonoBehaviour:
   _itemName: Richard
   _itemDescript: +3 regen, +10% dmg, +0.5 speed
   _itemSprite: {fileID: -1488431048, guid: bcc89ef181c68214ba850565440cba1b, type: 3}
+  _itemMaxCopies: 1
   _itemOverrides:
   - _overridenItem: {fileID: 11400000, guid: 19f7430f67457844d9d4c66f27ecb33d, type: 2}
     _isItemRemovedPerm: 0

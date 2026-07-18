@@ -15,6 +15,12 @@ MonoBehaviour:
   _itemName: Gold Chestplate
   _itemDescript: Increases defense, breaks after some hits
   _itemSprite: {fileID: 21300000, guid: e3173532e6c5a7a4f9b9bb6efcaefe71, type: 3}
+  _itemMaxCopies: 1
+  _itemOverrides:
+  - _overridenItem: {fileID: 11400000, guid: 82c8529bea8b9884bbb0e65c2bb3c7b1, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 17e641da47938de4993ed6bf510e850c, type: 2}
+    _isItemRemovedPerm: 1
   _itemBehaviours:
   - rid: 909968580704993280
   - rid: 909968580704993281

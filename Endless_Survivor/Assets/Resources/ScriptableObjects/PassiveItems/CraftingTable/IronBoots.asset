@@ -15,6 +15,12 @@ MonoBehaviour:
   _itemName: Iron Boots
   _itemDescript: Slightly increases defense, breaks after a few hits
   _itemSprite: {fileID: 21300000, guid: d9f056086194f064abd230ef73fe7fbc, type: 3}
+  _itemMaxCopies: 1
+  _itemOverrides:
+  - _overridenItem: {fileID: 11400000, guid: 5ba860c2a20ee8c4d96f8a8b53440333, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 7673f1f6054608d40a677abd7b46f484, type: 2}
+    _isItemRemovedPerm: 1
   _itemBehaviours:
   - rid: 909968580704993280
   - rid: 909968580704993281

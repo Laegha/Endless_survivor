@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075e529c78c170042bfa746aee864741, type: 3}
   m_Name: DiamondBootsCostume
   m_EditorClassIdentifier: 
-  _costumePosition: 1
+  _costumePosition: 2
   _offsetFromPositionByStacks:
   - {x: 0, y: 0}
   _idleAnimation:

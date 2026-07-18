@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075e529c78c170042bfa746aee864741, type: 3}
   m_Name: IronHelmetCostume
   m_EditorClassIdentifier: 
-  _costumePosition: 1
+  _costumePosition: 2
   _offsetFromPositionByStacks:
   - {x: 0, y: 0}
   _idleAnimation:
@@ -81,4 +81,4 @@ MonoBehaviour:
       _endAnimationOnEnd: 0
       _priority: 0
   _syncronizeWithPlayerAnim: 1
-  _renderOffset: 0
+  _renderOffset: 15

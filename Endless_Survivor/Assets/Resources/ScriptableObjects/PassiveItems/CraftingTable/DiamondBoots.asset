@@ -15,6 +15,12 @@ MonoBehaviour:
   _itemName: Diamond Boots
   _itemDescript: Greatly increases defense, breaks after various hits
   _itemSprite: {fileID: 21300000, guid: 76853ef829d1a1a48b4ec51150bd22af, type: 3}
+  _itemMaxCopies: 1
+  _itemOverrides:
+  - _overridenItem: {fileID: 11400000, guid: 7673f1f6054608d40a677abd7b46f484, type: 2}
+    _isItemRemovedPerm: 1
+  - _overridenItem: {fileID: 11400000, guid: 2602238bd6581ca48854f6d383489395, type: 2}
+    _isItemRemovedPerm: 1
   _itemBehaviours:
   - rid: 909968580704993280
   - rid: 909968580704993281
