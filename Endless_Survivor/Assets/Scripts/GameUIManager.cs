@@ -44,10 +44,15 @@ public class GameUIManager : MonoBehaviour
     }
     public void DisplayUIMessage(UIMessageInfo messageInfo)
     {
-        GameObject messageGO = Instantiate(GameManager.gm.prefabHolder.Prefabs["UIMessage"], _messageHolder.transform);
+        GameObject messageGO = Instantiate(GameManager.gm.prefabHolder.Prefabs["UIMessage"], messageInfo.DrawOnTop ? transform.root : _messageHolder.transform);
+        if (messageInfo.DrawOnTop)
+            messageGO.transform.SetAsLastSibling();
         var messageTr = messageGO.GetComponent<RectTransform>();
         messageTr.anchoredPosition = new(0, messageInfo.MessageYPosition);
-        messageGO.GetComponent<Animator>().runtimeAnimatorController = messageInfo.MessageAnimator;
+        Animator messageAn = messageGO.GetComponent<Animator>();
+        messageAn.runtimeAnimatorController = messageInfo.MessageAnimator;
+        messageAn.updateMode = messageInfo.AnUpdateMode;
+        GameManager.gm.DelayAction(messageInfo.MessageExitDelay, () => messageAn.Play("Exit"), () => messageGO == null);
         TextMeshProUGUI messageText = messageGO.GetComponentInChildren<TextMeshProUGUI>();
         messageInfo.ApplyToText(messageText);
 
