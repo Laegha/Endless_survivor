@@ -31,9 +31,9 @@ public class WeaponSwitchMenu : MonoBehaviour
         float currAngle = 0;
         foreach (var weapon in holdingWeapons)
         {
-            Transform button = Instantiate(_weaponButtonPrefab, _weaponDisplayCircleCenter).transform;
+            RectTransform button = Instantiate(_weaponButtonPrefab, _weaponDisplayCircleCenter).GetComponent<RectTransform>();
             button.GetComponent<WeaponOverrideButton>().SetData(weapon.WeaponData.WeaponDisplaySprite, weapon, WeaponSelected);
-            button.position = (Vector2)_weaponDisplayCircleCenter.position + Utility.GetPointInCircle(_weaponDisplayCircleRadius, currAngle);
+            button.localPosition = Utility.GetPointInCircle(_weaponDisplayCircleRadius, currAngle);
             currAngle += angleStep;
             _generatedButtons.Add(button.gameObject);
         }
