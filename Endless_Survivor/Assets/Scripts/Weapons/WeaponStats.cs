@@ -83,6 +83,6 @@ public class WeaponStats
     }
     float GetStatVariation(float increaseScale, int level, float baseStat, float variation)
     {
-        return Random.Range(baseStat > variation ? -variation : 0, variation) * increaseScale;
+        return Random.Range(0, variation) * increaseScale;
     }
 }
