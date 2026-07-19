@@ -10,6 +10,7 @@ public class WorldConfigData : ScriptableObject
     [SerializeField] float _maxEnemySpawnDist;
     [SerializeField] RandomBetweenTwoConstants _timeBetweenEnemySpawn;
     [SerializeField] RandomBetweenTwoConstants _enemiesPerSpawn;
+    [SerializeField] int _maxConcurrentEnemies;
     [SerializeField] int _initialIntensityGoal;
     [SerializeField] int _intensityGoalIncrease;
     [SerializeField] int _enemyHPPercentToIntensityIncrease;
@@ -24,6 +25,7 @@ public class WorldConfigData : ScriptableObject
     public float MaxEnemySpawnDist { get { return _maxEnemySpawnDist; } }
     public RandomBetweenTwoConstants TimeBetweenEnemySpawn { get { return _timeBetweenEnemySpawn; } }
     public RandomBetweenTwoConstants EnemiesPerSpawn { get { return _enemiesPerSpawn; } }
+    public int MaxConcurrentEnemies { get { return _maxConcurrentEnemies; } }
     public int InitialInstensityGoal { get { return _initialIntensityGoal; } }
     public int IntensityGoalIncrease { get { return _intensityGoalIncrease; } }
     public int EnemyHPPercentToIntensityIncrease { get { return _enemyHPPercentToIntensityIncrease; } }

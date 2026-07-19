@@ -43,6 +43,7 @@ public class EnemySpawnManager : MonoBehaviour
     }
     private void Update()
     {
+        if(_enemies.Count > GameManager.gm.WorldConfig.MaxConcurrentEnemies)
         _enemySpawnTimer -= Time.deltaTime;
         if (_enemySpawnTimer > 0)
             return;

@@ -20,6 +20,7 @@ MonoBehaviour:
   _enemiesPerSpawn:
     min: 5
     max: 8
+  _maxConcurrentEnemies: 50
   _initialIntensityGoal: 100
   _intensityGoalIncrease: 30
   _enemyHPPercentToIntensityIncrease: 50
@@ -32,6 +33,9 @@ MonoBehaviour:
     _textAlignment: 514
     _messageYPosition: 70
     _messageAnimator: {fileID: 9100000, guid: d0bc87a95257f844892bbee217fc4131, type: 2}
+    _messageExitDelay: 0
+    _drawOnTop: 0
+    _anUpdateMode: 0
   _runExitPrefab: {fileID: 7753741616326789000, guid: f7f2c3310cda60b43a8d18c5016f4b45, type: 3}
   _onExitCreatedMessageInfo:
     _message: The exit from the chaos realm is open
@@ -41,5 +45,8 @@ MonoBehaviour:
     _textAlignment: 514
     _messageYPosition: 70
     _messageAnimator: {fileID: 9100000, guid: d0bc87a95257f844892bbee217fc4131, type: 2}
+    _messageExitDelay: 0
+    _drawOnTop: 0
+    _anUpdateMode: 0
   _exitPointerColor: {r: 0.07450981, g: 0.427451, b: 0.16862746, a: 1}
   _exitPointerIcon: {fileID: 21300000, guid: 947792283d2e50a4995ad5edd465c40e, type: 3}
