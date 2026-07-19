@@ -15,7 +15,7 @@ MonoBehaviour:
   _weaponDisplaySprite: {fileID: 0}
   _weaponName: Leg Hugger
   _weaponStats:
-    _range: 1
+    _range: 3
     _attackSpeed: 2
     _damage: 20
     _knockback: 5
@@ -65,9 +65,15 @@ MonoBehaviour:
           _endAnimationOnEnd: 1
           _priority: 1
         _attackFrame: 7
+        _attackSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 1
+        _knockbackMultiplier: 1
         _damageType: 1
         _meleeData:
           _isCircle: 0
@@ -81,6 +87,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507693099515906
@@ -103,9 +110,15 @@ MonoBehaviour:
           _endAnimationOnEnd: 1
           _priority: 1
         _attackFrame: 7
+        _attackSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
         _weaponAttackEffects:
           availableEffects: []
         _damageMultiplier: 2
+        _knockbackMultiplier: 1
         _damageType: 0
         _meleeData:
           _isCircle: 1
@@ -119,6 +132,7 @@ MonoBehaviour:
             _endAnimationOnEnd: 0
             _priority: 0
           _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507693099515911
@@ -126,5 +140,5 @@ MonoBehaviour:
       data:
         _changeChance: 20
         _idsWeights:
-        - _element: SpecialAttack
+        - _rouletteElement: SpecialAttack
           _chance: 1
