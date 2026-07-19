@@ -13,12 +13,18 @@ public class PlayerGFXChanger
     ParticleSystem _instantiatedParticles;
     bool _isApplied = false;
 
+
+    public PlayerGFXChanger(PlayerGFXChanger original)
+    {
+        materialOverride = original.materialOverride;
+        addedParticles = original.addedParticles;
+    }
     public void ApplyGFX()
     {
         if (_isApplied)
             return;
         _isApplied = true;
-        if(materialOverride != null)
+        if(materialOverride != null && materialOverride.material != null)
             PlayerControl.pc.PlayerMaterialManager.SetMaterialOverride(materialOverride);
         if(addedParticles != null)
         {
