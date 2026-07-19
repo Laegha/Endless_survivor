@@ -1,56 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-//public class PlayerInputReader : MonoBehaviour
-//{
-//    [SerializeField] PlayerStateMachine _playerStateMachine;
-//    bl_Joystick joystick;
-
-//    private void Start()
-//    {
-//        joystick = FindObjectOfType<bl_Joystick>();
-//    }
-
-//    void Update()
-//    {
-//        Vector2 movement = new Vector2(joystick.Horizontal, joystick.Vertical);
-//        _playerStateMachine.Movement = movement.normalized;
-//    }
-//}
-
-//public class PlayerInputReader : MonoBehaviour
-//{
-//    [SerializeField] PlayerStateMachine _playerStateMachine;
-
-//    private void Update()
-//    {
-//        Vector2 input = Vector2.zero;
-//        if (Input.GetKey(KeyCode.W))
-//            input += Vector2.up;
-//        if (Input.GetKey(KeyCode.D))
-//            input += Vector2.right;
-//        if (Input.GetKey(KeyCode.S))
-//            input += Vector2.down;
-//        if (Input.GetKey(KeyCode.A))
-//            input += Vector2.left;
-//        _playerStateMachine.Movement = input.normalized;
-//    }
-//}
 
 public class PlayerInputReader : MonoBehaviour
 {
     [SerializeField] PlayerStateMachine _playerStateMachine;
-    TouchControls _controls;
+    bl_Joystick _joystick;
+    TouchControls _touchControls;
 
     private void Start()
     {
-        _controls = FindObjectOfType<TouchControls>();
+        _touchControls = FindObjectOfType<TouchControls>();
+        _joystick = FindObjectOfType<bl_Joystick>();
+        if (GameManager.gm.UsingCustomControls)
+        {
+            _joystick.gameObject.SetActive(false);
+            _touchControls.gameObject.SetActive(true);
+        }
+        else
+        {
+            _joystick.gameObject.SetActive(true);
+            _touchControls.gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
-        Vector2 movement = _controls.DraggingDirection;
-        _playerStateMachine.Movement = movement.normalized;
+        Vector2 input = Vector2.zero;
+
+        //if (Input.GetKey(KeyCode.W))
+        //input += Vector2.up;
+        //if (Input.GetKey(KeyCode.D))
+        //input += Vector2.right;
+        //if (Input.GetKey(KeyCode.S))
+        //input += Vector2.down;
+        //if (Input.GetKey(KeyCode.A))
+        //input += Vector2.left;
+
+        if (GameManager.gm.UsingCustomControls)
+            input = _touchControls.DraggingDirection;
+        else
+            input = new Vector2(_joystick.Horizontal, _joystick.Vertical);
+        _playerStateMachine.Movement = input.normalized;
     }
 }

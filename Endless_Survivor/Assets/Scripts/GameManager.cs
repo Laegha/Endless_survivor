@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] WorldConfigData _worldConfig;
     [SerializeField] WeaponStatsSpritesData _weaponStatsSprites;
     UnlockedElementsHelper _unlockedElementsHelper = new();
+    bool _usingCustomControls = false;
 
 
     public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
     public WorldConfigData WorldConfig { get { return _worldConfig; } }
     public WeaponStatsSpritesData WeaponStatsSprites { get { return _weaponStatsSprites; } }
-    public UnlockedElementsHelper UnlockedElementHelper {  get { return _unlockedElementsHelper; } }    
+    public UnlockedElementsHelper UnlockedElementHelper {  get { return _unlockedElementsHelper; } }   
+    public bool UsingCustomControls {  get { return _usingCustomControls; } set { _usingCustomControls = value; } }
 
     public static GameManager gm
     {
