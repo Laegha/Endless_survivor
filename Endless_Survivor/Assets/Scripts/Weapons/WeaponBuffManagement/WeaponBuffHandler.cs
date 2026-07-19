@@ -24,6 +24,7 @@ public class WeaponBuffHandler
 
     float _enemyKillCounter = 0;
     public int BuffCurrentStacks { get { return _buffStacks.ContainsKey(_buffData) ? _buffStacks[_buffData] : 0; } }
+    public bool IsBuffing { get { return _buffStacks[_buffData] <= _buffData.BuffMaxStacks; } }
     public enum BuffDurationType
     {
         ByEnemyKills,
@@ -58,6 +59,7 @@ public class WeaponBuffHandler
     }
     public void BuffWeapons()
     {
+        _buffStacks[_buffData]++;
         foreach (var weapon in buffedWeapons)
         {
             if (weapon == null) continue;
