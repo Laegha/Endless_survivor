@@ -13,6 +13,7 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
         base.CopyValues(original, behaviourManager);
 
         var buffWeaponsOriginal = original as BuffWeaponsOnActivateItemBehaviour;
+        _buffData = buffWeaponsOriginal._buffData;
 
     }
 
