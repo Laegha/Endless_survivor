@@ -18,7 +18,7 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         var buffWeaponsOriginal = original as BuffWeaponsOnPlayerHitItemBehaviour;
         _buffData = buffWeaponsOriginal._buffData;
         _chanceOfHappenning = buffWeaponsOriginal._chanceOfHappenning;
-        _gfxChanger = buffWeaponsOriginal._gfxChanger;
+        _gfxChanger = new(buffWeaponsOriginal._gfxChanger);
         _onBuffSFX = buffWeaponsOriginal._onBuffSFX;
 
         behaviourManager.onPlayerDamaged += TryBuffStats;
@@ -29,16 +29,19 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         if (rand > _chanceOfHappenning)
             return;
 
+        var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
+        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _buffData);
+        if (!weaponDebuffHandler.IsBuffing)
+            return;
+        weaponDebuffHandler.callbackOnEnd += () => DecreaseStacks(weaponDebuffHandler);
+        _activeBuffHandlers.Add(weaponDebuffHandler);
+        
         _gfxChanger.ApplyGFX();
         SoundFXManager.sm.PlaySfx(_onBuffSFX, PlayerControl.pc.transform.position);
-        var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
-        
-        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _buffData, DecreaseStacks);
-        _activeBuffHandlers.Add(weaponDebuffHandler);
-        weaponDebuffHandler.callbackOnEnd += () => _activeBuffHandlers.Remove(weaponDebuffHandler);
     }
-    void DecreaseStacks()
+    void DecreaseStacks(WeaponBuffHandler removedBuffHandler)
     {
+        _activeBuffHandlers.Remove(removedBuffHandler);
         if (_activeBuffHandlers.Count == 0 || _activeBuffHandlers[0].BuffCurrentStacks == 0)
             _gfxChanger.UnApplyGFX();
     }
