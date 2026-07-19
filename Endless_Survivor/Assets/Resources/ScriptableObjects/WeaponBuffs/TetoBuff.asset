@@ -15,8 +15,8 @@ MonoBehaviour:
   _buffMaxStacks: 1
   _statsBuff:
     _range: 0
-    _attackSpeed: 0.35
-    _damage: 3
+    _attackSpeed: 100
+    _damage: 0
     _knockback: 0
   _durationType: 2
   _enemyKillsNeeded: 0
