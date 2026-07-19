@@ -42,7 +42,7 @@ public class MaterialManager : MonoBehaviour
     {
         foreach (var renderer in _renderers)
         {
-            if (_spritesCurrent[renderer] == renderer.sprite && !forceMaterialUpdate || renderer == null)
+            if (_spritesCurrent[renderer] == renderer.sprite && !forceMaterialUpdate || renderer == null || renderer.sprite == null)
                 continue;
 
             if (_spritesCurrent[renderer] == null || renderer.sprite != null && _spritesCurrent[renderer].name != renderer.sprite.name)
