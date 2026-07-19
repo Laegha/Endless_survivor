@@ -32,11 +32,14 @@ public class BuffWeaponsAroundAreaSupportObjBehaviour : UseAreaAroundSupportObjB
 
     void CheckIncomingObject(GameObject obj)
     {
-        WeaponControl weapon = obj.transform.root.GetComponent<WeaponControl>();
-        if (weapon == null)
+        if (obj.transform.root != PlayerControl.pc.transform)
             return;
-        _weaponsInArea.Add(weapon.gameObject);
-        BuffWeapon(weapon.WeaponAttackManager);
+        foreach (var weapon in PlayerControl.pc.WeaponManager.HeldWeapons)
+        {
+            _weaponsInArea.Add(weapon.gameObject);
+            BuffWeapon(weapon);
+
+        }
     }
 
     void BuffWeapon(WeaponAttackManager weaponAttackManager)
