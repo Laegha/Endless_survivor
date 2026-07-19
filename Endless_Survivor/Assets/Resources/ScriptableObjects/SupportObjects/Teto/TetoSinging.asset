@@ -102,9 +102,5 @@ MonoBehaviour:
       type: {class: BuffWeaponsAroundAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _areaName: AreaIdentifier
-        _statBuffOnEnter:
-          _range: 1
-          _attackSpeed: 1.5
-          _damage: 0
-          _knockback: 0
+        _buffData: {fileID: 11400000, guid: 5e5487d0b7545e64fb66fabc0ecf2c56, type: 2}
         _buffDurationAfterLeavingArea: 5
