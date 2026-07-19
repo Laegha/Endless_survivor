@@ -16,6 +16,7 @@ MonoBehaviour:
   - rid: 1428374630825984003
   - rid: 1428374630825984004
   - rid: 1204507964760915990
+  - rid: 5726233905716789251
   _effectMaxStacks: 1
   references:
     version: 2
@@ -30,7 +31,6 @@ MonoBehaviour:
     - rid: 1428374630825984003
       type: {class: DamageAfterTimeStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _effectDuration: 1.5
         _damage:
           _damageAmmount: 10
           _damageType: 4
@@ -39,4 +39,8 @@ MonoBehaviour:
       data:
         _createdObjsDatas:
         - generic: {fileID: 11400000, guid: 2c279111d887e154d8c7ef981a962cca, type: 2}
-          ammount: 1
+          num: 1
+    - rid: 5726233905716789251
+      type: {class: EndByTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 2.5

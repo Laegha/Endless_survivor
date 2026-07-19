@@ -15,6 +15,7 @@ MonoBehaviour:
   _statusEffects:
   - rid: 1814238801220337668
   - rid: 1204507964760915989
+  - rid: 5726233905716789249
   _effectMaxStacks: 3
   references:
     version: 2
@@ -29,7 +30,10 @@ MonoBehaviour:
     - rid: 1814238801220337668
       type: {class: DamageAfterTimeStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _effectDuration: 2
         _damage:
           _damageAmmount: 7
           _damageType: 4
+    - rid: 5726233905716789249
+      type: {class: EndByTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 3
