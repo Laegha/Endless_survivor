@@ -7,6 +7,7 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
     new public static int maxStacks => -1;
     [SerializeField] float _timeScaleDecreaseOnBulletTime;
     [SerializeField] float _bulletTimeDuration;
+    [SerializeField] float _bulletTimeCooldown;
     [SerializeField] int _parryingProyectileTargetPriority;
     [SerializeField] float _bulletDetectionDist;
     [Range(0,100)][SerializeField] float _activationChance;
@@ -20,12 +21,14 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
     GameObject _activeUiBulletTimeIndicator;
     GameObject _activeThreatProyectileIndicator;
     TimescaleChangeInfo _activeTimescaleChange;
+    float _bulletTimeCooldownTimer;
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
         base.CopyValues(original, behaviourManager);
         var bulletTimeOnThreatenOriginal = original as BulletTimeOnThreatenedByProyectileItemBehaviour;
         _timeScaleDecreaseOnBulletTime = bulletTimeOnThreatenOriginal._timeScaleDecreaseOnBulletTime;
         _bulletTimeDuration = bulletTimeOnThreatenOriginal._bulletTimeDuration;
+        _bulletTimeCooldown = bulletTimeOnThreatenOriginal._bulletTimeCooldown;
         _parryingProyectileTargetPriority = bulletTimeOnThreatenOriginal._parryingProyectileTargetPriority;
         _bulletDetectionDist = bulletTimeOnThreatenOriginal._bulletDetectionDist;
         _activationChance = bulletTimeOnThreatenOriginal._activationChance;
@@ -40,11 +43,18 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
         _activeUiBulletTimeIndicator.transform.SetAsFirstSibling();
         _activeUiBulletTimeIndicator.SetActive(false);
 
+        behaviourManager.onUpdate += ReduceCooldownTimer;
         behaviourManager.onUpdate += CheckProyectiles;
+    }
+    void ReduceCooldownTimer()
+    {
+        if (_inBulletTime || _bulletTimeCooldownTimer <= 0)
+            return;
+        _bulletTimeCooldownTimer -= Time.deltaTime;
     }
     void CheckProyectiles()
     {
-        if (_inBulletTime)
+        if (_inBulletTime || _bulletTimeCooldownTimer > 0)
             return;
         EnemyProyectile[] allProyectiles = GameObject.FindObjectsOfType<EnemyProyectile>();
         foreach(var proyectile in allProyectiles)
@@ -82,6 +92,7 @@ public class BulletTimeOnThreatenedByProyectileItemBehaviour : PassiveItemBehavi
     void StartBulletTime(EnemyProyectile parryingProyectile)
     {
         _inBulletTime = true;
+        _bulletTimeCooldownTimer = _bulletTimeCooldown;
         WeaponAim.SharedAttackTargets.Add(new(parryingProyectile.gameObject, _parryingProyectileTargetPriority));
         
         if(_threatProyectileIndicator.Frames.Length > 0)

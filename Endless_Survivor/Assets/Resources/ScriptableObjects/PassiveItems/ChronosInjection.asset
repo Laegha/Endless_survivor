@@ -29,6 +29,7 @@ MonoBehaviour:
         _behaviourId: BulletTime
         _timeScaleDecreaseOnBulletTime: 0.6
         _bulletTimeDuration: 5
+        _bulletTimeCooldown: 3
         _parryingProyectileTargetPriority: 20
         _bulletDetectionDist: 4.5
         _activationChance: 15
