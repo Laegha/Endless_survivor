@@ -68,6 +68,6 @@ public class PassiveItemPickupMenu : MonoBehaviour
         _itemName.text = pickingItem.ItemName;
         _itemDescript.text = pickingItem.ItemDescript;
         _rerollsLeftDisplay.text = "" + RerollManager.rm.RerollsLeft;
-        _cantPickWeaponButton.SetActive(!(PlayerControl.pc.PassiveItemManager.GetItemCopies(pickingItem) < pickingItem.ItemMaxCopies));
+        _cantPickWeaponButton.SetActive(!(PlayerControl.pc.PassiveItemManager.GetItemCopies(pickingItem) < pickingItem.ItemMaxCopies) && pickingItem.ItemMaxCopies >= 0);
     }
 }
