@@ -24,7 +24,7 @@ MonoBehaviour:
   _initialIntensityGoal: 100
   _intensityGoalIncrease: 30
   _enemyHPPercentToIntensityIncrease: 50
-  _intensityLevelsForNewBiome: 5
+  _intensityLevelsForNewBiome: 1
   _intensityIncreaseMessageInfo:
     _message: The engine of chaos turns faster
     _textSize: 24

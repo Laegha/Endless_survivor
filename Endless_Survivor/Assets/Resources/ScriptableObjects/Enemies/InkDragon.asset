@@ -287,8 +287,8 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         _cycleHeightMultiplier: 15
-        _cycleMinSpeed: 0
-        _cycleMaxSpeed: 0
+        _cycleMinSpeed: 1
+        _cycleMaxSpeed: 1
         _resetCycleIfNotShootForTime: 1
         _startShootingSFX:
           _possibleSounds: []
@@ -491,7 +491,7 @@ MonoBehaviour:
         _behaviourId: TriggerRandom
         _overrideBehaviours: []
         _possibleBehaviours:
-        - AfterAnimTriggerInk
+        - AfterAnimTriggerFire
         _timeBetweenTriggers:
           min: 4
           max: 7
