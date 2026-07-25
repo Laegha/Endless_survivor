@@ -26,6 +26,8 @@ MonoBehaviour:
   - rid: 3262446886444597253
   - rid: 3262446886444597254
   - rid: 3262446886444597256
+  - rid: 5726234050134802432
+  - rid: 5726234050134802433
   _dropablePickupChances:
   - _rouletteElement: {fileID: 11400000, guid: a5e58a51d85f42c439e36958899441ad, type: 2}
     _chance: 40
@@ -202,3 +204,18 @@ MonoBehaviour:
         _startAngle: 90
         _fitCircle: 1
         _angleStep: 30
+    - rid: 5726234050134802432
+      type: {class: TriggerBehavioursAtHPThresholdEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TriggerHPOverride
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - BlankOverrideInvoke
+        _hpThreshold: 20
+        _triggerConstantly: 0
+    - rid: 5726234050134802433
+      type: {class: BlankEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: BlankOverrideInvoke
+        _overrideBehaviours:
+        - TriggerInvoke

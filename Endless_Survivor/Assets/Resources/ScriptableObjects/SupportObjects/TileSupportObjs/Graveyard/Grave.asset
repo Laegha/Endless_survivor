@@ -23,7 +23,7 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
-  _renderingOffset: 0
+  _renderingOffset: -80
   _supportObjColliders: []
   references:
     version: 2

@@ -287,8 +287,8 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         _cycleHeightMultiplier: 15
-        _cycleMinSpeed: 1
-        _cycleMaxSpeed: 1
+        _cycleMinSpeed: 0.06
+        _cycleMaxSpeed: 0.06
         _resetCycleIfNotShootForTime: 1
         _startShootingSFX:
           _possibleSounds: []

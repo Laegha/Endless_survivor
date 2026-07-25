@@ -20,7 +20,7 @@ MonoBehaviour:
   _enemiesPerSpawn:
     min: 5
     max: 8
-  _maxConcurrentEnemies: 50
+  _maxConcurrentEnemies: 25
   _initialIntensityGoal: 100
   _intensityGoalIncrease: 30
   _enemyHPPercentToIntensityIncrease: 50
