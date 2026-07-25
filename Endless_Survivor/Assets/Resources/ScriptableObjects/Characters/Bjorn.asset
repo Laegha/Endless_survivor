@@ -40,6 +40,7 @@ MonoBehaviour:
   _initialPassives:
   - {fileID: 11400000, guid: b7d8a6c1a2fcc4441bfd1ef1f2335fdb, type: 2}
   - {fileID: 11400000, guid: 888b67dd3721ff1478db6530f8d46d75, type: 2}
+  - {fileID: 11400000, guid: 83bd13c7834c97e4aa727b32ba711214, type: 2}
   _playerStats:
     _initialHP: 25
     _hpIncrement: 3

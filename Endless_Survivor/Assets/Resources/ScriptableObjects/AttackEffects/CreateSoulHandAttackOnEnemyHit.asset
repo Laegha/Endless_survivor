@@ -60,6 +60,7 @@ MonoBehaviour:
         _onAttackSFX:
           _possibleSounds:
           - {fileID: 8300000, guid: 63b7ebf217c91e742b2d340133185f7f, type: 3}
+          - {fileID: 8300000, guid: 455a7444c02aa1b439d169e16f600f31, type: 3}
           _volume: 1
           _minPitchVariation: -0.6
           _maxPitchVariation: -0.5

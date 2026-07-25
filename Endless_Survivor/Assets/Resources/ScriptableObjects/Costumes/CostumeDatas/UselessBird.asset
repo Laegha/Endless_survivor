@@ -81,4 +81,4 @@ MonoBehaviour:
       _endAnimationOnEnd: 0
       _priority: 0
   _syncronizeWithPlayerAnim: 1
-  _renderOffset: 10
+  _renderOffset: 70

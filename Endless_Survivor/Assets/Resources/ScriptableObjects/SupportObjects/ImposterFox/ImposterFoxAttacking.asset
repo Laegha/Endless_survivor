@@ -13,25 +13,44 @@ MonoBehaviour:
   m_Name: ImposterFoxAttacking
   m_EditorClassIdentifier: 
   _supportObjBehaviours:
-  - rid: 5726234039590060047
-  - rid: 5726234039590060053
+  - rid: 5726234039590060059
+  - rid: 5726234039590060063
   _idleAnimation:
-    _animationName: 
-    _frames: []
-    _framesPerSecond: 0
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
   _supportObjColliders: []
   references:
     version: 2
     RefIds:
-    - rid: 5726234039590060047
+    - rid: 5726234039590060059
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _possibleSupportObjs:
+        - _rouletteElement: {fileID: 11400000, guid: eb4fe7f83683e734eab205013bf84481, type: 2}
+          _chance: 1
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 5726234039590060061
+    - rid: 5726234039590060061
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0
+    - rid: 5726234039590060063
       type: {class: ExplosionSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _explosionDamage:
           _damageAmmount: 10
           _damageType: 64
-        _explosionRadius: 0.6
+        _explosionRadius: 1.2
         _explosionParticles: {fileID: 0}
         _particlesDuration: 0
         _explosionAnimation:
@@ -55,21 +74,3 @@ MonoBehaviour:
         _affectedLayers:
           serializedVersion: 2
           m_Bits: 128
-    - rid: 5726234039590060053
-      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
-      data:
-        _possibleSupportObjs:
-        - _rouletteElement: {fileID: 11400000, guid: eb4fe7f83683e734eab205013bf84481, type: 2}
-          _chance: 1
-        _ammount:
-          min: 1
-          max: 1
-        _creationPattern:
-          rid: 5726234039590060055
-    - rid: 5726234039590060055
-      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
-      data:
-        _radius: 0
-        _startAngle: 0
-        _fitCircle: 0
-        _angleStep: 0
