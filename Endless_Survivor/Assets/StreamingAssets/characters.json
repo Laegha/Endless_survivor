@@ -143,5 +143,10 @@
     "fileName": "Mercenary",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Gandalf",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]

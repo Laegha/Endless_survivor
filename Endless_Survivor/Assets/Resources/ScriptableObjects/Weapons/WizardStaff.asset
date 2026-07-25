@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: WizardStaff
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 9fee2ce79e0bada4682b00e7d41af20e, type: 3}
+  _weaponName: Wizard Staff
+  _weaponStats:
+    _range: 10
+    _attackSpeed: 0.4
+    _damage: 20
+    _knockback: 5
+  _rangeIncrease: 1
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1.2
+  _weaponTags: 
+  _weaponPools: -1
+  _defaultAttack:
+    rid: 5726234039590060032
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 9fee2ce79e0bada4682b00e7d41af20e, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726234039590060032
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 1096424457, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -1561072173, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -1441224554, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: 632879711, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -226843384, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -1278732446, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -518667749, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -482423710, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: 367457239, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -499732311, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          - {fileID: -987039385, guid: 6f11898f72480c749baa0367ffdc3341, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 9
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 86e16053fedbbb243b65919af48a9cae, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.4
+          _maxPitchVariation: -0.2
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 34bae46d7ce4a214a88441cd1c8a3698, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 4
+        _firePointPosition: {x: 30, y: 0}
+        _proyectileData:
+          _proyectileSpeed: 8.5
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: -1140551787, guid: 402f25ba289c14849a06bee0142a36a6, type: 3}
+            - {fileID: 1999429271, guid: 402f25ba289c14849a06bee0142a36a6, type: 3}
+            - {fileID: -1570226798, guid: 402f25ba289c14849a06bee0142a36a6, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.6, y: 0.6}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _possibleSounds: []
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
