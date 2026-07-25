@@ -44,10 +44,10 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
         if(_explosionAnimation.Frames.Length > 0)
         {
             ObjControl.Animator.ChangeAnim(_explosionAnimation);
-            GameObject.Destroy(ObjControl.gameObject, _explosionAnimation.AnimDuration);
+            DestroyObj(_explosionAnimation.AnimDuration);
             return;
         }
         SoundFXManager.sm.PlaySfx(_explosionSFX, ObjControl.transform.position);
-        GameObject.Destroy(ObjControl.gameObject);
+        DestroyObj();
     }
 }
