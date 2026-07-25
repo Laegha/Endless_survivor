@@ -105,8 +105,13 @@ public class PlayerCostumeManager : MonoBehaviour
             int destroyedId = _activeCostumes[removedCostume].costumeAnimators.Count -1;
             var removedAN = _activeCostumes[removedCostume].costumeAnimators[destroyedId];
             _syncronizedAnimators.Remove(removedAN);
-            DestroyImmediate(removedAN.gameObject);
-            PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
+            
+            GameManager.gm.DelayActionAFrame(() =>
+            {
+                DestroyImmediate(removedAN.gameObject);
+                PlayerControl.pc.PlayerMaterialManager.CleanRenderers();
+            }, () => PlayerControl.pc == null);
+            
             _activeCostumes[removedCostume].costumeAnimators.RemoveAt(destroyedId);//by removing the last time we ensure the next iteration of this for removes th next one
         }
 
