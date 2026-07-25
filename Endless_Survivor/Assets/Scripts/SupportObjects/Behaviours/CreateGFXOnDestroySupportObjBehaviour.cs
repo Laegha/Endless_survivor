@@ -7,6 +7,7 @@ public class CreateGFXOnDestroySupportObjBehaviour : SupportObjectBehaviour
     new public static int maxStacks => -1;
     [SerializeField] CustomAnimation _createdAnimation;
     [SerializeField] float _animationDuration;
+    [SerializeField] int _animatedObjRenderOffset;
     [SerializeField] ParticleSystem _createdParticles;
     [SerializeField] float _particlesDuration;
     [SerializeField] Vector2 _creationOffset;
@@ -16,6 +17,7 @@ public class CreateGFXOnDestroySupportObjBehaviour : SupportObjectBehaviour
         var createGfxOriginal = original as CreateGFXOnDestroySupportObjBehaviour;
         _createdAnimation = createGfxOriginal._createdAnimation;
         _animationDuration = createGfxOriginal._animationDuration;
+        _animatedObjRenderOffset = createGfxOriginal._animatedObjRenderOffset;
         _createdParticles = createGfxOriginal._createdParticles;
         _particlesDuration = createGfxOriginal._particlesDuration;
         _creationOffset = createGfxOriginal._creationOffset;

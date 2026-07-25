@@ -24,6 +24,8 @@ public class AnimatedObjsManager : MonoBehaviour
         {
             Destroy(instantiatedObj.gameObject, config.animatedObjDuration);
         }
+        var objRendererSorter = instantiatedObj.GetComponent<RendererSortingByY>();
+        objRendererSorter.Offset = config.animatedObjRenderingOffset;
         Vector2 objStartPos = config.copyPosition ? config.animatedObjParentTransform.position + config.animatedObjPosition : config.animatedObjPosition;
         instantiatedObj.transform.position = objStartPos;
         instantiatedObj.transform.rotation = config.animatedObjRotation;
