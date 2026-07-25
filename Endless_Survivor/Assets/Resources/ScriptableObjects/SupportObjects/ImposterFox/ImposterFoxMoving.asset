@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: ImposterFoxMoving
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 5726234039590060040
+  - rid: 5726234039590060042
+  - rid: 5726234039590060043
+  - rid: 5726234039590060048
+  _idleAnimation:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726234039590060040
+      type: {class: MoveToRandomEnemySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movementSpeed:
+          min: 4
+          max: 4
+        _stopDistance: 0
+        _timeBetweenMovements:
+          min: 0
+          max: 0
+        _movingUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingRightAnimation:
+          _animationName: RightMove
+          _frames:
+          - {fileID: -990603887, guid: ea3052fa5a1f01946afd39f88e6a477b, type: 3}
+          - {fileID: -2114624241, guid: ea3052fa5a1f01946afd39f88e6a477b, type: 3}
+          - {fileID: -1555180868, guid: ea3052fa5a1f01946afd39f88e6a477b, type: 3}
+          - {fileID: 72362752, guid: ea3052fa5a1f01946afd39f88e6a477b, type: 3}
+          - {fileID: -1648138490, guid: ea3052fa5a1f01946afd39f88e6a477b, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingLeftAnimation:
+          _animationName: MoveLeft
+          _frames:
+          - {fileID: -888068507, guid: f3b170ca8859afb489bec35910e49fca, type: 3}
+          - {fileID: -1206201420, guid: f3b170ca8859afb489bec35910e49fca, type: 3}
+          - {fileID: 761302568, guid: f3b170ca8859afb489bec35910e49fca, type: 3}
+          - {fileID: -1988293272, guid: f3b170ca8859afb489bec35910e49fca, type: 3}
+          - {fileID: -916661765, guid: f3b170ca8859afb489bec35910e49fca, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 5726234039590060042
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 128
+        _areaSize: {x: 1.5, y: 1}
+        _areaOffset: {x: 0, y: 0.05}
+        _areaGfx:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _areaGfxSortingOffset: 0
+        _areaGfxAlpha: 0
+        _areaSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals: 0
+    - rid: 5726234039590060043
+      type: {class: DestroySupportObjOnContactSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+    - rid: 5726234039590060048
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _possibleSupportObjs:
+        - _rouletteElement: {fileID: 11400000, guid: fc9d2bcbd015e1a4a8a2bef0a75f9b0a, type: 2}
+          _chance: 1
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 5726234039590060049
+    - rid: 5726234039590060049
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0
