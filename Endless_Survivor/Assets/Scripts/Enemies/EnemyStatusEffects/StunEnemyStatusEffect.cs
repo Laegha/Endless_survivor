@@ -18,6 +18,12 @@ public class StunEnemyStatusEffect : EnemyStatusEffect
         AffectedEnemyControl.RbForcesController.ChangeCurrForce(new(new(0, 0), 0, 10000, ForceMode2D.Impulse, 0));
         AffectedEnemyControl.BehaviourManager.IsStunned = true;
     }
+    public override void Update()
+    {
+        base.Update();
+        AffectedEnemyControl.BehaviourManager.IsStunned = true;
+
+    }
     public override void End()
     {
         base.End();
