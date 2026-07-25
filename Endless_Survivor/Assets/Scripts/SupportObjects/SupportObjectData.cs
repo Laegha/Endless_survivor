@@ -7,6 +7,7 @@ public class SupportObjectData : ScriptableObject
 {
     [SerializeReference] List<SupportObjectBehaviour> _supportObjBehaviours = new();
     [SerializeField] CustomAnimation _idleAnimation;
+    [SerializeField] int _renderingOffset = 0;
     [SerializeField] ColliderData[] _supportObjColliders;
 
     public List<SupportObjectBehaviour> SupportObjBehaviours { get { return _supportObjBehaviours; } }
@@ -17,7 +18,7 @@ public class SupportObjectData : ScriptableObject
         {
             CreateColldiers(supportObjControl);
         }
-
+        supportObjControl.RendererSorter.Offset = _renderingOffset;
         supportObjControl.Animator.AddAnimations(new List<CustomAnimation>{_idleAnimation});
         supportObjControl.Animator.ChangeAnim(_idleAnimation);
         supportObjControl.BehaviourManager.SetBehaviours(_supportObjBehaviours, this);

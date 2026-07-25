@@ -9,12 +9,14 @@ using UnityEngine;
 public class SupportObjectDataEditor : Editor
 {
     SerializedProperty _idleAnimation;
+    SerializedProperty _renderingOffset;
     SerializedProperty _supportObjColliders;
     Dictionary<Type, int> _behaviourTypes = new();
 
     private void OnEnable()
     {
         _idleAnimation = serializedObject.FindProperty("_idleAnimation");
+        _renderingOffset = serializedObject.FindProperty("_renderingOffset");
         _supportObjColliders = serializedObject.FindProperty("_supportObjColliders");
         List<Type> behaviourTypes = Utility.GetSubclassesOf(typeof(SupportObjectBehaviour));
         SupportObjectData supportObjectData = (SupportObjectData)target;
@@ -24,6 +26,7 @@ public class SupportObjectDataEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_idleAnimation);
+        EditorGUILayout.PropertyField(_renderingOffset);
         EditorGUILayout.PropertyField(_supportObjColliders);
         serializedObject.ApplyModifiedProperties();
 
