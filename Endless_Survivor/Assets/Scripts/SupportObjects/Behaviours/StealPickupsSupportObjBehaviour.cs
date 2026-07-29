@@ -38,7 +38,6 @@ public class StealPickupsSupportObjBehaviour : SupportObjectBehaviour
 
         control.Animator.AddAnimations(new() { _startAnimation, _movingAnimation, _stealAnimation, _fleeAnimation, _failedTheftAnimation });
 
-        OnStart += SearchPickup;
         OnStart += () => control.Animator.ChangeAnim(_startAnimation);
 
     }
@@ -50,6 +49,7 @@ public class StealPickupsSupportObjBehaviour : SupportObjectBehaviour
     }
     void StartMovingToPickup()
     {
+        SearchPickup();
         if (_stealingPickup == null)
         {
             ObjControl.Animator.ChangeAnim(_failedTheftAnimation);
