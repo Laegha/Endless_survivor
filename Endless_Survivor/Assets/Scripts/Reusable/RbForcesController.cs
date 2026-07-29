@@ -11,7 +11,7 @@ public class RbForcesController : MonoBehaviour
     public Rigidbody2D Rb { get { return _rb; } }
     void Update()
     {
-        if (_currForceInfo == null)
+        if (_currForceInfo == null || _rb.bodyType == RigidbodyType2D.Static)
             return;
 
         _rb.velocity = _currForceInfo.direction * _currForceInfo.strength;
