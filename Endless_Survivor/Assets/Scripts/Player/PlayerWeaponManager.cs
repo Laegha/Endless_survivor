@@ -149,8 +149,9 @@ public class PlayerWeaponManager : MonoBehaviour
         weapons.ForEach(x => x.InducedLevelUp());
     }
     //List<WeaponHolderInfo> addedWeaponHolders --> should know sprite (random from character, or fixed), position (part of the circle or fixed) and visibility (always visible or only if it has weapon)
-    public void AddWeaponHolder(WeaponHolderInfo addedMaxWeapon)
+    public void AddWeaponHolder(WeaponHolderInfo holderInfo)
     {
+        WeaponHolderInfo addedMaxWeapon = new(holderInfo);
         _totalHoldersInfos.Add(addedMaxWeapon);
         if (addedMaxWeapon.Permanent)
             GenerateWeaponHolder(addedMaxWeapon);
