@@ -49,7 +49,7 @@ MonoBehaviour:
       data:
         _dropablePickupChances:
         - _rouletteElement: {fileID: 11400000, guid: e798a13a6a663cb4c87b99dac20e3bb6, type: 2}
-          _chance: 90
+          _chance: 20
         - _rouletteElement: {fileID: 11400000, guid: b81cd9ee6d834c940924b0e437b666c7, type: 2}
           _chance: 5
         - _rouletteElement: {fileID: 11400000, guid: b5a8e5038ed09624c9794ec11844129f, type: 2}

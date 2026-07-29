@@ -112,8 +112,9 @@ MonoBehaviour:
           - {fileID: 205653979, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
           - {fileID: 1031381816, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
           - {fileID: -759977124, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
+          - {fileID: -759977124, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
           - {fileID: -1731016049, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
-          _framesPerSecond: 2
+          _framesPerSecond: 3
           _endAnimationOnEnd: 0
           _priority: 1
         _attackLeftAnimation:

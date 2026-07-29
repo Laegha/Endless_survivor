@@ -15,9 +15,9 @@ MonoBehaviour:
   _weaponDisplaySprite: {fileID: 21300000, guid: 56c88ae7f64bc5e448f938127cce8ca9, type: 3}
   _weaponName: Red Queen
   _weaponStats:
-    _range: 2
+    _range: 3
     _attackSpeed: 0.5
-    _damage: 10
+    _damage: 15
     _knockback: 10
   _rangeIncrease: 0
   _attackSpeedIncrease: 0.7
@@ -52,6 +52,8 @@ MonoBehaviour:
           - {fileID: 295966228, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           - {fileID: -1416972509, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+          - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+          - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           _framesPerSecond: 9
           _endAnimationOnEnd: 0
           _priority: 0
@@ -77,6 +79,8 @@ MonoBehaviour:
             _frames:
             - {fileID: 0}
             - {fileID: -382149833, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
+            - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
+            - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
             - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
             _framesPerSecond: 9
             _endAnimationOnEnd: 0

@@ -87,7 +87,7 @@ MonoBehaviour:
         _heal:
           _rouletteElement: 10
           _chance: 1
-        _healParticles: {fileID: 4490651413473257475, guid: 89c207324d59a3548a530ce500f3eb5f, type: 3}
+        _healParticles: {fileID: 4490651413473257475, guid: 4dce03cd80c9e7841aa9b79d1fb16fd2, type: 3}
         _hurt:
           _rouletteElement: 5
           _chance: 1

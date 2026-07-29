@@ -215,8 +215,8 @@ MonoBehaviour:
         _behaviourId: TriggerStartingBehaviours
         _overrideBehaviours: []
         _triggeredBehaviours:
-        - IdleAnimAbove20%HP
-        - TriggerRandomAbove20%HP
+        - IdleAnimAbove30%HP
+        - TriggerRandomAbove30%HP
         - TriggerBehavioursOnHPThreshold
         _timeToTrigger: 0.1
         _triggerOnStart: 1
