@@ -20,11 +20,15 @@ public class IncreaseMaxWeaponsItemBehaviour : PassiveItemBehaviour
 
     void AddMaxWeapons()
     {
-        int itemHeldCopies = PlayerControl.pc.PassiveItemManager.GetItemCopies(BehaviourManager.PassiveItem.ItemData);
-        int maxPositions = _addedWeaponHoldersByStacks.Count;
-        int addedHoldersIndex = itemHeldCopies < maxPositions ? itemHeldCopies : itemHeldCopies % maxPositions;
-        foreach(var weaponHolder in _addedWeaponHoldersByStacks[addedHoldersIndex].List)
-            PlayerControl.pc.WeaponManager.AddWeaponHolder(weaponHolder);
+        if (_addedWeaponHoldersByStacks.Count > 0)
+        {
+            int itemHeldCopies = PlayerControl.pc.PassiveItemManager.GetItemCopies(BehaviourManager.PassiveItem.ItemData);
+            int maxPositions = _addedWeaponHoldersByStacks.Count;
+            int addedHoldersIndex = itemHeldCopies < maxPositions ? itemHeldCopies : itemHeldCopies % maxPositions;
+            foreach(var weaponHolder in _addedWeaponHoldersByStacks[addedHoldersIndex].List)
+                PlayerControl.pc.WeaponManager.AddWeaponHolder(weaponHolder);
+
+        }
         var defaultHolders = PlayerControl.pc.CharacterData.DefaultWeaponHolders;
         for (int i = 0; i < _addedCharacterDefaultHolders; i++)
         {
