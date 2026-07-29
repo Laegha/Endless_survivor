@@ -60,7 +60,8 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
             if (tilesInPos[0].IsWall || !tilesInPos[0].IsLoaded)
                 continue;
             var generatingTile = tilesInPos[0];
-            EnemySpawnManager.esm.SpawnEnemy(generatingTile, generatedEnemy);
+            var enemyObj = EnemySpawnManager.esm.SpawnEnemy(generatingTile, generatedEnemy);
+            enemyObj.GetComponent<EnemyControl>().EnemyHP.InitializeHP((int)(enemyObj.GetComponent<EnemyControl>().EnemyHP.MaxHP * _hpMultiplier)); 
 
         }
         SoundFXManager.sm.PlaySfx(_invokingSFX, EnemyControl.transform.position);
