@@ -43,13 +43,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
   spritePivot: {x: 0.2, y: 0.8888889}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 14, z: 6, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ExtraHand_0_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91dde56bbd3dae34193c9542c23e07ee
+      internalID: 1890843527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ExtraHand_0_0: 1890843527
+      ExtraHand_0_1: 196796515
+      ExtraHand_0_2: -1639996463
+      ExtraHand_0_3: -172774718
+      ExtraHand_0_4: 2101037601
+      ExtraHand_0_5: 961535539
+      ExtraHand_0_6: -2137823874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

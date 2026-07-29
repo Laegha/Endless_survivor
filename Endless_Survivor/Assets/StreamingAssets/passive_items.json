@@ -1,10 +1,5 @@
 [
   {
-    "fileName": "CraftingTable",
-    "isUnlocked": true,
-    "isNew": false
-  },
-  {
     "fileName": "AbsoluteSolver",
     "isUnlocked": true,
     "isNew": false
@@ -20,6 +15,11 @@
     "isNew": false
   },
   {
+    "fileName": "CraftingTable",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "EasyRagebait",
     "isUnlocked": true,
     "isNew": false
@@ -30,7 +30,17 @@
     "isNew": false
   },
   {
+    "fileName": "ExtraHand",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "FoxFire",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "FragGrenade",
     "isUnlocked": true,
     "isNew": false
   },
@@ -55,17 +65,17 @@
     "isNew": false
   },
   {
+    "fileName": "Lockpicks",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "MafiaBait",
     "isUnlocked": true,
     "isNew": false
   },
   {
     "fileName": "Mercy",
-    "isUnlocked": true,
-    "isNew": false
-  },
-  {
-    "fileName": "Lockpicks",
     "isUnlocked": true,
     "isNew": false
   },

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Cybernetic Vision
   _itemDescript: Attacks can expose enemies
-  _itemSprite: {fileID: 0}
+  _itemSprite: {fileID: 21300000, guid: df6bb6e2f98536c43983a38672ffdaf4, type: 3}
   _itemMaxCopies: -1
   _itemOverrides: []
   _itemBehaviours:
