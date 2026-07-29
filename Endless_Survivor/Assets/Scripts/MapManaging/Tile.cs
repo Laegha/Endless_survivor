@@ -115,32 +115,6 @@ public class Tile : MonoBehaviour
             _renderer.material = Get4BlendMaterial();
             return;
         }
-        return;
-        Debug.Log("Tiles in pos for material: " + intersectionCount);
-        switch (intersectionCount)
-        {
-            case 1:
-                {
-                    //_renderer.material = MapManager.mm.GenerationConfig.GetRegularMaterial();
-                    break;
-                }
-            case 2:
-                {
-                    //_renderer.material = Get2BlendMaterial();
-                    break;
-                }
-            case 3:
-                {
-                    //_renderer.material = Get3BlendMaterial();
-                    break;
-                }
-            case 4:
-                {
-                    //_renderer.material = Get4BlendMaterial();
-                    break;
-                }
-        }
-
 
     }
     Material Get2BlendMaterial()
