@@ -35,6 +35,7 @@ public class RayWeaponAttackController : ShootingWeaponAttackController
     {
         base.Attack(attackPos, attackDirection, isSecondaryAttack, out createdAttack, ignoreColliders);
         RayAttack rayAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Laser"], Vector2.zero, Quaternion.identity).GetComponent<RayAttack>();
+        rayAttack.GetComponent<LineSortingOrderByY>().Offset = _rayData.RayRenderOffset;
         rayAttack.IsSecondaryAttack = isSecondaryAttack;
         createdAttack = rayAttack;
         InitializeAttack(rayAttack);

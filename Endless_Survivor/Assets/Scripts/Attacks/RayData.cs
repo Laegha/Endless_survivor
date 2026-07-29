@@ -11,12 +11,14 @@ public class RayData
     [SerializeField] float _rayEndWidth;
     [SerializeField] float _rayExitSpeed;
     [SerializeField] Sprite _rayStartSprite;
+    [SerializeField] int _rayRenderOffset;
 
     public Material RayMaterial {  get { return _rayMaterial; } }
     public float RayStartWidth { get { return _rayStartWidth; } }
     public float RayEndWidth { get { return _rayEndWidth; } }
     public float RayExitSpeed { get { return _rayExitSpeed; } }
     public Sprite RayStartSprite {  get { return _rayStartSprite; } }
+    public int RayRenderOffset {  get { return _rayRenderOffset; } }
 
     public RayData(RayData original)
     {
@@ -25,5 +27,6 @@ public class RayData
         _rayEndWidth = original._rayEndWidth;
         _rayExitSpeed = original._rayExitSpeed;
         _rayStartSprite = original._rayStartSprite;
+        _rayRenderOffset = original._rayRenderOffset;
     }
 }

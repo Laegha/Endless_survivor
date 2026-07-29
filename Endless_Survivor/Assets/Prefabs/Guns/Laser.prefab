@@ -240,6 +240,8 @@ GameObject:
   - component: {fileID: 6475534330260334529}
   - component: {fileID: 3507359599864569290}
   - component: {fileID: 8750354922158867487}
+  - component: {fileID: 4621538860154682124}
+  - component: {fileID: 3599354823214091339}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -291,3 +293,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bc3fa11a12202448fb7f0e6f588785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4621538860154682124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170957151181256545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2900cfef4f50fea41aa0bc088d059245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortedElements:
+  - {fileID: 6957021369746357644}
+  _offset: 0
+--- !u!114 &3599354823214091339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170957151181256545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81707057ec24ce479ef6da0842b9b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortedElements:
+  - {fileID: 1346099566724990700}
+  _offset: 0
