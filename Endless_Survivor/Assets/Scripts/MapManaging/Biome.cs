@@ -173,5 +173,8 @@ public class Biome
 
         foreach(var boss in _biomeData.BiomeBosses)
             bossInvoker.AddInvokationEnemy(new(boss.InvokedEnemy, boss.PointerColor, boss.PointerIcon, true), 3);
+
+
+        GameProgressionManager.gpm.AddBosses(BiomeData.BiomeBosses.Count);
     }
 }
