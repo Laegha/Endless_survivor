@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Glungus
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1204507656489533440
+  - rid: 1204507670207528960
+  - rid: 1204507670207528961
+  - rid: 5726234175331893249
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -617932889, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+    - {fileID: -740579484, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+    - {fileID: 965686414, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+    - {fileID: 879559593, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+    - {fileID: 1979245795, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+    - {fileID: 2024294501, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+    _framesPerSecond: 3
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507656489533440
+      type: {class: WeaponizeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _objWeapon: {fileID: 11400000, guid: fdbedc71e10ded64c983398122f719c0, type: 2}
+        _setSupportObjAsDistCheck: 0
+    - rid: 1204507670207528960
+      type: {class: ForceRotationSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _rotation: 0
+    - rid: 1204507670207528961
+      type: {class: ForceSpriteFlipSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _forceXFlip: 0
+        _flipX: 0
+        _forceYFlip: 1
+        _flipY: 0
+    - rid: 5726234175331893249
+      type: {class: WanderAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movementSpeed:
+          min: 2
+          max: 2
+        _movementDistance:
+          min: 3
+          max: 6
+        _timeBetweenMovements:
+          min: 0
+          max: 0
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: -617932889, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+          - {fileID: -740579484, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+          - {fileID: 965686414, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+          - {fileID: 879559593, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+          - {fileID: 1979245795, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+          - {fileID: 2024294501, guid: 347633b3c0615724385f15a8c87d61cc, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _randomlyPlayedSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals:
+          min: 0
+          max: 0
