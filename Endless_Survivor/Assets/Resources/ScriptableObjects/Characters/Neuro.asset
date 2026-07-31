@@ -42,7 +42,7 @@ MonoBehaviour:
     _initialHP: 14
     _hpIncrement: 2
     _hpRegeneration: 0.5
-    _defense: 0
+    _defense: 1
     _minSpeed: 4
     _maxSpeed: 4.5
     _acceleration: 1.5

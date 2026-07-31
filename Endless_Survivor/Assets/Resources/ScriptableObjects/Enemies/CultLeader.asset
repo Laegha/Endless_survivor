@@ -309,8 +309,8 @@ MonoBehaviour:
         _behaviourId: TriggerRandomBelow30%HP
         _overrideBehaviours: []
         _possibleBehaviours:
-        - TriggerMovementDuringTimeBelow20%HP
-        - TriggerMovementDuringTimeBelow20%HP
+        - TriggerMovementDuringTimeBelow30%HP
+        - TriggerMovementDuringTimeBelow30%HP
         - AnimTriggerShoot
         - AnimTriggerShoot
         - AnimTriggerShoot
@@ -591,8 +591,8 @@ MonoBehaviour:
         - DuringTimeTriggerMovementAbove20%HP
         - AnimTriggerLightning
         _triggeredBehaviours:
-        - IdleAnimBelow20%HP
-        - TriggerRandomBelow20%HP
+        - IdleAnimBelow30%HP
+        - TriggerRandomBelow30%HP
         _loopAnim: 0
         _sameFrameForAll: 1
         _generalTriggerFrame: 9

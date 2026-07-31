@@ -28,6 +28,7 @@ MonoBehaviour:
   - rid: 3262446886444597256
   - rid: 5726234050134802432
   - rid: 5726234050134802433
+  - rid: 5726234144912703488
   _dropablePickupChances:
   - _rouletteElement: {fileID: 11400000, guid: a5e58a51d85f42c439e36958899441ad, type: 2}
     _chance: 40
@@ -114,6 +115,7 @@ MonoBehaviour:
           - {fileID: -759977124, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
           - {fileID: -759977124, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
           - {fileID: -1731016049, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
+          - {fileID: -1731016049, guid: 9edfc2be00a2a7d418e7a898f432d3e2, type: 3}
           _framesPerSecond: 3
           _endAnimationOnEnd: 0
           _priority: 1
@@ -134,7 +136,7 @@ MonoBehaviour:
         _vfxRendererOffset: 0
         _vfxUsesFixedAngle: 0
         _vfxFixedAngle: 0
-        _triggerDamageFrame: 3
+        _triggerDamageFrame: 4
         _attackSfx:
           _possibleSounds: []
           _volume: 1
@@ -220,3 +222,12 @@ MonoBehaviour:
         _behaviourId: BlankOverrideInvoke
         _overrideBehaviours:
         - TriggerInvoke
+    - rid: 5726234144912703488
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OnStartTriggerOverrideCheck
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - TriggerHPOverride
+        _timeToTrigger: 0
+        _triggerOnStart: 1
