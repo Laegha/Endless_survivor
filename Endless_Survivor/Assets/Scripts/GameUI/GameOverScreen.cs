@@ -15,15 +15,15 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI _killedEnemiesCoinDisplay;
     [SerializeField] TextMeshProUGUI _wavesSurvivedCoinDisplay;
 
-    float _waveCoinRelation = 10;
+    float _waveCoinRelation = 5;
     int _maxWaveCoins = 3;
     int _earnedWaveCoins = 0;
 
-    float _damageCoinRelation = 10000;
+    float _damageCoinRelation = 1000;
     int _maxDamageCoins = 3;
     int _earnedDamageCoins = 0;
 
-    float _killCoinRelation = 100;
+    float _killCoinRelation = 30;
     int _maxKillCoins = 2;
     int _earnedKillCoins = 0;
 
