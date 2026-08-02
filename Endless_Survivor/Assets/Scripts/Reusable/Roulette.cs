@@ -13,6 +13,7 @@ public class Roulette<T>
         int lastElementEnd = 0;
         foreach (var element in elements)
         {
+            if(element.Value == 0) continue;
             List<int> elementNumbers = new List<int>();
             for(int i = lastElementEnd; i < lastElementEnd + element.Value; i++)
                 elementNumbers.Add(i);
@@ -27,7 +28,7 @@ public class Roulette<T>
     {
         int rouletteResult = Random.Range(0, _rouletteTotalWeight);
         //var elementResult = _roulette.Find(element => element.minValue <= rouletteResult && element.maxValue >= rouletteResult);
-        var elementResult = _roulette.Find(element => element.luckyNumbers.Contains(rouletteResult));  
+        var elementResult = _roulette.Find(element => element.luckyNumbers.Contains(rouletteResult));
         return elementResult != null ? elementResult.key : default;
     }
 }
