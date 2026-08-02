@@ -168,7 +168,10 @@ public static class Utility
             rouletteElements.Add(new(element.RouletteElement), element.Chance);
         }
         Roulette<RouletteElementKey<T>> roulette = new Roulette<RouletteElementKey<T>>(rouletteElements);
-        T resultElement = roulette.Spin().element;
+        var result = roulette.Spin();
+        if (result == null)
+            return default;
+        T resultElement = result.element;
         return resultElement;
     }
     public static T GetRouletteElementWithNullChance<T>(List<RouletteElementChance<T>> selectableElements) where T : class
