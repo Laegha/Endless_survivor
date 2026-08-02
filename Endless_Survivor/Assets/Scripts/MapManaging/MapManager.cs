@@ -49,8 +49,10 @@ public class MapManager : MonoBehaviour
         _updatingHandler.UpdateCurrInstanceTiles();
     }
 
-    public MapElementInfo<T> GetRandomPlaceableMapElement<T>(Vector2 startPos, List<RouletteElementChance<MapElementInfo<T>>> possibleElements, Func<Tile, bool> additionalPlacingCondition)
+    public MapElementInfo<T> GetRandomPlaceableMapElement<T>(Vector2 startPos, List<RouletteElementChance<MapElementInfo<T>>> possibleElementsOriginal, Func<Tile, bool> additionalPlacingCondition)
     {
+        List<RouletteElementChance<MapElementInfo<T>>> possibleElements = new(possibleElementsOriginal);
+        possibleElements.RemoveAll(x => x.Chance == 0);
         MapElementInfo<T> placeableElement = null;
         if(additionalPlacingCondition == null)
             additionalPlacingCondition = (Tile tile) => false;
@@ -60,11 +62,10 @@ public class MapManager : MonoBehaviour
         {
             if (possibleElements.Count == 0)//there are no fitting elements (all possible need a tile that isn't available)
             {
-                found = true; 
+                found = true;
                 break;
 
             }
-
             MapElementInfo<T> elemInfo = Utility.GetRouletteElement(possibleElements);
             List<Vector2> occupyingTilesOffsets = elemInfo.MapElementSize.ElementOccupyingPositions;
             List<Vector2> banningOffsets = new();
