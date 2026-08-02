@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: ClubstepMonster
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 5726234184530001920
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 2f398841d1ee6244aa51026e537c8433, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 5726234184530001920
+      type: {class: AddCollidersSupportObjectBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _addingColliders:
+        - _colliderInfo:
+            _colliderLocalPos: {x: 0.59375, y: 0.2109373}
+            _colliderType: 0
+            _colliderSize: {x: 0.12, y: 0.2}
+            _capsuleDirection: 0
+            _colliderRadius: 0
+            _collidingLayer:
+              m_LayerIndex: 0
+            _isTrigger: 1
+          _damagePlayer: 1
+          _damageEnemy: 0
+          _damageAmmount: 3
+        - _colliderInfo:
+            _colliderLocalPos: {x: -0.59375, y: -0.914062}
+            _colliderType: 0
+            _colliderSize: {x: 0.12, y: 0.2}
+            _capsuleDirection: 0
+            _colliderRadius: 0
+            _collidingLayer:
+              m_LayerIndex: 0
+            _isTrigger: 1
+          _damagePlayer: 1
+          _damageEnemy: 0
+          _damageAmmount: 3
+        - _colliderInfo:
+            _colliderLocalPos: {x: 0, y: 0.8281244}
+            _colliderType: 0
+            _colliderSize: {x: 1.6, y: 1}
+            _capsuleDirection: 0
+            _colliderRadius: 0
+            _collidingLayer:
+              m_LayerIndex: 0
+            _isTrigger: 0
+          _damagePlayer: 0
+          _damageEnemy: 0
+          _damageAmmount: 0
+        - _colliderInfo:
+            _colliderLocalPos: {x: 0, y: -1.374999}
+            _colliderType: 0
+            _colliderSize: {x: 1.6, y: 0.75}
+            _capsuleDirection: 0
+            _colliderRadius: 0
+            _collidingLayer:
+              m_LayerIndex: 0
+            _isTrigger: 0
+          _damagePlayer: 0
+          _damageEnemy: 0
+          _damageAmmount: 0
+        - _colliderInfo:
+            _colliderLocalPos: {x: 0, y: -1.890624}
+            _colliderType: 0
+            _colliderSize: {x: 1, y: 0.3}
+            _capsuleDirection: 0
+            _colliderRadius: 0
+            _collidingLayer:
+              m_LayerIndex: 0
+            _isTrigger: 0
+          _damagePlayer: 0
+          _damageEnemy: 0
+          _damageAmmount: 0
+        - _colliderInfo:
+            _colliderLocalPos: {x: 0, y: 1.687499}
+            _colliderType: 0
+            _colliderSize: {x: 1, y: 0.7}
+            _capsuleDirection: 0
+            _colliderRadius: 0
+            _collidingLayer:
+              m_LayerIndex: 0
+            _isTrigger: 0
+          _damagePlayer: 0
+          _damageEnemy: 0
+          _damageAmmount: 0
