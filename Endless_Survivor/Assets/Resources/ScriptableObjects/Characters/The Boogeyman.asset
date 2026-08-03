@@ -36,8 +36,7 @@ MonoBehaviour:
     _fixedPosition: {x: 0, y: 0}
   _initialWeapons:
   - {fileID: 11400000, guid: 10b66e8497fec7e4f8c7c17c901ac918, type: 2}
-  _initialPassives:
-  - {fileID: 11400000, guid: 536bf7a3ac5438546b9e61095f5e28b8, type: 2}
+  _initialPassives: []
   _playerStats:
     _initialHP: 12
     _hpIncrement: 2
