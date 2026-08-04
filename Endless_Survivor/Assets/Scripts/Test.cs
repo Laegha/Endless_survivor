@@ -5,17 +5,16 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] DamageInfo.DamageType DamageType;
+    [SerializeField] LineXInfo _lineinf;
+    [SerializeField] LineRenderer _line;
+    LineXInfo lineinf;
     private void Start()
     {
-        DamageInfo.DamageType[] damageTypes = (DamageInfo.DamageType[])Enum.GetValues(typeof(DamageInfo.DamageType));
-        foreach (var damageType in damageTypes)
-        {
-            if (!DamageType.HasFlag(damageType))
-                continue;
-            Debug.Log(damageType.ToString());
-
-        }
+        lineinf = new(_lineinf, Vector2.zero, Vector2.right, 5);
+        lineinf.DrawLine(_line);
+    }
+    private void Update()
+    {
 
     }
 }

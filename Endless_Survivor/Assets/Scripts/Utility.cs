@@ -209,6 +209,8 @@ public static class Utility
     }
     public static Vector2 GetPerpendicularVector(Vector2 vector)
     {
+        Vector2 res = new(-vector.y, vector.x);
+        return res.normalized;
         float perpendicularX = 1;
         float perpendicularY = (-(perpendicularX * vector.x)) / vector.y;
         return new Vector2(perpendicularX, perpendicularY).normalized;

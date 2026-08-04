@@ -15,6 +15,9 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
     [SerializeField] SFXInfo _onCollisionSFX; 
     //[SerializeField CustomAnimation _windupAnimation;
     [SerializeField] AnimationCurve _verticalMovementCurve;
+    [SerializeField] LineXData _trayectoryPreviewLineData;
+    [SerializeField] float _distBetweenPreviewVertices;
+    float _curveMultiplier = 1;//this could be serialized if it also applied to the movement vector and not only the preview
     Vector2 _initialPos;
     Vector2 _throwDirection;
     Vector2 _verticalDirection;
@@ -33,6 +36,8 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
         _collidedLayers = throwOriginal._collidedLayers;
         _onCollisionSFX = throwOriginal._onCollisionSFX;
         _verticalMovementCurve = throwOriginal._verticalMovementCurve;
+        _trayectoryPreviewLineData = throwOriginal._trayectoryPreviewLineData;
+        _distBetweenPreviewVertices = throwOriginal._distBetweenPreviewVertices;
 
         ObjControl.Animator.AddAnimations(new(){_thrownAnimation});
         _initialPos = control.transform.position;
@@ -48,6 +53,13 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
         _totalDistance = throwVector.magnitude;
 
         _verticalDirection = Utility.GetPerpendicularVector(_throwDirection);
+        if (_throwDirection.x < 0)
+            _verticalDirection *= -1;
+
+        if (_trayectoryPreviewLineData == null)
+            return;
+        LineXConfig previewLineConfig = new(_trayectoryPreviewLineData, _verticalMovementCurve, _curveMultiplier, _throwSpeed, _distBetweenPreviewVertices, ObjControl.transform.position, _throwDirection, _totalDistance, true);
+        LineXManager.lm.DrawLine(previewLineConfig);
     }
     void MoveTowardsEnemy()
     {
