@@ -16,7 +16,7 @@ public class LineXManager : MonoBehaviour
 
     public LineXInfo DrawLine(LineXConfig lineConfig)
     {
-        LineXInfo lineInfo = new(lineConfig.LineXData, lineConfig.LineCurve, lineConfig.CurveMultiplier, lineConfig.LineDissapearSpeed, lineConfig.DistBetweenVertices, lineConfig.InitialPos, lineConfig.HorizontalDir, lineConfig.TotalDist);
+        LineXInfo lineInfo = new(lineConfig.LineXData, lineConfig.LineCurve, lineConfig.CurveMultiplier, lineConfig.LineDissapearSpeed, lineConfig.DistBetweenVertices, lineConfig.InitialPos, lineConfig.HorizontalDir, lineConfig.TotalDist, lineConfig.AbortCondition);
         var createdLineObj = GameObject.Instantiate(_linePrefab);
         createdLineObj.GetComponent<LineSortingOrderByY>().Offset = lineConfig.LineXData.LineRenderOffset;
         var createdLine = createdLineObj.GetComponentInChildren<LineRenderer>();

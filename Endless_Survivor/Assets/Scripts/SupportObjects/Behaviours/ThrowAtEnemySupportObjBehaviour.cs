@@ -58,7 +58,7 @@ public class ThrowAtEnemySupportObjBehaviour : SupportObjectBehaviour
 
         if (_trayectoryPreviewLineData == null)
             return;
-        LineXConfig previewLineConfig = new(_trayectoryPreviewLineData, _verticalMovementCurve, _curveMultiplier, _throwSpeed, _distBetweenPreviewVertices, ObjControl.transform.position, _throwDirection, _totalDistance, true);
+        LineXConfig previewLineConfig = new(_trayectoryPreviewLineData, _verticalMovementCurve, _curveMultiplier, _throwSpeed, _distBetweenPreviewVertices, ObjControl.transform.position, _throwDirection, _totalDistance, true, () => ObjControl == null);
         LineXManager.lm.DrawLine(previewLineConfig);
     }
     void MoveTowardsEnemy()

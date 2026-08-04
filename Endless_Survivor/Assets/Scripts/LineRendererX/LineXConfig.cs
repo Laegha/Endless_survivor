@@ -10,11 +10,12 @@ public class LineXConfig
     [SerializeField] AnimationCurve _lineCurve;
     [SerializeField] float _curveMultiplier = 1;
     [SerializeField] float _lineDissapearSpeed;
-    [SerializeField] float _distBetweenVertices;
+    [Range(0,1)][SerializeField] float _distBetweenVertices;
     [SerializeField] bool _dissapearOnStart;
     Vector2 _initialPos;
     Vector2 _horizontalDir;
     float _totalDist;
+    Func<bool> _abortCondition;
 
     public LineXData LineXData {  get { return _lineData; } }
     public AnimationCurve LineCurve { get { return _lineCurve; } }
@@ -25,17 +26,32 @@ public class LineXConfig
     public bool DissapearOnStart { get { return _dissapearOnStart; } }
     public Vector2 InitialPos { get { return _initialPos; } }
     public Vector2 HorizontalDir { get { return _horizontalDir; } }
-    
-    public LineXConfig(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart)
+    public Func<bool> AbortCondition { get { return _abortCondition; } }
+
+    public LineXConfig(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart, Func<bool> abortCondition)
     {
         _lineData = lineData;
         _lineCurve = lineCurve;
         _curveMultiplier = curveMultiplier;
         _lineDissapearSpeed = lineDissapearSpeed;
         _distBetweenVertices = distBetweenVertices;
-        _totalDist = totalDist;
         _initialPos = initialPos;
         _horizontalDir = horizontalDir;
+        _totalDist = totalDist;
         _dissapearOnStart = dissapearOnStart;
+        _abortCondition = abortCondition;
+    }
+    public LineXConfig(LineXConfig original, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition)
+    {
+        _lineData = original._lineData;
+        _lineCurve = original._lineCurve;
+        _curveMultiplier = original._curveMultiplier;
+        _lineDissapearSpeed = original._lineDissapearSpeed;
+        _distBetweenVertices = original._distBetweenVertices;
+        _initialPos = initialPos;
+        _horizontalDir = horizontalDir;
+        _totalDist = totalDist;
+        _dissapearOnStart = original._dissapearOnStart;
+        _abortCondition = abortCondition;
     }
 }

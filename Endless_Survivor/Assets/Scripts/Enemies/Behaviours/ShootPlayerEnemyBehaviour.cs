@@ -14,6 +14,7 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
     [SerializeField] float _proyectileRotationOffset;
 
     [SerializeField] ProyectileData _proyectileData;
+    [SerializeField] LineXConfig _lineConfig;
 
     [SerializeField] SFXInfo _onShootSFX;
 
@@ -32,6 +33,7 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
 
 
         _proyectileData = originalShootPlayer._proyectileData;
+        _lineConfig = originalShootPlayer._lineConfig;
 
         _onShootSFX = originalShootPlayer._onShootSFX;
 
@@ -58,6 +60,13 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
         angle += _proyectileRotationOffset;
         EnemyProyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyProyectile>();
         proyectile.Initiate(_damage, _proyectileLifetime, _proyectileData);
+        
+        float proyectileMaxDist = _proyectileData.ProyectileSpeed * _proyectileLifetime;
+        Vector2 proyectileDir = proyectile.transform.right;
+        var distRay = Physics2D.Raycast(shootingPosition, proyectileDir, proyectileMaxDist, LayerMask.GetMask("Map"));
+        float proyectileDist = distRay ? (shootingPosition - distRay.point).magnitude : proyectileMaxDist;
+        LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, () => proyectile == null);
+        LineXManager.lm.DrawLine(lineConfig);
 
         SoundFXManager.sm.PlaySfx(_onShootSFX, EnemyControl.transform.position);
 
