@@ -37,6 +37,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _lineWidthMultiplier: 1.2
   _lineRenderOffset: 0
   _lineStartPointAnimation:
     _animationName: 

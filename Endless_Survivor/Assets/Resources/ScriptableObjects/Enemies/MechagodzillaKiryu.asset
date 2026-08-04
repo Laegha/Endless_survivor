@@ -67,28 +67,60 @@ MonoBehaviour:
       data:
         _behaviourId: ShootPlayer
         _overrideBehaviours: []
-        _damage: 1
-        _proyectileLifetime: 3
+        _damage: 5
+        _proyectileLifetime: 5
         _firePointDist: 1.5
         _proyectileRotationOffset: 0
         _proyectileData:
-          _proyectileSpeed: 0
-          _proyectileSpread: 0
+          _proyectileSpeed: 8
+          _proyectileSpread: 10
           _proyectileAnim:
-            _animationName: 
-            _frames: []
-            _framesPerSecond: 0
+            _animationName: Proyectile
+            _frames:
+            - {fileID: -1860108282, guid: dfc4d5df444021548b14085b760f6c62, type: 3}
+            - {fileID: 797239895, guid: dfc4d5df444021548b14085b760f6c62, type: 3}
+            _framesPerSecond: 6
             _endAnimationOnEnd: 0
             _priority: 0
-          _colliderSize: {x: 0, y: 0}
-          _colliderDirection: 0
+          _colliderSize: {x: 0.35, y: 0.2}
+          _colliderDirection: 1
           _proyectileMaterial: {fileID: 0}
-          _particlesPrefab: {fileID: 0}
+          _particlesPrefab: {fileID: 4949355765179559218, guid: a0deebfebb2c0e640b41f32b85e58091, type: 3}
           _shootSFX:
             _possibleSounds: []
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
+        _lineConfig:
+          _lineData: {fileID: 11400000, guid: 39f206d10e817074c857b943ed1b876c, type: 2}
+          _lineCurve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0.33333334
+            - serializedVersion: 3
+              time: 1
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          _curveMultiplier: 0
+          _lineDissapearSpeed: 8
+          _distBetweenVertices: 1
+          _dissapearOnStart: 1
         _onShootSFX:
           _possibleSounds:
           - {fileID: 8300000, guid: 65f334a3285335e49a1211ae19898dd9, type: 3}

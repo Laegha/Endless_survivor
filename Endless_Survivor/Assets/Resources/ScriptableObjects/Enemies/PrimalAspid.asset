@@ -79,6 +79,36 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
+        _lineConfig:
+          _lineData: {fileID: 11400000, guid: 39f206d10e817074c857b943ed1b876c, type: 2}
+          _lineCurve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0.33333334
+            - serializedVersion: 3
+              time: 1
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          _curveMultiplier: 0
+          _lineDissapearSpeed: 5
+          _distBetweenVertices: 1
+          _dissapearOnStart: 1
         _onShootSFX:
           _possibleSounds: []
           _volume: 1
@@ -115,6 +145,36 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
+        _lineConfig:
+          _lineData: {fileID: 11400000, guid: 39f206d10e817074c857b943ed1b876c, type: 2}
+          _lineCurve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0.33333334
+            - serializedVersion: 3
+              time: 1
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          _curveMultiplier: 0
+          _lineDissapearSpeed: 5
+          _distBetweenVertices: 1
+          _dissapearOnStart: 1
         _onShootSFX:
           _possibleSounds: []
           _volume: 1
@@ -151,6 +211,36 @@ MonoBehaviour:
             _volume: 1
             _minPitchVariation: 0
             _maxPitchVariation: 0
+        _lineConfig:
+          _lineData: {fileID: 11400000, guid: 39f206d10e817074c857b943ed1b876c, type: 2}
+          _lineCurve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0.33333334
+            - serializedVersion: 3
+              time: 1
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          _curveMultiplier: 0
+          _lineDissapearSpeed: 5
+          _distBetweenVertices: 1
+          _dissapearOnStart: 1
         _onShootSFX:
           _possibleSounds: []
           _volume: 1
