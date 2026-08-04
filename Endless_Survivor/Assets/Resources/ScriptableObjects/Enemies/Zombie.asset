@@ -26,6 +26,7 @@ MonoBehaviour:
   - rid: 3262447073780826114
   - rid: 3262447073780826115
   - rid: 3262447073780826117
+  - rid: 281715864629673984
   - rid: 3262447073780826116
   - rid: 3262447073780826118
   - rid: 3262447073780826119
@@ -48,6 +49,43 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 281715864629673984
+      type: {class: DrawLineTowardsPlayerOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DrawDashLine
+        _overrideBehaviours: []
+        _lineConfig:
+          _lineData: {fileID: 11400000, guid: b2da2045c94fe37499d721770dbea5a8, type: 2}
+          _lineCurve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          _curveMultiplier: 1
+          _lineDissapearSpeed: 8
+          _distBetweenVertices: 1
+          _dissapearOnStart: 0
+        _startDissapearingDelay: 1.2
+        _lineLength: 5
     - rid: 3262447073780826112
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -214,6 +252,7 @@ MonoBehaviour:
           max: 5
         _triggeredBehaviours:
         - FlashingTriggerDash
+        - DrawDashLine
     - rid: 3262447073780826117
       type: {class: TriggerBehaviourAfterMaterialFlashingEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
