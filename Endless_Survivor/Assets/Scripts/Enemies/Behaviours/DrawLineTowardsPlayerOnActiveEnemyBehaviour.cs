@@ -45,4 +45,11 @@ public class DrawLineTowardsPlayerOnActiveEnemyBehaviour : EnemyBehaviour
             KillBehaviour();
         }
     }
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        if (_drawnLineInfo == null)
+            return;
+        ObjectDestroyingManager.odm.DestroyObj(_drawnLineInfo.Line.transform.root.gameObject);
+    }
 }
