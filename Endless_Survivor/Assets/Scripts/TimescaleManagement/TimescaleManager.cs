@@ -10,6 +10,9 @@ public class TimescaleManager : MonoBehaviour
     static TimescaleManager instance;
     public static TimescaleManager tm { get { return instance; } }
     List<TimescaleChangeInfo> _pendingChanges = new();
+    //bool _onHitstop = false;
+    //const float _hitstopCooldown = 1;
+    //float _hitstopCooldownTimer;
 
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class TimescaleManager : MonoBehaviour
 
     void Update()
     {
+        //ReduceHitstopCooldown();
         if (_pendingChanges.Count == 0)
             return;
         List<TimescaleChangeInfo> pendingChangesCopy = new List<TimescaleChangeInfo>(_pendingChanges);
@@ -44,6 +48,20 @@ public class TimescaleManager : MonoBehaviour
 
 
     }
+    //public void Hitstop(float hitstopDuration)
+    //{
+    //    if(_onHitstop) return;
+    //    _onHitstop=true;
+    //    TimescaleChangeInfo hitstopChangeInfo = new(0, true, hitstopDuration, () => _onHitstop = false);
+    //    AddTimescaleChange(hitstopChangeInfo);
+    //}
+    //void ReduceHitstopCooldown()
+    //{
+    //    if (_hitstopCooldownTimer <= 0 || _onHitstop)
+    //        return;
+    //    _hitstopCooldownTimer -= Time.unscaledDeltaTime;
+    //    _onHitstop = false;
+    //}
     public TimescaleChangeInfo AddTimescaleChange(TimescaleChangeInfo info)
     {
         TimescaleChangeInfo addedChange = new(info);

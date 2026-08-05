@@ -108,4 +108,8 @@ public static class ScalingFunctions
     {
         return Mathf.CeilToInt(incomingDamage / Mathf.Clamp(PlayerControl.pc.PlayerStats.Defense, 0.1f, Mathf.Infinity) * (1 + (IntensityManager.im.CurrIntensityLevel * 0.05f)));
     }
+    //public static float EnemyDamageHitstop(int incomingDamage)
+    //{
+        //return Mathf.Clamp(Mathf.Pow(1.005f, incomingDamage) - 1, 0, .3f);
+    //}
 }

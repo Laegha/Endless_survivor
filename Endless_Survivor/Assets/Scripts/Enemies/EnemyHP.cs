@@ -34,6 +34,7 @@ public class EnemyHP : HP
     public override void TakeDamage(int incomingDamage)
     {
         base.TakeDamage(incomingDamage);
+        //TimescaleManager.tm.Hitstop(ScalingFunctions.EnemyDamageHitstop(incomingDamage));
         SoundFXManager.sm.PlaySfx(_onHitSound, transform.position);
         if(_damagedFlashingTimer <= 0)
             _damagedFlashing?.Start();
