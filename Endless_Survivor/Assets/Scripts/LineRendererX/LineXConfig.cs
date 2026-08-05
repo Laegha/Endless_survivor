@@ -11,7 +11,7 @@ public class LineXConfig
     [SerializeField] float _curveMultiplier = 1;
     [SerializeField] float _lineDissapearSpeed;
     [Range(0,1)][SerializeField] float _distBetweenVertices;
-    [SerializeField] bool _dissapearOnStart;
+    bool _dissapearOnStart;
     Vector2 _initialPos;
     Vector2 _horizontalDir;
     float _totalDist;
@@ -41,7 +41,7 @@ public class LineXConfig
         _dissapearOnStart = dissapearOnStart;
         _abortCondition = abortCondition;
     }
-    public LineXConfig(LineXConfig original, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition)
+    public LineXConfig(LineXConfig original, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart, Func<bool> abortCondition)
     {
         _lineData = original._lineData;
         _lineCurve = original._lineCurve;
@@ -51,7 +51,7 @@ public class LineXConfig
         _initialPos = initialPos;
         _horizontalDir = horizontalDir;
         _totalDist = totalDist;
-        _dissapearOnStart = original._dissapearOnStart;
+        _dissapearOnStart = dissapearOnStart;
         _abortCondition = abortCondition;
     }
 }
