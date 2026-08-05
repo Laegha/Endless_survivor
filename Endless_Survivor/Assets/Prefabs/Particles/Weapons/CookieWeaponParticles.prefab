@@ -4906,4 +4906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20b1b0ee0a59f242af562c40e5f756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleSystem: {fileID: 6362051271741657217}
+  _sortedElements:
+  - {fileID: 2117335231718099745}
+  _offset: 0
