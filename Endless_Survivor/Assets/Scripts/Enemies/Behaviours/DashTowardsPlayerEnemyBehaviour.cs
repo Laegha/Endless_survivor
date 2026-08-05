@@ -6,6 +6,7 @@ using System.Linq;
 public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
 {
     new public static int maxStacks => -1;
+    [SerializeField] float _warmupTime;
     [SerializeField] float _dashSpeed;
     [SerializeField] float _dashDistance;
     [SerializeField] int _dashForcePriority = 5;
@@ -15,6 +16,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     [SerializeField] bool _particlesFollowEnemy;
     [SerializeField] SFXInfo _onDashSFX;
 
+    float _warmupTimer;
     Vector2 _direction;
     bool _isActivated;
     bool _inDelayedFrame;
@@ -24,6 +26,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     {
         base.Initialize(original, enemyControl);
         var dashOriginal = original as DashTowardsPlayerEnemyBehaviour;
+        _warmupTime = dashOriginal._warmupTime;
         _dashSpeed = dashOriginal._dashSpeed;
         _dashDistance = dashOriginal._dashDistance;
         _dashForcePriority = dashOriginal._dashForcePriority;
@@ -44,6 +47,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
         }
         if(! _isActivated )
         {
+            _warmupTimer = _warmupTime;
             _isActivated = true;
             _lapsedDistance = 0;
             _direction = PlayerControl.pc.transform.position - EnemyControl.transform.position;
@@ -53,7 +57,14 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
                 ParticleManager.pm.SpawnParticles(particleConfig);
             }
             SoundFXManager.sm.PlaySfx(_onDashSFX, EnemyControl.transform.position);
+
         }
+        if (_warmupTimer > 0)
+        {
+            _warmupTimer -= Time.deltaTime;
+            return;
+        }
+
         if (_dashAnimations.GetAnim(_direction).Frames.Length > 0 && EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _dashAnimations.GetAnim(_direction).AnimationName)
             EnemyControl.Animator.ChangeAnim(_dashAnimations.GetAnim(_direction).AnimationName);
 
