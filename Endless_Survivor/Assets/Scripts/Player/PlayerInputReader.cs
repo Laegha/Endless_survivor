@@ -20,6 +20,8 @@ public class PlayerInputReader : MonoBehaviour
             _joystick.gameObject.SetActive(true);
             _touchControls.gameObject.SetActive(false);
         }
+        //_joystick.gameObject.SetActive(false);
+        //_touchControls.gameObject.SetActive(false);
     }
 
     void Update()
@@ -27,13 +29,13 @@ public class PlayerInputReader : MonoBehaviour
         Vector2 input = Vector2.zero;
 
         //if (Input.GetKey(KeyCode.W))
-        //input += Vector2.up;
+            //input += Vector2.up;
         //if (Input.GetKey(KeyCode.D))
-        //input += Vector2.right;
+            //input += Vector2.right;
         //if (Input.GetKey(KeyCode.S))
-        //input += Vector2.down;
+            //input += Vector2.down;
         //if (Input.GetKey(KeyCode.A))
-        //input += Vector2.left;
+            //input += Vector2.left;
 
         if (GameManager.gm.UsingCustomControls)
             input = _touchControls.DraggingDirection;
