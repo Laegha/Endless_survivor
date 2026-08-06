@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -39,6 +40,6 @@ public class PlayerSpawner : MonoBehaviour
         {
             playerControl.PassiveItemManager.AddPassiveItem(passiveItemData);
         }
-
+        Camera.main.GetUniversalAdditionalCameraData().volumeTrigger = playerControl.transform;
     }
 }
