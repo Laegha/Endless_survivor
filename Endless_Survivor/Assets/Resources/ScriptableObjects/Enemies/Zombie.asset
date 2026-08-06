@@ -84,7 +84,7 @@ MonoBehaviour:
           _lineDissapearSpeed: 8
           _distBetweenVertices: 1
           _dissapearOnStart: 0
-        _startDissapearingDelay: 1.2
+        _startDissapearingDelay: 0.8
         _lineLength: 5
     - rid: 3262447073780826112
       type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
@@ -204,6 +204,7 @@ MonoBehaviour:
         - TriggerAttack
         - Chase
         - MeleeAttack
+        _warmupTime: 0.8
         _dashSpeed: 8
         _dashDistance: 5
         _dashForcePriority: 10
@@ -253,6 +254,7 @@ MonoBehaviour:
         _triggeredBehaviours:
         - FlashingTriggerDash
         - DrawDashLine
+        - Dash
     - rid: 3262447073780826117
       type: {class: TriggerBehaviourAfterMaterialFlashingEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -261,13 +263,12 @@ MonoBehaviour:
         - Chase
         - TriggerAttack
         - MeleeAttack
-        _behavioursToTrigger:
-        - Dash
+        _behavioursToTrigger: []
         _flashingOverride:
           authority: 5
           material: {fileID: 2100000, guid: 0f114318c7108f54a9c87670f18baf5c, type: 2}
         _flashingRate: 0.1
-        _flashingDuration: 1.2
+        _flashingDuration: 0.8
         _onFlashingStartSFX:
           _possibleSounds:
           - {fileID: 8300000, guid: 79ec400cfdcbedc4cbdad220b2478881, type: 3}
