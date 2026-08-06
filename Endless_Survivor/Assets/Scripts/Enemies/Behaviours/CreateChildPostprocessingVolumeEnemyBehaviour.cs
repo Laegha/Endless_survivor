@@ -10,9 +10,9 @@ public class CreateChildPostprocessingVolumeEnemyBehaviour : EnemyBehaviour
     [SerializeField] Vector2 _volumeOffset;
     [SerializeField] bool _onlyOnActive;
     [SerializeField] bool _isGlobal;
-    [SerializeField] ColliderInfo _localCollider;
+    [SerializeField] float _colliderRadius;
     [SerializeField] float _blendDistance;
-    [SerializeField] float _weight;
+    [Range(0,1)][SerializeField] float _weight;
     [SerializeField] int _priority;
     [SerializeField] VolumeProfile _volumeProfile;
     Volume _createdVolume;
@@ -24,7 +24,7 @@ public class CreateChildPostprocessingVolumeEnemyBehaviour : EnemyBehaviour
         _volumeOffset = createVolumeOriginal._volumeOffset;
         _onlyOnActive = createVolumeOriginal._onlyOnActive;
         _isGlobal = createVolumeOriginal._isGlobal;
-        _localCollider = createVolumeOriginal._localCollider;
+        _colliderRadius = createVolumeOriginal._colliderRadius;
         _blendDistance = createVolumeOriginal._blendDistance;
         _weight = createVolumeOriginal._weight;
         _priority = createVolumeOriginal._priority;
@@ -36,8 +36,8 @@ public class CreateChildPostprocessingVolumeEnemyBehaviour : EnemyBehaviour
     public override void Start()
     {
         base.Start();
-        GameObject createdVolumeObj = _isGlobal ? new() : _localCollider.GenerateColliderObj(EnemyControl.transform);
-        createdVolumeObj.name = EnemyData.name + " Volume";
+        GameObject createdVolumeObj = new(EnemyData.name + " Volume");
+        createdVolumeObj.layer = LayerMask.NameToLayer("PostProcessing");
 
         _createdVolume = createdVolumeObj.AddComponent<Volume>();
         _createdVolume.transform.SetParent(EnemyControl.transform);
@@ -47,8 +47,13 @@ public class CreateChildPostprocessingVolumeEnemyBehaviour : EnemyBehaviour
         _createdVolume.weight = _weight;
         _createdVolume.priority = _priority;
         _createdVolume.profile = _volumeProfile;
-        if(!_isGlobal)
-            _createdVolume.blendDistance = _blendDistance;
+        if (_isGlobal)
+            return;
+        var col = createdVolumeObj.AddComponent<SphereCollider>();
+        col.radius = _colliderRadius;
+        col.isTrigger = true;
+        
+        _createdVolume.blendDistance = _blendDistance;
     }
     public override void PassiveUpdate()
     {
