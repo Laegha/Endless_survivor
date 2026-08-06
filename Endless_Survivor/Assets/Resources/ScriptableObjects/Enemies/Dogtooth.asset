@@ -1,0 +1,246 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: Dogtooth
+  m_EditorClassIdentifier: 
+  _initialHP: 60
+  _referenceSizeSprite: {fileID: 21300000, guid: ef0099330f6123642ad0ee01896a892d, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 0
+  _colliderSize: {x: 0.4, y: 0.9}
+  _colliderOffset: {x: 0, y: -0.85}
+  _colliderDirection: 0
+  _rigidbodyType: 0
+  _enemyBehaviours:
+  - rid: 281715912493236229
+  - rid: 281715912493236227
+  - rid: 281715912493236225
+  - rid: 281715912493236226
+  - rid: 281715912493236224
+  - rid: 281715912493236228
+  - rid: 281715912493236230
+  _dropablePickupChances: []
+  _onHitSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 281715912493236224
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerAttack
+        _overrideBehaviours:
+        - ChasePlayer
+        _behavioursToTrigger:
+        - OverTimeTriggerAttack
+        _distanceToTrigger: 1.2
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
+    - rid: 281715912493236225
+      type: {class: MeleeAttackBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: MeleeAttack
+        _overrideBehaviours: []
+        _damage: 10
+        _attackRange: 0.7
+        _attackRadius: 1
+        _attackUpAnimation:
+          _animationName: AttackUp
+          _frames:
+          - {fileID: -382266807, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: -973137295, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: 527953955, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: -870349722, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: 1947321806, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: -1095835563, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: 67428143, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          - {fileID: 67428143, guid: 6a58fd4d5e6d2a9498f1f54071ccc8b4, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackRightAnimation:
+          _animationName: AttackRight
+          _frames:
+          - {fileID: 67730958, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: -2105461797, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: -1683455703, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: 1169771425, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: 1914835780, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: -1883251098, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: 1536419564, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          - {fileID: 1536419564, guid: 4a580fb956ed263409c15e03a7004592, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackDownAnimation:
+          _animationName: AttackDown
+          _frames:
+          - {fileID: 941244386, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: -370630312, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: -719224202, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: -1770920586, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: 700110710, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: -976414919, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: 437492745, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          - {fileID: 437492745, guid: 81891512a34f162409fc18a587645bd5, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _attackLeftAnimation:
+          _animationName: AttackLeft
+          _frames:
+          - {fileID: 1066129574, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: 2032741386, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: 1092262223, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: -722785018, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: 914237264, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: 1912574724, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: -2037128355, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          - {fileID: -2037128355, guid: a78610f9314e40c45b58200d0d899bfd, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 1
+        _usesVfx: 1
+        _attackVFXAnimation:
+          _animationName: Vfx
+          _frames:
+          - {fileID: -1297391942, guid: ac71941f54f82894d9974412c1ba3b58, type: 3}
+          - {fileID: -557931420, guid: ac71941f54f82894d9974412c1ba3b58, type: 3}
+          - {fileID: -314984168, guid: ac71941f54f82894d9974412c1ba3b58, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _triggerVFXFrame: 6
+        _vfxRendererOffset: 20
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
+        _triggerDamageFrame: 0
+        _attackSfx:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 281715912493236226
+      type: {class: TriggerBehavioursOverTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeTriggerAttack
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 2
+          max: 2
+        _triggeredBehaviours:
+        - MeleeAttack
+    - rid: 281715912493236227
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: 21300000, guid: ef0099330f6123642ad0ee01896a892d, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 281715912493236228
+      type: {class: ChasePlayerBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ChasePlayer
+        _overrideBehaviours: []
+        _enemySpeed: 6
+        _chasingUpAnimation:
+          _animationName: MoveUp
+          _frames:
+          - {fileID: -580867368, guid: f623e100655298d40951f3b6b8e3ba43, type: 3}
+          - {fileID: 516592203, guid: f623e100655298d40951f3b6b8e3ba43, type: 3}
+          - {fileID: 185758486, guid: f623e100655298d40951f3b6b8e3ba43, type: 3}
+          - {fileID: -1395411459, guid: f623e100655298d40951f3b6b8e3ba43, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingRightAnimation:
+          _animationName: MoveRight
+          _frames:
+          - {fileID: 14227654, guid: c9b82452ae4e54549af66ce292e2671f, type: 3}
+          - {fileID: 1058284708, guid: c9b82452ae4e54549af66ce292e2671f, type: 3}
+          - {fileID: -1696924434, guid: c9b82452ae4e54549af66ce292e2671f, type: 3}
+          - {fileID: 1776039150, guid: c9b82452ae4e54549af66ce292e2671f, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingDownAnimation:
+          _animationName: MoveDown
+          _frames:
+          - {fileID: -1087384272, guid: 37fe0c2427207a6409cade2da47b5a36, type: 3}
+          - {fileID: 1359962422, guid: 37fe0c2427207a6409cade2da47b5a36, type: 3}
+          - {fileID: 1218578231, guid: 37fe0c2427207a6409cade2da47b5a36, type: 3}
+          - {fileID: 1779597152, guid: 37fe0c2427207a6409cade2da47b5a36, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _chasingLeftAnimation:
+          _animationName: MoveLeft
+          _frames:
+          - {fileID: 1551010775, guid: 7f7e6f9886a93894d996554f5101beb7, type: 3}
+          - {fileID: -1856460121, guid: 7f7e6f9886a93894d996554f5101beb7, type: 3}
+          - {fileID: 1052526142, guid: 7f7e6f9886a93894d996554f5101beb7, type: 3}
+          - {fileID: -780972274, guid: 7f7e6f9886a93894d996554f5101beb7, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 281715912493236229
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.8, y: 1.8}
+        _colliderOffset: {x: 0, y: 0.4}
+        _colliderDirection: 0
+    - rid: 281715912493236230
+      type: {class: CreateChildPostprocessingVolumeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: CreateVolume
+        _overrideBehaviours: []
+        _volumeOffset: {x: 0, y: 0}
+        _onlyOnActive: 0
+        _isGlobal: 0
+        _colliderRadius: 2.3
+        _blendDistance: 2.5
+        _weight: 1
+        _priority: 0
+        _volumeProfile: {fileID: 11400000, guid: 779045c57d8de7d448f9455289eb3dd2, type: 2}
