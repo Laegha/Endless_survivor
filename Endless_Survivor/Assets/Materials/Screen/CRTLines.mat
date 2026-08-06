@@ -66,16 +66,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurOffset: 0.003
+    - _BlurOffset: 0.001202
     - _EnableExternalAlpha: 0
-    - _LinesSpeed: 0.1
-    - _NumberOfLines: 200
+    - _LinesSpeed: 0.2
+    - _NumberOfLines: 300
     - _NumberOfScreenLines: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScreenLinesSpeed: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 3.22434, g: 3.2243402, b: 3.2095041, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
