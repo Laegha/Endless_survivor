@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: Sans
+  m_EditorClassIdentifier: 
+  _initialHP: 70
+  _referenceSizeSprite: {fileID: 962283931, guid: a9480dce5b1cc1c4b9d0a2038b66a7bc, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 0
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.2}
+  _colliderDirection: 0
+  _rigidbodyType: 2
+  _enemyBehaviours:
+  - rid: 281715955981877253
+  - rid: 281715955981877254
+  - rid: 281715955981877255
+  - rid: 281715955981877256
+  _dropablePickupChances: []
+  _onHitSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.1
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 281715955981877253
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionaHitbox
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.8, y: 1}
+        _colliderOffset: {x: 0, y: 0.45}
+        _colliderDirection: 0
+    - rid: 281715955981877254
+      type: {class: TeleportPlayerRandomlyOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: TeleportPlayer
+        _overrideBehaviours: []
+        _onTeleportAnim:
+          _animationName: Teleport
+          _frames:
+          - {fileID: 610109634, guid: 651600d37d0e0a94bab055dc5d5efbcc, type: 3}
+          - {fileID: -1159655999, guid: 651600d37d0e0a94bab055dc5d5efbcc, type: 3}
+          - {fileID: -2092963187, guid: 651600d37d0e0a94bab055dc5d5efbcc, type: 3}
+          - {fileID: -2081483057, guid: 651600d37d0e0a94bab055dc5d5efbcc, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 1
+          _priority: 1
+        _teleportDelay: 1
+        _teleportSfx:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 281715955981877255
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerTeleport
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - TeleportPlayer
+        _distanceToTrigger: 3.5
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain:
+        - TeleportPlayer
+    - rid: 281715955981877256
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: PlayIdle
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: Idle
+          _frames:
+          - {fileID: 962283931, guid: a9480dce5b1cc1c4b9d0a2038b66a7bc, type: 3}
+          - {fileID: 455657500, guid: a9480dce5b1cc1c4b9d0a2038b66a7bc, type: 3}
+          - {fileID: -247331806, guid: a9480dce5b1cc1c4b9d0a2038b66a7bc, type: 3}
+          - {fileID: -1036760731, guid: a9480dce5b1cc1c4b9d0a2038b66a7bc, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
