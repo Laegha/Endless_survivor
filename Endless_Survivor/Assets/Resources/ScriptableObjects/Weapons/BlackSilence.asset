@@ -1,0 +1,239 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: BlackSilence
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 069843a4ce966d14394806574911f429, type: 3}
+  _weaponName: Black Silence
+  _weaponStats:
+    _range: 4
+    _attackSpeed: 0.7
+    _damage: 10
+    _knockback: 5
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0.1
+  _damageIncrease: 1.2
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 281715955981877250
+  _weaponAttacks:
+  - rid: 281715955981877248
+  - rid: 281715955981877251
+  - rid: 281715955981877252
+  _attackConditions:
+  - rid: 281715955981877249
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 281715955981877248
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Durandal
+        _attackAnimation:
+          _animationName: Durandal
+          _frames:
+          - {fileID: -1002755358, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          - {fileID: 1794619925, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          - {fileID: 901401714, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          - {fileID: 92898659, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          - {fileID: 92898659, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          - {fileID: 92898659, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          - {fileID: 92898659, guid: f3549559d0401f743a6d01f58098d96c, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 3
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: b110b2aadc6d4de4ca474f63b3b1715b, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.2
+          _maxPitchVariation: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 2
+        _knockbackMultiplier: 1
+        _damageType: 64
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 0.85
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.32, y: 0.16}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 434888381, guid: 193272636668e6d499482518eaf5dfdc, type: 3}
+            - {fileID: -75933607, guid: 193272636668e6d499482518eaf5dfdc, type: 3}
+            - {fileID: 1629928885, guid: 193272636668e6d499482518eaf5dfdc, type: 3}
+            - {fileID: -924930716, guid: 193272636668e6d499482518eaf5dfdc, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: -5
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 281715955981877249
+      type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _changeChance: 100
+        _idsWeights:
+        - _rouletteElement: Durandal
+          _chance: 1
+        - _rouletteElement: Revolver
+          _chance: 1
+        - _rouletteElement: Shotgun
+          _chance: 1
+    - rid: 281715955981877250
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: 
+        _attackAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 0
+        _attackSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _meleeData:
+          _isCircle: 0
+          _attackCircleRadius: 0
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0, y: 0}
+          _attackVfxAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: 0
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0
+    - rid: 281715955981877251
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Revolver
+        _attackAnimation:
+          _animationName: Revolver
+          _frames:
+          - {fileID: -1205707517, guid: d86a9cf22beddce4c9192df0b8621c4a, type: 3}
+          - {fileID: -915527949, guid: d86a9cf22beddce4c9192df0b8621c4a, type: 3}
+          - {fileID: -696121126, guid: d86a9cf22beddce4c9192df0b8621c4a, type: 3}
+          - {fileID: -1507220066, guid: d86a9cf22beddce4c9192df0b8621c4a, type: 3}
+          _framesPerSecond: 7
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 1
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: 7221bfb8e43ecde4084da327edaff940, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.1
+          _maxPitchVariation: 0.1
+        _weaponAttackEffects:
+          availableEffects: []
+        _damageMultiplier: 1.5
+        _knockbackMultiplier: 1.2
+        _damageType: 0
+        _firePointPosition: {x: 25, y: 4}
+        _proyectileData:
+          _proyectileSpeed: 10
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: d26ab504221bc964f8ef3503a875096a, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.25}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _possibleSounds: []
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+    - rid: 281715955981877252
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Shotgun
+        _attackAnimation:
+          _animationName: Shotgun
+          _frames:
+          - {fileID: 1263627790, guid: 1bf9b7a1a9c40944797d49b56dbbd19b, type: 3}
+          - {fileID: -1270656542, guid: 1bf9b7a1a9c40944797d49b56dbbd19b, type: 3}
+          - {fileID: -1855809852, guid: 1bf9b7a1a9c40944797d49b56dbbd19b, type: 3}
+          - {fileID: 647720693, guid: 1bf9b7a1a9c40944797d49b56dbbd19b, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 1
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: d2fd7f31562a44640b87d7f0792d79c1, type: 3}
+          _volume: 1
+          _minPitchVariation: -0.3
+          _maxPitchVariation: -0.1
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 4803c3c27e1168f429df7631547c3cc5, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 28, y: 2}
+        _proyectileData:
+          _proyectileSpeed: 7
+          _proyectileSpread: 5
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: d26ab504221bc964f8ef3503a875096a, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.4, y: 0.25}
+          _colliderDirection: 1
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _possibleSounds: []
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
