@@ -36,7 +36,9 @@ MonoBehaviour:
   _idleAnimation:
     _animationName: Idle
     _frames:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 069843a4ce966d14394806574911f429, type: 3}
+    - {fileID: 21300000, guid: f7c1d5e9d9c624149bbdd18d500cf5ec, type: 3}
+    - {fileID: 21300000, guid: 506a46adf5c84b240ad8bc1465f750ba, type: 3}
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
