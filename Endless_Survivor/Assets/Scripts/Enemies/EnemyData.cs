@@ -27,7 +27,7 @@ public class EnemyData : ScriptableObject
 
     public void TransferEnemyData(GameObject enemy)
     {
-	enemy.name = name;
+	    enemy.name = name;
         EnemyControl enemyControl = enemy.GetComponent<EnemyControl>();
         enemyControl.EnemyData = this;
         enemyControl.RendererSorter.Offset = _renderSortingOffset;

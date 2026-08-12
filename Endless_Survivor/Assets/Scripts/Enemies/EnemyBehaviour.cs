@@ -10,25 +10,23 @@ public class EnemyBehaviour
 {
     public static int maxStacks => 0;
     bool _isActive = false;
-    EnemyData _enemyData;
     [SerializeField] string _behaviourId;
     [SerializeReference] List<string> _overrideBehaviours = new List<string>();
     EnemyControl _enemyControl;
 
     public bool IsActive { get { return _isActive; } set { _isActive = value; } }
     public string BehaviourId { get { return _behaviourId; } }
-    public EnemyData EnemyData { get { return _enemyData; } set { _enemyData = value; } }
+    public EnemyData EnemyData { get { return _enemyControl.EnemyData; }}
     public List<string> OverrideBehaviours { get { return _overrideBehaviours; } }
     public EnemyControl EnemyControl { get {  return _enemyControl; } } 
 
     public List<EnemyBehaviour> EnemyDataBehaviours()
     {
-        return _enemyData.EnemyBehaviours;
+        return EnemyData.EnemyBehaviours;
     }
 
     public virtual void Initialize(EnemyBehaviour original, EnemyControl enemyControl)//called when the behaviour is added to the list
     {
-        _enemyData = original.EnemyData;
         _overrideBehaviours = original.OverrideBehaviours;
         _enemyControl = enemyControl;
         _behaviourId = original.BehaviourId;

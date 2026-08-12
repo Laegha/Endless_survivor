@@ -42,7 +42,6 @@ public class EnemyDataEditor : Editor
         behaviourTypes.ForEach(type => _behaviourTypes.Add(type, enemyData.EnemyBehaviours.Where(behaviour => behaviour.GetType() == type).Count()));
         if (enemyData.EnemyBehaviours == null)
             enemyData.EnemyBehaviours = new List<EnemyBehaviour>();
-        enemyData.EnemyBehaviours.ForEach(behaviour => behaviour.EnemyData = enemyData);
     }
     public override void OnInspectorGUI()
     {
@@ -99,7 +98,6 @@ public class EnemyDataEditor : Editor
                 {
                     EnemyBehaviour newBehaviour = (EnemyBehaviour)Activator.CreateInstance(type.Key);
                     enemyData.EnemyBehaviours.Add(newBehaviour);
-                    newBehaviour.EnemyData = enemyData;
                     EditorUtility.SetDirty(enemyData);
                 });
             }
