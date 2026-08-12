@@ -30,9 +30,13 @@ public class SupportObjectBehaviourManager : MonoBehaviour
         foreach(var behaviour in _supportObjBehaviours)
             behaviour.OnUpdate?.Invoke();
     }
+    private void FixedUpdate()
+    {
+        foreach (var behaviour in _supportObjBehaviours)
+            behaviour.OnFixedUpdate?.Invoke();
+    }
     private void LateUpdate()
     {
-
         foreach (var behaviour in _supportObjBehaviours)
             behaviour.OnLateUpdate?.Invoke();
     }
