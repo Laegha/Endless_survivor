@@ -158,5 +158,10 @@
     "fileName": "Roland",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "CaptainBattle",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]
