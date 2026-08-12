@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: GoldExperience
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 281716023266115584
+  - rid: 281716045958610944
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 281716023266115584
+      type: {class: FollowPlayerInRowSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _rowData: {fileID: 11400000, guid: 7fbeb773c4853174aaa1ac83c49ac02d, type: 2}
+        _rowOffsetFromPlayer: {x: -0.45, y: 0.81}
+        _idleAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _movingAnimations:
+          _upAnimation:
+            _animationName: MoveUp
+            _frames:
+            - {fileID: 1027814775, guid: 66262545f6fbb4745a38a8544d9ff37b, type: 3}
+            - {fileID: -1689387279, guid: 66262545f6fbb4745a38a8544d9ff37b, type: 3}
+            - {fileID: -80131279, guid: 66262545f6fbb4745a38a8544d9ff37b, type: 3}
+            - {fileID: 1664781573, guid: 66262545f6fbb4745a38a8544d9ff37b, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: MoveRight
+            _frames:
+            - {fileID: 424549725, guid: a629339b0d856904ab24f6bd6d295c5d, type: 3}
+            - {fileID: 1973437333, guid: a629339b0d856904ab24f6bd6d295c5d, type: 3}
+            - {fileID: 119697657, guid: a629339b0d856904ab24f6bd6d295c5d, type: 3}
+            - {fileID: 1832414393, guid: a629339b0d856904ab24f6bd6d295c5d, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _downAnimation:
+            _animationName: MoveDown
+            _frames:
+            - {fileID: 1623463177, guid: 806096655ea66864aa6f44a0f069c133, type: 3}
+            - {fileID: -249844350, guid: 806096655ea66864aa6f44a0f069c133, type: 3}
+            - {fileID: 1606662090, guid: 806096655ea66864aa6f44a0f069c133, type: 3}
+            - {fileID: -195361082, guid: 806096655ea66864aa6f44a0f069c133, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: MoveLeft
+            _frames:
+            - {fileID: 522875289, guid: 59ef963a2759eb04d80be98fe89c48ab, type: 3}
+            - {fileID: 364112837, guid: 59ef963a2759eb04d80be98fe89c48ab, type: 3}
+            - {fileID: 1839002534, guid: 59ef963a2759eb04d80be98fe89c48ab, type: 3}
+            - {fileID: -794719432, guid: 59ef963a2759eb04d80be98fe89c48ab, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+    - rid: 281716045958610944
+      type: {class: HealPlayerOverTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _healAmmount:
+          min: 4
+          max: 5
+        _timeBetweenHeals:
+          min: 6
+          max: 6
+        _animationsFacingPlayer:
+          _upAnimation:
+            _animationName: HealUp
+            _frames:
+            - {fileID: -475592986, guid: 19e4773c291964d4c986ca0b129e1940, type: 3}
+            - {fileID: -1916206532, guid: 19e4773c291964d4c986ca0b129e1940, type: 3}
+            - {fileID: -932762586, guid: 19e4773c291964d4c986ca0b129e1940, type: 3}
+            - {fileID: 30938079, guid: 19e4773c291964d4c986ca0b129e1940, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 1
+            _priority: 1
+          _rightAnimation:
+            _animationName: HealRight
+            _frames:
+            - {fileID: 1841981942, guid: 77533cc1fd9fcef48b806bcf7a8515c8, type: 3}
+            - {fileID: 740532747, guid: 77533cc1fd9fcef48b806bcf7a8515c8, type: 3}
+            - {fileID: -1778380379, guid: 77533cc1fd9fcef48b806bcf7a8515c8, type: 3}
+            - {fileID: 2136617253, guid: 77533cc1fd9fcef48b806bcf7a8515c8, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 1
+            _priority: 1
+          _downAnimation:
+            _animationName: HealDown
+            _frames:
+            - {fileID: 1087358263, guid: 734bb7da48d199546adf91d89dc06428, type: 3}
+            - {fileID: -1602625013, guid: 734bb7da48d199546adf91d89dc06428, type: 3}
+            - {fileID: -1818762915, guid: 734bb7da48d199546adf91d89dc06428, type: 3}
+            - {fileID: 168931293, guid: 734bb7da48d199546adf91d89dc06428, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 1
+            _priority: 1
+          _leftAnimation:
+            _animationName: HealLeft
+            _frames:
+            - {fileID: 1201186157, guid: db8391e9078fabf41b601b3d4461b832, type: 3}
+            - {fileID: -2078053258, guid: db8391e9078fabf41b601b3d4461b832, type: 3}
+            - {fileID: -837441223, guid: db8391e9078fabf41b601b3d4461b832, type: 3}
+            - {fileID: -1441871152, guid: db8391e9078fabf41b601b3d4461b832, type: 3}
+            _framesPerSecond: 4
+            _endAnimationOnEnd: 1
+            _priority: 1
+        _healFrame: 3
