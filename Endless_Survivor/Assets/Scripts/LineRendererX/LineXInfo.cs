@@ -71,11 +71,18 @@ public class LineXInfo
             endDir = endDir.normalized;
             endObjRotation = Utility.GetAngleFromPointInCircle(endDir, false);
         }
-        _startObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineStartPointAnimation, _lineVertices[0].Item2, Quaternion.Euler(0, 0, startObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
-        _endObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineEndPointAnimation, _lineVertices[_lineVertices.Count - 1].Item2, Quaternion.Euler(0, 0, endObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
+        if (_lineData.LineStartPointAnimation != null && _lineData.LineStartPointAnimation.Frames.Length > 0)
+        {
+            _startObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineStartPointAnimation, _lineVertices[0].Item2, Quaternion.Euler(0, 0, startObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
+            _startObj.transform.SetParent(_line.transform);
+        }
         
-        _startObj.transform.SetParent(_line.transform);
-        _endObj.transform.SetParent(_line.transform);
+        if (_lineData.LineEndPointAnimation != null && _lineData.LineEndPointAnimation.Frames.Length > 0)
+        {
+            _endObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineEndPointAnimation, _lineVertices[_lineVertices.Count - 1].Item2, Quaternion.Euler(0, 0, endObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
+            _endObj.transform.SetParent(_line.transform);
+
+        }
 
     }
 
@@ -87,16 +94,19 @@ public class LineXInfo
         Vector2 yMovement = _verticalDir * _lineCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDist)) * _curveMultiplier;
         Vector2 newPos = _initialPos + xMovement + yMovement;
 
-       
         _lapsedDistance += _lineDissapearSpeed * Time.deltaTime;
         if (_lineVertices[1].Item1 < _lapsedDistance / _totalDist)
         {
             RemoveFirstVertex(); 
             
-            Vector2 lineDir = (xMovement + yMovement).normalized;
-            float startObjAngle = Utility.GetAngleFromPointInCircle(lineDir, false);
-            _startObj.transform.position = newPos;
-            _startObj.transform.rotation = Quaternion.Euler(0, 0, startObjAngle);
+            if (_startObj != null)
+            {
+                Vector2 lineDir = (xMovement + yMovement).normalized;
+                float startObjAngle = Utility.GetAngleFromPointInCircle(lineDir, false);
+                _startObj.transform.position = newPos;
+                _startObj.transform.rotation = Quaternion.Euler(0, 0, startObjAngle);
+
+            }
 
         }
         if (_lineVertices.Count == 1)
