@@ -18,6 +18,9 @@ public class LineXInfo
     List<(float, Vector2)> _lineVertices = new();
     LineRenderer _line;
     Func<bool> _abortCondition;
+    GameObject _startObj;
+    GameObject _endObj;
+
 
     public LineRenderer Line { get { return _line; } }
 
@@ -46,6 +49,7 @@ public class LineXInfo
         lineRenderer.widthCurve = _lineData.LineWidth;
         int totalVertices = (int)Mathf.Ceil(1 / _distBetweenVertices) + 1;
         lineRenderer.positionCount = totalVertices;
+
         for (int i = 0; i < totalVertices; i++)
         {
             Vector2 xDisplacement = _horizontalDir * i * _distBetweenVertices * _totalDist;
@@ -55,6 +59,24 @@ public class LineXInfo
             _lineVertices.Add(new(i * _distBetweenVertices, vertex));
             lineRenderer.SetPosition(i, vertex);
         }
+        float startObjRotation = 0;
+        float endObjRotation = 0;
+        if (_lineVertices.Count >= 2)
+        {
+            Vector2 startDir = _lineVertices[0].Item2 - _lineVertices[1].Item2;
+            startDir = startDir.normalized;
+            startObjRotation = Utility.GetAngleFromPointInCircle(startDir, false);
+
+            Vector2 endDir = _lineVertices[_lineVertices.Count - 1].Item2 - _lineVertices[_lineVertices.Count - 2].Item2;
+            endDir = endDir.normalized;
+            endObjRotation = Utility.GetAngleFromPointInCircle(endDir, false);
+        }
+        _startObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineStartPointAnimation, _lineVertices[0].Item2, Quaternion.Euler(0, 0, startObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
+        _endObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineEndPointAnimation, _lineVertices[_lineVertices.Count - 1].Item2, Quaternion.Euler(0, 0, endObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
+        
+        _startObj.transform.SetParent(_line.transform);
+        _endObj.transform.SetParent(_line.transform);
+
     }
 
     public bool ProgressLine()
@@ -65,10 +87,17 @@ public class LineXInfo
         Vector2 yMovement = _verticalDir * _lineCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDist)) * _curveMultiplier;
         Vector2 newPos = _initialPos + xMovement + yMovement;
 
+       
         _lapsedDistance += _lineDissapearSpeed * Time.deltaTime;
         if (_lineVertices[1].Item1 < _lapsedDistance / _totalDist)
         {
-            RemoveFirstVertex();
+            RemoveFirstVertex(); 
+            
+            Vector2 lineDir = (xMovement + yMovement).normalized;
+            float startObjAngle = Utility.GetAngleFromPointInCircle(lineDir, false);
+            _startObj.transform.position = newPos;
+            _startObj.transform.rotation = Quaternion.Euler(0, 0, startObjAngle);
+
         }
         if (_lineVertices.Count == 1)
             return true;
