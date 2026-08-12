@@ -45,7 +45,6 @@ public class LineXInfo
         lineRenderer.widthMultiplier = _lineData.LineWidthMultiplier;
         lineRenderer.widthCurve = _lineData.LineWidth;
         int totalVertices = (int)Mathf.Ceil(1 / _distBetweenVertices) + 1;
-        Debug.Log(totalVertices + " TOTAL VERTICES");
         lineRenderer.positionCount = totalVertices;
         for (int i = 0; i < totalVertices; i++)
         {
