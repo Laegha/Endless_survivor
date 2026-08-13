@@ -60,7 +60,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public Tile GetEnemyPosition()
     {
-        var tilesInSpawnRange = MapManager.mm.LoadedTiles.Where(tile => CheckTileInRange(tile)).ToList();
+        var tilesInSpawnRange = MapManager.mm.LoadedTiles.Where(tile => CheckTileInRange(tile) && tile.TileSupportObj == null).ToList();
         Tile spawningPos = tilesInSpawnRange[Random.Range(0, tilesInSpawnRange.Count)];
         return spawningPos;
     }
