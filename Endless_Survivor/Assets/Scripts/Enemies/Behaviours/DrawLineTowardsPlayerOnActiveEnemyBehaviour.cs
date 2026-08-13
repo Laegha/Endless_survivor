@@ -28,7 +28,7 @@ public class DrawLineTowardsPlayerOnActiveEnemyBehaviour : EnemyBehaviour
         {
             Vector2 direction = PlayerControl.pc.transform.position - EnemyControl.transform.position;
             direction = direction.normalized;
-            LineXConfig contextConfig = new(_lineConfig, EnemyControl.transform.position, direction, _lineLength, false, null);
+            LineXConfig contextConfig = new(_lineConfig, EnemyControl.transform.position, direction, _lineLength, false, null, /*add a bool to see if it should follow enemy*/ null);
             _drawnLineInfo = LineXManager.lm.DrawLine(contextConfig);
         }
         _delayTimer -= Time.deltaTime;

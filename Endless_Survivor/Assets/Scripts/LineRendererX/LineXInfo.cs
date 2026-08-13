@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LineXInfo
 {
-    LineXData _lineData; 
+    LineXData _lineData;
     AnimationCurve _lineCurve;
     float _curveMultiplier = 1;
     float _lineDissapearSpeed;
@@ -13,6 +13,7 @@ public class LineXInfo
     Vector2 _initialPos;
     Vector2 _horizontalDir;
     Vector2 _verticalDir;
+    Transform _followingObj;
     float _totalDist;
     float _lapsedDistance;
     List<(float, Vector2)> _lineVertices = new();
@@ -20,12 +21,12 @@ public class LineXInfo
     Func<bool> _abortCondition;
     GameObject _startObj;
     GameObject _endObj;
-
+    bool _shouldFollowObj;
 
     public LineRenderer Line { get { return _line; } }
 
 
-    public LineXInfo(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition)
+    public LineXInfo(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition, Transform followingObj)
     {
         _lineData = lineData;
         _lineCurve = lineCurve;
@@ -33,12 +34,14 @@ public class LineXInfo
         _lineDissapearSpeed = lineDissapearSpeed;
         _distBetweenVertices = distBetweenVertices;
         _initialPos = initialPos;
-        _horizontalDir = horizontalDir;
-        _verticalDir = Utility.GetPerpendicularVector(_horizontalDir);
+        _horizontalDir = horizontalDir.normalized;
+        _verticalDir = Utility.GetPerpendicularVector(_horizontalDir).normalized;
         if (_horizontalDir.x < 0)
             _verticalDir *= -1;
         _totalDist = totalDist;
         _abortCondition = abortCondition;
+        _followingObj = followingObj;
+        _shouldFollowObj = _followingObj != null;
     }
 
     public void DrawLine(LineRenderer lineRenderer)
@@ -76,7 +79,7 @@ public class LineXInfo
             _startObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineStartPointAnimation, _lineVertices[0].Item2, Quaternion.Euler(0, 0, startObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
             _startObj.transform.SetParent(_line.transform);
         }
-        
+
         if (_lineData.LineEndPointAnimation != null && _lineData.LineEndPointAnimation.Frames.Length > 0)
         {
             _endObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineEndPointAnimation, _lineVertices[_lineVertices.Count - 1].Item2, Quaternion.Euler(0, 0, endObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
@@ -88,17 +91,22 @@ public class LineXInfo
 
     public bool ProgressLine()
     {
-        if (_abortCondition != null && _abortCondition.Invoke())
+        if (_abortCondition != null && _abortCondition.Invoke() || _shouldFollowObj && _followingObj == null)
             return true;
+        Vector2 newPos = Vector2.zero;
         Vector2 xMovement = _horizontalDir * _lapsedDistance;
         Vector2 yMovement = _verticalDir * _lineCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDist)) * _curveMultiplier;
-        Vector2 newPos = _initialPos + xMovement + yMovement;
+
+        if (_shouldFollowObj)
+            newPos = _followingObj.transform.position;
+        else
+            newPos = _initialPos + xMovement + yMovement;
 
         _lapsedDistance += _lineDissapearSpeed * Time.deltaTime;
         if (_lineVertices[1].Item1 < _lapsedDistance / _totalDist)
         {
-            RemoveFirstVertex(); 
-            
+            RemoveFirstVertex();
+
             if (_startObj != null)
             {
                 Vector2 lineDir = (xMovement + yMovement).normalized;

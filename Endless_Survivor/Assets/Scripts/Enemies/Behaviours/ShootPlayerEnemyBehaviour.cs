@@ -65,7 +65,7 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
         Vector2 proyectileDir = proyectile.transform.right;
         var distRay = Physics2D.Raycast(shootingPosition, proyectileDir, proyectileMaxDist, LayerMask.GetMask("Map"));
         float proyectileDist = distRay ? (shootingPosition - distRay.point).magnitude : proyectileMaxDist;
-        LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, true, () => proyectile == null);
+        LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, true, () => proyectile == null, proyectile.transform);
         LineXManager.lm.DrawLine(lineConfig);
 
         SoundFXManager.sm.PlaySfx(_onShootSFX, EnemyControl.transform.position);

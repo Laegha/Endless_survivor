@@ -16,6 +16,7 @@ public class LineXConfig
     Vector2 _horizontalDir;
     float _totalDist;
     Func<bool> _abortCondition;
+    Transform _followingObj;
 
     public LineXData LineXData {  get { return _lineData; } }
     public AnimationCurve LineCurve { get { return _lineCurve; } }
@@ -27,8 +28,9 @@ public class LineXConfig
     public Vector2 InitialPos { get { return _initialPos; } }
     public Vector2 HorizontalDir { get { return _horizontalDir; } }
     public Func<bool> AbortCondition { get { return _abortCondition; } }
+    public Transform FollowingObj { get { return _followingObj; } }
 
-    public LineXConfig(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart, Func<bool> abortCondition)
+    public LineXConfig(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart, Func<bool> abortCondition, Transform followingObj)
     {
         _lineData = lineData;
         _lineCurve = lineCurve;
@@ -40,8 +42,9 @@ public class LineXConfig
         _totalDist = totalDist;
         _dissapearOnStart = dissapearOnStart;
         _abortCondition = abortCondition;
+        _followingObj = followingObj;
     }
-    public LineXConfig(LineXConfig original, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart, Func<bool> abortCondition)
+    public LineXConfig(LineXConfig original, Vector2 initialPos, Vector2 horizontalDir, float totalDist, bool dissapearOnStart, Func<bool> abortCondition, Transform followingObj)
     {
         _lineData = original._lineData;
         _lineCurve = original._lineCurve;
@@ -53,5 +56,6 @@ public class LineXConfig
         _totalDist = totalDist;
         _dissapearOnStart = dissapearOnStart;
         _abortCondition = abortCondition;
+        _followingObj = followingObj;
     }
 }

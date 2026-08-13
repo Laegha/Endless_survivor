@@ -59,7 +59,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
                 ParticleConfig particleConfig = new(_dashParticles, EnemyControl.transform.position, Quaternion.identity, _particlesDuration, _particlesFollowEnemy ? EnemyControl.transform : null, _particlesFollowEnemy, _particlesFollowEnemy);
                 ParticleManager.pm.SpawnParticles(particleConfig);
             }
-            LineXConfig contextConfig = new(_dashPreviewLineConfig, EnemyControl.transform.position, _direction, _dashDistance, false, () => EnemyControl == null);
+            LineXConfig contextConfig = new(_dashPreviewLineConfig, EnemyControl.transform.position, _direction, _dashDistance, false, () => EnemyControl == null, EnemyControl.transform);
             _previewLineInfo = LineXManager.lm.DrawLine(contextConfig);
             SoundFXManager.sm.PlaySfx(_onDashSFX, EnemyControl.transform.position);
 
@@ -98,4 +98,5 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
         EnemyControl.RbForcesController.Stop();
 
     }
+
 }
