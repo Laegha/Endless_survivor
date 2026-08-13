@@ -29,6 +29,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] CustomAnimation _rightMoving;
     [SerializeField] CustomAnimation _backMoving;
     [SerializeField] CustomAnimation _leftMoving;
+    [SerializeField] Vector2 _movingIndicatorPosition = Vector2.down * .55f;
 
     [InspectorLabel("Costume Settings")]
     [SerializeField] CharacterCostumeSettings _costumeSettings; 
@@ -64,6 +65,7 @@ public class CharacterData : ScriptableObject
             };
         }
     }
+    public Vector2 MovingIndicatorPosition {  get { return _movingIndicatorPosition; } }
     public CharacterCostumeSettings CostumeSettings { get { return _costumeSettings; } }
     public SFXInfo OnHitSound { get { return _onHitSound; } }
     public SFXInfo OnDeathSound { get { return _onDeathSound; } }

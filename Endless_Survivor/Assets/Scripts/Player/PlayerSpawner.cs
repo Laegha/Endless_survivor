@@ -28,6 +28,12 @@ public class PlayerSpawner : MonoBehaviour
 
         playerControl.ChangeCollider(selectedChar.ColliderDirection, selectedChar.ColliderSize, selectedChar.ColliderOffset);
 
+        CustomAnimation dirIndicatorIdleAnim = new(playerControl.DirIndicatorAN, GameManager.gm.WorldConfig.PlayerDirIndicatorIdle);
+        CustomAnimation dirIndicatorMovingAnim = new(playerControl.DirIndicatorAN, GameManager.gm.WorldConfig.PlayerDirIndicatorMoving);
+        playerControl.DirIndicatorAN.AddAnimations(new() { dirIndicatorIdleAnim, dirIndicatorMovingAnim});
+        playerControl.DirIndicatorIdleName = dirIndicatorIdleAnim.AnimationName;
+        playerControl.DirIndicatorMovingName = dirIndicatorMovingAnim.AnimationName;
+
         //generate initial weapons and passives
         foreach(WeaponData weaponData in selectedChar.InitialWeapons)
         {

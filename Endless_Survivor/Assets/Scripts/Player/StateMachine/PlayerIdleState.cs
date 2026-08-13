@@ -13,6 +13,9 @@ public class PlayerIdleState : PlayerBaseState
     {
         CheckSwitchStates();
         context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("Idle");
+        var dirIndicatorAN = context.PlayerControl.DirIndicatorAN;
+        dirIndicatorAN.ChangeAnim(context.PlayerControl.DirIndicatorIdleName);
+        dirIndicatorAN.transform.rotation = Quaternion.identity;
     }
 
     public override void OnCollisionEnter(Collision collision) { }

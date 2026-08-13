@@ -36,6 +36,9 @@ public class PlayerRunState : PlayerBaseState
             else
             context.PlayerControl.PlayerAnimator.ChangeAnimButKeepFrame("LeftMove");
         }
+        var dirIndicatorAN = context.PlayerControl.DirIndicatorAN;
+        dirIndicatorAN.ChangeAnim(context.PlayerControl.DirIndicatorMovingName);
+        dirIndicatorAN.transform.rotation = Quaternion.Euler(0, 0, Utility.GetAngleFromPointInCircle(animMovement, false));
         context.PlayerControl.PlayerRb.velocity = movement;
 
         if (_currSpeed < context.PlayerControl.PlayerStats.MaxSpeed)

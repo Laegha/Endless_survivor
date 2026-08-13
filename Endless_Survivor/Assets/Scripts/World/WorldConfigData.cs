@@ -21,6 +21,8 @@ public class WorldConfigData : ScriptableObject
     [SerializeField] UIMessageInfo _onExitCreatedMessageInfo;
     [SerializeField] Color _exitPointerColor;
     [SerializeField] Sprite _exitPointerIcon;
+    [SerializeField] CustomAnimation _playerDirIndicatorIdle;
+    [SerializeField] CustomAnimation _playerDirIndicatorMoving;
     public float MinEnemySpawnDist { get { return _minEnemySpawnDist; } }
     public float MaxEnemySpawnDist { get { return _maxEnemySpawnDist; } }
     public RandomBetweenTwoConstants TimeBetweenEnemySpawn { get { return _timeBetweenEnemySpawn; } }
@@ -35,4 +37,6 @@ public class WorldConfigData : ScriptableObject
     public UIMessageInfo OnExitCreatedMessageInfo { get { return _onExitCreatedMessageInfo; } }
     public Color ExitPointerColor { get { return _exitPointerColor; } } 
     public Sprite ExitPointerIcon { get { return _exitPointerIcon; } } 
+    public CustomAnimation PlayerDirIndicatorIdle { get { return _playerDirIndicatorIdle; } }
+    public CustomAnimation PlayerDirIndicatorMoving { get { return _playerDirIndicatorMoving; } }
 }

@@ -22,6 +22,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] MaterialManager _playerMaterialManager;
     [SerializeField] SpriteRenderer _mainRenderer;
     [SerializeField] PlayerCostumeManager _costumeManager;
+    [SerializeField] CustomAnimator _dirIndicatorAN;
+    string _dirIndicatorIdleName;
+    string _dirIndicatorMovingName;
     public CustomAnimator PlayerAnimator { get { return _playerAnimator; } }
     public PlayerStats PlayerStats { get { return _playerStats; } set { _playerStats = value; } }
     public CharacterData CharacterData { get { return _characterData; } set { _characterData = value; } }
@@ -34,6 +37,9 @@ public class PlayerControl : MonoBehaviour
     public MaterialManager PlayerMaterialManager { get { return _playerMaterialManager; } }
     public SpriteRenderer MainRenderer { get { return _mainRenderer; } }
     public PlayerCostumeManager CostumeManager {  get { return _costumeManager; } }
+    public CustomAnimator DirIndicatorAN { get { return _dirIndicatorAN; } }
+    public string DirIndicatorIdleName { get { return _dirIndicatorIdleName; } set { _dirIndicatorIdleName = value; } }
+    public string DirIndicatorMovingName { get { return _dirIndicatorMovingName; } set { _dirIndicatorMovingName = value; } }
 
     private void Start()
     {
