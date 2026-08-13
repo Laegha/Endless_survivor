@@ -14,6 +14,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     [SerializeField] ParticleSystem _dashParticles;
     [SerializeField] float _particlesDuration;
     [SerializeField] bool _particlesFollowEnemy;
+    [SerializeField] LineXConfig _dashPreviewLineConfig;
     [SerializeField] SFXInfo _onDashSFX;
 
     float _warmupTimer;
@@ -21,6 +22,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
     bool _isActivated;
     bool _inDelayedFrame;
     float _lapsedDistance;
+    LineXInfo _previewLineInfo;
 
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
@@ -35,6 +37,7 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
         _dashParticles = dashOriginal._dashParticles;
         _particlesDuration = dashOriginal._particlesDuration;
         _particlesFollowEnemy = dashOriginal._particlesFollowEnemy;
+        _dashPreviewLineConfig = dashOriginal._dashPreviewLineConfig;
         _onDashSFX = dashOriginal._onDashSFX;
     }
     public override void ActiveUpdate()
@@ -56,6 +59,8 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
                 ParticleConfig particleConfig = new(_dashParticles, EnemyControl.transform.position, Quaternion.identity, _particlesDuration, _particlesFollowEnemy ? EnemyControl.transform : null, _particlesFollowEnemy, _particlesFollowEnemy);
                 ParticleManager.pm.SpawnParticles(particleConfig);
             }
+            LineXConfig contextConfig = new(_dashPreviewLineConfig, EnemyControl.transform.position, _direction, _dashDistance, false, () => EnemyControl == null);
+            _previewLineInfo = LineXManager.lm.DrawLine(contextConfig);
             SoundFXManager.sm.PlaySfx(_onDashSFX, EnemyControl.transform.position);
 
         }
@@ -64,6 +69,12 @@ public class DashTowardsPlayerEnemyBehaviour : EnemyBehaviour
             _warmupTimer -= Time.deltaTime;
             return;
         }
+        if (_previewLineInfo != null)
+        {
+            LineXManager.lm.StartLineDissapearing(_previewLineInfo);
+            _previewLineInfo = null;
+        }
+
 
         if (_dashAnimations.GetAnim(_direction).Frames.Length > 0 && EnemyControl.Animator.CurrAnim == null || EnemyControl.Animator.CurrAnim.AnimationName != _dashAnimations.GetAnim(_direction).AnimationName)
             EnemyControl.Animator.ChangeAnim(_dashAnimations.GetAnim(_direction).AnimationName);
