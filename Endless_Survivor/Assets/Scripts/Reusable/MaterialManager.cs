@@ -9,6 +9,7 @@ public class MaterialManager : MonoBehaviour
 {
     [SerializeField] List<SpriteRenderer> _renderers;
     Dictionary<SpriteRenderer, Material> _defaultMaterials = new();
+    Dictionary<SpriteRenderer, Sprite> _cleanSprites = new();
     List<MaterialOverride> _overridesQueue = new();
     Dictionary<SpriteRenderer, Sprite> _spritesCurrent = new();
 
@@ -17,6 +18,7 @@ public class MaterialManager : MonoBehaviour
         foreach (var renderer in _renderers)
         {
             _defaultMaterials.Add(renderer, renderer.material);
+            _cleanSprites.Add(renderer, renderer.sprite);
             _spritesCurrent.Add(renderer, null);
         }
     }
@@ -47,22 +49,27 @@ public class MaterialManager : MonoBehaviour
 
             if (_spritesCurrent[renderer] == null || renderer.sprite != null && _spritesCurrent[renderer].name != renderer.sprite.name)
                 _spritesCurrent[renderer] = renderer.sprite;
-            
+
+            if (!forceMaterialUpdate)
+                _cleanSprites[renderer] = renderer.sprite;
             //get a clean input texture
-            Texture2D inputTex = _spritesCurrent[renderer].texture;
-            Rect textureRect = _spritesCurrent[renderer].rect;
+            Texture2D inputTex = _cleanSprites[renderer].texture;
+            Rect textureRect = _cleanSprites[renderer].rect;
 
             //create an output texture
             RenderTexture tempRT = RenderTexture.GetTemporary(inputTex.width, inputTex.height, 0, RenderTextureFormat.ARGB64);
             Graphics.SetRenderTarget(tempRT);
             RenderTexture.active = tempRT;
             Texture2D outputTex = inputTex;
+
+            List<Material> materialOverrides = new(_overridesQueue.Select(x => x.material));
+            materialOverrides.Insert(0, _defaultMaterials[renderer]);
             //apply materials to output rt
-            foreach (var matOverride in _overridesQueue)
+            foreach (var matOverride in materialOverrides)
             {
                 GL.Clear(true, true, Color.clear);
 
-                Graphics.Blit(outputTex, tempRT, matOverride.material);
+                Graphics.Blit(outputTex, tempRT, matOverride);
 
                 //extract the texture from the RT with the new material
                 Texture2D extractedTex = new(tempRT.width, tempRT.height);
@@ -88,6 +95,7 @@ public class MaterialManager : MonoBehaviour
     {
         _renderers.Add(renderer);
         _defaultMaterials.Add(renderer, renderer.material);
+        _cleanSprites.Add(renderer, renderer.sprite);
         _spritesCurrent.Add(renderer, null);
     }
     public void CleanRenderers()
@@ -97,6 +105,7 @@ public class MaterialManager : MonoBehaviour
             if (renderer == null)
             {
                 _defaultMaterials.Remove(renderer);
+                _cleanSprites.Remove(renderer);
             }
         }
         _renderers.RemoveAll(x => x == null);
