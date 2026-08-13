@@ -72,6 +72,7 @@ MonoBehaviour:
     _framesPerSecond: 5
     _endAnimationOnEnd: 0
     _priority: 0
+  _bossInvokerRenderOffset: -200
   _usesBoxCollider: 0
   _boxColliderSize: {x: 0, y: 0}
   _usesCircleCollider: 0

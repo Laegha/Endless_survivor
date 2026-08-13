@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyInvoker : MonoBehaviour
 {
     [SerializeField] CustomAnimator _animator;
+    [SerializeField] RendererSortingByY _rendererSorting;
     [SerializeField] FilledBarRenderer _invokingBar;
     bool _fightingInvokedEnemy = false;
     List<EnemyInvokationPriority> _spawningEnemies = new();
@@ -17,6 +18,7 @@ public class EnemyInvoker : MonoBehaviour
     TimescaleChangeInfo _currTimescaleChange;
 
     public CustomAnimator Animator { get { return _animator; } }
+    public RendererSortingByY RendererSorting { get { return _rendererSorting; } }
     public Action<EnemyControl> OnEnemyDeath { get { return _onEnemyDeath;} set { _onEnemyDeath = value; } }
 
     public void AddInvokationEnemy(EnemyInvokationInfo enemy, int priority)

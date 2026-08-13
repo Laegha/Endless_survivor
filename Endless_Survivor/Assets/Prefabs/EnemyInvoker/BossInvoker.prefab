@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3626384538178529994}
+  _rendererSorting: {fileID: 2930182461040787465}
   _invokingBar: {fileID: 5728171783754604006}
 --- !u!114 &3626384538178529994
 MonoBehaviour:

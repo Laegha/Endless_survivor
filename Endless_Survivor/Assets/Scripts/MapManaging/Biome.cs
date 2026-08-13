@@ -157,7 +157,9 @@ public class Biome
             circleCollider.radius = _biomeData.CircleColldierRadius;
             circleCollider.offset = _biomeData.ColliderOffset;
         }
+        bossInvoker.RendererSorting.Offset = _biomeData.BossInvokerRenderOffset;
         CustomAnimation invokerAnimation = _biomeData.BossInvokerAnimation;
+
         bossInvoker.Animator.AddAnimations(new(){ invokerAnimation });
         bossInvoker.Animator.ChangeAnim(invokerAnimation.AnimationName);
         SupportObjectControl invokerSupportObjControl = bossInvoker.GetComponent<SupportObjectControl>();

@@ -84,7 +84,7 @@ MonoBehaviour:
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: caa9a707b0890514c9c3eaa3e2e594f1, type: 2}
       _spawnIntensity: 0
-    _chance: 10
+    _chance: 1
   _bossInvokerAnimation:
     _animationName: Idle
     _frames:
@@ -92,6 +92,7 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
+  _bossInvokerRenderOffset: 10
   _usesBoxCollider: 0
   _boxColliderSize: {x: 0, y: 0}
   _usesCircleCollider: 0
