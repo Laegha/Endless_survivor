@@ -77,7 +77,7 @@ MonoBehaviour:
         _damageType: 80
         _meleeData:
           _isCircle: 1
-          _attackCircleRadius: 2
+          _attackCircleRadius: 1.2
           _attackBoxSize: {x: 0.5, y: 0.3}
           _attackOffset: {x: 0, y: 0}
           _attackVfxAnimation:
