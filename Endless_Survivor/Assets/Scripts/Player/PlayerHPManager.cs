@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerHPManager : HP
 {
     [SerializeField] PlayerControl _playerControl;
     [SerializeField]float _inmunityFlashingTime = .1f;
     [SerializeField] Material _inmunityFlashingMaterial;
+    [SerializeField] Volume _lowHPVolume;
     static readonly int _flashingAuthority;
     SpriteMaterialFlashing _inmunityFlashing;
     SFXInfo _onHitSound;
@@ -78,6 +80,7 @@ public class PlayerHPManager : HP
     {
         base.Heal(healedHP);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
+        UpdateVolumeWeight();
     }
 
     public override void TakeDamage(int incomingDamage)
@@ -90,7 +93,12 @@ public class PlayerHPManager : HP
         _inmunityTimer = _inmunityTime;
         base.TakeDamage(ScalingFunctions.PlayerDamageFormula(incomingDamage));
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
-
+        UpdateVolumeWeight();
+    }
+    void UpdateVolumeWeight()
+    {
+        float hpVolumeWeight = 1f - ((float)RemainingHP / MaxHP);
+        _lowHPVolume.weight = hpVolumeWeight;
     }
 
     public override void Die()
