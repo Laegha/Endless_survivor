@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: PurpleGuy
+  m_EditorClassIdentifier: 
+  _initialHP: 20
+  _referenceSizeSprite: {fileID: 1228540939, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+  _renderSortingOffset: 1000
+  _knockbackResistance: 15
+  _colliderSize: {x: 0.3, y: 0.8}
+  _colliderOffset: {x: 0, y: -0.6}
+  _colliderDirection: 0
+  _rigidbodyType: 0
+  _enemyBehaviours:
+  - rid: 2454942508581650432
+  - rid: 2454942508581650436
+  - rid: 2454942508581650443
+  - rid: 2454942508581650440
+  - rid: 2454942508581650441
+  - rid: 2454942508581650442
+  - rid: 281716090693746688
+  - rid: 281716090693746689
+  _dropablePickupChances: []
+  _onHitSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _possibleSounds:
+    - {fileID: 8300000, guid: 86b939db90d712941afe7ad2a66cc6b0, type: 3}
+    - {fileID: 8300000, guid: d243e0bd3dfcb5940ba13c42217174c1, type: 3}
+    - {fileID: 8300000, guid: b123e894f5aecc14b82c794c1eef7f4e, type: 3}
+    - {fileID: 8300000, guid: 96c3c4baa76a66c4b9a50c63ae60c0a6, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.6
+    _maxPitchVariation: -0.5
+  references:
+    version: 2
+    RefIds:
+    - rid: 281716090693746688
+      type: {class: InflictPlayerStatusInAreaEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: InflictCurse
+        _overrideBehaviours: []
+        _areaRadius: 0.25
+        _areaOffset: {x: 0, y: 0}
+        _inflictedEffects:
+        - {fileID: 11400000, guid: efc7979c41d0690419090b3737ea03a0, type: 2}
+        _inflictionCooldown: 0
+        _inflictionAreaAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 281716090693746689
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: Idle
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: IdleRight
+          _frames:
+          - {fileID: -1036629260, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: IdleLeft
+          _frames:
+          - {fileID: 1228540939, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+          _framesPerSecond: 1
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 2454942508581650432
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalCollider
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.5, y: 0.65}
+        _colliderOffset: {x: 0, y: 0.1}
+        _colliderDirection: 0
+    - rid: 2454942508581650436
+      type: {class: AccelerateToPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AccelerateToPlayer
+        _overrideBehaviours: []
+        _acceleration: 3
+        _initialSpeed: 0
+        _maxSpeed: 7
+        _instantStopOnUnactive: 0
+        _deacceleration: 0
+        _movingAnimations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: MoveRight
+            _frames:
+            - {fileID: -1036629260, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: -1660915999, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: 1396233566, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: -1190052342, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: 958156069, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: -914445821, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: -858579359, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            - {fileID: 1964511851, guid: 582fb2cfa6cd2d240ad957622848178d, type: 3}
+            _framesPerSecond: 20
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: MoveLeft
+            _frames:
+            - {fileID: 1228540939, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: -1368481141, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: 1192627932, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: 1919348132, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: -1226898270, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: -1982424229, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: -1458663410, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            - {fileID: 1259077288, guid: 53fb3f542a82e6f43b4b791f4378adad, type: 3}
+            _framesPerSecond: 20
+            _endAnimationOnEnd: 0
+            _priority: 1
+    - rid: 2454942508581650440
+      type: {class: DamagePlayer, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ContactDamage
+        _overrideBehaviours: []
+        _damage: 2
+    - rid: 2454942508581650441
+      type: {class: TriggerBehavioursAtDistance, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DistanceTriggerSelfKillAndCurse
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - KillEnemy
+        _distanceToTrigger: 0.25
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain: []
+    - rid: 2454942508581650442
+      type: {class: KillEnemyOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: KillEnemy
+        _overrideBehaviours: []
+    - rid: 2454942508581650443
+      type: {class: TriggerBehavioursAfterTimeOnActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AfterTimeTriggerAccel
+        _overrideBehaviours: []
+        _triggeredBehaviours:
+        - AccelerateToPlayer
+        _timeToTrigger: 0.8
+        _triggerOnStart: 1
