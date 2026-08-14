@@ -54,9 +54,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Brightness: 2.49
-    - _BrightnessMultiplier: 0.03
+    - _BrightnessMultiplier: 0.15
     - _EnableExternalAlpha: 0
-    - _NoiseScale: 3.2
+    - _NoiseScale: 0.57
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

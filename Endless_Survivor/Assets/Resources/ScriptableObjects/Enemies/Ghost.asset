@@ -105,7 +105,7 @@ MonoBehaviour:
         _overrideBehaviours: []
         _behavioursToTrigger:
         - KillEnemy
-        _distanceToTrigger: 0.4
+        _distanceToTrigger: 0.3
         _triggerWhenFar: 0
         _behavioursToWaitBeforeTriggeringAgain: []
     - rid: 2454942508581650442
