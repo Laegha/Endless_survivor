@@ -10,6 +10,7 @@ public class PlayerHPManager : HP
     [SerializeField]float _inmunityFlashingTime = .1f;
     [SerializeField] Material _inmunityFlashingMaterial;
     [SerializeField] Volume _lowHPVolume;
+    [SerializeField] ParticleSystem _healParticles;
     static readonly int _flashingAuthority;
     SpriteMaterialFlashing _inmunityFlashing;
     SFXInfo _onHitSound;
@@ -18,6 +19,7 @@ public class PlayerHPManager : HP
     bool _isInmune = false;
     float _inmunityTime = .5f;
     float _inmunityTimer = 0;
+    const float _healParticlesDuration = 1f;
 
     float _regenerationTimer;
 
@@ -60,7 +62,7 @@ public class PlayerHPManager : HP
         if(_regenerationTimer <= 0)
         {
             //Heal 1 hp
-            Heal(1);    
+            Heal(1, false);    
             _regenerationTimer = 1 / PlayerControl.pc.PlayerStats.HPRegeneration;
         }
     }
@@ -76,11 +78,13 @@ public class PlayerHPManager : HP
         //display particles with MaxHP - previousMaxHP
 
     }
-    public override void Heal(int healedHP)
+    public void Heal(int healedHP, bool playParticles = true)
     {
         base.Heal(healedHP);
         GameUIManager.uiManager.PlayerHPBar.SetHP(RemainingHP, MaxHP);
         UpdateVolumeWeight();
+        if(playParticles)
+            ParticleManager.pm.SpawnParticles(new(_healParticles, Vector2.zero, Quaternion.identity, _healParticlesDuration, PlayerControl.pc.transform, true, true));
     }
 
     public override void TakeDamage(int incomingDamage)
