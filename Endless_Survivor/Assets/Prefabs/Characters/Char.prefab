@@ -598,6 +598,7 @@ MonoBehaviour:
   _inmunityFlashingTime: 0.1
   _inmunityFlashingMaterial: {fileID: 2100000, guid: 0f114318c7108f54a9c87670f18baf5c, type: 2}
   _lowHPVolume: {fileID: 226056336103874383}
+  _healParticles: {fileID: 4695277390022186247, guid: 3f74cd0a1f7b6e641a040676deda1034, type: 3}
 --- !u!114 &7908762704824083078
 MonoBehaviour:
   m_ObjectHideFlags: 0
