@@ -20,7 +20,7 @@ public class PlayerWeaponManager : MonoBehaviour
         get
         {
             List<WeaponAttackManager> list = new List<WeaponAttackManager>();
-            _weaponHolders.ForEach(weaponHolder => list.Add(weaponHolder.holdingWeapon));
+            _weaponHolders.ForEach(weaponHolder => { if (weaponHolder.holdingWeapon != null) list.Add(weaponHolder.holdingWeapon); });
             return list;
         }
     }
@@ -58,7 +58,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
     public void PickupWeapon(WeaponData weaponData, WeaponStats weaponStats)
     {
-        if(_weaponHolders.Count >= _totalHoldersInfos.Count)
+        if(HeldWeapons.Count >= _totalHoldersInfos.Count)
         {
             List<WeaponAttackManager> weapons = new List<WeaponAttackManager>();
             _weaponHolders.ForEach(x => weapons.Add(x.holdingWeapon));
