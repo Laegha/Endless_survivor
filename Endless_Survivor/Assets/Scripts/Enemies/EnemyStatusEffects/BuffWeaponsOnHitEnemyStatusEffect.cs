@@ -6,9 +6,8 @@ public class BuffWeaponsOnHitEnemyStatusEffect : EnemyStatusEffect
 {
     new public static bool isUsable => true;
     [Tooltip("Here, wait for external means it will be debuffed when the enemy dies")] [SerializeField] WeaponBuffData _buffData;
-    List<WeaponBuffHandler> _activeBuffHandlers = new();
 
-    int _activeStacks;
+    int _givenStacks = 0;
 
     public override void Initialize(EnemyControl affectedEnemyControl, EnemyStatusEffect original)
     {
@@ -28,19 +27,13 @@ public class BuffWeaponsOnHitEnemyStatusEffect : EnemyStatusEffect
 
     void BuffWeapons()
     {
-        _activeStacks++;
-        var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
-
-        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _buffData);
-        _activeBuffHandlers.Add(weaponDebuffHandler);
-        weaponDebuffHandler.callbackOnEnd += () => _activeBuffHandlers.Remove(weaponDebuffHandler);
+        if (!WeaponBuffsManager.wbm.AddBuffStack(_buffData))
+            return;
+        _givenStacks++;
     }
     public void DebuffWeapons(EnemyControl placeholder)
     {
-        List<WeaponBuffHandler> activeBuffHandlersCopy = new(_activeBuffHandlers);
-        foreach (var buffHandler in activeBuffHandlersCopy)
-        {
-            buffHandler.DebuffWeapons();
-        }
+        for(int i = 0; i < _givenStacks; i++) 
+            WeaponBuffsManager.wbm.RemoveBuffStack(_buffData);
     }
 }

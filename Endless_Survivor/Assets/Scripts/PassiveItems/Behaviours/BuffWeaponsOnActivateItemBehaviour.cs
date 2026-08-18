@@ -6,7 +6,8 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
 {
     new public static int maxStacks => -1;
     [Tooltip("Here, wait for external means it will be debuffed when this item is removed")][SerializeField] WeaponBuffData _buffData;
-    List<WeaponBuffHandler> _activeBuffHandlers = new();
+
+    int _givenStacks = 0;
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
@@ -25,21 +26,18 @@ public class BuffWeaponsOnActivateItemBehaviour : PassiveItemBehaviour
 
     void BuffWeapons()
     {
-        var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
-
-        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _buffData);
-        _activeBuffHandlers.Add(weaponDebuffHandler);
-        weaponDebuffHandler.callbackOnEnd += () => _activeBuffHandlers.Remove(weaponDebuffHandler);
+        if (!WeaponBuffsManager.wbm.AddBuffStack(_buffData))
+            return;
+        _givenStacks++;
     }
 
     public override void RemoveBehaviour()
     {
-        if (!(_buffData.DurationType == WeaponBuffHandler.BuffDurationType.WaitForExternal))
+        if (_buffData.DurationType != WeaponBuffHandler.BuffDurationType.WaitForExternal)
             return;
-        List<WeaponBuffHandler> activeBuffHandlersCopy = new(_activeBuffHandlers);
-        foreach (var buffHandler in activeBuffHandlersCopy)
-        {
-            buffHandler.DebuffWeapons();
-        }
+
+        for (int i = 0; i < _givenStacks; i++)
+            WeaponBuffsManager.wbm.RemoveBuffStack(_buffData);
+
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
@@ -10,7 +11,8 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
     //ADD GFX CHANGE TO THE PLAYER!!!!
     [SerializeField] PlayerGFXChanger _gfxChanger;
     [SerializeField] SFXInfo _onBuffSFX;
-    List<WeaponBuffHandler> _activeBuffHandlers = new();
+
+    int _givenStacks = 0;
 
     public override void CopyValues(PassiveItemBehaviour original, PassiveItemBehaviourManager behaviourManager)
     {
@@ -29,30 +31,28 @@ public class BuffWeaponsOnPlayerHitItemBehaviour : PassiveItemBehaviour
         if (rand > _chanceOfHappenning)
             return;
 
-        var buffedWeapons = PlayerControl.pc.WeaponManager.HeldWeapons;
-        WeaponBuffHandler weaponDebuffHandler = new(buffedWeapons, _buffData);
-        if (!weaponDebuffHandler.IsBuffing)
+        if (!WeaponBuffsManager.wbm.AddBuffStack(_buffData))
             return;
-        weaponDebuffHandler.callbackOnEnd += () => DecreaseStacks(weaponDebuffHandler);
-        _activeBuffHandlers.Add(weaponDebuffHandler);
-        
+
+        _givenStacks++;
         _gfxChanger.ApplyGFX();
         SoundFXManager.sm.PlaySfx(_onBuffSFX, PlayerControl.pc.transform.position);
     }
-    void DecreaseStacks(WeaponBuffHandler removedBuffHandler)
-    {
-        _activeBuffHandlers.Remove(removedBuffHandler);
-        if (_activeBuffHandlers.Count == 0 || _activeBuffHandlers[0].BuffCurrentStacks == 0)
-            _gfxChanger.UnApplyGFX();
-    }
+    //void DecreaseStacks(WeaponBuffHandler removedBuffHandler)
+    //{
+        //_activeBuffHandlers.Remove(removedBuffHandler);
+        //if (_activeBuffHandlers.Count == 0 || _activeBuffHandlers[0].BuffCurrentStacks == 0)
+            //_gfxChanger.UnApplyGFX();
+    //}
 
     public override void RemoveBehaviour()
     {
-        if (_buffData.DurationType == WeaponBuffHandler.BuffDurationType.WaitForExternal)
-        {
-            foreach (var buffHandler in _activeBuffHandlers)
-                buffHandler.DebuffWeapons();
+        if (_buffData.DurationType != WeaponBuffHandler.BuffDurationType.WaitForExternal)
+            return;
 
+        for (int i = 0; i < _givenStacks; i++)
+        {
+            WeaponBuffsManager.wbm.RemoveBuffStack(_buffData);
         }
     }
 }

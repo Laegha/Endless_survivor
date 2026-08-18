@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class WeaponBuffHandler
 {
-    public List<WeaponAttackManager> buffedWeapons;
-    public Action callbackOnEnd;
-    WeaponBuffData _buffData;
-    static Dictionary<WeaponBuffData, int> _buffStacks = new();
-    List<GameObject> _activeParticles = new();
     //Add particles to buffed weapons. multiple buffs of the same type shouldn't stack particles?
 
     /// <summary>
@@ -22,9 +20,6 @@ public class WeaponBuffHandler
     ///if there are no more stacks destroy particles and stop decreasing timer or whatever, but don't destroy the handler
     /// </summary>
 
-    float _enemyKillCounter = 0;
-    public int BuffCurrentStacks { get { return _buffStacks.ContainsKey(_buffData) ? _buffStacks[_buffData] : 0; } }
-    public bool IsBuffing { get { return _buffStacks[_buffData] <= _buffData.BuffMaxStacks; } }
     public enum BuffDurationType
     {
         ByEnemyKills,
@@ -32,74 +27,117 @@ public class WeaponBuffHandler
         WaitForExternal
     }
 
-    public WeaponBuffHandler(List<WeaponAttackManager> buffedWeapons, WeaponBuffData buffData, Action callbackOnEnd = null)
+    public Action callbackOnEnd;
+    WeaponBuffData _buffData;
+
+    int _myBuffStacks;
+
+    float _timer;
+    int _killledEnemies;
+
+    List<(WeaponAttackManager, int)> _weaponStacks = new();
+    List<(WeaponAttackManager, GameObject)> _activeParticles = new();
+
+    public int MyBuffStacks { get { return _myBuffStacks; } }
+    public WeaponBuffData BuffData { get { return _buffData; } }
+    public WeaponBuffHandler(WeaponBuffData buffData, Action callbackOnEnd = null)
     {
-        this.buffedWeapons = buffedWeapons;
         _buffData = buffData;
         this.callbackOnEnd = callbackOnEnd;
-
-        if (!_buffStacks.ContainsKey(_buffData))
-            _buffStacks.Add(_buffData, 0);
-        if (_buffStacks[_buffData] > _buffData.BuffMaxStacks)
-            return;
-        BuffWeapons();
-        if (_buffData.DurationType == BuffDurationType.WaitForExternal)
-            return;
-        if (_buffData.DurationType == BuffDurationType.ByEnemyKills)
-        {
-            EnemySpawnManager.esm.OnEnemySpawned += AddDeathCallbackToEnemy;
-            return;
-        }
-        if (_buffData.DurationType == BuffDurationType.ByTime)
-        {
-            GameManager.gm.DelayAction(_buffData.TimeDuration, DebuffWeapons, null);
-            return;
-        }
-
-    }
-    public void BuffWeapons()
-    {
-        _buffStacks[_buffData]++;
-        foreach (var weapon in buffedWeapons)
-        {
-            if (weapon == null) continue;
-            weapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, false);
-            if (_buffData.BuffParticleSystem == null) continue;
-            ParticleConfig particlesConfig = new(_buffData.BuffParticleSystem, Vector2.zero, Quaternion.identity, -1, weapon.transform, true, false);
-            var createdParticles = ParticleManager.pm.SpawnParticles(particlesConfig);
-            _activeParticles.Add(createdParticles.gameObject);
-        }
+        UpdateWeaponsList();
     }
 
-    public void DebuffWeapons()
+    public void UpdateWeaponsList()
     {
-        foreach (var weapon in buffedWeapons)
-        {
-            if (weapon == null) continue;
-            weapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, true);
-        }
         foreach (var particle in _activeParticles)
         {
-            GameObject.DestroyImmediate(particle);
+            if (particle.Item1 != null)
+                continue;
+
+            GameObject.DestroyImmediate(particle.Item2);
         }
-        _buffStacks[_buffData]--;
-        if(_buffStacks[_buffData] == 0)
-            _buffStacks.Remove(_buffData);
-        callbackOnEnd?.Invoke();
-    }
+        _activeParticles.RemoveAll(x => x.Item1 == null);
+        _weaponStacks.RemoveAll(x => x.Item1 == null);
 
-    void AddDeathCallbackToEnemy(EnemyControl enemy)
-    {
-        enemy.EnemyHP.OnDeath += IncreaseEnemyKillCounter;
-    }
-
-    void IncreaseEnemyKillCounter(EnemyControl placeholder)
-    {
-        _enemyKillCounter++;
-        if (_enemyKillCounter >= _buffData.EnemyKillsNeeded)
+        foreach (var weapon in PlayerControl.pc.WeaponManager.HeldWeapons)
         {
-            _enemyKillCounter = 0;
-            DebuffWeapons();
+            if (_weaponStacks.Any(x => x.Item1 == weapon))
+                continue;
+            _weaponStacks.Add((weapon, 0));
+
+            if (_buffData.BuffParticleSystem == null)
+                continue;
+
+            ParticleConfig particlesConfig = new(_buffData.BuffParticleSystem, Vector2.zero, Quaternion.identity, -1, weapon.transform, true, false);
+            var createdParticles = ParticleManager.pm.SpawnParticles(particlesConfig);
+            _activeParticles.Add((weapon, createdParticles.gameObject));
+
+        }
+    }
+    public void UpdateAllWeaponsBuffs()
+    {
+        foreach (var weapon in _weaponStacks)
+        {
+            UpdateWeaponBuffs(weapon.Item1);
+        }
+    }
+    void UpdateWeaponBuffs(WeaponAttackManager weapon)
+    {
+        int weaponStackDiff = _myBuffStacks - _weaponStacks.Find(x => x.Item1 == weapon).Item2;
+        for (int i = 0; i < Mathf.Abs(weaponStackDiff); i++)
+        {
+            if (weaponStackDiff < 0)
+                DebuffWeapon(weapon);
+            else
+                BuffWeapon(weapon);
+        }
+    }
+    public void BuffWeapon(WeaponAttackManager buffedWeapon)
+    {
+        if (buffedWeapon == null) 
+            return;
+        
+        buffedWeapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, false);
+    }
+
+    public void DebuffWeapon(WeaponAttackManager debuffedWeapon)
+    {
+        if (debuffedWeapon == null) 
+            return;
+        debuffedWeapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, true);
+    }
+    public bool DecreaseTimer()
+    {
+        _timer -= Time.deltaTime;
+        if (_timer > 0)
+            return false;
+        _timer = _buffData.TimeDuration;
+        return true;
+    }
+    public bool KilledEnemy()
+    {
+        _killledEnemies++;
+        if (_killledEnemies < _buffData.EnemyKillsNeeded)
+            return false;
+        _killledEnemies = 0;
+        return true;
+    }
+    public void AddStack()
+    {
+        _myBuffStacks++;
+        UpdateAllWeaponsBuffs();
+    }
+    public void RemoveStack()
+    {
+        _myBuffStacks--;
+        UpdateAllWeaponsBuffs();
+    }
+
+    public void RemoveBuffCompletely()
+    {
+        foreach (var particle in _activeParticles)
+        {
+            GameObject.DestroyImmediate(particle.Item2);
         }
     }
 }

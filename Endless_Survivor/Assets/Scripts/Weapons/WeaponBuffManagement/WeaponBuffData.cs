@@ -11,6 +11,8 @@ public class WeaponBuffData : ScriptableObject
     [SerializeField] int _enemyKillsNeeded;
     [SerializeField] float _timeDuration;
     [SerializeField] ParticleSystem _buffParticleSystem;
+    //ADD SFX AND PLAYER GFX CHANGES!!!+
+    //ADD A DAMAGE TYPE FILTER!!
 
     public int BuffMaxStacks { get { return _buffMaxStacks; } }
     public WeaponStats StatsBuff { get { return _statsBuff; } }
