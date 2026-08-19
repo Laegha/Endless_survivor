@@ -13,6 +13,7 @@ public class ProyectileAttack : Attack
     float _lifeTime = 5;
     float _lapsedTime;
     List<Collider2D> _ignoreColliders = new List<Collider2D>();
+    bool _phasingMap = false;
     new public AnimationChangeAttackGfxInterface AttackGfxInterface => new AnimationChangeAttackGfxInterface();
     public override AttackEffectArea AttackEffectArea
     {
@@ -25,10 +26,16 @@ public class ProyectileAttack : Attack
     public CustomAnimator Animator { get { return _animator; } }
     public CapsuleCollider2D Collider { get { return _collider; } }
     public float LifeTime {  get { return _lifeTime; } set { _lifeTime = value; } }
-    public void StartProyectile(Vector2 position, float rotation)
+    public void StartProyectile(Vector2 position, Quaternion rotation)
     {
+        var collidingObj = Physics2D.OverlapBox(position, Vector2.one * .1f, 0, LayerMask.GetMask("Map"));
+        if (collidingObj != null)
+        {
+            _ignoreColliders.Add(collidingObj);
+            _phasingMap = true;
+        }
         transform.position = position;
-        transform.rotation = Quaternion.Euler(0, 0, rotation);
+        transform.rotation = rotation;
 
     }
     public void Initiate(int damage, float knockback, float speed, float lifeTime, ProyectileData proyectileData, float proyectileSpread = 0, List<Collider2D> ignoreColliders = null)
@@ -52,7 +59,7 @@ public class ProyectileAttack : Attack
         if(ignoreColliders == null)
             ignoreColliders = new List<Collider2D>();
 
-        _ignoreColliders = ignoreColliders;
+        _ignoreColliders.AddRange(ignoreColliders);
         transform.Rotate(new Vector3(0, 0, Random.Range(-proyectileSpread, proyectileSpread)));
         _spriteRenderer.flipY = transform.right.x < 0;
 
@@ -77,6 +84,20 @@ public class ProyectileAttack : Attack
         {
             Destroy(gameObject);
         }
+
+        if (!_phasingMap)
+            return;
+
+        var collidingObj = Physics2D.OverlapBox(transform.position, Vector2.one * .01f, 0, LayerMask.GetMask("Map"));
+
+        if (collidingObj == null)
+        {
+            _phasingMap = false;
+            return;
+        }
+        if (!_ignoreColliders.Contains(collidingObj))
+            _ignoreColliders.Add(collidingObj);
+
     }
 
     public void StartMoving()
@@ -86,7 +107,7 @@ public class ProyectileAttack : Attack
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (_ignoreColliders.Contains(collider))
+        if (_ignoreColliders.Contains(collider) || _phasingMap && collider.gameObject.layer == LayerMask.NameToLayer("Map"))
             return;
         var enemyControl = Utility.FindFirstComponentInParent<EnemyControl>(collider.gameObject);
         if (enemyControl != null)

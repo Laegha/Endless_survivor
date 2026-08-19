@@ -62,8 +62,7 @@ public class ProyectileWeaponAttackController : ShootingWeaponAttackController
     }
     void InitiateProyectile(ProyectileAttack proyectile, Vector2 proyectilePosition, Quaternion proyectileRotation, List<Collider2D> ignoreColliders = null)
     {
-        proyectile.transform.position = proyectilePosition;
-        proyectile.transform.rotation = proyectileRotation;
+        proyectile.StartProyectile(proyectilePosition, proyectileRotation);
 
         float proyectileSpeed = _proyectileData.ProyectileSpeed;
         float proyectileLifeTime = WeaponStats.Range;
