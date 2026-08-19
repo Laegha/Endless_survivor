@@ -12,6 +12,8 @@ public class WeaponBuffData : ScriptableObject
     [SerializeField] float _timeDuration;
     [SerializeField] ParticleSystem _buffParticleSystem;
     //ADD SFX AND PLAYER GFX CHANGES!!!+
+    [SerializeField] PlayerGFXChanger _onBuffPlayerGfxChanger;
+    [SerializeField] SFXInfo _onBuffSFX;
     //ADD A DAMAGE TYPE FILTER!!
 
     public int BuffMaxStacks { get { return _buffMaxStacks; } }
@@ -20,4 +22,6 @@ public class WeaponBuffData : ScriptableObject
     public int EnemyKillsNeeded { get { return _enemyKillsNeeded; } }
     public float TimeDuration { get { return _timeDuration; } }
     public ParticleSystem BuffParticleSystem { get { return _buffParticleSystem; } }
+    public PlayerGFXChanger OnBuffPlayerGfxChanger { get { return _onBuffPlayerGfxChanger; } }
+    public SFXInfo OnBuffSFX { get { return _onBuffSFX; } }
 }

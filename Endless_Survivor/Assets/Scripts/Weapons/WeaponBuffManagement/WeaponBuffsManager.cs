@@ -9,6 +9,7 @@ public class WeaponBuffsManager : MonoBehaviour
 
     public static WeaponBuffsManager wbm {  get { return instance; } }
     List<WeaponBuffHandler> _activeBuffs;
+    Dictionary<WeaponBuffHandler, PlayerGFXChanger> _gfxChangers = new();
     
     List<WeaponBuffHandler> _timeBasedHandlers => new(_activeBuffs.Where(x => x.BuffData.DurationType == WeaponBuffHandler.BuffDurationType.ByTime).ToList());
     List<WeaponBuffHandler> _killBasedHandlers => new(_activeBuffs.Where(x => x.BuffData.DurationType == WeaponBuffHandler.BuffDurationType.ByEnemyKills).ToList());
@@ -40,6 +41,10 @@ public class WeaponBuffsManager : MonoBehaviour
         {
             activeBuff = new(buffData);
             _activeBuffs.Add(activeBuff);
+            PlayerGFXChanger buffGfxChangerInstance = new(buffData.OnBuffPlayerGfxChanger);
+            buffGfxChangerInstance.ApplyGFX();
+            _gfxChangers.Add(activeBuff, buffGfxChangerInstance);
+            SoundFXManager.sm.PlaySfx(buffData.OnBuffSFX, PlayerControl.pc.transform.position);
         }
         if(activeBuff.MyBuffStacks >= buffData.BuffMaxStacks)
             return false;   
@@ -55,6 +60,9 @@ public class WeaponBuffsManager : MonoBehaviour
         //Remove buff entirely
         buffHandler.RemoveBuffCompletely();
         _activeBuffs.Remove(buffHandler);
+        _gfxChangers[buffHandler].UnApplyGFX();
+        _gfxChangers.Remove(buffHandler);
+
     }
     private void Update()
     {
