@@ -41,7 +41,7 @@ public class ExceedItemBehaviour : PassiveItemBehaviour
             //Increase weapon stats
             weapon.WeaponStats.TemporalStatIncrease(_statBuffOnAttackCoordination, false);
             //generate particles
-            ParticleConfig exceedParticleConfig = new(_onAttackCoordinationParticles, weapon.transform.position, Quaternion.identity, _particlesDuration, weapon.transform, true, false);
+            ParticleConfig exceedParticleConfig = new(_onAttackCoordinationParticles, Vector2.zero, Quaternion.identity, _particlesDuration, weapon.transform, true, false);
             ParticleManager.pm.SpawnParticles(exceedParticleConfig);
 
         }
