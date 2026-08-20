@@ -11,8 +11,8 @@ public class CharSelectMenu : MonoBehaviour
     [SerializeField] GameObject _newCharIndicatorPrefab;
     [SerializeField] HorizontalLayoutGroup _gridRowPrefab;
     [SerializeField] RectTransform _buttonGridTr;
-    [SerializeField] RectTransform _returnButton;
     VerticalLayoutGroup _buttonGrid;
+    List<CharacterButton> _createdButtons = new();
 
     private void Start()
     {
@@ -41,6 +41,7 @@ public class CharSelectMenu : MonoBehaviour
             if(character.isNew)
                 Instantiate(_newCharIndicatorPrefab, characterButton.imageTargetSize.transform);
 
+            _createdButtons.Add(characterButton);
             rowFilledSpace += _selectCharBtnPrefab.imageTargetSize.sizeDelta.x + currentRow.spacing;
             if (rowFilledSpace + _selectCharBtnPrefab.imageTargetSize.sizeDelta.x > _buttonGridTr.sizeDelta.x)
             {
@@ -50,9 +51,7 @@ public class CharSelectMenu : MonoBehaviour
             }
         }
         float rowFilledSize = (_buttonGrid.spacing + _gridRowPrefab.GetComponent<RectTransform>().sizeDelta.y) * gridRows;
-        _buttonGridTr.sizeDelta = Vector2.right * _buttonGridTr.sizeDelta + Vector2.up * (rowFilledSize + _buttonGrid.padding.top + _returnButton.sizeDelta.y);
-
-
+        _buttonGridTr.sizeDelta = Vector2.right * _buttonGridTr.sizeDelta + Vector2.up * (rowFilledSize + _buttonGrid.padding.top);
     }
 
     public void CloseMenu()
@@ -63,7 +62,15 @@ public class CharSelectMenu : MonoBehaviour
             if (button != _buttonGridTr)
                 Destroy(button.gameObject);
         }
+        _createdButtons.Clear();
         _menuObj.SetActive(false);
         _mainMenuObj.SetActive(true);
+    }
+    public void UpdateAllSelections()
+    {
+        foreach (var button in _createdButtons)
+        {
+            button.UpdateSelection();
+        }
     }
 }
