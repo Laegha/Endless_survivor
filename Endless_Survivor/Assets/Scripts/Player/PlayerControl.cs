@@ -23,6 +23,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] SpriteRenderer _mainRenderer;
     [SerializeField] PlayerCostumeManager _costumeManager;
     [SerializeField] CustomAnimator _dirIndicatorAN;
+    [SerializeField] PlayerInputReader _inputReader;
     string _dirIndicatorIdleName;
     string _dirIndicatorMovingName;
     public CustomAnimator PlayerAnimator { get { return _playerAnimator; } }
@@ -40,6 +41,7 @@ public class PlayerControl : MonoBehaviour
     public CustomAnimator DirIndicatorAN { get { return _dirIndicatorAN; } }
     public string DirIndicatorIdleName { get { return _dirIndicatorIdleName; } set { _dirIndicatorIdleName = value; } }
     public string DirIndicatorMovingName { get { return _dirIndicatorMovingName; } set { _dirIndicatorMovingName = value; } }
+    public PlayerInputReader InputReader { get { return _inputReader; } }
 
     private void Start()
     {

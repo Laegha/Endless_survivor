@@ -10,16 +10,7 @@ public class PlayerInputReader : MonoBehaviour
     {
         _touchControls = FindObjectOfType<TouchControls>();
         _joystick = FindObjectOfType<bl_Joystick>();
-        if (GameManager.gm.UsingCustomControls)
-        {
-            _joystick.gameObject.SetActive(false);
-            _touchControls.gameObject.SetActive(true);
-        }
-        else
-        {
-            _joystick.gameObject.SetActive(true);
-            _touchControls.gameObject.SetActive(false);
-        }
+        UpdateMobileControls();
         //_joystick.gameObject.SetActive(false);
         //_touchControls.gameObject.SetActive(false);
     }
@@ -42,5 +33,18 @@ public class PlayerInputReader : MonoBehaviour
         else
             input = new Vector2(_joystick.Horizontal, _joystick.Vertical);
         _playerStateMachine.Movement = input.normalized;
+    }
+    public void UpdateMobileControls()
+    {
+        if (GameManager.gm.UsingCustomControls)
+        {
+            _joystick.gameObject.SetActive(false);
+            _touchControls.gameObject.SetActive(true);
+        }
+        else
+        {
+            _joystick.gameObject.SetActive(true);
+            _touchControls.gameObject.SetActive(false);
+        }
     }
 }
