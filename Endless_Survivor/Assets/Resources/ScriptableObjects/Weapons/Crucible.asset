@@ -88,7 +88,7 @@ MonoBehaviour:
             _framesPerSecond: 9
             _endAnimationOnEnd: 0
             _priority: 0
-          _vfxMaterial: {fileID: 0}
+          _vfxMaterial: {fileID: 2100000, guid: decb3c8a35a7f5a45865580950de6f1e, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: 10
           _attackParticles: {fileID: 0}

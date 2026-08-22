@@ -20,7 +20,7 @@ MonoBehaviour:
     _knockback: 0
   _durationType: 0
   _enemyKillsNeeded: 5
-  _timeDuration: 0
+  _timeDuration: 5
   _buffParticleSystem: {fileID: 0}
   _onBuffPlayerGfxChanger:
     materialOverride:

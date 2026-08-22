@@ -42,7 +42,7 @@ MonoBehaviour:
         - GiveTrueDragonItem
         - GiveElpisWeapon
         - RemoveItem
-        _killingAmount: 5
+        _killingAmount: 20
         _loop: 0
         _waitTimeToResetCount: 0
     - rid: 8472846725585043459

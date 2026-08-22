@@ -316,7 +316,7 @@ MonoBehaviour:
     - rid: 5726234039590060039
       type: {class: RandomAttackCondition, ns: , asm: Assembly-CSharp}
       data:
-        _changeChance: 60
+        _changeChance: 30
         _idsWeights:
         - _rouletteElement: FireAttack
           _chance: 1

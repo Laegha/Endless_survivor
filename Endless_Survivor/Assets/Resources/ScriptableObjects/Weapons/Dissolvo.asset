@@ -73,6 +73,6 @@ MonoBehaviour:
           _rayMaterial: {fileID: 2100000, guid: 571d7687d28022144856a5819be87f4e, type: 2}
           _rayStartWidth: 0.05
           _rayEndWidth: 0.05
-          _rayExitSpeed: 2.5
+          _rayExitSpeed: 5.04
           _rayStartSprite: {fileID: 0}
           _rayRenderOffset: -5

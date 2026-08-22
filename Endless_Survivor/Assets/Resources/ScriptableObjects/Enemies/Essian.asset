@@ -87,8 +87,8 @@ MonoBehaviour:
         _behaviourId: MeleeAttack
         _overrideBehaviours: []
         _damage: 8
-        _attackRange: 0.2
-        _attackRadius: 0.5
+        _attackRange: 1.3
+        _attackRadius: 0.6
         _attackUpAnimation:
           _animationName: 
           _frames: []
@@ -162,4 +162,4 @@ MonoBehaviour:
         - ChasePlayer
         _behavioursToTrigger:
         - OverTimeTriggerAttack
-        _distanceToTrigger: 1.3
+        _distanceToTrigger: 1.7
