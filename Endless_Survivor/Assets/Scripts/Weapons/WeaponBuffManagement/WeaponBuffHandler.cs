@@ -106,12 +106,12 @@ public class WeaponBuffHandler
             return;
         debuffedWeapon.WeaponStats.TemporalStatIncrease(_buffData.StatsBuff, true);
     }
-    public bool DecreaseTimer()
+    public bool IncreaseTimer()
     {
-        _timer -= Time.deltaTime;
-        if (_timer > 0)
+        _timer += Time.deltaTime;
+        if (_timer <= BuffData.TimeDuration)
             return false;
-        _timer = _buffData.TimeDuration;
+        _timer = 0;
         return true;
     }
     public bool KilledEnemy()
