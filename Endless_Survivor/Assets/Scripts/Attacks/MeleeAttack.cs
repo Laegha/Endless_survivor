@@ -49,6 +49,10 @@ public class MeleeAttack : Attack
             ParticleManager.pm.SpawnParticles(particles);
 
         }
+        if (_attackData.VfxMaterial != null)
+        {
+            _vfxRenderer.material = _attackData.VfxMaterial;
+        }
 
         if (ParentWeapon == null)
             return;
