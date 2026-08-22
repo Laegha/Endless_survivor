@@ -8,7 +8,7 @@ public class WeaponBuffsManager : MonoBehaviour
     static WeaponBuffsManager instance;
 
     public static WeaponBuffsManager wbm {  get { return instance; } }
-    List<WeaponBuffHandler> _activeBuffs;
+    List<WeaponBuffHandler> _activeBuffs = new();
     Dictionary<WeaponBuffHandler, PlayerGFXChanger> _gfxChangers = new();
     
     List<WeaponBuffHandler> _timeBasedHandlers => new(_activeBuffs.Where(x => x.BuffData.DurationType == WeaponBuffHandler.BuffDurationType.ByTime).ToList());
@@ -21,8 +21,12 @@ public class WeaponBuffsManager : MonoBehaviour
 
     private void Start()
     {
-        EnemySpawnManager.esm.OnEnemySpawned += AddDeathCallbackToEnemy;
-        PlayerControl.pc.WeaponManager.OnWeaponPickup += UpdateWeaponsOnHandlers;
+        GameManager.gm.DelayActionAFrame(() =>
+        {
+            EnemySpawnManager.esm.OnEnemySpawned += AddDeathCallbackToEnemy;
+            PlayerControl.pc.WeaponManager.OnWeaponPickup += UpdateWeaponsOnHandlers;
+
+        }, null);
     }
 
     void UpdateWeaponsOnHandlers()
@@ -68,7 +72,7 @@ public class WeaponBuffsManager : MonoBehaviour
     {
         foreach (var buffHandler in _timeBasedHandlers)
         {
-            if (!buffHandler.DecreaseTimer())
+            if (!buffHandler.IncreaseTimer())
                 continue;
             RemoveBuffStack(buffHandler);
         }
