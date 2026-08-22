@@ -227,6 +227,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Broadsword_Attack2_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 65
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4538462, y: 0.4083333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4444f4d01530c6b4ea7447c0b4b936d2
+      internalID: 527925832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Broadsword_Attack2_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 65
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4538462, y: 0.4083333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9c83737ab03e5449c41970eab7eea4
+      internalID: -2114485481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -243,6 +285,8 @@ TextureImporter:
       Broadsword_Attack2_2: 1366491088
       Broadsword_Attack2_3: 941972415
       Broadsword_Attack2_4: -1210316222
+      Broadsword_Attack2_5: 527925832
+      Broadsword_Attack2_6: -2114485481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

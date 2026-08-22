@@ -94,6 +94,7 @@ MonoBehaviour:
             _framesPerSecond: 12
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: b8409b4d9c7c8204da7e2d5cc6f4ee14, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -5
           _attackParticles: {fileID: 0}
@@ -146,6 +147,7 @@ MonoBehaviour:
             _framesPerSecond: 12
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: b8409b4d9c7c8204da7e2d5cc6f4ee14, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -5
           _attackParticles: {fileID: 0}
@@ -202,6 +204,7 @@ MonoBehaviour:
             _framesPerSecond: 12
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: b8409b4d9c7c8204da7e2d5cc6f4ee14, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -5
           _attackParticles: {fileID: 0}

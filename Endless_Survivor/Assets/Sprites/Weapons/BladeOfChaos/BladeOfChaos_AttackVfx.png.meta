@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -172,6 +185,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_AttackVfx_3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ca9a9546486ab42a31814eb86f93aa
+      internalID: 706582584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_AttackVfx_4
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80c8080b3bb94b459202163b542f7be
+      internalID: -343700698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_AttackVfx_5
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68129cf7be46bfa439bbca2da597147f
+      internalID: -1934934000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_AttackVfx_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716970b6c583d234e8d1ecfd4a5722b8
+      internalID: -81213723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -181,11 +278,17 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: dde0724623ad78242aa35cf24ba6798c, type: 3}
+      name: _Emission
     nameFileIdTable:
       BladeOfChaos_AttackVfx_0: -1564141968
       BladeOfChaos_AttackVfx_1: -896311659
       BladeOfChaos_AttackVfx_2: -1235146978
+      BladeOfChaos_AttackVfx_3: 706582584
+      BladeOfChaos_AttackVfx_4: -343700698
+      BladeOfChaos_AttackVfx_5: -1934934000
+      BladeOfChaos_AttackVfx_6: -81213723
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

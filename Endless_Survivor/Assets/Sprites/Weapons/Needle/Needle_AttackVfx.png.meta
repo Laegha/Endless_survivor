@@ -126,7 +126,7 @@ TextureImporter:
       name: Needle_AttackVfx_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 252
         y: 0
         width: 63
         height: 45
@@ -147,7 +147,7 @@ TextureImporter:
       name: Needle_AttackVfx_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 315
         y: 0
         width: 63
         height: 45
@@ -168,7 +168,7 @@ TextureImporter:
       name: Needle_AttackVfx_2
       rect:
         serializedVersion: 2
-        x: 126
+        x: 378
         y: 0
         width: 63
         height: 45
@@ -189,7 +189,7 @@ TextureImporter:
       name: Needle_AttackVfx_3
       rect:
         serializedVersion: 2
-        x: 189
+        x: 441
         y: 0
         width: 63
         height: 45
@@ -210,7 +210,7 @@ TextureImporter:
       name: Needle_AttackVfx_4
       rect:
         serializedVersion: 2
-        x: 252
+        x: 504
         y: 0
         width: 63
         height: 45
@@ -236,7 +236,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 40a54100969ca2345b5ee6110b1acba6, type: 3}
+      name: _Emission
     nameFileIdTable:
       Needle_AttackVfx_0: 1017044782
       Needle_AttackVfx_1: -1980467373

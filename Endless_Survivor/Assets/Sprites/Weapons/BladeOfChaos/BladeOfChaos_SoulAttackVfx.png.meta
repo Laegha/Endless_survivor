@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -172,6 +185,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_SoulAttackVfx_3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3689f1600a6e1ab48a66d6de238987e5
+      internalID: 1780624389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_SoulAttackVfx_4
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3658bd600cf2e554891176b3a45e19ef
+      internalID: -1806949267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_SoulAttackVfx_5
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f151a2119cb18c448011b791abc54e3
+      internalID: -1382376804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BladeOfChaos_SoulAttackVfx_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 31
+        height: 28
+      alignment: 9
+      pivot: {x: 0.483871, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d66308a265c4f14c8ea3a3846ab6f7d
+      internalID: -874857622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -181,11 +278,17 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 63ea93cb01d779d4ca5254c3668353af, type: 3}
+      name: _Emission
     nameFileIdTable:
       BladeOfChaos_SoulAttackVfx_0: -1151915712
       BladeOfChaos_SoulAttackVfx_1: 1947704202
       BladeOfChaos_SoulAttackVfx_2: -2115655598
+      BladeOfChaos_SoulAttackVfx_3: 1780624389
+      BladeOfChaos_SoulAttackVfx_4: -1806949267
+      BladeOfChaos_SoulAttackVfx_5: -1382376804
+      BladeOfChaos_SoulAttackVfx_6: -874857622
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

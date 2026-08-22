@@ -128,10 +128,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 70
-        height: 45
+        width: 60
+        height: 65
       alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+      pivot: {x: 0.3416667, y: 0.3769231}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: RedQueen_Attack_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 60
         y: 0
-        width: 70
-        height: 45
+        width: 60
+        height: 65
       alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+      pivot: {x: 0.3416667, y: 0.3769231}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: RedQueen_Attack_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 120
         y: 0
-        width: 70
-        height: 45
+        width: 60
+        height: 65
       alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+      pivot: {x: 0.3416667, y: 0.3769231}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: RedQueen_Attack_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 180
         y: 0
-        width: 70
-        height: 45
+        width: 60
+        height: 65
       alignment: 9
-      pivot: {x: 0.5071427, y: 0.1666667}
+      pivot: {x: 0.3416667, y: 0.3769231}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,6 +202,48 @@ TextureImporter:
       bones: []
       spriteID: 8d10686b5234bbc4e8dfb8ed1a2e7664
       internalID: -1761358102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedQueen_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 60
+        height: 65
+      alignment: 9
+      pivot: {x: 0.3416667, y: 0.3769231}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1ee9eabe17f5647a8cea86a86f0096
+      internalID: -748175121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedQueen_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 60
+        height: 65
+      alignment: 9
+      pivot: {x: 0.3416667, y: 0.3769231}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827c914bedc1f314d8759d377c481582
+      internalID: 1197759344
       vertices: []
       indices: 
       edges: []
@@ -221,6 +263,8 @@ TextureImporter:
       RedQueen_Attack_1: 295966228
       RedQueen_Attack_2: -1416972509
       RedQueen_Attack_3: -1761358102
+      RedQueen_Attack_4: -748175121
+      RedQueen_Attack_5: 1197759344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -236,7 +236,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 39526fc1ef60a0c49a476f4a4d9d6d23, type: 3}
+      name: _Emission
     nameFileIdTable:
       NullKatana_AttackVfx_0: 1397612531
       NullKatana_AttackVfx_1: 1057529328

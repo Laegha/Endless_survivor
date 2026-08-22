@@ -128,10 +128,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 69
-        height: 51
+        width: 57
+        height: 63
       alignment: 9
-      pivot: {x: 0.5, y: 0.2058824}
+      pivot: {x: 0.254386, y: 0.3571429}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: Crucible_Attack_1
       rect:
         serializedVersion: 2
-        x: 69
+        x: 57
         y: 0
-        width: 69
-        height: 51
+        width: 57
+        height: 63
       alignment: 9
-      pivot: {x: 0.5, y: 0.2058824}
+      pivot: {x: 0.254386, y: 0.3571429}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: Crucible_Attack_2
       rect:
         serializedVersion: 2
-        x: 138
+        x: 114
         y: 0
-        width: 69
-        height: 51
+        width: 57
+        height: 63
       alignment: 9
-      pivot: {x: 0.5, y: 0.2058824}
+      pivot: {x: 0.254386, y: 0.3571429}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: Crucible_Attack_3
       rect:
         serializedVersion: 2
-        x: 207
+        x: 171
         y: 0
-        width: 69
-        height: 51
+        width: 57
+        height: 63
       alignment: 9
-      pivot: {x: 0.5, y: 0.2058824}
+      pivot: {x: 0.254386, y: 0.3571429}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,6 +202,48 @@ TextureImporter:
       bones: []
       spriteID: c030db865adfa8d41bffeaf369fd1e46
       internalID: 1872986194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crucible_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 57
+        height: 63
+      alignment: 9
+      pivot: {x: 0.254386, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d903d52a1cd684f8da5204fa738347
+      internalID: 1313571504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crucible_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 57
+        height: 63
+      alignment: 9
+      pivot: {x: 0.254386, y: 0.3571429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d13cb82ff8657f479f35930989361cc
+      internalID: 1588401512
       vertices: []
       indices: 
       edges: []
@@ -221,6 +263,8 @@ TextureImporter:
       Crucible_Attack_1: 1348826584
       Crucible_Attack_2: 899221377
       Crucible_Attack_3: 1872986194
+      Crucible_Attack_4: 1313571504
+      Crucible_Attack_5: 1588401512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

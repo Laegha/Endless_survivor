@@ -59,7 +59,7 @@ MonoBehaviour:
           - {fileID: 1400868815, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
           - {fileID: -207829492, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
           - {fileID: -614082419, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
-          - {fileID: -614082419, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
+          - {fileID: -519488526, guid: 33f671d9e475eb947bebdadaf6ac8553, type: 3}
           _framesPerSecond: 7
           _endAnimationOnEnd: 0
           _priority: 0
@@ -83,18 +83,19 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Attack0Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 1860783838, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
-            - {fileID: -1621053071, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
-            - {fileID: 1848007537, guid: 01dcec0f165e8e646942e4aa2f346da9, type: 3}
+            - {fileID: -360543823, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
+            - {fileID: -1294660370, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
+            - {fileID: -112729230, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
+            - {fileID: 698479593, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
+            - {fileID: 659543452, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
+            - {fileID: -140262282, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
+            - {fileID: 2115199884, guid: 8826019cb677dc94fa614840d7862c6a, type: 3}
             _framesPerSecond: 7
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: 55c0a22c19a9f404fbb1a504e843c28a, type: 2}
           _dropVfxOnDamage: 0
-          _vfxRendererOffset: 0
+          _vfxRendererOffset: 10
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507682168897537
@@ -109,8 +110,8 @@ MonoBehaviour:
           - {fileID: 979889724, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
           - {fileID: 1907351297, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
           - {fileID: -2028611902, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
-          - {fileID: -2028611902, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
-          - {fileID: -2028611902, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: 602040755, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
+          - {fileID: -1804152, guid: 96ea21efdf5ea284db6e080000b5d53e, type: 3}
           _framesPerSecond: 7
           _endAnimationOnEnd: 0
           _priority: 0
@@ -134,18 +135,19 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Attack1Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: -1595410662, guid: 02669ae6d9beae24698afa38bd19464a, type: 3}
-            - {fileID: -1569613658, guid: 02669ae6d9beae24698afa38bd19464a, type: 3}
-            - {fileID: -1136356525, guid: 02669ae6d9beae24698afa38bd19464a, type: 3}
+            - {fileID: -1323765067, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
+            - {fileID: 576580668, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
+            - {fileID: -1803307714, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
+            - {fileID: -52661077, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
+            - {fileID: 871396625, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
+            - {fileID: -1971423791, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
+            - {fileID: 1025571250, guid: 82bdf7d5836f4fd47bf114e48b2ff2eb, type: 3}
             _framesPerSecond: 7
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: bde3ae1e7fc23f04cb6bd2b023f8952c, type: 2}
           _dropVfxOnDamage: 0
-          _vfxRendererOffset: 0
+          _vfxRendererOffset: 10
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507682168897538
@@ -160,6 +162,8 @@ MonoBehaviour:
           - {fileID: 1366491088, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
           - {fileID: 941972415, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
           - {fileID: -1210316222, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          - {fileID: 527925832, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
+          - {fileID: -2114485481, guid: 815a3936b4de23c458f584315c1fa58c, type: 3}
           _framesPerSecond: 5
           _endAnimationOnEnd: 0
           _priority: 0
@@ -183,18 +187,19 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Attack2Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 2081534801, guid: 02216ac7d8409904f99f42487ed3464d, type: 3}
-            - {fileID: -528945710, guid: 02216ac7d8409904f99f42487ed3464d, type: 3}
-            - {fileID: 1687685137, guid: 02216ac7d8409904f99f42487ed3464d, type: 3}
+            - {fileID: -752367217, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
+            - {fileID: 304633180, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
+            - {fileID: 2050338557, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
+            - {fileID: -1195160953, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
+            - {fileID: -974319573, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
+            - {fileID: 145747568, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
+            - {fileID: 1070562206, guid: a33018da3cea6ec4db4463b9b499e573, type: 3}
             _framesPerSecond: 5
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: bde3ae1e7fc23f04cb6bd2b023f8952c, type: 2}
           _dropVfxOnDamage: 0
-          _vfxRendererOffset: 0
+          _vfxRendererOffset: 10
           _attackParticles: {fileID: 0}
           _particleDuration: 0
     - rid: 1204507698414485504

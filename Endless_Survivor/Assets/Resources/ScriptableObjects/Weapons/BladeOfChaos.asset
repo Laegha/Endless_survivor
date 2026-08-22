@@ -84,16 +84,17 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
             - {fileID: -1564141968, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
             - {fileID: -896311659, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
             - {fileID: -1235146978, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
+            - {fileID: 706582584, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
+            - {fileID: -343700698, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
+            - {fileID: -1934934000, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
+            - {fileID: -81213723, guid: 5d06266e9be195f45bea5e758bcad4e7, type: 3}
             _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: 6a8de3e6a4b5d5640b6e2c329d0aa3ec, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -10
           _attackParticles: {fileID: 0}
@@ -138,16 +139,17 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
             - {fileID: 1555656589, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
             - {fileID: 1492954530, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
             - {fileID: -846523859, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
+            - {fileID: -177102505, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
+            - {fileID: 946147891, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
+            - {fileID: 1787455755, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
+            - {fileID: 1838416193, guid: 9a99b52bff2dfdd4686ab83f5e55dc4b, type: 3}
             _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: decb3c8a35a7f5a45865580950de6f1e, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -10
           _attackParticles: {fileID: 0}
@@ -190,16 +192,17 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
             - {fileID: 1040363315, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
             - {fileID: -189201233, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
             - {fileID: -2129378315, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
+            - {fileID: -256175967, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
+            - {fileID: 1476884976, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
+            - {fileID: -1365371366, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
+            - {fileID: -1686178834, guid: 815532f18c728c14dbfe5d4edfa093d1, type: 3}
             _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: 55c0a22c19a9f404fbb1a504e843c28a, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -10
           _attackParticles: {fileID: 0}
@@ -242,16 +245,17 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
             - {fileID: 682447879, guid: c9057fbb4677488469032d701f745433, type: 3}
             - {fileID: -440280906, guid: c9057fbb4677488469032d701f745433, type: 3}
             - {fileID: -1904777720, guid: c9057fbb4677488469032d701f745433, type: 3}
+            - {fileID: -1378084403, guid: c9057fbb4677488469032d701f745433, type: 3}
+            - {fileID: 714793513, guid: c9057fbb4677488469032d701f745433, type: 3}
+            - {fileID: -1823320170, guid: c9057fbb4677488469032d701f745433, type: 3}
+            - {fileID: -121823893, guid: c9057fbb4677488469032d701f745433, type: 3}
             _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: 260bd1a50d4b53147bb876e109e66089, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -10
           _attackParticles: {fileID: 0}
@@ -294,16 +298,17 @@ MonoBehaviour:
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
-            - {fileID: 0}
             - {fileID: -1151915712, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
             - {fileID: 1947704202, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
             - {fileID: -2115655598, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
+            - {fileID: 1780624389, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
+            - {fileID: -1806949267, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
+            - {fileID: -1382376804, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
+            - {fileID: -874857622, guid: 580ce2f60ca1d894a97da97998fc3010, type: 3}
             _framesPerSecond: 8
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: 68a9ca0336c82ef46bf5a5eaa509e181, type: 2}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: -10
           _attackParticles: {fileID: 0}

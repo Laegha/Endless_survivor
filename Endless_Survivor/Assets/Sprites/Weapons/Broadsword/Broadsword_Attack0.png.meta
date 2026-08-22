@@ -248,6 +248,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Broadsword_Attack0_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 65
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4692308, y: 0.275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8a133321479b342bcd14ffd2d2a560
+      internalID: -519488526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -265,6 +286,7 @@ TextureImporter:
       Broadsword_Attack0_3: 1400868815
       Broadsword_Attack0_4: -207829492
       Broadsword_Attack0_5: -614082419
+      Broadsword_Attack0_6: -519488526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

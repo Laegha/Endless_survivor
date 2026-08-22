@@ -49,11 +49,12 @@ MonoBehaviour:
         _attackAnimation:
           _animationName: DefaultAttack
           _frames:
+          - {fileID: -230454167, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           - {fileID: 295966228, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           - {fileID: -1416972509, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
-          - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
-          - {fileID: -1761358102, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+          - {fileID: -748175121, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
+          - {fileID: 1197759344, guid: 31ebb905160e99b4196b85fbe85b66a1, type: 3}
           _framesPerSecond: 9
           _endAnimationOnEnd: 0
           _priority: 0
@@ -78,13 +79,15 @@ MonoBehaviour:
             _animationName: Vfx
             _frames:
             - {fileID: 0}
+            - {fileID: 0}
             - {fileID: -382149833, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
             - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
-            - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
-            - {fileID: 2139243820, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
+            - {fileID: -1600284520, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
+            - {fileID: 825191808, guid: 507b325bf10565d45b26855f57b747b1, type: 3}
             _framesPerSecond: 9
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: decb3c8a35a7f5a45865580950de6f1e, type: 2}
           _dropVfxOnDamage: 1
           _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
