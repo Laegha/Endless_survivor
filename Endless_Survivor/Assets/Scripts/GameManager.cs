@@ -3,8 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -18,15 +21,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] MapGenerationConfig _mapGenerationConfig;
     [SerializeField] WorldConfigData _worldConfig;
     [SerializeField] WeaponStatsSpritesData _weaponStatsSprites;
+    [SerializeField] FullScreenPassRendererFeature _crtRenderFeature;
     UnlockedElementsHelper _unlockedElementsHelper = new();
     bool _usingCustomControls = false;
 
 
+    public AudioMixer Mixer { get { return _audioMixer; } }
     public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
     public WorldConfigData WorldConfig { get { return _worldConfig; } }
     public WeaponStatsSpritesData WeaponStatsSprites { get { return _weaponStatsSprites; } }
     public UnlockedElementsHelper UnlockedElementHelper {  get { return _unlockedElementsHelper; } }   
     public bool UsingCustomControls {  get { return _usingCustomControls; } set { _usingCustomControls = value; } }
+    public FullScreenPassRendererFeature CrtRenderFeature { get { return _crtRenderFeature; } }
 
     public static GameManager gm
     {
@@ -50,7 +56,15 @@ public class GameManager : MonoBehaviour
     }
     public void SetVolume(string volumeGroup, float volume)
     {
-        _audioMixer.SetFloat(volumeGroup, Mathf.Log10(20) * volume);
+        _audioMixer.SetFloat(volumeGroup, Mathf.Log10(volume) * 20);
+        //_audioMixer.SetFloat(volumeGroup, Mathf.Log10(20) * volume);
+    }
+    public float GetVolume01(string volumeGroup)
+    {
+        float volume;
+        GameManager.gm.Mixer.GetFloat(volumeGroup, out volume);
+        volume = Mathf.Pow(10,(volume / 20));
+        return volume;
     }
 
     public void RoutineRunner(IEnumerator routine)
