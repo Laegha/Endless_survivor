@@ -50,7 +50,7 @@ public class MaterialManager : MonoBehaviour
             if (_spritesCurrent[renderer] == null || renderer.sprite != null && _spritesCurrent[renderer].name != renderer.sprite.name)
                 _spritesCurrent[renderer] = renderer.sprite;
 
-            if (!forceMaterialUpdate)
+            if (!forceMaterialUpdate || _cleanSprites[renderer] == null)
                 _cleanSprites[renderer] = renderer.sprite;
             //get a clean input texture
             Texture2D inputTex = _cleanSprites[renderer].texture;

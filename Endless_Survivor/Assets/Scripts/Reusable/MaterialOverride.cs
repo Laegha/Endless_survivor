@@ -6,8 +6,9 @@ using UnityEngine;
 [Serializable]
 public class MaterialOverride
 {
+    public const int maxAuthority = 5;
     //authorities should go from 0 to 5
-    [Range(0, 5)]public int authority;
+    [Range(0, maxAuthority)]public int authority;
     public Material material;
 
     public MaterialOverride(int authority, Material material)
