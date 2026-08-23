@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
@@ -9,6 +10,7 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
     [Tooltip("Use this for enemies that are always invoked")][SerializeField] List<EnemyData>_fixedInvokedEnemies;
     [Tooltip("N of these enemies will be invoked, leave empty if none")][SerializeField] List<RouletteElementChance<EnemyData>>_randomInvokedEnemies;
     [Tooltip("The weighted ammounts if using random enemies, isn't necessary if all are fixed")][SerializeField] List<RouletteElementChance<int>> _randomInvokePossibleAmmounts;
+    [SerializeField] bool _invokedEnemiesKeepDrops = true;
     [SerializeField] CustomAnimation _invokingAnim;
     [SerializeField] int _invokeFrame;
     [SerializeField] float _hpMultiplier = 1.0f;
@@ -23,6 +25,7 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
         _fixedInvokedEnemies = invokeEnemiesOriginal._fixedInvokedEnemies;
         _randomInvokedEnemies = invokeEnemiesOriginal._randomInvokedEnemies;
         _randomInvokePossibleAmmounts = invokeEnemiesOriginal._randomInvokePossibleAmmounts;
+        _invokedEnemiesKeepDrops = invokeEnemiesOriginal._invokedEnemiesKeepDrops;
         _invokingAnim = new(EnemyControl.Animator, invokeEnemiesOriginal._invokingAnim);
         _invokeFrame = invokeEnemiesOriginal._invokeFrame;
         _invokationPattern = invokeEnemiesOriginal._invokationPattern;
@@ -61,8 +64,10 @@ public class InvokeEnemiesWithScaledHPAroundEnemyEnemyBehaviour : EnemyBehaviour
                 continue;
             var generatingTile = tilesInPos[0];
             var enemyObj = EnemySpawnManager.esm.SpawnEnemy(generatingTile, generatedEnemy);
-            enemyObj.GetComponent<EnemyControl>().EnemyHP.InitializeHP((int)(enemyObj.GetComponent<EnemyControl>().EnemyHP.MaxHP * _hpMultiplier)); 
-
+            enemyObj.GetComponent<EnemyControl>().EnemyHP.InitializeHP((int)(enemyObj.GetComponent<EnemyControl>().EnemyHP.MaxHP * _hpMultiplier));
+            if (_invokedEnemiesKeepDrops)
+                continue;
+            enemyObj.GetComponent<EnemyControl>().EnemyHP.DropablePickupChances = new();
         }
         SoundFXManager.sm.PlaySfx(_invokingSFX, EnemyControl.transform.position);
     }
