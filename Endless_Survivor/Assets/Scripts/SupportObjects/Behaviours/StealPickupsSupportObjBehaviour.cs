@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -44,6 +45,11 @@ public class StealPickupsSupportObjBehaviour : SupportObjectBehaviour
     void SearchPickup()
     {
         var pickupsOnGround = GameObject.FindObjectsOfType<PickupControl>();
+        if (pickupsOnGround.Count() == 0)
+        {
+            ObjControl.Animator.ChangeAnim(_failedTheftAnimation);
+            return;
+        }
         _stealingPickup = pickupsOnGround[Random.Range(0, pickupsOnGround.Length)];//maybe this should be a roulette, whith better pickups having a higher chance of being stolen
 
     }
