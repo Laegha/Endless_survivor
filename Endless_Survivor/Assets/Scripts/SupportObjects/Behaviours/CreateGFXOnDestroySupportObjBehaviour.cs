@@ -29,7 +29,10 @@ public class CreateGFXOnDestroySupportObjBehaviour : SupportObjectBehaviour
     {
         Vector2 createPosition = Utility.IsTileUsable((Vector2)ObjControl.transform.position + _creationOffset) ? (Vector2)ObjControl.transform.position + _creationOffset : ObjControl.transform.position;
         if (_createdAnimation != null)
-            AnimatedObjsManager.aom.SpawnAnimatedObj(new(_createdAnimation, createPosition, Quaternion.identity, _animationDuration, null, false, false));
+        {
+            CustomAnimator gfxAnimator = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_createdAnimation, createPosition, Quaternion.identity, _animationDuration, null, false, false));
+            gfxAnimator.GetComponent<RendererSortingByY>().Offset += _animatedObjRenderOffset;
+        }
         if (_createdParticles != null)
             ParticleManager.pm.SpawnParticles(new(_createdParticles, createPosition, Quaternion.identity, _particlesDuration));
     }       
