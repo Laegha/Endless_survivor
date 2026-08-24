@@ -15,11 +15,13 @@ public class WeaponAim : MonoBehaviour
     List<WeaponTarget> _exclusiveAttackTargets = new();
     static List<WeaponTarget> _sharedTargets = new();
     RaycastHit2D _currTrackingEnemyHit;
-    
-    
-    public List<WeaponTarget> ExclusiveAttackTargets {  get { return _exclusiveAttackTargets; } }
-    public static List<WeaponTarget> SharedAttackTargets {  get { return _sharedTargets; } }
-    public RaycastHit2D CurrTrackingEnemyHit { get {  return _currTrackingEnemyHit; } }
+
+    Transform _targetOverride;
+
+
+    public List<WeaponTarget> ExclusiveAttackTargets { get { return _exclusiveAttackTargets; } }
+    public static List<WeaponTarget> SharedAttackTargets { get { return _sharedTargets; } }
+    public RaycastHit2D CurrTrackingEnemyHit { get { return _currTrackingEnemyHit; } }
     List<WeaponTarget> TargetedObjs
     {
         get
@@ -43,23 +45,30 @@ public class WeaponAim : MonoBehaviour
 
     void Update()
     {
-        var attackTargetsCopy = new List<WeaponTarget>(_exclusiveAttackTargets);
-        foreach(var attackTarget in attackTargetsCopy)
-        { 
-            if(attackTarget.obj == null)
+        Transform target = null;
+        if (_targetOverride != null)
+            target = _targetOverride;
+        else
+        {
+            var attackTargetsCopy = new List<WeaponTarget>(_exclusiveAttackTargets);
+            foreach (var attackTarget in attackTargetsCopy)
             {
-                _exclusiveAttackTargets.Remove(attackTarget);
+                if (attackTarget.obj == null)
+                {
+                    _exclusiveAttackTargets.Remove(attackTarget);
+                }
             }
+
+            if (TargetedObjs.Count == 0)
+                return;
+
+            var targets = TargetedObjs;
+            targets.Sort(new WeaponTargetComparer(PlayerControl.pc.transform, _weapon.WeaponStats.Range));
+            target = targets[0].obj.transform;
         }
 
-        if (TargetedObjs.Count == 0)
-            return;
 
-        var targets = TargetedObjs;
-        targets.Sort(new WeaponTargetComparer(PlayerControl.pc.transform, _weapon.WeaponStats.Range));
-
-        Transform closestTarget = targets[0].obj.transform;
-        Vector2 direction = closestTarget.position - _directionBase.position;
+        Vector2 direction = target.position - _directionBase.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
@@ -68,13 +77,13 @@ public class WeaponAim : MonoBehaviour
         else
             _spriteRenderer.flipY = false;
 
-        Vector2 distDirection = (Vector2)closestTarget.position - _distCheckPosition();
-        var targetCol = closestTarget.GetComponent<Collider2D>();
+        Vector2 distDirection = (Vector2)target.position - _distCheckPosition();
+        var targetCol = target.GetComponent<Collider2D>();
         var allHitsInDir = Physics2D.RaycastAll(_distCheckPosition(), distDirection, Mathf.Infinity).ToList();
-        var closestTargetHit = allHitsInDir.Find(hit => hit.collider.transform.root == closestTarget);
-        if(!closestTargetHit)
+        var closestTargetHit = allHitsInDir.Find(hit => hit.collider.transform.root == target);
+        if (!closestTargetHit)
         {
-            Debug.LogError("The weapon " + transform.name + " targeted " + closestTarget.name + " but failed at casting a raycast");
+            Debug.LogError("The weapon " + transform.name + " targeted " + target.name + " but failed at casting a raycast");
             return;
         }
         _currTrackingEnemyHit = closestTargetHit;
@@ -92,4 +101,11 @@ public class WeaponAim : MonoBehaviour
     }
     public void ChangeDirectionBase(Transform newBase) => _directionBase = newBase;
     public void ChangeDistCheckPos(Func<Vector2> newPos) => _distCheckPosition = newPos;
+
+    public void SetTargetOverride(Transform newTarget, float duration)
+    {
+        _targetOverride = newTarget;
+        GameManager.gm.DelayAction(duration, () => _targetOverride = null, () => gameObject == null);
+    }
+
 }

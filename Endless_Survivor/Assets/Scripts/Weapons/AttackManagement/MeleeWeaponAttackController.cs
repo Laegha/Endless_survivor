@@ -97,6 +97,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
         _currHandMover = null;
         GameManager.gm.DelayAction(attackAnimDuration, () => {ReturnToOriginalPos();/* UnPauseAttackCooldown();*/ }, () => WeaponControl == null);
         GameManager.gm.RoutineRunner(StuckHandInAttackPos(() => (Vector2)enemy.position - handPosRelatedToEnemy - handPosRelatedToEnemy.normalized * _weaponStopDist, attackAnimDuration, enemy));
+        WeaponControl.WeaponAim.SetTargetOverride(enemy, attackAnimDuration);
     }
     IEnumerator StuckHandInAttackPos(Func<Vector2 >attackPos, float attackDuration, Transform enemy)
     {
@@ -104,7 +105,7 @@ public class MeleeWeaponAttackController : WeaponAttackController
         while(lapsedTime < attackDuration)
         {
             yield return null;
-            if(_hand == null || enemy == null /*|| WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject != originalTrackingEnemy*/)
+            if (_hand == null || enemy == null /*|| WeaponControl.WeaponAim.CurrTrackingEnemyHit.collider?.transform.root.gameObject != originalTrackingEnemy*/)
                 yield break;
             lapsedTime += Time.deltaTime;
             _hand.position = (attackPos());
