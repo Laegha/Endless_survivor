@@ -34,7 +34,7 @@ public class AddPointsAttackEffect : AttackEffect
     {
         if (hitEnemy.EnemyHP.RemainingHP > AffectedAttack.AttackDamage)
             return;
-        AddPoints(_pointsAddedOnStart);
+        AddPoints(_pointsAddedOnEnemyKill);
     }
     void AddPoints(int points)
     {
