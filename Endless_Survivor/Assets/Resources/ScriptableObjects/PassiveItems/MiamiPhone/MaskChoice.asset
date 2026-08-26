@@ -21,6 +21,7 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
+  _renderingOffset: 0
   _supportObjColliders: []
   references:
     version: 2
@@ -41,7 +42,7 @@ MonoBehaviour:
           _chance: 1
         - _rouletteElement: {fileID: 11400000, guid: adea001ea21596740a7fcaeb21cebefe, type: 2}
           _chance: 1
-        _optionsAmmount: 3
+        _optionsAmmount: 2
         _allowRepetitions: 0
         _pickupsSpawnPattern:
           rid: 5726233630126374924
