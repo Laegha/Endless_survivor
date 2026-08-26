@@ -299,15 +299,16 @@ public static class Utility
 
     public static Vector2 GetClosestAvailablePos(Vector2 startPos, Vector2 dir, float dist)
     {
-        Tile endTile = null;
-        while (endTile == null && dist >= 0)
+        Vector2 endTilePos = startPos + dir * dist;
+        endTilePos = new(Mathf.Floor(endTilePos.x), Mathf.Ceil(endTilePos.y));
+        Tile endTile = MapManager.mm.LoadedTiles.Find(x => !x.IsWall && (Vector2)x.transform.position == endTilePos);
+        while (endTile == null && dist > 0)
         {
-            Debug.Log(dist);
-            Vector2 endTilePos = startPos + dir * dist;
-            endTilePos = new(Mathf.Floor(endTilePos.x), Mathf.Ceil(endTilePos.y));
-            //Debug.Log(endTilePos);
-            endTile = MapManager.mm.LoadedTiles.Find(x => !x.IsWall && (Vector2)x.transform.position == endTilePos);
             dist--;
+            Debug.Log(dist);
+            endTilePos = startPos + dir * dist;
+            endTilePos = new(Mathf.Floor(endTilePos.x), Mathf.Ceil(endTilePos.y));
+            endTile = MapManager.mm.LoadedTiles.Find(x => !x.IsWall && (Vector2)x.transform.position == endTilePos);
         }
         return startPos + dir * dist;
     }
