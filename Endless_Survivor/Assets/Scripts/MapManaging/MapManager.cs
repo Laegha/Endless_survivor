@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class MapManager : MonoBehaviour
             GenerateBiome();
         }
         UpdateBiome();
+        GameManager.gm.DelayActionAFrame(() => GameManager.gm.DelayActionAFrame(EndGeneration, null), null);
+    }
+    public void EndGeneration()
+    {
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
     public void GenerateBiome()
     {

@@ -7,14 +7,10 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject _menuObject;
 
-    private void Start()
-    {
-        
-    }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("GameLoading");
     }
 
     public void ChangeMenu(GameObject menu)
