@@ -20,7 +20,8 @@ public class ILinePattern : IPattern
         
         for (int i = 0; i < count; i++)
         {
-            yield return startPos + newSpacing * i;
+            Vector2 finalPos = Utility.GetClosestAvailablePos(startPos, newSpacing.normalized, _spacing.magnitude * i);
+            yield return finalPos;
         }
     }
 }

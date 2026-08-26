@@ -18,7 +18,9 @@ public class ICirclePattern : IPattern
         for (int i = 0; i < count; i++)
         {
             float angle = _startAngle + step * i;
-            yield return origin + Utility.GetPointInCircle(_radius, angle);
+            Vector2 posDir = Utility.GetPointInCircle(1, angle);
+            Vector2 finalPos = Utility.GetClosestAvailablePos(origin, posDir, _radius);
+            yield return finalPos;
         }
     }
 }

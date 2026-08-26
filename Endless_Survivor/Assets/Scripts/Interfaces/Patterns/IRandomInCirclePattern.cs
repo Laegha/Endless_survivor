@@ -15,11 +15,11 @@ public class IRandomInCirclePattern : IPattern
         List<Vector2> result = new List<Vector2>();
         for(int i = 0; i < count; i++)
         {
-            var position = Random.insideUnitCircle * Random.Range(_circleRadiusMin, _circleRadiusMax);
+            var position = Utility.GetClosestAvailablePos(origin, Random.insideUnitCircle, Random.Range(_circleRadiusMin, _circleRadiusMax));
             int errorCounter = 0;
             while(IsTooClose(position, result))
             {
-                position = Random.insideUnitCircle * Random.Range(_circleRadiusMin, _circleRadiusMax);
+                position = Utility.GetClosestAvailablePos(origin, Random.insideUnitCircle, Random.Range(_circleRadiusMin, _circleRadiusMax));
                 errorCounter++;
                 if(errorCounter >= _triesToFindPosWithinDist)
                     return result;

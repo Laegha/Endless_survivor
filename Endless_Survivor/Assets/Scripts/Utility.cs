@@ -296,4 +296,19 @@ public static class Utility
     {
         return Mathf.Acos(Vector2.Dot(vector1, vector2) / vector1.magnitude * vector2.magnitude);
     }
+
+    public static Vector2 GetClosestAvailablePos(Vector2 startPos, Vector2 dir, float dist)
+    {
+        Tile endTile = null;
+        while (endTile == null && dist >= 0)
+        {
+            Debug.Log(dist);
+            Vector2 endTilePos = startPos + dir * dist;
+            endTilePos = new(Mathf.Floor(endTilePos.x), Mathf.Ceil(endTilePos.y));
+            //Debug.Log(endTilePos);
+            endTile = MapManager.mm.LoadedTiles.Find(x => !x.IsWall && (Vector2)x.transform.position == endTilePos);
+            dist--;
+        }
+        return startPos + dir * dist;
+    }
 }
