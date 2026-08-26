@@ -85,7 +85,7 @@ MonoBehaviour:
             - {fileID: 2137171227, guid: 30bc5225c13eeda419de7bc007d02f6a, type: 3}
             - {fileID: 1189928927, guid: 30bc5225c13eeda419de7bc007d02f6a, type: 3}
             - {fileID: -942903537, guid: 30bc5225c13eeda419de7bc007d02f6a, type: 3}
-            _framesPerSecond: 9
+            _framesPerSecond: 6
             _endAnimationOnEnd: 0
             _priority: 0
           _vfxMaterial: {fileID: 2100000, guid: decb3c8a35a7f5a45865580950de6f1e, type: 2}
