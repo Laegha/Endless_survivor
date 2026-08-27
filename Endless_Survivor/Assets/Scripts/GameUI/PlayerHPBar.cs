@@ -10,7 +10,7 @@ public class PlayerHPBar : MonoBehaviour
     [SerializeField] TextMeshProUGUI _hpText;
     public void SetHP(int remainingHP, int maxHP)
     {
-        _hpSlider.SetValue(remainingHP, maxHP);
+        _hpSlider.SetValue(Mathf.Clamp(remainingHP, 0, Mathf.Infinity), maxHP);
         _hpText.text = remainingHP + "/" + maxHP;
     }
 }
