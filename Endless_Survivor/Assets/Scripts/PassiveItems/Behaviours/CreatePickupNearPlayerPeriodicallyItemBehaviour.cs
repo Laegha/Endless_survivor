@@ -35,8 +35,7 @@ public class CreatePickupNearPlayerPeriodicallyItemBehaviour : PassiveItemBehavi
     void CreatePickup()
     {
         Vector2 itemPosOffset = new(Random.Range(0, 1f), Random.Range(0, 1f));
-        itemPosOffset = itemPosOffset.normalized * _distFromPlayer;
-        Vector2 itemPos = (Vector2)PlayerControl.pc.transform.position + itemPosOffset;
+        Vector2 itemPos = Utility.GetClosestAvailablePos(PlayerControl.pc.transform.position, itemPosOffset.normalized, _distFromPlayer);
         Utility.GetRouletteElement(_possibleCreatedPickup).SpawnPickupAfterAnim(itemPos);
     }
     public override void RemoveBehaviour()
