@@ -53,7 +53,7 @@ MonoBehaviour:
     _chance: 20
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: 002a2e262dc42604fab23c32cbd1f271, type: 2}
-      _spawnIntensity: 2
+      _spawnIntensity: 0
     _chance: 5
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: e250d9b9e8ea040458ce8a08f79804b1, type: 2}

@@ -30,8 +30,8 @@ MonoBehaviour:
     - rid: 5726233905716789250
       type: {class: EndByTimeStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _effectDuration: 3
+        _effectDuration: 8
     - rid: 7757969562384465922
       type: {class: WeaknessStatusEffect, ns: , asm: Assembly-CSharp}
       data:
-        _damageMultiplierAddition: 3
+        _damageMultiplierAddition: 2
