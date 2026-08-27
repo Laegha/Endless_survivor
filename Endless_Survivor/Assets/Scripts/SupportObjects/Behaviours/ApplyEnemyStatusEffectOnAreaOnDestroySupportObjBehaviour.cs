@@ -10,7 +10,6 @@ public class ApplyEnemyStatusEffectOnAreaOnDestroySupportObjBehaviour : SupportO
     [SerializeField] EnemyStatusEffectData[] _appliedStatusEffects;
     [SerializeField] float _applicationRadius;
     [SerializeField] ParticleSystem _applicationParticles;
-    [SerializeField] float _particlesDuration;
 
     public override void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
     {
@@ -19,10 +18,9 @@ public class ApplyEnemyStatusEffectOnAreaOnDestroySupportObjBehaviour : SupportO
         _appliedStatusEffects = applyEnemyStatusOriginal._appliedStatusEffects;
         _applicationRadius = applyEnemyStatusOriginal._applicationRadius;
         _applicationParticles = applyEnemyStatusOriginal._applicationParticles;
-        _particlesDuration = applyEnemyStatusOriginal._particlesDuration;
 
         OnDestroyed += ApplyStatusEffects;
-        ParticleConfig particleConfig = new(_applicationParticles, ObjControl.transform.position, Quaternion.identity, _particlesDuration, ObjControl.transform, false, false);
+        ParticleConfig particleConfig = new(_applicationParticles, ObjControl.transform.position, Quaternion.identity, _applicationParticles.main.duration, null, false, false);
         OnDestroyed += () => ParticleManager.pm.SpawnParticles(particleConfig);
     }
 
