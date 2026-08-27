@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30e80d4d93c19440a127411168a4c3a, type: 3}
   m_Name: RegularMap
   m_EditorClassIdentifier: 
-  _maxBiomes: 4
+  _maxBiomes: 3
   _biomeSize:
     min: 20
     max: 20
   _possibleBiomes:
   - {fileID: 11400000, guid: 7cb9607da77d6b84c8cb5ceeb384fd6b, type: 2}
+  - {fileID: 11400000, guid: 7b38084fc12c08c4b908bccd9e737184, type: 2}
+  - {fileID: 11400000, guid: 9f89918add5e7794aaa3727f3996f700, type: 2}
   _minBiomesToSpawnBosses: 1
   _bossInvokerPrefab: {fileID: 7222939410031201396, guid: c471c3fb619045a4c8e26e19b41b1d74, type: 3}
   _bossInvokerSize:
