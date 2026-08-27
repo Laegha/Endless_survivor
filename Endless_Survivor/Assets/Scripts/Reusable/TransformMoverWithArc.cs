@@ -31,6 +31,8 @@ public class TransformMoverWithArc
         Vector2 movement = _endPos - _initialPos;
         _horizontalDirection = movement.normalized;
         _verticalDirection = Utility.GetPerpendicularVector(_horizontalDirection);
+        if(_horizontalDirection.x < 0)
+            _verticalDirection *= -1;
         _totalDistance = movement.magnitude;
     }
 
