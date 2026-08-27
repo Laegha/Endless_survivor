@@ -26,9 +26,6 @@ public class FlipWhenAtRotationThresholdSupportObjBehaviour : SupportObjectBehav
     }
     void GetTr()
     {
-        Debug.Log("LENG " + ObjControl.GetComponentsInChildren<Transform>().Length);
-        foreach (var tr in ObjControl.GetComponentsInChildren<Transform>())
-            Debug.Log("CHILD " + tr.name);
         _rotationCheckTr = ObjControl.GetComponentsInChildren<Transform>()[_childRotationCheckIndex];
     }
     void CheckRotation()

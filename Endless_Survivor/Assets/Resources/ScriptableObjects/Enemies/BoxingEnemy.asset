@@ -145,7 +145,8 @@ MonoBehaviour:
         - Attack
         _distanceToTrigger: 1.3
         _triggerWhenFar: 0
-        _behavioursToWaitBeforeTriggeringAgain: []
+        _behavioursToWaitBeforeTriggeringAgain:
+        - Attack
     - rid: 8472847112956542976
       type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
