@@ -33,11 +33,8 @@ public class SpawnRandomPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEff
 
         if (!_throwInRandomDirUponSpawn)
             return;
-        Vector2 randDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        while (Physics2D.Raycast(initialPos, randDirection, _throwDist, LayerMask.NameToLayer("Map")))
-        {
-            randDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        }
+        
+        Vector2 randDirection = new Vector2(Mathf.Pow(-1, Random.Range(1, 2)), 0).normalized;
         Vector2 endPosition = initialPos + randDirection * _throwDist;
 
         TransformMoverWithArc pickupMover = new(initialPos, endPosition, _throwCurve, pickupComponent.transform, _throwSpeed);
