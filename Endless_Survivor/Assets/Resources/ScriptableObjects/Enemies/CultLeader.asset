@@ -83,7 +83,7 @@ MonoBehaviour:
         _overrideBehaviours: []
         _behavioursToTrigger:
         - MoveRandomly
-        - MoveAnimAbove20%HP
+        - MoveAnimAbove30%HP
         _duration:
           min: 2
           max: 2
@@ -101,6 +101,7 @@ MonoBehaviour:
           _chance: 3
         - _rouletteElement: 3
           _chance: 1
+        _invokedEnemiesKeepDrops: 1
         _invokingAnim:
           _animationName: Invoke
           _frames:
@@ -203,7 +204,7 @@ MonoBehaviour:
         _behaviourId: TriggerRandomAbove30%HP
         _overrideBehaviours: []
         _possibleBehaviours:
-        - DuringTimeTriggerMovementAbove20%HP
+        - DuringTimeTriggerMovementAbove30%HP
         - Invoke
         - AnimTriggerLightning
         _timeBetweenTriggers:
@@ -227,7 +228,7 @@ MonoBehaviour:
         _overrideBehaviours: []
         _behavioursToTrigger:
         - MoveRandomly
-        - MoveAnimBelow20%HP
+        - MoveAnimBelow30%HP
         _duration:
           min: 2
           max: 2
@@ -291,7 +292,6 @@ MonoBehaviour:
           _curveMultiplier: 0
           _lineDissapearSpeed: 7
           _distBetweenVertices: 1
-          _dissapearOnStart: 1
         _onShootSFX:
           _possibleSounds:
           - {fileID: 8300000, guid: 86e16053fedbbb243b65919af48a9cae, type: 3}

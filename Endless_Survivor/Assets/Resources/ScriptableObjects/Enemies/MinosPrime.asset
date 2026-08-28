@@ -342,6 +342,7 @@ MonoBehaviour:
         _overrideBehaviours:
         - ChasePlayer
         - ChainTriggerKicks
+        _warmupTime: 0
         _dashSpeed: 20
         _dashDistance: 8
         _dashForcePriority: 5
@@ -378,6 +379,35 @@ MonoBehaviour:
         _dashParticles: {fileID: 0}
         _particlesDuration: 0
         _particlesFollowEnemy: 0
+        _dashPreviewLineConfig:
+          _lineData: {fileID: 11400000, guid: b2da2045c94fe37499d721770dbea5a8, type: 2}
+          _lineCurve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          _curveMultiplier: 0
+          _lineDissapearSpeed: 20
+          _distBetweenVertices: 1
         _onDashSFX:
           _possibleSounds:
           - {fileID: 8300000, guid: 0d0b17138aba92549895c1340e24b0b0, type: 3}

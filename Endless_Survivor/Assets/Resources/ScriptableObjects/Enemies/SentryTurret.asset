@@ -163,7 +163,6 @@ MonoBehaviour:
           _curveMultiplier: 0
           _lineDissapearSpeed: 5
           _distBetweenVertices: 1
-          _dissapearOnStart: 1
         _onShootSFX:
           _possibleSounds:
           - {fileID: 8300000, guid: 6dc25ec4c87a9864f859bc0767476e24, type: 3}
@@ -176,7 +175,7 @@ MonoBehaviour:
         _behaviourId: OverTimeTriggerShoot
         _overrideBehaviours: []
         _timeBetweenTriggering:
-          min: 0.33
-          max: 0.33
+          min: 0.5
+          max: 0.5
         _triggeredBehaviours:
         - ShootPlayer
