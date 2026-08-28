@@ -11,6 +11,7 @@ public class EnemyStatusEffectManager : MonoBehaviour
     [SerializeField] SpriteGrid _statusIndicatorsGrid;
     readonly static int _materialAuthority =3;
     List<EnemyStatusEffectGroup> _currentEffects = new();
+    Dictionary<EnemyStatusEffectData, float> _effectsCooldowns = new();
     Dictionary<EnemyStatusEffect, StatusEffectGFX> _activeGfx = new();
 
     private void Start()
@@ -54,10 +55,13 @@ public class EnemyStatusEffectManager : MonoBehaviour
     }
     public void AddEffects(List<EnemyStatusEffect> originalEffects, EnemyStatusEffectData effectData)
     {
+        if (!_effectsCooldowns.ContainsKey(effectData))
+            _effectsCooldowns.Add(effectData, 0);
+        //the effects are delayed in case it affects attacks, so it doesn't affect the attack that applies the effect
         GameManager.gm.DelayActionAFrame(() =>
         {
             var currEffectStacks = _currentEffects.Where(x => x.effectData == effectData).Count();
-            if (currEffectStacks >= effectData.EffectMaxStacks)
+            if (currEffectStacks >= effectData.EffectMaxStacks || _effectsCooldowns[effectData] > 0)
                 return;
 
             List<EnemyStatusEffect> newEffects = new();
@@ -79,9 +83,18 @@ public class EnemyStatusEffectManager : MonoBehaviour
         var effectGroup = _currentEffects.Find(x => x == effect.ThisGroup);
         effectGroup.End();
         _currentEffects.Remove(effectGroup);
+        if(_currentEffects.Where(x => x.effectData).Count() == 0)
+            _effectsCooldowns.Remove(effectGroup.effectData);
     }
     private void Update()
     {
+        Dictionary<EnemyStatusEffectData, float> enemyCooldowns = new(_effectsCooldowns);
+        foreach (var cooldown in enemyCooldowns)
+        {
+            if (cooldown.Value <= 0)
+                continue;
+            _effectsCooldowns[cooldown.Key] -= Time.deltaTime;
+        }
         var activeEffects = new List<EnemyStatusEffectGroup>(_currentEffects);
         foreach (EnemyStatusEffectGroup effect in activeEffects) 
         {

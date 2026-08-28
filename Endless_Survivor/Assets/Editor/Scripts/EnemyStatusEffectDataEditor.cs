@@ -9,11 +9,13 @@ public class EnemyStatusEffectDataEditor : Editor
 {
     SerializedProperty _maxStacks;
     Dictionary<Type, bool> _addedStatusEffects = new();
+    SerializedProperty _cooldown;
 
     private void OnEnable()
     {
         List<Type> effectTypes = Utility.GetSubclassesOf(typeof(EnemyStatusEffect));
         _maxStacks = serializedObject.FindProperty("_effectMaxStacks");
+        _cooldown = serializedObject.FindProperty("_effectApplyCooldown");
         EnemyStatusEffectData statusEffectData = (EnemyStatusEffectData)target;
         effectTypes.ForEach(type => _addedStatusEffects.Add(type, statusEffectData.StatusEffects.Exists(effect => effect.GetType() == type)));
         statusEffectData.StatusEffects.RemoveAll(effect => effect == null);
@@ -21,6 +23,7 @@ public class EnemyStatusEffectDataEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(_maxStacks);
+        EditorGUILayout.PropertyField(_cooldown);
         serializedObject.ApplyModifiedProperties();
         serializedObject.Update();
         EnemyStatusEffectData statusEffectData = (EnemyStatusEffectData)target;

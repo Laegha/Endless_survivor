@@ -18,6 +18,7 @@ MonoBehaviour:
   - rid: 3262447238327304195
   - rid: 3262447238327304203
   _effectMaxStacks: 1
+  _effectApplyCooldown: 4
   references:
     version: 2
     RefIds:

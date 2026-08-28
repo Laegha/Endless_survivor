@@ -15,14 +15,19 @@ MonoBehaviour:
   _statusEffects:
   - rid: 1204507988447199232
   - rid: 1204507988447199235
+  - rid: 281716421118132224
   _effectMaxStacks: 1
+  _effectApplyCooldown: 8
   references:
     version: 2
     RefIds:
+    - rid: 281716421118132224
+      type: {class: EndByTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 5
     - rid: 1204507988447199232
       type: {class: StunEnemyStatusEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _effectDuration: 2
+      data: 
     - rid: 1204507988447199235
       type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
       data:
