@@ -20,6 +20,7 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
     [Range(0, 1)][SerializeField] float _cycleMinSpeed;
     [Range(0, 1)][SerializeField] float _cycleMaxSpeed;
     [SerializeField] bool _resetCycleIfNotShootForTime;
+    [SerializeField] LineXConfig _lineConfig;
     [SerializeField] SFXInfo _startShootingSFX;
 
     const int _curveLength = 1;
@@ -46,6 +47,7 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
         _cycleMinSpeed = Mathf.Clamp(shootInSprayOriginal._cycleMinSpeed, 0, shootInSprayOriginal._cycleMaxSpeed);
         _cycleMaxSpeed = Mathf.Clamp(shootInSprayOriginal._cycleMaxSpeed, shootInSprayOriginal._cycleMinSpeed, Mathf.Infinity);
 	    _resetCycleIfNotShootForTime = shootInSprayOriginal._resetCycleIfNotShootForTime;
+        _lineConfig = shootInSprayOriginal._lineConfig;
         _startShootingSFX = shootInSprayOriginal._startShootingSFX;
     }
 
@@ -91,7 +93,18 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
         Vector2 shootingPosition = (Vector2)EnemyControl.transform.position + bulletLocalPos;
         EnemyProyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, bulletAngle)).GetComponent<EnemyProyectile>();
         proyectile.Initiate(_damage, _proyectileLifetime, _proyectileData, ApplyStatusEffects);
-        
+
+
+
+        if (_lineConfig.LineXData != null)
+        {
+            float proyectileMaxDist = _proyectileData.ProyectileSpeed * _proyectileLifetime;
+            Vector2 proyectileDir = proyectile.transform.right;
+            var distRay = Physics2D.Raycast(shootingPosition, proyectileDir, proyectileMaxDist, LayerMask.GetMask("Map"));
+            float proyectileDist = distRay ? (shootingPosition - distRay.point).magnitude : proyectileMaxDist;
+            LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, true, () => proyectile == null, proyectile.transform);
+            LineXManager.lm.DrawLine(lineConfig);
+        }
     }
 
 
