@@ -17,7 +17,7 @@ public class SceneLoadingFunctions : MonoBehaviour
     }
     public void Game()
     {
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        SceneManager.LoadScene("GameLoading", LoadSceneMode.Single);
     }
     public void GameOver()
     {
