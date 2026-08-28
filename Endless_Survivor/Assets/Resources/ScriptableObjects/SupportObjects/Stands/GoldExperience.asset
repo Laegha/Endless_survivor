@@ -31,7 +31,6 @@ MonoBehaviour:
       type: {class: FollowPlayerInRowSupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _rowData: {fileID: 11400000, guid: 7fbeb773c4853174aaa1ac83c49ac02d, type: 2}
-        _rowOffsetFromPlayer: {x: -0.45, y: 0.81}
         _idleAnimation:
           _animationName: 
           _frames: []
