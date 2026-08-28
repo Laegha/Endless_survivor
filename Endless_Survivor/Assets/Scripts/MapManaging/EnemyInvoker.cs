@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyInvoker : MonoBehaviour
@@ -59,8 +60,11 @@ public class EnemyInvoker : MonoBehaviour
     void SpawnEnemy()
     {
         _spawningEnemies.Sort((a, b) => a.priority.CompareTo(b.priority));
+        Vector2 myTilePos = new(Mathf.Floor(transform.position.x), Mathf.Floor(transform.position.y));
+        Tile myTile = MapManager.mm.GenerationHandler.TileMatrix[myTilePos][0];
         EnemyData spawningEnemy = _spawningEnemies[0].enemyInvokationInfo.InvokedEnemy;
-        var spawnTile = EnemySpawnManager.esm.GetEnemyPosition();
+        var biomeTiles = MapManager.mm.LoadedTiles.Where(tile => tile.TileBiome == myTile.TileBiome).ToList();
+        var spawnTile = biomeTiles[UnityEngine.Random.Range(0, biomeTiles.Count)];
         var spawnedEnemy = EnemySpawnManager.esm.SpawnEnemy(spawnTile, spawningEnemy);
 
         var spawnedEnemyControl = spawnedEnemy.GetComponent<EnemyControl>();
