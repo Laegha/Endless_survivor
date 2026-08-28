@@ -61,12 +61,15 @@ public class ShootPlayerEnemyBehaviour : EnemyBehaviour
         EnemyProyectile proyectile = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["EnemyProyectile"], shootingPosition, Quaternion.Euler(0, 0, angle)).GetComponent<EnemyProyectile>();
         proyectile.Initiate(_damage, _proyectileLifetime, _proyectileData);
         
-        float proyectileMaxDist = _proyectileData.ProyectileSpeed * _proyectileLifetime;
-        Vector2 proyectileDir = proyectile.transform.right;
-        var distRay = Physics2D.Raycast(shootingPosition, proyectileDir, proyectileMaxDist, LayerMask.GetMask("Map"));
-        float proyectileDist = distRay ? (shootingPosition - distRay.point).magnitude : proyectileMaxDist;
-        LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, true, () => proyectile == null, proyectile.transform);
-        LineXManager.lm.DrawLine(lineConfig);
+        if (_lineConfig.LineXData != null)
+        {
+            float proyectileMaxDist = _proyectileData.ProyectileSpeed * _proyectileLifetime;
+            Vector2 proyectileDir = proyectile.transform.right;
+            var distRay = Physics2D.Raycast(shootingPosition, proyectileDir, proyectileMaxDist, LayerMask.GetMask("Map"));
+            float proyectileDist = distRay ? (shootingPosition - distRay.point).magnitude : proyectileMaxDist;
+            LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, true, () => proyectile == null, proyectile.transform);
+            LineXManager.lm.DrawLine(lineConfig);
+        }
 
         SoundFXManager.sm.PlaySfx(_onShootSFX, EnemyControl.transform.position);
 

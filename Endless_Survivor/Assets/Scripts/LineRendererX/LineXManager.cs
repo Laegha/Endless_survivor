@@ -20,6 +20,8 @@ public class LineXManager : MonoBehaviour
 
     public LineXInfo DrawLine(LineXConfig lineConfig)
     {
+        if(lineConfig.LineXData == null)
+            return null;
         LineXInfo lineInfo = new(lineConfig.LineXData, lineConfig.LineCurve, lineConfig.CurveMultiplier, lineConfig.LineDissapearSpeed, lineConfig.DistBetweenVertices, lineConfig.InitialPos, lineConfig.HorizontalDir, lineConfig.TotalDist, lineConfig.AbortCondition, lineConfig.FollowingObj);
         var createdLineObj = GameObject.Instantiate(_linePrefab);
         createdLineObj.GetComponent<LineSortingOrderByY>().Offset = lineConfig.LineXData.LineRenderOffset;
