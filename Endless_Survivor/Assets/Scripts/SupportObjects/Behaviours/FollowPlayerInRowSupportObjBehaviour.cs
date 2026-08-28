@@ -87,7 +87,6 @@ public class FollowPlayerInRowSupportObjBehaviour : SupportObjectBehaviour
         //make offset adjust with angle (if player.velocity is (0, 1), invert offset, if it is (1, 0) rotate it 90º) 
         float playerAngle = playerVelocity == Vector2.zero ? 0 : Utility.GetAngleFromPointInCircle(playerVelocity.normalized, false) - 270;
         Vector2 rotatedStartPos = Utility.RotatePoint(_rowData.RowOffsetFromPlayer, playerAngle);
-        Debug.Log("row angle " + Utility.GetAngleFromPointInCircle(Vector2.down, false));
         Vector2 startPos = playerPosBufferCopy[0] + rotatedStartPos;
         return startPos;
     }
