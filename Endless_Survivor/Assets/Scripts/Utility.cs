@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public static class Utility
 {
@@ -319,5 +322,31 @@ public static class Utility
         float newY = point.x * Mathf.Sin(angle) + point.y * Mathf.Cos(angle);
 
         return new(newX, newY);
+    }
+    public static async Task<string> ReadJson(string path)
+    {
+        string jsonData = "";
+
+        if (path.StartsWith("jar") || path.StartsWith("http"))
+        {
+            UnityWebRequest request = UnityWebRequest.Get(path);
+            //await request.SendWebRequest();
+            var operation = request.SendWebRequest();
+            while (!operation.isDone)
+            {
+                await Task.Yield();
+
+            }
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                jsonData = request.downloadHandler.text;
+            }
+        }
+        else
+        {
+            jsonData = File.ReadAllText(path);
+        }
+        return jsonData;
     }
 }

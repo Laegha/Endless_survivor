@@ -28,7 +28,7 @@ public class PlayerInputReader : MonoBehaviour
         //if (Input.GetKey(KeyCode.A))
             //input += Vector2.left;
 
-        if (GameManager.gm.UsingCustomControls)
+        if (GameManager.gm.SettingsHandler.UsingCustomControls)
             input = _touchControls.DraggingDirection;
         else
             input = new Vector2(_joystick.Horizontal, _joystick.Vertical);
@@ -36,7 +36,7 @@ public class PlayerInputReader : MonoBehaviour
     }
     public void UpdateMobileControls()
     {
-        if (GameManager.gm.UsingCustomControls)
+        if (GameManager.gm.SettingsHandler.UsingCustomControls)
         {
             _joystick.gameObject.SetActive(false);
             _touchControls.gameObject.SetActive(true);
