@@ -128,10 +128,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: GoldSword_Attack_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 43
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: GoldSword_Attack_2
       rect:
         serializedVersion: 2
-        x: 78
+        x: 86
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: GoldSword_Attack_3
       rect:
         serializedVersion: 2
-        x: 117
+        x: 129
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,6 +202,48 @@ TextureImporter:
       bones: []
       spriteID: a26b4f4683961614eb465500149179f7
       internalID: 2088844989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldSword_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 43
+        height: 40
+      alignment: 9
+      pivot: {x: 0.3837209, y: 0.3875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a4aa00c060f61418975b0cd8fd1930
+      internalID: -189148471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoldSword_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 43
+        height: 40
+      alignment: 9
+      pivot: {x: 0.3837209, y: 0.3875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1662d1d16868e1843bdfb42bc3b56321
+      internalID: 1493126928
       vertices: []
       indices: 
       edges: []
@@ -221,6 +263,8 @@ TextureImporter:
       GoldSword_Attack_1: 1220747096
       GoldSword_Attack_2: 1944273524
       GoldSword_Attack_3: 2088844989
+      GoldSword_Attack_4: -189148471
+      GoldSword_Attack_5: 1493126928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

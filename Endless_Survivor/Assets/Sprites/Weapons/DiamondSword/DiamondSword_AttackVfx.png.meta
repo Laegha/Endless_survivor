@@ -126,12 +126,12 @@ TextureImporter:
       name: DiamondSword_AttackVfx_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 129
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: DiamondSword_AttackVfx_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 172
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: DiamondSword_AttackVfx_2
       rect:
         serializedVersion: 2
-        x: 78
+        x: 215
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 7de7406a0d2da974ab0529fe7577889e, type: 3}
+      name: _Emission
     nameFileIdTable:
       DiamondSword_AttackVfx_0: 1722417561
       DiamondSword_AttackVfx_1: 252362737

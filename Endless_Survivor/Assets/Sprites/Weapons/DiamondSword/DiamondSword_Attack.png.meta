@@ -128,10 +128,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: DiamondSword_Attack_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 43
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: DiamondSword_Attack_2
       rect:
         serializedVersion: 2
-        x: 78
+        x: 86
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: DiamondSword_Attack_3
       rect:
         serializedVersion: 2
-        x: 117
+        x: 129
         y: 0
-        width: 39
-        height: 31
+        width: 43
+        height: 40
       alignment: 9
-      pivot: {x: 0.4230769, y: 0.2580645}
+      pivot: {x: 0.3837209, y: 0.3875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,6 +202,48 @@ TextureImporter:
       bones: []
       spriteID: 61c2b1d6cde1ed84eb81e1b3e0e5934a
       internalID: -314433254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiamondSword_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 43
+        height: 40
+      alignment: 9
+      pivot: {x: 0.3837209, y: 0.3875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bc0673490d1fa41adfbf50d41ad26f
+      internalID: 519129480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiamondSword_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 43
+        height: 40
+      alignment: 9
+      pivot: {x: 0.3837209, y: 0.3875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15933707a65bfe24b95c2a65cdcf0731
+      internalID: 1694678668
       vertices: []
       indices: 
       edges: []
@@ -221,6 +263,8 @@ TextureImporter:
       DiamondSword_Attack_1: 1354855505
       DiamondSword_Attack_2: -462004825
       DiamondSword_Attack_3: -314433254
+      DiamondSword_Attack_4: 519129480
+      DiamondSword_Attack_5: 1694678668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
