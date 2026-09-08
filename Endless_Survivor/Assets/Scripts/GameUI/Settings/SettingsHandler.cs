@@ -42,18 +42,20 @@ public class SettingsHandler
     {
         string playerPrefs = await Utility.ReadJson(_settingsPath);
         var settingsInfo = JsonConvert.DeserializeObject<SettingsJsonInfo>(playerPrefs);
-        SetVolume(masterVolumeGroup, settingsInfo.master);
-        SetVolume(sfxVolumeGroup, settingsInfo.sfx);
-        SetVolume(musicVolumeGroup, settingsInfo.music);
+        SetVolume(masterVolumeGroup, settingsInfo.master, false);
+        SetVolume(sfxVolumeGroup, settingsInfo.sfx, false);
+        SetVolume(musicVolumeGroup, settingsInfo.music, false);
         _usingCustomControls = settingsInfo.customControls;
         _usingCrt = settingsInfo.crt;
         _crtRenderFeature.SetActive(_usingCrt);
+        UpdateJson();
     }
 
-    public void SetVolume(string volumeGroup, float volume)
+    public void SetVolume(string volumeGroup, float volume, bool updateJson = true)
     {
         _audioMixer.SetFloat(volumeGroup, Mathf.Log10(volume) * 20);
-        UpdateJson();
+        if(updateJson)
+            UpdateJson();
         //_audioMixer.SetFloat(volumeGroup, Mathf.Log10(20) * volume);
     }
     public float GetVolume01(string volumeGroup)

@@ -14,7 +14,6 @@ public class SettingsMenu : MonoBehaviour
         _menuObj.SetActive(true);
 
         //Set timescale to 0 with the manager
-
         SetSlider(_masterSlider, SettingsHandler.masterVolumeGroup);
         SetSlider(_sfxSlider, SettingsHandler.sfxVolumeGroup);
         SetSlider(_musicSlider, SettingsHandler.musicVolumeGroup);
@@ -29,7 +28,7 @@ public class SettingsMenu : MonoBehaviour
     void SetSlider(Slider slider, string valueName)
     {
         float volume = GameManager.gm.SettingsHandler.GetVolume01(valueName);
-        slider.value = volume;
+        slider.SetValueWithoutNotify(volume);
     }
     public void SetMasterVolume()
     {
