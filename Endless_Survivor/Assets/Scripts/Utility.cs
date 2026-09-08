@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
+using static UnityEngine.AudioSettings;
 
 public static class Utility
 {
@@ -323,11 +324,29 @@ public static class Utility
 
         return new(newX, newY);
     }
-    public static async Task<string> ReadJson(string path)
+    public static async Task<string> ReadJson(string fileName)
     {
         string jsonData = "";
+        string path = Path.Combine(Application.persistentDataPath, fileName);
+        string streamingPath = Path.Combine(Application.streamingAssetsPath, fileName);
+        bool isMobile = streamingPath.StartsWith("jar") || streamingPath.StartsWith("http");
+        if (!File.Exists(path))
+        {
+            CopyDefaultJsonData(fileName);
+            jsonData = await ReadJsonPath(streamingPath, isMobile);
+        }
+        else
+        {
+            jsonData = await ReadJsonPath(path, isMobile);
 
-        if (path.StartsWith("jar") || path.StartsWith("http"))
+        }
+
+        return jsonData;
+    }
+    public static async Task<string> ReadJsonPath(string path, bool isMobile)
+    {
+        string jsonData = "";
+        if (isMobile)
         {
             UnityWebRequest request = UnityWebRequest.Get(path);
             //await request.SendWebRequest();
@@ -345,8 +364,21 @@ public static class Utility
         }
         else
         {
-            jsonData = File.ReadAllText(path);
+            jsonData = await File.ReadAllTextAsync(path);
         }
         return jsonData;
+    }
+    public static void WriteJson(string fileName, string jsonData)
+    {
+        string path = Path.Combine(Application.persistentDataPath, fileName);
+        File.WriteAllTextAsync(path, jsonData);
+    }
+    public async static void CopyDefaultJsonData(string fileName)
+    {
+        string streamingPath = Path.Combine(Application.streamingAssetsPath, fileName);
+        bool isMobile = streamingPath.StartsWith("jar") || streamingPath.StartsWith("http");
+        string defaultJsonData = await ReadJsonPath(streamingPath, isMobile);
+
+        WriteJson(fileName, defaultJsonData);
     }
 }

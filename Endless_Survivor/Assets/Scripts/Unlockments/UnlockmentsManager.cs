@@ -1,26 +1,18 @@
 using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Networking;
-using static UnityEngine.Rendering.DebugUI;
 
 public static class UnlockmentsManager
 {
-    static string _charactersFileName = "characters.json";
-    static string _weaponsFileName = "weapons.json";
-    static string _passiveItemsFileName = "passive_items.json";
-    static string _gachaCoinsFileName = "available_gacha_coins.json";
+    public static string charactersFileName = "characters.json";
+    public static string weaponsFileName = "weapons.json";
+    public static string passiveItemsFileName = "passive_items.json";
+    public static string _gachaCoinsFileName = "available_gacha_coins.json";
 
-    static string _charactersPath = Path.Combine(Application.streamingAssetsPath, _charactersFileName);
-    static string _weaponsPath = Path.Combine(Application.streamingAssetsPath, _weaponsFileName);
-    static string _passiveItemsPath = Path.Combine(Application.streamingAssetsPath, _passiveItemsFileName);
-    static string _gachaCoinsPath = Path.Combine(Application.streamingAssetsPath, _gachaCoinsFileName);
 
     //static string _charactersJson = File.ReadAllText(_charactersPath);
     //static string _weaponsJson = File.ReadAllText(_weaponsPath);
@@ -30,16 +22,15 @@ public static class UnlockmentsManager
 
     static int _maxCoins = 9999999;
 
-    public static async void GetGachaCoins(Action<int> callback)
+    public static async Task<int> GetGachaCoins()
     {
-        var jsonData = await Utility.ReadJson(_gachaCoinsPath);
+        var jsonData = await Utility.ReadJson(_gachaCoinsFileName);
         int collectedCoins = JsonConvert.DeserializeObject<int>(jsonData);
-        callback?.Invoke(collectedCoins);
-
+        return collectedCoins;
     }
     public static async void AddGachaCoins(int addedCoins)
     {
-        var jsonData = await Utility.ReadJson(_gachaCoinsPath);
+        var jsonData = await Utility.ReadJson(_gachaCoinsFileName);
         int collectedCoins = JsonConvert.DeserializeObject<int>(jsonData);
         collectedCoins += addedCoins;
         if (collectedCoins > _maxCoins)
@@ -47,54 +38,54 @@ public static class UnlockmentsManager
         else if (collectedCoins < 0)
             collectedCoins = 0;
         string collectedCoinsJson = JsonConvert.SerializeObject(collectedCoins, Formatting.Indented);
-        File.WriteAllText(_gachaCoinsPath, collectedCoinsJson);
+        Utility.WriteJson(_gachaCoinsFileName, collectedCoinsJson);
     }
 
     //Weapons
     public static async Task<List<ElementIsNewInfo<WeaponData>>> UnlockedWeapons()
     {
-        var jsonData = await Utility.ReadJson(_weaponsPath);
+        var jsonData = await Utility.ReadJson(weaponsFileName);
         var weaponList = GetUnlockedElementsFromJsom<WeaponData>(jsonData);
         return weaponList;
     }
     public static async Task<List<WeaponData>> LockedWeapons()
     {
-        var jsonData = await Utility.ReadJson(_weaponsPath);
+        var jsonData = await Utility.ReadJson(weaponsFileName);
         var weaponList = GetListOfLockedElementsFromJson<WeaponData>(jsonData);
         return weaponList;
     }
-    public static void UnlockWeapon(WeaponData unlockedWeapon) => AlterElementInfoOnJson(unlockedWeapon, _weaponsPath, true, true);
-    public static void SetNotNewWeapon(WeaponData unlockedWeapon) => AlterElementInfoOnJson(unlockedWeapon, _weaponsPath, true, false);
+    public static void UnlockWeapon(WeaponData unlockedWeapon) => AlterElementInfoOnJson(unlockedWeapon, weaponsFileName, true, true);
+    public static void SetNotNewWeapon(WeaponData unlockedWeapon) => AlterElementInfoOnJson(unlockedWeapon, weaponsFileName, true, false);
     //Characters
     public static async Task<List<ElementIsNewInfo<CharacterData>>> UnlockedCharacters()
     {
-        var jsonData = await Utility.ReadJson(_charactersPath);
+        var jsonData = await Utility.ReadJson(charactersFileName);
         var characterList = GetUnlockedElementsFromJsom<CharacterData>(jsonData);
         return characterList;
     }
     public static async Task<List<CharacterData>> LockedCharacters()
     {
-        var jsonData = await Utility.ReadJson(_charactersPath);
+        var jsonData = await Utility.ReadJson(charactersFileName);
         var characterList = GetListOfLockedElementsFromJson<CharacterData>(jsonData);
         return characterList;
     }
-    public static void UnlockCharacter(CharacterData unlockedCharacter) => AlterElementInfoOnJson(unlockedCharacter, _charactersPath, true, true);
-    public static void SetNotNewCharacter(CharacterData unlockedCharacter) => AlterElementInfoOnJson(unlockedCharacter, _charactersPath, true, false);
+    public static void UnlockCharacter(CharacterData unlockedCharacter) => AlterElementInfoOnJson(unlockedCharacter, charactersFileName, true, true);
+    public static void SetNotNewCharacter(CharacterData unlockedCharacter) => AlterElementInfoOnJson(unlockedCharacter, charactersFileName, true, false);
     //Passive Items
     public static async Task<List<ElementIsNewInfo<PassiveItemData>>> UnlockedPassiveItems()
     {
-        var jsonData = await Utility.ReadJson(_passiveItemsPath);
+        var jsonData = await Utility.ReadJson(passiveItemsFileName);
         var passiveList = GetUnlockedElementsFromJsom<PassiveItemData>(jsonData);
         return passiveList;
     }
     public static async Task<List<PassiveItemData>> LockedPassiveItems()
     {
-        var jsonData = await Utility.ReadJson(_passiveItemsPath);
+        var jsonData = await Utility.ReadJson(passiveItemsFileName);
         var passiveItemList = GetListOfLockedElementsFromJson<PassiveItemData>(jsonData);
         return passiveItemList;
     }
-    public static void UnlockPassiveItem(PassiveItemData unlockedPassiveItem) => AlterElementInfoOnJson(unlockedPassiveItem, _passiveItemsPath, true, true);
-    public static void SetNotNewPassiveItem(PassiveItemData unlockedPassiveItem) => AlterElementInfoOnJson(unlockedPassiveItem, _passiveItemsPath, true, false);
+    public static void UnlockPassiveItem(PassiveItemData unlockedPassiveItem) => AlterElementInfoOnJson(unlockedPassiveItem, passiveItemsFileName, true, true);
+    public static void SetNotNewPassiveItem(PassiveItemData unlockedPassiveItem) => AlterElementInfoOnJson(unlockedPassiveItem, passiveItemsFileName, true, false);
 
     static List<ElementIsNewInfo<T>> GetUnlockedElementsFromJsom<T>(string json) where T : ScriptableObject
     {
@@ -121,9 +112,9 @@ public static class UnlockmentsManager
         List<T> requestedDatas = allDatas.Where(data => jsonDatas.Exists(x => x.fileName == data.name) && !jsonDatas.Find(x => x.fileName == data.name).isUnlocked).ToList();
         return requestedDatas;
     }
-    static async void AlterElementInfoOnJson<T>(T unlockedData, string jsonPath, bool unlockmentState, bool isNewState) where T : ScriptableObject
+    static async void AlterElementInfoOnJson<T>(T unlockedData, string fileName, bool unlockmentState, bool isNewState) where T : ScriptableObject
     {
-        var json = await Utility.ReadJson(jsonPath);
+        var json = await Utility.ReadJson(fileName);
         List<JsonElementInfo> jsonDatas = JsonConvert.DeserializeObject<List<JsonElementInfo>>(json);
         var alteredElement = jsonDatas.Find(x => x.fileName == unlockedData.name);
         if (alteredElement == null)
@@ -131,7 +122,7 @@ public static class UnlockmentsManager
         alteredElement.isUnlocked = unlockmentState;
         alteredElement.isNew = isNewState;
         string newJson = JsonConvert.SerializeObject(jsonDatas, Formatting.Indented);
-        File.WriteAllText(jsonPath, newJson);
+        Utility.WriteJson(fileName, newJson);
         GameManager.gm.UnlockedElementHelper.UpdateAll();
     }
 }

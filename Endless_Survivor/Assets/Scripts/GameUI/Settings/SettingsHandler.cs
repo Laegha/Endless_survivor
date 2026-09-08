@@ -10,7 +10,7 @@ using UnityEngine.Audio;
 [Serializable]
 public class SettingsHandler
 {
-    static string _settingsPath = Path.Combine(Application.streamingAssetsPath, "player_prefs.json");
+    static string _settingsPath = "player_prefs.json";
 
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] FullScreenPassRendererFeature _crtRenderFeature;
@@ -78,6 +78,6 @@ public class SettingsHandler
     {
         SettingsJsonInfo jsonInfo = _jsonInfo;
         string newJson = JsonConvert.SerializeObject(jsonInfo, Formatting.Indented);
-        File.WriteAllText(_settingsPath, newJson);
+        Utility.WriteJson(_settingsPath, newJson);
     }
 }
