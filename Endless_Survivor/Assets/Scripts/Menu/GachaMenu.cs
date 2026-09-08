@@ -2,6 +2,7 @@ using Microsoft.Win32.SafeHandles;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -55,8 +56,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
         _menuObj.SetActive(true);
         if(_catAnimator != null)
             _catAnimator.runtimeAnimatorController = Utility.GetRouletteElement(_catAnimatorControllers);
-        
-        UnlockmentsManager.GetGachaCoins((int coins) => _availableCoinsDisplay.text = "x " +  coins);
+        _availableCoinsDisplay.text = "x " + GameManager.gm.UnlockedElementHelper.CollectedGachaCoins;
     }
     public void ToggleSkipAnimation()
     {
@@ -68,7 +68,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     {
         if (_isUsing)
             return;
-        UnlockmentsManager.GetGachaCoins((int coins) => _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost);
+        _enoughCoinsToGacha = GameManager.gm.UnlockedElementHelper.CollectedGachaCoins > GachaUnlocker.gachaCoinCost;
         if (!_enoughCoinsToGacha)
         {
             //play sfx
@@ -115,11 +115,9 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
             _unlockedElementName = unlockedPassiveItem.ItemName;
             _unlockedElementSprite = unlockedPassiveItem.ItemSprite;
         }
-        UnlockmentsManager.GetGachaCoins((int coins) =>
-        {
-            _enoughCoinsToGacha = coins > GachaUnlocker.gachaCoinCost;
-            _availableCoinsDisplay.text = "x" + coins;
-        });
+
+        _availableCoinsDisplay.text = "x" + GameManager.gm.UnlockedElementHelper.CollectedGachaCoins;
+
         Color ballColor = Utility.GetRouletteElement(_gachaBallColors);
         foreach (var ballRenderer in _gachaBallRenderers)
         {

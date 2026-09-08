@@ -61,7 +61,7 @@ public class GameOverScreen : MonoBehaviour
         _earnedKillCoins = Mathf.Clamp(_earnedKillCoins, 0, _maxKillCoins);
 
         var totalEarnedCoins = _earnedDamageCoins + _earnedKillCoins + _earnedWaveCoins;
-        UnlockmentsManager.AddGachaCoins(totalEarnedCoins);
+        GameManager.gm.UnlockedElementHelper.CollectedGachaCoins += totalEarnedCoins;
         _totalEarnedCoins = totalEarnedCoins;
 
     }

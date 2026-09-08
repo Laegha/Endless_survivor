@@ -13,6 +13,7 @@ public static class GachaUnlocker
     public static int gachaCoinCost = 1;
     public static ScriptableObject UnlockRandomElement()
     {
+        GameManager.gm.UnlockedElementHelper.CollectedGachaCoins--;
         List<ScriptableObject> unlockableElements = new List<ScriptableObject>();
         var characters = GameManager.gm.UnlockedElementHelper.LockedCharacters;
         var weapons = GameManager.gm.UnlockedElementHelper.LockedWeapons;
@@ -42,7 +43,6 @@ public static class GachaUnlocker
             UnlockmentsManager.UnlockPassiveItem(unlockedElement as PassiveItemData);
             GameManager.gm.UnlockedElementHelper.UpdatePassives();
         }
-        UnlockmentsManager.AddGachaCoins(-1);
         return unlockedElement;
     }
 }
