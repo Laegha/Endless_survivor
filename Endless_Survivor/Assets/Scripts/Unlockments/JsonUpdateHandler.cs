@@ -17,7 +17,7 @@ public static class JsonUpdateHandler
     async static Task UpdateElementJson(string fileName)
     {
         string streamingJsonPath = Path.Combine(Application.streamingAssetsPath, fileName);
-        string streamingJsonData = await Utility.ReadJsonPath(streamingJsonPath, streamingJsonPath.StartsWith("jar") || streamingJsonPath.StartsWith("http"));
+        string streamingJsonData = await Utility.ReadJsonPath(streamingJsonPath);
         List<JsonElementInfo> streamingElements = JsonConvert.DeserializeObject<List<JsonElementInfo>>(streamingJsonData);
 
         string usableJsonData = await Utility.ReadJson(fileName);

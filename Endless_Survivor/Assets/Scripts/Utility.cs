@@ -1,8 +1,10 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.Networking;
 using static UnityEngine.AudioSettings;
@@ -329,24 +331,23 @@ public static class Utility
         string jsonData = "";
         string path = Path.Combine(Application.persistentDataPath, fileName);
         string streamingPath = Path.Combine(Application.streamingAssetsPath, fileName);
-        bool isMobile = streamingPath.StartsWith("jar") || streamingPath.StartsWith("http");
         if (!File.Exists(path))
         {
             CopyDefaultJsonData(fileName);
-            jsonData = await ReadJsonPath(streamingPath, isMobile);
+            jsonData = await ReadJsonPath(streamingPath);
         }
         else
         {
-            jsonData = await ReadJsonPath(path, isMobile);
+            jsonData = await ReadJsonPath(path);
 
         }
 
         return jsonData;
     }
-    public static async Task<string> ReadJsonPath(string path, bool isMobile)
+    public static async Task<string> ReadJsonPath(string path)
     {
         string jsonData = "";
-        if (isMobile)
+        if (path.StartsWith("jar") || path.StartsWith("http"))
         {
             UnityWebRequest request = UnityWebRequest.Get(path);
             //await request.SendWebRequest();
@@ -361,6 +362,7 @@ public static class Utility
             {
                 jsonData = request.downloadHandler.text;
             }
+
         }
         else
         {
@@ -371,13 +373,13 @@ public static class Utility
     public static void WriteJson(string fileName, string jsonData)
     {
         string path = Path.Combine(Application.persistentDataPath, fileName);
+        jsonData = JToken.Parse(jsonData).ToString(Newtonsoft.Json.Formatting.Indented);
         File.WriteAllTextAsync(path, jsonData);
     }
     public async static void CopyDefaultJsonData(string fileName)
     {
         string streamingPath = Path.Combine(Application.streamingAssetsPath, fileName);
-        bool isMobile = streamingPath.StartsWith("jar") || streamingPath.StartsWith("http");
-        string defaultJsonData = await ReadJsonPath(streamingPath, isMobile);
+        string defaultJsonData = await ReadJsonPath(streamingPath);
 
         WriteJson(fileName, defaultJsonData);
     }
