@@ -383,4 +383,16 @@ public static class Utility
 
         WriteJson(fileName, defaultJsonData);
     }
+    public static string GetAvailableIndexedNameInPath(string path, string fileName)
+    {
+        string desiredPath = Path.Combine(path, fileName);
+        if(!File.Exists(desiredPath)) 
+            return desiredPath;
+        int i = 1;
+        while (File.Exists(desiredPath + i))
+        {
+            i++;
+        }
+        return fileName + i;
+    }
 }
