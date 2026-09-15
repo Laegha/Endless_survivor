@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: PeashooterShooterLeft
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 6653615731419381761
+  - rid: 6653615731419381762
+  - rid: 6653615731419381766
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -1998437978, guid: c013690eb2fd281469429e515cc7749a, type: 3}
+    - {fileID: 1823270734, guid: c013690eb2fd281469429e515cc7749a, type: 3}
+    - {fileID: -1141325125, guid: c013690eb2fd281469429e515cc7749a, type: 3}
+    - {fileID: 1122031233, guid: c013690eb2fd281469429e515cc7749a, type: 3}
+    _framesPerSecond: 6
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615731419381761
+      type: {class: ShootEnemiesInDirSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _firePoint: {x: -13, y: 18}
+        _shootAngle: 270
+        _attackStats:
+          _range: 6.5
+          _attackSpeed: 2.5
+          _damage: 10
+          _knockback: 0
+        _statsScaling:
+          _range: 0
+          _attackSpeed: 0
+          _damage: 1.5
+          _knockback: 0
+        _proyectileData:
+          _proyectileSpeed: 9
+          _proyectileSpread: 0
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 2a89a4064ed5fd348a780c0720b20640, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.5, y: 0.5}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _possibleSounds: []
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
+        _shootAnim:
+          _animationName: Shoot
+          _frames:
+          - {fileID: 330568879, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          - {fileID: 537856405, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          - {fileID: 216030219, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          - {fileID: -2028016850, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          - {fileID: -772409509, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          - {fileID: 727370559, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          - {fileID: 467513079, guid: 186eeddd38885874c8ba7bd62606ae5c, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _shootFrame: 4
+    - rid: 6653615731419381762
+      type: {class: CreateSupportObjAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _createdSupportObj: {fileID: 11400000, guid: 77aaa54a4e81414458cab7bf56f0857c, type: 2}
+        _positionOffset: {x: 0, y: 0}
+        _timeToGenerate: 15
+        _loop: 0
+        _destroyOriginal: 1
+        _isChildOfOriginal: 0
+    - rid: 6653615731419381766
+      type: {class: ForceSpriteFlipSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _forceXFlip: 1
+        _flipX: 1
+        _forceYFlip: 0
+        _flipY: 0

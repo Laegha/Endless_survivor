@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: PeashooterSeeds
+  m_EditorClassIdentifier: 
+  _itemName: Peashooter seeds
+  _itemDescript: The basic unit to defend your garden
+  _itemSprite: {fileID: 0}
+  _itemMaxCopies: -1
+  _itemOverrides: []
+  _itemBehaviours:
+  - rid: 6653615731419381771
+  - rid: 6653615731419381774
+  - rid: 6653615731419381776
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615731419381771
+      type: {class: CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SpawnPeashooterRight
+        _createdSupportObjs:
+        - {fileID: 11400000, guid: c3b417531ebbf6347aacc81148560c82, type: 2}
+        _createdObjsPattern:
+          rid: 6653615731419381772
+        _distanceToPlayer:
+          min: 1.2
+          max: 3
+    - rid: 6653615731419381772
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0
+    - rid: 6653615731419381774
+      type: {class: CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SpawnPeashooterLeft
+        _createdSupportObjs:
+        - {fileID: 11400000, guid: 24d8206d75d237f459f1037ad8ead951, type: 2}
+        _createdObjsPattern:
+          rid: 6653615731419381775
+        _distanceToPlayer:
+          min: 1.2
+          max: 3
+    - rid: 6653615731419381775
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0
+    - rid: 6653615731419381776
+      type: {class: ActivateRandomPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateRandomSpawn
+        _possibleActivatedIds:
+        - _rouletteElement: SpawnPeashooterRight
+          _chance: 1
+        - _rouletteElement: SpawnPeashooterLeft
+          _chance: 1
+        _timeBetweenActivations:
+          min: 5
+          max: 5
+        _particlesOnActivation: {fileID: 0}
+        _particlesOffsetFromPlayer: {x: 0, y: 0}
+        _particlesDuration: 0
+        _onActivateSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: MelonpultSpawnLeft
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 6653615731419381760
+  - rid: 6653615731419381770
+  _idleAnimation:
+    _animationName: Spawn
+    _frames:
+    - {fileID: 1476296042, guid: 1f1f6299cf5ac144ca680bc5cdb0b10d, type: 3}
+    - {fileID: 1306881508, guid: 1f1f6299cf5ac144ca680bc5cdb0b10d, type: 3}
+    - {fileID: -792538535, guid: 1f1f6299cf5ac144ca680bc5cdb0b10d, type: 3}
+    - {fileID: -1890685025, guid: 1f1f6299cf5ac144ca680bc5cdb0b10d, type: 3}
+    _framesPerSecond: 4
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615731419381760
+      type: {class: CreateSupportObjOnAnimationFrameSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _animationName: Spawn
+        _createFrame: 3
+        _createdSupportObj: {fileID: 11400000, guid: ce54ebe1286f8df43a8dfac90e01473d, type: 2}
+        _positionOffset: {x: 0, y: 0}
+        _loop: 0
+        _destroyOriginal: 1
+    - rid: 6653615731419381770
+      type: {class: ForceSpriteFlipSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _forceXFlip: 1
+        _flipX: 1
+        _forceYFlip: 0
+        _flipY: 0
