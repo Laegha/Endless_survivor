@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: DokiDokiPoem
+  m_EditorClassIdentifier: 
+  _itemName: Doki doki poem
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemMaxCopies: -1
+  _itemOverrides: []
+  _itemBehaviours:
+  - rid: 6653615863294590981
+  - rid: 6653615863294590982
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615863294590981
+      type: {class: CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SpawnSayori
+        _createdSupportObjs:
+        - {fileID: 11400000, guid: 078fd57758a037b4ebbbd7f22d147e38, type: 2}
+        _createdObjsPattern:
+          rid: 6653615863294590983
+        _distanceToPlayer:
+          min: 0
+          max: 0
+    - rid: 6653615863294590982
+      type: {class: ActivateOnStartItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateSpawn
+        _activatingIds:
+        - SpawnSayori
+    - rid: 6653615863294590983
+      type: {class: IRandomInCirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _circleRadiusMin: 3
+        _circleRadiusMax: 5
+        _minDistBetweenElements: 0

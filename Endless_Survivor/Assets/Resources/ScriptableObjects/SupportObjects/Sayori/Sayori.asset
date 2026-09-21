@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: Sayori
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 6653615863294590976
+  - rid: 6653615863294590984
+  _idleAnimation:
+    _animationName: Default
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615863294590976
+      type: {class: CreateSupportObjsByStatesSupporObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _states:
+        - _stateIdleAnim:
+            _animationName: HappyIdle
+            _frames:
+            - {fileID: 678250924, guid: a79ff3ccdc8fdbc4689ceab759ee9e6f, type: 3}
+            - {fileID: 998507344, guid: a79ff3ccdc8fdbc4689ceab759ee9e6f, type: 3}
+            - {fileID: 436366105, guid: a79ff3ccdc8fdbc4689ceab759ee9e6f, type: 3}
+            - {fileID: 1177933330, guid: a79ff3ccdc8fdbc4689ceab759ee9e6f, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _stateChangeAnim:
+            _animationName: HappyEatCookie
+            _frames:
+            - {fileID: 1396510329, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: -280416098, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: -554238101, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: 1924806391, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: -1394628717, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: -1045895565, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: 1897691230, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            - {fileID: 1913234672, guid: 05b7f5e74dc12664d89baaa2bff26c4b, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 1
+            _priority: 1
+          _stateIndicatorAnim:
+            _animationName: IndicatorHappy
+            _frames:
+            - {fileID: 21300000, guid: de7b6235ddde32f4b9706792505866b5, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _stateCreatedObjs:
+          - {fileID: 11400000, guid: 78e55bde46e83a14389063b0de57f920, type: 2}
+          - {fileID: 11400000, guid: 78e55bde46e83a14389063b0de57f920, type: 2}
+          _createdObjsPattern:
+            rid: 6653615863294590978
+        - _stateIdleAnim:
+            _animationName: NeutralIdle
+            _frames:
+            - {fileID: 1145412439, guid: 42d8c73df0a4f6d45b22e464dd61dc89, type: 3}
+            - {fileID: 1296541979, guid: 42d8c73df0a4f6d45b22e464dd61dc89, type: 3}
+            - {fileID: 1276915671, guid: 42d8c73df0a4f6d45b22e464dd61dc89, type: 3}
+            - {fileID: 887108037, guid: 42d8c73df0a4f6d45b22e464dd61dc89, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _stateChangeAnim:
+            _animationName: NeutralEatCookie
+            _frames:
+            - {fileID: -350082678, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: 1380635560, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: -1357381276, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: 23311022, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: 973307044, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: 665839060, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: 867192763, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            - {fileID: -965015931, guid: a62efde726a8b7e4685fd9a904403f50, type: 3}
+            _framesPerSecond: 6
+            _endAnimationOnEnd: 1
+            _priority: 1
+          _stateIndicatorAnim:
+            _animationName: IndicatorNeutral
+            _frames:
+            - {fileID: 21300000, guid: 8c5c1ef8c62e08a4081b2426f749d3a7, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _stateCreatedObjs:
+          - {fileID: 11400000, guid: 78e55bde46e83a14389063b0de57f920, type: 2}
+          _createdObjsPattern:
+            rid: 6653615863294590979
+        - _stateIdleAnim:
+            _animationName: SadIdle
+            _frames:
+            - {fileID: -970958796, guid: 98228f306e104bd4ca5cbe83dc690874, type: 3}
+            - {fileID: 1597059730, guid: 98228f306e104bd4ca5cbe83dc690874, type: 3}
+            _framesPerSecond: 3
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _stateChangeAnim:
+            _animationName: SadEatCookie
+            _frames:
+            - {fileID: -895230924, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: 1422555138, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: -1872741877, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: 862262304, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: 460002013, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: 1410128994, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: 404030450, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            - {fileID: 739741411, guid: abe59ece2567c7f488944ccb059ae0b2, type: 3}
+            _framesPerSecond: 5
+            _endAnimationOnEnd: 1
+            _priority: 1
+          _stateIndicatorAnim:
+            _animationName: SadNeutral
+            _frames:
+            - {fileID: 21300000, guid: 7c908a8eaad4bcf42aad9d6e43255004, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _stateCreatedObjs: []
+          _createdObjsPattern:
+            rid: 6653615863294590980
+        _stateIndicatorOffset: {x: 0.4, y: 0.7}
+        _stateDuration: 8
+        _resetStateIndex: 0
+    - rid: 6653615863294590978
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0.5
+        _startAngle: 135
+        _fitCircle: 0
+        _angleStep: 90
+    - rid: 6653615863294590979
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0.5
+        _startAngle: 135
+        _fitCircle: 0
+        _angleStep: 90
+    - rid: 6653615863294590980
+      type: {class: IRandomInCirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _circleRadiusMin: 0
+        _circleRadiusMax: 1
+        _minDistBetweenElements: 0
+    - rid: 6653615863294590984
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 64
+        _areaSize: {x: 0.4, y: 0.4}
+        _areaOffset: {x: 0, y: 0}
+        _areaGfx:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _areaGfxSortingOffset: 0
+        _areaGfxAlpha: 0
+        _areaSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals: 0
