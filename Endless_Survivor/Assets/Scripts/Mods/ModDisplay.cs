@@ -21,15 +21,18 @@ public class ModDisplay : MonoBehaviour
     {
         _menu = menu;
         _modInfo = modInfo;
-        _modTitleText.text = modInfo.ModTitle;
-        _modIconImage.ChangeImageSprite(modInfo.ModIcon);
-        _modCreatorText.text = modInfo.ModCreatorName;
-        _modDescriptionText.text = modInfo.ModDescription;
+        if(_modTitleText != null)
+            _modTitleText.text = modInfo.ModTitle;
+        if(_modIconImage != null)
+            _modIconImage.ChangeImageSprite(modInfo.ModIcon);
+        if(_modCreatorText != null)
+            _modCreatorText.text = modInfo.ModCreatorName;
+        if(_modDescriptionText != null)
+            _modDescriptionText.text = modInfo.ModDescription;
         //if mod is donwloaded, change the image of the downlaod btn or smth
         bool isDownloaded = ModManager.mm.IsModDownloaded(modInfo);
         _downloadButton.SetActive(!isDownloaded);
         _deleteButton.SetActive(isDownloaded);
-        DownloadMod();
     }
     public void DownloadMod()
     {
