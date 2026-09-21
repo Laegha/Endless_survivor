@@ -13,8 +13,7 @@ public class ModDownloadMenu : MonoBehaviour
     [SerializeField] GameObject _moreInfoBgObj;
     [SerializeField] Transform _modDisplayContainer;
     [SerializeField] TextMeshProUGUI _currPageDisplay;
-    int _displayingPages => (int)Mathf.Ceil(_displayingMods.Count / _modsPerPage);
-    List<ModInfo> _displayingMods = new List<ModInfo>();
+    int _displayingPages => (int)Mathf.Ceil((_currentPage + 1) * _modsPerPage / _modsPerPage);
     List<GameObject> _activeModDisplays = new List<GameObject>();
 
     int _currentPage;
@@ -24,6 +23,7 @@ public class ModDownloadMenu : MonoBehaviour
         _menuObj.SetActive(true);
         _currentPage = 0;
         RefreshModList();
+        SetPageDisplay();
     }
     public void RefreshModList()
     {
@@ -35,9 +35,10 @@ public class ModDownloadMenu : MonoBehaviour
         for (int i = 0; i < _modsPerPage; i++)
         {
             int modIndex = _currentPage * _modsPerPage + i;
-            if (_displayingMods.Count <= modIndex)
+            if (ModManager.mm.AvailableMods.Count <= modIndex)
                 break;
-            ModInfo createdDisplayInfo = _displayingMods[i];
+            
+            ModInfo createdDisplayInfo = ModManager.mm.AvailableMods[i];
             ModDisplay modDisplay = GameObject.Instantiate(_modDisplay);
             modDisplay.transform.SetParent(_modDisplayContainer);
             modDisplay.DisplayMod(createdDisplayInfo, this);
@@ -61,6 +62,7 @@ public class ModDownloadMenu : MonoBehaviour
         if(_currentPage >= _displayingPages)
             _currentPage = 0;
         RefreshModList();
+        SetPageDisplay();
     }
     void GoToPreviousPage()
     {
@@ -68,6 +70,7 @@ public class ModDownloadMenu : MonoBehaviour
         if (_currentPage < 0)
             _currentPage = _displayingPages -1;
         RefreshModList();
+        SetPageDisplay();
     }
     public void DisplayMoreModInfo(ModInfo modInfo)
     {

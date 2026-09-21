@@ -23,7 +23,9 @@ public static class FilesDownloader
 
         if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError($"GitHub error: {request.error}");
+            Debug.LogError($"GitHub error: {request.error} in request {url}");
+            Debug.LogError($"Response body: {request.downloadHandler.text}");
+            Debug.LogError($"Response code: {request.responseCode}");
             return null;
         }
         //Debug.Log(request.downloadHandler.text);
