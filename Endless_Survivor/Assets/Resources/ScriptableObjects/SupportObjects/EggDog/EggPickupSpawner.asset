@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: EggPickupSpawner
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 6653615889857380355
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615889857380355
+      type: {class: CreatePickupChoiceSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _options:
+        - _rouletteElement: {fileID: 11400000, guid: afb0f70728146d5499aaff0e7e9cdc85, type: 2}
+          _chance: 1
+        - _rouletteElement: {fileID: 11400000, guid: 484c0dbe7441c2445bcfb834cc384b84, type: 2}
+          _chance: 1
+        _optionsAmmount: 1
+        _allowRepetitions: 0
+        _pickupsSpawnPattern:
+          rid: 6653615889857380357
+        _patternCenterOffset: {x: 0, y: 0}
+        _unchosenPickupsParticles: {fileID: 0}
+    - rid: 6653615889857380357
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 0
+        _angleStep: 0

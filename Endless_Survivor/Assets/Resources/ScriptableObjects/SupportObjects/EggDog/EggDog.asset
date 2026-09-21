@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: EggDog
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 6653615889857380352
+  - rid: 6653615889857380354
+  _idleAnimation:
+    _animationName: LayEgg
+    _frames:
+    - {fileID: -607983991, guid: 8f8b604bad4ded94bb79a43b6cd3543f, type: 3}
+    - {fileID: 637822286, guid: 8f8b604bad4ded94bb79a43b6cd3543f, type: 3}
+    - {fileID: 769605819, guid: 8f8b604bad4ded94bb79a43b6cd3543f, type: 3}
+    - {fileID: -1891345930, guid: 8f8b604bad4ded94bb79a43b6cd3543f, type: 3}
+    - {fileID: 736852304, guid: 8f8b604bad4ded94bb79a43b6cd3543f, type: 3}
+    - {fileID: 1652336330, guid: 8f8b604bad4ded94bb79a43b6cd3543f, type: 3}
+    _framesPerSecond: 3
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653615889857380352
+      type: {class: WanderAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movementSpeed:
+          min: 1.5
+          max: 1.5
+        _movementDistance:
+          min: 3
+          max: 6
+        _timeBetweenMovements:
+          min: 2
+          max: 2
+        _movingAnimation:
+          _animationName: Moving
+          _frames:
+          - {fileID: -1797709264, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: -759766471, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: 731685866, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: 225016126, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: 1744045418, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: -723661834, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: 1294997208, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          - {fileID: 291801511, guid: 83f6984927496c24d8ee0b9511cfa9bc, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _randomlyPlayedSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals:
+          min: 0
+          max: 0
+    - rid: 6653615889857380354
+      type: {class: CreateSupportObjOnAnimationFrameSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _animationName: LayEgg
+        _createFrame: 4
+        _createdSupportObj: {fileID: 11400000, guid: fbdb562f306ce1f4bafc4bcc22fa0ab2, type: 2}
+        _positionOffset: {x: 0, y: 0}
+        _loop: 1
+        _destroyOriginal: 0
