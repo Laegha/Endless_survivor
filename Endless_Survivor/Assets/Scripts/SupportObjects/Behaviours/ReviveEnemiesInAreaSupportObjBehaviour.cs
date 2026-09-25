@@ -81,7 +81,8 @@ public class ReviveEnemiesInAreaSupportObjBehaviour : UseAreaAroundSupportObjBeh
             enemyControl.MaterialManager.SetMaterialOverride(new(10, _revivedMaterial));
 
             enemyControl.EnemyHP.InitializeHP((int)(enemyControl.EnemyHP.MaxHP * _revivedHPPercent / 100));
-            if(_destroyAfterRevive)
+            enemyControl.EnemyHP.DropablePickupChances = new();
+            if (_destroyAfterRevive)
                 DestroyObj();
         } , () => ObjControl == null);
         
