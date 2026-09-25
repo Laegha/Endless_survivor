@@ -31,7 +31,8 @@ public class CreatePickupChoiceSupportObjBehaviour : SupportObjectBehaviour
 
     void CreatePickups()
     {
-        List<Vector2> pickupPositions = _pickupsSpawnPattern.GetPositions((Vector2)ObjControl.transform.position +  _patternCenterOffset, _optionsAmmount).ToList();
+        Vector2 patternCenter = Utility.GetClosestAvailablePos(ObjControl.transform.position, _patternCenterOffset, _patternCenterOffset.magnitude);
+        List<Vector2> pickupPositions = _pickupsSpawnPattern.GetPositions(patternCenter, _optionsAmmount).ToList();
         List<RouletteElementChance<PickupData>> availableOptions = new(_options);
         for (int i = 0; i < _optionsAmmount; i++)
         {
