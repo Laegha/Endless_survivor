@@ -20,10 +20,9 @@ public class ApplyEnemyStatusEffectOnAreaOnDestroySupportObjBehaviour : SupportO
         _applicationParticles = applyEnemyStatusOriginal._applicationParticles;
 
         OnDestroyed += ApplyStatusEffects;
-        ParticleConfig particleConfig = new(_applicationParticles, ObjControl.transform.position, Quaternion.identity, _applicationParticles.main.duration, null, false, false);
-        OnDestroyed += () => ParticleManager.pm.SpawnParticles(particleConfig);
+        OnDestroyed += SpawnParticles;
     }
-
+    
     void ApplyStatusEffects()
     {
         var objsInRange = Physics2D.OverlapCircleAll(ObjControl.transform.position, _applicationRadius);
@@ -42,5 +41,9 @@ public class ApplyEnemyStatusEffectOnAreaOnDestroySupportObjBehaviour : SupportO
             }
         }
     }
-
+    void SpawnParticles()
+    {
+        ParticleConfig particleConfig = new(_applicationParticles, ObjControl.transform.position, Quaternion.identity, _applicationParticles.main.duration, null, false, false);
+        ParticleManager.pm.SpawnParticles(particleConfig);
+    }
 }
