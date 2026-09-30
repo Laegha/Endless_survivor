@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: BitsyDamageArea
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 6653616034763505669
+  _idleAnimation:
+    _animationName: 
+    _frames:
+    - {fileID: 0}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 100
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653616034763505669
+      type: {class: ExplosionSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _explosionDamage:
+          _damageAmmount: 9999
+          _damageType: 0
+        _explosionRadius: 0.3
+        _explosionParticles: {fileID: 0}
+        _particlesDuration: 0
+        _explosionAnimation:
+          _animationName: Explosion
+          _frames:
+          - {fileID: -1887304562, guid: c19569d74b5a2834eb6f9a2d1a02e733, type: 3}
+          - {fileID: -1190334473, guid: c19569d74b5a2834eb6f9a2d1a02e733, type: 3}
+          - {fileID: -868079376, guid: c19569d74b5a2834eb6f9a2d1a02e733, type: 3}
+          - {fileID: 1687315619, guid: c19569d74b5a2834eb6f9a2d1a02e733, type: 3}
+          - {fileID: 2144467102, guid: c19569d74b5a2834eb6f9a2d1a02e733, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _explosionSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 128
