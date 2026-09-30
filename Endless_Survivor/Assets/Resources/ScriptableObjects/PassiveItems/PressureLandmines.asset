@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: PressureLandmines
+  m_EditorClassIdentifier: 
+  _itemName: Pressure Landmines
+  _itemDescript: 
+  _itemSprite: {fileID: 0}
+  _itemMaxCopies: -1
+  _itemOverrides: []
+  _itemBehaviours:
+  - rid: 6653616017956405250
+  - rid: 6653616017956405251
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6653616017956405250
+      type: {class: ActivateRandomPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateSpawn
+        _possibleActivatedIds:
+        - _rouletteElement: SpawnMines
+          _chance: 1
+        _timeBetweenActivations:
+          min: 1.5
+          max: 2.3
+        _particlesOnActivation: {fileID: 0}
+        _particlesOffsetFromPlayer: {x: 0, y: 0}
+        _particlesDuration: 0
+        _onActivateSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 6653616017956405251
+      type: {class: CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SpawnMines
+        _createdSupportObjs:
+        - {fileID: 11400000, guid: 12e076dcecf2a074fb0a27d7b04b68d7, type: 2}
+        _createdObjsPattern:
+          rid: 6653616017956405252
+        _distanceToPlayer:
+          min: 0
+          max: 0
+    - rid: 6653616017956405252
+      type: {class: IRandomInCirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _circleRadiusMin: 2
+        _circleRadiusMax: 12
+        _minDistBetweenElements: 0

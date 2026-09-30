@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: Engineer
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: 2889d35c544e921458cdf7500f6a8b69, type: 3}
+  _characterName: Engineer
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 1685124483, guid: e6c3c6be4b1ad5641b8aac371cd1ac53, type: 3}
+    - {fileID: -401699626, guid: e6c3c6be4b1ad5641b8aac371cd1ac53, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 1685124483, guid: e6c3c6be4b1ad5641b8aac371cd1ac53, type: 3}
+    - {fileID: -401699626, guid: e6c3c6be4b1ad5641b8aac371cd1ac53, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  _defaultWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 1685124483, guid: e6c3c6be4b1ad5641b8aac371cd1ac53, type: 3}
+    - {fileID: -401699626, guid: e6c3c6be4b1ad5641b8aac371cd1ac53, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  _initialWeapons: []
+  _initialPassives:
+  - {fileID: 11400000, guid: 7303ac48d7851ef4489b656694b899c1, type: 2}
+  - {fileID: 11400000, guid: fc23884cf9d8c1c4f8c1a7845bc25d37, type: 2}
+  _playerStats:
+    _initialHP: 14
+    _hpIncrement: 3
+    _hpRegeneration: 1.3
+    _defense: 1
+    _minSpeed: 5
+    _maxSpeed: 5.5
+    _acceleration: 0.5
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: -772578879, guid: 486b705bd91fb9d4da69f1f0407af861, type: 3}
+    - {fileID: 1856111935, guid: 486b705bd91fb9d4da69f1f0407af861, type: 3}
+    - {fileID: 317256780, guid: 486b705bd91fb9d4da69f1f0407af861, type: 3}
+    - {fileID: -9295973, guid: 486b705bd91fb9d4da69f1f0407af861, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _frontMoving:
+    _animationName: FrontMove
+    _frames:
+    - {fileID: 1589627208, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: 321116656, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: -729795301, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: 1518975472, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: -1919776860, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: -1265961947, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: -1505969824, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    - {fileID: 777753519, guid: f3674cfa0f5fd434eb38028e1d5beb15, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _rightMoving:
+    _animationName: RightMove
+    _frames:
+    - {fileID: -316060373, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    - {fileID: -1755675037, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    - {fileID: -779631530, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    - {fileID: -84032940, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    - {fileID: 1389484297, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    - {fileID: 1731178339, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    - {fileID: -889685552, guid: 01d04bfeb496c0343baa6f3aafb74346, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _backMoving:
+    _animationName: BackMove
+    _frames:
+    - {fileID: 1421331626, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: 1418955072, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: 2088440801, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: 1419140156, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: 135276161, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: -1622003707, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: 2111837361, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    - {fileID: -1901588170, guid: 3be9e4ca580b9584fbfc12a09c4564db, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _leftMoving:
+    _animationName: LeftMove
+    _frames:
+    - {fileID: -363066329, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    - {fileID: 158171783, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    - {fileID: 1860928016, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    - {fileID: -1476819483, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    - {fileID: 1625184631, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    - {fileID: -232157374, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    - {fileID: 1541764983, guid: af1ec4da4f19b6249bc2c2148b892b48, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _movingIndicatorPosition: {x: 0, y: -0.55}
+  _costumeSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
+  _onHitSound:
+    _possibleSounds:
+    - {fileID: 8300000, guid: bf86e81c79e4d8a48ae27b195784b4d9, type: 3}
+    - {fileID: 8300000, guid: 618f1bcdfc3bd474096a2bbd9371425c, type: 3}
+    - {fileID: 8300000, guid: c88116a7945d37d4997824bf15e8335d, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.3
+    _maxPitchVariation: -0.1
+  _onDeathSound:
+    _possibleSounds:
+    - {fileID: 8300000, guid: 9f7a2ddccc59a4e4e9ab1ea84093f4eb, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.3
+    _maxPitchVariation: -0.3
+  _deathAnim:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _exitRunAnim:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _deathParticles: {fileID: 2393940968961475062, guid: 7a2b04604eaee984f923f5a9a0e7ef37, type: 3}
+  _exitRunParticles: {fileID: 8148643168460566524, guid: 08d695c870fb1d34ea1e131452500cd8, type: 3}
