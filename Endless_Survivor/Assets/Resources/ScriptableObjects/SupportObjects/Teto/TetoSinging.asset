@@ -17,6 +17,7 @@ MonoBehaviour:
   - rid: 909968409856835586
   - rid: 909968409856835587
   - rid: 909968409856835590
+  - rid: 1210556843742199808
   _idleAnimation:
     _animationName: Sing
     _frames:
@@ -25,6 +26,7 @@ MonoBehaviour:
     _framesPerSecond: 6
     _endAnimationOnEnd: 0
     _priority: 0
+  _renderingOffset: 0
   _supportObjColliders: []
   references:
     version: 2
@@ -95,6 +97,7 @@ MonoBehaviour:
           _endAnimationOnEnd: 0
           _priority: 0
         _animationDuration: 3.33
+        _animatedObjRenderOffset: 0
         _createdParticles: {fileID: 0}
         _particlesDuration: 0
         _creationOffset: {x: 0, y: 0}
@@ -104,3 +107,15 @@ MonoBehaviour:
         _areaName: AreaIdentifier
         _buffData: {fileID: 11400000, guid: 5e5487d0b7545e64fb66fabc0ecf2c56, type: 2}
         _buffDurationAfterLeavingArea: 5
+    - rid: 1210556843742199808
+      type: {class: FollowPlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movingAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _playerPosOffset: {x: 0, y: 0}
+        _speedLessThanPlayer: 0
+        _stopDist: 0

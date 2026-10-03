@@ -15,10 +15,20 @@ MonoBehaviour:
   _buffMaxStacks: 1
   _statsBuff:
     _range: 0
-    _attackSpeed: 100
+    _attackSpeed: 2
     _damage: 0
     _knockback: 0
   _durationType: 2
   _enemyKillsNeeded: 0
   _timeDuration: 0
   _buffParticleSystem: {fileID: 0}
+  _onBuffPlayerGfxChanger:
+    materialOverride:
+      authority: 0
+      material: {fileID: 0}
+    addedParticles: {fileID: 0}
+  _onBuffSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0

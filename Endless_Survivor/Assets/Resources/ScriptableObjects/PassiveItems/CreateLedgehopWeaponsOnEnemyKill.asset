@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemDescript: 
   _itemSprite: {fileID: 0}
   _itemMaxCopies: 1
+  _unremovableItem: 1
   _itemOverrides: []
   _itemBehaviours:
   - rid: 9178415505152147460

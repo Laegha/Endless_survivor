@@ -10,30 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
-  m_Name: IdolBait
+  m_Name: BreadIdolBait
   m_EditorClassIdentifier: 
-  _itemName: Idol Bait
-  _itemDescript: She will increase your power if you listen to her song
+  _itemName: Bread Idol Bait
+  _itemDescript: She will speed up your attacks if you listen to her song
   _itemSprite: {fileID: 21300000, guid: c684f79b2b00eb24ea976072e4031c68, type: 3}
   _itemMaxCopies: -1
+  _unremovableItem: 0
   _itemOverrides: []
   _itemBehaviours:
-  - rid: 909968409856835588
   - rid: 909968409856835589
+  - rid: 1210556843742199812
   _itemPools: 0
   references:
     version: 2
     RefIds:
-    - rid: 909968409856835588
-      type: {class: CreateSupportObjsOnRandomPositionsOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
-      data:
-        _behaviourId: SpawnTeto
-        _possibleSupportObjs:
-        - _rouletteElement: {fileID: 11400000, guid: 676c847384ec2744ab89082fdb390a9d, type: 2}
-          _chance: 1
-        _ammountPerSpawn:
-          min: 1
-          max: 1
     - rid: 909968409856835589
       type: {class: ActivateRandomPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
       data:
@@ -52,3 +43,21 @@ MonoBehaviour:
           _volume: 1
           _minPitchVariation: 0
           _maxPitchVariation: 0
+    - rid: 1210556843742199812
+      type: {class: CreateSupportObjsNearPlayerOnActivatePassiveItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SpawnTeto
+        _createdSupportObjs:
+        - {fileID: 11400000, guid: 676c847384ec2744ab89082fdb390a9d, type: 2}
+        _createdObjsPattern:
+          rid: 1210556843742199815
+        _distanceToPlayer:
+          min: 2
+          max: 7
+    - rid: 1210556843742199815
+      type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
+      data:
+        _radius: 0
+        _startAngle: 0
+        _fitCircle: 1
+        _angleStep: 0

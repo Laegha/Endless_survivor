@@ -16,6 +16,7 @@ MonoBehaviour:
   _itemDescript: 
   _itemSprite: {fileID: 0}
   _itemMaxCopies: 1
+  _unremovableItem: 1
   _itemOverrides: []
   _itemBehaviours:
   - rid: 1204507796050018304
@@ -75,6 +76,7 @@ MonoBehaviour:
             _framesPerSecond: 0
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 0}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}
