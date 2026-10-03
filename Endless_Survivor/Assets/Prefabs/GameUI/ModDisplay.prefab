@@ -360,6 +360,8 @@ MonoBehaviour:
   _modTitleText: {fileID: 7258470944804197030}
   _modCreatorText: {fileID: 0}
   _modDescriptionText: {fileID: 0}
+  _downloadButton: {fileID: 2085624928485134665}
+  _deleteButton: {fileID: 1911493307284184073}
 --- !u!1 &3312284008951275538
 GameObject:
   m_ObjectHideFlags: 0
