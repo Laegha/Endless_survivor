@@ -30,6 +30,8 @@ public class SpawnRandomPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEff
         Vector2 initialPos = hitEnemy.transform.position;
         var pickupComponent = Utility.GeneratePickup(spawnedPickupData, initialPos).Pickup;
         pickupComponent.AddVariable<WeaponAttackManager>(ChangeAttackConditionPointsPickupData.pickupWeaponId, AffectedAttack.ParentWeapon.WeaponControl.WeaponAttackManager);
+        var weapon = AffectedAttack.ParentWeapon.WeaponControl;
+        pickupComponent.DestroyConditions += () => WasWeaponDestroyed(weapon);
 
         if (!_throwInRandomDirUponSpawn)
             return;
@@ -51,5 +53,9 @@ public class SpawnRandomPickupsWeaponPointsForChangeConditionOnEnemyHitAttackEff
             mover.Move();
             yield return null;
         }
+    }
+    bool WasWeaponDestroyed(WeaponControl weapon)
+    {
+        return weapon == null;
     }
 }
