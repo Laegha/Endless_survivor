@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: MikuSinging
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 909968409856835584
+  - rid: 909968409856835586
+  - rid: 909968409856835587
+  - rid: 909968409856835590
+  _idleAnimation:
+    _animationName: Sing
+    _frames:
+    - {fileID: 404604808, guid: b247b7a9cc517b44b863d971170279ec, type: 3}
+    - {fileID: 1292408178, guid: b247b7a9cc517b44b863d971170279ec, type: 3}
+    _framesPerSecond: 6
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 909968409856835584
+      type: {class: CheckAreaAroundSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _collidingLayers:
+          serializedVersion: 2
+          m_Bits: 64
+        _areaSize: {x: 2, y: 2}
+        _areaOffset: {x: 0, y: 0}
+        _areaGfx:
+          _animationName: Aura
+          _frames:
+          - {fileID: 398436978, guid: 87dbb995e8d102949859d5c74776647d, type: 3}
+          - {fileID: 1014786048, guid: 87dbb995e8d102949859d5c74776647d, type: 3}
+          - {fileID: 1509459752, guid: 87dbb995e8d102949859d5c74776647d, type: 3}
+          _framesPerSecond: 8
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _areaGfxSortingOffset: -10
+        _areaGfxAlpha: 255
+        _areaSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: e71fa3c6a34c41e4692b41be5f58f469, type: 3}
+          - {fileID: 8300000, guid: 4781bcc5a71910b4399036d0821b2fc4, type: 3}
+          - {fileID: 8300000, guid: 3058f536455f00541b85e99dc48b5f9b, type: 3}
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+        _sfxPlayingIntervals: 0
+    - rid: 909968409856835586
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 6
+          max: 9
+    - rid: 909968409856835587
+      type: {class: CreateGFXOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _createdAnimation:
+          _animationName: MikuExit
+          _frames:
+          - {fileID: 1292408178, guid: b247b7a9cc517b44b863d971170279ec, type: 3}
+          - {fileID: 404604808, guid: b247b7a9cc517b44b863d971170279ec, type: 3}
+          - {fileID: -207499989, guid: b247b7a9cc517b44b863d971170279ec, type: 3}
+          - {fileID: -1640370662, guid: b247b7a9cc517b44b863d971170279ec, type: 3}
+          - {fileID: -1767184957, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -1675493352, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 1633747686, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -1092111706, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 1151270581, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 1023013974, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -669784311, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -1000411805, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 1816653113, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 821192184, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 46038560, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -649016345, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -689694228, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 43310128, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: 1468120378, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -945121509, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          - {fileID: -1982160967, guid: bbc25e67dde81c5479dd2b74b21c5c3b, type: 3}
+          _framesPerSecond: 6
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _animationDuration: 3.33
+        _animatedObjRenderOffset: 0
+        _createdParticles: {fileID: 0}
+        _particlesDuration: 0
+        _creationOffset: {x: 0, y: 0}
+    - rid: 909968409856835590
+      type: {class: BuffWeaponsAroundAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _areaName: AreaIdentifier
+        _buffData: {fileID: 11400000, guid: 0302fcc71bece084495ca52b164b3ff0, type: 2}
+        _buffDurationAfterLeavingArea: 5
