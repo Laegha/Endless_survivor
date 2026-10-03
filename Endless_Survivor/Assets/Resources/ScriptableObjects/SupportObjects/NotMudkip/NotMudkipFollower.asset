@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: NotMudkipFollower
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 1204507656489533440
+  - rid: 1204507670207528960
+  - rid: 1204507670207528961
+  - rid: 1210556870123061250
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 1927379486, guid: 40e649747138d7a4e89b9f01c6954d39, type: 3}
+    - {fileID: 913879396, guid: 40e649747138d7a4e89b9f01c6954d39, type: 3}
+    _framesPerSecond: 4
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1204507656489533440
+      type: {class: WeaponizeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _objWeapon: {fileID: 11400000, guid: 56d2c3239801fb047b4de3299284b6f8, type: 2}
+        _setSupportObjAsDistCheck: 0
+    - rid: 1204507670207528960
+      type: {class: ForceRotationSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _rotation: 0
+    - rid: 1204507670207528961
+      type: {class: ForceSpriteFlipSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _forceXFlip: 0
+        _flipX: 0
+        _forceYFlip: 1
+        _flipY: 0
+    - rid: 1210556870123061250
+      type: {class: FollowPlayerSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _movingAnimation:
+          _animationName: Move
+          _frames:
+          - {fileID: -465997820, guid: d56fc4ce7f9ce0f46a0b696b43e04b1f, type: 3}
+          - {fileID: -1313545493, guid: d56fc4ce7f9ce0f46a0b696b43e04b1f, type: 3}
+          - {fileID: -223972693, guid: d56fc4ce7f9ce0f46a0b696b43e04b1f, type: 3}
+          - {fileID: 1145398174, guid: d56fc4ce7f9ce0f46a0b696b43e04b1f, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _playerPosOffset: {x: -0.625, y: -0.1212495}
+        _speedLessThanPlayer: 0.5
+        _stopDist: 1
