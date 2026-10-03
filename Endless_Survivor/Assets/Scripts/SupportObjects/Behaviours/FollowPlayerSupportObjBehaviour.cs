@@ -27,12 +27,13 @@ public class FollowPlayerSupportObjBehaviour : SupportObjectBehaviour
     {
         Vector2 orientationVector = PlayerControl.pc.transform.position - ObjControl.transform.position;
         
-        var dirMultiplier = orientationVector.x > 0 ? 1 : -1;
+        var dirMultiplierX = orientationVector.x > 0 ? 1 : -1;
+        var dirMultiplierY = orientationVector.y > 0 ? 1 : -1;
         foreach(var renderer in ObjControl.Renderers)
         {
-            renderer.flipX = dirMultiplier == -1;
+            renderer.flipX = dirMultiplierX == -1;
         }
-        Vector2 targetPos = (Vector2)PlayerControl.pc.transform.position + _playerPosOffset * dirMultiplier;
+        Vector2 targetPos = (Vector2)PlayerControl.pc.transform.position + new Vector2(_playerPosOffset.x * dirMultiplierX, _playerPosOffset.y * dirMultiplierY);
         Vector2 movementVector = targetPos - (Vector2)ObjControl.transform.position;
         if (movementVector.magnitude <= _stopDist)
         {
