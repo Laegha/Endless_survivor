@@ -11,10 +11,11 @@ public class PassiveItemManager : MonoBehaviour
     Action _onItemPickup;
     Action _onItemRemoved;
     List<PassiveItem> _overridenPassiveItems = new();
+
     public List<PassiveItem> PassiveItems { get { return _passiveItems; } }
     public Action OnItemPickup {  get { return _onItemPickup; } set { _onItemPickup = value; } }
     public Action OnItemRemoved { get { return _onItemRemoved; } set { _onItemRemoved = value; } }
-
+    public List<PassiveItem> RemovableItems { get { return _passiveItems.Where(item => !item.ItemData.UnremovableItem).ToList(); } }
     private void Start()
     {
         PlayerControl.pc.PlayerHPManager.OnDamageTaken += PlayerDamaged;
