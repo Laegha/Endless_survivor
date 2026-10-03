@@ -13,11 +13,14 @@ public class Pickup : MonoBehaviour
     bool _consideredInPickupLimit = true;
     Action<Pickup> _onPickup;
     SFXInfo _onPickupSFX;
-    
+    Func<bool> _destroyConditions;
+
     public PickupData PickupData { set {  _pickupData = value; } }
     public bool ConsideredInPickupLimit { set { _consideredInPickupLimit = value; } }
     public Action<Pickup> OnPickup { get { return _onPickup; } set { _onPickup = value; } }
     public SFXInfo OnPickupSFX { set { _onPickupSFX = value; } }
+    public Func<bool> DestroyConditions { get { return _destroyConditions; } set { _destroyConditions = value; } }
+
     private void Start()
     {
         if (!_consideredInPickupLimit)
@@ -25,6 +28,12 @@ public class Pickup : MonoBehaviour
         _instantiatedPickups.Add(this);
         if(_instantiatedPickups.Count > _maxInstantiatedPickups)
             DestroyOldestPickup();
+    }
+    private void Update()
+    {
+        if (_destroyConditions == null || !_destroyConditions.Invoke())
+            return;
+        ObjectDestroyingManager.odm.DestroyObj(gameObject);
     }
     void DestroyOldestPickup()
     {
