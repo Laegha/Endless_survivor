@@ -10,12 +10,27 @@
     "isNew": false
   },
   {
+    "fileName": "BreadIdolBait",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "ChronosInjection",
     "isUnlocked": true,
     "isNew": false
   },
   {
     "fileName": "CraftingTable",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "CyberneticVision",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "DeviledBread",
     "isUnlocked": true,
     "isNew": false
   },
@@ -45,7 +60,7 @@
     "isNew": false
   },
   {
-    "fileName": "IdolBait",
+    "fileName": "Hydrokinesis",
     "isUnlocked": true,
     "isNew": false
   },
@@ -56,6 +71,11 @@
   },
   {
     "fileName": "Jarate",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LeekIdolBait",
     "isUnlocked": true,
     "isNew": false
   },
@@ -76,6 +96,11 @@
   },
   {
     "fileName": "Mercy",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "MiamiPhone",
     "isUnlocked": true,
     "isNew": false
   },
@@ -101,6 +126,11 @@
   },
   {
     "fileName": "Slugcat",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "StandArrow",
     "isUnlocked": true,
     "isNew": false
   },

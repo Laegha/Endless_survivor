@@ -1,22 +1,42 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ModInfo
 {
-    Sprite _modIcon;
-    string _modTitle;
-    string _modDirectoryName;
-    string _modDescription;
-    string _modCreatorName;
-    string _downloadUrl;
-    string _directoryPath => "Assets/Resources/Mods/" + _modDirectoryName;
+    public byte[] modIconData;
+    public string modTitle;
+    public string modDirectoryName;
+    public string modDescription;
+    public string modCreatorName;
+    public string downloadUrl;
 
-    public Sprite ModIcon { get { return _modIcon; } set { _modIcon = value; } }
-    public string ModTitle { get { return _modTitle; } set { _modTitle = value; } }
-    public string ModDirectoryName { get { return _modDirectoryName; } set { _modDirectoryName = value; } }
-    public string ModDescription { get { return _modDescription; } set { _modDescription = value; } }
-    public string ModCreatorName { get { return _modCreatorName; } set { _modCreatorName = value; } }
-    public string DownloadUrl { get { return _downloadUrl; } set { _downloadUrl = value; } }
-    public string DirectoryPath { get { return _directoryPath; } }
+    [JsonIgnore]
+    public static string modsDirectoryPath = Path.Combine(Application.persistentDataPath, "Mods");
+    [JsonIgnore]
+    public string DirectoryPath => Path.Combine(modsDirectoryPath, modDirectoryName);
+    [JsonIgnore]
+    public Sprite modIcon { get 
+        {
+            Sprite iconSprite = default;
+            if (modIconData != null && modIconData.Length > 0)
+            {
+                var tex = new Texture2D(2, 2);
+                if (tex.LoadImage(modIconData)) // resizes the texture to the image
+                {
+                    iconSprite = Sprite.Create(
+                        tex,
+                        new Rect(0, 0, tex.width, tex.height),
+                        new Vector2(0.5f, 0.5f));
+                }
+            }
+            return iconSprite;
+        }
+        set
+        {
+            modIconData = value.texture.EncodeToPNG();
+        }
+    }
 }

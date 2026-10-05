@@ -39,8 +39,7 @@ public class ModDownloadMenu : MonoBehaviour
                 break;
             
             ModInfo createdDisplayInfo = ModManager.mm.AvailableMods[i];
-            ModDisplay modDisplay = GameObject.Instantiate(_modDisplay);
-            modDisplay.transform.SetParent(_modDisplayContainer);
+            ModDisplay modDisplay = GameObject.Instantiate(_modDisplay, _modDisplayContainer);
             modDisplay.DisplayMod(createdDisplayInfo, this);
             _activeModDisplays.Add(modDisplay.gameObject);
         }

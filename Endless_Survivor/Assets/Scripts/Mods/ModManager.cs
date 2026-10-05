@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,13 +9,15 @@ using UnityEngine;
 public class ModManager : MonoBehaviour
 {
     const string modsUrl = "https://api.github.com/repos/Laegha/Endless-Invasion-Mods/contents/Mods";
+    const int modListRefreshRateMinutes = 10;
     static ModManager _instance;
     public static ModManager mm { get { return _instance; } }
     //Add path to the mods so that scripts like char select and weapon getter can access and get the scriptable objects(MAYBE NOT)
     //Add .json with all the downloaded mods chars, weapons and items (differents for each)so that each script doesn't have to go through each mod json(NOT A BAD IDEA)
     //UnlockmentsManager should get every T with Resources.Load with the Mods path, then check which ones are unlocked with the .json mentioned on the previous line
 
-    static string _downloadedModsJsonFileName = "available_gacha_coins.json";
+    static string _downloadedModsJsonFileName = "downloaded_mods.json";
+    static string _lastRefreshJsonFileName = "last_mod_refresh.json";
 
     static string _allModdedCharsJsonFileName = "modded_characters.json";
     static string _allModdedWeaponsJsonFileName = "modded_weapons.json";
@@ -41,10 +44,31 @@ public class ModManager : MonoBehaviour
     }
     private async void Start()
     {
-        await RefreshModsList();
-
+        UpdateDownloadedMods();
+        var refreshResult = await TryRefreshModsList();
+        if (refreshResult.Item1)
+            return;
+        _availableMods = refreshResult.Item2;
     }
-    public async Task RefreshModsList()
+    public async Task<(bool, List<ModInfo>)> TryRefreshModsList()
+    {
+        string lastRefreshData = await Utility.ReadJson(_lastRefreshJsonFileName);
+        ModListRefreshInfo lastRefresh = JsonConvert.DeserializeObject<ModListRefreshInfo>(lastRefreshData);
+        DateTime now = DateTime.Now;
+
+        TimeSpan timeSpan = now - lastRefresh.lastRefreshTime;
+        if (timeSpan.Minutes < modListRefreshRateMinutes)
+            return (false, lastRefresh.lastRefreshMods);
+
+        await RefreshModsList();
+        ModListRefreshInfo newRefreshInfo = new();
+        newRefreshInfo.lastRefreshTime = now;
+        newRefreshInfo.lastRefreshMods = new(_availableMods);
+        string newTimeData = JsonConvert.SerializeObject(newRefreshInfo, Formatting.Indented);
+        Utility.WriteJson(_lastRefreshJsonFileName, newTimeData);
+        return (true, new());
+    }
+    async Task RefreshModsList()
     {
         var modFolders = await FilesDownloader.GetGithubFiles(modsUrl);
         List<ModInfo> mods = new List<ModInfo>();
@@ -58,13 +82,13 @@ public class ModManager : MonoBehaviour
             var textFile = modFiles.Find(x => x.name == "display_info.json");
             string modTextJson = await FilesDownloader.DownloadJson(textFile.download_url);
             ModTextInfo textInfo = JsonConvert.DeserializeObject<ModTextInfo>(modTextJson);
+            
 
-
-            modInfo.ModIcon = iconSprite;
-            modInfo.ModTitle = textInfo.title;
-            modInfo.ModDirectoryName = Utility.GetAvailableIndexedNameInPath("Assets/Resources/Mods/", modFolder.name);
-            modInfo.ModDescription = textInfo.description;
-            modInfo.DownloadUrl = Path.Combine(modsUrl, modFolder.name);
+            modInfo.modIcon = iconSprite;
+            modInfo.modTitle = textInfo.title;
+            modInfo.modDirectoryName = Utility.GetAvailableIndexedNameInPath(ModInfo.modsDirectoryPath, modFolder.name);
+            modInfo.modDescription = textInfo.description;
+            modInfo.downloadUrl = modsUrl + "/" + modFolder.name;
 
             mods.Add(modInfo);
         }
@@ -72,31 +96,34 @@ public class ModManager : MonoBehaviour
     }
     public bool IsModDownloaded(ModInfo mod)
     {
+        if(_downloadedMods.Count > 0)
+            Debug.Log(_downloadedMods[0].downloadUrl);
         return _downloadedMods.Any(x => x.DirectoryPath == mod.DirectoryPath);
     }
-    public async void DownloadMod(ModInfo downloadedModInfo)
+    async void UpdateDownloadedMods()
     {
-        await FilesDownloader.DownloadDirectoryRecursive(downloadedModInfo.DownloadUrl, downloadedModInfo.DirectoryPath);
-        AddModToJson(downloadedModInfo.DownloadUrl, downloadedModInfo.DirectoryPath);
+        string jsonData = await Utility.ReadJson(_downloadedModsJsonFileName);
+        _downloadedMods = JsonConvert.DeserializeObject<List<ModInfo>>(jsonData);
+
+    }
+    public async Task DownloadMod(ModInfo downloadedModInfo)
+    {
+        await FilesDownloader.DownloadDirectoryRecursive(downloadedModInfo.downloadUrl, downloadedModInfo.DirectoryPath);
+        AddModToJson(downloadedModInfo);
         //add characters, weapons and items to general json
         AddAllModElementsToJson(downloadedModInfo.DirectoryPath);
     }
-    async void AddModToJson(string modUrl, string modDirectoryPath)
+    void AddModToJson(ModInfo modInfo)
     {
-        string jsonData = await Utility.ReadJson(_downloadedModsJsonFileName);
-        List<DownloadedModJsonInfo> downloadedMods = JsonConvert.DeserializeObject<List<DownloadedModJsonInfo>>(jsonData);
-        DownloadedModJsonInfo downloadedModInfo = new();
-        downloadedModInfo.modUrl = modUrl;
-        downloadedModInfo.modDirectoryPath = modDirectoryPath;
-        downloadedMods.Add(downloadedModInfo);
-        jsonData = JsonConvert.SerializeObject(downloadedMods, Formatting.Indented);
+        _downloadedMods.Add(modInfo);
+        string jsonData = JsonConvert.SerializeObject(_downloadedMods, Formatting.Indented);
         Utility.WriteJson(_downloadedModsJsonFileName, jsonData);
     }
     void AddAllModElementsToJson(string modDirectoryPath)
     {
-        AddModElementsToJson(modDirectoryPath, _allModdedCharsJsonFileName, _modCharactersJsonFileName);
-        AddModElementsToJson(modDirectoryPath, _allModdedWeaponsJsonFileName, _modWeaponsJsonFileName);
-        AddModElementsToJson(modDirectoryPath, _allModdedItemsJsonFileName, _modItemsJsonFileName);
+        AddModElementsToJson(modDirectoryPath, _modCharactersJsonFileName, _allModdedCharsJsonFileName);
+        AddModElementsToJson(modDirectoryPath, _modWeaponsJsonFileName, _allModdedWeaponsJsonFileName);
+        AddModElementsToJson(modDirectoryPath, _modItemsJsonFileName, _allModdedItemsJsonFileName);
     }
     async void AddModElementsToJson(string modDirectoryPath, string inFile, string outFile)
     {
@@ -117,25 +144,23 @@ public class ModManager : MonoBehaviour
     public void DeleteMod(ModInfo deletedModInfo)
     {
         //Delete from json
-        DeleteModFromJson(deletedModInfo.DownloadUrl);
+        DeleteModFromJson(deletedModInfo.downloadUrl);
         //remove elements from each json
         DeleteAllModElementsFromJson(deletedModInfo.DirectoryPath);
         //delete files
         DeleteModFiles(deletedModInfo.DirectoryPath);
     }
 
-    async void DeleteModFromJson(string modUrl)
+    void DeleteModFromJson(string modUrl)
     {
-        string jsonData = await Utility.ReadJson(_downloadedModsJsonFileName);
-        List<DownloadedModJsonInfo> downloadedMods = JsonConvert.DeserializeObject<List<DownloadedModJsonInfo>>(jsonData);
-        downloadedMods.RemoveAll(x => x.modUrl == modUrl);
-        jsonData = JsonConvert.SerializeObject(downloadedMods, Formatting.Indented);
+        _downloadedMods.RemoveAll(x => x.downloadUrl == modUrl); //this should remove only 1 element
+        string jsonData = JsonConvert.SerializeObject(_downloadedMods, Formatting.Indented);
         Utility.WriteJson(_downloadedModsJsonFileName, jsonData);
     }
 
     void DeleteModFiles(string modDirectoryPath)
     {
-        File.Delete(modDirectoryPath);
+        Directory.Delete(modDirectoryPath, true);
     }
     void DeleteAllModElementsFromJson(string modDirectoryPath)
     {

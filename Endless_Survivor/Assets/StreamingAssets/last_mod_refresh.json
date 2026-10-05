@@ -1,0 +1,13 @@
+{
+  "lastRefreshTime": "2026-10-03T18:12:56.4778361-03:00",
+  "lastRefreshMods": [
+    {
+      "modIconData": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAlCAYAAAA0lXuOAAABqUlEQVRYCeWYPU7EQAyFwwpxjC0oKLakoOQAHJiSA2xBSUFBwTEoCHGUh8bj+bFnnKwIkdD8MDx/855XWTEM/s84SdKP63PlqDbDfZyfZsnbh2dIu9S4hlrnON7d3DMJrN+/XukC3bAHpt62EJChzALc3QoeoCHXavNe0KKboPZwtQdUBekF2wMKhk3G3YOaYoflPb26a0eb3Ox11evNBI7h9Pgyz4/D6XfPY2J9tRXd/Dy8Mabjdx52erXSWXX9Xfcocw2L2E3aT+3hvHVUWz8JZ2OvAeVawBL//4m+5iZFrDlTawVt9MnYrQCpFtDG/2ei1zjq4iaibXW1yVFr5ICksfVva44KN1sLhbA0j52t9WrJUQEZF/Nc174ClkAFh5ebJGzVykUv3LQKi1tmNrQtkHJUQGZqrLKda4EUqABYy00qpNWOoxduaoXE7YwbtRYIQS8GiTuVYLPRb+UkIGks1QSocDMUuNQ8/GARaPI/bXEMW8AWao6sRwlmuQXjKkXCDjYuUoDLK5UUZ8YQFGWYwylwHPQcAzDIMja2wIloZODR7zyXRZYffz6AHECPX+MAAAAASUVORK5CYII=",
+      "modTitle": "Test mod",
+      "modDirectoryName": "Assets/Resources/Mods/TestMod",
+      "modDescription": "This mod is a test",
+      "modCreatorName": null,
+      "downloadUrl": "https://api.github.com/repos/Laegha/Endless-Invasion-Mods/contents/Mods/TestMod"
+    }
+  ]
+}

@@ -333,6 +333,8 @@ public static class Utility
         string streamingPath = Path.Combine(Application.streamingAssetsPath, fileName);
         if (!File.Exists(path))
         {
+            if (!File.Exists(streamingPath))
+                return "";
             CopyDefaultJsonData(fileName);
             jsonData = await ReadJsonPath(streamingPath);
         }
@@ -387,7 +389,7 @@ public static class Utility
     {
         string desiredPath = Path.Combine(path, fileName);
         if(!File.Exists(desiredPath)) 
-            return desiredPath;
+            return fileName;
         int i = 1;
         while (File.Exists(desiredPath + i))
         {

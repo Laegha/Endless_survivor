@@ -29,7 +29,7 @@ public static class JsonUpdateHandler
                 continue;
             usableElements.Add(element);
         }
-
+        usableElements.RemoveAll(x => !streamingElements.Any(streaming => streaming.fileName == x.fileName));
         string newJsonData = JsonConvert.SerializeObject(usableElements);
         Utility.WriteJson(fileName, newJsonData);
     }

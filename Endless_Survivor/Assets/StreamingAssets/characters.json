@@ -163,5 +163,10 @@
     "fileName": "CaptainBattle",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Engineer",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]

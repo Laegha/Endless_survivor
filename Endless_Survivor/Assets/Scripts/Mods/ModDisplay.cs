@@ -13,6 +13,7 @@ public class ModDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI _modCreatorText;
     [SerializeField] TextMeshProUGUI _modDescriptionText;
     [SerializeField] GameObject _downloadButton;
+    [SerializeField] GameObject _downloadingButtonReplace;
     [SerializeField] GameObject _deleteButton;
     ModInfo _modInfo;
     ModDownloadMenu _menu;
@@ -22,25 +23,32 @@ public class ModDisplay : MonoBehaviour
         _menu = menu;
         _modInfo = modInfo;
         if(_modTitleText != null)
-            _modTitleText.text = modInfo.ModTitle;
+            _modTitleText.text = modInfo.modTitle;
         if(_modIconImage != null)
-            _modIconImage.ChangeImageSprite(modInfo.ModIcon);
+            _modIconImage.ChangeImageSprite(modInfo.modIcon);
         if(_modCreatorText != null)
-            _modCreatorText.text = modInfo.ModCreatorName;
+            _modCreatorText.text = modInfo.modCreatorName;
         if(_modDescriptionText != null)
-            _modDescriptionText.text = modInfo.ModDescription;
+            _modDescriptionText.text = modInfo.modDescription;
         //if mod is donwloaded, change the image of the downlaod btn or smth
         bool isDownloaded = ModManager.mm.IsModDownloaded(modInfo);
         _downloadButton.SetActive(!isDownloaded);
         _deleteButton.SetActive(isDownloaded);
+        Debug.Log("Mod " + _modInfo.modTitle + " is downloaded: " + isDownloaded);
     }
-    public void DownloadMod()
+    public async void DownloadMod()
     {
-        ModManager.mm.DownloadMod(_modInfo);
+        _downloadButton.SetActive(false);
+        _downloadingButtonReplace.SetActive(true);
+        await ModManager.mm.DownloadMod(_modInfo);
         _menu.RefreshModList();
+        _downloadingButtonReplace.SetActive(false);
+        _deleteButton.SetActive(true);
     }
     public void DeleteMod()
     {
+        _deleteButton.SetActive(false);
+        _downloadButton.SetActive(true);
         ModManager.mm.DeleteMod(_modInfo);
         _menu.RefreshModList();
     }
