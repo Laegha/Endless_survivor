@@ -8,6 +8,7 @@ public class PointBasedChangeCondition : WeaponAttackChangeCondition
     static Dictionary<WeaponAttackManager, int> _weaponsPoints = new Dictionary<WeaponAttackManager, int>();
     static Dictionary<WeaponAttackManager, System.Action> _onPointsReset = new();
     [SerializeField] int _neededPoints;
+    [Tooltip("This bool is necessary to consider cases where too many points are added at once, surpassing the highest change condition, therefore triggering it")][SerializeField] bool _isMaxAmmountOfPoints;
     [SerializeField] string _triggeredAttackId;
     [SerializeField] bool _usesPointsOnTrigger;
 
@@ -24,12 +25,13 @@ public class PointBasedChangeCondition : WeaponAttackChangeCondition
             _onPointsReset.Add(weaponAM, null);
         }
         _neededPoints = pointBasedOriginal._neededPoints;
+        _isMaxAmmountOfPoints = pointBasedOriginal._isMaxAmmountOfPoints;
         _triggeredAttackId = pointBasedOriginal._triggeredAttackId;
         _usesPointsOnTrigger = pointBasedOriginal._usesPointsOnTrigger;
     }
     public override bool IsConditionMet()
     {
-        bool isMet = _weaponsPoints[WeaponAM] == _neededPoints;
+        bool isMet = _weaponsPoints[WeaponAM] == _neededPoints || (_weaponsPoints[WeaponAM] > _neededPoints && _isMaxAmmountOfPoints);
         if (isMet && _usesPointsOnTrigger)
         {
             _onPointsReset[WeaponAM]?.Invoke();

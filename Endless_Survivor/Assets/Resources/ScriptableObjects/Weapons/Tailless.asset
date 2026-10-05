@@ -147,5 +147,6 @@ MonoBehaviour:
       type: {class: PointBasedChangeCondition, ns: , asm: Assembly-CSharp}
       data:
         _neededPoints: 3
+        _isMaxAmmountOfPoints: 1
         _triggeredAttackId: ProyectileAttack
         _usesPointsOnTrigger: 1
