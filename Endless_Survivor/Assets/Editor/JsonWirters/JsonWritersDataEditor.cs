@@ -10,6 +10,14 @@ public class JsonWritersDataEditor : Editor
     {
         base.OnInspectorGUI();
         JsonWritersData jsonWritersData = (JsonWritersData)target;
+        if (GUILayout.Button("Write Characters"))
+        {
+            jsonWritersData.WriteCharacters();
+        }
+        if (GUILayout.Button("Write Weapons"))
+        {
+            jsonWritersData.WriteWeapons();
+        }
         if (GUILayout.Button("Write PassiveItems"))
         {
             jsonWritersData.WriteItems();
