@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: VampiricSword
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 7c0ca8afc9b20be46a7b77560f30e29f, type: 3}
+  _weaponName: Vampiric Sword
+  _weaponStats:
+    _range: 6
+    _attackSpeed: 0.6
+    _damage: 15
+    _knockback: 5
+  _rangeIncrease: 0.1
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1
+  _weaponTags: 
+  _weaponPools: 0
+  _defaultAttack:
+    rid: 1210556981749743616
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 7c0ca8afc9b20be46a7b77560f30e29f, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1210556981749743616
+      type: {class: ProyectileWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Default
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 1230444477, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: -864242967, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: -686589022, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: 183977476, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: 1100159161, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: 1173591573, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: 1423448280, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: -1154739950, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          - {fileID: -311569946, guid: 0300b7adc839a6b49ad7341e9d02d4b9, type: 3}
+          _framesPerSecond: 5
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 1
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: d2fd7f31562a44640b87d7f0792d79c1, type: 3}
+          _volume: 0.9
+          _minPitchVariation: -0.2
+          _maxPitchVariation: -0.1
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 057014e773a828e4eb4e80a0ffdfa316, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _firePointPosition: {x: 26, y: 3.5}
+        _proyectileData:
+          _proyectileSpeed: 8
+          _proyectileSpread: 15
+          _proyectileAnim:
+            _animationName: Proyectile
+            _frames:
+            - {fileID: 21300000, guid: 1b47fb6e59dcf484fbd947684d36c4b8, type: 3}
+            _framesPerSecond: 1
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _colliderSize: {x: 0.125, y: 0.125}
+          _colliderDirection: 0
+          _proyectileMaterial: {fileID: 0}
+          _particlesPrefab: {fileID: 0}
+          _shootSFX:
+            _possibleSounds: []
+            _volume: 1
+            _minPitchVariation: 0
+            _maxPitchVariation: 0
