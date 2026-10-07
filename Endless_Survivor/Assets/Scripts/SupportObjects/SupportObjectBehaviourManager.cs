@@ -8,7 +8,9 @@ public class SupportObjectBehaviourManager : MonoBehaviour
     [SerializeField] SupportObjectControl _objControl;
     List<SupportObjectBehaviour> _supportObjBehaviours = new();
     SupportObjectData _supportObjData;
+    bool _isDestroyed = false;
 
+    public bool IsDestroyed { get { return _isDestroyed; } set { _isDestroyed = value; } }
     public List<SupportObjectBehaviour> Behaviours { get { return _supportObjBehaviours; } }
     public SupportObjectData SupportObjData {  get { return _supportObjData; } }
 
@@ -54,5 +56,12 @@ public class SupportObjectBehaviourManager : MonoBehaviour
     {
         foreach (var behaviour in _supportObjBehaviours)
             behaviour.OnDestroyed?.Invoke();
+    }
+    void OnDestroy()
+    {
+        if (_isDestroyed) return;
+        _isDestroyed = true;
+        Destroyed();
+
     }
 }

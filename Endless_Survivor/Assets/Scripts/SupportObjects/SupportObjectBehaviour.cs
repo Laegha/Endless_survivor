@@ -19,12 +19,12 @@ public class SupportObjectBehaviour
     Action _onDestroyed;
     public SupportObjectControl ObjControl { get { return _supportObjControl; } }
     public List<EnemyControl> closestEnemies => Utility.GetClosestTo(EnemySpawnManager.esm.Enemies, _supportObjControl.transform).ConvertAll(new Converter<GameObject, EnemyControl>((enemy) => enemy.GetComponent<EnemyControl>()));
-    public Action OnStart {  get { return _onStart; } set { _onStart = value; } }
+    public Action OnStart { get { return _onStart; } set { _onStart = value; } }
     public Action OnUpdate { get { return _onUpdate; } set { _onUpdate = value; } }
     public Action OnFixedUpdate { get { return _onFixedUpdate; } set { _onFixedUpdate = value; } }
     public Action OnLateUpdate { get { return _onLateUpdate; } set { _onLateUpdate = value; } }
     public Action OnCollidedWithPlayer { get { return _onCollidedWithPlayer; } set { _onCollidedWithPlayer = value; } }
-    public Action<EnemyControl> OnCollidedWithEnemy { get { return _onCollidedWithEnemy;} set { _onCollidedWithEnemy = value; } }
+    public Action<EnemyControl> OnCollidedWithEnemy { get { return _onCollidedWithEnemy; } set { _onCollidedWithEnemy = value; } }
     public Action OnCollidedWithOther { get { return _onCollidedWithOther; } set { _onCollidedWithOther = value; } }
     public Action OnDestroyed { get { return _onDestroyed; } set { _onDestroyed = value; } }
     public virtual void Initiate(SupportObjectControl control, SupportObjectBehaviour original)
@@ -33,6 +33,8 @@ public class SupportObjectBehaviour
     }
     public void DestroyObj(float delay = 0)
     {
+        if (_supportObjControl.BehaviourManager.IsDestroyed) return;
+        _supportObjControl.BehaviourManager.IsDestroyed = true;
         ObjectDestroyingManager.odm.DestroyObj(_supportObjControl.gameObject, _supportObjControl.BehaviourManager.Destroyed, delay);
     }
 }
