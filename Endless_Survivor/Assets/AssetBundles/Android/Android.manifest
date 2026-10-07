@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2490687374
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: testmod
+      Dependencies: {}
