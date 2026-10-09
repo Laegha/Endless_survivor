@@ -17,6 +17,11 @@ public class TouchControls : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public Vector2 DraggingDirection {  get { return _draggingDirection; } }
     public void OnPointerDown(PointerEventData data) 
     {
+        if (_currLine != null)
+        {
+            UILineDissapearAnimator uILineDissapearAnimator = _currLine.GetComponent<UILineDissapearAnimator>();
+            uILineDissapearAnimator.OnOneVertexLeft += () => Destroy(uILineDissapearAnimator.gameObject, _lineDestroyAfterReleaseDelay);
+        }
         _currLine = Instantiate(_linePrefab, _linesHolder);
         _currLine.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }

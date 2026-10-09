@@ -21,13 +21,13 @@ MonoBehaviour:
   _colliderDirection: 1
   _rigidbodyType: 2
   _enemyBehaviours:
+  - rid: 1210557010183979008
   - rid: 1210557001248276480
   - rid: 1210557001248276481
   - rid: 1210557001248276482
   - rid: 1210557001248276483
+  - rid: 1210557010183979009
   - rid: 1210557001248276484
-  - rid: 1210557001248276486
-  - rid: 1210557010183979008
   _dropablePickupChances: []
   _onHitSFX:
     _possibleSounds: []
@@ -183,8 +183,16 @@ MonoBehaviour:
           _volume: 1
           _minPitchVariation: 0
           _maxPitchVariation: 0
-    - rid: 1210557001248276486
-      type: {class: TriggerBehavioursAtDistanceWhileActive, ns: , asm: Assembly-CSharp}
+    - rid: 1210557010183979008
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalHitbox
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.7, y: 1}
+        _colliderOffset: {x: 0.15, y: 0.5}
+        _colliderDirection: 0
+    - rid: 1210557010183979009
+      type: {class: TriggerBehavioursAtDistanceWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _behaviourId: AtDistTriggerMelee
         _overrideBehaviours: []
@@ -194,11 +202,3 @@ MonoBehaviour:
         _triggerWhenFar: 0
         _behavioursToWaitBeforeTriggeringAgain:
         - SobMeleeAttack
-    - rid: 1210557010183979008
-      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
-      data:
-        _behaviourId: AdditionalHitbox
-        _overrideBehaviours: []
-        _colliderSize: {x: 0.7, y: 1}
-        _colliderOffset: {x: 0.15, y: 0.5}
-        _colliderDirection: 0
