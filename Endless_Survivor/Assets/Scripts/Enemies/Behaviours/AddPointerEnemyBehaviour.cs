@@ -6,6 +6,7 @@ public class AddPointerEnemyBehaviour : EnemyBehaviour
 {
     [SerializeField] Color _pointerColor;
     [SerializeField] Sprite _pointerIcon;
+    [SerializeField] bool _destroyPointerWhenPlayerIsClose;
     UIPointer _pointer;
     public override void Initialize(EnemyBehaviour original, EnemyControl enemyControl)
     {
@@ -13,11 +14,12 @@ public class AddPointerEnemyBehaviour : EnemyBehaviour
         var addPointerOriginal = original as AddPointerEnemyBehaviour;
         _pointerColor = addPointerOriginal._pointerColor;
         _pointerIcon = addPointerOriginal._pointerIcon;
+        _destroyPointerWhenPlayerIsClose = addPointerOriginal._destroyPointerWhenPlayerIsClose;
     }
     public override void Start()
     {
         base.Start();
-        _pointer = GameUIManager.uiManager.PointerManager.AddPointer(EnemyControl.transform, _pointerColor, _pointerIcon);
+        _pointer = GameUIManager.uiManager.PointerManager.AddPointer(EnemyControl.transform, _pointerColor, _pointerIcon, _destroyPointerWhenPlayerIsClose);
     }
     public override void OnDeath()
     {

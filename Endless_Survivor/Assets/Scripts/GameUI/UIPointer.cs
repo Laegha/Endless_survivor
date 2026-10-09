@@ -13,11 +13,12 @@ public class UIPointer : MonoBehaviour
     Transform _playerTr;
     Transform _targetTr;
     RectTransform _iconTr;
+    bool _destroyWhenClose;
 
     Vector2 _canvasSize = Vector2.one;
     Vector2 _showingLimits;
 
-    public void SetValues(Transform playerTr, Transform targetTr, Color bgColor, Sprite icon)
+    public void SetValues(Transform playerTr, Transform targetTr, Color bgColor, Sprite icon, bool destroyWhenClose)
     {
         _canvasSize = transform.root.GetComponent<RectTransform>().sizeDelta;
         _pointerTr = GetComponent<RectTransform>();
@@ -26,6 +27,7 @@ public class UIPointer : MonoBehaviour
         _bgImage.color = bgColor;
         _iconImage.sprite = icon;
         _iconTr = _iconImage.GetComponent<RectTransform>();
+        _destroyWhenClose = destroyWhenClose;
         if(icon != null ) 
             Utility.ScaleImageToFitTarget(_iconTr, icon, _iconImageTarget.sizeDelta);
 
@@ -76,6 +78,11 @@ public class UIPointer : MonoBehaviour
         }
         else
         {
+            if (_destroyWhenClose)
+            {
+                GameUIManager.uiManager.PointerManager.RemovePointer(this);
+            }
+
             _bgImage.enabled = false;
             _iconImage.enabled = false;
 

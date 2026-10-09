@@ -48,7 +48,7 @@ public class GameProgressionManager : MonoBehaviour
             //create a pointer (grab the icon from the WorldConfigData)
             var pointerColor = GameManager.gm.WorldConfig.ExitPointerColor;
             var pointerIcon = GameManager.gm.WorldConfig.ExitPointerIcon;
-            GameUIManager.uiManager.PointerManager.AddPointer(runExit, pointerColor, pointerIcon);
+            GameUIManager.uiManager.PointerManager.AddPointer(runExit, pointerColor, pointerIcon, true);
         }
     }
     public void EndRun(CustomAnimation playerAnimation, ParticleSystem playerParticles, RunEndType endType)

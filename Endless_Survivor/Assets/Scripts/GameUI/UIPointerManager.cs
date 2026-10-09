@@ -6,11 +6,11 @@ public class UIPointerManager : MonoBehaviour
 {
     [SerializeField] GameObject _pointerPrefab;
     List<UIPointer> _activePointers = new();
-    public UIPointer AddPointer(Transform target, Color pointerColor, Sprite pointerIcon)
+    public UIPointer AddPointer(Transform target, Color pointerColor, Sprite pointerIcon, bool destroyWhenClose)
     {
         UIPointer addedPointer = GameObject.Instantiate(_pointerPrefab, transform).GetComponent<UIPointer>();
         
-        addedPointer.SetValues(PlayerControl.pc.transform, target, pointerColor, pointerIcon);
+        addedPointer.SetValues(PlayerControl.pc.transform, target, pointerColor, pointerIcon, destroyWhenClose);
         _activePointers.Add(addedPointer);
         return addedPointer;
 

@@ -73,7 +73,7 @@ public class EnemyInvoker : MonoBehaviour
         enemyHP.OnDeath += InvokedEnemyKilled;
         spawnedEnemy.GetComponent<EnemyControl>().EnemyHP.OnDeath += _onEnemyDeath;
 
-        var pointer = GameUIManager.uiManager.PointerManager.AddPointer(spawnedEnemy.transform, _spawningEnemies[0].enemyInvokationInfo.PointerColor, _spawningEnemies[0].enemyInvokationInfo.PointerIcon);
+        var pointer = GameUIManager.uiManager.PointerManager.AddPointer(spawnedEnemy.transform, _spawningEnemies[0].enemyInvokationInfo.PointerColor, _spawningEnemies[0].enemyInvokationInfo.PointerIcon, false);
         enemyHP.OnDeath += (placeholder) => GameUIManager.uiManager.PointerManager.RemovePointer(pointer);
 
         _spawningEnemies.RemoveAt(0);
