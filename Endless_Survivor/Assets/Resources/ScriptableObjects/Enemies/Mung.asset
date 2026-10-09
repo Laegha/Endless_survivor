@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
+  m_Name: Mung
+  m_EditorClassIdentifier: 
+  _initialHP: 35
+  _referenceSizeSprite: {fileID: 552810286, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+  _renderSortingOffset: 0
+  _knockbackResistance: 0
+  _colliderSize: {x: 1, y: 0.5}
+  _colliderOffset: {x: 0, y: 0.1}
+  _colliderDirection: 1
+  _rigidbodyType: 2
+  _enemyBehaviours:
+  - rid: 1210557001248276480
+  - rid: 1210557001248276481
+  - rid: 1210557001248276482
+  - rid: 1210557001248276483
+  - rid: 1210557001248276484
+  - rid: 1210557001248276486
+  - rid: 1210557010183979008
+  _dropablePickupChances: []
+  _onHitSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  _onDeathSFX:
+    _possibleSounds: []
+    _volume: 1
+    _minPitchVariation: 0
+    _maxPitchVariation: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1210557001248276480
+      type: {class: PlayIdleAnimFacingPlayerEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: IdleAnim
+        _overrideBehaviours: []
+        _idleUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleRightAnimation:
+          _animationName: IdleRight
+          _frames:
+          - {fileID: 552810286, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: -1398350746, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: -1957501234, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: -1087320762, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: 1907028384, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: 1822655810, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: -791231869, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          - {fileID: 1953938498, guid: 115c1623acdcad741a5b5a8b271f940a, type: 3}
+          _framesPerSecond: 10
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _idleLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+    - rid: 1210557001248276481
+      type: {class: PlayAnimFacingPlayerWhileActiveEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SobAnim
+        _overrideBehaviours: []
+        _animations:
+          _upAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _rightAnimation:
+            _animationName: SobRight
+            _frames:
+            - {fileID: -1322366756, guid: b632b67f69f5f4046bdcadaf3dd6db60, type: 3}
+            - {fileID: 872610756, guid: b632b67f69f5f4046bdcadaf3dd6db60, type: 3}
+            _framesPerSecond: 3
+            _endAnimationOnEnd: 0
+            _priority: 1
+          _downAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _leftAnimation:
+            _animationName: 
+            _frames: []
+            _framesPerSecond: 0
+            _endAnimationOnEnd: 0
+            _priority: 0
+    - rid: 1210557001248276482
+      type: {class: TriggerBehavioursOverTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: OverTimeTriggerSob
+        _overrideBehaviours: []
+        _timeBetweenTriggering:
+          min: 2.6
+          max: 3
+        _triggeredBehaviours:
+        - DuringTimeTriggerSob
+    - rid: 1210557001248276483
+      type: {class: TriggerBehavioursDuringTimeEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: DuringTimeTriggerSob
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - SobAnim
+        - AtDistTriggerMelee
+        _duration:
+          min: 8
+          max: 10
+    - rid: 1210557001248276484
+      type: {class: MeleeAttackBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: SobMeleeAttack
+        _overrideBehaviours: []
+        _damage: 10
+        _attackRange: 0
+        _attackRadius: 0.8
+        _attackUpAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackRightAnimation:
+          _animationName: SobAtkRight
+          _frames:
+          - {fileID: -1322366756, guid: b632b67f69f5f4046bdcadaf3dd6db60, type: 3}
+          - {fileID: 872610756, guid: b632b67f69f5f4046bdcadaf3dd6db60, type: 3}
+          _framesPerSecond: 3
+          _endAnimationOnEnd: 0
+          _priority: 2
+        _attackDownAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackLeftAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _usesVfx: 0
+        _attackVFXAnimation:
+          _animationName: 
+          _frames: []
+          _framesPerSecond: 0
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _triggerVFXFrame: 0
+        _vfxRendererOffset: 0
+        _vfxUsesFixedAngle: 0
+        _vfxFixedAngle: 0
+        _triggerDamageFrame: 0
+        _attackSfx:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 1210557001248276486
+      type: {class: TriggerBehavioursAtDistanceWhileActive, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AtDistTriggerMelee
+        _overrideBehaviours: []
+        _behavioursToTrigger:
+        - SobMeleeAttack
+        _distanceToTrigger: 0.8
+        _triggerWhenFar: 0
+        _behavioursToWaitBeforeTriggeringAgain:
+        - SobMeleeAttack
+    - rid: 1210557010183979008
+      type: {class: AddAditionalHitboxEnemyBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: AdditionalHitbox
+        _overrideBehaviours: []
+        _colliderSize: {x: 0.7, y: 1}
+        _colliderOffset: {x: 0.15, y: 0.5}
+        _colliderDirection: 0
