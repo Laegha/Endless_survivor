@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaae74eb6b2074418cb98d86900f087, type: 3}
+  m_Name: TrialStatusEffect
+  m_EditorClassIdentifier: 
+  _statusEffects:
+  - rid: 1210557010183979010
+  - rid: 1210557010183979011
+  - rid: 1210557010183979012
+  - rid: 1210557010183979013
+  _effectMaxStacks: 1
+  _effectApplyCooldown: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1210557010183979010
+      type: {class: SpreadOnDeathStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _spreadMaxDist: 2
+        _spreadChance: 10
+    - rid: 1210557010183979011
+      type: {class: CreateSuportObjsOnDeathStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _createdObjsDatas:
+        - generic: {fileID: 11400000, guid: 934fd79c1d0627543ae708bdabbc89bf, type: 2}
+          num: 1
+    - rid: 1210557010183979012
+      type: {class: GraphicsEnemyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectIndicator: {fileID: 21300000, guid: 567fd3c436e9f2f419cda9c66227bc61, type: 3}
+        _statusEffectMaterial: {fileID: 0}
+        _statusEffectParticles: {fileID: 0}
+        _particlesOffset: {x: 0, y: 0}
+    - rid: 1210557010183979013
+      type: {class: EndByTimeStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectDuration: 2.5

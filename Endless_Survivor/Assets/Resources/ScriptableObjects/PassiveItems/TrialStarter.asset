@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6a9a0660705c64eac4784dbe23b44c, type: 3}
+  m_Name: TrialStarter
+  m_EditorClassIdentifier: 
+  _itemName: Trial starter
+  _itemDescript: Put enemies to trial and kill them for rewards
+  _itemSprite: {fileID: 0}
+  _itemMaxCopies: -1
+  _unremovableItem: 0
+  _itemOverrides: []
+  _itemBehaviours:
+  - rid: 1210557010183979016
+  - rid: 1210557010183979017
+  _itemPools: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1210557010183979016
+      type: {class: ActivateRandomPeriodicallyItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: ActivateGiveEffect
+        _possibleActivatedIds:
+        - _rouletteElement: GiveTrialEffect
+          _chance: 1
+        _timeBetweenActivations:
+          min: 12
+          max: 30
+        _particlesOnActivation: {fileID: 4490651413473257475, guid: b8d9797fc2a9b214ab82a9eea0251e71, type: 3}
+        _particlesOffsetFromPlayer: {x: 0, y: 0}
+        _particlesDuration: 1
+        _onActivateSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
+    - rid: 1210557010183979017
+      type: {class: InflictEnemiesWithStatusOnActivateItemBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _behaviourId: GiveTrialEffect
+        _inflictedStatusEffects:
+        - _rouletteElement: {fileID: 11400000, guid: 59b367255d4283b48a62d7c7b5c13f47, type: 2}
+          _chance: 1
+        _effectsPerEnemy:
+          min: 1
+          max: 1
+        _particlesOnEnemyInflicted: {fileID: 4490651413473257475, guid: 4b51d98c346200b4a87e62eb55555e2d, type: 3}
+        _particlesDuration: 2
+        _particlesOffset: {x: 0, y: 0}
