@@ -40,7 +40,7 @@ MonoBehaviour:
   _possibleSupportObjectsPerTile: []
   _biomeEnemies:
   - _rouletteElement:
-      enemyData: {fileID: 11400000, guid: b4d25aa2aac05d048b9c426c95eb493b, type: 2}
+      enemyData: {fileID: 11400000, guid: b2ea510b9cdcf96459468d6300a1b331, type: 2}
       _spawnIntensity: 0
     _chance: 1
   _bossInvokerAnimation:
@@ -50,6 +50,7 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
+  _bossInvokerRenderOffset: 0
   _usesBoxCollider: 0
   _boxColliderSize: {x: 0, y: 0}
   _usesCircleCollider: 0

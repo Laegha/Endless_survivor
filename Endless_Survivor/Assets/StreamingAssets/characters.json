@@ -168,5 +168,10 @@
     "fileName": "Engineer",
     "isUnlocked": true,
     "isNew": false
+  },
+  {
+    "fileName": "Dusk",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]
