@@ -70,7 +70,7 @@ MonoBehaviour:
           _maxPitchVariation: -0.1
         _weaponAttackEffects:
           availableEffects:
-          - {fileID: 11400000, guid: 057014e773a828e4eb4e80a0ffdfa316, type: 2}
+          - {fileID: 11400000, guid: 4803c3c27e1168f429df7631547c3cc5, type: 2}
         _damageMultiplier: 1
         _knockbackMultiplier: 1
         _damageType: 0
