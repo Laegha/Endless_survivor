@@ -22,6 +22,7 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
+  _renderingOffset: 0
   _supportObjColliders: []
   references:
     version: 2
@@ -100,3 +101,5 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+        _trayectoryPreviewLineData: {fileID: 11400000, guid: e090d62b49fc1cc4bade0fdb3b91a3ef, type: 2}
+        _distBetweenPreviewVertices: 0.05
