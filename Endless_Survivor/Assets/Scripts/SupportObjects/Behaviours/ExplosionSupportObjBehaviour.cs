@@ -6,6 +6,7 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
 {    
     new public static int maxStacks => 1;
     [SerializeField] DamageInfo _explosionDamage;
+    [SerializeField] float _explosionKnockback;
     [SerializeField] float _explosionRadius;
     [SerializeField] ParticleSystem _explosionParticles;
     [SerializeField] float _particlesDuration;
@@ -18,6 +19,7 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
         base.Initiate(control, original);
         ExplosionSupportObjBehaviour explosionOriginal = original as ExplosionSupportObjBehaviour;
         _explosionDamage = explosionOriginal._explosionDamage;
+        _explosionKnockback = explosionOriginal._explosionKnockback;
         _explosionRadius = explosionOriginal._explosionRadius;
         _explosionParticles = explosionOriginal._explosionParticles;
         _particlesDuration = explosionOriginal._particlesDuration;
@@ -36,6 +38,12 @@ public class ExplosionSupportObjBehaviour : SupportObjectBehaviour
         var affectedObjs = Physics2D.OverlapCircleAll(ObjControl.transform.position, _explosionRadius, _affectedLayers);
         foreach(var obj in affectedObjs)
         {
+            var enemyHp = obj.GetComponent<EnemyHP>();
+            if (enemyHp != null)
+            {
+                Vector2 knockbackDir = enemyHp.transform.position - ObjControl.transform.position;
+                enemyHp.TakeDamage((int)_explosionDamage.CalculatedDamage, knockbackDir.normalized, _explosionKnockback);
+            }
             var objHP = obj.GetComponent<HP>();
             if (objHP == null)
                 continue;
