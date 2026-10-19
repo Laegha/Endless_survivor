@@ -15,7 +15,7 @@ MonoBehaviour:
   _supportObjBehaviours:
   - rid: 7757969562384465920
   - rid: 5726233762704130048
-  - rid: 1210557172426735619
+  - rid: 1210557192671854599
   _idleAnimation:
     _animationName: Idle
     _frames:
@@ -28,26 +28,23 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1210557172426735619
-      type: {class: CreatePickupChoiceSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+    - rid: 1210557192671854599
+      type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
-        _options:
-        - _rouletteElement: {fileID: 11400000, guid: 39430fa9ac31efe43b196f33fe1919f6, type: 2}
+        _possibleSupportObjs:
+        - _rouletteElement: {fileID: 11400000, guid: 2416e5a65184084418cdc4a9e551caa9, type: 2}
           _chance: 1
-        - _rouletteElement: {fileID: 11400000, guid: b0755177d25c5be45a746cc9cc23df1b, type: 2}
-          _chance: 1
-        _optionsAmmount: 1
-        _allowRepetitions: 0
-        _pickupsSpawnPattern:
-          rid: 1210557172426735620
-        _patternCenterOffset: {x: 0, y: 0}
-        _unchosenPickupsParticles: {fileID: 0}
-    - rid: 1210557172426735620
+        _ammount:
+          min: 1
+          max: 1
+        _creationPattern:
+          rid: 1210557192671854600
+    - rid: 1210557192671854600
       type: {class: ICirclePattern, ns: , asm: Assembly-CSharp}
       data:
         _radius: 0
         _startAngle: 0
-        _fitCircle: 0
+        _fitCircle: 1
         _angleStep: 0
     - rid: 5726233762704130048
       type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}

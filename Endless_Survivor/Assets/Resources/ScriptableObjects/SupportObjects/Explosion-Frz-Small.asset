@@ -33,8 +33,9 @@ MonoBehaviour:
         _explosionDamage:
           _damageAmmount: 9
           _damageType: 16
+        _explosionKnockback: 0
         _explosionRadius: 1.4
-        _explosionParticles: {fileID: 2751937218881223315, guid: 71e8428feaddcf540b11c32520f57fd1, type: 3}
+        _explosionParticles: {fileID: 2751937218881223315, guid: 1669f36c18f8d984e98337cc67d8d1e8, type: 3}
         _particlesDuration: 5
         _explosionAnimation:
           _animationName: 

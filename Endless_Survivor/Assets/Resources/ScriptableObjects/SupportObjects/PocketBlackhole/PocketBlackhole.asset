@@ -31,7 +31,7 @@ MonoBehaviour:
       type: {class: CreateRandomSupportObjsOnDestroySupportObjBehaviour, ns: , asm: Assembly-CSharp}
       data:
         _possibleSupportObjs:
-        - _rouletteElement: {fileID: 0}
+        - _rouletteElement: {fileID: 11400000, guid: 1ccd3141ad8b3e041b766565796315bb, type: 2}
           _chance: 1
         _ammount:
           min: 1
