@@ -125,4 +125,53 @@ public static class UnlockmentsManager
         Utility.WriteJson(fileName, newJson);
         GameManager.gm.UnlockedElementHelper.UpdateAll();
     }
+    public static void UpdateDifferencesAll()
+    {
+        UpdateDifferences(charactersFileName);
+        UpdateDifferences(weaponsFileName);
+        UpdateDifferences(passiveItemsFileName);
+        UpdateDifferences(_gachaCoinsFileName);
+    }
+    static async void UpdateDifferences(string fileName)
+    {
+        //get streaming lists
+        List<JsonElementInfo> defaultElems = await GetDefaultList(fileName);
+
+        //get persistent lists
+        List<JsonElementInfo> saveElems = await GetSaveList(fileName);
+        
+        //remove from persistent those that aren't on streaming and add to persistent those that are missing
+        saveElems.RemoveAll(elem => !defaultElems.Contains(elem));
+        for (int i = 0; i < defaultElems.Count; i++)
+        {
+            var defaultElem = defaultElems[i];
+            var saveElem = saveElems.Find(x => x.fileName == defaultElem.fileName);
+            if (saveElem != null)
+            {
+                saveElem.isUnlocked = saveElem.isUnlocked || defaultElem.isUnlocked;
+                continue;
+            }
+            saveElems.Insert(i, defaultElem);
+        }
+        string newSaveData = JsonConvert.SerializeObject(saveElems, Formatting.Indented);
+        Utility.WriteJson(fileName, newSaveData);
+    }
+    public static void CopyAll()
+    {
+        Utility.CopyDefaultJsonData(charactersFileName);
+        Utility.CopyDefaultJsonData(weaponsFileName);
+        Utility.CopyDefaultJsonData(passiveItemsFileName);
+        Utility.CopyDefaultJsonData(_gachaCoinsFileName);
+    }
+    async static Task<List<JsonElementInfo>> GetDefaultList(string fileName)
+    {
+        string defaultPath = Path.Combine(Application.streamingAssetsPath, fileName);
+        string listData = await Utility.ReadJsonPath(defaultPath);
+        return JsonConvert.DeserializeObject<List<JsonElementInfo>>(listData);
+    }
+    async static Task<List<JsonElementInfo>> GetSaveList(string fileName)
+    {
+        string listData = await Utility.ReadJson(fileName);
+        return JsonConvert.DeserializeObject<List<JsonElementInfo>>(listData);
+    }
 }
