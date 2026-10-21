@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowPlayerInRowSupportObjBehaviour : SupportObjectBehaviour
 {
@@ -31,6 +32,7 @@ public class FollowPlayerInRowSupportObjBehaviour : SupportObjectBehaviour
         OnFixedUpdate += UpdateRow;
         OnUpdate += PlayAnim;
         OnDestroyed += RemoveFromRow;
+        SceneManager.activeSceneChanged += ClearRows;
     }
     void AddToRow()
     {
@@ -95,5 +97,10 @@ public class FollowPlayerInRowSupportObjBehaviour : SupportObjectBehaviour
         _followerRows[_rowData].RowObjs.Remove(_myRowElement);
         if(_followerRows[_rowData].RowObjs.Count == 0)
             _followerRows.Remove(_rowData);
+    }
+
+    void ClearRows(Scene current, Scene next)
+    {
+        _followerRows.Clear();
     }
 }
