@@ -11,4 +11,5 @@ public class SettingsJsonInfo
     public float music;
     public bool customControls;
     public bool crt;
+    public string selectedCharFileName;
 }

@@ -13,7 +13,7 @@ public class CharacterButton : MonoBehaviour
 
     public void SelectCharacter()
     {
-        GameManager.gm.selectedCharacter = characterData;
+        GameManager.gm.SelectedCharacter = characterData;
         UnlockmentsManager.SetNotNewCharacter(characterData);
         //charSelectMenu.CloseMenu();
         charSelectMenu.UpdateAllSelections();
@@ -27,6 +27,6 @@ public class CharacterButton : MonoBehaviour
     }
     public void UpdateSelection()
     {
-        _charSelectedAnimator.Play(GameManager.gm.selectedCharacter == characterData ? "Selected" : "Unselected");
+        _charSelectedAnimator.Play(GameManager.gm.SelectedCharacter == characterData ? "Selected" : "Unselected");
     }
 }

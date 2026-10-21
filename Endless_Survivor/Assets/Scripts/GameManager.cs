@@ -10,12 +10,13 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public CharacterData selectedCharacter;
+    CharacterData _selectedCharacter;
 
     public PrefabHolder prefabHolder;
     [SerializeField] SettingsHandler _settingsHandler;
@@ -24,6 +25,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] WeaponStatsSpritesData _weaponStatsSprites;
     UnlockedElementsHelper _unlockedElementsHelper = new();
 
+    Action<CharacterData> _onSelectedCharChange;
+    public Action<CharacterData> OnSelectedCharChange { get { return _onSelectedCharChange; } set {  _onSelectedCharChange = value; } }
+    public CharacterData SelectedCharacter {
+        get { return _selectedCharacter; }
+        set { 
+            _selectedCharacter = value;
+            _onSelectedCharChange?.Invoke(_selectedCharacter);
+        } 
+    }
     public SettingsHandler SettingsHandler { get { return _settingsHandler; } }
     public MapGenerationConfig MapGenerationConfig { get { return _mapGenerationConfig; } }
     public WorldConfigData WorldConfig { get { return _worldConfig; } }
@@ -48,8 +58,9 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        _settingsHandler.GetJsonValues();
         _unlockedElementsHelper.UpdateAll();
+        _settingsHandler.GetJsonValues();
+        _onSelectedCharChange += _settingsHandler.ChangeSelectedCharFile;
     }
 
     public void RoutineRunner(IEnumerator routine)

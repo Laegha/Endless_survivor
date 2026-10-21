@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -14,12 +15,14 @@ public class SettingsHandler
 
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] FullScreenPassRendererFeature _crtRenderFeature;
+
     bool _usingCustomControls = false;
     bool _usingCrt;
+    string _selectedChar;
     public const string masterVolumeGroup = "Master";
     public const string sfxVolumeGroup = "SFX";
     public const string musicVolumeGroup = "Music";
-
+    const string defaultCharFileName = "TheBoogeyman";
     SettingsJsonInfo _jsonInfo
     {
         get
@@ -30,6 +33,7 @@ public class SettingsHandler
             result.music = GetVolume01(musicVolumeGroup);
             result.customControls = _usingCustomControls;
             result.crt = _usingCrt;
+            result.selectedCharFileName = _selectedChar;
             return result;
         }
     }
@@ -40,15 +44,33 @@ public class SettingsHandler
 
     public async void GetJsonValues()
     {
-        string playerPrefs = await Utility.ReadJson(_settingsPath);
-        var settingsInfo = JsonConvert.DeserializeObject<SettingsJsonInfo>(playerPrefs);
+        string settingsData = await Utility.ReadJson(_settingsPath);
+        var settingsInfo = JsonConvert.DeserializeObject<SettingsJsonInfo>(settingsData);
         SetVolume(masterVolumeGroup, settingsInfo.master, false);
         SetVolume(sfxVolumeGroup, settingsInfo.sfx, false);
         SetVolume(musicVolumeGroup, settingsInfo.music, false);
         _usingCustomControls = settingsInfo.customControls;
         _usingCrt = settingsInfo.crt;
         _crtRenderFeature.SetActive(_usingCrt);
-        UpdateJson();
+
+        LoadStartingChar(settingsInfo);
+        
+        
+        //UpdateJson();
+    }
+    async void LoadStartingChar(SettingsJsonInfo settingsInfo)
+    {
+        while (GameManager.gm.UnlockedElementHelper.UnlockedCharacters == null || GameManager.gm.UnlockedElementHelper.UnlockedCharacters.Count == 0)
+            await Task.Yield();
+
+        CharacterData selectedChar = GameManager.gm.UnlockedElementHelper.UnlockedCharacters.Find(c => c.element.name == settingsInfo.selectedCharFileName)?.element;
+        
+        if(selectedChar == null)
+            selectedChar = GameManager.gm.UnlockedElementHelper.UnlockedCharacters.Find(c => c.element.name == defaultCharFileName)?.element;
+
+        _selectedChar = selectedChar.name;
+
+        GameManager.gm.SelectedCharacter = selectedChar;
     }
 
     public void SetVolume(string volumeGroup, float volume, bool updateJson = true)
@@ -74,6 +96,11 @@ public class SettingsHandler
     {
         _usingCrt = !_usingCrt;
         _crtRenderFeature.SetActive(_usingCrt);
+        UpdateJson();
+    }
+    public void ChangeSelectedCharFile(CharacterData character)
+    {
+        _selectedChar = character.name;
         UpdateJson();
     }
     void UpdateJson()
