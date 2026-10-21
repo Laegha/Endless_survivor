@@ -1,7 +1,21 @@
 [
-
   {
     "fileName": "Balance",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "BaseballBat",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "BlackSilence",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "BladeOfChaos",
     "isUnlocked": true,
     "isNew": false
   },
@@ -17,6 +31,11 @@
   },
   {
     "fileName": "Broadsword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ButcherKnife",
     "isUnlocked": true,
     "isNew": false
   },
@@ -81,7 +100,17 @@
     "isNew": false
   },
   {
+    "fileName": "GrenadeLauncher",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "IronSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "LaserSword",
     "isUnlocked": true,
     "isNew": false
   },
@@ -127,6 +156,16 @@
   },
   {
     "fileName": "NullKatana",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "PokerDeck",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "PoseidonsTrident",
     "isUnlocked": true,
     "isNew": false
   },
@@ -187,6 +226,16 @@
   },
   {
     "fileName": "Vacpack",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "VampiricSword",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "WizardStaff",
     "isUnlocked": true,
     "isNew": false
   }

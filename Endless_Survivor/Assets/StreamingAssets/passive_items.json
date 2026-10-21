@@ -5,12 +5,22 @@
     "isNew": false
   },
   {
+    "fileName": "AppleGrenades",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "Bearserker",
     "isUnlocked": true,
     "isNew": false
   },
   {
     "fileName": "BreadIdolBait",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "BurstingCacti",
     "isUnlocked": true,
     "isNew": false
   },
@@ -41,6 +51,11 @@
   },
   {
     "fileName": "Exceed",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "ExplosiveBalloons",
     "isUnlocked": true,
     "isNew": false
   },
@@ -105,6 +120,21 @@
     "isNew": false
   },
   {
+    "fileName": "NitrogenGrenades",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "OverchargedBatteries",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "PocketBlackholes",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "RottenBabyItem",
     "isUnlocked": true,
     "isNew": false
@@ -146,6 +176,11 @@
   },
   {
     "fileName": "V1OperativeSystem",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "VampireFangs",
     "isUnlocked": true,
     "isNew": false
   },

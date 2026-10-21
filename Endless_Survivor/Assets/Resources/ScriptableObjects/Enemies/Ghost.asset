@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a626a31c7812942929c3dbe24a24db, type: 3}
   m_Name: Ghost
   m_EditorClassIdentifier: 
-  _initialHP: 25
+  _initialHP: 20
   _referenceSizeSprite: {fileID: 1505583216, guid: 3fb5d1f0f53df374c8d63676cd31faab, type: 3}
   _renderSortingOffset: 1000
   _knockbackResistance: 10
