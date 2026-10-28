@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Audio;
+using ControlsType = SettingsJsonInfo.ControlsType;
 
 [Serializable]
 public class SettingsHandler
@@ -16,7 +17,7 @@ public class SettingsHandler
     [SerializeField] AudioMixer _audioMixer;
     [SerializeField] FullScreenPassRendererFeature _crtRenderFeature;
 
-    bool _usingCustomControls = false;
+    ControlsType _controlsType = ControlsType.StaticJoystic;
     bool _usingCrt;
     string _selectedChar;
     public const string masterVolumeGroup = "Master";
@@ -31,14 +32,14 @@ public class SettingsHandler
             result.master = GetVolume01(masterVolumeGroup);
             result.sfx = GetVolume01(sfxVolumeGroup);
             result.music = GetVolume01(musicVolumeGroup);
-            result.customControls = _usingCustomControls;
+            result.controlsType = _controlsType;
             result.crt = _usingCrt;
             result.selectedCharFileName = _selectedChar;
             return result;
         }
     }
-
-    public bool UsingCustomControls { get { return _usingCustomControls; } }
+    ControlsType _controlsTypeMaxValue => Enum.GetValues(typeof(ControlsType)).Cast<ControlsType>().Last();
+    public ControlsType ControlsType { get { return _controlsType; } }
     public bool UsingCrt { get { return _usingCrt; } }
     public FullScreenPassRendererFeature CrtRenderFeature { get { return _crtRenderFeature; } }
 
@@ -49,7 +50,7 @@ public class SettingsHandler
         SetVolume(masterVolumeGroup, settingsInfo.master, false);
         SetVolume(sfxVolumeGroup, settingsInfo.sfx, false);
         SetVolume(musicVolumeGroup, settingsInfo.music, false);
-        _usingCustomControls = settingsInfo.customControls;
+        _controlsType = settingsInfo.controlsType;
         _usingCrt = settingsInfo.crt;
         _crtRenderFeature.SetActive(_usingCrt);
 
@@ -87,9 +88,18 @@ public class SettingsHandler
         volume = Mathf.Pow(10, (volume / 20));
         return volume;
     }
-    public void ToggleControls()
+    public void ControlsTypeUp()
     {
-        _usingCustomControls = !_usingCustomControls;
+        _controlsType++;
+        if (_controlsType > _controlsTypeMaxValue)
+            _controlsType = 0;
+        UpdateJson();
+    }
+    public void ControlsTypeDown()
+    {
+        _controlsType--;
+        if (_controlsType < 0)
+            _controlsType = _controlsTypeMaxValue;
         UpdateJson();
     }
     public void ToggleCrt()

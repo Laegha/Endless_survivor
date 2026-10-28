@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Slider _masterSlider;
     [SerializeField] Slider _sfxSlider;
     [SerializeField] Slider _musicSlider;
-    [SerializeField] GameObject _customControlsToggle;
+    [SerializeField] TextMeshProUGUI _controlsTypeText;
     [SerializeField] GameObject _crtToggle;
     public void DisplayMenu()
     {
@@ -18,7 +19,7 @@ public class SettingsMenu : MonoBehaviour
         SetSlider(_sfxSlider, SettingsHandler.sfxVolumeGroup);
         SetSlider(_musicSlider, SettingsHandler.musicVolumeGroup);
 
-        _customControlsToggle.SetActive(GameManager.gm.SettingsHandler.UsingCustomControls);
+        _controlsTypeText.text = GameManager.gm.SettingsHandler.ControlsType.ToString();
         _crtToggle.SetActive(GameManager.gm.SettingsHandler.UsingCrt);
     }
     public void HideMenu()
@@ -42,13 +43,25 @@ public class SettingsMenu : MonoBehaviour
     {
         GameManager.gm.SettingsHandler.SetVolume(SettingsHandler.musicVolumeGroup, _musicSlider.value);
     }
-    public void ToggleCustomControls()
+    public void ControlsTypeUp()
     {
-        GameManager.gm.SettingsHandler.ToggleControls();
-        _customControlsToggle.SetActive(GameManager.gm.SettingsHandler.UsingCustomControls);
+        GameManager.gm.SettingsHandler.ControlsTypeUp();
+        UpdateControlsDisplay();
         if (PlayerControl.pc == null)
             return;
         PlayerControl.pc.InputReader.UpdateMobileControls();
+    }
+    public void ControlsTypeDown()
+    {
+        GameManager.gm.SettingsHandler.ControlsTypeDown();
+        UpdateControlsDisplay();
+        if (PlayerControl.pc == null)
+            return;
+        PlayerControl.pc.InputReader.UpdateMobileControls();
+    }
+    void UpdateControlsDisplay()
+    {
+        _controlsTypeText.text = GameManager.gm.SettingsHandler.ControlsType.ToString();
     }
     public void ToggleCRTFilter()
     {

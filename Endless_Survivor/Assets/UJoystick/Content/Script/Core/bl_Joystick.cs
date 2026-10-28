@@ -55,10 +55,7 @@ public class bl_Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             this.enabled = false;
             return;
         }
-       
-        //Get the default area of joystick
-        DeathArea = CenterReference.position;
-        diff = CenterReference.position.magnitude;
+        UpdateCenterInfo();
         PressScaleVector = new Vector3(OnPressScale, OnPressScale, OnPressScale);
         if (GetComponent<Image>() != null)
         {
@@ -67,6 +64,13 @@ public class bl_Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             backImage.CrossFadeColor(NormalColor, 0.1f, true, true);
             stickImage.CrossFadeColor(NormalColor, 0.1f, true, true);
         }
+    }
+    public void UpdateCenterInfo()
+    {
+        //Get the default area of joystick
+        DeathArea = CenterReference.position;
+        diff = CenterReference.position.magnitude;
+
     }
 
     /// <summary>
@@ -131,7 +135,7 @@ public class bl_Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             isFree = false;
             //Get Position of current touch
-            Vector3 position = bl_JoystickUtils.TouchPosition(m_Canvas,GetTouchID);
+            Vector3 position = data.position;
 
             //Rotate into the area circumferential of joystick
             if (Vector2.Distance(DeathArea, position) < radio)
