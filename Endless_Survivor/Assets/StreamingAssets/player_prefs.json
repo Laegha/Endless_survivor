@@ -2,7 +2,7 @@
   "master": 1.0,
   "sfx": 1.0,
   "music": 1.0,
-  "controlsType": 0,
+  "controlsType": 1,
   "crt": false,
   "selectedCharFileName": "TheBoogeyman"
 }

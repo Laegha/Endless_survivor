@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -35,12 +36,20 @@ public class DinamycJoystickHandler : MonoBehaviour, IPointerDownHandler, IPoint
     public void OnPointerUp(PointerEventData data)
     {
         _timesPressed--;
-        if (_timesPressed > 0) 
+        if (_timesPressed > 0)
             return;
-        _joystickGo.SetActive(false);
+        _joystick.OnPointerUp(data);
     }
     public void OnDrag(PointerEventData data)
     {
         _joystick.OnDrag(data);
+    }
+    void OnEnable()
+    {
+        _joystick.gameObject.SetActive(true);
+    }
+    void OnDisable()
+    {
+        _joystick.gameObject.SetActive(false);
     }
 }
