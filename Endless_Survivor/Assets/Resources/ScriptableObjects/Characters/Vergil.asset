@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d973c1f4ed6142a5103cf2a35ab3c, type: 3}
+  m_Name: Vergil
+  m_EditorClassIdentifier: 
+  _menuImage: {fileID: 21300000, guid: 77ca377063ae6a24ea1085d539d88c79, type: 3}
+  _characterName: Vergil
+  _initialWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 711092771, guid: fcd388db7b7fe074bb51953d7040b2c0, type: 3}
+    - {fileID: 1273376261, guid: fcd388db7b7fe074bb51953d7040b2c0, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  - _possibleHandSprites:
+    - {fileID: 711092771, guid: fcd388db7b7fe074bb51953d7040b2c0, type: 3}
+    - {fileID: 1273376261, guid: fcd388db7b7fe074bb51953d7040b2c0, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  _defaultWeaponHolders:
+  - _possibleHandSprites:
+    - {fileID: 711092771, guid: fcd388db7b7fe074bb51953d7040b2c0, type: 3}
+    - {fileID: 1273376261, guid: fcd388db7b7fe074bb51953d7040b2c0, type: 3}
+    _permanent: 0
+    _useFixedPosition: 0
+    _fixedPosition: {x: 0, y: 0}
+  _initialWeapons:
+  - {fileID: 11400000, guid: 33e13aa74dc4d5f4085bc31445936daf, type: 2}
+  _initialPassives: []
+  _playerStats:
+    _initialHP: 20
+    _hpIncrement: 1
+    _hpRegeneration: 1.5
+    _defense: 1
+    _minSpeed: 5
+    _maxSpeed: 5.5
+    _acceleration: 1
+  _colliderSize: {x: 0.5, y: 0.5}
+  _colliderOffset: {x: 0, y: -0.41}
+  _colliderDirection: 0
+  _idle:
+    _animationName: Idle
+    _frames:
+    - {fileID: 566789091, guid: 7879ca4b78d473b448eb03e33fb04d38, type: 3}
+    - {fileID: -93459192, guid: 7879ca4b78d473b448eb03e33fb04d38, type: 3}
+    - {fileID: -1228467989, guid: 7879ca4b78d473b448eb03e33fb04d38, type: 3}
+    - {fileID: -1422264432, guid: 7879ca4b78d473b448eb03e33fb04d38, type: 3}
+    _framesPerSecond: 8
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _frontMoving:
+    _animationName: MoveFront
+    _frames:
+    - {fileID: 771063597, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: 605815236, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: -640192696, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: -538461203, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: 1269959902, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: 724479848, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: 901671996, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    - {fileID: 1418665067, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _rightMoving:
+    _animationName: MoveRight
+    _frames:
+    - {fileID: -1176792943, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    - {fileID: 298015006, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    - {fileID: 1311581348, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    - {fileID: -2012115299, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    - {fileID: 1405551874, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    - {fileID: 1617834559, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    - {fileID: -1700312623, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _backMoving:
+    _animationName: MoveBack
+    _frames:
+    - {fileID: -250619571, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: 1418866184, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: 891903871, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: -1319871073, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: -1434818324, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: -1398845610, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: -1068214270, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    - {fileID: 711268127, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _leftMoving:
+    _animationName: MoveLeft
+    _frames:
+    - {fileID: 602885660, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    - {fileID: 1327639841, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    - {fileID: -347861986, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    - {fileID: -1728102666, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    - {fileID: 812641020, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    - {fileID: 1019479440, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    - {fileID: 2031395159, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
+    _framesPerSecond: 9
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _movingIndicatorPosition: {x: 0, y: -0.55}
+  _costumeSettings: {fileID: 11400000, guid: fdd0a8b5018f2ea4a925cd0160d2b829, type: 2}
+  _onHitSound:
+    _possibleSounds:
+    - {fileID: 8300000, guid: bf86e81c79e4d8a48ae27b195784b4d9, type: 3}
+    - {fileID: 8300000, guid: 618f1bcdfc3bd474096a2bbd9371425c, type: 3}
+    - {fileID: 8300000, guid: c88116a7945d37d4997824bf15e8335d, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.1
+    _maxPitchVariation: 0
+  _onDeathSound:
+    _possibleSounds:
+    - {fileID: 8300000, guid: 9f7a2ddccc59a4e4e9ab1ea84093f4eb, type: 3}
+    _volume: 1
+    _minPitchVariation: -0.1
+    _maxPitchVariation: -0.1
+  _deathAnim:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _exitRunAnim:
+    _animationName: 
+    _frames: []
+    _framesPerSecond: 0
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _deathParticles: {fileID: 2393940968961475062, guid: 7a2b04604eaee984f923f5a9a0e7ef37, type: 3}
+  _exitRunParticles: {fileID: 8148643168460566524, guid: 08d695c870fb1d34ea1e131452500cd8, type: 3}

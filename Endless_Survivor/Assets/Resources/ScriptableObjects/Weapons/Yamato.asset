@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22f9de17315b3d46aeb21330ba4e4c8, type: 3}
+  m_Name: Yamato
+  m_EditorClassIdentifier: 
+  _weaponDisplaySprite: {fileID: 21300000, guid: 61a462aec1f213c48aa6202370146004, type: 3}
+  _weaponName: Yamato
+  _weaponStats:
+    _range: 1.75
+    _attackSpeed: 1
+    _damage: 20
+    _knockback: 0
+  _rangeIncrease: 0
+  _attackSpeedIncrease: 0
+  _damageIncrease: 1.3
+  _weaponTags: 
+  _weaponPools: 1
+  _defaultAttack:
+    rid: 2774731977752313859
+  _weaponAttacks: []
+  _attackConditions: []
+  _spriteRenderOrderOffset: -5
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: 21300000, guid: 61a462aec1f213c48aa6202370146004, type: 3}
+    _framesPerSecond: 1
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _randomIdleAnimations: []
+  _randomIdleAnimChance: 0
+  _randomIdleAnimTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2774731977752313859
+      type: {class: MeleeWeaponAttackController, ns: , asm: Assembly-CSharp}
+      data:
+        _attackId: Attack
+        _attackAnimation:
+          _animationName: Attack
+          _frames:
+          - {fileID: 1367454988, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: 236717689, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -1321676741, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -2090396286, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -140829411, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -876118736, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -160712260, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -39057781, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -1042889792, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -1325351319, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -920698852, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: 479022006, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -1705081173, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: 497702410, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: 202028070, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -62555509, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          - {fileID: -98469549, guid: 0864937db70d14942b0d9512d829227e, type: 3}
+          _framesPerSecond: 12
+          _endAnimationOnEnd: 0
+          _priority: 0
+        _attackFrame: 6
+        _attackSFX:
+          _possibleSounds:
+          - {fileID: 8300000, guid: b110b2aadc6d4de4ca474f63b3b1715b, type: 3}
+          _volume: 1
+          _minPitchVariation: 0.2
+          _maxPitchVariation: 0.3
+        _weaponAttackEffects:
+          availableEffects:
+          - {fileID: 11400000, guid: 8ddf391c02d86cc479fd12c9590e17be, type: 2}
+        _damageMultiplier: 1
+        _knockbackMultiplier: 1
+        _damageType: 0
+        _meleeData:
+          _isCircle: 1
+          _attackCircleRadius: 1.8
+          _attackBoxSize: {x: 0, y: 0}
+          _attackOffset: {x: 0.5, y: 0.18}
+          _attackVfxAnimation:
+            _animationName: Vfx
+            _frames:
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: 0}
+            - {fileID: -1173203603, guid: 8ec8aa85d169b654e96b430d2b6eca78, type: 3}
+            - {fileID: 491177068, guid: 8ec8aa85d169b654e96b430d2b6eca78, type: 3}
+            - {fileID: -682089494, guid: 8ec8aa85d169b654e96b430d2b6eca78, type: 3}
+            - {fileID: 1962674630, guid: 8ec8aa85d169b654e96b430d2b6eca78, type: 3}
+            - {fileID: -2021831094, guid: 8ec8aa85d169b654e96b430d2b6eca78, type: 3}
+            - {fileID: 453561647, guid: 8ec8aa85d169b654e96b430d2b6eca78, type: 3}
+            _framesPerSecond: 12
+            _endAnimationOnEnd: 0
+            _priority: 0
+          _vfxMaterial: {fileID: 2100000, guid: b8409b4d9c7c8204da7e2d5cc6f4ee14, type: 2}
+          _dropVfxOnDamage: 0
+          _vfxRendererOffset: -10
+          _attackParticles: {fileID: 0}
+          _particleDuration: 0

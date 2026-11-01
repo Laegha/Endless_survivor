@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec88ebba56bfb144b725dd9997c7331, type: 3}
+  m_Name: JudgmentCut
+  m_EditorClassIdentifier: 
+  _supportObjBehaviours:
+  - rid: 2774731977752313856
+  - rid: 2774731977752313857
+  _idleAnimation:
+    _animationName: Idle
+    _frames:
+    - {fileID: -1081359539, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -1710981942, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -1714928443, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -2006994332, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -1866414280, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -656732786, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -1089791225, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    - {fileID: -1099971129, guid: 81e54d7503a0ee444bb523fb03c4a7df, type: 3}
+    _framesPerSecond: 14
+    _endAnimationOnEnd: 0
+    _priority: 0
+  _renderingOffset: 0
+  _supportObjColliders: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2774731977752313856
+      type: {class: DealDamageOverTimeInAnAreaSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _damage:
+          _damageAmmount: 2.5
+          _damageType: 64
+        _damageCooldown: 0.3
+        _damageAreaRadius: 1.2
+        _affectedLayers:
+          serializedVersion: 2
+          m_Bits: 128
+        _particles: {fileID: 0}
+    - rid: 2774731977752313857
+      type: {class: DestroyAfterTimeSupportObjBehaviour, ns: , asm: Assembly-CSharp}
+      data:
+        _destroyTime:
+          min: 1.6
+          max: 1.6
