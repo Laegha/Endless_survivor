@@ -28,6 +28,8 @@ public class DealDamageOverTimeInAnAreaSupportObjBehaviour : SupportObjectBehavi
 
     void GenerateParticles()
     {
+	if(_particles == null)
+		return;
         ParticleConfig particleConfig = new(_particles, ObjControl.transform.position, Quaternion.identity, -1);
         var particlesObj = ParticleManager.pm.SpawnParticles(particleConfig);
         particlesObj.transform.SetParent(ObjControl.transform, true);
