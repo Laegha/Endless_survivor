@@ -160,6 +160,11 @@
     "isNew": false
   },
   {
+    "fileName": "OP",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
     "fileName": "PokerDeck",
     "isUnlocked": true,
     "isNew": false
@@ -236,6 +241,11 @@
   },
   {
     "fileName": "WizardStaff",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Yamato",
     "isUnlocked": true,
     "isNew": false
   }

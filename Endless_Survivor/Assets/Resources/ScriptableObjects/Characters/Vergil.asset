@@ -59,7 +59,7 @@ MonoBehaviour:
     _endAnimationOnEnd: 0
     _priority: 0
   _frontMoving:
-    _animationName: MoveFront
+    _animationName: FrontMove
     _frames:
     - {fileID: 771063597, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
     - {fileID: 605815236, guid: 73a2cf2d216939b46af969ae738bc89d, type: 3}
@@ -73,7 +73,7 @@ MonoBehaviour:
     _endAnimationOnEnd: 0
     _priority: 0
   _rightMoving:
-    _animationName: MoveRight
+    _animationName: RightMove
     _frames:
     - {fileID: -1176792943, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
     - {fileID: 298015006, guid: 62574e3422a1a2c42ac0693ef708680a, type: 3}
@@ -86,7 +86,7 @@ MonoBehaviour:
     _endAnimationOnEnd: 0
     _priority: 0
   _backMoving:
-    _animationName: MoveBack
+    _animationName: BackMove
     _frames:
     - {fileID: -250619571, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
     - {fileID: 1418866184, guid: f6cb59b1a3ce157479b1e87586f4680c, type: 3}
@@ -100,7 +100,7 @@ MonoBehaviour:
     _endAnimationOnEnd: 0
     _priority: 0
   _leftMoving:
-    _animationName: MoveLeft
+    _animationName: LeftMove
     _frames:
     - {fileID: 602885660, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}
     - {fileID: 1327639841, guid: 6c95971406f320a4c860a5b432a498b2, type: 3}

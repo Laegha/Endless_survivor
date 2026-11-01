@@ -173,5 +173,15 @@
     "fileName": "Dusk",
     "isUnlocked": false,
     "isNew": false
+  },
+  {
+    "fileName": "Vergil",
+    "isUnlocked": true,
+    "isNew": false
+  },
+  {
+    "fileName": "Raiden",
+    "isUnlocked": true,
+    "isNew": false
   }
 ]
