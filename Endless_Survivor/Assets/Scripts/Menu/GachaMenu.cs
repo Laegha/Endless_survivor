@@ -68,7 +68,7 @@ public class GachaMenu : MonoBehaviour, IPointerDownHandler
     {
         if (_isUsing)
             return;
-        _enoughCoinsToGacha = GameManager.gm.UnlockedElementHelper.CollectedGachaCoins > GachaUnlocker.gachaCoinCost;
+        _enoughCoinsToGacha = GameManager.gm.UnlockedElementHelper.CollectedGachaCoins >= GachaUnlocker.gachaCoinCost;
         if (!_enoughCoinsToGacha)
         {
             //play sfx
