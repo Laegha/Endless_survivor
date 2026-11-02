@@ -16,9 +16,10 @@ MonoBehaviour:
   _referenceSizeSprite: {fileID: 0}
   _renderSortingOffset: 0
   _knockbackResistance: 0
-  _colliderSize: {x: 0, y: 0}
+  _colliderSize: {x: 0.05, y: 0.05}
   _colliderOffset: {x: 0, y: 0}
   _colliderDirection: 0
+  _rigidbodyType: 0
   _enemyBehaviours:
   - rid: 909968594120474630
   - rid: 909968594120474631
@@ -26,12 +27,12 @@ MonoBehaviour:
   - rid: 909968594120474634
   _dropablePickupChances: []
   _onHitSFX:
-    _sound: {fileID: 0}
+    _possibleSounds: []
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
   _onDeathSFX:
-    _sound: {fileID: 0}
+    _possibleSounds: []
     _volume: 1
     _minPitchVariation: 0
     _maxPitchVariation: 0
@@ -66,6 +67,7 @@ MonoBehaviour:
           _chance: 10
         - _rouletteElement: 4
           _chance: 10
+        _invokedEnemiesKeepDrops: 1
         _invokingAnim:
           _animationName: Invoke
           _frames:
@@ -77,6 +79,11 @@ MonoBehaviour:
         _hpMultiplier: 1
         _invokationPattern:
           rid: 909968594120474633
+        _invokingSFX:
+          _possibleSounds: []
+          _volume: 1
+          _minPitchVariation: 0
+          _maxPitchVariation: 0
     - rid: 909968594120474633
       type: {class: IRandomInCirclePattern, ns: , asm: Assembly-CSharp}
       data:
