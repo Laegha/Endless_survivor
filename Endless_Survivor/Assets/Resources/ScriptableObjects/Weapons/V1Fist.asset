@@ -75,6 +75,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.2
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.15, y: 0}
+          _stopDist: 0.07
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
@@ -89,6 +90,7 @@ MonoBehaviour:
             _framesPerSecond: 6
             _endAnimationOnEnd: 0
             _priority: 0
+          _vfxMaterial: {fileID: 0}
           _dropVfxOnDamage: 0
           _vfxRendererOffset: 0
           _attackParticles: {fileID: 0}

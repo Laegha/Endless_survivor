@@ -81,6 +81,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.65
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.1, y: 0.3}
+          _stopDist: 0.1
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:

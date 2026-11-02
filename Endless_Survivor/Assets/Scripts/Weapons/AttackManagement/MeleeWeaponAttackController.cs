@@ -12,16 +12,17 @@ public class MeleeWeaponAttackController : WeaponAttackController
     Vector2 _originalHandLocalPos;
     Action _onAttackApply;
 
-    float _weaponStopDist
-    {
-        get
-        {
-            if (_meleeData.IsCircle)
-                return _meleeData.CircleRadius * _handStopDistFactor;
-            else
-                return Mathf.Min(_meleeData.BoxSize.x, _meleeData.BoxSize.y) * _handStopDistFactor;
-        }
-    }
+    float _weaponStopDist => _meleeData.StopDist;
+    //float _weaponStopDist
+    //{
+        //get
+        //{
+            //if (_meleeData.IsCircle)
+                //return _meleeData.CircleRadius * _handStopDistFactor;
+            //else
+                //return Mathf.Min(_meleeData.BoxSize.x, _meleeData.BoxSize.y) * _handStopDistFactor;
+        //}
+    //}
 
     readonly static float _handSpeed = 15;
     readonly static float _handStopDistFactor = .7f;

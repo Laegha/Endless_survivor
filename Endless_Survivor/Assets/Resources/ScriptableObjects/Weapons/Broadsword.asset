@@ -80,6 +80,7 @@ MonoBehaviour:
           _attackCircleRadius: 0
           _attackBoxSize: {x: 2, y: 0.7}
           _attackOffset: {x: 0.1, y: -0.15}
+          _stopDist: 0.2
           _attackVfxAnimation:
             _animationName: Attack0Vfx
             _frames:
@@ -132,6 +133,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.9
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.3, y: 0.15}
+          _stopDist: 0.2
           _attackVfxAnimation:
             _animationName: Attack1Vfx
             _frames:
@@ -184,6 +186,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.7
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.4, y: 0}
+          _stopDist: 0.2
           _attackVfxAnimation:
             _animationName: Attack2Vfx
             _frames:

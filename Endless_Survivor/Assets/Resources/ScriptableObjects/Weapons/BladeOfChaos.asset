@@ -81,6 +81,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.5
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.05, y: 0.125}
+          _stopDist: 0
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
@@ -136,6 +137,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.5
           _attackBoxSize: {x: 0.05, y: 0.125}
           _attackOffset: {x: 0.05, y: 0.125}
+          _stopDist: 0.1
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
@@ -189,6 +191,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.5
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.05, y: 0.125}
+          _stopDist: 0
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
@@ -242,6 +245,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.5
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.05, y: 0.125}
+          _stopDist: 0
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:
@@ -295,6 +299,7 @@ MonoBehaviour:
           _attackCircleRadius: 0.5
           _attackBoxSize: {x: 0, y: 0}
           _attackOffset: {x: 0.05, y: 0.125}
+          _stopDist: 0
           _attackVfxAnimation:
             _animationName: Vfx
             _frames:

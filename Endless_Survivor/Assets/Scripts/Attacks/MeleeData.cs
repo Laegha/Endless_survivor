@@ -12,6 +12,7 @@ public class MeleeData
     [SerializeField] Vector2 _attackBoxSize;
     [Header("")]
     [SerializeField] Vector2 _attackOffset;
+    [SerializeField] float _stopDist = .1f;
     [SerializeField] CustomAnimation _attackVfxAnimation;
     [SerializeField] Material _vfxMaterial;
     [SerializeField] bool _dropVfxOnDamage;
@@ -23,6 +24,7 @@ public class MeleeData
     public float CircleRadius { get { return _attackCircleRadius; } }
     public Vector2 BoxSize {  get { return _attackBoxSize; } }
     public Vector2 AttackOffset {  get { return _attackOffset; } }
+    public float StopDist { get { return _stopDist; } }
     public CustomAnimation AttackVfxAnimation { get { return _attackVfxAnimation; } }
     public Material VfxMaterial {  get { return _vfxMaterial; } }
     public bool DropVfxOnAttack { get { return _dropVfxOnDamage; } }
