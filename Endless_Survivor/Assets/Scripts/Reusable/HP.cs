@@ -8,6 +8,7 @@ public class HP : MonoBehaviour
     int _remainingHP;
     int _maxHP;
     float _incomingDamageMultiplier = 1;
+    public static float minDmgMultiplier = 0.1f;
     Action<int> _onDamageTaken;
     Action _onHealed;
     Action _onDamageMultiplierChanged;

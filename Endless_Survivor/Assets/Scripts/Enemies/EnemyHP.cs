@@ -7,6 +7,8 @@ public class EnemyHP : HP
 {
     float _knockbackResistance;
 
+    new public static float minDmgMultiplier = 0.1f;
+
     List<RouletteElementChance<PickupData>> _dropablePickupsChances;
     [SerializeField] float _damagedFlashingTime = 1.5f;
     [SerializeField] EnemyControl _enemyControl;
