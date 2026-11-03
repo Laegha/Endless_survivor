@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 573138c4f4a9e20458d1d9bccaa8283e
+guid: e74eb63ef059ec5438cae7c2fa466bac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nero-RightMove_0
+      name: Nero_MoveRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d3594df6ac0ea6469aef351487fa85b
-      internalID: 2106174712
+      spriteID: 21b481e2f2875964fbd599ae2a030ef1
+      internalID: 380362372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-RightMove_1
+      name: Nero_MoveRight_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17cdc13d5f60fbe46ae8cb6aa6dff011
-      internalID: -1607748516
+      spriteID: c2fbea779defca346bce2ce8a9f75992
+      internalID: 1484779953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-RightMove_2
+      name: Nero_MoveRight_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b0505616b36550409ec31be7611b09c
-      internalID: 248942120
+      spriteID: 93309436d055fea41a69cfc5c56c68b9
+      internalID: 807107593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-RightMove_3
+      name: Nero_MoveRight_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4efbd6cd87740c440822562fffd45c53
-      internalID: 2048836531
+      spriteID: 6bcd026f2cb81b74eab9db98b5777842
+      internalID: 439520417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-RightMove_4
+      name: Nero_MoveRight_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d591517c1f900fd41ab89663d96212b4
-      internalID: -1052209176
+      spriteID: b89278efe8d7eaa4f80e6932aeeaf226
+      internalID: 1576011760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-RightMove_5
+      name: Nero_MoveRight_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98ba736ff926da943843b3967cf84b88
-      internalID: -1613753686
+      spriteID: f19a62ddd6f44814b8ff0fa26201bfbd
+      internalID: -194317905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-RightMove_6
+      name: Nero_MoveRight_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,29 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a81b7f1404f7d384097eb2d9cc3cf75e
-      internalID: -1074529906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nero-RightMove_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 706fc4f2394382143a3e567ea2f379b0
-      internalID: 1148286501
+      spriteID: a3a10cd4ef8981545b5ab0aead7e33ec
+      internalID: 730774607
       vertices: []
       indices: 
       edges: []
@@ -301,14 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nero-RightMove_0: 2106174712
-      Nero-RightMove_1: -1607748516
-      Nero-RightMove_2: 248942120
-      Nero-RightMove_3: 2048836531
-      Nero-RightMove_4: -1052209176
-      Nero-RightMove_5: -1613753686
-      Nero-RightMove_6: -1074529906
-      Nero-RightMove_7: 1148286501
+      Nero_MoveRight_0: 380362372
+      Nero_MoveRight_1: 1484779953
+      Nero_MoveRight_2: 807107593
+      Nero_MoveRight_3: 439520417
+      Nero_MoveRight_4: 1576011760
+      Nero_MoveRight_5: -194317905
+      Nero_MoveRight_6: 730774607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

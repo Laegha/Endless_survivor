@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0fa3d42b1f7d73b4da398bd069ce9e22
+guid: 579411d3a232c674d9504da76d5e7c76
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nero-Hands_0
+      name: Nero_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
-        height: 4
+        width: 32
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74eded4f8ce70e845830d9b4a362087b
-      internalID: -219140048
+      spriteID: b33a44fe292abdc408d2877cead96d66
+      internalID: 1667201627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-Hands_1
+      name: Nero_Idle_1
       rect:
         serializedVersion: 2
-        x: 4
+        x: 32
         y: 0
-        width: 4
-        height: 4
+        width: 32
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79fa3d2423129ef4c8b13b873655e8eb
-      internalID: 1562051414
+      spriteID: 24c47581c79965c4eb7ff9f843c54c0f
+      internalID: -888107484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fd2fb47bcced344890c7cdd2dffbd9
+      internalID: 1861150080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 449482c53e6313c4f8ca0e29b291161c
+      internalID: -1784455809
       vertices: []
       indices: 
       edges: []
@@ -175,8 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nero-Hands_0: -219140048
-      Nero-Hands_1: 1562051414
+      Nero_Idle_0: 1667201627
+      Nero_Idle_1: -888107484
+      Nero_Idle_2: 1861150080
+      Nero_Idle_3: -1784455809
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

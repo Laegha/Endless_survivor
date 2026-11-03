@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 25a5cb18fe259f442a2cc92e60c1475d
+guid: 75df5cc7c41da854e8f1bd2e165a70c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nero-FrontWalk_0
+      name: Nero_MoveBack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6346c4887f91be94cb7825e3a556b41b
-      internalID: -23166673
+      spriteID: e77420403d2007042836677ad38ab8b3
+      internalID: 561996330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_1
+      name: Nero_MoveBack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb379c70efe2b804f91a1f161177b9ce
-      internalID: 1580729071
+      spriteID: ec48fc95ea00cdb4885d2c5948e01fc8
+      internalID: 1590285108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_2
+      name: Nero_MoveBack_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3519172cab2e4be4195dfaf48e6ad743
-      internalID: 16327088
+      spriteID: d67184c765436294d9d933031cfa5711
+      internalID: -1164707145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_3
+      name: Nero_MoveBack_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb972abac3d00942816d37760f9c965
-      internalID: 1823948
+      spriteID: 9abe174e1f0a3fd4c9f29e14cd3cdf69
+      internalID: -98220364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_4
+      name: Nero_MoveBack_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 348258066d1f87646b7eaebb5d1bb21f
-      internalID: 1378288538
+      spriteID: 3e8f2b7584c29e64a91e7b5eda6848f0
+      internalID: 1513717608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_5
+      name: Nero_MoveBack_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd6addaf5d84b3243870332d862572a2
-      internalID: -1280037605
+      spriteID: 9d1e0427062fb5a4b93b759dd1ac240a
+      internalID: -645022865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_6
+      name: Nero_MoveBack_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b556b2b0d622f489da1798df755207
-      internalID: -665173920
+      spriteID: 00a95d0c12059c548ab5ae66f789992f
+      internalID: 95155262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-FrontWalk_7
+      name: Nero_MoveBack_7
       rect:
         serializedVersion: 2
         x: 224
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d099372ebb94ee478dd10c4863ca3df
-      internalID: 1902648872
+      spriteID: 3e4e8090222b920409ea12e20f77d3b0
+      internalID: 150158669
       vertices: []
       indices: 
       edges: []
@@ -301,14 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nero-FrontWalk_0: -23166673
-      Nero-FrontWalk_1: 1580729071
-      Nero-FrontWalk_2: 16327088
-      Nero-FrontWalk_3: 1823948
-      Nero-FrontWalk_4: 1378288538
-      Nero-FrontWalk_5: -1280037605
-      Nero-FrontWalk_6: -665173920
-      Nero-FrontWalk_7: 1902648872
+      Nero_MoveBack_0: 561996330
+      Nero_MoveBack_1: 1590285108
+      Nero_MoveBack_2: -1164707145
+      Nero_MoveBack_3: -98220364
+      Nero_MoveBack_4: 1513717608
+      Nero_MoveBack_5: -645022865
+      Nero_MoveBack_6: 95155262
+      Nero_MoveBack_7: 150158669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

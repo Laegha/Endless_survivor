@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a9a9f676a479f4942abfc2d267d1d8de
+guid: 936412e4ce5682a428fcb8a62dcc75fb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nero-Idle_0
+      name: Nero_MoveFront_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 42
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 744f3da6c74522b488e8bc94b92b4e91
-      internalID: -770120564
+      spriteID: 220cabbb73d0ac249bf8c93e548ee339
+      internalID: 250224789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-Idle_1
+      name: Nero_MoveFront_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
-        height: 42
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0807e8b2a7958b4eb7ac0eba014cd97
-      internalID: 1726730104
+      spriteID: 7f2910854c983d14ea224281c0078b1d
+      internalID: 504546117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-Idle_2
+      name: Nero_MoveFront_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 32
-        height: 42
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f10c570d32e8e714285c097ea947240b
-      internalID: -149709616
+      spriteID: bfd4a2d394bc3eb4fb21f51b537cda90
+      internalID: 1378214648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nero-Idle_3
+      name: Nero_MoveFront_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 32
-        height: 42
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 482403f360343764d8c772531e43ffe3
-      internalID: 1273606842
+      spriteID: a343c606e069b194eb8679fceb06184f
+      internalID: 703580532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero_MoveFront_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed8b5728d21123a4a8cfbb11737c1625
+      internalID: -1997032042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero_MoveFront_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9845cba893f6b4bb91ff52ff2d6abc
+      internalID: 1022111964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero_MoveFront_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1981d477c76e19d41855561302b0dc33
+      internalID: 1670008092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nero_MoveFront_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7bc497728cea64280ff2c32a3af731
+      internalID: 516024492
       vertices: []
       indices: 
       edges: []
@@ -217,10 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nero-Idle_0: -770120564
-      Nero-Idle_1: 1726730104
-      Nero-Idle_2: -149709616
-      Nero-Idle_3: 1273606842
+      Nero_MoveFront_0: 250224789
+      Nero_MoveFront_1: 504546117
+      Nero_MoveFront_2: 1378214648
+      Nero_MoveFront_3: 703580532
+      Nero_MoveFront_4: -1997032042
+      Nero_MoveFront_5: 1022111964
+      Nero_MoveFront_6: 1670008092
+      Nero_MoveFront_7: 516024492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
