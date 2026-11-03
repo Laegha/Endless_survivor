@@ -31,7 +31,8 @@ public class TemporalStatAddPlayerEffect : EndByTimePlayerEffect
         PlayerControl.pc.PlayerStats.MaxSpeed += _addedMaxSpeed;
         PlayerControl.pc.PlayerStats.Acceleration += _addedAcceleration;
         PlayerControl.pc.PlayerHPManager.MaxHP += _addedMaxHP;
-        PlayerControl.pc.PlayerHPManager.IncomingDamageMultiplier += _addedDamageMultiplier;
+        float increasedDamageMultiplier = PlayerControl.pc.PlayerHPManager.IncomingDamageMultiplier + _addedDamageMultiplier;
+        PlayerControl.pc.PlayerHPManager.HardChangeDamageMultiplier(increasedDamageMultiplier);
     }
     public override void End()
     {
@@ -42,6 +43,7 @@ public class TemporalStatAddPlayerEffect : EndByTimePlayerEffect
         PlayerControl.pc.PlayerStats.MaxSpeed -= _addedMaxSpeed;
         PlayerControl.pc.PlayerStats.Acceleration -= _addedAcceleration;
         PlayerControl.pc.PlayerHPManager.MaxHP -= _addedMaxHP;
-        PlayerControl.pc.PlayerHPManager.IncomingDamageMultiplier -= _addedDamageMultiplier;
+        float decreasedDamageMultiplier = PlayerControl.pc.PlayerHPManager.IncomingDamageMultiplier - _addedDamageMultiplier;
+        PlayerControl.pc.PlayerHPManager.HardChangeDamageMultiplier(decreasedDamageMultiplier);
     }
 }

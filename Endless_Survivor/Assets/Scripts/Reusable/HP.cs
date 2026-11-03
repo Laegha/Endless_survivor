@@ -10,17 +10,21 @@ public class HP : MonoBehaviour
     float _incomingDamageMultiplier = 1;
     Action<int> _onDamageTaken;
     Action _onHealed;
+    Action _onDamageMultiplierChanged;
     public int RemainingHP {  get { return _remainingHP; } set { _remainingHP = value; } }
     public int MaxHP {  get { return _maxHP; } set { _maxHP = value; } }
     public Action<int> OnDamageTaken { get { return _onDamageTaken; } set { _onDamageTaken = value; } }
     public Action OnHealed { get { return _onHealed; } set { _onHealed  = value; } }
+    public Action OnDamageMultiplierChanged { get { return _onDamageMultiplierChanged; } set { _onDamageMultiplierChanged = value; } }
     public float IncomingDamageMultiplier 
     {
-        get { return _incomingDamageMultiplier > 0.1f ? _incomingDamageMultiplier : 0.1f; }
-        set 
-        {
-            _incomingDamageMultiplier = value;
-        } 
+        get { return _incomingDamageMultiplier > minDmgMultiplier ? _incomingDamageMultiplier : minDmgMultiplier; }
+    }
+    public void SoftChangeDamageMultiplier(float newDamageMutliplier) => _incomingDamageMultiplier = newDamageMutliplier;
+    public void HardChangeDamageMultiplier(float newDamageMultiplier)
+    {
+        _incomingDamageMultiplier = newDamageMultiplier;
+        _onDamageMultiplierChanged?.Invoke();
     }
     public void InitializeHP(int maxHP)
     {

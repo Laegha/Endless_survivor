@@ -17,12 +17,11 @@ public class WeaknessStatusEffect : EnemyStatusEffect
     public override void Start()
     {
         base.Start();
-        AffectedEnemyControl.EnemyHP.IncomingDamageMultiplier += _damageMultiplierAddition;
+        AffectedEnemyControl.EnemyHP.HardChangeDamageMultiplier(AffectedEnemyControl.EnemyHP.IncomingDamageMultiplier + _damageMultiplierAddition);
     }
     public override void End()
     {
         base.End();
-        AffectedEnemyControl.EnemyHP.IncomingDamageMultiplier -= _damageMultiplierAddition;
-
+        AffectedEnemyControl.EnemyHP.HardChangeDamageMultiplier(AffectedEnemyControl.EnemyHP.IncomingDamageMultiplier - _damageMultiplierAddition);
     }
 }
