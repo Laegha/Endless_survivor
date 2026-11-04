@@ -19,6 +19,7 @@ public class UILineDissapearAnimator : MonoBehaviour
     Action _onOneVertexLeft;
 
     public Action OnOneVertexLeft { get { return _onOneVertexLeft; } set { _onOneVertexLeft = value; } }
+    public bool OnlyOneVertexLeft { get { return _line.LineVertices.Count == 1; } }
 
     private void Update()
     {
