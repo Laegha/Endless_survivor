@@ -67,7 +67,7 @@ MonoBehaviour:
     _chance: 1
   - _rouletteElement:
       enemyData: {fileID: 11400000, guid: b4d25aa2aac05d048b9c426c95eb493b, type: 2}
-      _spawnIntensity: 1
+      _spawnIntensity: 3
     _chance: 1
   _bossInvokerAnimation:
     _animationName: Invoker
@@ -76,6 +76,7 @@ MonoBehaviour:
     _framesPerSecond: 1
     _endAnimationOnEnd: 0
     _priority: 0
+  _bossInvokerRenderOffset: 0
   _usesBoxCollider: 1
   _boxColliderSize: {x: 1.7, y: 1.1}
   _usesCircleCollider: 0

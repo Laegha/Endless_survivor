@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196d2f4f0074be64faa30d915919e481, type: 3}
   m_Name: jsonWriter
   m_EditorClassIdentifier: 
+  _characterBlacklist: []
+  _weaponsBlacklist:
+  - {fileID: 11400000, guid: 22aceff8cb177c349a74a7915c7da28e, type: 2}
   _itemBlacklist:
   - {fileID: 11400000, guid: 5ba860c2a20ee8c4d96f8a8b53440333, type: 2}
   - {fileID: 11400000, guid: 82c8529bea8b9884bbb0e65c2bb3c7b1, type: 2}
