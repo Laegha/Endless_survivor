@@ -36,5 +36,10 @@ public class MapUpdatingHandler
         _biomeUpdateInstances.RemoveAt(0);
     }
 
-    public void AddUpdateInstance(BiomeUpdateInstance biomeUpdateInstance) => _biomeUpdateInstances.Add(biomeUpdateInstance);
+    public void AddUpdateInstance(BiomeUpdateInstance biomeUpdateInstance)
+    {
+        _biomeUpdateInstances.Add(biomeUpdateInstance);
+        if(biomeUpdateInstance != _biomeUpdateInstances[0])
+            GameProgressionManager.gpm.AddBosses(biomeUpdateInstance.biome.BiomeData.BiomeBosses.Count);
+    }
 }
