@@ -159,7 +159,7 @@ public class Biome
         }
         bossInvoker.RendererSorting.Offset = _biomeData.BossInvokerRenderOffset;
         CustomAnimation invokerAnimation = _biomeData.BossInvokerAnimation;
-
+        GameUIManager.uiManager.PointerManager.AddPointer(bossInvoker.transform, _biomeData.BossInvokerPointerColor, _biomeData.BossInvokerPointerIcon, true);
         bossInvoker.Animator.AddAnimations(new(){ invokerAnimation });
         bossInvoker.Animator.ChangeAnim(invokerAnimation.AnimationName);
         SupportObjectControl invokerSupportObjControl = bossInvoker.GetComponent<SupportObjectControl>();
@@ -175,8 +175,5 @@ public class Biome
 
         foreach(var boss in _biomeData.BiomeBosses)
             bossInvoker.AddInvokationEnemy(new(boss.InvokedEnemy, boss.PointerColor, boss.PointerIcon, true), 3);
-
-
-        GameProgressionManager.gpm.AddBosses(BiomeData.BiomeBosses.Count);
     }
 }

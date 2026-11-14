@@ -32,6 +32,8 @@ public class BiomeData : ScriptableObject
 
     [Tooltip("num is the wave number since which each wave can proc")]
     [SerializeField] List<RouletteElementChance<EnemySpawnInfo>> _biomeEnemies;
+    [SerializeField] Sprite _bossInvokerPointerIcon;
+    [SerializeField] Color _bossInvokerPointerColor;
     [SerializeField] CustomAnimation _bossInvokerAnimation;
     [SerializeField] int _bossInvokerRenderOffset;
     [SerializeField] bool _usesBoxCollider;
@@ -92,6 +94,8 @@ public class BiomeData : ScriptableObject
     }
 
     public List<RouletteElementChance<EnemySpawnInfo>> BiomeEnemies { get { return _biomeEnemies; } }
+    public Sprite BossInvokerPointerIcon { get { return _bossInvokerPointerIcon; } }
+    public Color BossInvokerPointerColor { get { return _bossInvokerPointerColor; } }
     public CustomAnimation BossInvokerAnimation {  get { return _bossInvokerAnimation; } }
     public int BossInvokerRenderOffset { get { return _bossInvokerRenderOffset; } }
     public bool UsesBoxCollider { get { return _usesBoxCollider; } }
