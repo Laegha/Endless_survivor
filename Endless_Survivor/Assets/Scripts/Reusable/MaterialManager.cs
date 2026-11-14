@@ -64,9 +64,13 @@ public class MaterialManager : MonoBehaviour
 
             List<Material> materialOverrides = new(_overridesQueue.Select(x => x.material));
             materialOverrides.Insert(0, _defaultMaterials[renderer]);
+            List<Material> alreadyAppliedMaterials = new();
             //apply materials to output rt
             foreach (var matOverride in materialOverrides)
             {
+                if (alreadyAppliedMaterials.Contains(matOverride))
+                    continue;
+                alreadyAppliedMaterials.Add(matOverride);
                 GL.Clear(true, true, Color.clear);
 
                 Graphics.Blit(outputTex, tempRT, matOverride);
