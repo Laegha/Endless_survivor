@@ -24,7 +24,8 @@ public class UIPointerManager : MonoBehaviour
 
     private void Update()
     {
-        foreach(var pointer in _activePointers)
+        List<UIPointer> activePointers = new(_activePointers);
+        foreach(var pointer in activePointers)
         {
             pointer.Update();
         }
