@@ -33,9 +33,9 @@ public class CreateDelayedMeleeAttackOnEnemyHitAttackEffect : AttackEffect
 
     void StartDelay(EnemyControl hitEnemy)
     {
-        GameManager.gm.DelayAction(_creationDelay, () => CreateAttack(hitEnemy), () => PlayerControl.pc == null);
+        GameManager.gm.DelayAction(_creationDelay, () => CreateAttack(hitEnemy, AffectedAttack.transform.position), () => PlayerControl.pc == null);
     }
-    void CreateAttack(EnemyControl hitEnemy)
+    void CreateAttack(EnemyControl hitEnemy, Vector2 attackPosition)
     {
         MeleeAttack meleeAttack = GameObject.Instantiate(GameManager.gm.prefabHolder.Prefabs["Melee"], AffectedAttack.transform.position, Quaternion.identity).GetComponent<MeleeAttack>();
         meleeAttack.IsSecondaryAttack = true;
