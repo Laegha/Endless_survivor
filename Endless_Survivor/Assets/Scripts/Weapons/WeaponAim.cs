@@ -105,7 +105,7 @@ public class WeaponAim : MonoBehaviour
     public void SetTargetOverride(Transform newTarget, float duration)
     {
         _targetOverride = newTarget;
-        GameManager.gm.DelayAction(duration, () => _targetOverride = null, () => gameObject == null);
+        GameManager.gm.DelayAction(duration, () => _targetOverride = null, () => this == null);
     }
 
 }
