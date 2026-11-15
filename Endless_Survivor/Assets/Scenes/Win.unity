@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 37915116}
   - component: {fileID: 37915118}
   - component: {fileID: 37915117}
-  - component: {fileID: 37915119}
   m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
@@ -158,7 +157,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 350}
+  m_SizeDelta: {x: 372.59418, y: 372.59418}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &37915117
 MonoBehaviour:
@@ -180,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4e4c9d352e7fad43a7b8ecaba2ad4f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cff9b2c0aeec0347aa3a4ec58c03813, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -198,19 +197,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37915115}
   m_CullTransparentMesh: 1
---- !u!114 &37915119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37915115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46767035f6507c48b0050f58bf02f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotateSpeed: -180
 --- !u!1 &109739027
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1358910730}
     - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -4283,7 +4269,7 @@ PrefabInstance:
     - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1358910730}
     - target: {fileID: 6557835994742462762, guid: 63ff7617e0e1f2148b39b44a145f28f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
