@@ -67,6 +67,8 @@ MonoBehaviour:
       enemyData: {fileID: 11400000, guid: bf94d947e0e4ff54781453a101653b3d, type: 2}
       _spawnIntensity: 1
     _chance: 5
+  _bossInvokerPointerIcon: {fileID: 528792614, guid: 80e08f0f36b7cbf4783a5c03e8bfb7fc, type: 3}
+  _bossInvokerPointerColor: {r: 0.754717, g: 0.35948864, b: 0.024919916, a: 1}
   _bossInvokerAnimation:
     _animationName: Idle
     _frames:

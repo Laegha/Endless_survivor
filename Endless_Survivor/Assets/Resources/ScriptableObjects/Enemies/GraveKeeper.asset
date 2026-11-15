@@ -134,9 +134,9 @@ MonoBehaviour:
           - {fileID: 2038725181, guid: 341e3d5ee4fd8d54f964b69d7f11e716, type: 3}
           - {fileID: 432194389, guid: 341e3d5ee4fd8d54f964b69d7f11e716, type: 3}
           - {fileID: -1751000248, guid: 341e3d5ee4fd8d54f964b69d7f11e716, type: 3}
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
+          - {fileID: -1751000248, guid: 341e3d5ee4fd8d54f964b69d7f11e716, type: 3}
+          - {fileID: -1751000248, guid: 341e3d5ee4fd8d54f964b69d7f11e716, type: 3}
+          - {fileID: -1751000248, guid: 341e3d5ee4fd8d54f964b69d7f11e716, type: 3}
           _framesPerSecond: 4
           _endAnimationOnEnd: 1
           _priority: 1
@@ -147,9 +147,9 @@ MonoBehaviour:
           - {fileID: -11724381, guid: fb2726f60c36a2f4884b9a2e57f3c8de, type: 3}
           - {fileID: -731770570, guid: fb2726f60c36a2f4884b9a2e57f3c8de, type: 3}
           - {fileID: -540651298, guid: fb2726f60c36a2f4884b9a2e57f3c8de, type: 3}
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
+          - {fileID: -540651298, guid: fb2726f60c36a2f4884b9a2e57f3c8de, type: 3}
+          - {fileID: -540651298, guid: fb2726f60c36a2f4884b9a2e57f3c8de, type: 3}
+          - {fileID: -540651298, guid: fb2726f60c36a2f4884b9a2e57f3c8de, type: 3}
           _framesPerSecond: 4
           _endAnimationOnEnd: 1
           _priority: 1
@@ -160,9 +160,9 @@ MonoBehaviour:
           - {fileID: 1495450652, guid: 492285900ad377345b7d84cacabfe761, type: 3}
           - {fileID: 788741305, guid: 492285900ad377345b7d84cacabfe761, type: 3}
           - {fileID: -325036321, guid: 492285900ad377345b7d84cacabfe761, type: 3}
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
+          - {fileID: -325036321, guid: 492285900ad377345b7d84cacabfe761, type: 3}
+          - {fileID: -325036321, guid: 492285900ad377345b7d84cacabfe761, type: 3}
+          - {fileID: -325036321, guid: 492285900ad377345b7d84cacabfe761, type: 3}
           _framesPerSecond: 1
           _endAnimationOnEnd: 1
           _priority: 1
@@ -173,9 +173,9 @@ MonoBehaviour:
           - {fileID: 614554517, guid: 06fa3f43be9950e49aa9cc496034575e, type: 3}
           - {fileID: 715273043, guid: 06fa3f43be9950e49aa9cc496034575e, type: 3}
           - {fileID: 807808171, guid: 06fa3f43be9950e49aa9cc496034575e, type: 3}
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
+          - {fileID: 807808171, guid: 06fa3f43be9950e49aa9cc496034575e, type: 3}
+          - {fileID: 807808171, guid: 06fa3f43be9950e49aa9cc496034575e, type: 3}
+          - {fileID: 807808171, guid: 06fa3f43be9950e49aa9cc496034575e, type: 3}
           _framesPerSecond: 4
           _endAnimationOnEnd: 1
           _priority: 1
@@ -248,6 +248,7 @@ MonoBehaviour:
           _chance: 4
         - _rouletteElement: 2
           _chance: 1
+        _invokedEnemiesKeepDrops: 1
         _invokingAnim:
           _animationName: Dig
           _frames:

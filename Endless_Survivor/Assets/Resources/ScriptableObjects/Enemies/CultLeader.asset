@@ -340,9 +340,6 @@ MonoBehaviour:
         _overrideBehaviours: []
         _possibleBehaviours:
         - TriggerMovementDuringTimeBelow30%HP
-        - TriggerMovementDuringTimeBelow30%HP
-        - AnimTriggerShoot
-        - AnimTriggerShoot
         - AnimTriggerShoot
         _timeBetweenTriggers:
           min: 2
@@ -615,10 +612,10 @@ MonoBehaviour:
       data:
         _behaviourId: TakeOffHoodAnimation
         _overrideBehaviours:
-        - IdleAnimAbove20%HP
-        - TriggerRandomAbove20%HP
+        - IdleAnimAbove30%HP
+        - TriggerRandomAbove30%HP
         - Invoke
-        - DuringTimeTriggerMovementAbove20%HP
+        - DuringTimeTriggerMovementAbove30%HP
         - AnimTriggerLightning
         _triggeredBehaviours:
         - IdleAnimBelow30%HP
