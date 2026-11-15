@@ -11,7 +11,7 @@ public static class UnlockmentsManager
     public static string charactersFileName = "characters.json";
     public static string weaponsFileName = "weapons.json";
     public static string passiveItemsFileName = "passive_items.json";
-    public static string _gachaCoinsFileName = "available_gacha_coins.json";
+    public static string gachaCoinsFileName = "available_gacha_coins.json";
 
 
     //static string _charactersJson = File.ReadAllText(_charactersPath);
@@ -24,13 +24,13 @@ public static class UnlockmentsManager
 
     public static async Task<int> GetGachaCoins()
     {
-        var jsonData = await Utility.ReadJson(_gachaCoinsFileName);
+        var jsonData = await Utility.ReadJson(gachaCoinsFileName);
         int collectedCoins = JsonConvert.DeserializeObject<int>(jsonData);
         return collectedCoins;
     }
     public static async void AddGachaCoins(int addedCoins)
     {
-        var jsonData = await Utility.ReadJson(_gachaCoinsFileName);
+        var jsonData = await Utility.ReadJson(gachaCoinsFileName);
         int collectedCoins = JsonConvert.DeserializeObject<int>(jsonData);
         collectedCoins += addedCoins;
         if (collectedCoins > _maxCoins)
@@ -38,7 +38,7 @@ public static class UnlockmentsManager
         else if (collectedCoins < 0)
             collectedCoins = 0;
         string collectedCoinsJson = JsonConvert.SerializeObject(collectedCoins, Formatting.Indented);
-        Utility.WriteJson(_gachaCoinsFileName, collectedCoinsJson);
+        Utility.WriteJson(gachaCoinsFileName, collectedCoinsJson);
     }
 
     //Weapons
@@ -127,12 +127,12 @@ public static class UnlockmentsManager
     }
     public static void UpdateDifferencesAll()
     {
-        UpdateDifferences(charactersFileName);
-        UpdateDifferences(weaponsFileName);
-        UpdateDifferences(passiveItemsFileName);
-        UpdateDifferences(_gachaCoinsFileName);
+        UpdateUnlockmentsDifferences(charactersFileName);
+        UpdateUnlockmentsDifferences(weaponsFileName);
+        UpdateUnlockmentsDifferences(passiveItemsFileName);
+        UpdateCoinsDifferences(gachaCoinsFileName);
     }
-    static async void UpdateDifferences(string fileName)
+    static async void UpdateUnlockmentsDifferences(string fileName)
     {
         //get streaming lists
         List<JsonElementInfo> defaultElems = await GetDefaultList(fileName);
@@ -141,7 +141,7 @@ public static class UnlockmentsManager
         List<JsonElementInfo> saveElems = await GetSaveList(fileName);
         
         //remove from persistent those that aren't on streaming and add to persistent those that are missing
-        saveElems.RemoveAll(elem => !defaultElems.Contains(elem));
+        saveElems.RemoveAll(elem => !defaultElems.Any(x => x.fileName == elem.fileName));
         for (int i = 0; i < defaultElems.Count; i++)
         {
             var defaultElem = defaultElems[i];
@@ -156,12 +156,25 @@ public static class UnlockmentsManager
         string newSaveData = JsonConvert.SerializeObject(saveElems, Formatting.Indented);
         Utility.WriteJson(fileName, newSaveData);
     }
+    async static void UpdateCoinsDifferences(string fileName)
+    {
+        string defaultPath = Path.Combine(Application.streamingAssetsPath, fileName);
+        string defaultCoinsData = await Utility.ReadJsonPath(defaultPath);
+        int defaultCoins = Convert.ToInt32(defaultCoinsData);
+
+        int currentCoins = await GetGachaCoins();
+
+        int missingCoins = defaultCoins - currentCoins;
+        if (missingCoins <= 0)
+            return;
+        AddGachaCoins(missingCoins);
+    }
     public static void CopyAll()
     {
         Utility.CopyDefaultJsonData(charactersFileName);
         Utility.CopyDefaultJsonData(weaponsFileName);
         Utility.CopyDefaultJsonData(passiveItemsFileName);
-        Utility.CopyDefaultJsonData(_gachaCoinsFileName);
+        Utility.CopyDefaultJsonData(gachaCoinsFileName);
     }
     async static Task<List<JsonElementInfo>> GetDefaultList(string fileName)
     {
