@@ -17,14 +17,14 @@ public class TouchControls : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public Vector2 DraggingDirection {  get { return _draggingDirection; } }
     public void OnPointerDown(PointerEventData data) 
     {
-        if (data.pointerId > 0)
+        if (data.pointerId > 0 || Time.timeScale == 0)
             return;
         _currLine = Instantiate(_linePrefab, _linesHolder);
         _currLine.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }
     public void OnDrag(PointerEventData data)
     {
-        if (data.pointerId > 0)
+        if (data.pointerId > 0 || Time.timeScale == 0)
             return;
         Vector2 currTouchPos = Utility.TouchPosition();
         Vector2 dragDirection = currTouchPos - _previousTouchPos;
