@@ -6,42 +6,42 @@ using UnityEngine;
 public class CustomLineRenderer : MonoBehaviour
 {
     List<CustomLineAnimatedTile> _tiles = new();
-    public void GenerateLine(Vector2 startPosition, Vector2 endPosition, CustomLineInterface lineInterface)//sprite size in pixels
+    public void GenerateLine(Vector2 startPosition, Vector2 endPosition, CustomLineTileInfo tileInfo)//sprite size in pixels
     {
-        float tileSize = lineInterface.isVertical ? lineInterface.tileSize.y / 32 : lineInterface.tileSize.x / 32;
+        //float tileSize = tileInfo.isVertical ? tileInfo.tileSize.y / 32 : tileInfo.tileSize.x / 32;
 
-        Vector2 lineVector = endPosition - startPosition;
-        float lineLength = lineVector.magnitude;
-        int totalTiles = (int)(lineLength / tileSize);
+        //Vector2 lineVector = endPosition - startPosition;
+        //float lineLength = lineVector.magnitude;
+        //int totalTiles = (int)(lineLength / tileSize);
 
-        Vector2 lineDirection = lineVector.normalized;
-        Vector2 firstTilePosition = startPosition + lineDirection * tileSize / 2;//we assume that the sprite's pivot point is centered
-        float tileAngle = Mathf.Atan2(lineDirection.y, lineDirection.x);
+        //Vector2 lineDirection = lineVector.normalized;
+        //Vector2 firstTilePosition = startPosition + lineDirection * tileSize / 2;//we assume that the sprite's pivot point is centered
+        //float tileAngle = Mathf.Atan2(lineDirection.y, lineDirection.x);
 
-        for (int i = 0; i < totalTiles; i++)
-        {
-            //tile GameObject generation and transform set
-            var tileObj = new GameObject("LineTile " + i);
-            tileObj.transform.position = firstTilePosition + lineDirection * tileSize * i;
-            tileObj.transform.rotation = Quaternion.Euler(0, 0, tileAngle * Mathf.Rad2Deg - 90);
-            tileObj.transform.parent = transform;
+        //for (int i = 0; i < totalTiles; i++)
+        //{
+        //    //tile GameObject generation and transform set
+        //    var tileObj = new GameObject("LineTile " + i);
+        //    tileObj.transform.position = firstTilePosition + lineDirection * tileSize * i;
+        //    tileObj.transform.rotation = Quaternion.Euler(0, 0, tileAngle * Mathf.Rad2Deg - 90);
+        //    tileObj.transform.parent = transform;
 
-            //get tile data
-            int tileIndex;
-            if (!lineInterface.followTileOrder)
-                tileIndex = UnityEngine.Random.Range(0, lineInterface.tiles.Length);
-            else
-                tileIndex = i - lineInterface.tiles.Length * (int)i / lineInterface.tiles.Length;
+        //    //get tile data
+        //    int tileIndex;
+        //    if (!tileInfo.followTileOrder)
+        //        tileIndex = UnityEngine.Random.Range(0, tileInfo.tileSprite.Length);
+        //    else
+        //        tileIndex = i - tileInfo.tileSprite.Length * (int)i / tileInfo.tileSprite.Length;
 
-            var tileData = lineInterface.tiles[tileIndex];
-            Sprite[] tileFrames = tileData.Frames;
-            float tileFramesPerSecond = tileData.FramesPerSecond;
-            var tileRenderer = tileObj.AddComponent<SpriteRenderer>();
-            var tileSpriteSorter = tileObj.AddComponent<RendererSortingByY>();
-            tileSpriteSorter.AffectedRenderers = new SpriteRenderer[] { tileRenderer };
-            //create tile object and add it to the list
-            _tiles.Add(new(tileRenderer, tileFramesPerSecond, tileFrames));
-        }
+        //    var tileData = tileInfo.tileSprite[tileIndex];
+        //    Sprite[] tileFrames = tileData.Frames;
+        //    float tileFramesPerSecond = tileData.FramesPerSecond;
+        //    var tileRenderer = tileObj.AddComponent<SpriteRenderer>();
+        //    var tileSpriteSorter = tileObj.AddComponent<RendererSortingByY>();
+        //    tileSpriteSorter.AffectedRenderers = new SpriteRenderer[] { tileRenderer };
+        //    //create tile object and add it to the list
+        //    _tiles.Add(new(tileRenderer, tileFramesPerSecond, tileFrames));
+        //}
     }
 
     private void Update()

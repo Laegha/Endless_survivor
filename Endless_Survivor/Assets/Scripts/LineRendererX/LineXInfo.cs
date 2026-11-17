@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 using UnityEngine;
 
 public class LineXInfo
@@ -8,30 +9,29 @@ public class LineXInfo
     LineXData _lineData;
     AnimationCurve _lineCurve;
     float _curveMultiplier = 1;
-    float _lineDissapearSpeed;
     float _distBetweenVertices;
     Vector2 _initialPos;
     Vector2 _horizontalDir;
     Vector2 _verticalDir;
-    Transform _followingObj;
     float _totalDist;
-    float _lapsedDistance;
-    List<(float, Vector2)> _lineVertices = new();
-    LineRenderer _line;
+    List<Vector2> _lineVertices = new();
     Func<bool> _abortCondition;
     GameObject _startObj;
     GameObject _endObj;
-    bool _shouldFollowObj;
 
-    public LineRenderer Line { get { return _line; } }
+    Transform _lineTr;
 
+    List<SpriteRenderer> _tiles = new();
+    List<CustomLineModifierBase> _activeLineModifiers = new();
 
-    public LineXInfo(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float lineDissapearSpeed, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition, Transform followingObj)
+    public Transform LineTr {  get { return _lineTr; } }
+    public List<SpriteRenderer> LineTiles { get { return _tiles; } }
+
+    public LineXInfo(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition)
     {
         _lineData = lineData;
         _lineCurve = lineCurve;
         _curveMultiplier = curveMultiplier;
-        _lineDissapearSpeed = lineDissapearSpeed;
         _distBetweenVertices = distBetweenVertices;
         _initialPos = initialPos;
         _horizontalDir = horizontalDir.normalized;
@@ -40,100 +40,112 @@ public class LineXInfo
             _verticalDir *= -1;
         _totalDist = totalDist;
         _abortCondition = abortCondition;
-        _followingObj = followingObj;
-        _shouldFollowObj = _followingObj != null;
     }
 
-    public void DrawLine(LineRenderer lineRenderer)
+    public void DrawLine()
     {
-        _line = lineRenderer;
-        lineRenderer.material = _lineData.LineMaterial;
-        lineRenderer.widthMultiplier = _lineData.LineWidthMultiplier;
-        lineRenderer.widthCurve = _lineData.LineWidth;
+        GameObject lineObj = new(_lineData.name + "_CustomLine");
+        lineObj.transform.position = _initialPos;
+        _lineTr = lineObj.transform;
         int totalVertices = (int)Mathf.Ceil(1 / _distBetweenVertices) + 1;
-        lineRenderer.positionCount = totalVertices;
 
-        for (int i = 0; i < totalVertices; i++)
+        for (int i = 0; i < totalVertices - 1; i++)
         {
-            Vector2 xDisplacement = _horizontalDir * i * _distBetweenVertices * _totalDist;
-            Vector2 yDisplacement = _verticalDir * _lineCurve.Evaluate(i * _distBetweenVertices) * _curveMultiplier;
-            Vector2 vertex = _initialPos + xDisplacement + yDisplacement;
+            Vector2 currVertex = GetVertexPosById(i);
+            Vector2 nextVertex = GetVertexPosById(i + 1);
 
-            _lineVertices.Add(new(i * _distBetweenVertices, vertex));
-            lineRenderer.SetPosition(i, vertex);
+            GenerateLineSegment(currVertex, nextVertex, _lineData.TileInfo);
         }
         float startObjRotation = 0;
         float endObjRotation = 0;
         if (_lineVertices.Count >= 2)
         {
-            Vector2 startDir = _lineVertices[0].Item2 - _lineVertices[1].Item2;
+            Vector2 startDir = _lineVertices[0] - _lineVertices[1];
             startDir = startDir.normalized;
             startObjRotation = Utility.GetAngleFromPointInCircle(startDir, false);
 
-            Vector2 endDir = _lineVertices[_lineVertices.Count - 1].Item2 - _lineVertices[_lineVertices.Count - 2].Item2;
+            Vector2 endDir = _lineVertices[_lineVertices.Count - 1] - _lineVertices[_lineVertices.Count - 2];
             endDir = endDir.normalized;
             endObjRotation = Utility.GetAngleFromPointInCircle(endDir, false);
         }
         if (_lineData.LineStartPointAnimation != null && _lineData.LineStartPointAnimation.Frames.Length > 0)
         {
-            _startObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineStartPointAnimation, _lineVertices[0].Item2, Quaternion.Euler(0, 0, startObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
-            _startObj.transform.SetParent(_line.transform);
+            _startObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineStartPointAnimation, _lineVertices[0], Quaternion.Euler(0, 0, startObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
+            
         }
 
         if (_lineData.LineEndPointAnimation != null && _lineData.LineEndPointAnimation.Frames.Length > 0)
         {
-            _endObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineEndPointAnimation, _lineVertices[_lineVertices.Count - 1].Item2, Quaternion.Euler(0, 0, endObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
-            _endObj.transform.SetParent(_line.transform);
+            _endObj = AnimatedObjsManager.aom.SpawnAnimatedObj(new(_lineData.LineEndPointAnimation, _lineVertices[_lineVertices.Count - 1], Quaternion.Euler(0, 0, endObjRotation), -1, null, false, false, _lineData.LineRenderOffset)).gameObject;
 
         }
 
-    }
-
-    public bool ProgressLine()
-    {
-        if (_abortCondition != null && _abortCondition.Invoke() || _shouldFollowObj && _followingObj == null)
-            return true;
-        Vector2 newPos = Vector2.zero;
-        Vector2 xMovement = _horizontalDir * _lapsedDistance;
-        Vector2 yMovement = _verticalDir * _lineCurve.Evaluate(Mathf.Clamp01(_lapsedDistance / _totalDist)) * _curveMultiplier;
-
-        if (_shouldFollowObj)
-            newPos = _followingObj.transform.position;
-        else
-            newPos = _initialPos + xMovement + yMovement;
-
-        _lapsedDistance += _lineDissapearSpeed * Time.deltaTime;
-        if (_lineVertices[1].Item1 < _lapsedDistance / _totalDist)
+        //Start modifiers
+        foreach (var lineModifier in _lineData.LineModifiers)
         {
-            RemoveFirstVertex();
-
-            if (_startObj != null)
-            {
-                Vector2 lineDir = (xMovement + yMovement).normalized;
-                float startObjAngle = Utility.GetAngleFromPointInCircle(lineDir, false);
-                _startObj.transform.position = newPos;
-                _startObj.transform.rotation = Quaternion.Euler(0, 0, startObjAngle);
-
-            }
-
+            AddLineModifier(lineModifier);
         }
-        if (_lineVertices.Count == 1)
-            return true;
-        _line.SetPosition(0, newPos);
-        return false;
     }
-    void RemoveFirstVertex()
+    Vector2 GetVertexPosById(int i)
     {
-        _line.positionCount--;
-        _lineVertices.RemoveAt(0);
-        for (int i = 0; i < _lineVertices.Count; i++)
+        Vector2 xDisplacement = _horizontalDir * i * _distBetweenVertices * _totalDist;
+        Vector2 yDisplacement = _verticalDir * _lineCurve.Evaluate(i * _distBetweenVertices) * _curveMultiplier;
+        Vector2 vertex = _initialPos + xDisplacement + yDisplacement;
+
+        return vertex;
+    }
+    public void GenerateLineSegment(Vector2 startPosition, Vector2 endPosition, CustomLineTileInfo tileInfo)//sprite size in pixels
+    {
+        float tileSize = tileInfo.isVertical ? tileInfo.tileSize.y / 32 : tileInfo.tileSize.x / 32;
+
+        Vector2 lineVector = endPosition - startPosition;
+        float lineLength = lineVector.magnitude;
+        int totalTiles = (int)(lineLength / tileSize);
+
+        Vector2 lineDirection = lineVector.normalized;
+        Vector2 firstTilePosition = startPosition + lineDirection * tileSize / 2;//we assume that the sprite's pivot point is centered
+        float tileAngle = Mathf.Atan2(lineDirection.y, lineDirection.x);
+
+        for (int i = 0; i < totalTiles; i++)
         {
-            if (i > _line.positionCount)
-            {
-                Debug.LogError("Generated LineX has more vertex in the script than there are in the vertex dictionary");
-                break;
-            }
-            _line.SetPosition(i, _lineVertices[i].Item2);
+            //tile GameObject generation and transform set
+            var tileObj = new GameObject("LineTile " + i);
+            tileObj.transform.position = firstTilePosition + lineDirection * tileSize * i;
+            tileObj.transform.rotation = Quaternion.Euler(0, 0, tileAngle * Mathf.Rad2Deg - 90);
+            tileObj.transform.parent = _lineTr;
+
+            var tileRenderer = tileObj.AddComponent<SpriteRenderer>();
+            tileRenderer.sprite = tileInfo.tileSprite;
+            tileRenderer.material = _lineData.LineMaterial;
+            var tileSpriteSorter = tileObj.AddComponent<RendererSortingByY>();
+            tileSpriteSorter.AffectedRenderers = new SpriteRenderer[] { tileRenderer };
+            //create tile object and add it to the list
+            _tiles.Add(tileRenderer);
         }
+    }
+    void AddLineModifier(CustomLineModifierBase lineModifier)
+    {
+        CustomLineModifierBase activeModifier = (CustomLineModifierBase)Activator.CreateInstance(lineModifier.GetType());
+        activeModifier.CopyValues(lineModifier, this);
+        _activeLineModifiers.Add(activeModifier);
+
+        activeModifier.OnStart?.Invoke();
+    }
+    void UpdateModifiers()
+    {
+        //var modifiersCopy = new List<CustomLineModifierBase>(_activeLineModifiers);
+        foreach (var modifier in _activeLineModifiers)
+        {
+            modifier.OnUpdate?.Invoke();
+        }
+    }
+    public T GetModifierByType<T>(Type modifierType) where T : CustomLineModifierBase
+    {
+        foreach (var modifier in _activeLineModifiers)
+        {
+            if (modifierType.GetType() == modifierType)
+                return (T)modifier;
+        }
+        return null;
     }
 }

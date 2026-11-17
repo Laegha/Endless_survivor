@@ -12,7 +12,7 @@ public class ElectricHitAttackEffect : AttackEffect
     [SerializeField] float _maxDistBetweenEnemies;
     [Range(0f, 100f)]
     [SerializeField] float _damagePercentage;
-    [SerializeField] CustomLineInterface _zapVfxInterface;
+    [SerializeField] CustomLineTileInfo _zapVfxInterface;
     [SerializeField] float _zapVfxDurationMin;
     [SerializeField] float _zapVfxDurationMax;
     

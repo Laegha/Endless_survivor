@@ -102,7 +102,7 @@ public class ShootInSprayerModeEnemyBehaviour : EnemyBehaviour
             Vector2 proyectileDir = proyectile.transform.right;
             var distRay = Physics2D.Raycast(shootingPosition, proyectileDir, proyectileMaxDist, LayerMask.GetMask("Map"));
             float proyectileDist = distRay ? (shootingPosition - distRay.point).magnitude : proyectileMaxDist;
-            LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, true, () => proyectile == null, proyectile.transform);
+            LineXConfig lineConfig = new(_lineConfig, shootingPosition, proyectileDir, proyectileDist, () => proyectile == null);
             LineXManager.lm.DrawLine(lineConfig);
         }
     }

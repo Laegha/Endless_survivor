@@ -28,13 +28,13 @@ public class DrawLineTowardsPlayerOnActiveEnemyBehaviour : EnemyBehaviour
         {
             Vector2 direction = PlayerControl.pc.transform.position - EnemyControl.transform.position;
             direction = direction.normalized;
-            LineXConfig contextConfig = new(_lineConfig, EnemyControl.transform.position, direction, _lineLength, false, null, /*add a bool to see if it should follow enemy*/ null);
+            LineXConfig contextConfig = new(_lineConfig, EnemyControl.transform.position, direction, _lineLength, null);
             _drawnLineInfo = LineXManager.lm.DrawLine(contextConfig);
         }
         _delayTimer -= Time.deltaTime;
         if (_delayTimer <= 0)
         {
-            LineXManager.lm.StartLineDissapearing(_drawnLineInfo);
+            //LineXManager.lm.StartLineDissapearing(_drawnLineInfo);
             _delayTimer = _startDissapearingDelay;
             _drawnLineInfo = null;
             KillBehaviour();
@@ -45,6 +45,6 @@ public class DrawLineTowardsPlayerOnActiveEnemyBehaviour : EnemyBehaviour
         base.OnDeath();
         if (_drawnLineInfo == null)
             return;
-        ObjectDestroyingManager.odm.DestroyObj(_drawnLineInfo.Line.transform.root.gameObject);
+        ObjectDestroyingManager.odm.DestroyObj(_drawnLineInfo.LineTr.root.gameObject);
     }
 }

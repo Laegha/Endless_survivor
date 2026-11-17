@@ -5,17 +5,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New LineData", menuName = "ScriptableObjects/LineData", order = 3)]
 public class LineXData : ScriptableObject
 {
+    [SerializeField] CustomLineTileInfo _tileInfo;
     [SerializeField] Material _lineMaterial;
     [SerializeField] AnimationCurve _lineWidth;
     [SerializeField] float _lineWidthMultiplier;
     [SerializeField] int _lineRenderOffset;
     [SerializeField] CustomAnimation _lineStartPointAnimation;
     [SerializeField] CustomAnimation _lineEndPointAnimation;
+    [SerializeField] List<CustomLineModifierBase> _lineModifiers = new();
 
+    public CustomLineTileInfo TileInfo { get { return _tileInfo; } }
     public Material LineMaterial { get { return _lineMaterial; } }
     public AnimationCurve LineWidth { get { return _lineWidth; } }
     public float LineWidthMultiplier { get { return _lineWidthMultiplier; } }
     public int LineRenderOffset {  get { return _lineRenderOffset; } }
     public CustomAnimation LineStartPointAnimation { get { return _lineStartPointAnimation; } }
     public CustomAnimation LineEndPointAnimation { get { return _lineEndPointAnimation; } }
+    public List<CustomLineModifierBase> LineModifiers { get { return _lineModifiers; } }
 }
