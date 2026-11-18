@@ -318,9 +318,10 @@ public static class Utility
         }
         return startPos + dir * dist;
     }
-    public static Vector2 RotatePoint(Vector2 point, float angle)
+    public static Vector2 RotatePoint(Vector2 point, float angle, bool clockwise = true)
     {
         angle = angle * Mathf.Deg2Rad;
+        angle = clockwise ? -angle : angle;
         float newX = point.x * Mathf.Cos(angle) - point.y * Mathf.Sin(angle);
         float newY = point.x * Mathf.Sin(angle) + point.y * Mathf.Cos(angle);
 
