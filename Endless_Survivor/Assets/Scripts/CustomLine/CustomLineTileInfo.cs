@@ -11,4 +11,7 @@ public class CustomLineTileInfo
     public Vector2 tileSize;
     [Header("Defines the orientation of the tiles based on the provided size")]
     public bool isVertical;
+    public Vector2 tileUnitSize => tileSize / 32;
+    public float tileRelevantLength => isVertical ? tileSize.x : tileSize.y;
+    public float tileUnitRelevantLength => tileRelevantLength / 32;
 }
