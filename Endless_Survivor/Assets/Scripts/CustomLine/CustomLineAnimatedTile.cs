@@ -7,7 +7,7 @@ using UnityEngine;
 public class CustomLineAnimatedTile
 {
     SpriteRenderer _renderer;
-    [SerializeField]float _framesPerSecond;
+    [SerializeField] float _framesPerSecond;
     [SerializeField] Sprite[] _frames;
 
     int _currFrame = -1;
