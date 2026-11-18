@@ -13,6 +13,7 @@ public class LineXInfo
     Vector2 _initialPos;
     Vector2 _horizontalDir;
     Vector2 _verticalDir;
+    float _lineAngle;
     float _totalDist;
     List<Vector2> _lineVertices = new();
     Func<bool> _abortCondition;
@@ -24,8 +25,11 @@ public class LineXInfo
     List<SpriteRenderer> _tiles = new();
     List<CustomLineModifierBase> _activeLineModifiers = new();
 
+    public LineXData LineData { get { return _lineData; } }
     public Transform LineTr {  get { return _lineTr; } }
     public List<SpriteRenderer> LineTiles { get { return _tiles; } }
+    public float LineAngle { get { return _lineAngle; } }
+    public float TotalDist { get { return _totalDist; } }
 
     public LineXInfo(LineXData lineData, AnimationCurve lineCurve, float curveMultiplier, float distBetweenVertices, Vector2 initialPos, Vector2 horizontalDir, float totalDist, Func<bool> abortCondition)
     {
@@ -38,6 +42,7 @@ public class LineXInfo
         _verticalDir = Utility.GetPerpendicularVector(_horizontalDir).normalized;
         if (_horizontalDir.x < 0)
             _verticalDir *= -1;
+        _lineAngle = Utility.GetAngleFromPointInCircle(_horizontalDir, false);
         _totalDist = totalDist;
         _abortCondition = abortCondition;
     }
